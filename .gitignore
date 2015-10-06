@@ -1,0 +1,6 @@
+.DS_Store
+.Python
+*.sublime-*
+*.pyc
+instance/
+venv/
