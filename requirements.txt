@@ -1,4 +1,6 @@
 flask
 flask_debugtoolbar
 Flask-Babel
+Flask-WTF
+requests
 nltk

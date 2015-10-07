@@ -32,11 +32,18 @@ source venv/bin/activate
 ```
 
 **3.** Install dependencies.
+
+Install Python packages using [pip](https://pip.pypa.io/en/latest/installing/)
 ```
 [sudo] pip install -r requirements.txt
 ```
+Then install the NLTK libraries we're using
+```
+python -m nltk.downloader punkt
+python -m nltk.downloader stopwords
+```
 
-**4a.** (optional) If you want to use the Flask-DebugToolkit, generate a secret key in Terminal:
+**4.** Generate a secret key in Terminal.
 ```
 $ python
 >> import os
@@ -45,7 +52,7 @@ $ python
 >> exit()
 ```
 
-**4b.** Create a config file that git ignores (this is also where you should store any credentials)
+Copy + paste this key into `instance/config.py`. You will have to create this file because git ignores the `instance/` directory. This is also where you should store any credentials.
 ```
 # instance/config.py
 SECRET_KEY = '/secret/key/to/copy'
