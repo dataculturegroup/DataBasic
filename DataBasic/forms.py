@@ -5,7 +5,7 @@ from wtforms import StringField
 from wtforms import BooleanField
 from wtforms.widgets import TextArea
 from wtforms.widgets import CheckboxInput
-from wtforms.validators import Length
+from wtforms.validators import Length, Regexp, Optional
 
 class WordCountForm(Form):
 	area = StringField(
@@ -21,3 +21,4 @@ class WordCountForm(Form):
 		u'Ignore stopwords', 
 		widget=CheckboxInput(), 
 		default=True)
+	upload = FileField(u'Upload file', [Optional(), Regexp(u'^.*\.(txt|docx)$')])

@@ -1,6 +1,9 @@
 flask
 flask_debugtoolbar
+flask-uploads
 Flask-Babel
 Flask-WTF
 requests
 nltk
+docx
+unicodecsv
