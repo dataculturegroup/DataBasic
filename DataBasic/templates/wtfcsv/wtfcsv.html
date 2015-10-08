@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>WTFCSV</title>
+</head>
+<body>
+	<p><a href="../">DataBasic</a></p>
+	<h1>WTFCSV</h1>
+
+	<!-- Form -->
+	<form method="POST" action="/{{ g['current_lang'] }}/wtfcsv/">
+	{{ form.hidden_tag() }}
+	<dl>
+		<dd>{{ form.area(cols="35", rows="20") }}</dd>
+		<dd>{{ form.upload() }}</dd>
+		<dd>{{ form.link() }}</dd>
+		<dd><input type="submit" value="Submit"></dd>
+	</dl>
+	</form>
+
+	<!-- Results -->
+	
+</body>
+</html>

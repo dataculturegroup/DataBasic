@@ -1,7 +1,7 @@
 from .. import app
 from ..forms import WordCountForm
 from ..logic import WordHandler, FileHandler
-from flask import Blueprint, render_template, request, redirect
+from flask import Blueprint, render_template, request
 
 mod = Blueprint('wordcounter', __name__, url_prefix='/<lang_code>/wordcounter', template_folder='../templates/wordcounter')
 
@@ -38,7 +38,7 @@ def index():
 		# create the csvs
 		csv_files = create_csv_files(counts)
 
-	return render_template('index.html', form=form, results=counts, csv_files=csv_files)
+	return render_template('wordcounter.html', form=form, results=counts, csv_files=csv_files)
 
 @mod.route('/download-csv/<file_path>')
 def download_csv(file_path):
@@ -64,6 +64,3 @@ def create_csv_files(counts):
 
 	files.append(FileHandler.write_to_csv(['trigram phrase', 'frequency'], trigrams, '-trigram-counts.csv'))
 	return files
-
-
-

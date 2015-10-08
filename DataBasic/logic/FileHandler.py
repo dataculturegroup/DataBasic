@@ -5,12 +5,14 @@ from flask.ext.uploads import UploadSet, configure_uploads, TEXT, patch_request_
 from docx import opendocx, getdocumenttext
 
 ENCODING = 'utf-8'
+
+# setup file uploading
+# TODO: support .rtf
 TEMP_DIR = tempfile.gettempdir()
 app.config['UPLOADED_DOCS_DEST'] = TEMP_DIR
-
-# TODO: support .rtf
-docs = UploadSet(name='docs', extensions=('txt', 'docx'))
+docs = UploadSet(name='docs', extensions=('txt', 'docx', 'csv'))
 configure_uploads(app, (docs))
+patch_request_class(app, 4 * 1024 * 1024) # 4MB
 
 def write_to_temp_file(text):
 	file_path = _get_temp_file()

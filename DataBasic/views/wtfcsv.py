@@ -1,7 +1,15 @@
-from flask import Blueprint, render_template
+from ..forms import WTFCSVForm
+from ..logic import wtfcsvstat
+from flask import Blueprint, render_template, request
 
-mod = Blueprint('wtfcsv', __name__, url_prefix='/<lang_code>/wtfcsv')
+mod = Blueprint('wtfcsv', __name__, url_prefix='/<lang_code>/wtfcsv', template_folder='../templates/wtfcsv')
 
-@mod.route('/')
+@mod.route('/', methods=('GET', 'POST'))
 def index():
-	return render_template('wtfcsv/index.html')
+
+	form = WTFCSVForm()
+
+	if request.method == 'POST':
+		pass
+
+	return render_template('wtfcsv.html', form=form)

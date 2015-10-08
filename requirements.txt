@@ -7,3 +7,4 @@ requests
 nltk
 docx
 unicodecsv
+csvkit
