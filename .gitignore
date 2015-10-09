@@ -4,3 +4,4 @@
 *.pyc
 instance/
 venv/
+terminal.glue

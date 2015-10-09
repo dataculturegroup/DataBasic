@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<title>{% block title %}{% endblock %}</title>
+</head>
+<body>
+
+	<p><a href="../">DataBasic</a></p>
+	<h1>{{ self.title() }}</h1>
+	{% block body %}{% endblock %}
+
+	<script type="text/javascript" src="../../static/js/jquery.js"></script>
+	{% block scripts %}{% endblock %}
+
+</body>

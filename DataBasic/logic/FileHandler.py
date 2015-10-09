@@ -54,6 +54,17 @@ def convert_to_txt(file_path):
 		words = _docx_to_txt(file_path)
 	return words
 
+def open_csv(csv_file):
+	try:
+		file_name = docs.save(csv_file)
+		file_path = os.path.join(TEMP_DIR, file_name)
+		return file_path
+	except UploadNotAllowed:
+		print "gotta be csv"
+
+def delete_file(file_path):
+	os.remove(file_path)
+
 def _get_temp_file(file_name_suffix=None):
 	file_name = time.strftime("%Y%m%d-%H%M%S")
 	if file_name_suffix is not None:

@@ -1,11 +1,6 @@
-<!DOCTYPE html>
-<html>
-<head>
-	<title>Word-Counter</title>
-</head>
-<body>
-	<p><a href="../">DataBasic</a></p>
-	<h1>Word-Counter</h1>
+{% extends "base.html" %}
+{% block title %}Word-Counter{% endblock %}
+{% block body %}
 
 	<!-- Form -->
 	<form method="POST" action="/{{ g['current_lang'] }}/wordcounter/">
@@ -47,6 +42,4 @@
 			{% endfor %}
 		</table>
 	{% endif %}
-
-</body>
-</html>
+{% endblock %}

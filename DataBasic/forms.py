@@ -2,8 +2,9 @@ from werkzeug import secure_filename
 from flask_wtf import Form
 from flask_wtf.file import FileField
 from wtforms import StringField, BooleanField
+from wtforms.fields import RadioField
 from wtforms.widgets import TextArea, TextInput, CheckboxInput
-from wtforms.validators import Length, Regexp, Optional, URL
+from wtforms.validators import Length, Regexp, Optional, Required, URL
 
 class WordCountForm(Form):
 	area = StringField(
@@ -16,22 +17,34 @@ class WordCountForm(Form):
 		widget=CheckboxInput(), 
 		default=True)
 	ignore_stopwords = BooleanField(
-		u'Ignore stopwords', 
+		u'Ignore stopwords',
 		widget=CheckboxInput(), 
 		default=True)
 	upload = FileField(u'Upload file', [Optional(), Regexp(u'^.*\.(txt|docx)$')])
 
 class WTFCSVForm(Form):
+	input_type = RadioField(
+		u'Choose input type',
+		choices=[(u'paste', u'Paste'), (u'upload', u'Upload'), (u'link', u'Link')],
+		default=u'paste')
 	area = StringField(
 		u'Paste CSV',
-		[Optional()],
+		[Required(), Length(min=1)],
 		widget=TextArea(),
 		default='name, shirt_color, siblings\nRahul, blue, 1\nCatherine, red, 2')
 	upload = FileField(
-		u'Upload file',
-		[Optional(),
-		Regexp(u'^.*\.csv$')])
+		u'Upload file')#,
+		# [Regexp(u'^.*\.(csv)$')]) not sure why this validation isn't working
 	link = StringField(
 		u'Link to spreadsheet',
-		[Optional(), URL()],
+		[URL()],
 		widget=TextInput())
+	def validate(self):
+		input_type = self.input_type.data
+		if input_type == 'paste':
+			return self.area.validate(self)
+		elif input_type == 'upload':
+			return self.upload.data.filename.endswith('.csv')
+		elif input_type == 'link':
+			return self.link.validate(self)
+		return Form.validate(self)

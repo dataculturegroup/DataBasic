@@ -1,24 +1,113 @@
-<!DOCTYPE html>
-<html>
-<head>
-	<title>WTFCSV</title>
-</head>
-<body>
-	<p><a href="../">DataBasic</a></p>
-	<h1>WTFCSV</h1>
+{% extends "base.html" %}
+{% block title %}WTFCSV{% endblock %}
+{% block body %}
 
-	<!-- Form -->
-	<form method="POST" action="/{{ g['current_lang'] }}/wtfcsv/">
-	{{ form.hidden_tag() }}
+<!-- Form -->
+<form method="POST" action="/{{ g['current_lang'] }}/wtfcsv/" enctype="multipart/form-data">
+{{ form.hidden_tag() }}
+{% for sub in form.input_type %}
 	<dl>
-		<dd>{{ form.area(cols="35", rows="20") }}</dd>
-		<dd>{{ form.upload() }}</dd>
-		<dd>{{ form.link() }}</dd>
-		<dd><input type="submit" value="Submit"></dd>
+		<div id="radio-group">
+			<dd>{{ sub }} {{ sub.label }}</dd>
+			<tr>
+			{% if '-0' in sub.id %}
+				<div id="paste" class="tab-pane">
+					<dd>{{ form.area(cols="35", rows="20") }}</dd>
+				</div>
+			{% elif '-1' in sub.id %}
+				<div id="upload" class="tab-pane">
+					<dd>{{ form.upload() }}</dd>
+				</div>
+			{% elif '-2' in sub.id %}
+				<div id="link" class="tab-pane">
+					<dd>{{ form.link() }}</dd>
+				</div>
+			{% endif %}
+			</tr>
+		</div>
 	</dl>
-	</form>
+{% endfor %}
+<dl>
+	<dd><input type="submit" value="Submit"></dd>
+</dl>
+</form>
 
-	<!-- Results -->
-	
-</body>
-</html>
+<!-- Results -->
+{% if results %}
+<div class="row">
+	<div class="col-md-12">
+		<p> 
+		{{ngettext("You have %(num)s row of data.", "You have %(num)s rows of data.", results['row_count'])}}
+		{{_("Here's a bit of info about each one:")}}
+		</p>
+	</div>
+</div>
+<div class="row">
+{% for col in results['columns'] %}
+	<div class="col-md-4">
+		<div class="column-info">
+			<h3>{{col['name']}}</h3>
+			<ul>
+				{% if 'index' in col %}
+					<li>{{_("This is column number %d" % col['index'])}}</li>
+				{% endif %}
+				{% if 'type' in col %}
+					<li>{{_("This column is full of")}} {{_(col['type'])}}</li>
+				{% endif %}
+				{% if 'values' in col %}
+					<li>{{_("This unique values in this column are:")}}
+					<ul>
+						{% for val in col['values'] %}<li><em>{{val}}</em></li>{% endfor %}
+					</ul>
+					</li>
+				{% endif %}
+				{% if 'min' in col %}
+					<li>{{_("The smallest number is") }} <em>{{col['min']}}</em></li>
+				{% endif %}
+				{% if 'max' in col %}
+					<li>{{_("The biggest number is") }} <em>{{col['max']}}</em></li>
+				{% endif %}
+				{% if 'sum' in col %}
+					<li>{{_("The total is") }} <em>{{col['sum']}}</em></li>
+				{% endif %}
+				{% if 'mean' in col %}
+					<li>{{_("The average is") }} <em>{{col['mean']}}</em></li>
+				{% endif %}
+				{% if 'median' in col %}
+					<li>{{_("The median is") }} <em>{{col['median']}}</em></li>
+				{% endif %}
+				{% if 'stdev' in col %}
+					<li>{{_("The standard deviation is") }} <em>{{col['stdev']}}</em></li>
+				{% endif %}
+				{% if 'nulls' in col %}
+					<!-- <li>{{col['nulls']}}</li> -->
+				{% endif %}
+				{% if 'freq' in col %}
+					<li>{{col['freq']}}</li>
+				{% endif %}
+				{% if 'len' in col %}
+					<li>{{_("The longest string is <em>%d</em> characters" % col['len']) }}</li>
+				{% endif %}
+			</ul>
+		</div>
+	</div>
+{% endfor %}
+</div>
+{% endif %}
+{% endblock %}
+
+{% block scripts %}
+<script type="text/javascript">
+$(document).ready(function() {
+	$("div.tab-pane").hide();
+	$("#{{ tab }}").show();
+});
+$(function(){
+	$(':radio').change(function (event) {
+		var id = $(this).val();
+		$("div.tab-pane").hide();
+	    $('#' + id).show();
+	});
+});
+</script>
+{% endblock %}

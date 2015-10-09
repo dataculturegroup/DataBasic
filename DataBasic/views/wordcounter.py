@@ -23,6 +23,7 @@ def index():
 		words = None
 
 		# use the uploaded text if it exists, otherwise use the text in the text area
+		# TODO: should toggle what's visible to the player instead (same as how WTFcsv handles multiple inputs)
 		upload = form.data['upload']
 		if upload is not None:
 			words = FileHandler.convert_to_txt(upload)
