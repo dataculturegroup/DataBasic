@@ -41,9 +41,6 @@ def generate_csv(file_name):
 				yield ','.join(row) + '\n'
 	return Response(generate(), headers={'Content-Disposition':'attachment;filename='+file_name},mimetype='text/csv')
 
-def upload_file():
-	pass
-
 def convert_to_txt(file_path):
 	words = None
 	ext = _get_extension(file_path)
@@ -64,6 +61,21 @@ def open_csv(csv_file):
 
 def delete_file(file_path):
 	os.remove(file_path)
+
+'''
+(still gotta test thiz)
+def open_sheet(sheet):
+	first = ""
+	for i, worksheet in enumerate(sheet.worksheets()):
+		filename = time.strftime("%Y%m%d-%H%M%S") + "-worksheet" + str(i) + ".csv"
+		# filepath = os.path.join(TEMP_DIR,filename)
+		if i == 0:
+			first = filename
+		with open(filename, 'wb') as f:
+			writer = unicodecsv.writer(f, encoding="utf-8", delimiter=";", quotechar='"')
+			writer.writerows(worksheet.get_all_values())
+	return first
+'''
 
 def _get_temp_file(file_name_suffix=None):
 	file_name = time.strftime("%Y%m%d-%H%M%S")

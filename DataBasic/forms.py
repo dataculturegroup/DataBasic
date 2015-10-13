@@ -6,19 +6,24 @@ from wtforms.fields import RadioField
 from wtforms.widgets import TextArea, TextInput, CheckboxInput
 from wtforms.validators import Length, Regexp, Optional, Required, URL
 
-class WordCountForm(Form):
+class PULForm(object):
+	'''
+	Paste/Upload/Link form
+	'''
 	input_type = RadioField(
 		u'Choose input type',
 		choices=[(u'paste', u'Paste'), (u'upload', u'Upload'), (u'link', u'Link')],
 		default=u'paste')
+
+class WordCountForm(PULForm, Form):
 	area = StringField(
 		u'Text',
-		[Optional(), Length(min=1)], 
+		[Length(min=1)], 
 		widget=TextArea(), 
 		default='I am Sam\nSam I am\nThat Sam-I-am!\nThat Sam-I-am!\nI do not like that Sam-I-am!\nDo you like \ngreen eggs and ham?\nI do not like them, Sam-I-am.\nI do not like\ngreen eggs and ham.\nWould you like them \nhere or there?\nI would not like them\nhere or there.\nI would not like them anywhere.')
 	upload = FileField(
 		u'Upload file',
-		[Optional(), Regexp(u'^.*\.(txt|docx)$')])
+		[Regexp(u'^.*\.(txt|docx)$')])
 	link = StringField(
 		u'Link to doc',
 		[URL()],
@@ -41,14 +46,10 @@ class WordCountForm(Form):
 			return self.link.validate(self)
 		return Form.validate(self)
 
-class WTFCSVForm(Form):
-	input_type = RadioField(
-		u'Choose input type',
-		choices=[(u'paste', u'Paste'), (u'upload', u'Upload'), (u'link', u'Link')],
-		default=u'paste')
+class WTFCSVForm(PULForm, Form):
 	area = StringField(
 		u'Paste CSV',
-		[Required(), Length(min=1)],
+		[Length(min=1)],
 		widget=TextArea(),
 		default='name, shirt_color, siblings\nRahul, blue, 1\nCatherine, red, 2')
 	upload = FileField(

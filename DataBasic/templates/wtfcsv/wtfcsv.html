@@ -95,19 +95,3 @@
 </div>
 {% endif %}
 {% endblock %}
-
-{% block scripts %}
-<script type="text/javascript">
-$(document).ready(function() {
-	$("div.tab-pane").hide();
-	$("#{{ tab }}").show();
-});
-$(function(){
-	$(':radio').change(function (event) {
-		var id = $(this).val();
-		$("div.tab-pane").hide();
-	    $('#' + id).show();
-	});
-});
-</script>
-{% endblock %}

@@ -1,7 +1,7 @@
 from .. import app
 from ..forms import WordCountForm
-from ..logic import WordHandler, FileHandler
-from flask import Blueprint, render_template, request
+from ..logic import WordHandler, FileHandler, OAuthHandler
+from flask import Blueprint, render_template, request, redirect
 
 mod = Blueprint('wordcounter', __name__, url_prefix='/<lang_code>/wordcounter', template_folder='../templates/wordcounter')
 
@@ -19,27 +19,33 @@ def index():
 	form = WordCountForm()
 	tab = 'paste'
 
-	if request.method == 'POST' and form.validate():
-		
+	if request.method == 'POST':
+
 		tab = form['input_type'].data
-		words = None
 
-		# use the uploaded text if it exists, otherwise use the text in the text area
-		# TODO: should toggle what's visible to the player instead (same as how WTFcsv handles multiple inputs)
-		upload = form.data['upload']
-		if upload is not None:
-			words = FileHandler.convert_to_txt(upload)
-		else:
-			words = form.data['area']
+		if form.validate():
+			
+			words = None
 
-		# calculate counts
-		counts = WordHandler.get_word_counts(
-			words,
-			form.data['ignore_case'],
-			form.data['ignore_stopwords'])
+			if tab == 'paste':
+				words = form.data['area']
+			elif tab == 'upload':
+				words = FileHandler.convert_to_txt(form.data['upload'])
+			elif tab == 'link':
+				doc = OAuthHandler.open_doc_from_url(form.data['link'], request.url)
+				if doc['authenticate'] is not None:
+					return (redirect(doc['authenticate']))
+				else:
+					words = doc['doc']
 
-		# create the csvs
-		csv_files = create_csv_files(counts)
+			# calculate counts
+			counts = WordHandler.get_word_counts(
+				words,
+				form.data['ignore_case'],
+				form.data['ignore_stopwords'])
+
+			# create the csvs
+			csv_files = create_csv_files(counts)
 
 	return render_template('wordcounter.html', form=form, tab=tab, results=counts, csv_files=csv_files)
 

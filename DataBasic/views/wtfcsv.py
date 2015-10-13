@@ -11,12 +11,15 @@ def index():
 	form = WTFCSVForm()
 	tab = 'paste'
 
-	if request.method == 'POST' and form.validate():
+	if request.method == 'POST':
+		
 		tab = form['input_type'].data
-		if tab == 'paste':
-			results = process_paste(form['area'].data)
-		elif tab == 'upload':
-			results = process_upload(request.files[form['upload'].name])
+
+		if form.validate():
+			if tab == 'paste':
+				results = process_paste(form['area'].data)
+			elif tab == 'upload':
+				results = process_upload(request.files[form['upload'].name])
 
 	return render_template('wtfcsv.html', form=form, tab=tab, results=results)
 

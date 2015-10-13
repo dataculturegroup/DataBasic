@@ -1,6 +1,7 @@
 from flask import Flask, Blueprint, g, redirect, request, abort
 from flask_debugtoolbar import DebugToolbarExtension
 from flask.ext.babel import Babel
+from logic import OAuthHandler
 
 app = Flask(__name__, instance_relative_config=True)
 
@@ -33,6 +34,15 @@ def get_locale():
 @app.route('/')
 def index():
 	return redirect('/' + get_locale())
+
+@app.route('/auth')
+def auth():
+	if 'code' not in request.args:
+		print 'permission was not granted'
+	else:
+		print request.args['code']
+		OAuthHandler.authorize(request.args['code'])
+	return redirect(OAuthHandler.redirect_to())
 
 from DataBasic.views import home
 from DataBasic.views import samediff
