@@ -17,9 +17,11 @@ def index():
 	counts = []
 	csv_files = []
 	form = WordCountForm()
+	tab = 'paste'
 
 	if request.method == 'POST' and form.validate():
 		
+		tab = form['input_type'].data
 		words = None
 
 		# use the uploaded text if it exists, otherwise use the text in the text area
@@ -39,7 +41,7 @@ def index():
 		# create the csvs
 		csv_files = create_csv_files(counts)
 
-	return render_template('wordcounter.html', form=form, results=counts, csv_files=csv_files)
+	return render_template('wordcounter.html', form=form, tab=tab, results=counts, csv_files=csv_files)
 
 @mod.route('/download-csv/<file_path>')
 def download_csv(file_path):
