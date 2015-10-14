@@ -9,4 +9,5 @@ docx
 unicodecsv
 csvkit
 gspread
+gdata
 oauth2client

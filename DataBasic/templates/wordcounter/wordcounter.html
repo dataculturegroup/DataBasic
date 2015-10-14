@@ -3,7 +3,7 @@
 {% block body %}
 
 	<!-- Form -->
-	<form method="POST" action="/{{ g['current_lang'] }}/wordcounter/">
+	<form method="POST" action="/{{ g['current_lang'] }}/wordcounter/" enctype="multipart/form-data">
 	{{ form.hidden_tag() }}
 	{% for sub in form.input_type %}
 	<dl>
