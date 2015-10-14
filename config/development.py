@@ -1,2 +1,4 @@
 DEBUG = True
 DEBUG_TB_INTERCEPT_REDIRECTS = False
+HOST = 'localhost'
+PORT = 5000

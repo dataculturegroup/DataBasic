@@ -62,20 +62,16 @@ def open_csv(csv_file):
 def delete_file(file_path):
 	os.remove(file_path)
 
-'''
-(still gotta test thiz)
 def open_sheet(sheet):
 	first = ""
 	for i, worksheet in enumerate(sheet.worksheets()):
-		filename = time.strftime("%Y%m%d-%H%M%S") + "-worksheet" + str(i) + ".csv"
-		# filepath = os.path.join(TEMP_DIR,filename)
+		file_path = _get_temp_file('-worksheet' + str(i) + '.csv')
 		if i == 0:
-			first = filename
-		with open(filename, 'wb') as f:
-			writer = unicodecsv.writer(f, encoding="utf-8", delimiter=";", quotechar='"')
+			first = file_path
+		with open(file_path, 'wb') as f:
+			writer = unicodecsv.writer(f, encoding=ENCODING, delimiter=str(u';'), quotechar=str(u'"'))
 			writer.writerows(worksheet.get_all_values())
 	return first
-'''
 
 def _get_temp_file(file_name_suffix=None):
 	file_name = time.strftime("%Y%m%d-%H%M%S")

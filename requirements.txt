@@ -11,3 +11,4 @@ csvkit
 gspread
 gdata
 oauth2client
+pymongo

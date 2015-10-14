@@ -2,6 +2,7 @@ from flask import Flask, Blueprint, g, redirect, request, abort
 from flask_debugtoolbar import DebugToolbarExtension
 from flask.ext.babel import Babel
 from logic import OAuthHandler
+# from logic.mongohandler import MongoHandler
 
 app = Flask(__name__, instance_relative_config=True)
 
@@ -33,6 +34,8 @@ def get_locale():
 
 @app.route('/')
 def index():
+	m = MongoHandler(app.config['HOST'], app.config['PORT'])
+	# m = MongoHandler()
 	return redirect('/' + get_locale())
 
 @app.route('/auth')

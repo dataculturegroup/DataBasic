@@ -18,7 +18,7 @@ def open_doc_from_url(url, redirect_to):
 	else:
 		return {
 			'authenticate': None,
-			'doc': oauth.open_url(url)
+			'doc': url#oauth.open_url(url)
 		}
 
 def redirect_to():
@@ -38,7 +38,10 @@ class OAuthHandler:
 		self.flow = OAuth2WebServerFlow(
 			client_id=self._key['client_email'],
 			client_secret=self._key['client_secret'],
-			scope=['https://www.googleapis.com/auth/drive.readonly', 'https://spreadsheets.google.com/feeds'],
+			scope=[
+				'https://www.googleapis.com/auth/drive.readonly', 
+				'https://spreadsheets.google.com/feeds', 
+				'https://docs.google.com/feeds'],
 			redirect_uri=redirect_uri)
 
 	def _load_credentials(self):
@@ -62,6 +65,7 @@ class OAuthHandler:
 
 	def open_url(self, url):
 		# TODO: make this work with docs as well (only spreadsheets work at the moment)
+		# ^^ (this is very hard :o) ^^
 		return self._client.open_by_url(url)
 
 oauth = OAuthHandler()

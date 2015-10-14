@@ -12,8 +12,7 @@ class PULForm(object):
 	'''
 	input_type = RadioField(
 		u'Choose input type',
-		choices=[(u'paste', u'Paste'), (u'upload', u'Upload'), (u'link', u'Link')],
-		default=u'paste')
+		choices=[(u'paste', u'Paste'), (u'upload', u'Upload'), (u'link', u'Link')])
 
 class WordCountForm(PULForm, Form):
 	area = StringField(
