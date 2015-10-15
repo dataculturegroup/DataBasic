@@ -34,7 +34,7 @@ def process_paste(text):
 	return wtfcsvstat.get_summary(file_path)
 
 def process_upload(csv_file):
-	file_path = filehandler.open_csv(csv_file)
+	file_path = filehandler.open_doc(csv_file)
 	results = wtfcsvstat.get_summary(file_path)
 	filehandler.delete_file(file_path)
 	return results

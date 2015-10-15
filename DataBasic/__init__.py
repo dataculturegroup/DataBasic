@@ -2,7 +2,7 @@ from flask import Flask, Blueprint, g, redirect, request, abort
 from flask_debugtoolbar import DebugToolbarExtension
 from flask.ext.babel import Babel
 from logic import OAuthHandler
-# from logic.mongohandler import MongoHandler
+from logic.mongohandler import MongoHandler
 
 app = Flask(__name__, instance_relative_config=True)
 
@@ -17,6 +17,7 @@ app.config.from_pyfile('config.py')
 app.config.from_envvar('APP_CONFIG_FILE')
 
 babel = Babel(app)
+mongo = MongoHandler(app)
 # uncomment to use toolbar (this slows the app down quite a bit)
 # toolbar = DebugToolbarExtension(app)
 
@@ -34,7 +35,6 @@ def get_locale():
 
 @app.route('/')
 def index():
-	# m = MongoHandler(app.config['HOST'], app.config['PORT'])
 	return redirect('/' + get_locale())
 
 @app.route('/auth')

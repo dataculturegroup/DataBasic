@@ -30,13 +30,16 @@ def index():
 			if tab == 'paste':
 				words = form.data['area']
 			elif tab == 'upload':
-				words = filehandler.convert_to_txt(form.data['upload'])
+				words = process_upload(form.data['upload'])
 			elif tab == 'link':
 				doc = OAuthHandler.open_doc_from_url(form.data['link'], request.url + "?tab=link")
 				if doc['authenticate'] is not None:
 					return (redirect(doc['authenticate']))
 				else:
 					words = doc['doc']
+
+			# app.mongo.save_document('wordcounter', words)
+			# print uuid
 
 			# calculate counts
 			counts = wordhandler.get_word_counts(
@@ -52,6 +55,12 @@ def index():
 @mod.route('/download-csv/<file_path>')
 def download_csv(file_path):
 	return filehandler.generate_csv(file_path)
+
+def process_upload(doc):
+	file_path = filehandler.open_doc(doc)
+	words = filehandler.convert_to_txt(file_path)
+	filehandler.delete_file(file_path)
+	return words
 
 def create_csv_files(counts):
 	files = []

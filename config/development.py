@@ -1,4 +1,4 @@
 DEBUG = True
 DEBUG_TB_INTERCEPT_REDIRECTS = False
-HOST = 'localhost'
-PORT = 5000
+MONGO_HOST = 'localhost'
+MONGO_PORT = 27017

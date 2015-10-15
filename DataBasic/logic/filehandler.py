@@ -51,7 +51,7 @@ def convert_to_txt(file_path):
 		words = _docx_to_txt(file_path)
 	return words
 
-def open_csv(csv_file):
+def open_doc(csv_file):
 	try:
 		file_name = docs.save(csv_file)
 		file_path = os.path.join(TEMP_DIR, file_name)

@@ -12,3 +12,4 @@ gspread
 gdata
 oauth2client
 pymongo
+shortuuid
