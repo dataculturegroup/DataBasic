@@ -1,7 +1,6 @@
 {% extends "base.html" %}
 {% block title %}WTFCSV{% endblock %}
 {% block body %}
-
 <!-- Form -->
 <form method="POST" action="/{{ g['current_lang'] }}/wtfcsv/" enctype="multipart/form-data">
 {{ form.hidden_tag() }}

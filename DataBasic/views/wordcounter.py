@@ -1,4 +1,4 @@
-from .. import app
+from .. import app, mongo
 from ..forms import WordCountForm
 from ..logic import wordhandler, filehandler, OAuthHandler
 from flask import Blueprint, render_template, request, redirect
@@ -17,7 +17,20 @@ def index():
 	counts = []
 	csv_files = []
 	form = WordCountForm()
+	words = None
 	tab = 'paste' if not 'tab' in request.args else request.args['tab']
+	uuid = None if not 'id' in request.args else request.args['id']
+	share_url = None
+
+	if uuid is not None:
+		share_url = 'localhost:5000' + request.path + "?id=" + uuid	
+		doc = mongo.get_document('wordcounter', uuid)
+		words = doc.get('doc')
+		counts, csv_files = process_words(
+			words, 
+			doc.get('ignore_case'), 
+			doc.get('ignore_stopwords')
+			)
 
 	if request.method == 'POST':
 
@@ -25,8 +38,6 @@ def index():
 
 		if form.validate():
 			
-			words = None
-
 			if tab == 'paste':
 				words = form.data['area']
 			elif tab == 'upload':
@@ -38,19 +49,11 @@ def index():
 				else:
 					words = doc['doc']
 
-			# app.mongo.save_document('wordcounter', words)
-			# print uuid
+			uuid = mongo.save_words('wordcounter', words, form.data['ignore_case'], form.data['ignore_stopwords'])
+			counts, csv_files = process_words(words, form.data['ignore_case'], form.data['ignore_stopwords'])
+			share_url = 'localhost:5000' + request.path + "?id=" + uuid		
 
-			# calculate counts
-			counts = wordhandler.get_word_counts(
-				words,
-				form.data['ignore_case'],
-				form.data['ignore_stopwords'])
-
-			# create the csvs
-			csv_files = create_csv_files(counts)
-
-	return render_template('wordcounter.html', form=form, tab=tab, results=counts, csv_files=csv_files)
+	return render_template('wordcounter.html', form=form, tab=tab, results=counts, csv_files=csv_files, share_url=share_url)
 
 @mod.route('/download-csv/<file_path>')
 def download_csv(file_path):
@@ -61,6 +64,17 @@ def process_upload(doc):
 	words = filehandler.convert_to_txt(file_path)
 	filehandler.delete_file(file_path)
 	return words
+
+def process_words(words, ignore_case, ignore_stopwords):
+
+	counts = wordhandler.get_word_counts(
+		words,
+		ignore_case,
+		ignore_stopwords)
+
+	csv_files = create_csv_files(counts)
+
+	return counts, csv_files
 
 def create_csv_files(counts):
 	files = []

@@ -17,7 +17,7 @@ class PULForm(object):
 class WordCountForm(PULForm, Form):
 	area = StringField(
 		u'Text',
-		validators=[Length(min=1)], 
+		validators=[Required(), Length(min=1)], 
 		widget=TextArea(), 
 		default='I am Sam\nSam I am\nThat Sam-I-am!\nThat Sam-I-am!\nI do not like that Sam-I-am!\nDo you like \ngreen eggs and ham?\nI do not like them, Sam-I-am.\nI do not like\ngreen eggs and ham.\nWould you like them \nhere or there?\nI would not like them\nhere or there.\nI would not like them anywhere.')
 	upload = FileField(
@@ -26,7 +26,7 @@ class WordCountForm(PULForm, Form):
 		validators=[Required()])
 	link = StringField(
 		u'Link to doc',
-		validators=[URL()],
+		validators=[Required(), URL()],
 		widget=TextInput())
 	ignore_case = BooleanField(
 		u'Ignore case', 
