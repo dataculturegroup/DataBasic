@@ -1,6 +1,6 @@
 from .. import app
 from ..forms import WordCountForm
-from ..logic import WordHandler, filehandler, OAuthHandler
+from ..logic import wordhandler, filehandler, OAuthHandler
 from flask import Blueprint, render_template, request, redirect
 
 mod = Blueprint('wordcounter', __name__, url_prefix='/<lang_code>/wordcounter', template_folder='../templates/wordcounter')
@@ -39,7 +39,7 @@ def index():
 					words = doc['doc']
 
 			# calculate counts
-			counts = WordHandler.get_word_counts(
+			counts = wordhandler.get_word_counts(
 				words,
 				form.data['ignore_case'],
 				form.data['ignore_stopwords'])

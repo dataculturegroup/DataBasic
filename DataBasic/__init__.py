@@ -34,8 +34,7 @@ def get_locale():
 
 @app.route('/')
 def index():
-	m = MongoHandler(app.config['HOST'], app.config['PORT'])
-	# m = MongoHandler()
+	# m = MongoHandler(app.config['HOST'], app.config['PORT'])
 	return redirect('/' + get_locale())
 
 @app.route('/auth')
