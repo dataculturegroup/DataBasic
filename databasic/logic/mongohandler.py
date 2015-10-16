@@ -20,5 +20,14 @@ class MongoHandler:
 			})
 		return uuid
 
+	def save_csv(self, collection, results):
+		uuid = shortuuid.uuid()
+		self._db[collection].save({
+			'results': results,
+			'datetime': datetime.datetime.now(),
+			'uuid': uuid
+			})
+		return uuid
+
 	def get_document(self, collection, uuid):
 		return self._db[collection].find({'uuid': uuid})[0]

@@ -1,0 +1,64 @@
+{% extends "results_base.html" %}
+{% block title %}WTFcsv Results{% endblock %}
+{% block body %}
+<div class="container">
+	<div class="row">
+		<div class="col-md-12">
+			<p> 
+			{{ngettext("You have %(num)s row of data.", "You have %(num)s rows of data.", results['row_count'])}}
+			{{_("Here's a bit of info about each one:")}}
+			</p>
+		</div>
+	</div>
+	<div class="row">
+	{% for col in results['columns'] %}
+	<div class="col-md-4">
+		<div class="column-info">
+			<h3>{{col['name']}}</h3>
+			<ul>
+				{% if 'index' in col %}
+					<li>{{_("This is column number %d" % col['index'])}}</li>
+				{% endif %}
+				{% if 'type' in col %}
+					<li>{{_("This column is full of")}} {{_(col['type'])}}</li>
+				{% endif %}
+				{% if 'values' in col %}
+					<li>{{_("This unique values in this column are:")}}
+					<ul>
+						{% for val in col['values'] %}<li><em>{{val}}</em></li>{% endfor %}
+					</ul>
+					</li>
+				{% endif %}
+				{% if 'min' in col %}
+					<li>{{_("The smallest number is") }} <em>{{col['min']}}</em></li>
+				{% endif %}
+				{% if 'max' in col %}
+					<li>{{_("The biggest number is") }} <em>{{col['max']}}</em></li>
+				{% endif %}
+				{% if 'sum' in col %}
+					<li>{{_("The total is") }} <em>{{col['sum']}}</em></li>
+				{% endif %}
+				{% if 'mean' in col %}
+					<li>{{_("The average is") }} <em>{{col['mean']}}</em></li>
+				{% endif %}
+				{% if 'median' in col %}
+					<li>{{_("The median is") }} <em>{{col['median']}}</em></li>
+				{% endif %}
+				{% if 'stdev' in col %}
+					<li>{{_("The standard deviation is") }} <em>{{col['stdev']}}</em></li>
+				{% endif %}
+				{% if 'nulls' in col %}
+					<!-- <li>{{col['nulls']}}</li> -->
+				{% endif %}
+				{% if 'freq' in col %}
+					<li>{{col['freq']}}</li>
+				{% endif %}
+				{% if 'len' in col %}
+					<li>{{_("The longest string is <em>%d</em> characters" % col['len']) }}</li>
+				{% endif %}
+			</ul>
+		</div>
+	</div>
+</div>
+{% endfor %}
+{% endblock %}

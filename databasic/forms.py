@@ -1,3 +1,4 @@
+import json
 from werkzeug import secure_filename
 from flask_wtf import Form
 from flask_wtf.file import FileField
@@ -13,11 +14,20 @@ class PULSForm(object):
 		u'Choose input type',
 		choices=[(u'paste', u'Paste'), (u'upload', u'Upload'), (u'link', u'Link'), (u'sample', 'Sample')])
 
-	def __init__(self):
-		super(PULSForm, self).__init__()
+	sample = SelectField(
+		u'Sample')
 
-	def get_samples(self, word):
-		return 'got it'
+	def __init__(self, tool):
+		super(PULSForm, self).__init__()
+		self.get_samples(tool)
+
+	def get_samples(self, tool):
+		lookup = json.load(open('config/sample-data.json'))
+		texts = []
+		for text in lookup:
+			if tool in text['modules']:
+				texts.append((text['source'], text['title']))
+		self.sample.choices = texts
 
 class WordCountForm(PULSForm, Form):
 	area = StringField(
@@ -33,10 +43,6 @@ class WordCountForm(PULSForm, Form):
 		u'Link to doc',
 		validators=[Required(), URL()],
 		widget=TextInput())
-	sample = SelectField(
-		u'Sample',
-		choices=[(u'test', u'Test'), (u'got', u'ta')]
-		)
 	ignore_case = BooleanField(
 		u'Ignore case', 
 		widget=CheckboxInput(), 
@@ -47,7 +53,7 @@ class WordCountForm(PULSForm, Form):
 		default=True)
 
 	def __init__(self):
-		super(WordCountForm, self).__init__()
+		super(WordCountForm, self).__init__('wordcounter')
 
 	def validate(self):
 		input_type = self.input_type.data
@@ -57,6 +63,8 @@ class WordCountForm(PULSForm, Form):
 			return self.upload.validate(self)
 		elif input_type == 'link':
 			return self.link.validate(self)
+		elif input_type == 'sample':
+			return self.sample.validate(self)
 		return Form.validate(self)
 
 class WTFCSVForm(PULSForm, Form):
@@ -72,6 +80,10 @@ class WTFCSVForm(PULSForm, Form):
 		u'Link to spreadsheet',
 		validators=[URL()],
 		widget=TextInput())
+
+	def __init__(self):
+		super(WTFCSVForm, self).__init__('wtfcsv')
+
 	def validate(self):
 		input_type = self.input_type.data
 		if input_type == 'paste':
@@ -80,4 +92,6 @@ class WTFCSVForm(PULSForm, Form):
 			return self.upload.data.filename.endswith('.csv')
 		elif input_type == 'link':
 			return self.link.validate(self)
+		elif input_type == 'sample':
+			return self.sample.validate(self)
 		return Form.validate(self)

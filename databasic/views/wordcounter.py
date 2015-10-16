@@ -14,23 +14,9 @@ def index():
 @mod.route('/', methods=('GET', 'POST'))
 def index():
 
-	counts = []
-	csv_files = []
+	tab = 'paste' if not 'tab' in request.args else request.args['tab']
 	form = WordCountForm()
 	words = None
-	tab = 'paste' if not 'tab' in request.args else request.args['tab']
-	uuid = None if not 'id' in request.args else request.args['id']
-	share_url = None
-
-	if uuid is not None:
-		share_url = 'localhost:5000' + request.path + "?id=" + uuid	
-		doc = mongo.get_document('wordcounter', uuid)
-		words = doc.get('doc')
-		counts, csv_files = process_words(
-			words, 
-			doc.get('ignore_case'), 
-			doc.get('ignore_stopwords')
-			)
 
 	if request.method == 'POST':
 
@@ -48,12 +34,29 @@ def index():
 					return (redirect(doc['authenticate']))
 				else:
 					words = doc['doc']
+			elif tab == 'sample':
+				words = filehandler.convert_to_txt(form.data['sample'])
 
 			uuid = mongo.save_words('wordcounter', words, form.data['ignore_case'], form.data['ignore_stopwords'])
-			counts, csv_files = process_words(words, form.data['ignore_case'], form.data['ignore_stopwords'])
-			share_url = 'localhost:5000' + request.path + "?id=" + uuid		
+			return redirect(request.url + 'results?id=' + uuid)
 
-	return render_template('wordcounter.html', form=form, tab=tab, results=counts, csv_files=csv_files, share_url=share_url)
+	return render_template('wordcounter.html', form=form, tab=tab)
+
+@mod.route('/results')
+def results():
+	uuid = None if not 'id' in request.args else request.args['id']
+	if uuid is not None:
+		doc = mongo.get_document('wordcounter', uuid)
+		words = doc.get('doc')
+		# TODO: process this on submit instead and store results in mongo
+		counts, csv_files = process_words(
+			words, 
+			doc.get('ignore_case'), 
+			doc.get('ignore_stopwords')
+			)
+		print doc.get('ignore_case')
+		print doc.get('ignore_stopwords')
+	return render_template('wordcounter/results.html', results=counts, csv_files=csv_files)
 
 @mod.route('/download-csv/<file_path>')
 def download_csv(file_path):

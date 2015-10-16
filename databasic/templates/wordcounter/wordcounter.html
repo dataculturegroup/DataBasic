@@ -1,8 +1,7 @@
 {% extends "base.html" %}
 {% block title %}Word-Counter{% endblock %}
 {% block body %}
-
-	<!-- Form -->
+<div class="container">
 	<form method="POST" action="/{{ g['current_lang'] }}/wordcounter/" enctype="multipart/form-data">
 	{{ form.hidden_tag() }}
 	{% for sub in form.input_type %}
@@ -27,7 +26,6 @@
 					<dd>{{ form.sample() }}</dd>
 				</div>
 			{% endif %}
-
 			</tr>
 	</dl>
 	{% endfor %}
@@ -37,34 +35,5 @@
 		<dd><input type="submit" value="Submit"></dd>
 	</dl>
 	</form>
-
-	<!-- Results -->
-	{% if results %}
-		<table>
-			<tr><th>Frequency</th><th>Word</th><th><a href="/{{ g['current_lang'] }}/wordcounter/download-csv/{{ csv_files[0] }}">download</a></th></tr>
-			{% for word in results[0] %}
-			<tr>
-				<td>{{ word[1] }}</td>
-				<td>{{ word[0] }}</td>
-			</tr>
-			{% endfor %}
-
-			<tr><th>Frequency</th><th>Bigram</th><th><a href="/{{ g['current_lang'] }}/wordcounter/download-csv/{{ csv_files[1] }}">download</a></th></tr>
-			{% for word in results[1] %}
-			<tr>
-				<td>{{ word[1] }}</td>
-				<td>{{ " ".join(word[0]) }}</td>
-			</tr>
-			{% endfor %}
-
-			<tr><th>Frequency</th><th>Trigram</th><th><a href="/{{ g['current_lang'] }}/wordcounter/download-csv/{{ csv_files[2] }}">download</a></th></tr>
-			{% for word in results[2] %}
-			<tr>
-				<td>{{ word[1] }}</td>
-				<td>{{ " ".join(word[0]) }}</td>
-			</tr>
-			{% endfor %}
-		</table>
-		{{ share_url }}
-	{% endif %}
+</div>
 {% endblock %}
