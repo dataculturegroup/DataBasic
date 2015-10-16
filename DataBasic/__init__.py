@@ -4,13 +4,13 @@ from flask.ext.babel import Babel
 from logic import oauth
 from logic.mongohandler import MongoHandler
 
-app = Flask(__name__, instance_relative_config=True)
+app = Flask(__name__, instance_relative_config=False)
 
 # Load the default configuration
 app.config.from_object('config.default')
 
 # Load the configuration from the instance folder
-app.config.from_pyfile('config.py')
+app.config.from_pyfile('../config/settings.py')
 
 # Load the file specified by the APP_CONFIG_FILE environment variable
 # Variables defined here will override those in the default configuration
@@ -46,10 +46,10 @@ def auth():
 		oauth.authorize(request.args['code'])
 	return redirect(oauth.redirect_to())
 
-from DataBasic.views import home
-from DataBasic.views import samediff
-from DataBasic.views import wordcounter
-from DataBasic.views import wtfcsv
+from databasic.views import home
+from databasic.views import samediff
+from databasic.views import wordcounter
+from databasic.views import wtfcsv
 app.register_blueprint(home.mod)
 app.register_blueprint(samediff.mod)
 app.register_blueprint(wordcounter.mod)#, subdomain='wordcounter')

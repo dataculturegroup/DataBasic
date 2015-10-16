@@ -18,7 +18,7 @@ def open_doc_from_url(url, redirect_to):
 	else:
 		return {
 			'authenticate': None,
-			'doc': url#oauth.open_url(url)
+			'doc': oauth.open_url(url)
 		}
 
 def redirect_to():
@@ -45,8 +45,8 @@ class OAuthHandler:
 			redirect_uri=redirect_uri)
 
 	def _load_credentials(self):
-		if os.path.isfile('instance/credentials.json'):
-			self._key = json.load(open('instance/credentials.json'))
+		if os.path.isfile('config/google-credentials.json'):
+			self._key = json.load(open('config/google-credentials.json'))
 		else:
 			print 'Credentials could not be loaded. If you haven\'t created them, follow the instructions at https://developers.google.com/api-client-library/python/auth/web-app'
 			self._key = {
