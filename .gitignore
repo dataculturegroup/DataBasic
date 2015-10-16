@@ -2,6 +2,7 @@
 .Python
 *.sublime-*
 *.pyc
+sample-data/
 instance/
 venv/
 terminal.glue

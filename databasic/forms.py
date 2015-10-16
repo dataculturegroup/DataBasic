@@ -1,20 +1,25 @@
 from werkzeug import secure_filename
 from flask_wtf import Form
 from flask_wtf.file import FileField
-from wtforms import StringField, BooleanField
-from wtforms.fields import RadioField
+from wtforms import StringField, BooleanField, RadioField, SelectField
 from wtforms.widgets import TextArea, TextInput, CheckboxInput
 from wtforms.validators import Length, Regexp, Optional, Required, URL
 
-class PULForm(object):
+class PULSForm(object):
 	'''
-	Paste/Upload/Link form
+	Paste/Upload/Link/Sample form
 	'''
 	input_type = RadioField(
 		u'Choose input type',
-		choices=[(u'paste', u'Paste'), (u'upload', u'Upload'), (u'link', u'Link')])
+		choices=[(u'paste', u'Paste'), (u'upload', u'Upload'), (u'link', u'Link'), (u'sample', 'Sample')])
 
-class WordCountForm(PULForm, Form):
+	def __init__(self):
+		super(PULSForm, self).__init__()
+
+	def get_samples(self, word):
+		return 'got it'
+
+class WordCountForm(PULSForm, Form):
 	area = StringField(
 		u'Text',
 		validators=[Required(), Length(min=1)], 
@@ -28,6 +33,10 @@ class WordCountForm(PULForm, Form):
 		u'Link to doc',
 		validators=[Required(), URL()],
 		widget=TextInput())
+	sample = SelectField(
+		u'Sample',
+		choices=[(u'test', u'Test'), (u'got', u'ta')]
+		)
 	ignore_case = BooleanField(
 		u'Ignore case', 
 		widget=CheckboxInput(), 
@@ -36,6 +45,10 @@ class WordCountForm(PULForm, Form):
 		u'Ignore stopwords',
 		widget=CheckboxInput(), 
 		default=True)
+
+	def __init__(self):
+		super(WordCountForm, self).__init__()
+
 	def validate(self):
 		input_type = self.input_type.data
 		if input_type == 'paste':
@@ -46,7 +59,7 @@ class WordCountForm(PULForm, Form):
 			return self.link.validate(self)
 		return Form.validate(self)
 
-class WTFCSVForm(PULForm, Form):
+class WTFCSVForm(PULSForm, Form):
 	area = StringField(
 		u'Paste CSV',
 		validators=[Length(min=1)],

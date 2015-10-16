@@ -18,11 +18,16 @@
 				<div id="upload" class="tab-pane">
 					<dd>{{ form.upload() }}</dd>
 				</div>
-			{% elif '-2' in sub.id %}
+			<!--{% elif '-2' in sub.id %}
 				<div id="link" class="tab-pane">
 					<dd>{{ form.link() }}</dd>
+				</div>-->
+			{% elif '-3' in sub.id %}
+				<div id="sample" class="tab-pane">
+					<dd>{{ form.sample() }}</dd>
 				</div>
 			{% endif %}
+
 			</tr>
 	</dl>
 	{% endfor %}
