@@ -1,6 +1,6 @@
 from .. import app, mongo
 from ..forms import WordCountForm
-from ..logic import wordhandler, filehandler, OAuthHandler
+from ..logic import wordhandler, filehandler, oauth
 from flask import Blueprint, render_template, request, redirect
 
 mod = Blueprint('wordcounter', __name__, url_prefix='/<lang_code>/wordcounter', template_folder='../templates/wordcounter')
@@ -43,7 +43,7 @@ def index():
 			elif tab == 'upload':
 				words = process_upload(form.data['upload'])
 			elif tab == 'link':
-				doc = OAuthHandler.open_doc_from_url(form.data['link'], request.url + "?tab=link")
+				doc = oauth.open_doc_from_url(form.data['link'], request.url + "?tab=link")
 				if doc['authenticate'] is not None:
 					return (redirect(doc['authenticate']))
 				else:

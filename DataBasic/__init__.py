@@ -1,7 +1,7 @@
 from flask import Flask, Blueprint, g, redirect, request, abort
 from flask_debugtoolbar import DebugToolbarExtension
 from flask.ext.babel import Babel
-from logic import OAuthHandler
+from logic import oauth
 from logic.mongohandler import MongoHandler
 
 app = Flask(__name__, instance_relative_config=True)
@@ -43,8 +43,8 @@ def auth():
 		print 'permission was not granted'
 	else:
 		print request.args['code']
-		OAuthHandler.authorize(request.args['code'])
-	return redirect(OAuthHandler.redirect_to())
+		oauth.authorize(request.args['code'])
+	return redirect(oauth.redirect_to())
 
 from DataBasic.views import home
 from DataBasic.views import samediff
