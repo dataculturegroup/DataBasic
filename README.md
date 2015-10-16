@@ -52,9 +52,9 @@ $ python
 >> exit()
 ```
 
-Copy + paste this key into `instance/config.py`. You will have to create this file because git ignores the `instance/` directory. This is also where you should store any credentials.
+Copy + paste this key into `config/settings.py`.
 ```
-# instance/config.py
+# config/settings.py
 SECRET_KEY = '/secret/key/to/copy'
 ```
 
