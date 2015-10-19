@@ -1,6 +1,10 @@
-<script type="text/javascript" src="/static/js/jquery.js"></script>
-<script type="text/javascript" src="/static/js/bootstrap.min.js"></script>
 <script type="text/javascript">
+  $SCRIPT_ROOT = {{ request.script_root|tojson|safe }};
+</script>
+<script type="text/javascript" src="/static/js/jquery.js"></script>
+<script type="text/javascript" src="/static/js/jquery.validate.min.js"></script>
+<script type="text/javascript" src="/static/js/bootstrap.min.js"></script>
+<!--<script type="text/javascript">
 
 // Sets the default radio selection and handles showing/hiding panes based on which radio button is pressed
 $(document).ready(function() {
@@ -15,4 +19,4 @@ $(function(){
 	    $('#' + id).show();
 	});
 });
-</script>
+</script>-->

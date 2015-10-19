@@ -1,38 +1,13 @@
 {% extends "base.html" %}
+{% from 'macros.html' import render_form %}
+
 {% block title %}WTFCSV{% endblock %}
 {% block body %}
 <div class="container">
-	<form method="POST" action="/{{ g['current_lang'] }}/wtfcsv/" enctype="multipart/form-data">
-	{{ form.hidden_tag() }}
-	{% for sub in form.input_type %}
-		<dl>
-			<div id="radio-group">
-				<dd>{{ sub }} {{ sub.label }}</dd>
-				<tr>
-				{% if '-0' in sub.id %}
-					<div id="paste" class="tab-pane">
-						<dd>{{ form.area(cols="35", rows="20") }}</dd>
-					</div>
-				{% elif '-1' in sub.id %}
-					<div id="upload" class="tab-pane">
-						<dd>{{ form.upload() }}</dd>
-					</div>
-				{% elif '-2' in sub.id %}
-					<div id="link" class="tab-pane">
-						<dd>{{ form.link() }}</dd>
-					</div>
-				{% elif '-3' in sub.id %}
-					<div id="link" class="tab-pane">
-						<dd>{{ form.sample() }}</dd>
-					</div>
-				{% endif %}
-				</tr>
-			</div>
-		</dl>
+	{% for t, form in forms %}
+	<div class="row">
+		{{ render_form(form, class_=t, action_url='wtfcsv') }}
+	</div>
 	{% endfor %}
-	<dl>
-		<dd><input type="submit" value="Submit"></dd>
-	</dl>
-	</form>
 </div>
 {% endblock %}

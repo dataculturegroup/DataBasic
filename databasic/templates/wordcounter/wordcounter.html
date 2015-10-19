@@ -1,39 +1,27 @@
+
 {% extends "base.html" %}
+{% from 'macros.html' import render_form %}
+
 {% block title %}Word-Counter{% endblock %}
 {% block body %}
 <div class="container">
-	<form method="POST" action="/{{ g['current_lang'] }}/wordcounter/" enctype="multipart/form-data">
-	{{ form.hidden_tag() }}
-	{% for sub in form.input_type %}
-	<dl>
-		<div id="radio-group">
-			<dd>{{ sub }} {{ sub.label }}</dd>
-			<tr>
-			{% if '-0' in sub.id %}
-				<div id="paste" class="tab-pane">
-					<dd>{{ form.area(cols="35", rows="20") }}</dd>
-				</div>
-			{% elif '-1' in sub.id %}
-				<div id="upload" class="tab-pane">
-					<dd>{{ form.upload() }}</dd>
-				</div>
-			<!--{% elif '-2' in sub.id %}
-				<div id="link" class="tab-pane">
-					<dd>{{ form.link() }}</dd>
-				</div>-->
-			{% elif '-3' in sub.id %}
-				<div id="sample" class="tab-pane">
-					<dd>{{ form.sample() }}</dd>
-				</div>
-			{% endif %}
-			</tr>
-	</dl>
+	{% for t, form in forms %}
+	<div class="row">
+		{{ render_form(form, class_=t, action_url='wordcounter') }}
+	</div>
 	{% endfor %}
-	<dl>
-		<dd>{{ form.ignore_case() }} {{ form.ignore_case.label }}</dd>
-		<dd>{{ form.ignore_stopwords() }} {{ form.ignore_stopwords.label }}</dd>
-		<dd><input type="submit" value="Submit"></dd>
-	</dl>
-	</form>
 </div>
+<!--<script type="text/javascript">
+  $(function() {
+    $('a#calculate').bind('click', function() {
+      $.getJSON($SCRIPT_ROOT + '/_add_numbers', {
+        a: $('input[name="a"]').val(),
+        b: $('input[name="b"]').val()
+      }, function(data) {
+        $("#result").text(data.result);
+      });
+      return false;
+    });
+  });
+</script>-->
 {% endblock %}

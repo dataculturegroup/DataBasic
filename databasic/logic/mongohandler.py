@@ -9,10 +9,11 @@ class MongoHandler:
 		self._client = MongoClient(uri)
 		self._db = self._client['DataBasic']
 	
-	def save_words(self, collection, doc, ignore_case, ignore_stopwords):
+	def save_words(self, collection, counts, csv_files, ignore_case, ignore_stopwords):
 		uuid = shortuuid.uuid()
 		self._db[collection].save({
-			'doc': doc,
+			'counts': counts,
+			'csv_files': csv_files,
 			'ignore_case': ignore_case,
 			'ignore_stopwords': ignore_stopwords,
 			'datetime': datetime.datetime.now(),

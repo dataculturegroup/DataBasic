@@ -1,5 +1,5 @@
 from .. import mongo
-from ..forms import WTFCSVForm
+from ..forms import WTFCSVPaste, WTFCSVUpload, WTFCSVLink
 from ..logic import wtfcsvstat, filehandler, oauth
 from flask import Blueprint, render_template, request, redirect
 
@@ -8,30 +8,35 @@ mod = Blueprint('wtfcsv', __name__, url_prefix='/<lang_code>/wtfcsv', template_f
 @mod.route('/', methods=('GET', 'POST'))
 def index():
 
-	form = WTFCSVForm()
 	tab = 'paste' if not 'tab' in request.args else request.args['tab']
 	results = None
 
+	forms = {
+		'paste': WTFCSVPaste('name, shirt_color, siblings\nRahul, blue, 1\nCatherine, red, 2'),
+		'upload': WTFCSVUpload(),
+		'link': WTFCSVLink()
+	}
+
 	if request.method == 'POST':
-		
-		tab = form['input_type'].data
 
-		if form.validate():
-			if tab == 'paste':
-				results = process_paste(form['area'].data)
-			elif tab == 'upload':
-				results = process_upload(request.files[form['upload'].name])
-			elif tab == 'link':
-				doc = oauth.open_doc_from_url(form.data['link'], request.url + "?tab=link")
-				if doc['authenticate'] is not None:
-					return (redirect(doc['authenticate']))
-				else:
-					results = process_link(doc['doc'])
+		btn_value = request.form['btn']
 
+		if btn_value == 'paste':
+			results = process_paste(forms['paste'].area.data)
+		elif btn_value == 'upload':
+			results = process_upload(request.files[forms['upload'].data.name])
+		elif btn_value == 'link':
+			doc = oauth.open_doc_from_url(forms['link'].data['link'], request.url + "?tab=link")
+			if doc['authenticate'] is not None:
+				return (redirect(doc['authenticate']))
+			else:
+				results = process_link(doc['doc'])
+
+		if btn_value is not None and btn_value is not u'':
 			uuid = mongo.save_csv('wtfcsv', results)
 			return redirect(request.url + 'results?id=' + uuid)
 
-	return render_template('wtfcsv.html', form=form, tab=tab)
+	return render_template('wtfcsv.html', forms=sorted(forms.items()))#, tab=tab)
 
 @mod.route('/results')
 def results():

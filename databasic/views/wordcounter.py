@@ -1,5 +1,5 @@
 from .. import app, mongo
-from ..forms import WordCountForm
+from ..forms import WordCounterPaste, WordCounterUpload, WordCounterSample
 from ..logic import wordhandler, filehandler, oauth
 from flask import Blueprint, render_template, request, redirect
 
@@ -15,47 +15,46 @@ def index():
 def index():
 
 	tab = 'paste' if not 'tab' in request.args else request.args['tab']
-	form = WordCountForm()
 	words = None
 
+	forms = {
+		'paste': WordCounterPaste('I am Sam\nSam I am\nThat Sam-I-am!\nThat Sam-I-am!\nI do not like that Sam-I-am!\nDo you like \ngreen eggs and ham?\nI do not like them, Sam-I-am.\nI do not like\ngreen eggs and ham.\nWould you like them \nhere or there?\nI would not like them\nhere or there.\nI would not like them anywhere.'),
+		'upload': WordCounterUpload(),
+		'sample': WordCounterSample('wordcounter')
+	}
+
 	if request.method == 'POST':
+		ignore_case = True
+		ignore_stopwords = True
+		btn_value = request.form['btn']
 
-		tab = form['input_type'].data
+		if btn_value == 'paste':
+			words = forms['paste'].data['area']
+		elif btn_value == 'upload':
+			words = process_upload(forms['upload'].data['upload'])
+		else:
+			words = filehandler.convert_to_txt(forms['sample'].data['sample'])
 
-		if form.validate():
-			
-			if tab == 'paste':
-				words = form.data['area']
-			elif tab == 'upload':
-				words = process_upload(form.data['upload'])
-			elif tab == 'link':
-				doc = oauth.open_doc_from_url(form.data['link'], request.url + "?tab=link")
-				if doc['authenticate'] is not None:
-					return (redirect(doc['authenticate']))
-				else:
-					words = doc['doc']
-			elif tab == 'sample':
-				words = filehandler.convert_to_txt(form.data['sample'])
+		if btn_value is not None and btn_value is not u'':
+			ignore_case = forms[btn_value].data['ignore_case']
+			ignore_stopwords = forms[btn_value].data['ignore_stopwords']
 
-			uuid = mongo.save_words('wordcounter', words, form.data['ignore_case'], form.data['ignore_stopwords'])
+		if words is not None:
+			counts, csv_files = process_words(words, ignore_case, ignore_stopwords)
+			uuid = mongo.save_words('wordcounter', counts, csv_files, ignore_case, ignore_stopwords)
 			return redirect(request.url + 'results?id=' + uuid)
 
-	return render_template('wordcounter.html', form=form, tab=tab)
+	return render_template('wordcounter.html', forms=sorted(forms.items()))#form=form, tab=tab)
 
 @mod.route('/results')
 def results():
+	counts = None
+	csv_files = None
 	uuid = None if not 'id' in request.args else request.args['id']
 	if uuid is not None:
 		doc = mongo.get_document('wordcounter', uuid)
-		words = doc.get('doc')
-		# TODO: process this on submit instead and store results in mongo
-		counts, csv_files = process_words(
-			words, 
-			doc.get('ignore_case'), 
-			doc.get('ignore_stopwords')
-			)
-		print doc.get('ignore_case')
-		print doc.get('ignore_stopwords')
+		counts = doc.get('counts')
+		csv_files = doc.get('csv_files')
 	return render_template('wordcounter/results.html', results=counts, csv_files=csv_files)
 
 @mod.route('/download-csv/<file_path>')
