@@ -11,3 +11,15 @@
 	{% endfor %}
 </div>
 {% endblock %}
+{% block custom_scripts %}
+<script type="text/javascript">
+	$(".upload").validate({
+	    rules: {
+	    	upload: {
+	      		required: true,
+	          	extension: "csv",
+	        }
+	    }
+	});
+</script>
+{% endblock %}

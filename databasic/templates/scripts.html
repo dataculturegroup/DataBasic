@@ -3,7 +3,25 @@
 </script>
 <script type="text/javascript" src="/static/js/jquery.js"></script>
 <script type="text/javascript" src="/static/js/jquery.validate.min.js"></script>
+<script type="text/javascript" src="/static/js/additional-methods.min.js"></script>
 <script type="text/javascript" src="/static/js/bootstrap.min.js"></script>
+<script type="text/javascript">
+	$(".link").validate({
+		rules: {
+			link: {
+				required: true,
+				url: true
+			}
+		}
+	});
+	$(".paste").validate({
+		rules: {
+			paste: {
+				required: true
+			}
+		}
+	});
+</script>
 <!--<script type="text/javascript">
 
 // Sets the default radio selection and handles showing/hiding panes based on which radio button is pressed

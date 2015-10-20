@@ -9,7 +9,7 @@ from wtforms.validators import Length, Regexp, Optional, Required, URL
 class PasteForm(object):
 	area = StringField(
 		u'Text',
-		validators=[Required(), Length(min=1)], 
+		validators=[Required()], 
 		widget=TextArea()) 
 	
 	def __init__(self, default_text=''):
@@ -39,9 +39,10 @@ class SampleForm(object):
 		self.sample.choices = texts
 
 class LinkForm(object):
+	field_flags = ('url',)
 	link = StringField(
 		u'Link to spreadsheet',
-		validators=[URL()],
+		validators=[URL(), Required()],
 		widget=TextInput())
 
 class WordCounterForm(object):
