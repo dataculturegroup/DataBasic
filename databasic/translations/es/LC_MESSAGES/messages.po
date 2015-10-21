@@ -1,0 +1,144 @@
+# Spanish translations for PROJECT.
+# Copyright (C) 2015 ORGANIZATION
+# This file is distributed under the same license as the PROJECT project.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2015.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: PROJECT VERSION\n"
+"Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
+"POT-Creation-Date: 2015-10-21 12:51-0400\n"
+"PO-Revision-Date: 2015-10-21 12:15-0400\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language: es\n"
+"Language-Team: es <LL@li.org>\n"
+"Plural-Forms: nplurals=2; plural=(n != 1)\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.1.1\n"
+
+#: databasic/forms.py:12
+msgid "Text"
+msgstr "texto"
+
+#: databasic/forms.py:23
+msgid "Upload file"
+msgstr "subir un archivo"
+
+#: databasic/forms.py:29
+msgid "Sample"
+msgstr "muestra"
+
+#: databasic/forms.py:46
+msgid "Link to spreadsheet"
+msgstr ""
+
+#: databasic/forms.py:52
+msgid "Ignore case"
+msgstr "caso de omitir"
+
+#: databasic/forms.py:56
+msgid "Ignore stopwords"
+msgstr ""
+
+#: databasic/templates/samediff/samediff.html:2
+msgid "SameDiff"
+msgstr ""
+
+#: databasic/templates/wordcounter/results.html:2
+msgid "Word-Counter results"
+msgstr ""
+
+#: databasic/templates/wordcounter/results.html:6
+#: databasic/templates/wordcounter/results.html:14
+#: databasic/templates/wordcounter/results.html:22
+msgid "Frequency"
+msgstr ""
+
+#: databasic/templates/wordcounter/results.html:6
+msgid "Word"
+msgstr ""
+
+#: databasic/templates/wordcounter/results.html:6
+#: databasic/templates/wordcounter/results.html:14
+#: databasic/templates/wordcounter/results.html:22
+msgid "download"
+msgstr ""
+
+#: databasic/templates/wordcounter/results.html:14
+msgid "Bigram"
+msgstr ""
+
+#: databasic/templates/wordcounter/results.html:22
+msgid "Trigram"
+msgstr ""
+
+#: databasic/templates/wordcounter/wordcounter.html:5
+msgid "Word-Counter"
+msgstr ""
+
+#: databasic/templates/wordcounter/wordcounter.html:8
+msgid "a freaking test"
+msgstr "una maldita prueba"
+
+#: databasic/templates/wtfcsv/results.html:2
+msgid "WTFcsv results"
+msgstr ""
+
+#: databasic/templates/wtfcsv/results.html:8
+#, python-format
+msgid "You have %(num)s row of data."
+msgid_plural "You have %(num)s rows of data."
+msgstr[0] ""
+msgstr[1] ""
+
+#: databasic/templates/wtfcsv/results.html:9
+msgid "Here's a bit of info about each one:"
+msgstr ""
+
+#: databasic/templates/wtfcsv/results.html:23
+msgid "This column is full of"
+msgstr ""
+
+#: databasic/templates/wtfcsv/results.html:26
+msgid "This unique values in this column are:"
+msgstr ""
+
+#: databasic/templates/wtfcsv/results.html:33
+msgid "The smallest number is"
+msgstr ""
+
+#: databasic/templates/wtfcsv/results.html:36
+msgid "The biggest number is"
+msgstr ""
+
+#: databasic/templates/wtfcsv/results.html:39
+msgid "The total is"
+msgstr ""
+
+#: databasic/templates/wtfcsv/results.html:42
+msgid "The average is"
+msgstr ""
+
+#: databasic/templates/wtfcsv/results.html:45
+msgid "The median is"
+msgstr ""
+
+#: databasic/templates/wtfcsv/results.html:48
+msgid "The standard deviation is"
+msgstr ""
+
+#: databasic/templates/wtfcsv/wtfcsv.html:4
+msgid "WTFcsv"
+msgstr ""
+
+#~ msgid "Translation test"
+#~ msgstr "prueba de traducción"
+
+#~ msgid "Another translation test"
+#~ msgstr "otra prueba de traducción"
+
+#~ msgid "Last in line"
+#~ msgstr "ultima en línea"
+

@@ -1,5 +1,6 @@
 import json
 from werkzeug import secure_filename
+from flask.ext.babel import lazy_gettext as _
 from flask_wtf import Form
 from flask_wtf.file import FileField
 from wtforms import StringField, BooleanField, RadioField, SelectField
@@ -8,7 +9,7 @@ from wtforms.validators import Length, Regexp, Optional, Required, URL
 
 class PasteForm(object):
 	area = StringField(
-		u'Text',
+		_('Text'),
 		validators=[Required()], 
 		widget=TextArea()) 
 	
@@ -18,13 +19,13 @@ class PasteForm(object):
 
 class UploadForm(object):
 	upload = FileField(
-		u'Upload file',
+		_('Upload file'),
 		# validators=[Regexp(r'^.*\.(txt|docx)$')])
 		validators=[Required()])
 
 class SampleForm(object):
 	sample = SelectField(
-		u'Sample')
+		_('Sample'))
 
 	def __init__(self, tool):
 		super(SampleForm, self).__init__()
@@ -41,17 +42,17 @@ class SampleForm(object):
 class LinkForm(object):
 	field_flags = ('url',)
 	link = StringField(
-		u'Link to spreadsheet',
+		_('Link to spreadsheet'),
 		validators=[URL(), Required()],
 		widget=TextInput())
 
 class WordCounterForm(object):
 	ignore_case = BooleanField(
-		u'Ignore case', 
+		_('Ignore case'), 
 		widget=CheckboxInput(), 
 		default=True)
 	ignore_stopwords = BooleanField(
-		u'Ignore stopwords',
+		_('Ignore stopwords'),
 		widget=CheckboxInput(), 
 		default=True)
 

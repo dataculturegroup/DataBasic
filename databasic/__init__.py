@@ -1,6 +1,7 @@
 from flask import Flask, Blueprint, g, redirect, request, abort
 from flask_debugtoolbar import DebugToolbarExtension
 from flask.ext.babel import Babel
+from babel.support import LazyProxy
 from logic import oauth
 from logic.mongohandler import MongoHandler
 

@@ -1,9 +1,9 @@
 {% extends "results_base.html" %}
-{% block title %}Word-Counter Results{% endblock %}
+{% block title %}{{ _('Word-Counter results') }}{% endblock %}
 {% block body %}
 <div class="container">
 	<table>
-		<tr><th>Frequency</th><th>Word</th><th><a href="/{{ g['current_lang'] }}/wordcounter/download-csv/{{ csv_files[0] }}">download</a></th></tr>
+		<tr><th>{{ _('Frequency') }}</th><th>{{ _('Word') }}</th><th><a href="/{{ g['current_lang'] }}/wordcounter/download-csv/{{ csv_files[0] }}">{{ _('download') }}</a></th></tr>
 		{% for word in results[0] %}
 		<tr>
 			<td>{{ word[1] }}</td>
@@ -11,7 +11,7 @@
 		</tr>
 		{% endfor %}
 
-		<tr><th>Frequency</th><th>Bigram</th><th><a href="/{{ g['current_lang'] }}/wordcounter/download-csv/{{ csv_files[1] }}">download</a></th></tr>
+		<tr><th>{{ _('Frequency') }}</th><th>{{ _('Bigram') }}</th><th><a href="/{{ g['current_lang'] }}/wordcounter/download-csv/{{ csv_files[1] }}">{{ _('download') }}</a></th></tr>
 		{% for word in results[1] %}
 		<tr>
 			<td>{{ word[1] }}</td>
@@ -19,7 +19,7 @@
 		</tr>
 		{% endfor %}
 
-		<tr><th>Frequency</th><th>Trigram</th><th><a href="/{{ g['current_lang'] }}/wordcounter/download-csv/{{ csv_files[2] }}">download</a></th></tr>
+		<tr><th>{{ _('Frequency') }}</th><th>{{ _('Trigram') }}</th><th><a href="/{{ g['current_lang'] }}/wordcounter/download-csv/{{ csv_files[2] }}">{{ _('download') }}</a></th></tr>
 		{% for word in results[2] %}
 		<tr>
 			<td>{{ word[1] }}</td>

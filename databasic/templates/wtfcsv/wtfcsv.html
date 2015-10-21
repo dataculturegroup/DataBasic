@@ -1,7 +1,7 @@
 {% extends "base.html" %}
 {% from 'macros.html' import render_form %}
 
-{% block title %}WTFCSV{% endblock %}
+{% block title %}{{ _('WTFcsv') }}{% endblock %}
 {% block body %}
 <div class="container">
 	{% for t, form in forms %}

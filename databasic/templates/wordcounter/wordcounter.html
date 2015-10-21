@@ -2,7 +2,7 @@
 {% extends "base.html" %}
 {% from 'macros.html' import render_form %}
 
-{% block title %}Word-Counter{% endblock %}
+{% block title %}{{ _('Word-Counter') }}{% endblock %}
 {% block body %}
 <div class="container">
 	{% for t, form in forms %}
