@@ -9,4 +9,5 @@ export APP_CONFIG_FILE=../config/development.py
 # windows:
 # set APP_CONFIG_FILE=..\config\development.py
 
+alias activate=". venv/bin/activate"
 python run.py

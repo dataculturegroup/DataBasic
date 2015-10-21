@@ -33,6 +33,7 @@ def index():
 		elif btn_value == 'upload':
 			words = process_upload(forms['upload'].data['upload'])
 		else:
+			# print forms['sample'].data
 			words = filehandler.convert_to_txt(forms['sample'].data['sample'])
 
 		if btn_value is not None and btn_value is not u'':

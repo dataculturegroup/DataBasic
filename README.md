@@ -24,51 +24,12 @@ git clone https://github.com/c4fcm/DataBasic.git
 cd DataBasic
 ```
 
-**2.** Install and run [virtualenv](http://virtualenv.readthedocs.org/en/latest/). This allows us to run the app on our localhost.
+**2.** Run the installation script. You will be prompted to install virtualenv if you haven't already.
 ```
-pip install virtualenv
-virtualenv venv
-source venv/bin/activate
+sudo bash install.sh
 ```
 
-**3.** Install dependencies.
-
-Install Python packages using [pip](https://pip.pypa.io/en/latest/installing/)
+**3.** Start the app. Run this script and then go to localhost:5000 in your browser
 ```
-[sudo] pip install -r requirements.txt
-```
-Then install the NLTK libraries we're using
-```
-python -m nltk.downloader punkt
-python -m nltk.downloader stopwords
-```
-
-**4.** Generate a secret key in Terminal.
-```
-$ python
->> import os
->> os.urandom(24)
-'/secret/key/to/copy'
->> exit()
-```
-
-Copy + paste this key into `config/settings.py`.
-```
-# config/settings.py
-SECRET_KEY = '/secret/key/to/copy'
-```
-
-**5.** Start the app! Run this shell script and then go to localhost:5000 in your browser
-```
-bash start.sh
-```
-
-## Run
-
-After installation, you can run the app by activating the virtual environment and starting the server. 
-
-```
-cd DataBasic
-source venv/bin/activate
 bash start.sh
 ```
