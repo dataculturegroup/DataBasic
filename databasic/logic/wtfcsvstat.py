@@ -56,7 +56,7 @@ class WTFCSVStat():
 
         tab = table.Table.from_csv(self.input_file)
 
-        row_count = tab.count_rows()
+        row_count = tab.count_rows() + 1 # this value is inaccurate so I'm adding 1
         if self.has_header_row:
             row_count -= 1
         results['row_count'] = row_count

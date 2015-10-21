@@ -48,14 +48,25 @@ def index():
 
 @mod.route('/results')
 def results():
+	
 	counts = None
 	csv_files = None
+	print_counts = []
+
 	uuid = None if not 'id' in request.args else request.args['id']
+
 	if uuid is not None:
 		doc = mongo.get_document('wordcounter', uuid)
 		counts = doc.get('counts')
 		csv_files = doc.get('csv_files')
-	return render_template('wordcounter/results.html', results=counts, csv_files=csv_files)
+
+	# only render the top 40 results on the page (the csv contains all results)
+	for c in range(len(counts)):
+		print_counts.append([])
+		for w in range(_clamp(len(counts[c]), 0, 40)):
+			print_counts[c].append(counts[c][w])
+
+	return render_template('wordcounter/results.html', results=print_counts, csv_files=csv_files)
 
 @mod.route('/download-csv/<file_path>')
 def download_csv(file_path):
@@ -98,3 +109,6 @@ def create_csv_files(counts):
 
 	files.append(filehandler.write_to_csv(['trigram phrase', 'frequency'], trigrams, '-trigram-counts.csv'))
 	return files
+
+def _clamp(n, minn, maxn):
+    return max(min(maxn, n), minn)
