@@ -12,7 +12,7 @@ def index():
 	results = None
 
 	forms = {
-		'paste': WTFCSVPaste('name, shirt_color, siblings\nRahul, blue, 1\nCatherine, red, 2'),
+		# 'paste': WTFCSVPaste('name, shirt_color, siblings\nRahul, blue, 1\nCatherine, red, 2'),
 		'upload': WTFCSVUpload(),
 		'link': WTFCSVLink()
 	}

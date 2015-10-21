@@ -33,3 +33,24 @@ sudo bash install.sh
 ```
 bash start.sh
 ```
+
+## Translating
+### Setup
+```
+$ pybabel extract -F config/babel.cfg databasic/ -o databasic/messages.pot
+$ pybabel init -i databasic/messages.pot -d databasic/translations -l es
+```
+Translate the .po file. If the .po is marked fuzzy, remove 'fuzzy.'
+```
+$ pybabel compile -d databasic/translations
+```
+
+### Updating
+```
+$ pybabel extract -F config/babel.cfg databasic/ -o databasic/messages.pot
+$ pybabel update -i databasic/messages.pot -d databasic/translations
+```
+Translate the .po file. If the .po is marked fuzzy, remove 'fuzzy.'
+```
+$ pybabel compile -d databasic/translations
+```

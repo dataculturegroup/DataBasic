@@ -31,7 +31,7 @@
         {{ kwargs.setdefault('input_type', 'url') }}
     {% endif %}
      <div class="form-group {% if field.errors %}has-error{% endif %} {{ kwargs.pop('class_', '') }}">
-        {% if field.type != 'HiddenField' and label_visible %}
+        {% if field.type != 'HiddenField' and label_visible and field.widget.input_type != 'hidden' %}
             <label for="{{ field.id }}" class="control-label">{{ field.label|safe }}</label>
         {% endif %}
         {{ field(class_=class_, **kwargs) }}
