@@ -43,6 +43,7 @@ bash start.sh
 ```
 $ pybabel extract -F config/babel.cfg databasic/ -o databasic/messages.pot
 $ pybabel init -i databasic/messages.pot -d databasic/translations -l es
+```
 
 ### Updating
 ```
@@ -54,4 +55,5 @@ Translate the .po file. If the .po is marked fuzzy, remove 'fuzzy.'
 $ pybabel compile -d databasic/translations
 $ pojson databasic/translations/es/LC_MESSAGES/messages.po > databasic/translations/es/LC_MESSAGES/messages.json
 ```
+
 Then update `es-locale-data.js` with the json from `databasic/translations/es/LC_MESSAGES/messages.json`
