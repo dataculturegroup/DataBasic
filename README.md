@@ -24,6 +24,8 @@ git clone https://github.com/c4fcm/DataBasic.git
 cd DataBasic
 ```
 
+You will need to register the app with Google. To do that, create a project [in the Google Developers Console](https://console.developers.google.com/project/_/apiui/credential) and copy the credentials into `config/google-credentials.json`.
+
 **2.** Run the installation script. You will be prompted to install virtualenv if you haven't already.
 ```
 sudo bash install.sh
@@ -33,6 +35,8 @@ sudo bash install.sh
 ```
 bash start.sh
 ```
+
+**4.** (Optional) to add sample data, create a directory in the root called `sample-data`. Then in `config/sample-data.json` specify the paths and which tools should use them.
 
 ## Translating
 ### Setup

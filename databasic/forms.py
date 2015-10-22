@@ -1,3 +1,4 @@
+import os
 import json
 from werkzeug import secure_filename
 from flask.ext.babel import lazy_gettext as _
@@ -32,12 +33,15 @@ class SampleForm(object):
 		self.get_samples(tool)
 
 	def get_samples(self, tool):
-		lookup = json.load(open('config/sample-data.json'))
-		texts = []
-		for text in lookup:
-			if tool in text['modules']:
-				texts.append((text['source'], text['title']))
-		self.sample.choices = texts
+		if os.path.isdir('sample-data') and os.path.exists('config/sample-data.json'):
+			lookup = json.load(open('config/sample-data.json'))
+			texts = []
+			for text in lookup:
+				if tool in text['modules']:
+					texts.append((text['source'], text['title']))
+			self.sample.choices = texts
+		else:
+			self.sample.choices = []
 
 class LinkForm(object):
 	field_flags = ('url',)

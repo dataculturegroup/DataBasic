@@ -1,5 +1,7 @@
 from .. import app
 import os, time, tempfile, codecs, unicodecsv
+from pyth.plugins.rtf15.reader import Rtf15Reader
+from pyth.plugins.plaintext.writer import PlaintextWriter
 from flask import Response, abort
 from flask.ext.uploads import UploadSet, configure_uploads, TEXT, patch_request_class, UploadNotAllowed
 from docx import opendocx, getdocumenttext
@@ -10,7 +12,7 @@ ENCODING = 'utf-8'
 # TODO: support .rtf
 TEMP_DIR = tempfile.gettempdir()
 app.config['UPLOADED_DOCS_DEST'] = TEMP_DIR
-docs = UploadSet(name='docs', extensions=('txt', 'docx', 'csv'))
+docs = UploadSet(name='docs', extensions=('txt', 'docx', 'rtf', 'csv'))
 configure_uploads(app, (docs))
 patch_request_class(app, 4 * 1024 * 1024) # 4MB
 
@@ -44,20 +46,23 @@ def generate_csv(file_name):
 def convert_to_txt(file_path):
 	words = None
 	ext = _get_extension(file_path)
-	if ext == ".txt":
+	if ext == '.txt':
 		with codecs.open(file_path, 'r', ENCODING) as myfile:
 			words = myfile.read()
-	elif ext == ".docx":
+	elif ext == '.docx':
 		words = _docx_to_txt(file_path)
+	elif ext == '.rtf':
+		doc = Rtf15Reader.read(open(file_path))
+		words = PlaintextWriter.write(doc).getvalue()
 	return words
 
-def open_doc(csv_file):
+def open_doc(doc):
 	try:
-		file_name = docs.save(csv_file)
+		file_name = docs.save(doc)
 		file_path = os.path.join(TEMP_DIR, file_name)
 		return file_path
 	except UploadNotAllowed:
-		print "gotta be csv"
+		print "supported filetypes: txt, docx, rtf, csv"
 
 def delete_file(file_path):
 	os.remove(file_path)
