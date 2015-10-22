@@ -8,6 +8,10 @@ mod = Blueprint('wtfcsv', __name__, url_prefix='/<lang_code>/wtfcsv', template_f
 @mod.route('/', methods=('GET', 'POST'))
 def index():
 
+	doc_url = oauth.doc_url()
+	if doc_url is not None:
+		return redirect_to_results(process_link(doc_url))
+
 	tab = 'paste' if not 'tab' in request.args else request.args['tab']
 	results = None
 
@@ -26,15 +30,14 @@ def index():
 		elif btn_value == 'upload':
 			results = process_upload(request.files[forms['upload'].data.name])
 		elif btn_value == 'link':
-			doc = oauth.open_doc_from_url(forms['link'].data['link'], request.url + "?tab=link")
+			doc = oauth.open_doc_from_url(forms['link'].data['link'], request.url)
 			if doc['authenticate'] is not None:
-				return (redirect(doc['authenticate']))
+				return redirect(doc['authenticate'])
 			else:
 				results = process_link(doc['doc'])
 
 		if btn_value is not None and btn_value is not u'':
-			uuid = mongo.save_csv('wtfcsv', results)
-			return redirect(request.url + 'results?id=' + uuid)
+			return redirect_to_results(results)
 
 	return render_template('wtfcsv.html', forms=sorted(forms.items()))#, tab=tab)
 
@@ -46,6 +49,10 @@ def results():
 		results = mongo.get_document('wtfcsv', uuid).get('results')
 		print results['row_count']
 	return render_template('wtfcsv/results.html', results=results)
+
+def redirect_to_results(results):
+	uuid = mongo.save_csv('wtfcsv', results)
+	return redirect(request.url + 'results?id=' + uuid)
 
 def process_paste(text):
 	file_path = filehandler.write_to_temp_file(text)

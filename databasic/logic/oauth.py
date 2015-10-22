@@ -9,6 +9,7 @@ def authorize(code):
 	oauth.authorize(code)
 
 def open_doc_from_url(url, redirect_to):
+	oauth.doc_url = url
 	oauth.redirect_to = redirect_to
 	if not oauth.authorized:
 		return {
@@ -24,6 +25,9 @@ def open_doc_from_url(url, redirect_to):
 def redirect_to():
 	return oauth.redirect_to
 
+def doc_url():
+	return oauth.get_doc_url()
+
 '''
 Handler for Google's OAuth2
 https://gist.github.com/cspickert/1650271
@@ -32,7 +36,8 @@ class OAuthHandler:
 
 	def __init__(self, redirect_uri='http://localhost:5000/auth'):
 		self.authorized = False
-		self.redirect_to = ""
+		self.redirect_to = ''
+		self.doc_url = None
 		self._data_client = gdata.docs.service.DocsService() # used for docs
 		self._load_credentials()
 		self.flow = OAuth2WebServerFlow(
@@ -67,5 +72,13 @@ class OAuthHandler:
 		# TODO: make this work with docs as well (only spreadsheets work at the moment)
 		# ^^ (this is very hard :o) ^^
 		return self._client.open_by_url(url)
+
+	def get_doc_url(self):
+		print self.doc_url
+		if self.doc_url is None:
+			return None
+		u = self.open_url(self.doc_url)
+		self.doc_url = None
+		return u
 
 oauth = OAuthHandler()
