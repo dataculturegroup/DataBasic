@@ -24,7 +24,7 @@ git clone https://github.com/c4fcm/DataBasic.git
 cd DataBasic
 ```
 
-You will need to register the app with Google. To do that, create a project [in the Google Developers Console](https://console.developers.google.com/project/_/apiui/credential) and copy the credentials into `config/google-credentials.json`.
+You will need to register the app with Google. To do that, create a project in the [Google Developers Console](https://console.developers.google.com/project/_/apiui/credential) and copy the credentials into `config/google-credentials.json`.
 
 **2.** Run the installation script. You will be prompted to install virtualenv if you haven't already.
 ```
@@ -43,11 +43,6 @@ bash start.sh
 ```
 $ pybabel extract -F config/babel.cfg databasic/ -o databasic/messages.pot
 $ pybabel init -i databasic/messages.pot -d databasic/translations -l es
-```
-Translate the .po file. If the .po is marked fuzzy, remove 'fuzzy.'
-```
-$ pybabel compile -d databasic/translations
-```
 
 ### Updating
 ```
@@ -57,4 +52,6 @@ $ pybabel update -i databasic/messages.pot -d databasic/translations
 Translate the .po file. If the .po is marked fuzzy, remove 'fuzzy.'
 ```
 $ pybabel compile -d databasic/translations
+$ pojson databasic/translations/es/LC_MESSAGES/messages.po > databasic/translations/es/LC_MESSAGES/messages.json
 ```
+Then update `es-locale-data.js` with the json from `databasic/translations/es/LC_MESSAGES/messages.json`

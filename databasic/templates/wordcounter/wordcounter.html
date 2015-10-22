@@ -13,14 +13,5 @@
 </div>
 {% endblock %}
 {% block custom_scripts %}
-<script type="text/javascript">
-  $(".upload").validate({
-      rules: {
-        upload: {
-            required: true,
-              extension: "txt|docx|rtf",
-          }
-      }
-  });
-</script>
+<script type="text/javascript" src="/static/js/wordcounter-validate.js"></script>
 {% endblock %}

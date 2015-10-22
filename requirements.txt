@@ -1,8 +1,9 @@
 flask
 flask_debugtoolbar
 flask-uploads
-Flask-Babel
 Flask-WTF
+Flask-Babel
+pojson
 requests
 nltk
 docx

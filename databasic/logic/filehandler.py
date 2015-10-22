@@ -9,7 +9,6 @@ from docx import opendocx, getdocumenttext
 ENCODING = 'utf-8'
 
 # setup file uploading
-# TODO: support .rtf
 TEMP_DIR = tempfile.gettempdir()
 app.config['UPLOADED_DOCS_DEST'] = TEMP_DIR
 docs = UploadSet(name='docs', extensions=('txt', 'docx', 'rtf', 'csv'))

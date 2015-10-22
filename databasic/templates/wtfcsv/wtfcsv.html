@@ -12,14 +12,5 @@
 </div>
 {% endblock %}
 {% block custom_scripts %}
-<script type="text/javascript">
-	$(".upload").validate({
-	    rules: {
-	    	upload: {
-	      		required: true,
-	          	extension: "csv",
-	        }
-	    }
-	});
-</script>
+<script type="text/javascript" src="/static/js/wtfcsv-validate.js"></script>
 {% endblock %}

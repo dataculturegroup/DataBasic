@@ -28,12 +28,12 @@ def index():
 		if btn_value == 'paste':
 			results = process_paste(forms['paste'].area.data)
 		elif btn_value == 'upload':
-			results = process_upload(request.files[forms['upload'].data.name])
+			results = process_upload(forms['upload'].data['upload'])
 		elif btn_value == 'link':
 			doc = oauth.open_doc_from_url(forms['link'].data['link'], request.url)
 			if doc['authenticate'] is not None:
 				return redirect(doc['authenticate'])
-			else:
+			elif doc['doc'] is not None:
 				results = process_link(doc['doc'])
 
 		if btn_value is not None and btn_value is not u'':

@@ -9,14 +9,15 @@ def authorize(code):
 	oauth.authorize(code)
 
 def open_doc_from_url(url, redirect_to):
-	oauth.doc_url = url
 	oauth.redirect_to = redirect_to
 	if not oauth.authorized:
+		oauth.doc_url = url
 		return {
 			'authenticate': oauth.authenticate_app(),
 			'doc': None
 		}
 	else:
+		oauth.doc_url = None
 		return {
 			'authenticate': None,
 			'doc': oauth.open_url(url)
@@ -36,8 +37,8 @@ class OAuthHandler:
 
 	def __init__(self, redirect_uri='http://localhost:5000/auth'):
 		self.authorized = False
-		self.redirect_to = ''
-		self.doc_url = None
+		self.redirect_to = '' # the url to return to after the user has granted permissions
+		self.doc_url = None	  # the url of the doc to open after the user has granted permissions
 		self._data_client = gdata.docs.service.DocsService() # used for docs
 		self._load_credentials()
 		self.flow = OAuth2WebServerFlow(
@@ -71,10 +72,13 @@ class OAuthHandler:
 	def open_url(self, url):
 		# TODO: make this work with docs as well (only spreadsheets work at the moment)
 		# ^^ (this is very hard :o) ^^
-		return self._client.open_by_url(url)
+		try:
+			return self._client.open_by_url(url)
+		except gspread.SpreadsheetNotFound:
+			self.authorized = False
+			return None
 
 	def get_doc_url(self):
-		print self.doc_url
 		if self.doc_url is None:
 			return None
 		u = self.open_url(self.doc_url)

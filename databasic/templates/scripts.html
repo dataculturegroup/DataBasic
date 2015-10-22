@@ -1,27 +1,15 @@
 <script type="text/javascript">
   $SCRIPT_ROOT = {{ request.script_root|tojson|safe }};
 </script>
-<script type="text/javascript" src="/static/js/jquery.js"></script>
-<script type="text/javascript" src="/static/js/jquery.validate.min.js"></script>
-<script type="text/javascript" src="/static/js/additional-methods.min.js"></script>
-<script type="text/javascript" src="/static/js/bootstrap.min.js"></script>
-<script type="text/javascript">
-	$(".link").validate({
-		rules: {
-			link: {
-				required: true,
-				url: true
-			}
-		}
-	});
-	$(".paste").validate({
-		rules: {
-			paste: {
-				required: true
-			}
-		}
-	});
-</script>
+<script type="text/javascript" src="/static/js/lib/jquery.js"></script>
+<script type="text/javascript" src="/static/js/lib/jquery.validate.min.js"></script>
+<script type="text/javascript" src="/static/js/lib/additional-methods.min.js"></script>
+<script type="text/javascript" src="/static/js/lib/bootstrap.min.js"></script>
+<script type="text/javascript" src="/static/js/lib/Gettext.min.js"></script>
+
+<!-- This is a hacky way of getting locale data for js - worth checking out if it could be improved -->
+<script type="text/javascript" src="/static/js/{{ g['current_lang'] }}-locale-data.js"></script>
+
 <!--<script type="text/javascript">
 
 // Sets the default radio selection and handles showing/hiding panes based on which radio button is pressed

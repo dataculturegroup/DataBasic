@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2015-10-21 17:48-0400\n"
+"POT-Creation-Date: 2015-10-22 16:47-0400\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -17,30 +17,57 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Generated-By: Babel 2.1.1\n"
 
-#: databasic/forms.py:12
+#: databasic/forms.py:13
 msgid "Text"
 msgstr ""
 
-#: databasic/forms.py:22
+#: databasic/forms.py:23
 msgid "Upload file"
 msgstr ""
 
-#: databasic/forms.py:28
+#: databasic/forms.py:29
 msgid "Sample"
 msgstr ""
 
-#: databasic/forms.py:45
+#: databasic/forms.py:49
 msgid "Link to spreadsheet"
 msgstr ""
 
-#: databasic/forms.py:51
+#: databasic/forms.py:55
 msgid "Ignore case"
 msgstr ""
 
-#: databasic/forms.py:55
+#: databasic/forms.py:59
 msgid "Ignore stopwords"
 msgstr ""
 
+#: databasic/static/js/wtfcsv-validate.js:5
+msgid "Link must be a valid Google Spreadsheet"
+msgstr ""
+
+#: databasic/static/js/wtfcsv-validate.js:19
+msgid "The file must be a .csv"
+msgstr ""
+
+#: databasic/templates/home/index.html:14
+#: databasic/templates/wordcounter/wordcounter.html:5
+msgid "Word-Counter"
+msgstr ""
+
+#: databasic/templates/home/index.html:15
+#: databasic/templates/home/index.html:24
+#: databasic/templates/home/index.html:33
+msgid ""
+"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec a diam "
+"lectus. Sed sit amet ipsum mauris."
+msgstr ""
+
+#: databasic/templates/home/index.html:23
+#: databasic/templates/wtfcsv/wtfcsv.html:4
+msgid "WTFcsv"
+msgstr ""
+
+#: databasic/templates/home/index.html:32
 #: databasic/templates/samediff/samediff.html:2
 msgid "SameDiff"
 msgstr ""
@@ -71,10 +98,6 @@ msgstr ""
 
 #: databasic/templates/wordcounter/results.html:22
 msgid "Trigram"
-msgstr ""
-
-#: databasic/templates/wordcounter/wordcounter.html:5
-msgid "Word-Counter"
 msgstr ""
 
 #: databasic/templates/wordcounter/wordcounter.html:10
@@ -127,9 +150,5 @@ msgstr ""
 
 #: databasic/templates/wtfcsv/results.html:48
 msgid "The standard deviation is"
-msgstr ""
-
-#: databasic/templates/wtfcsv/wtfcsv.html:4
-msgid "WTFcsv"
 msgstr ""
 
