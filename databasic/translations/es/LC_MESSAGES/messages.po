@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2015-10-22 16:47-0400\n"
+"POT-Creation-Date: 2015-10-23 12:50-0400\n"
 "PO-Revision-Date: 2015-10-21 12:15-0400\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language: es\n"
@@ -42,13 +42,28 @@ msgstr "caso de omitir"
 msgid "Ignore stopwords"
 msgstr ""
 
-#: databasic/static/js/wtfcsv-validate.js:5
+#: databasic/static/js/wordcounter-validate.js:11
+#: databasic/static/js/wordcounter-validate.js:24
+#: databasic/static/js/wtfcsv-validate.js:21
+#: databasic/static/js/wtfcsv-validate.js:36
+msgid "This field is required"
+msgstr ""
+
+#: databasic/static/js/wordcounter-validate.js:25
+msgid "Only these file types are accepted: txt, docx, rtf"
+msgstr ""
+
+#: databasic/static/js/wtfcsv-validate.js:6
 msgid "Link must be a valid Google Spreadsheet"
 msgstr "Inklay ustmay ebay a alidvay Google Spreadsheet"
 
-#: databasic/static/js/wtfcsv-validate.js:19
+#: databasic/static/js/wtfcsv-validate.js:22
 msgid "The file must be a .csv"
 msgstr "Ethay ilefay ustmay ebay a .csv"
+
+#: databasic/static/js/wtfcsv-validate.js:37
+msgid "You must input a URL"
+msgstr "ouya ustmay inputay a URL"
 
 #: databasic/templates/home/index.html:14
 #: databasic/templates/wordcounter/wordcounter.html:5
@@ -106,50 +121,50 @@ msgstr ""
 msgid "Submit"
 msgstr "Ubmitsay"
 
-#: databasic/templates/wtfcsv/results.html:2
+#: databasic/templates/wtfcsv/results.html:3
 msgid "WTFcsv results"
 msgstr ""
 
-#: databasic/templates/wtfcsv/results.html:8
+#: databasic/templates/wtfcsv/results.html:9
 #, python-format
 msgid "You have %(num)s row of data."
 msgid_plural "You have %(num)s rows of data."
 msgstr[0] ""
 msgstr[1] ""
 
-#: databasic/templates/wtfcsv/results.html:9
+#: databasic/templates/wtfcsv/results.html:10
 msgid "Here's a bit of info about each one:"
 msgstr ""
 
-#: databasic/templates/wtfcsv/results.html:23
+#: databasic/templates/wtfcsv/results.html:24
 msgid "This column is full of"
 msgstr ""
 
-#: databasic/templates/wtfcsv/results.html:26
+#: databasic/templates/wtfcsv/results.html:27
 msgid "This unique values in this column are:"
 msgstr ""
 
-#: databasic/templates/wtfcsv/results.html:33
+#: databasic/templates/wtfcsv/results.html:34
 msgid "The smallest number is"
 msgstr ""
 
-#: databasic/templates/wtfcsv/results.html:36
+#: databasic/templates/wtfcsv/results.html:37
 msgid "The biggest number is"
 msgstr ""
 
-#: databasic/templates/wtfcsv/results.html:39
+#: databasic/templates/wtfcsv/results.html:40
 msgid "The total is"
 msgstr ""
 
-#: databasic/templates/wtfcsv/results.html:42
+#: databasic/templates/wtfcsv/results.html:43
 msgid "The average is"
 msgstr ""
 
-#: databasic/templates/wtfcsv/results.html:45
+#: databasic/templates/wtfcsv/results.html:46
 msgid "The median is"
 msgstr ""
 
-#: databasic/templates/wtfcsv/results.html:48
+#: databasic/templates/wtfcsv/results.html:49
 msgid "The standard deviation is"
 msgstr ""
 
