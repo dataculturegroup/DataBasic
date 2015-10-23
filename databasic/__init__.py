@@ -3,7 +3,7 @@ from flask_debugtoolbar import DebugToolbarExtension
 from flask.ext.babel import Babel
 from babel.support import LazyProxy
 from logic import oauth
-from logic.mongohandler import MongoHandler
+from logic.db import MongoHandler
 
 app = Flask(__name__, instance_relative_config=False)
 

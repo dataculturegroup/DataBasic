@@ -1,2 +1,17 @@
+
 {% extends "base.html" %}
+{% from 'macros.html' import render_form %}
+
 {% block title %}{{ _('SameDiff') }}{% endblock %}
+{% block body %}
+<div class="container">
+	{% for t, form in forms %}
+	<div class="row">
+		{{ render_form(form, class_=t, action_url='samediff', action_text=_('Submit')) }}
+	</div>
+	{% endfor %}
+</div>
+{% endblock %}
+{% block custom_scripts %}
+<script type="text/javascript" src="/static/js/samediff-validate.js"></script>
+{% endblock %}

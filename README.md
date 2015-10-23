@@ -14,7 +14,7 @@ More importantly, we’ll be providing an introductory video and simple training
 
 # Developers
 
-DataBasic is a Python 2.7 [Flask](https://github.com/mitsuhiko/flask) app.
+DataBasic is a Python 2.7.10 [Flask](https://github.com/mitsuhiko/flask) app.
 
 ## Installation
 

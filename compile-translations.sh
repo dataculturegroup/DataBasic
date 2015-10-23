@@ -1,3 +1,4 @@
+#!/bin/bash
 
 JSONFILE=databasic/translations/es/LC_MESSAGES/messages.json
 ES_FILE=databasic/static/js/es-locale-data.js
