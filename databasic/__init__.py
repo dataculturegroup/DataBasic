@@ -1,6 +1,7 @@
 from flask import Flask, Blueprint, g, redirect, request, abort
-from flask_debugtoolbar import DebugToolbarExtension
 from flask.ext.babel import Babel
+from flask_debugtoolbar import DebugToolbarExtension
+from sassutils.wsgi import SassMiddleware
 from babel.support import LazyProxy
 from logic import oauth
 from logic.db import MongoHandler
@@ -16,6 +17,10 @@ app.config.from_pyfile('../config/settings.py')
 # Load the file specified by the APP_CONFIG_FILE environment variable
 # Variables defined here will override those in the default configuration
 app.config.from_envvar('APP_CONFIG_FILE')
+
+app.wsgi_app = SassMiddleware(app.wsgi_app, {
+	'databasic': ('static/sass', 'static/css', '/static/css')
+})
 
 babel = Babel(app)
 mongo = MongoHandler(app)

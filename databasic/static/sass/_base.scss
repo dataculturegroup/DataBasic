@@ -1,0 +1,11 @@
+@charset "UTF-8";
+
+// Config
+@import "settings/fonts";
+
+// Layout
+@import "layout/nav";
+
+body {
+	background-image: url("/static/img/background_tile_tiny.png");
+}

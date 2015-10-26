@@ -1,11 +1,11 @@
 <script type="text/javascript">
   $SCRIPT_ROOT = {{ request.script_root|tojson|safe }};
 </script>
-<script type="text/javascript" src="/static/js/lib/jquery.js"></script>
-<script type="text/javascript" src="/static/js/lib/jquery.validate.min.js"></script>
-<script type="text/javascript" src="/static/js/lib/additional-methods.min.js"></script>
-<script type="text/javascript" src="/static/js/lib/bootstrap.min.js"></script>
-<script type="text/javascript" src="/static/js/lib/Gettext.min.js"></script>
+<script type="text/javascript" src="{{ url_for('static', filename='js/lib/jquery.js') }}"></script>
+<script type="text/javascript" src="{{ url_for('static', filename='js/lib/jquery.validate.min.js') }}"></script>
+<script type="text/javascript" src="{{ url_for('static', filename='js/lib/additional-methods.min.js') }}"></script>
+<script type="text/javascript" src="{{ url_for('static', filename='js/lib/bootstrap.min.js') }}"></script>
+<script type="text/javascript" src="{{ url_for('static', filename='js/lib/Gettext.min.js') }}"></script>
 
 <!-- This is a hacky way of getting locale data for js - worth checking out if it could be improved -->
 <script type="text/javascript" src="/static/js/{{ g['current_lang'] }}-locale-data.js"></script>

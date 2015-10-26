@@ -1,0 +1,48 @@
+@charset "UTF-8";
+
+.navbar {
+	min-height: 125px;
+	border-radius: 0;
+}
+
+.navbar-default {
+	background-color: $c-primary;
+	border: none;
+	box-shadow: 0px 0px 10px 5px rgba(0,0,0,0.3);
+
+	.navbar-toggle {
+		border: none;
+		border-radius: 0;
+
+		.icon-bar {
+			background-color: $c-secondary;
+			font-size: 18px;
+			width: 44px;
+			height: 7px;
+			border-radius: 0;
+		}
+	}
+
+	.navbar-nav > li > a {
+		color: $c-secondary;
+		font-size: 18px;
+	}
+}
+
+.navbar-brand {
+	max-width: 256px;
+
+	img {
+		width: 66%;
+		margin-top: -40px;
+	}
+}
+
+#nav-container {
+	padding-top: 65px;
+}
+
+#language-selector {
+	float: right;
+	padding: 10px;
+}

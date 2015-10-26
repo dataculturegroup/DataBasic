@@ -9,3 +9,5 @@ terminal.glue
 config/settings.py
 config/google-credentials.json
 config/sample-data.json
+*.scss.css
+*.scss.css.map

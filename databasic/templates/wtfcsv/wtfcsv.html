@@ -2,6 +2,9 @@
 {% from 'macros.html' import render_form %}
 
 {% block title %}{{ _('WTFcsv') }}{% endblock %}
+{% block custom_css %}
+	<link href="{{ url_for('static', filename='css/wtfcsv.scss.css') }}" rel="stylesheet" type="text/css">
+{% endblock %}
 {% block body %}
 <div class="container">
 	{% for t, form in forms %}

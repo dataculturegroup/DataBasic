@@ -55,4 +55,3 @@ echo "Creating settings.py for this instance"
 echo "SECRET_KEY='yoursecretkey'" > config/settings.py
 echo "Installation complete."
 
-# 0x2

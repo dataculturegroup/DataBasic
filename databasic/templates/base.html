@@ -4,9 +4,9 @@
 	{% block head %}
 	<meta charset="utf-8">
 	<title>{% block title %}{% endblock %}</title>
-	<link href="/static/css/bootstrap.min.css" rel="stylesheet">
-	<link href="/static/css/style.css" rel="stylesheet">
+	<link href="{{ url_for('static', filename='css/bootstrap.min.css') }}" rel="stylesheet">
 	{% endblock %}
+	{% block custom_css %}{% endblock %}
 </head>
 <body>
 	{% include 'nav.html' %}
