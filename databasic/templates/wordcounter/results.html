@@ -1,5 +1,8 @@
 {% extends "results_base.html" %}
 {% block title %}{{ _('Word-Counter results') }}{% endblock %}
+{% block custom_css %}
+	<link href="{{ url_for('static', filename='css/wordcounter.scss.css') }}" rel="stylesheet" type="text/css">
+{% endblock %}
 {% block body %}
 <div class="container">
 	<table>

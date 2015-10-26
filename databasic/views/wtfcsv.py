@@ -46,7 +46,7 @@ def results():
 	results = None
 	uuid = None if not 'id' in request.args else request.args['id']
 	if uuid is not None:
-		results = mongo.get_document('wtfcsv', uuid).get('results')
+		results = mongo.find_document('wtfcsv', uuid).get('results')
 		print results['row_count']
 	return render_template('wtfcsv/results.html', results=results)
 

@@ -30,5 +30,11 @@ class MongoHandler:
 			})
 		return uuid
 
-	def get_document(self, collection, uuid):
+	def save_job(self, collection, job_info):
+		self._db[collection].save(job_info)
+
+	def find_document(self, collection, uuid):
 		return self._db[collection].find({'uuid': uuid})[0]
+
+	def find_job(self, collection, job_id):
+		return self._db[collection].find({'_id': ObjectId(job_id)})

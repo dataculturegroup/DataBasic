@@ -56,7 +56,7 @@ def results():
 	uuid = None if not 'id' in request.args else request.args['id']
 
 	if uuid is not None:
-		doc = mongo.get_document('wordcounter', uuid)
+		doc = mongo.find_document('wordcounter', uuid)
 		counts = doc.get('counts')
 		csv_files = doc.get('csv_files')
 

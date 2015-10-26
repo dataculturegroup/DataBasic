@@ -1,6 +1,9 @@
 {% extends "results_base.html" %}
 {% from 'macros.html' import share %}
 {% block title %}{{ _('WTFcsv results') }}{% endblock %}
+{% block custom_css %}
+	<link href="{{ url_for('static', filename='css/wtfcsv.scss.css') }}" rel="stylesheet" type="text/css">
+{% endblock %}
 {% block body %}
 <div class="container">
 	<div class="row">

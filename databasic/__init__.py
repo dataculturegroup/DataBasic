@@ -18,6 +18,7 @@ app.config.from_pyfile('../config/settings.py')
 # Variables defined here will override those in the default configuration
 app.config.from_envvar('APP_CONFIG_FILE')
 
+# Setup sass auto-compiling
 app.wsgi_app = SassMiddleware(app.wsgi_app, {
 	'databasic': ('static/sass', 'static/css', '/static/css')
 })
