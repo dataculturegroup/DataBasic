@@ -30,6 +30,17 @@ class MongoHandler:
 			})
 		return uuid
 
+	def save_queued_files(self, collection, filepaths, filenames, email):
+		uuid = shortuuid.uuid()
+		self._db[collection].save({
+			'filepaths': filepaths,
+			'filenames': filenames,
+			'email': email,
+			'status': 'queued',
+			'uuid': uuid
+			})
+		return uuid
+
 	def save_job(self, collection, job_info):
 		self._db[collection].save(job_info)
 

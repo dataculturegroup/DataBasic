@@ -68,6 +68,8 @@ def convert_to_csv(file_path):
 			for row in xrange(sh.nrows):
 				writer.writerow(sh.row_values(row))
 		return new_file
+	print ext + ' could not be converted to csv'
+	return file_path
 
 def open_doc(doc):
 	try:
@@ -75,7 +77,13 @@ def open_doc(doc):
 		file_path = os.path.join(TEMP_DIR, file_name)
 		return file_path
 	except UploadNotAllowed:
-		print "supported filetypes: txt, docx, rtf, csv, xlsx, xls"
+		print "supported filetypes: txt, docx, rtf, csv, xlsx, xls, love"
+
+def open_docs(docs):
+	file_paths = []
+	for doc in docs:
+		file_paths.append(open_doc(doc))
+	return file_paths
 
 def delete_file(file_path):
 	os.remove(file_path)
@@ -102,6 +110,15 @@ def get_samples(tool_id):
 		choices = texts
 	return choices
 
+def get_file_names(file_paths):
+	file_names = []
+	for f in file_paths:
+		file_names.append(_get_file_name(f))
+	return file_names
+
+def _get_file_name(file_path):
+	return os.path.split(file_path)[1]
+
 def _get_temp_file(file_name_suffix=None):
 	file_name = time.strftime("%Y%m%d-%H%M%S")
 	if file_name_suffix is not None:
@@ -110,9 +127,6 @@ def _get_temp_file(file_name_suffix=None):
 
 def _get_extension(file_path):
 	return os.path.splitext(file_path)[1]
-
-def _get_file_name(file_path):
-	return os.path.split(file_path)[1]
 
 def _docx_to_txt(file_path):
 	# http://davidmburke.com/2014/02/04/python-convert-documents-doc-docx-odt-pdf-to-plain-text-without-libreoffice/

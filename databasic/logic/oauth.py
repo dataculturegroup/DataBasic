@@ -77,6 +77,9 @@ class OAuthHandler:
 		except gspread.SpreadsheetNotFound:
 			self.authorized = False
 			return None
+		except gspread.NoValidUrlKeyFound:
+			self.authorized = False
+			return None
 
 	def get_doc_url(self):
 		if self.doc_url is None:
