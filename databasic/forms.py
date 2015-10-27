@@ -1,17 +1,15 @@
-import os
-import json
+import os, json
+from logic import filehandler
 from werkzeug import secure_filename
 from flask.ext.babel import lazy_gettext as _
 from flask_wtf import Form
 from flask_wtf.file import FileField
-from wtforms import StringField, BooleanField, RadioField, SelectField
+from wtforms import StringField, BooleanField, RadioField, SelectField, SelectMultipleField
 from wtforms.widgets import TextArea, TextInput, CheckboxInput
-from wtforms.validators import Length, Regexp, Optional, Required, URL, Email
 
 class PasteForm(object):
 	area = StringField(
 		_('Text'),
-		validators=[Required()], 
 		widget=TextArea()) 
 	
 	def __init__(self, default_text=''):
@@ -19,41 +17,35 @@ class PasteForm(object):
 		self.area.default = default_text # not working rn
 
 class UploadForm(object):
+	multiple = False
 	upload = FileField(
-		_('Upload file'),
-		# validators=[Regexp(r'^.*\.(txt|docx)$')])
-		validators=[Required()])
+		_('Upload file'))
 
 class SampleForm(object):
 	sample = SelectField(
 		_('Sample'))
 
-	def __init__(self, tool):
+	def __init__(self, tool_id):
 		super(SampleForm, self).__init__()
-		self.get_samples(tool)
+		self.sample.choices = filehandler.get_samples(tool_id)
 
-	def get_samples(self, tool):
-		if os.path.isdir('sample-data') and os.path.exists('config/sample-data.json'):
-			lookup = json.load(open('config/sample-data.json'))
-			texts = []
-			for text in lookup:
-				if tool in text['modules']:
-					texts.append((text['source'], text['title']))
-			self.sample.choices = texts
-		else:
-			self.sample.choices = []
+class MultipleSampleForm(object):
+	samples = SelectMultipleField(
+		_('Samples'))
+
+	def __init__(self, tool_id):
+		super(MultipleSampleForm, self).__init__()
+		self.samples.choices = filehandler.get_samples(tool_id)
 
 class LinkForm(object):
 	field_flags = ('url',)
 	link = StringField(
 		_('Link to spreadsheet'),
-		validators=[URL(), Required()],
 		widget=TextInput())
 
 '''
 Word-Counter forms
 '''
-
 class WordCounterForm(object):
 	ignore_case = BooleanField(
 		_('Ignore case'), 
@@ -72,13 +64,12 @@ class WordCounterUpload(UploadForm, WordCounterForm, Form):
 	pass
 
 class WordCounterSample(SampleForm, WordCounterForm, Form):
-	def __init__(self, tool):
-		super(WordCounterSample, self).__init__(tool)
+	def __init__(self):
+		super(WordCounterSample, self).__init__('wordcounter')
 
 '''
 WTFcsv forms
 '''
-
 class WTFCSVPaste(PasteForm, Form):
 	def __init__(self, default_text=''):
 		super(WTFCSVPaste, self).__init__(default_text)
@@ -92,12 +83,14 @@ class WTFCSVLink(LinkForm, Form):
 '''
 SameDiff forms
 '''
-
 class SameDiffForm(object):
 	email = StringField(
 		_('Email'),
-		validators=[Required(), Email()],
 		widget=TextInput())
 
 class SameDiffUpload(UploadForm, SameDiffForm, Form):
-	pass
+	multiple = True
+
+class SameDiffSample(MultipleSampleForm, SameDiffForm, Form):
+	def __init__(self):
+		super(SameDiffSample, self).__init__('samediff')

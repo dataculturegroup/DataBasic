@@ -20,7 +20,7 @@ def index():
 	forms = {
 		'paste': WordCounterPaste('I am Sam\nSam I am\nThat Sam-I-am!\nThat Sam-I-am!\nI do not like that Sam-I-am!\nDo you like \ngreen eggs and ham?\nI do not like them, Sam-I-am.\nI do not like\ngreen eggs and ham.\nWould you like them \nhere or there?\nI would not like them\nhere or there.\nI would not like them anywhere.'),
 		'upload': WordCounterUpload(),
-		'sample': WordCounterSample('wordcounter')
+		'sample': WordCounterSample()
 	}
 
 	if request.method == 'POST':
@@ -44,7 +44,7 @@ def index():
 			uuid = mongo.save_words('wordcounter', counts, csv_files, ignore_case, ignore_stopwords)
 			return redirect(request.url + 'results?id=' + uuid)
 
-	return render_template('wordcounter.html', forms=sorted(forms.items()))#form=form, tab=tab)
+	return render_template('wordcounter.html', forms=sorted(forms.items()))
 
 @mod.route('/results')
 def results():

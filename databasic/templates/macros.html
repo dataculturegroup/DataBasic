@@ -13,6 +13,8 @@
                     {{ render_checkbox_field(f) }}
                 {% elif f.type == 'RadioField' %}
                     {{ render_radio_field(f) }}
+                {% elif f.type == 'FileField' %}
+                    {{ render_upload_field(f, form.multiple) }}
                 {% else %}
                     {{ render_field(f) }}
                 {% endif %}
@@ -24,20 +26,21 @@
 
 {% macro render_field(field, label_visible=true) -%}
     {% set class_ = 'form-control' %}
-    {% if field.flags.required %}
-        {{ kwargs.setdefault('required', '') }}
-    {% endif %}
     {% if field.flags.url %}
         {{ kwargs.setdefault('input_type', 'url') }}
     {% endif %}
      <div class="form-group {% if field.errors %}has-error{% endif %} {{ kwargs.pop('class_', '') }}">
+        
         {% if field.type != 'HiddenField' and label_visible and field.widget.input_type != 'hidden' %}
             <label for="{{ field.id }}" class="control-label">{{ field.label|safe }}</label>
         {% endif %}
+
         {{ field(class_=class_, **kwargs) }}
+
         {% if field.errors %}
             <p class="help-block">{{ field.errors|join(', ') }}</p>
         {% endif %}
+
         {% if field.description %}
             <p class="help-block">{{ field.description|safe }}</p>
         {% endif %}
@@ -78,6 +81,26 @@
             </label>
         </div>
     {% endfor %}
+{%- endmacro %}
+
+{# Renders upload field
+    Params:
+        field - WTForm field (there are no check, but you should put here only BooleanField.
+        kwargs - pass any arguments you want in order to put them into the html attributes.
+        There are few exceptions: for - for_, class - class_, class__ - class_
+
+    Example usage:
+        {{ macros.render_upload_field(form.upload, True) }}
+ #}
+{% macro render_upload_field(field, multiple) -%}
+    <div class="form-group {% if field.errors %}has-error{% endif %} {{ kwargs.pop('class_', '') }}">
+        <label for="{{ field.id }}" class="control-label">{{ field.label|safe }}</label>
+        {% if multiple %}
+            {{ field(class='form-control', multiple=True, **kwargs) }}
+        {% else %}
+            {{ field(class='form-control', **kwargs) }} 
+        {% endif %}
+    </div>
 {%- endmacro %}
 
 {% macro share(facebook=true, twitter=true) -%}

@@ -2,12 +2,12 @@
 $(document).ready(function(){
 	$(".paste").validate({
 		rules: {
-			paste: {
+			area: {
 				required: true
 			}
 		},
 		messages: {
-			paste: {
+			area: {
 				required: _("This field is required")
 			}
 		}
@@ -16,12 +16,12 @@ $(document).ready(function(){
 		rules: {
 			upload: {
 				required: true,
-				extension: "txt|docx|rtf",
+				extension: "txt|docx|rtf"
 			}
 		},
 		messages: {
 			upload: {
-				required: _("This field is required")
+				required: _("This field is required"),
 				extension: _("Only these file types are accepted: txt, docx, rtf")
 			}
 		}

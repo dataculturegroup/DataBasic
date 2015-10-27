@@ -1,5 +1,5 @@
 from .. import app
-import os, time, tempfile, codecs, unicodecsv
+import os, time, tempfile, codecs, unicodecsv, json
 from pyth.plugins.rtf15.reader import Rtf15Reader
 from pyth.plugins.plaintext.writer import PlaintextWriter
 from flask import Response, abort
@@ -76,6 +76,17 @@ def open_sheet(sheet):
 			writer = unicodecsv.writer(f, encoding=ENCODING, delimiter=str(u';'), quotechar=str(u'"'))
 			writer.writerows(worksheet.get_all_values())
 	return first
+
+def get_samples(tool_id):
+	choices = []
+	if os.path.isdir('sample-data') and os.path.exists('config/sample-data.json'):
+		lookup = json.load(open('config/sample-data.json'))
+		texts = []
+		for text in lookup:
+			if tool_id in text['modules']:
+				texts.append((text['source'], text['title']))
+		choices = texts
+	return choices
 
 def _get_temp_file(file_name_suffix=None):
 	file_name = time.strftime("%Y%m%d-%H%M%S")
