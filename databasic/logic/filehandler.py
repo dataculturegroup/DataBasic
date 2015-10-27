@@ -1,5 +1,5 @@
 from .. import app
-import os, time, tempfile, codecs, unicodecsv, json
+import os, time, tempfile, codecs, unicodecsv, json, xlrd
 from pyth.plugins.rtf15.reader import Rtf15Reader
 from pyth.plugins.plaintext.writer import PlaintextWriter
 from flask import Response, abort
@@ -11,7 +11,7 @@ ENCODING = 'utf-8'
 # setup file uploading
 TEMP_DIR = tempfile.gettempdir()
 app.config['UPLOADED_DOCS_DEST'] = TEMP_DIR
-docs = UploadSet(name='docs', extensions=('txt', 'docx', 'rtf', 'csv'))
+docs = UploadSet(name='docs', extensions=('txt', 'docx', 'rtf', 'csv', 'xlsx', 'xls'))
 configure_uploads(app, (docs))
 patch_request_class(app, 4 * 1024 * 1024) # 4MB
 
@@ -55,19 +55,33 @@ def convert_to_txt(file_path):
 		words = PlaintextWriter.write(doc).getvalue()
 	return words
 
+def convert_to_csv(file_path):
+	ext = _get_extension(file_path)
+	if ext == '.csv':
+		return file_path
+	elif ext == '.xlsx' or ext == '.xls':
+		wb = xlrd.open_workbook(file_path)
+		sh = wb.sheet_by_index(0)
+		new_file = _get_temp_file('-worksheet.csv')
+		with open(new_file, 'wb') as f:
+			writer = unicodecsv.writer(f, encoding=ENCODING, delimiter=str(u';'), quotechar=str(u'"'))
+			for row in xrange(sh.nrows):
+				writer.writerow(sh.row_values(row))
+		return new_file
+
 def open_doc(doc):
 	try:
 		file_name = docs.save(doc)
 		file_path = os.path.join(TEMP_DIR, file_name)
 		return file_path
 	except UploadNotAllowed:
-		print "supported filetypes: txt, docx, rtf, csv"
+		print "supported filetypes: txt, docx, rtf, csv, xlsx, xls"
 
 def delete_file(file_path):
 	os.remove(file_path)
 
 def open_sheet(sheet):
-	first = ""
+	first = ''
 	for i, worksheet in enumerate(sheet.worksheets()):
 		file_path = _get_temp_file('-worksheet' + str(i) + '.csv')
 		if i == 0:

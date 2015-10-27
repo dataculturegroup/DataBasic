@@ -60,6 +60,7 @@ def process_paste(text):
 
 def process_upload(csv_file):
 	file_path = filehandler.open_doc(csv_file)
+	file_path = filehandler.convert_to_csv(file_path)
 	results = wtfcsvstat.get_summary(file_path)
 	filehandler.delete_file(file_path)
 	return results

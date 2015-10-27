@@ -13,13 +13,13 @@ $(document).ready(function(){
 	    rules: {
 	    	upload: {
 	      		required: true,
-	          	extension: "csv"
+	          	extension: "csv|xlsx|xls"
 	        }
 	    },
 	    messages: {
 	    	upload: {
 	    		required: _("This field is required"),
-	    		extension: _("The file must be a .csv")
+	    		extension: _("Only these file types are accepted: csv, xls, xlsx")
 	    	}
 	    }
 	});

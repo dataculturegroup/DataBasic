@@ -9,6 +9,7 @@ nltk
 docx
 unicodecsv
 csvkit
+xlrd
 gspread
 gdata
 oauth2client
