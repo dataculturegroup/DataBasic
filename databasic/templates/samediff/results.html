@@ -3,4 +3,15 @@
 {% block custom_css %}
 	<link href="{{ url_for('static', filename='css/samediff.scss.css') }}" rel="stylesheet" type="text/css">
 {% endblock %}
-{% block body %}{% endblock %}
+{% block body %}
+<div class="container">
+	<div class="row">
+		<div class="col-md-12">
+		{% if not results['tfidf'] %}
+		<h1>{{ _('Your results are being processed. We\'ll send you an email when they\'re ready, at which point you can reload this page to see them.') }}</h1>
+		<h2>{{ _('We emailed ') }} {{ results['email'] }}</h2>
+		{% endif %}
+		</div>
+	</div>
+</div>
+{% endblock %}

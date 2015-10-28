@@ -1,4 +1,4 @@
-from .. import mongo
+from ..application import mongo
 from ..forms import WTFCSVPaste, WTFCSVUpload, WTFCSVLink
 from ..logic import wtfcsvstat, filehandler, oauth
 from flask import Blueprint, render_template, request, redirect
@@ -44,15 +44,15 @@ def index():
 @mod.route('/results')
 def results():
 	results = None
-	uuid = None if not 'id' in request.args else request.args['id']
-	if uuid is not None:
-		results = mongo.find_document('wtfcsv', uuid).get('results')
+	doc_id = None if not 'id' in request.args else request.args['id']
+	if doc_id is not None:
+		results = mongo.find_document('wtfcsv', doc_id).get('results')
 		print results['row_count']
 	return render_template('wtfcsv/results.html', results=results)
 
 def redirect_to_results(results):
-	uuid = mongo.save_csv('wtfcsv', results)
-	return redirect(request.url + 'results?id=' + uuid)
+	doc_id = mongo.save_csv('wtfcsv', results)
+	return redirect(request.url + 'results?id=' + doc_id)
 
 def process_paste(text):
 	file_path = filehandler.write_to_temp_file(text)

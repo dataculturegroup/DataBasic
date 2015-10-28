@@ -1,4 +1,4 @@
-from .. import app, mongo
+from ..application import app, mongo
 from ..forms import WordCounterPaste, WordCounterUpload, WordCounterSample
 from ..logic import wordhandler, filehandler, oauth
 from flask import Blueprint, render_template, request, redirect
@@ -41,8 +41,8 @@ def index():
 
 		if words is not None:
 			counts, csv_files = process_words(words, ignore_case, ignore_stopwords)
-			uuid = mongo.save_words('wordcounter', counts, csv_files, ignore_case, ignore_stopwords)
-			return redirect(request.url + 'results?id=' + uuid)
+			doc_id = mongo.save_words('wordcounter', counts, csv_files, ignore_case, ignore_stopwords)
+			return redirect(request.url + 'results?id=' + doc_id)
 
 	return render_template('wordcounter.html', forms=sorted(forms.items()))
 
@@ -53,10 +53,10 @@ def results():
 	csv_files = None
 	print_counts = []
 
-	uuid = None if not 'id' in request.args else request.args['id']
+	doc_id = None if not 'id' in request.args else request.args['id']
 
-	if uuid is not None:
-		doc = mongo.find_document('wordcounter', uuid)
+	if doc_id is not None:
+		doc = mongo.find_document('wordcounter', doc_id)
 		counts = doc.get('counts')
 		csv_files = doc.get('csv_files')
 

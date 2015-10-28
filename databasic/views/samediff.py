@@ -1,13 +1,14 @@
-from .. import mongo
+from ..application import mongo, app
 from ..forms import SameDiffUpload, SameDiffSample
 from ..logic import filehandler
-from flask import Blueprint, render_template, request
+import databasic.tasks
+from flask import Blueprint, render_template, request, redirect, url_for, g
 
 mod = Blueprint('samediff', __name__, url_prefix='/<lang_code>/samediff', template_folder='../templates/samediff')
 
 @mod.route('/', methods=('GET', 'POST'))
 def index():
-	
+	print filehandler.TEMP_DIR
 	forms = {
 		'upload': SameDiffUpload(),
 		'sample': SameDiffSample()
@@ -17,6 +18,7 @@ def index():
 
 		btn_value = request.form['btn']
 		email = None
+		is_sample_data = False
 
 		if btn_value == 'upload':
 			files = request.files.getlist('upload')
@@ -24,19 +26,25 @@ def index():
 			email = forms['upload'].data['email']
 		elif btn_value == 'sample':
 			file_paths = forms['sample'].data['samples']
+			is_sample_data = True
 			email = forms['sample'].data['email']
 
 		if btn_value is not None and btn_value is not u'':
-			queue_files(file_paths, email)
+			return queue_files(file_paths, is_sample_data, email)
 
 	return render_template('samediff/samediff.html', forms=sorted(forms.items()))
 
 @mod.route('/results')
 def results():
-	uuid = None if not 'id' in request.args else request.args['id']
-	return render_template('samediff/results.html')
+	doc_id = None if not 'id' in request.args else request.args['id']
+	results = mongo.find_document('samediff', doc_id)
+	return render_template('samediff/results.html', results=results)
 
-def queue_files(file_paths, email):
+def queue_files(file_paths, is_sample_data, email):
 	file_names = filehandler.get_file_names(file_paths)
-	job_id = mongo.save_queued_files('samediff', file_paths, file_names, email)
-	print job_id
+	job_id = mongo.save_queued_files('samediff', file_paths, file_names, is_sample_data, email, request.url + 'results?id=')
+	try:
+		result = databasic.tasks.save_tfidf_results.delay(job_id)
+	except:
+		print "Redis server is not running"
+	return redirect(request.url + 'results?id=' + job_id)

@@ -1,4 +1,4 @@
-from .. import app
+from ..application import app
 import os, time, tempfile, codecs, unicodecsv, json, xlrd
 from pyth.plugins.rtf15.reader import Rtf15Reader
 from pyth.plugins.plaintext.writer import PlaintextWriter

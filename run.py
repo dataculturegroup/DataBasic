@@ -1,4 +1,4 @@
-from databasic import app
+from databasic import application
 
 if __name__ == '__main__':
-	app.run()
+	application.app.run()

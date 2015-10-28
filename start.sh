@@ -10,4 +10,6 @@ export APP_CONFIG_FILE=../config/development.py
 # set APP_CONFIG_FILE=..\config\development.py
 
 alias activate=". venv/bin/activate"
-python run.py
+redis-server & celery -A databasic worker --app=databasic.celeryapp --loglevel=info & python run.py
+ps auxww | grep 'celery worker' | awk '{print $2}' | xargs kill -9
+redis-cli shutdown

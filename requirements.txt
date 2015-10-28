@@ -16,6 +16,6 @@ oauth2client
 pymongo
 celery
 redis
-shortuuid
+envelopes
 pyth
 libsass

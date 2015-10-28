@@ -1,51 +1,46 @@
 import datetime
-import shortuuid
 from pymongo import MongoClient
+from bson.objectid import ObjectId
+from databasic import settings
 
 class MongoHandler:
 
 	def __init__(self, app):
-		uri = "mongodb://" + app.config['MONGO_HOST'] + ":" + str(app.config['MONGO_PORT'])
+		uri = 'mongodb://' + settings.get('db', 'host') + ':' + str(settings.get('db', 'port'))
 		self._client = MongoClient(uri)
 		self._db = self._client['DataBasic']
 	
 	def save_words(self, collection, counts, csv_files, ignore_case, ignore_stopwords):
-		uuid = shortuuid.uuid()
-		self._db[collection].save({
+		return str(self._db[collection].save({
 			'counts': counts,
 			'csv_files': csv_files,
 			'ignore_case': ignore_case,
 			'ignore_stopwords': ignore_stopwords,
-			'datetime': datetime.datetime.now(),
-			'uuid': uuid
-			})
-		return uuid
+			'datetime': datetime.datetime.now()
+			}))
 
 	def save_csv(self, collection, results):
-		uuid = shortuuid.uuid()
-		self._db[collection].save({
+		return str(self._db[collection].save({
 			'results': results,
-			'datetime': datetime.datetime.now(),
-			'uuid': uuid
-			})
-		return uuid
+			'datetime': datetime.datetime.now()
+			}))
 
-	def save_queued_files(self, collection, filepaths, filenames, email):
-		uuid = shortuuid.uuid()
-		self._db[collection].save({
+	def save_queued_files(self, collection, filepaths, filenames, is_sample_data, email, results_url_base):
+		doc_id = str(self._db[collection].save({
 			'filepaths': filepaths,
 			'filenames': filenames,
+			'is_sample_data': is_sample_data,
 			'email': email,
-			'status': 'queued',
-			'uuid': uuid
-			})
-		return uuid
+			'status': 'queued'
+			}))
+		self.update_document(collection, doc_id, {'$set': {'results_url': results_url_base + doc_id}})
+		return doc_id
 
 	def save_job(self, collection, job_info):
 		self._db[collection].save(job_info)
 
-	def find_document(self, collection, uuid):
-		return self._db[collection].find({'uuid': uuid})[0]
+	def find_document(self, collection, doc_id):
+		return self._db[collection].find_one({'_id': ObjectId(doc_id)})
 
-	def find_job(self, collection, job_id):
-		return self._db[collection].find({'_id': ObjectId(job_id)})
+	def update_document(self, collection, doc_id, update_obj):
+		self._db[collection].update({'_id': ObjectId(doc_id)}, update_obj)

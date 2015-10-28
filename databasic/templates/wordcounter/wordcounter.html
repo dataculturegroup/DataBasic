@@ -1,4 +1,5 @@
 
+
 {% extends "base.html" %}
 {% from 'macros.html' import render_form %}
 
@@ -10,7 +11,9 @@
 <div class="container">
 	{% for t, form in forms %}
 	<div class="row">
+		<div class="col-md-12">
 		{{ render_form(form, class_=t, action_url='wordcounter', action_text=_('Submit')) }}
+		</div>
 	</div>
 	{% endfor %}
 </div>

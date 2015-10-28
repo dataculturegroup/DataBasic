@@ -31,6 +31,8 @@ else
     fi
 fi
 
+# TODO: check if Redis is installed
+
 # test whether virtualenv is installed
 echo "Testing whether virtualenv is installed..."
 if [ ! -d $"venv" ]; then
