@@ -1,6 +1,7 @@
 from flask import Flask, Blueprint, g, redirect, request, abort
 from flask.ext.babel import Babel
 from flask_debugtoolbar import DebugToolbarExtension
+from flask.ext.mail import Mail
 from sassutils.wsgi import SassMiddleware
 from babel.support import LazyProxy
 from logic import oauth
@@ -25,6 +26,7 @@ app.wsgi_app = SassMiddleware(app.wsgi_app, {
 
 babel = Babel(app)
 mongo = MongoHandler(app)
+mail = Mail(app)
 # uncomment to use toolbar (this slows the app down quite a bit)
 # toolbar = DebugToolbarExtension(app)
 

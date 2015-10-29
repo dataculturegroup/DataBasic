@@ -1,4 +1,4 @@
-from ..application import mongo, app
+from ..application import mongo, app, mail
 from ..forms import SameDiffUpload, SameDiffSample
 from ..logic import filehandler
 import databasic.tasks
@@ -8,7 +8,7 @@ mod = Blueprint('samediff', __name__, url_prefix='/<lang_code>/samediff', templa
 
 @mod.route('/', methods=('GET', 'POST'))
 def index():
-	print filehandler.TEMP_DIR
+	
 	forms = {
 		'upload': SameDiffUpload(),
 		'sample': SameDiffSample()
@@ -41,10 +41,15 @@ def results():
 	return render_template('samediff/results.html', results=results)
 
 def queue_files(file_paths, is_sample_data, email):
+	print file_paths
+	print is_sample_data
+	print email
 	file_names = filehandler.get_file_names(file_paths)
 	job_id = mongo.save_queued_files('samediff', file_paths, file_names, is_sample_data, email, request.url + 'results?id=')
+	result = databasic.tasks.save_tfidf_results.delay(job_id)
 	try:
 		result = databasic.tasks.save_tfidf_results.delay(job_id)
+		print result
 	except:
 		print "Redis server is not running"
 	return redirect(request.url + 'results?id=' + job_id)

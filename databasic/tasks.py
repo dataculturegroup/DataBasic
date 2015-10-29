@@ -1,8 +1,9 @@
 from __future__ import absolute_import
 import os
-from .application import mongo
+from .application import app, mongo, mail
 from databasic.celeryapp import celery_app
-from envelopes import Envelope
+# from envelopes import Envelope
+from flask.ext.mail import Message
 from databasic import settings
 
 @celery_app.task(serializer='json',bind=True)
@@ -22,8 +23,9 @@ def save_tfidf_results(self, job_id):
 
     # delete the raw input files
     if not job_info['is_sample_data']:
-        for path in job_info['filepaths']:
-            os.remove(path)
+        with app.app_context():
+            for path in job_info['filepaths']:
+                os.remove(path)
         del job_info['filepaths']
     job_info['status'] = 'complete'
     mongo.save_job('samediff', job_info)
@@ -32,11 +34,10 @@ def save_tfidf_results(self, job_id):
     # notify them with email
     # TODO: Internationalize and put the text stuff into some kind of templating structure
     name = job_info['email'].split('@')[0]
-    body = u'Dear %s, \n\nYour SameDiff job is ready at this URL: %s! \n\nSincerely, \n %s ' % (name, job_info['results_url'], settings.get('email', 'from_email'))
-    envelope = Envelope(
-        from_addr=(settings.get('email', 'from_email'), settings.get('email', 'from_name')),
-        to_addr=(job_info['email'], name),
-        subject=u'Your SameDiff job is ready!',
-        text_body=body)
-    envelope.send('mail.gandi.net', login=settings.get('email', 'login'),
-        password=settings.get('email', 'password'), tls=True)
+    email_body = u'Dear %s, \n\nYour SameDiff job is ready at this URL: %s! \n\nSincerely, \n %s ' % (name, job_info['results_url'], settings.get('email', 'from_email'))
+    msg = Message(u'Your SameDiff job is ready!',
+        recipients=[job_info['email']],
+        body=email_body,
+        sender=settings.get('email', 'from_email'))
+    with app.app_context():
+        mail.send(msg)
