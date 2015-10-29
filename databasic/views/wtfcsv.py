@@ -1,7 +1,7 @@
 from ..application import mongo
 from ..forms import WTFCSVPaste, WTFCSVUpload, WTFCSVLink
 from ..logic import wtfcsvstat, filehandler, oauth
-from flask import Blueprint, render_template, request, redirect
+from flask import Blueprint, render_template, request, redirect, g
 
 mod = Blueprint('wtfcsv', __name__, url_prefix='/<lang_code>/wtfcsv', template_folder='../templates/wtfcsv')
 
@@ -45,7 +45,9 @@ def index():
 def results():
 	results = None
 	doc_id = None if not 'id' in request.args else request.args['id']
-	if doc_id is not None:
+	if doc_id is None:
+		return redirect(g.current_lang + '/wtfcsv')
+	else:
 		results = mongo.find_document('wtfcsv', doc_id).get('results')
 		print results['row_count']
 	return render_template('wtfcsv/results.html', results=results)

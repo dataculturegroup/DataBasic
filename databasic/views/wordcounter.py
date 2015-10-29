@@ -1,7 +1,8 @@
+import os
 from ..application import app, mongo
 from ..forms import WordCounterPaste, WordCounterUpload, WordCounterSample
 from ..logic import wordhandler, filehandler, oauth
-from flask import Blueprint, render_template, request, redirect
+from flask import Blueprint, render_template, request, redirect, g
 
 mod = Blueprint('wordcounter', __name__, url_prefix='/<lang_code>/wordcounter', template_folder='../templates/wordcounter')
 
@@ -55,7 +56,9 @@ def results():
 
 	doc_id = None if not 'id' in request.args else request.args['id']
 
-	if doc_id is not None:
+	if doc_id is None:
+		return redirect(g.current_lang + '/wordcounter')
+	else:
 		doc = mongo.find_document('wordcounter', doc_id)
 		counts = doc.get('counts')
 		csv_files = doc.get('csv_files')
