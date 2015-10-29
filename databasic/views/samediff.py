@@ -81,6 +81,34 @@ def results():
 	
 	job['mostDifferentFile'] = job['filenames'][mins[0]]
 
+	# figure out the highest TfIdf score
+	allScores = []
+	for docResults in job['tfidf']:
+		scores = [ t['tfidf'] for t in docResults]
+		allScores = allScores + scores
+	maxTfIdf = max(allScores)
+
+	# build thresholded lists of file similarity scores
+	job['similarityLists'] = []
+	for row in range(0,len(job['filenames'])):
+		info = [ [], [], [], [], [] ]
+		for col in range(0,len(job['filenames'])):
+			if row==col:
+				continue
+			score = job['cosineSimilarity'][row][col]
+			name = job['filenames'][col] + " ("+("{0:.2f}".format(score))+")"
+			if score < 0.5:
+				info[0].append(name)
+			elif score < 0.7:
+				info[1].append(name)
+			elif score < 0.8:
+				info[2].append(name)
+			elif score < 0.9:
+				info[3].append(name)
+			elif score < 1.0:
+				info[4].append(name)
+		job['similarityLists'].append(info)
+
 	return render_template('samediff/results.html', results=job)
 
 def queue_files(file_paths, is_sample_data, email):
