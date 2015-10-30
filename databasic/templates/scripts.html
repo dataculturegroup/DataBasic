@@ -9,20 +9,3 @@
 
 <!-- This is a hacky way of getting locale data for js - worth checking out if it could be improved -->
 <script type="text/javascript" src="/static/js/{{ g['current_lang'] }}-locale-data.js"></script>
-
-<!--<script type="text/javascript">
-
-// Sets the default radio selection and handles showing/hiding panes based on which radio button is pressed
-$(document).ready(function() {
-	$("div.tab-pane").hide();
-	$("#{{ tab }}").show();
-	$('input[type=radio][value={{ tab }}]').prop('checked', 'checked');
-});
-$(function(){
-	$('input[type=radio]').change(function (event) {
-		var id = $(this).val();
-		$("div.tab-pane").hide();
-	    $('#' + id).show();
-	});
-});
-</script>-->

@@ -8,6 +8,8 @@ from wtforms import StringField, BooleanField, RadioField, SelectField, SelectMu
 from wtforms.widgets import TextArea, TextInput, CheckboxInput
 
 class PasteForm(object):
+	label = _('Paste some text')
+	glyphicon = 'glyphicon-paste'
 	area = StringField(
 		_('Text'),
 		widget=TextArea()) 
@@ -17,11 +19,15 @@ class PasteForm(object):
 		self.area.default = default_text # not working rn
 
 class UploadForm(object):
+	label = _('Upload a file')
+	glyphicon = 'glyphicon-upload'
 	multiple = False
 	upload = FileField(
 		_('Upload file'))
 
 class SampleForm(object):
+	label = _('Use a sample')
+	glyphicon = 'glyphicon-file'
 	sample = SelectField(
 		_('Sample'))
 
@@ -30,6 +36,8 @@ class SampleForm(object):
 		self.sample.choices = filehandler.get_samples(tool_id)
 
 class MultipleSampleForm(object):
+	label = _('Use samples')
+	glyphicon = 'glyphicon-file'
 	samples = SelectMultipleField(
 		_('Samples'))
 
@@ -38,6 +46,8 @@ class MultipleSampleForm(object):
 		self.samples.choices = filehandler.get_samples(tool_id)
 
 class LinkForm(object):
+	label = _('Link to a spreadsheet')
+	glyphicon = 'glyphicon-link'
 	field_flags = ('url',)
 	link = StringField(
 		_('Link to spreadsheet'),
@@ -70,15 +80,15 @@ class WordCounterSample(SampleForm, WordCounterForm, Form):
 '''
 WTFcsv forms
 '''
-class WTFCSVPaste(PasteForm, Form):
-	def __init__(self, default_text=''):
-		super(WTFCSVPaste, self).__init__(default_text)
-
 class WTFCSVUpload(UploadForm, Form):
 	pass
 
 class WTFCSVLink(LinkForm, Form):
 	pass
+
+class WTFCSVSample(SampleForm, Form):
+	def __init__(self):
+		super(WTFCSVSample, self).__init__('wtfcsv')
 
 '''
 SameDiff forms

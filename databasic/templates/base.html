@@ -10,7 +10,10 @@
 </head>
 <body>
 	{% include 'nav.html' %}
-	{% block body %}{% endblock %}
+	<div class="container">
+		{% block body %}{% endblock %}
+	</div>
+	{% include 'footer.html' %}
 	{% include 'scripts.html' %}
 	{% block custom_scripts %}{% endblock %}
 </body>

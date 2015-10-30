@@ -1,3 +1,4 @@
+from collections import OrderedDict
 from ..application import mongo, app, mail
 from ..forms import SameDiffUpload, SameDiffSample
 from ..logic import filehandler
@@ -9,11 +10,10 @@ mod = Blueprint('samediff', __name__, url_prefix='/<lang_code>/samediff', templa
 
 @mod.route('/', methods=('GET', 'POST'))
 def index():
-	
-	forms = {
-		'upload': SameDiffUpload(),
-		'sample': SameDiffSample()
-	}
+
+	forms = OrderedDict()
+	forms['sample'] = SameDiffSample()
+	forms['upload'] = SameDiffUpload()
 
 	if request.method == 'POST':
 
@@ -33,7 +33,7 @@ def index():
 		if btn_value is not None and btn_value is not u'':
 			return queue_files(file_paths, is_sample_data, email)
 
-	return render_template('samediff/samediff.html', forms=sorted(forms.items()))
+	return render_template('samediff/samediff.html', forms=forms.items())
 
 @mod.route('/results')
 def results():

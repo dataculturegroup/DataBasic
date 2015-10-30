@@ -1,5 +1,6 @@
+from collections import OrderedDict
 from ..application import mongo
-from ..forms import WTFCSVPaste, WTFCSVUpload, WTFCSVLink
+from ..forms import WTFCSVUpload, WTFCSVLink, WTFCSVSample
 from ..logic import wtfcsvstat, filehandler, oauth
 from flask import Blueprint, render_template, request, redirect, g
 
@@ -15,19 +16,16 @@ def index():
 	tab = 'paste' if not 'tab' in request.args else request.args['tab']
 	results = None
 
-	forms = {
-		# 'paste': WTFCSVPaste('name, shirt_color, siblings\nRahul, blue, 1\nCatherine, red, 2'),
-		'upload': WTFCSVUpload(),
-		'link': WTFCSVLink()
-	}
+	forms = OrderedDict()
+	forms['sample'] = WTFCSVSample()
+	forms['upload'] = WTFCSVUpload()
+	forms['link'] = WTFCSVLink()
 
 	if request.method == 'POST':
 
 		btn_value = request.form['btn']
 
-		if btn_value == 'paste':
-			results = process_paste(forms['paste'].area.data)
-		elif btn_value == 'upload':
+		if btn_value == 'upload':
 			results = process_upload(forms['upload'].data['upload'])
 		elif btn_value == 'link':
 			doc = oauth.open_doc_from_url(forms['link'].data['link'], request.url)
@@ -39,7 +37,7 @@ def index():
 		if btn_value is not None and btn_value is not u'':
 			return redirect_to_results(results)
 
-	return render_template('wtfcsv.html', forms=sorted(forms.items()))
+	return render_template('wtfcsv.html', forms=forms.items())
 
 @mod.route('/results')
 def results():

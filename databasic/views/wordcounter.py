@@ -1,4 +1,5 @@
 import os
+from collections import OrderedDict
 from ..application import app, mongo
 from ..forms import WordCounterPaste, WordCounterUpload, WordCounterSample
 from ..logic import wordhandler, filehandler, oauth
@@ -18,11 +19,10 @@ def index():
 	tab = 'paste' if not 'tab' in request.args else request.args['tab']
 	words = None
 
-	forms = {
-		'paste': WordCounterPaste('I am Sam\nSam I am\nThat Sam-I-am!\nThat Sam-I-am!\nI do not like that Sam-I-am!\nDo you like \ngreen eggs and ham?\nI do not like them, Sam-I-am.\nI do not like\ngreen eggs and ham.\nWould you like them \nhere or there?\nI would not like them\nhere or there.\nI would not like them anywhere.'),
-		'upload': WordCounterUpload(),
-		'sample': WordCounterSample()
-	}
+	forms = OrderedDict()
+	forms['sample'] = WordCounterSample()
+	forms['paste'] = WordCounterPaste('I am Sam\nSam I am\nThat Sam-I-am!\nThat Sam-I-am!\nI do not like that Sam-I-am!\nDo you like \ngreen eggs and ham?\nI do not like them, Sam-I-am.\nI do not like\ngreen eggs and ham.\nWould you like them \nhere or there?\nI would not like them\nhere or there.\nI would not like them anywhere.')
+	forms['upload'] = WordCounterUpload()
 
 	if request.method == 'POST':
 		ignore_case = True
@@ -45,7 +45,7 @@ def index():
 			doc_id = mongo.save_words('wordcounter', counts, csv_files, ignore_case, ignore_stopwords)
 			return redirect(request.url + 'results?id=' + doc_id)
 
-	return render_template('wordcounter.html', forms=sorted(forms.items()))
+	return render_template('wordcounter.html', forms=forms.items())
 
 @mod.route('/results')
 def results():

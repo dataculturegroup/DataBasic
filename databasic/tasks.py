@@ -20,8 +20,6 @@ def save_tfidf_results(self, job_id):
     # save the results back to the db (based on the job_number)
     job_info['tfidf'] = tfidf
     job_info['cosineSimilarity'] = cosine_similarity
-    print 'GOT IT!! HERE YA GO'
-    print cosine_similarity
 
     # delete the raw input files
     if not job_info['is_sample_data']:

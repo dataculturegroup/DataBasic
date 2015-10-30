@@ -5,7 +5,25 @@
 
 // Layout
 @import "layout/nav";
+@import "layout/footer";
+
+html {
+	position: relative;
+	min-height: 100%;
+}
 
 body {
 	background-image: url("/static/img/background_tile_tiny.png");
+	margin-bottom: 60px;
+}
+
+.modal.fade .modal-dialog {
+  -webkit-transition: -webkit-transform 0.3s ease-out;
+     -moz-transition: -moz-transform 0.3s ease-out;
+       -o-transition: -o-transform 0.3s ease-out;
+          transition: transform 0.3s ease-out;
+}
+
+.modal.in .modal-dialog {
+
 }
