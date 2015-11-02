@@ -99,6 +99,7 @@ class SameDiffForm(object):
 		widget=TextInput())
 
 class SameDiffUpload(UploadForm, SameDiffForm, Form):
+	label = _('Upload files')
 	multiple = True
 
 class SameDiffSample(MultipleSampleForm, SameDiffForm, Form):

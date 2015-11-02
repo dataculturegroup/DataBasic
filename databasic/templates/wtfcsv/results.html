@@ -27,11 +27,20 @@
 						<li>{{_("This column is full of")}} {{_(col['type'])}}</li>
 					{% endif %}
 					{% if 'values' in col %}
-						<li>{{_("This unique values in this column are:")}}
+						<li>{{_("The unique values in this column are:")}}
 						<ul>
 							{% for val in col['values'] %}<li><em>{{val}}</em></li>{% endfor %}
 						</ul>
 						</li>
+					{% elif 'most_freq_values' in col %}
+						<li>{{ _("The most frequent values in this column are:") }}
+						<ul>
+							{% for val in col['most_freq_values'] %}<li><em>{{ val }}</em></li>{% endfor %}
+						</ul>
+						</li>
+					{% endif %}
+					{% if 'max_str_len' in col %}
+						<li>{{ _("The longest string has %d characters" % col['max_str_len']) }}</li>
 					{% endif %}
 					{% if 'min' in col %}
 						<li>{{_("The smallest number is") }} <em>{{col['min']}}</em></li>

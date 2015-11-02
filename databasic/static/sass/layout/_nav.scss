@@ -44,5 +44,16 @@
 
 #language-selector {
 	float: right;
-	padding: 10px;
+	padding-top: 10px;
+	padding-right: 10px;
+}
+
+#logo {
+	padding-left: 10px;
+	height: 65px;
+	margin-top: -28px;
+
+	img {
+		height: 65px;
+	}
 }
