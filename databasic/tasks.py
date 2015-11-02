@@ -9,7 +9,6 @@ from databasic.logic import tfidfanalysis
 @celery_app.task(serializer='json',bind=True)
 def save_tfidf_results(self, job_id):
 
-    # job_info = mongo.find_job(job_id)
     job_info = mongo.find_document('samediff', job_id)
 
     # tfidf them
@@ -27,6 +26,7 @@ def save_tfidf_results(self, job_id):
             for path in job_info['filepaths']:
                 os.remove(path)
         del job_info['filepaths']
+    
     job_info['status'] = 'complete'
     mongo.save_job('samediff', job_info)
     # TODO: catch any exceptions and queue them up for retry attempts

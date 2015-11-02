@@ -44,8 +44,7 @@ def results():
 
 	job = mongo.find_document('samediff', doc_id)
 
-	# kind of a hacky way of checking if the job is ready but for some reason 'status' is returning 'complete' prematurely
-	if not job.has_key('cosineSimilarity'):
+	if not 'complete' in job['status']:
 		return render_template('samediff/results.html', results=job)
 
 	# interpret cosine similarity for top part of report 
@@ -116,6 +115,7 @@ def queue_files(file_paths, is_sample_data, email):
 	job_id = mongo.save_queued_files('samediff', file_paths, file_names, is_sample_data, email, request.url + 'results?id=')
 	result = databasic.tasks.save_tfidf_results.delay(job_id)
 	print result
+	# return redirect(request.url)
 	return redirect(request.url + 'results?id=' + job_id)
 
 def interpretCosineSimilarity(cosineDiff):
