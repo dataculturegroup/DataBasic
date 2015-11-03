@@ -1,3 +1,4 @@
+import json
 from collections import OrderedDict
 from ..application import mongo, app, mail
 from ..forms import SameDiffUpload, SameDiffSample
@@ -33,7 +34,7 @@ def index():
 		if btn_value is not None and btn_value is not u'':
 			return queue_files(file_paths, is_sample_data, email)
 
-	return render_template('samediff/samediff.html', forms=forms.items())
+	return render_template('samediff/samediff.html', forms=forms.items(), tool_name='samediff')
 
 @mod.route('/results')
 def results():
@@ -77,8 +78,9 @@ def results():
 
 	minCS = min(averages)
 	mins = [i for i, j in enumerate(averages) if j == minCS]
-	
-	job['mostDifferentFile'] = job['filenames'][mins[0]]
+
+	if mins is not None and len(mins) > 0:
+		job['mostDifferentFile'] = job['filenames'][mins[0]]
 
 	# figure out the highest TfIdf score
 	allScores = []
@@ -110,13 +112,23 @@ def results():
 
 	return render_template('samediff/results.html', results=job)
 
+'''
+# trying to track status of the celery task here
+@mod.route('/status/<task_id>')
+def taskstatus(task_id):
+	task = queue_files.AsyncResult(task_id)
+	response = task.state
+	return json.dumps(response)
+	# return redirect('/')
+'''
+
 def queue_files(file_paths, is_sample_data, email):
 	file_names = filehandler.get_file_names(file_paths)
 	job_id = mongo.save_queued_files('samediff', file_paths, file_names, is_sample_data, email, request.url + 'results?id=')
-	result = databasic.tasks.save_tfidf_results.delay(job_id)
+	result = databasic.tasks.save_tfidf_results.apply_async(args=[job_id])
 	print result
-	# return redirect(request.url)
 	return redirect(request.url + 'results?id=' + job_id)
+	# return url_for('.taskstatus', task_id=result.id), 202
 
 def interpretCosineSimilarity(cosineDiff):
 	# Cosine Similarity

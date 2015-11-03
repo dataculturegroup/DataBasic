@@ -46,6 +46,10 @@ class WTFCSVStat():
         (_, extension) = os.path.splitext(path)
 
         f = codecs.open(path, mode, encoding=enc)
+        # f.read().replace('^M', '')
+        # with f:
+            # new_f = (line.replace('\r', '') for line in f)
+
 
         return f
 
@@ -54,6 +58,7 @@ class WTFCSVStat():
         
         operations = [op for op in OPERATIONS]
 
+        # TODO: this breaks if cell contains a newline
         tab = table.Table.from_csv(self.input_file)
 
         row_count = tab.count_rows() + 1 # this value is inaccurate so I'm adding 1

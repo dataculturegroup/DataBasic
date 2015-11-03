@@ -37,7 +37,7 @@ def index():
 		if btn_value is not None and btn_value is not u'':
 			return redirect_to_results(results)
 
-	return render_template('wtfcsv.html', forms=forms.items())
+	return render_template('wtfcsv.html', forms=forms.items(), tool_name='wtfcsv')
 
 @mod.route('/results')
 def results():

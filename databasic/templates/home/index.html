@@ -2,6 +2,9 @@
 {% block custom_css %}
 	<link href="{{ url_for('static', filename='css/home.scss.css') }}" rel="stylesheet" type="text/css">
 {% endblock %}
+{% block nav %}
+	{% include 'home_nav.html' %}
+{% endblock %}
 {% block body %}
 <div class="row">
 <!-- <h3>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec a diam lectus. Sed sit amet ipsum mauris. Maecenas congue ligula ac quam viverra nec consectetur ante hendrerit. Donec et mollis dolor.</h3> -->

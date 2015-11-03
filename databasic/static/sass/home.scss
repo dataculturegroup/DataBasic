@@ -3,9 +3,14 @@
 @import "themes/default-theme";
 @import "base";
 
+body {
+	background-image: url("/static/img/background_tile_tiny.png");
+}
+
 .row-centered {
     text-align: center;
 }
+
 .col-centered {
     display: inline-block;
     float: none;

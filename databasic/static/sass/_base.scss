@@ -7,19 +7,38 @@
 @import "layout/nav";
 @import "layout/footer";
 
+// Modules
+@import "modules/mixins";
+
+* {
+	-webkit-border-radius: 0px !important;
+	-moz-border-radius: 0px !important;
+	-o-border-radius: 0px !important;
+	border-radius: 0px !important;
+	border: 0px !important;
+}
+
+a {
+	color: $c-white;
+}
+
 html {
 	position: relative;
 	min-height: 100%;
 }
 
 body {
-	background-image: url("/static/img/background_tile_tiny.png");
-	margin-bottom: 60px;
+	margin: 0;
+	color: $c-white;
 }
 
 .modal.fade .modal-dialog {
-  -webkit-transition: -webkit-transform 0.3s ease-out;
-     -moz-transition: -moz-transform 0.3s ease-out;
-       -o-transition: -o-transform 0.3s ease-out;
-          transition: transform 0.3s ease-out;
+  -webkit-transition: -webkit-transform 0.1s ease-out;
+     -moz-transition: -moz-transform 0.1s ease-out;
+       -o-transition: -o-transform 0.1s ease-out;
+          transition: transform 0.1s ease-out;
+}
+
+.centered-row {
+	text-align: center;
 }

@@ -1,35 +1,38 @@
 
 {% macro render_forms(forms, action_url='') -%}
-    <ul class="nav nav-tabs nav-justified">
-    {% set first=True %}
-    {% for name, form in forms %}
-        {% if first %}
-        <li role="presentation" class="active">
-        {% set first=False %}
-        {% else %}
-        <li role="presentation">
-        {% endif %}
-            <a id="tab-{{ name }}" href="#{{ name }}" data-toggle="tab"><span class="glyphicon glyphicon-link" aria-hidden="true"></span>{{ form.label }}</a>
-        </li>
-    {% endfor %}
-    </ul>
-    <div class="row">
+    <div class="row centered-row">
         <div class="col-md-12">
+            <div class="inputs">
+            <ul class="nav nav-tabs nav-justified">
             {% set first=True %}
-            <div class="tab-content">
             {% for name, form in forms %}
                 {% if first %}
-                    <div id="{{ name }}" class="tab-pane fade in active">
-                    {% set first=False %}
+                <li role="presentation" class="active">
+                {% set first=False %}
                 {% else %}
-                    <div id="{{ name }}" class="tab-pane fade">
+                <li role="presentation">
                 {% endif %}
-                {{ render_form(form, class_=name, action_url=action_url, action_text=_('Submit')) }}
-                </div>
+                    <a id="tab-{{ name }}" href="#{{ name }}" data-toggle="tab">{{ form.label }}</a>
+                </li>
             {% endfor %}
-            </div>
-        </div>
-    </div>
+            </ul>
+            
+                {% set first=True %}
+                <div class="tab-content">
+                {% for name, form in forms %}
+                    {% if first %}
+                        <div id="{{ name }}" class="tab-pane fade in active">
+                        {% set first=False %}
+                    {% else %}
+                        <div id="{{ name }}" class="tab-pane fade">
+                    {% endif %}
+                    {{ render_form(form, class_=name, action_url=action_url, action_text=_('Submit')) }}
+                    </div>
+                {% endfor %}
+                </div>
+            </div><!-- .inputs -->
+        </div><!-- .col-md-12 -->
+    </div><!-- .row centered-row -->
 {%- endmacro %}
 
 {# http://bear-z.com/python/render-bootstrap-3-forms-with-wtforms-and-jinja/ #}
@@ -48,7 +51,7 @@
                 {% elif f.type == 'FileField' %}
                     {{ render_upload_field(f, form.multiple) }}
                 {% else %}
-                    {{ render_field(f) }}
+                    {{ render_field(f, false) }}
                 {% endif %}
             {% endfor %}
         {% endif %}
@@ -126,7 +129,7 @@
  #}
 {% macro render_upload_field(field, multiple) -%}
     <div class="form-group {% if field.errors %}has-error{% endif %} {{ kwargs.pop('class_', '') }}">
-        <label for="{{ field.id }}" class="control-label">{{ field.label|safe }}</label>
+        <!-- <label for="{{ field.id }}" class="control-label">{{ field.label|safe }}</label> -->
         {% if multiple %}
             {{ field(class='form-control', multiple=True, **kwargs) }}
         {% else %}
@@ -151,8 +154,10 @@
 {%- endmacro %}
 
 {% macro video_modal(button_text, src) -%}
-    <!-- Video modal -->
-    <a href="#video-modal" class="btn btn-lg btn-primary" data-toggle="modal">{{ _("Video") }}</a>
+    
+    <div class="row centered-row">
+        <a href="#video-modal" class="btn btn-lg btn-primary" id="video-modal-btn" data-toggle="modal"><span class="glyphicon glyphicon-play-circle" aria-hidden="true"></span><br>{{ _("Play video") }}</a>
+    </div>
 
     <div id="video-modal" class="modal fade">
         <div class="modal-dialog">

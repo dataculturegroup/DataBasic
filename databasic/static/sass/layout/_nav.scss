@@ -2,29 +2,25 @@
 
 .navbar {
 	min-height: 125px;
-	border-radius: 0;
 }
 
 .navbar-default {
-	background-color: $c-primary;
+	background-color: $c-white;
 	border: none;
-	box-shadow: 0px 0px 10px 5px rgba(0,0,0,0.3);
 
 	.navbar-toggle {
 		border: none;
-		border-radius: 0;
 
 		.icon-bar {
-			background-color: $c-secondary;
+			background-color: $c-black;
 			font-size: 18px;
 			width: 44px;
 			height: 7px;
-			border-radius: 0;
 		}
 	}
 
 	.navbar-nav > li > a {
-		color: $c-secondary;
+		color: $c-black;
 		font-size: 18px;
 	}
 }
@@ -40,12 +36,17 @@
 
 #nav-container {
 	padding-top: 65px;
+	text-align: center;
 }
 
 #language-selector {
 	float: right;
 	padding-top: 10px;
 	padding-right: 10px;
+
+	a {
+		color: $c-theme-dk;
+	}
 }
 
 #logo {

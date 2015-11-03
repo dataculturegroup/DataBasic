@@ -45,7 +45,7 @@ def index():
 			doc_id = mongo.save_words('wordcounter', counts, csv_files, ignore_case, ignore_stopwords)
 			return redirect(request.url + 'results?id=' + doc_id)
 
-	return render_template('wordcounter.html', forms=forms.items())
+	return render_template('wordcounter.html', forms=forms.items(), tool_name='wordcounter')
 
 @mod.route('/results')
 def results():

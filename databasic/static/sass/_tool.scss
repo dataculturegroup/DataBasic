@@ -2,3 +2,60 @@
 
 @import "base";
 @import "results";
+
+body {
+	background-color: $c-theme-bg;
+}
+
+#video-modal-btn {
+
+	text-transform: uppercase;
+	font-size: 12px;
+	padding: 10px 40px;
+	background-color: $c-theme-lt;
+	@include box-shadow();
+
+	span {
+		font-size: 48px;
+	}
+}
+
+.inputs {
+	margin: 20px auto;
+	max-width: 600px;
+	@include box-shadow();
+
+	.nav-tabs.nav-justified > li {
+		text-transform: lowercase;
+		background-color: $c-theme-md;
+
+		a:hover {
+			color: $c-white;
+			background-color: $c-theme-dk;
+		}
+	}
+
+	.nav-tabs.nav-justified > li.active > a {
+		color: $c-white;
+		text-transform: lowercase;
+		background-color: $c-theme-accent;
+
+		&:hover {
+			color: $c-white;
+			background-color: $c-theme-dk;
+		}
+	}
+
+	.btn {
+		font-size: 20px;
+		text-transform: uppercase;
+		color: $c-white;
+		background-color: $c-theme-dk;
+		width: 100%;
+		height: 48px;
+	}
+
+	.form-group {
+		margin-bottom: 0;
+	}
+}

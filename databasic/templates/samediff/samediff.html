@@ -1,13 +1,23 @@
 {% extends "base.html" %}
-{% from 'macros.html' import render_forms %}
+{% from 'macros.html' import render_forms, video_modal %}
 
 {% block title %}{{ _('SameDiff') }}{% endblock %}
+
 {% block custom_css %}
 	<link href="{{ url_for('static', filename='css/samediff.scss.css') }}" rel="stylesheet" type="text/css">
 {% endblock %}
-{% block body %}
-{{ render_forms(forms, action_url='samediff') }}
+
+{% block nav %}
+	{% include 'tool_nav.html' %}
 {% endblock %}
+
+{% block body %}
+	<h4>{{ _('We\'ll analyze your text and tell you the most common words and phrases.') }}</h4>
+	<p>{{ _('This is a simple webpage that helps you count words, 2-word phrases (bigrams) and 3-word phrases (trigrams) in plain text. We created it to support some activities we do in our data visualization and storytelling classrooms. In our classes we introduce non-programmers to data analysis and storytelling. We want to help unlock the power of digital tools for everyone.') }}</p>
+	{{ video_modal("How to count", "https://www.youtube.com/embed/Lur-SGl3uw8") }}
+	{{ render_forms(forms, action_url=tool_name) }}
+{% endblock %}
+
 {% block custom_scripts %}
-<script type="text/javascript" src="/static/js/samediff-validate.js"></script>
+	<script type="text/javascript" src="/static/js/{{ tool_name }}-validate.js"></script>
 {% endblock %}
