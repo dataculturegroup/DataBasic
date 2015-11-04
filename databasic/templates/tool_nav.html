@@ -1,5 +1,9 @@
 {% extends "nav_base.html" %}
 {% block nav_container %}
-<img src="/static/img/logos/{{ tool_name }}.png">
+	<div class="row">
+		<img src="/static/img/logos/{{ tool_name }}.png" id="tool-logo">
+	</div>
+{% endblock %}
+{% block logo %}
 <a href="../" class="pull-right" id="logo"><img src="/static/img/data_basic_logo_256.png"></a>
 {% endblock %}

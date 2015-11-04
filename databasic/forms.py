@@ -12,6 +12,7 @@ class PasteForm(object):
 	glyphicon = 'glyphicon-paste'
 	area = StringField(
 		_('Text'),
+		description={'placeholder': _('Paste text...')},
 		widget=TextArea()) 
 	
 	def __init__(self, default_text=''):
@@ -23,7 +24,8 @@ class UploadForm(object):
 	glyphicon = 'glyphicon-upload'
 	multiple = False
 	upload = FileField(
-		_('Upload file'))
+		_('Upload file'),
+		description={'placeholder': _('Upload...')})
 
 class SampleForm(object):
 	label = _('Use a sample')
@@ -51,29 +53,55 @@ class LinkForm(object):
 	field_flags = ('url',)
 	link = StringField(
 		_('Link to spreadsheet'),
+		description={'placeholder': _('https://docs.google.com/spreadsheets/')},
 		widget=TextInput())
 
 '''
 Word-Counter forms
 '''
 class WordCounterForm(object):
-	ignore_case = BooleanField(
+	# ignore_case = BooleanField(
+	# 	_('Ignore case'), 
+	# 	widget=CheckboxInput(), 
+	# 	default=True)
+	# ignore_stopwords = BooleanField(
+	# 	_('Ignore stopwords'),
+	# 	widget=CheckboxInput(), 
+	# 	default=True)
+	pass
+
+class WordCounterPaste(PasteForm, WordCounterForm, Form):
+	ignore_case_paste = BooleanField(
 		_('Ignore case'), 
 		widget=CheckboxInput(), 
 		default=True)
-	ignore_stopwords = BooleanField(
+	ignore_stopwords_paste = BooleanField(
 		_('Ignore stopwords'),
 		widget=CheckboxInput(), 
 		default=True)
-
-class WordCounterPaste(PasteForm, WordCounterForm, Form):
 	def __init__(self, default_text=''):
 		super(WordCounterPaste, self).__init__(default_text)
 
 class WordCounterUpload(UploadForm, WordCounterForm, Form):
+	ignore_case_upload = BooleanField(
+		_('Ignore case'), 
+		widget=CheckboxInput(), 
+		default=True)
+	ignore_stopwords_upload = BooleanField(
+		_('Ignore stopwords'),
+		widget=CheckboxInput(), 
+		default=True)
 	pass
 
 class WordCounterSample(SampleForm, WordCounterForm, Form):
+	ignore_case_sample = BooleanField(
+		_('Ignore case'), 
+		widget=CheckboxInput(), 
+		default=True)
+	ignore_stopwords_sample = BooleanField(
+		_('Ignore stopwords'),
+		widget=CheckboxInput(), 
+		default=True)
 	def __init__(self):
 		super(WordCounterSample, self).__init__('wordcounter')
 
@@ -96,6 +124,7 @@ SameDiff forms
 class SameDiffForm(object):
 	email = StringField(
 		_('Email'),
+		description={'placeholder': _('kate@bush.com')},
 		widget=TextInput())
 
 class SameDiffUpload(UploadForm, SameDiffForm, Form):

@@ -2,6 +2,8 @@
 
 @import "themes/red-theme";
 @import "tool";
-@import "modules/paste";
-@import "modules/upload";
-@import "modules/samples";
+@import "modules/input";
+
+body {
+	background-image: url("/static/img/backgrounds/tiled_background_red.png");
+}

@@ -2,5 +2,8 @@
 
 @import "themes/green-theme";
 @import "tool";
-@import "modules/samples";
-@import "modules/upload";
+@import "modules/input";
+
+body {
+	background-image: url("/static/img/backgrounds/tiled_background_green.png");
+}

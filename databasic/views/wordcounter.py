@@ -69,7 +69,7 @@ def results():
 		for w in range(_clamp(len(counts[c]), 0, 40)):
 			print_counts[c].append(counts[c][w])
 
-	return render_template('wordcounter/results.html', results=print_counts, csv_files=csv_files)
+	return render_template('wordcounter/results.html', results=print_counts, csv_files=csv_files, tool_name='wordcounter')
 
 @mod.route('/download-csv/<file_path>')
 def download_csv(file_path):

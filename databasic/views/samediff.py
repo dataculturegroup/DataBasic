@@ -46,7 +46,7 @@ def results():
 	job = mongo.find_document('samediff', doc_id)
 
 	if not 'complete' in job['status']:
-		return render_template('samediff/results.html', results=job)
+		return render_template('samediff/results.html', results=job, tool_name='samediff')
 
 	# interpret cosine similarity for top part of report 
 	# If there are only 2 docs then make a statement about how similar they are to each other

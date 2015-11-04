@@ -9,6 +9,7 @@ body {
 
 #video-modal-btn {
 
+	margin: 15px 0;
 	text-transform: uppercase;
 	font-size: 12px;
 	padding: 10px 40px;
@@ -17,6 +18,45 @@ body {
 
 	span {
 		font-size: 48px;
+	}
+}
+
+.modal-content {
+	background-color: $c-theme-lt;
+}
+
+.modal-title {
+	font-size: 32px;
+	font-weight: normal;
+}
+
+.modal-header {
+	padding: 12px 15px 0px 15px;
+
+	.close {
+		font-size: 32px;
+		font-weight: normal;
+		opacity: 1;
+		color: $c-white;
+	}
+}
+
+.modal-body {
+	max-width: 560px;
+	margin: 0 auto;
+
+	> div {
+	  position: relative;
+	  padding-bottom: 75%;
+	  height: 0px;
+	}
+
+	iframe {
+	  position: absolute;
+	  top: 0px;
+	  left: 0px;
+	  width: 100%;
+	  height: 100%;
 	}
 }
 
@@ -29,9 +69,13 @@ body {
 		text-transform: lowercase;
 		background-color: $c-theme-md;
 
-		a:hover {
-			color: $c-white;
-			background-color: $c-theme-dk;
+		a {
+			margin-bottom: 0;
+
+			&:hover {
+				color: $c-white;
+				background-color: $c-theme-dk;
+			}
 		}
 	}
 
@@ -58,4 +102,13 @@ body {
 	.form-group {
 		margin-bottom: 0;
 	}
+
+	.form-control {
+		min-height: 40px;
+		font-size: 20px;
+	}
+}
+
+body > .container {
+	margin: 25px auto;
 }

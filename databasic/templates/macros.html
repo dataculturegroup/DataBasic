@@ -51,7 +51,7 @@
                 {% elif f.type == 'FileField' %}
                     {{ render_upload_field(f, form.multiple) }}
                 {% else %}
-                    {{ render_field(f, false) }}
+                    {{ render_field(f, false, f.description['placeholder']) }}
                 {% endif %}
             {% endfor %}
         {% endif %}
@@ -59,7 +59,7 @@
     </form>
 {%- endmacro %}
 
-{% macro render_field(field, label_visible=true) -%}
+{% macro render_field(field, label_visible=true, placeholder='') -%}
     {% set class_ = 'form-control' %}
     {% if field.flags.url %}
         {{ kwargs.setdefault('input_type', 'url') }}
@@ -70,14 +70,14 @@
             <label for="{{ field.id }}" class="control-label">{{ field.label|safe }}</label>
         {% endif %}
 
-        {{ field(class_=class_, **kwargs) }}
+        {{ field(class_=class_, placeholder=placeholder, **kwargs) }}
 
         {% if field.errors %}
             <p class="help-block">{{ field.errors|join(', ') }}</p>
         {% endif %}
 
-        {% if field.description %}
-            <p class="help-block">{{ field.description|safe }}</p>
+        {% if field.description['instructions'] %}
+            <p class="help-block">{{ field.description['instructions']|safe }}</p>
         {% endif %}
     </div>
 {%- endmacro %}
@@ -92,7 +92,7 @@
         {{ macros.render_checkbox_field(form.remember_me) }}
  #}
 {% macro render_checkbox_field(field) -%}
-    <div class="checkbox">
+    <div class="checkbox {% if field.default %}checked-div{% endif %}">
         <label>
         {{ field(type='checkbox', **kwargs) }} {{ field.label }}
         </label>
@@ -167,7 +167,9 @@
                     <h4 class="modal-title">{{ button_text }}</h4>
                 </div>
                 <div class="modal-body">
-                    <iframe width="560" height="315" src={{ src }} frameborder="0" allowfullscreen></iframe>
+                    <div>
+                        <iframe width="560" height="315" src={{ src }} frameborder="0" allowfullscreen></iframe>
+                    </div>
                 </div>
             </div>
         </div>

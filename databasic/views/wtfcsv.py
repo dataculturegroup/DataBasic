@@ -48,7 +48,7 @@ def results():
 	else:
 		results = mongo.find_document('wtfcsv', doc_id).get('results')
 		print results['row_count']
-	return render_template('wtfcsv/results.html', results=results)
+	return render_template('wtfcsv/results.html', results=results, tool_name='wtfcsv')
 
 def redirect_to_results(results):
 	doc_id = mongo.save_csv('wtfcsv', results)

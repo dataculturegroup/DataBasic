@@ -1,7 +1,7 @@
 @charset "UTF-8";
 
 .navbar {
-	min-height: 125px;
+	min-height: 140px;
 }
 
 .navbar-default {
@@ -35,7 +35,7 @@
 }
 
 #nav-container {
-	padding-top: 65px;
+	padding-top: 42px;
 	text-align: center;
 }
 
@@ -50,11 +50,14 @@
 }
 
 #logo {
-	padding-left: 10px;
-	height: 65px;
-	margin-top: -28px;
+	padding-right: 10px;
+	margin-top: -36px;
 
 	img {
-		height: 65px;
+		height: 56px;
 	}
+}
+
+#tool-logo {
+	height: 64px;
 }
