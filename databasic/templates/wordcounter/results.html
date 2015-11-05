@@ -3,7 +3,7 @@
 {% block title %}{{ _('Word-Counter results') }}{% endblock %}
 
 {% block custom_css %}
-	<link href="{{ url_for('static', filename='css/wordcounter.scss.css') }}" rel="stylesheet" type="text/css">
+	<link href="{{ url_for('static', filename='css/wordcounter-results.scss.css') }}" rel="stylesheet" type="text/css">
 {% endblock %}
 
 {% block nav %}
@@ -11,31 +11,120 @@
 {% endblock %}
 
 {% block body %}
-<div class="container">
-	<table>
-		<tr><th>{{ _('Frequency') }}</th><th>{{ _('Word') }}</th><th><a href="/{{ g['current_lang'] }}/wordcounter/download-csv/{{ csv_files[0] }}">{{ _('download') }}</a></th></tr>
-		{% for word in results[0] %}
-		<tr>
-			<td>{{ word[1] }}</td>
-			<td>{{ word[0] }}</td>
-		</tr>
-		{% endfor %}
+<div class="container-fluid">
+	<div class="row">
+		<div class="col-xs-12">
+			<div class="word-cloud">
+				
+			</div>
+		</div>
+	</div>
 
-		<tr><th>{{ _('Frequency') }}</th><th>{{ _('Bigram') }}</th><th><a href="/{{ g['current_lang'] }}/wordcounter/download-csv/{{ csv_files[1] }}">{{ _('download') }}</a></th></tr>
-		{% for word in results[1] %}
-		<tr>
-			<td>{{ word[1] }}</td>
-			<td>{{ " ".join(word[0]) }}</td>
-		</tr>
-		{% endfor %}
-
-		<tr><th>{{ _('Frequency') }}</th><th>{{ _('Trigram') }}</th><th><a href="/{{ g['current_lang'] }}/wordcounter/download-csv/{{ csv_files[2] }}">{{ _('download') }}</a></th></tr>
-		{% for word in results[2] %}
-		<tr>
-			<td>{{ word[1] }}</td>
-			<td>{{ " ".join(word[0]) }}</td>
-		</tr>
-		{% endfor %}
-	</table>
+	<div class="row" id="frequencies">
+		<div class="col-sm-4">
+			<h2>{{ _('Top Words') }} <a href="/{{ g['current_lang'] }}/wordcounter/download-csv/{{ csv_files[0] }}"><span class="glyphicon glyphicon-download" aria-hidden="true"></span></a></h2>
+			<table class="table">
+				<thead>
+					<tr><th>{{ _('Word') }}</th><th>{{ _('Frequency') }}</th></tr>
+				</thead>
+				<tbody>
+					{% for word in results[0] %}
+					<tr>
+						<td>{{ word[0] }}</td>
+						<td>{{ word[1] }}</td>
+					</tr>
+					{% endfor %}
+				</tbody>
+			</table>
+		</div>
+		<div class="col-sm-4">
+			<h2>{{ _('Bigrams') }} <a href="/{{ g['current_lang'] }}/wordcounter/download-csv/{{ csv_files[1] }}"><span class="glyphicon glyphicon-download" aria-hidden="true"></span></a></h2>
+			<table class="table">
+				<thead>
+					<tr><th>{{ _('Bigram') }}</th><th>{{ _('Frequency') }}</th></tr>
+				</thead>
+				<tbody>
+					{% for word in results[1] %}
+					<tr>
+						<td>{{ " ".join(word[0]) }}</td>
+						<td>{{ word[1] }}</td>
+					</tr>
+					{% endfor %}
+				</tbody>
+			</table>
+		</div>
+		<div class="col-sm-4">
+			<h2>{{ _('Trigrams') }} <a href="/{{ g['current_lang'] }}/wordcounter/download-csv/{{ csv_files[2] }}"><span class="glyphicon glyphicon-download" aria-hidden="true"></span></a></h2>
+			<table class="table">
+				<thead>
+					<tr><th>{{ _('Trigram') }}</th><th>{{ _('Frequency') }}</th></tr>
+				</thead>
+				<tbody>
+					{% for word in results[2] %}
+					<tr>
+						<td>{{ " ".join(word[0]) }}</td>
+						<td>{{ word[1] }}</td>
+					</tr>
+					{% endfor %}
+				</tbody>
+			</table>
+		</div>
+	</div>
 </div>
+{% endblock %}
+
+{% block custom_scripts %}
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/d3/3.5.6/d3.min.js" charset="utf-8"></script>
+	<script type="text/javascript" src="/static/js/lib/d3.layout.cloud.js" charset="utf-8"></script>
+	<script type="text/javascript" charset="utf-8">
+		diffWordCloudDestination = null;
+
+		function renderDiffWordCloud(elementSelector, dataset){
+		  var w = 600;
+		  var h = 400;
+		  var maxScore = Math.max.apply(Math,dataset.map(function(o){return o.score;}))
+		  var fontSizeScale = d3.scale.linear()
+		      .domain([0, maxScore])
+		      .range([0, 70]); 
+		  console.log("renderDiffChart to "+elementSelector);
+		  diffWordCloudDestination = elementSelector;
+		  var layout =  d3.layout.cloud()
+		    .size([w, h])
+		    .words(dataset)
+		    .padding(5)
+		    .rotate(0)
+		    .fontSize(function(d) { return fontSizeScale(d.score); })
+		    .on("end", drawDiffWordCloud);
+		  layout.start();
+		}
+
+		function drawDiffWordCloud(words) {
+		  var w = 600;
+		  var h = 400;
+		  console.log("drawDiffWordCloud to "+diffWordCloudDestination);
+		  d3.select(diffWordCloudDestination).append("svg")
+		      .attr("width", w)
+		      .attr("height", h)
+		    .append("g")
+		      .attr("transform", "translate(" + w/2 + "," + h/2 + ")")
+		    .selectAll("text")
+		      .data(words)
+		    .enter().append("text")
+		      .style("font-size", function(d) { return d.size + "px"; })
+		      .attr("text-anchor", "middle")
+		      .attr("transform", function(d) {
+		        return "translate(" + [d.x, d.y] + ")rotate(" + d.rotate + ")";
+		      })
+		      .text(function(d) { return d.text; });
+		}
+
+		$(function() {
+			var data = [
+				{% for word in results[0] | batch(50) | first %}
+					{ text: "{{ word[0] }}".replace("&#39;", "'"), score: {{ word[1] }} },
+				{% endfor %}
+			];
+			renderDiffWordCloud('.word-cloud', data);
+		});
+	</script>
 {% endblock %}

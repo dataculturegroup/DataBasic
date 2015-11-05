@@ -31,14 +31,16 @@ def index():
 
 		if btn_value == 'paste':
 			words = forms['paste'].data['area']
+			ignore_case = forms[btn_value].data['ignore_case_paste']
+			ignore_stopwords = forms[btn_value].data['ignore_stopwords_paste']
 		elif btn_value == 'upload':
 			words = process_upload(forms['upload'].data['upload'])
+			ignore_case = forms[btn_value].data['ignore_case_upload']
+			ignore_stopwords = forms[btn_value].data['ignore_stopwords_upload']
 		else:
 			words = filehandler.convert_to_txt(forms['sample'].data['sample'])
-
-		if btn_value is not None and btn_value is not u'':
-			ignore_case = forms[btn_value].data['ignore_case']
-			ignore_stopwords = forms[btn_value].data['ignore_stopwords']
+			ignore_case = forms[btn_value].data['ignore_case_sample']
+			ignore_stopwords = forms[btn_value].data['ignore_stopwords_sample']
 
 		if words is not None:
 			counts, csv_files = process_words(words, ignore_case, ignore_stopwords)

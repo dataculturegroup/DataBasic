@@ -63,6 +63,7 @@ body {
 .inputs {
 	margin: 20px auto;
 	max-width: 600px;
+	background-color: $c-theme-md;
 	@include box-shadow();
 
 	.nav-tabs.nav-justified > li {

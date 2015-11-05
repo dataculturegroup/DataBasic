@@ -9,30 +9,3 @@
 
 <!-- This is a hacky way of getting locale data for js - worth checking out if it could be improved -->
 <script type="text/javascript" src="/static/js/{{ g['current_lang'] }}-locale-data.js"></script>
-<script type="text/javascript">
-$("input[type='checkbox']").change(function(){
-    if($(this).is(":checked")){
-        $(this).parent().parent().addClass("checked-div"); 
-    }else{
-        $(this).parent().parent().removeClass("checked-div");  
-    }
-});
-/*$.validator.setDefaults({
-    showErrors: function (errorMap, errorList) {
-        // this.defaultShowErrors();                            
-
-        // destroy tooltips on valid elements                              
-        $("." + this.settings.validClass)                    
-            .tooltip("destroy");            
-
-        // add/update tooltips 
-        for (var i = 0; i < errorList.length; i++) {
-            var error = errorList[i];
-
-            $("#" + error.element.id)
-                .tooltip({ trigger: "focus" })
-                .attr("data-original-title", error.message)                
-        }
-    }
-});*/
-</script>

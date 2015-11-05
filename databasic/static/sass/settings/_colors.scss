@@ -13,3 +13,7 @@ $c-theme-lt: $c-white !default;
 $c-theme-md: $c-white !default;
 $c-theme-dk: $c-black !default;
 $c-theme-bg: $c-black !default;
+
+$c-selected: $c-theme-accent !default;
+$c-unselected: $c-theme-md !default;
+$c-hover: $c-theme-dk !default;

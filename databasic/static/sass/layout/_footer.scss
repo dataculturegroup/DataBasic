@@ -27,17 +27,17 @@ footer {
 		padding: 25px 0;
 
 		a {
-			background-color: $c-theme-md;
+			background-color: $c-unselected;//$c-theme-md;
 			padding: 27px 10px;
 
 			&[selected] {
-				background-color: $c-theme-accent;
+				background-color: $c-selected;//$c-theme-accent;
 			}
 
 			&:hover {
 				color: $c-white;
 				text-decoration: none;
-				background-color: $c-theme-dk;
+				background-color: $c-hover;//$c-theme-dk;
 			}
 		}
 	}

@@ -10,12 +10,22 @@
 // Modules
 @import "modules/mixins";
 
-* {
+@mixin no-border() {
 	-webkit-border-radius: 0px !important;
 	-moz-border-radius: 0px !important;
 	-o-border-radius: 0px !important;
 	border-radius: 0px !important;
 	border: 0px !important;
+}
+
+.btn, 
+th, td,
+.navbar-default, 
+.form-control, 
+.nav-tabs.nav-justified > li > a, 
+.active a, 
+:hover {
+	@include no-border();
 }
 
 a {

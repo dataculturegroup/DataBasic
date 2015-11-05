@@ -1,0 +1,57 @@
+@charset "UTF-8";
+
+@import "themes/red-theme";
+@import "tool";
+@import "modules/input";
+
+body {
+	background-color: $c-theme-md;
+}
+
+.word-cloud {
+	text-align: center;
+}
+
+#frequencies {
+	background-color: $c-theme-dk;
+
+	h2 {
+		text-align: center;
+		text-transform: uppercase;
+		padding: 20px 0;
+
+		.glyphicon {
+			color: $c-white;
+			font-size: 32px;
+			top: 7px;
+			opacity: 0.6;
+
+			&:hover {
+				color: $c-white;
+				opacity: 0.8;
+			}
+
+			&:focus {
+				color: $c-white;
+				opacity: 0.8;
+			}
+
+			&:active {
+				color: $c-white;
+				opacity: 0.8;
+			}
+		}
+	}
+
+	table {
+
+		$scaled-row-count: 10;
+		$min-font-size: 18px;
+		$max-font-size: 6px; // min size + max size = largest font
+		@for $i from 0 through $scaled-row-count {
+			tr:nth-child(#{abs($i - $scaled-row-count)}) {
+				font-size: $min-font-size + $max-font-size * $i / $scaled-row-count;
+			}
+		}
+	}
+}
