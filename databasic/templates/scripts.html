@@ -9,3 +9,8 @@
 
 <!-- This is a hacky way of getting locale data for js - worth checking out if it could be improved -->
 <script type="text/javascript" src="/static/js/{{ g['current_lang'] }}-locale-data.js"></script>
+<script>
+$(function () {
+  $('[data-toggle="tooltip"]').tooltip();
+});
+</script>

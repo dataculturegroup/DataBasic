@@ -7,6 +7,21 @@ body {
 	background-color: $c-theme-bg;
 }
 
+p a {
+
+	&[data-toggle="tooltip"] {
+		color: $c-theme-dk;
+		background-color: $c-white;
+		font-size: 18px;
+		padding: 1px 4px;
+
+		&:hover, &:focus {
+			color: $c-theme-dk;
+			text-decoration: none;
+		}
+	}
+}
+
 #video-modal-btn {
 
 	margin: 15px 0;

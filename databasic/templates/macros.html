@@ -1,5 +1,5 @@
 
-{% macro render_forms(forms, action_url='') -%}
+{% macro render_forms(forms, action_url='', action_text='Submit') -%}
     <div class="row centered-row">
         <div class="col-md-12">
             <div class="inputs">
@@ -26,7 +26,7 @@
                     {% else %}
                         <div id="{{ name }}" class="tab-pane fade">
                     {% endif %}
-                    {{ render_form(form, class_=name, action_url=action_url, action_text=_('Submit')) }}
+                    {{ render_form(form, class_=name, action_url=action_url, action_text=action_text) }}
                     </div>
                 {% endfor %}
                 </div>
@@ -174,4 +174,8 @@
             </div>
         </div>
     </div>
+{%- endmacro %}
+
+{% macro hover_tooltip(text, tooltip) -%}
+    <a data-trigger="focus hover" data-toggle="tooltip" href="#" data-original-title="{{ tooltip }}">{{ text }}</a>
 {%- endmacro %}

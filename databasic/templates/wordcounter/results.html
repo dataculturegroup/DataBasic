@@ -85,7 +85,7 @@
 		  var maxScore = Math.max.apply(Math,dataset.map(function(o){return o.score;}))
 		  var fontSizeScale = d3.scale.linear()
 		      .domain([0, maxScore])
-		      .range([0, 70]); 
+		      .range([10, 70]); 
 		  console.log("renderDiffChart to "+elementSelector);
 		  diffWordCloudDestination = elementSelector;
 		  var layout =  d3.layout.cloud()

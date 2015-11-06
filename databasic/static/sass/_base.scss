@@ -28,15 +28,6 @@ th, td,
 	@include no-border();
 }
 
-a {
-	color: $c-white;
-	font-size: larger;
-}
-
-p {
-	font-size: larger;
-}
-
 html {
 	position: relative;
 	min-height: 100%;
