@@ -1,0 +1,21 @@
+@charset "UTF-8";
+
+@import "themes/yellow-theme";
+@import "tool";
+@import "modules/input";
+
+h2 {
+	text-align: center;
+	color: $c-theme-dk;
+}
+
+body {
+	background-color: $c-white;
+}
+
+.column-info {
+	background-color: $c-theme-md;
+	color: $c-white;
+	padding: 1px 20px 16px 20px;
+	margin-top: 20px;
+}

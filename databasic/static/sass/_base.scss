@@ -3,12 +3,12 @@
 // Config
 @import "settings/fonts";
 
+// Modules
+@import "modules/mixins";
+
 // Layout
 @import "layout/nav";
 @import "layout/footer";
-
-// Modules
-@import "modules/mixins";
 
 @mixin no-border() {
 	-webkit-border-radius: 0px !important;

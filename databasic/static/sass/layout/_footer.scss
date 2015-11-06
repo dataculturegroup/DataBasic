@@ -5,6 +5,7 @@ footer {
 	.footer-above {
 		padding: 10px 0 35px 0;
 		background-color: $c-white;
+		@include selection($c-white, $c-theme-dk);
 	}
 
 	.footer-below {

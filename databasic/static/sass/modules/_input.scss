@@ -4,15 +4,7 @@
 		color: $c-theme-dk;
 	}
 
-	::selection {
-		color: $c-white;
-		background: $c-theme-dk;
-	}
-
-	::-moz-selection {
-		color: $c-white;
-		background: $c-theme-dk;
-	}
+	@include selection($c-white, $c-theme-dk);
 	
 	input, textarea { 
 		@include placeholder {
@@ -50,5 +42,10 @@
 		label label:after {
 			content: " ✓";
 		}
+	}
+
+	.btn:focus, .btn:hover:active {
+		background-color: $c-theme-md;
+		color: $c-white;
 	}
 }

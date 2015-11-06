@@ -1,7 +1,7 @@
 {% extends "nav_base.html" %}
 {% block nav_container %}
 	<div class="row">
-		<img src="/static/img/logos/{{ tool_name }}.png" id="tool-logo">
+		<a href="/{{ g['current_lang'] }}/{{ tool_name }}"><img src="/static/img/logos/{{ tool_name }}.png" id="tool-logo"></a>
 	</div>
 {% endblock %}
 {% block logo %}

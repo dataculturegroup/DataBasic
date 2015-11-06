@@ -39,17 +39,21 @@ class WTFCSVStat():
     # copied from CSVKitUtility
     def _open_input_file(self, path, enc):
         if six.PY2:
-            mode = 'rb'
+            mode = 'rbw'
         else:
             mode = 'rt'
 
         (_, extension) = os.path.splitext(path)
 
-        f = codecs.open(path, mode, encoding=enc)
-        # f.read().replace('^M', '')
-        # with f:
-            # new_f = (line.replace('\r', '') for line in f)
+        pathbak = path + '.bak'
+        os.rename(path, pathbak)
+        with open(pathbak, 'r') as infile, open(path, 'w') as outfile:
+            for line in infile:
+                outfile.write(line.replace('\n', ' '))
+        os.remove(pathbak)
 
+        # f = codecs.open(path, mode, encoding=enc) # this was causing problems
+        f = open(path)
 
         return f
 

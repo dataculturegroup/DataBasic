@@ -10,3 +10,14 @@
   &::-moz-placeholder          {@content}
   &:-ms-input-placeholder      {@content}  
 }
+
+@mixin selection($color, $highlight) {
+	::selection {
+		color: $color;
+		background: $highlight;
+	}
+	::-moz-selection {
+		color: $color;
+		background: $highlight;
+	}
+}

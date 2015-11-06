@@ -5,6 +5,11 @@
 
 body {
 	background-color: $c-theme-bg;
+	@include selection($c-theme-dk, $c-white);
+
+	> .container {
+		margin: 25px auto;
+	}
 }
 
 p a {
@@ -13,7 +18,7 @@ p a {
 		color: $c-theme-dk;
 		background-color: $c-white;
 		font-size: 18px;
-		padding: 1px 4px;
+		padding: 3px 4px;
 
 		&:hover, &:focus {
 			color: $c-theme-dk;
@@ -38,6 +43,8 @@ p a {
 
 .modal-content {
 	background-color: $c-theme-lt;
+	border-radius: 0;
+	border: none;
 }
 
 .modal-title {
@@ -47,6 +54,7 @@ p a {
 
 .modal-header {
 	padding: 12px 15px 0px 15px;
+	border: none;
 
 	.close {
 		font-size: 32px;
@@ -123,8 +131,4 @@ p a {
 		min-height: 40px;
 		font-size: 20px;
 	}
-}
-
-body > .container {
-	margin: 25px auto;
 }
