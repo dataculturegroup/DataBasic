@@ -12,18 +12,21 @@ body {
 	}
 }
 
-p a {
+a[data-toggle="tooltip"] {
+	&:hover, &:focus {
+		text-decoration: none;
+		color: $c-white;
+	}
+}
 
-	&[data-toggle="tooltip"] {
+p a[data-toggle="tooltip"] {
+	color: $c-theme-dk;
+	background-color: $c-white;
+	font-size: 18px;
+	padding: 3px 4px;
+
+	&:hover, &:focus {
 		color: $c-theme-dk;
-		background-color: $c-white;
-		font-size: 18px;
-		padding: 3px 4px;
-
-		&:hover, &:focus {
-			color: $c-theme-dk;
-			text-decoration: none;
-		}
 	}
 }
 

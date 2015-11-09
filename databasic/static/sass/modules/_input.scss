@@ -13,8 +13,17 @@
 		}
 	}
 
+	input:focus::-webkit-input-placeholder { color:transparent; }
+	input:focus:-moz-placeholder { color:transparent; } /* FF 4-18 */
+	input:focus::-moz-placeholder { color:transparent; } /* FF 19+ */
+	input:focus:-ms-input-placeholder { color:transparent; } /* IE 10+ */
+
 	input[id="email"], input[id="link"] {
 		text-align: center;
+	}
+
+	.nav-tabs > li {
+		font-size: 18px;
 	}
 
 	.checkbox, .radio {
@@ -39,8 +48,11 @@
 	.checked-div {
 		background-color: $c-selected;
 
-		label label:after {
-			content: " ✓";
+		label label {
+			font-size: 16px;
+			&:after {
+				content: " ✓";
+			}
 		}
 	}
 

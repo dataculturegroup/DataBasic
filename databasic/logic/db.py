@@ -10,12 +10,13 @@ class MongoHandler:
 		self._client = MongoClient(uri)
 		self._db = self._client['DataBasic']
 	
-	def save_words(self, collection, counts, csv_files, ignore_case, ignore_stopwords):
+	def save_words(self, collection, counts, csv_files, ignore_case, ignore_stopwords, title):
 		return str(self._db[collection].save({
 			'counts': counts,
 			'csv_files': csv_files,
 			'ignore_case': ignore_case,
 			'ignore_stopwords': ignore_stopwords,
+			'title': str(title),
 			'datetime': datetime.datetime.now()
 			}))
 
@@ -31,7 +32,8 @@ class MongoHandler:
 			'filenames': filenames,
 			'is_sample_data': is_sample_data,
 			'email': email,
-			'status': 'queued'
+			'status': 'queued',
+			'datetime': datetime.datetime.now()
 			}))
 		self.update_document(collection, doc_id, {'$set': {'results_url': results_url_base + doc_id}})
 		return doc_id

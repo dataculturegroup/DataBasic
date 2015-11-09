@@ -1,0 +1,50 @@
+@charset "UTF-8";
+
+@import "themes/green-theme";
+@import "tool";
+@import "modules/input";
+
+.table-info {
+	min-height: 80px;
+}
+
+.column-info {
+	background-color: $c-theme-md;
+	color: $c-white;
+	padding: 1px 20px 16px 20px;
+	margin-top: 20px;
+}
+
+.chart-container {
+
+	background-color: $c-theme-lt;
+
+	.nav-tabs {
+		@include no-border();
+		li {
+			background-color: $c-theme-dk;
+			a {
+				@include no-border();
+				margin-right: 0;
+			}
+		}
+		.active a {
+			color: $c-white !important;
+			background-color: $c-theme-lt !important;
+		}
+	}
+
+	.navbar-right {
+		margin-right: 0;
+	}
+
+	.content-top {
+		background-color: $c-theme-dk;			
+	}
+
+	table {
+		border-spacing: 0;
+		border-collapse: separate;
+		padding: 8px 0;
+	}
+}

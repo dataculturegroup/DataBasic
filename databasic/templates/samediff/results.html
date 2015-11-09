@@ -1,9 +1,119 @@
 {% extends "results_base.html" %}
 
+{% macro sameness_table(outer_loop, loop) -%}
+	
+	<div class="chart-container">
+		<!-- Navigation -->
+		<ul class="nav nav-tabs navbar-right" role="tablist">
+			<li role="presentation" class="active">
+				<a href="#{{loop.index-1}}-sameness-visual" aria-controls="visual" role="tab" data-toggle="tab">{{_("Visual")}}</a>
+			</li>
+			<li role="presentation">
+				<a href="#{{loop.index-1}}-sameness-tabular" aria-controls="tabular" role="tab" data-toggle="tab">{{_("Tabular")}}</a>
+			</li>
+		</ul>
+
+		<!-- Content -->
+		<div class="tab-content content-top">
+			<div role="tabpanel" class="tab-pane active" id="{{loop.index-1}}-sameness-visual">
+				<div class="row">
+					<div class="col-md-12">
+						<div id="sameness{{loop.index-1}}Chart"></div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="tab-content">
+			<div role="tabpanel" class="tab-pane" id="{{loop.index-1}}-sameness-tabular">
+				<table class="table">
+					<thead>
+						<tr>
+							<th>{{_("Filename")}}</th>
+							<th>{{_("Cosine Similarity")}}</th>
+							<th>{{_("Words in Common")}}</th>
+						</tr>
+					</thead>
+					{% set idx = 0 %}
+					{% for cs in results['cosineSimilarity'][ outer_loop.index0 ] %}
+						{% set idx = idx + 1 %}
+						{% set csThisFile = cs[ outer_loop.index0 ] %}
+						{% if results['filenames'][ loop.index0 ] != filename %}
+						<tbody>
+							<tr>
+								<td>{{ results['filenames'][ loop.index0 ] }}</td>
+								<td>{{'%0.2f'| format(cs|float)}} {{"(sort of similar)"}}</td>
+								<td><a href="/{{g.current_lang}}/results/{{results['_id']}}/{{filename}}-and-{{ results['filenames'][ loop.index0 ] }}-common-words">View</a></td>
+							</tr>
+						</tbody>
+						{% endif %}
+					{% endfor %}
+				</table>
+			</div>
+		</div>
+	</div>
+{%- endmacro %}
+
+{% macro difference_table(outer_loop, loop) -%}
+	
+	<div class="chart-container">
+		<!-- Navigation -->
+		<div>
+			<ul class="nav nav-tabs navbar-right" role="tablist">
+				<li role="presentation" class="active">
+					<a href="#{{loop.index}}-diff-visual" aria-controls="visual" role="tab" data-toggle="tab">{{_("Visual")}}</a>
+				</li>
+				<li role="presentation">
+					<a href="#{{loop.index}}-diff-tabular" aria-controls="tabular" role="tab" data-toggle="tab">{{_("Tabular")}}</a>
+				</li>
+			</ul>
+		</div>
+
+		<!-- Content -->
+		<div class="tab-content content-top">
+			<div role="tabpanel" class="tab-pane active" id="{{loop.index-1}}-sameness-visual">
+				<div class="row">
+					<div class="col-md-12">
+						<div id="sameness{{loop.index-1}}Chart"></div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="tab-content">
+			<div role="tabpanel" class="tab-pane active" id="{{loop.index}}-diff-visual">
+				<div class="row">
+					<div class="col-md-12">
+						<div id="diff{{loop.index-1}}Chart"></div>
+					</div>
+				</div>
+			</div>
+			<div role="tabpanel" class="tab-pane" id="{{loop.index}}-diff-tabular">
+				<table class="table">
+					<thead>
+						<tr>
+							<th>{{_("Word")}}</th>
+							<th>{{_("TF-IDF")}}</th>
+							<th>{{_("Frequency")}} </th>
+						</tr>
+					</thead>
+					{% for row in results['tfidf'][loop.index-1] | batch(10) | first %}
+					<tbody>
+						<tr>
+							<td>{{ row['term'] }}</td>
+							<td>{{ '%0.2f'| format(row['tfidf']|float) }}</td>
+							<td>{{ row['frequency'] }}</td>
+						</tr>
+					</tbody>
+					{% endfor %}
+				</table>
+			</div>
+		</div>
+	</div>
+{%- endmacro %}
+
 {% block title %}{{ _('SameDiff results') }}{% endblock %}
 
 {% block custom_css %}
-	<link href="{{ url_for('static', filename='css/samediff.scss.css') }}" rel="stylesheet" type="text/css">
+	<link href="{{ url_for('static', filename='css/samediff-results.scss.css') }}" rel="stylesheet" type="text/css">
 {% endblock %}
 
 {% block nav %}
@@ -12,16 +122,82 @@
 
 {% block body %}
 <div class="container">
-	<div class="row">
-		{% if results %}
-			<div class="col-md-12">
-			{% if not results['tfidf'] %}
-			<h1>{{ _('Your results are being processed. We\'ll send you an email when they\'re ready, at which point you can reload this page to see them.') }}</h1>
-			<h2>{{ _('We emailed ') }} {{ results['email'] }}</h2>
-			{% endif %}
-			</div>
-			<h2>{{ results['status'] }}</h2>
-		{% endif %}
+	<div class="row" >
+		<div class="col-md-12 text-center">
+			<h3>{{_("Your SameDiff Report")}}</h3>
+		</div>
 	</div>
+	{% if results['status'] != 'complete' %}
+		<div class="row">
+			<div class="col-md-12">
+				<h1>{{ _('Your results are being processed. We\'ll send you an email when they\'re ready, at which point you can reload this page to see them.') }}</h1>
+				<h2>{{ _('We emailed ') }} {{ results['email'] }}</h2>
+			</div>
+		</div>
+	{% else %}
+
+		<!-- High level summary -->
+		<div class="row">
+			<div class="col-md-12">
+				<p>
+					{% if 'humanReadableSimilarity' in results %}
+						These two documents are {{ results['humanReadableSimilarity'] }}.
+					{% endif %}
+					{% if 'mostDifferentFile' in results %}
+						The most different file is <em>{{ results['mostDifferentFile'] }}</em>.
+					{% endif %}
+					{% if 'mostSimilar' in results %}
+						The most similar two files are <em>{{results['mostSimilar'][0]}}</em> and <em>{{results['mostSimilar'][1] }}</em>.
+						The most different two files are <em>{{results['mostDifferent'][0]}}</em> and <em>{{results['mostDifferent'][1]}}</em>.
+					{% endif %}
+				</p>
+			</div>
+		</div>
+
+		{% for filename in results['filenames'] %}
+			{% set outer_loop = loop %}
+			<div class="row">
+				<div class="col-md-12">
+					<h3><span class="glyphicon glyphicon-file" aria-hidden="true"></span> {{ filename }}</h3>
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-md-6">
+					<h4>{{_("Sameness")}}</h4>
+					<p class="table-info">{{_("This chart shows you how similar this document is to the others you uploaded. The numbers are each document's 'cosine similarity' score.")}}</p>
+					{{ sameness_table(outer_loop, loop) }}
+				</div>
+				<div class="col-md-6">
+					<h4>{{_("Difference")}}</h4>
+					<p class="table-info">{{_("This table shows you the words that make this document different from the others.")}}</p>
+					{{ difference_table(outer_loop, loop) }}
+				</div>
+			</div>
+		{% endfor %}
+	{% endif %}
 </div>
+{% endblock %}
+
+{% block custom_scripts %}
+<script type="text/javascript">
+$(function(){
+
+  // {% for idx in range(0,results['filenames']|length) %}
+  //   dataset{{idx}} = {{results['similarityLists'][idx] | tojson}};
+  //   renderSimilarityChart('#sameness{{idx}}Chart',dataset{{idx}});
+  // {% endfor %}
+
+  // maxDiffScore = {{maxTfIdfScore}};
+
+  // {% for idx in range(0,results['filenames']|length) %}
+  //   diffWords{{idx}} = [
+  //   {% for row in results['tfidf'][idx] | batch(50) | first %}
+  //     { text: "{{row['term']|safe}}", score: {{'%0.2f'| format(row['tfidf']|float)}} },
+  //   {% endfor %}
+  //   ];
+  //   renderDiffWordCloud('#diff{{idx}}Chart', diffWords{{idx}});
+  // {% endfor %}
+
+});
+</script>
 {% endblock %}

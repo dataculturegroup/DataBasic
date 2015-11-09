@@ -4,6 +4,7 @@ from ..application import app, mongo
 from ..forms import WordCounterPaste, WordCounterUpload, WordCounterSample
 from ..logic import wordhandler, filehandler, oauth
 from flask import Blueprint, render_template, request, redirect, g
+from flask.ext.babel import lazy_gettext as _
 
 mod = Blueprint('wordcounter', __name__, url_prefix='/<lang_code>/wordcounter', template_folder='../templates/wordcounter')
 
@@ -27,24 +28,30 @@ def index():
 	if request.method == 'POST':
 		ignore_case = True
 		ignore_stopwords = True
+		title = _('')
 		btn_value = request.form['btn']
 
 		if btn_value == 'paste':
 			words = forms['paste'].data['area']
 			ignore_case = forms[btn_value].data['ignore_case_paste']
 			ignore_stopwords = forms[btn_value].data['ignore_stopwords_paste']
+			title = _('Words in your text')
 		elif btn_value == 'upload':
-			words = process_upload(forms['upload'].data['upload'])
+			upload_file = forms['upload'].data['upload']
+			words = process_upload(upload_file)
 			ignore_case = forms[btn_value].data['ignore_case_upload']
 			ignore_stopwords = forms[btn_value].data['ignore_stopwords_upload']
+			title = _(u'Words used in %(filename)s', filename=upload_file.filename)
 		else:
-			words = filehandler.convert_to_txt(forms['sample'].data['sample'])
+			sample_file = forms['sample'].data['sample']
+			words = filehandler.convert_to_txt(sample_file)
 			ignore_case = forms[btn_value].data['ignore_case_sample']
 			ignore_stopwords = forms[btn_value].data['ignore_stopwords_sample']
+			title = _('Words used in %(samplename)s', samplename=sample_file)
 
 		if words is not None:
 			counts, csv_files = process_words(words, ignore_case, ignore_stopwords)
-			doc_id = mongo.save_words('wordcounter', counts, csv_files, ignore_case, ignore_stopwords)
+			doc_id = mongo.save_words('wordcounter', counts, csv_files, ignore_case, ignore_stopwords, title)
 			return redirect(request.url + 'results?id=' + doc_id)
 
 	return render_template('wordcounter.html', forms=forms.items(), tool_name='wordcounter')
@@ -71,7 +78,7 @@ def results():
 		for w in range(_clamp(len(counts[c]), 0, 40)):
 			print_counts[c].append(counts[c][w])
 
-	return render_template('wordcounter/results.html', results=print_counts, csv_files=csv_files, tool_name='wordcounter')
+	return render_template('wordcounter/results.html', results=print_counts, csv_files=csv_files, tool_name='wordcounter', title=doc['title'])
 
 @mod.route('/download-csv/<file_path>')
 def download_csv(file_path):

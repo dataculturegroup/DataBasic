@@ -1,4 +1,5 @@
 {% extends "results_base.html" %}
+{% from 'macros.html' import hover_tooltip %}
 
 {% block title %}{{ _('Word-Counter results') }}{% endblock %}
 
@@ -14,6 +15,10 @@
 <div class="container-fluid">
 	<div class="row">
 		<div class="col-xs-12">
+			<div class="top-info">
+				<h3>{{ title }}</h3>
+				<p>{{ _('Here is a picture of the words used most often in your the document. Words used more often are bigger, and ones used less often are smaller. This picture, called a "word cloud", is helpful to get a sense of the most used words in a document.') }}</p>
+			</div>
 			<div class="word-cloud">
 				
 			</div>
@@ -38,10 +43,10 @@
 			</table>
 		</div>
 		<div class="col-sm-4">
-			<h2>{{ _('Bigrams') }} <a href="/{{ g['current_lang'] }}/wordcounter/download-csv/{{ csv_files[1] }}"><span class="glyphicon glyphicon-download" aria-hidden="true"></span></a></h2>
+			<h2>{{ _('%(bigrams)s', bigrams=hover_tooltip('Bigrams', 'A bigram is a two word phrase')) }} <a href="/{{ g['current_lang'] }}/wordcounter/download-csv/{{ csv_files[1] }}"><span class="glyphicon glyphicon-download" aria-hidden="true"></span></a></h2>
 			<table class="table">
 				<thead>
-					<tr><th>{{ _('Bigram') }}</th><th>{{ _('Frequency') }}</th></tr>
+					<tr><th>{{ _('%(bigram)s', bigram=hover_tooltip('Bigram', 'A bigram is a two word phrase')) }}</th><th>{{ _('Frequency') }}</th></tr>
 				</thead>
 				<tbody>
 					{% for word in results[1] %}
@@ -54,10 +59,10 @@
 			</table>
 		</div>
 		<div class="col-sm-4">
-			<h2>{{ _('Trigrams') }} <a href="/{{ g['current_lang'] }}/wordcounter/download-csv/{{ csv_files[2] }}"><span class="glyphicon glyphicon-download" aria-hidden="true"></span></a></h2>
+			<h2>{{ _('%(trigrams)s', trigrams=hover_tooltip('Trigrams', 'A trigram is a three word phrase')) }} <a href="/{{ g['current_lang'] }}/wordcounter/download-csv/{{ csv_files[2] }}"><span class="glyphicon glyphicon-download" aria-hidden="true"></span></a></h2>
 			<table class="table">
 				<thead>
-					<tr><th>{{ _('Trigram') }}</th><th>{{ _('Frequency') }}</th></tr>
+					<tr><th>{{ _('%(trigram)s', trigram=hover_tooltip('Trigram', 'A trigram is a three word phrase')) }}</th><th>{{ _('Frequency') }}</th></tr>
 				</thead>
 				<tbody>
 					{% for word in results[2] %}

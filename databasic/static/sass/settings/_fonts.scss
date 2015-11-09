@@ -4,10 +4,14 @@ p, a, option, .btn, input, label {
 	font-style: normal;
 }
 
-h1, h2, h3, h4 {
+h1, h2, h3, h4, th {
 	font-family: HalisGR-Medium;
 	font-weight: normal;
 	font-style: normal;
+
+	a {
+		font-family: HalisGR-Medium;
+	}
 }
 
 p {
@@ -16,5 +20,5 @@ p {
 
 a {
 	color: $c-white;
-	font-size: larger;
 }
+

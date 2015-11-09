@@ -30,10 +30,20 @@
 				<h3>{{col['name']}}</h3>
 				<ul>
 					{% if 'index' in col %}
-						<li>{{_("This is column number %d" % col['index'])}}</li>
+						<li>{{_("Column %d" % col['index'])}}</li>
 					{% endif %}
 					{% if 'type' in col %}
-						<li>{{_("This column is full of")}} {{_(col['type'])}}</li>
+						{% set type_name=col['type'] %}
+						{% if type_name == 'unicode' %}
+							{% set type_name=_('text') %}
+						{% endif %}
+						{% if type_name == 'int' or type_name == 'float' or type_name == 'long' or type_name == 'complex' %}
+							{% set type_name = _('number') %}
+						{% endif %}
+						{% if type_name == 'datetime' %}
+							{% set type_name = _('date and time') %}
+						{% endif %}
+						<li>{{_("This column is full of")}} {{ type_name }}</li>
 					{% endif %}
 					{% if 'values' in col %}
 						<li>{{_("The unique values in this column are:")}}
@@ -86,7 +96,7 @@
 	{% if column_count % 3 > 0 %}</div>{% endif %}
 	<div class="row">
 		<div class="col-md-12">
-			{{ share() }}
+			{# share() #}
 		</div>
 	</div>
 </div>

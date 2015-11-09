@@ -3,28 +3,26 @@
     <div class="row centered-row">
         <div class="col-md-12">
             <div class="inputs">
-            <ul class="nav nav-tabs nav-justified">
-            {% set first=True %}
-            {% for name, form in forms %}
-                {% if first %}
-                <li role="presentation" class="active">
-                {% set first=False %}
-                {% else %}
-                <li role="presentation">
-                {% endif %}
-                    <a id="tab-{{ name }}" href="#{{ name }}" data-toggle="tab">{{ form.label }}</a>
-                </li>
-            {% endfor %}
-            </ul>
+                <ul class="nav nav-tabs nav-justified">
+                {% set first=True %}
+                {% for name, form in forms %}
+                    {% if first %}
+                    <li role="presentation" class="active">
+                    {% set first=False %}
+                    {% else %}
+                    <li role="presentation">
+                    {% endif %}
+                        <a id="tab-{{ name }}" href="#{{ name }}" data-toggle="tab">{{ form.label }}</a>
+                    </li>
+                {% endfor %}
+                </ul>
             
                 {% set first=True %}
                 <div class="tab-content">
                 {% for name, form in forms %}
+                    <div id="{{ name }}" class="tab-pane fade {% if first %}in active{% endif %}">
                     {% if first %}
-                        <div id="{{ name }}" class="tab-pane fade in active">
                         {% set first=False %}
-                    {% else %}
-                        <div id="{{ name }}" class="tab-pane fade">
                     {% endif %}
                     {{ render_form(form, class_=name, action_url=action_url, action_text=action_text) }}
                     </div>

@@ -30,6 +30,7 @@ footer {
 		a {
 			background-color: $c-unselected;
 			padding: 27px 10px;
+			font-size: 20px;
 
 			&[selected] {
 				background-color: $c-selected;

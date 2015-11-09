@@ -110,7 +110,7 @@ def results():
 				info[4].append(name)
 		job['similarityLists'].append(info)
 
-	return render_template('samediff/results.html', results=job)
+	return render_template('samediff/results.html', results=job, tool_name='samediff')
 
 '''
 # trying to track status of the celery task here
