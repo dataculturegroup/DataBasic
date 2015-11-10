@@ -100,9 +100,12 @@ def open_sheet(sheet):
 	return first
 
 def get_samples(tool_id):
+	basedir = os.path.dirname(os.path.abspath(__file__))
 	choices = []
-	if os.path.isdir('sample-data') and os.path.exists('config/sample-data.json'):
-		lookup = json.load(open('config/sample-data.json'))
+	sample_data_dir_path = os.path.join(basedir,'sample-data')
+	sample_data_config_path = os.path.join(basedir,'config','sample-data.json')
+	if os.path.isdir(sample_data_dir_path) and os.path.exists(sample_data_config_path):
+		lookup = json.load(open(sample_data_config_path))
 		texts = []
 		for text in lookup:
 			if tool_id in text['modules']:
