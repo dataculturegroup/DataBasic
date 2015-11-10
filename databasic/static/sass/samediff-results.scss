@@ -19,6 +19,10 @@
 
 	background-color: $c-theme-lt;
 
+	.nav {
+		margin-bottom: 1px !important;
+	}
+
 	.nav-tabs {
 		@include no-border();
 		li {
@@ -46,5 +50,10 @@
 		border-spacing: 0;
 		border-collapse: separate;
 		padding: 8px 0;
+	}
+
+	.tab-pane {
+		clear: both;
+		background-color: $c-theme-lt;
 	}
 }

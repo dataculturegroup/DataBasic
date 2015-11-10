@@ -29,19 +29,22 @@
 			<div class="column-info">
 				<h3>{{col['name']}}</h3>
 				<ul>
+					{% set type_name=col['type'] %}
 					{% if 'index' in col %}
 						<li>{{_("Column %d" % col['index'])}}</li>
 					{% endif %}
 					{% if 'type' in col %}
-						{% set type_name=col['type'] %}
 						{% if type_name == 'unicode' %}
 							{% set type_name=_('text') %}
 						{% endif %}
 						{% if type_name == 'int' or type_name == 'float' or type_name == 'long' or type_name == 'complex' %}
-							{% set type_name = _('number') %}
+							{% set type_name = _('numbers') %}
 						{% endif %}
 						{% if type_name == 'datetime' %}
-							{% set type_name = _('date and time') %}
+							{% set type_name = _('dates and times') %}
+						{% endif %}
+						{% if type_name == 'time' %}
+							{% set type_name = _('times') %}
 						{% endif %}
 						<li>{{_("This column is full of")}} {{ type_name }}</li>
 					{% endif %}
@@ -53,19 +56,31 @@
 						</li>
 					{% elif 'most_freq_values' in col %}
 						<li>{{ _("The most frequent values in this column are:") }}
-						<ul>
-							{% for val in col['most_freq_values'] %}<li><em>{{ val }}</em></li>{% endfor %}
-						</ul>
+							<ul>
+								{% for val in col['most_freq_values'] %}
+									<li><em>{{ val }}</em></li>
+								{% endfor %}
+							</ul>
 						</li>
 					{% endif %}
 					{% if 'max_str_len' in col %}
-						<li>{{ _("The longest string has %d characters" % col['max_str_len']) }}</li>
+						<li>{{ _("The longest word has %d characters" % col['max_str_len']) }}</li>
 					{% endif %}
 					{% if 'min' in col %}
-						<li>{{_("The smallest number is") }} <em>{{col['min']}}</em></li>
+						<li>
+						{% if type_name == 'datetime' %}
+							{{ _('The earliest date is') }}
+						{% else %}
+							{{_("The smallest number is") }} 
+						{% endif %} <em>{{col['min']}}</em></li>
 					{% endif %}
 					{% if 'max' in col %}
-						<li>{{_("The biggest number is") }} <em>{{col['max']}}</em></li>
+						<li>
+						{% if type_name == 'datetime' %}
+							{{ _('The latest date is') }}
+						{% else %}
+							{{_("The biggest number is") }}
+						{% endif %} <em>{{col['max']}}</em></li>
 					{% endif %}
 					{% if 'sum' in col %}
 						<li>{{_("The total is") }} <em>{{col['sum']}}</em></li>

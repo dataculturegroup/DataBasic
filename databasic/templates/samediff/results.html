@@ -22,8 +22,6 @@
 					</div>
 				</div>
 			</div>
-		</div>
-		<div class="tab-content">
 			<div role="tabpanel" class="tab-pane" id="{{loop.index-1}}-sameness-tabular">
 				<table class="table">
 					<thead>
@@ -57,28 +55,17 @@
 	
 	<div class="chart-container">
 		<!-- Navigation -->
-		<div>
-			<ul class="nav nav-tabs navbar-right" role="tablist">
-				<li role="presentation" class="active">
-					<a href="#{{loop.index}}-diff-visual" aria-controls="visual" role="tab" data-toggle="tab">{{_("Visual")}}</a>
-				</li>
-				<li role="presentation">
-					<a href="#{{loop.index}}-diff-tabular" aria-controls="tabular" role="tab" data-toggle="tab">{{_("Tabular")}}</a>
-				</li>
-			</ul>
-		</div>
+		<ul class="nav nav-tabs navbar-right" role="tablist">
+			<li role="presentation" class="active">
+				<a href="#{{loop.index}}-diff-visual" aria-controls="visual" role="tab" data-toggle="tab">{{_("Visual")}}</a>
+			</li>
+			<li role="presentation">
+				<a href="#{{loop.index}}-diff-tabular" aria-controls="tabular" role="tab" data-toggle="tab">{{_("Tabular")}}</a>
+			</li>
+		</ul>
 
 		<!-- Content -->
 		<div class="tab-content content-top">
-			<div role="tabpanel" class="tab-pane active" id="{{loop.index-1}}-sameness-visual">
-				<div class="row">
-					<div class="col-md-12">
-						<div id="sameness{{loop.index-1}}Chart"></div>
-					</div>
-				</div>
-			</div>
-		</div>
-		<div class="tab-content">
 			<div role="tabpanel" class="tab-pane active" id="{{loop.index}}-diff-visual">
 				<div class="row">
 					<div class="col-md-12">
@@ -179,7 +166,27 @@
 {% endblock %}
 
 {% block custom_scripts %}
-<script type="text/javascript">
-
+<script src="https://cdnjs.cloudflare.com/ajax/libs/d3/3.5.6/d3.min.js" charset="utf-8"></script>
+<script type="text/javascript" src="/static/js/lib/d3.layout.cloud.js" charset="utf-8"></script>
+<script type="text/javascript" src="/static/js/samediff.js" charset="utf-8"></script>
+<script type="text/javascript" charset="utf-8">
+{% if results %}
+	$(function(){
+	  {% for idx in range(0,results['filenames']|length) %}
+	    dataset{{idx}} = {{results['similarityLists'][idx] | tojson}};
+	    renderSimilarityChart('#sameness{{idx}}Chart',dataset{{idx}});
+	    console.log(dataset{{idx}});
+	  {% endfor %}
+	  maxDiffScore = {{maxTfIdfScore}};
+	  {% for idx in range(0,results['filenames']|length) %}
+	    diffWords{{idx}} = [
+	    {% for row in results['tfidf'][idx] | batch(50) | first %}
+	      { text: "{{row['term']|safe}}", score: {{'%0.2f'| format(row['tfidf']|float)}} },
+	    {% endfor %}
+	    ];
+	    renderDiffWordCloud('#diff{{idx}}Chart', diffWords{{idx}});
+	  {% endfor %}
+	});
+{% endif %}
 </script>
 {% endblock %}
