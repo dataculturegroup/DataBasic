@@ -57,3 +57,19 @@
 		background-color: $c-theme-lt;
 	}
 }
+
+/** d3 chart helpers **/
+svg {
+	font: 10px $font-md;
+}
+
+.key {
+	path {
+		display: none;
+	}
+
+	line {
+		stroke: #000;
+		shape-rendering: crispEdges;
+	}
+}
