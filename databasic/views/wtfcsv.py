@@ -3,12 +3,16 @@ from ..application import mongo
 from ..forms import WTFCSVUpload, WTFCSVLink, WTFCSVSample
 from ..logic import wtfcsvstat, filehandler, oauth
 from flask import Blueprint, render_template, request, redirect, g
+import os, logging
 
 mod = Blueprint('wtfcsv', __name__, url_prefix='/<lang_code>/wtfcsv', template_folder='../templates/wtfcsv')
 
+base_dir = os.path.dirname(os.path.abspath(__file__))
+logging.basicConfig(filename=os.path.join(base_dir,'../','wtfcsv.log'),level=logging.DEBUG)
+logger = logging.getLogger(__name__)
+
 @mod.route('/', methods=('GET', 'POST'))
 def index():
-
 	doc_url = oauth.doc_url()
 	if doc_url is not None:
 		return redirect_to_results(process_link(doc_url))
@@ -35,6 +39,8 @@ def index():
 				results = process_link(doc['doc'])
 
 		if btn_value is not None and btn_value is not u'':
+			logger.debug("HALLO")
+			logger.debug(results)
 			return redirect_to_results(results)
 
 	return render_template('wtfcsv.html', forms=forms.items(), tool_name='wtfcsv')

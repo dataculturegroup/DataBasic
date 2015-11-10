@@ -18,6 +18,10 @@ MAX_UNIQUE = 5
 MAX_FREQ = 5
 OPERATIONS =('min', 'max', 'sum', 'mean', 'median', 'stdev', 'nulls', 'unique', 'freq', 'len')
 
+base_dir = os.path.dirname(os.path.abspath(__file__))
+logging.basicConfig(filename=os.path.join(base_dir,'../','wtfcsv.log'),level=logging.DEBUG)
+logger = logging.getLogger(__name__)
+
 '''
 Public API: call this to get results!
 '''
@@ -83,6 +87,7 @@ class WTFCSVStat():
             for op in OPERATIONS:
                 stats[op] = getattr(self, 'get_%s' % op)(c, values, stats)
 
+            
             if c.type == None:
                 column_info['type'] = 'empty'
                 continue
@@ -120,9 +125,10 @@ class WTFCSVStat():
         v = min(values)
 
         if v in [datetime.datetime, datetime.date, datetime.time]:
+
             return v.isoformat()
         
-        return v
+        return str(v)
 
     def get_max(self, c, values, stats):
         if c.type == NoneType:
@@ -132,8 +138,7 @@ class WTFCSVStat():
 
         if v in [datetime.datetime, datetime.date, datetime.time]:
             return v.isoformat()
-        
-        return v
+        return str(v)
 
     def get_sum(self, c, values, stats):
         if c.type not in [int, float]:
