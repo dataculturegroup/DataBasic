@@ -171,22 +171,24 @@
 <script type="text/javascript" src="/static/js/samediff.js" charset="utf-8"></script>
 <script type="text/javascript" charset="utf-8">
 {% if results %}
-	$(function(){
-	  {% for idx in range(0,results['filenames']|length) %}
-	    dataset{{idx}} = {{results['similarityLists'][idx] | tojson}};
-	    renderSimilarityChart('#sameness{{idx}}Chart',dataset{{idx}});
-	    console.log(dataset{{idx}});
-	  {% endfor %}
-	  maxDiffScore = {{maxTfIdfScore}};
-	  {% for idx in range(0,results['filenames']|length) %}
-	    diffWords{{idx}} = [
-	    {% for row in results['tfidf'][idx] | batch(50) | first %}
-	      { text: "{{row['term']|safe}}", score: {{'%0.2f'| format(row['tfidf']|float)}} },
-	    {% endfor %}
-	    ];
-	    renderDiffWordCloud('#diff{{idx}}Chart', diffWords{{idx}});
-	  {% endfor %}
-	});
+	{% if results['status'] == 'complete' %}
+		$(function(){
+		  {% for idx in range(0,results['filenames']|length) %}
+		    dataset{{idx}} = {{results['similarityLists'][idx] | tojson}};
+		    renderSimilarityChart('#sameness{{idx}}Chart',dataset{{idx}});
+		    console.log(dataset{{idx}});
+		  {% endfor %}
+		  maxDiffScore = {{maxTfIdfScore}};
+		  {% for idx in range(0,results['filenames']|length) %}
+		    diffWords{{idx}} = [
+		    {% for row in results['tfidf'][idx] | batch(50) | first %}
+		      { text: "{{row['term']|safe}}", score: {{'%0.2f'| format(row['tfidf']|float)}} },
+		    {% endfor %}
+		    ];
+		    renderDiffWordCloud('#diff{{idx}}Chart', diffWords{{idx}});
+		  {% endfor %}
+		});
+	{% endif %}
 {% endif %}
 </script>
 {% endblock %}
