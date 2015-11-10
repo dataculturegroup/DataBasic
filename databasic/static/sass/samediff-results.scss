@@ -60,7 +60,7 @@
 
 /** d3 chart helpers **/
 svg {
-	font: 10px $font-lt;
+	font: 16px $font-lt;
 }
 
 .key {
@@ -72,4 +72,12 @@ svg {
 		stroke: #000;
 		shape-rendering: crispEdges;
 	}
+}
+
+.sameness-chart {
+	background-color: rgb(238,238,238);
+}
+.diff-chart{
+	padding: 10px;
+	background-color: rgb(238,238,238);	
 }

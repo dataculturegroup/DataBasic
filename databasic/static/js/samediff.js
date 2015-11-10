@@ -2,8 +2,8 @@ function renderSimilarityChart(elementSelector, dataset){
 
   console.log("renderSimilarityChart to "+elementSelector);
 
-  var width = 420,
-      height = 250,
+  var width = 520,
+      height = 280,
       formatPercent = d3.format(".0%"),
       formatNumber = d3.format(".0f");
 
@@ -12,9 +12,11 @@ function renderSimilarityChart(elementSelector, dataset){
       .range( ["#e66101", "#fdb863", "#999999", "#b2abd2", "#5e3c99"] );
 
   // A position encoding for the key only.
+  var chartWidth = 450;
+
   var x = d3.scale.linear()
       .domain([0, 1])
-      .range([0, 400]); // the width of the chart
+      .range([0, chartWidth]); // the width of the chart
 
   var xAxis = d3.svg.axis()
       .scale(x)
@@ -29,7 +31,7 @@ function renderSimilarityChart(elementSelector, dataset){
 
   var g = svg.append("g")
       .attr("class", "key")
-      .attr("transform", "translate(" + (width - 400) / 2 + "," + 25 + ")");
+      .attr("transform", "translate(" + (width - chartWidth) / 2 + "," + 50 + ")");
 
   g.selectAll("rect")
       .data(threshold.range().map(function(color) {
@@ -59,7 +61,7 @@ function renderSimilarityChart(elementSelector, dataset){
 
   var g2 = svg.append("g")
       .attr("class", "key")
-      .attr("transform", "translate(20,70)");
+      .attr("transform", "translate(40,100)");
   var yOffset = 0;
   var xOffset = 0;
   for(r=0;r<dataset.length;r++){
@@ -120,11 +122,12 @@ function renderDiffWordCloud(elementSelector, dataset){
 
 function drawDiffWordCloud(words) {
   console.log("drawDiffWordCloud to "+diffWordCloudDestination);
+  var chartWidth = 520;
   d3.select(diffWordCloudDestination).append("svg")
-      .attr("width", 420)
-      .attr("height", 250)
+      .attr("width", chartWidth)
+      .attr("height", 260)
     .append("g")
-      .attr("transform", "translate(" + 210 + "," + 125 + ")")
+      .attr("transform", "translate(" + chartWidth/2 + "," + 125 + ")")
     .selectAll("text")
       .data(words)
     .enter().append("text")
