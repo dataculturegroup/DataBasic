@@ -48,7 +48,8 @@ def index():
 			words = filehandler.convert_to_txt(os.path.join(basedir,'../','../',sample_file))
 			ignore_case = forms[btn_value].data['ignore_case_sample']
 			ignore_stopwords = forms[btn_value].data['ignore_stopwords_sample']
-			title = _('Words used in %(samplename)s', samplename=sample_file)
+			samplename = filehandler.get_sample_title(sample_file)
+			title = _('Words used in %(samplename)s', samplename=samplename)
 
 		if words is not None:
 			counts, csv_files = process_words(words, ignore_case, ignore_stopwords)

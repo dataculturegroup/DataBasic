@@ -15,6 +15,14 @@ docs = UploadSet(name='docs', extensions=('txt', 'docx', 'rtf', 'csv', 'xlsx', '
 configure_uploads(app, (docs))
 patch_request_class(app, 4 * 1024 * 1024) # 4MB
 
+basedir = os.path.dirname(os.path.abspath(__file__))
+sample_data_dir_path = os.path.join(basedir,'../','../','sample-data')
+logging.error("Loading sameple data from %s" % sample_data_dir_path)
+sample_data_config_path = os.path.join(basedir,'../','../','config','sample-data.json')
+logging.error("Loading sameple data config from %s" % sample_data_config_path)
+if os.path.isdir(sample_data_dir_path) and os.path.exists(sample_data_config_path):
+	samples = json.load(open(sample_data_config_path))
+
 def write_to_temp_file(text):
 	file_path = _get_temp_file()
 	file = codecs.open(file_path, 'w', ENCODING)
@@ -100,20 +108,21 @@ def open_sheet(sheet):
 	return first
 
 def get_samples(tool_id):
-	basedir = os.path.dirname(os.path.abspath(__file__))
 	choices = []
-	sample_data_dir_path = os.path.join(basedir,'../','../','sample-data')
-	logging.error("Loading sameple data from %s" % sample_data_dir_path)
-	sample_data_config_path = os.path.join(basedir,'../','../','config','sample-data.json')
-	logging.error("Loading sameple data config from %s" % sample_data_config_path)
-	if os.path.isdir(sample_data_dir_path) and os.path.exists(sample_data_config_path):
-		lookup = json.load(open(sample_data_config_path))
-		texts = []
-		for text in lookup:
-			if tool_id in text['modules']:
-				texts.append((text['source'], text['title']))
-		choices = texts
+	# if os.path.isdir(sample_data_dir_path) and os.path.exists(sample_data_config_path):
+		# lookup = json.load(open(sample_data_config_path))
+	texts = []
+	for text in samples:
+		if tool_id in text['modules']:
+			texts.append((text['source'], text['title']))
+	choices = texts
 	return choices
+
+def get_sample_title(path):
+	for text in samples:
+		if path in text['source']:
+			return text['title']
+	return path
 
 def get_file_names(file_paths):
 	file_names = []
