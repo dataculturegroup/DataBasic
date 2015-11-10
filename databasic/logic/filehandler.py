@@ -111,7 +111,7 @@ def get_samples(tool_id):
 		texts = []
 		for text in lookup:
 			if tool_id in text['modules']:
-				texts.append((text['source'], text['title']))
+				texts.append((os.path.join(basedir,'../','../',text['source']), text['title']))
 		choices = texts
 	return choices
 
