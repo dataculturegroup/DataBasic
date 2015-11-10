@@ -1,4 +1,4 @@
-import os, sys, json, gspread
+import os, sys, json, gspread, logging
 import gdata.docs.service
 from oauth2client.client import SignedJwtAssertionCredentials, OAuth2WebServerFlow
 
@@ -52,11 +52,12 @@ class OAuthHandler:
 
 	def _load_credentials(self):
 		basedir = os.path.dirname(os.path.abspath(__file__))
-		path_to_google_cred = os.path.join(basedir,'config','google-credentials')
+		path_to_google_cred = os.path.join(basedir,'../','../','config','google-credentials.json')
+		logging.error('Loading google credentials from %s' % path_to_google_cred)
 		if os.path.isfile(path_to_google_cred):
 			self._key = json.load(open(path_to_google_cred))
 		else:
-			print 'Credentials could not be loaded. If you haven\'t created them, follow the instructions at https://developers.google.com/api-client-library/python/auth/web-app'
+			logging.error('Credentials could not be loaded. If you haven\'t created them, follow the instructions at https://developers.google.com/api-client-library/python/auth/web-app')
 			self._key = {
 				'client_email': '',
 				'client_secret': ''

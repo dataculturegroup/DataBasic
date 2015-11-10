@@ -102,8 +102,10 @@ def open_sheet(sheet):
 def get_samples(tool_id):
 	basedir = os.path.dirname(os.path.abspath(__file__))
 	choices = []
-	sample_data_dir_path = os.path.join(basedir,'sample-data')
-	sample_data_config_path = os.path.join(basedir,'config','sample-data.json')
+	sample_data_dir_path = os.path.join(basedir,'../','../','sample-data')
+	logging.error("Loading sameple data from %s" % sample_data_dir_path)
+	sample_data_config_path = os.path.join(basedir,'../','../','config','sample-data.json')
+	logging.error("Loading sameple data config from %s" % sample_data_config_path)
 	if os.path.isdir(sample_data_dir_path) and os.path.exists(sample_data_config_path):
 		lookup = json.load(open(sample_data_config_path))
 		texts = []

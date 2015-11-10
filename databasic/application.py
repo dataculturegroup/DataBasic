@@ -1,3 +1,4 @@
+import logging
 from flask import Flask, Blueprint, g, redirect, request, abort
 from flask.ext.babel import Babel
 from flask_debugtoolbar import DebugToolbarExtension
@@ -6,6 +7,8 @@ from sassutils.wsgi import SassMiddleware
 from babel.support import LazyProxy
 from logic import oauth
 from logic.db import MongoHandler
+
+logging.basicConfig(level=logging.DEBUG)
 
 app = Flask(__name__, instance_relative_config=False)
 
