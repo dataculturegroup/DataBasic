@@ -14,9 +14,9 @@
 {% block body %}
 <div class="container">
 
-	<h2>{{ _('We\'ll analyze your text and tell you the most common words and phrases.') }}</h2>
+	<h2>{{ _('WordCounter analyzes your text and tells you the most common words and phrases.') }}</h2>
 
-	<p>{{ _('This is a simple webpage that helps you count words, %(bigram)s, and %(trigram)s in plain text. We created it to support some activities we do in our data visualization and storytelling classrooms. In our classes we introduce non-programmers to data analysis and storytelling. We want to help unlock the power of digital tools for everyone.',
+	<p>{{ _('This tool helps you count words, %(bigram)s, and %(trigram)s in plain text. This is often the first step in quantitative text analysis.',
 	bigram=hover_tooltip('bigrams', 'A bigram is a two word phrase'),
 	trigram=hover_tooltip('trigrams', 'A trigram is a three word phrase')) }}</p>
 
