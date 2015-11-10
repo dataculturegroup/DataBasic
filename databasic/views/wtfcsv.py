@@ -50,7 +50,6 @@ def results():
 		return redirect(g.current_lang + '/wtfcsv')
 	else:
 		results = mongo.find_document('wtfcsv', doc_id).get('results')
-		print results['row_count']
 	return render_template('wtfcsv/results.html', results=results, tool_name='wtfcsv')
 
 def redirect_to_results(results):
