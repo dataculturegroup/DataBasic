@@ -8,33 +8,36 @@
 {% block body %}
 <div class="container">
 	<div class="row">
-	<!-- <h3>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec a diam lectus. Sed sit amet ipsum mauris. Maecenas congue ligula ac quam viverra nec consectetur ante hendrerit. Donec et mollis dolor.</h3> -->
+	<!-- <h2>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec a diam lectus. Sed sit amet ipsum mauris. Maecenas congue ligula ac quam viverra nec consectetur ante hendrerit. Donec et mollis dolor.</h2> -->
 	</div>
 	<div class="row row-centered">
-		<div class="col-sm-4 col-md-3 col-centered">
+		<div class="col-sm-4">
 			<div class="thumbnail">
-				<a href="wordcounter"><img src="http://lorempixel.com/400/300/cats/1"></a>
+				<div class="thumbnail-img center-block" id="wordcounter">
+					<a href="wordcounter"><img src="{{ url_for('static', filename='img/logos/wordcounter_white.png') }}"></a>
+				</div>
 				<div class="caption">
-					<h3>{{ _('Word-Counter') }}</h3>
-					<p>{{ _('Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec a diam lectus. Sed sit amet ipsum mauris.') }}</p>
+					<p><a href="wordcounter">{{ _('WordCounter analyzes your text and tells you the most common words and phrases.') }}</a></p>
 				</div>
 			</div>
 		</div>
-		<div class="col-sm-4 col-md-3 col-centered">
+		<div class="col-sm-4">
 			<div class="thumbnail">
-			<a href="wtfcsv"><img src="http://lorempixel.com/400/300/cats/2"></a>
+				<div class="thumbnail-img" id="wtfcsv">
+					<a href="wtfcsv"><img src="{{ url_for('static', filename='img/logos/wtfcsv_white.png') }}"></a>
+				</div>
 				<div class="caption">
-					<h3>{{ _('WTFcsv') }}</h3>
-					<p>{{ _('Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec a diam lectus. Sed sit amet ipsum mauris.') }}</p>
+					<p><a href="wtfcsv">{{ _('WTFcsv tells you WTF is going on with your .csv file.') }}</a></p>
 				</div>
 			</div>
 		</div>
-		<div class="col-sm-4 col-md-3 col-centered">
+		<div class="col-sm-4">
 			<div class="thumbnail">
-			<a href="samediff"><img src="http://lorempixel.com/400/300/cats/3"></a>
+				<div class="thumbnail-img" id="samediff">
+					<a href="samediff"><img src="{{ url_for('static', filename='img/logos/samediff_white.png') }}"></a>
+				</div>
 				<div class="caption">
-					<h3>{{ _('SameDiff') }}</h3>
-					<p>{{ _('Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec a diam lectus. Sed sit amet ipsum mauris.') }}</p>
+					<p><a href="samediff">{{ _('SameDiff compares two or more text files and tells you how similar or different they are') }}</a></p>
 				</div>
 			</div>
 		</div>

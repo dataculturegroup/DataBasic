@@ -1,4 +1,4 @@
-{% extends "results_base.html" %}
+{% extends "tool_base.html" %}
 
 {% macro sameness_table(outer_loop, loop) -%}
 	
@@ -180,24 +180,6 @@
 
 {% block custom_scripts %}
 <script type="text/javascript">
-$(function(){
 
-  // {% for idx in range(0,results['filenames']|length) %}
-  //   dataset{{idx}} = {{results['similarityLists'][idx] | tojson}};
-  //   renderSimilarityChart('#sameness{{idx}}Chart',dataset{{idx}});
-  // {% endfor %}
-
-  // maxDiffScore = {{maxTfIdfScore}};
-
-  // {% for idx in range(0,results['filenames']|length) %}
-  //   diffWords{{idx}} = [
-  //   {% for row in results['tfidf'][idx] | batch(50) | first %}
-  //     { text: "{{row['term']|safe}}", score: {{'%0.2f'| format(row['tfidf']|float)}} },
-  //   {% endfor %}
-  //   ];
-  //   renderDiffWordCloud('#diff{{idx}}Chart', diffWords{{idx}});
-  // {% endfor %}
-
-});
 </script>
 {% endblock %}
