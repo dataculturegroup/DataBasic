@@ -61,9 +61,9 @@
 							<ul>
 								{% for val in col['most_freq_values'] %}
 									{% if is_number %}
-										<li><em>{{ val | replace("_", ".") }}</em></li>
+									<li><em>{{ val['value'] | replace("_", ".") }}</em><em> ({{ val['count'] }})</em></li>
 									{% else %}
-										<li><em>{{ val }}</em></li>
+										<li><em>{{ val['value'] }}</em><em> ({{ val['count'] }})</em></li>
 									{% endif %}
 								{% endfor %}
 							</ul>

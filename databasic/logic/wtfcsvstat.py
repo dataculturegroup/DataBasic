@@ -107,8 +107,13 @@ class WTFCSVStat():
                 column_info['uniques'] = len(stats['unique'])
 
                 if len(stats['unique']) != len(values):
+                    column_info['most_freq_values'] = []
                     for value, count in stats['freq']:
-                        column_info['most_freq_values'] = {six.text_type(value): count for value,count in stats['freq']}
+                        column_info['most_freq_values'].append({
+                            'value': value,
+                            'count': count
+                            })
+                        # column_info['most_freq_values'] = {six.text_type(value): count for value,count in stats['freq']}
 
                 if c.type == six.text_type:
                     column_info['max_str_len'] = stats['len']
