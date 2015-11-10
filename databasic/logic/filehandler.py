@@ -109,8 +109,6 @@ def open_sheet(sheet):
 
 def get_samples(tool_id):
 	choices = []
-	# if os.path.isdir(sample_data_dir_path) and os.path.exists(sample_data_config_path):
-		# lookup = json.load(open(sample_data_config_path))
 	texts = []
 	for text in samples:
 		if tool_id in text['modules']:

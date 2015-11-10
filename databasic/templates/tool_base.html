@@ -2,3 +2,8 @@
 {% block footer %}
 	{% include 'footer.html' %}
 {% endblock %}
+{% block custom_scripts %}
+<script type="text/javascript" src="/static/js/{{ tool_name }}-validate.js"></script>
+<script src="/static/js/tool.js"></script>
+{% block results_scripts %}{% endblock %}
+{% endblock %}

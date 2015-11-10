@@ -24,16 +24,3 @@
 	{{ render_forms(forms, action_url=tool_name, action_text=_('Count')) }}
 </div>
 {% endblock %}
-
-{% block custom_scripts %}
-<script type="text/javascript" src="/static/js/{{ tool_name }}-validate.js"></script>
-<script type="text/javascript">
-$("input[type='checkbox']").change(function(){
-    if($(this).is(":checked")){
-        $(this).parent().parent().addClass("checked-div"); 
-    }else{
-        $(this).parent().parent().removeClass("checked-div");  
-    }
-});
-</script>
-{% endblock %}
