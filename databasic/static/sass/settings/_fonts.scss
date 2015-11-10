@@ -1,16 +1,19 @@
+$font-lt: HalisGR-Book;
+$font-md: HalisGR-Medium;
+
 p, a, option, .btn, input, label {
-	font-family: HalisGR-Book;
+	font-family: $font-lt;
 	font-weight: normal;
 	font-style: normal;
 }
 
 h1, h2, h3, h4, th {
-	font-family: HalisGR-Medium;
+	font-family: $font-md;
 	font-weight: normal;
 	font-style: normal;
 
 	a {
-		font-family: HalisGR-Medium;
+		font-family: $font-md;
 	}
 }
 
