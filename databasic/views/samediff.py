@@ -9,6 +9,7 @@ from flask.ext.babel import lazy_gettext as _
 
 mod = Blueprint('samediff', __name__, url_prefix='/<lang_code>/samediff', template_folder='../templates/samediff')
 
+
 @mod.route('/', methods=('GET', 'POST'))
 def index():
 

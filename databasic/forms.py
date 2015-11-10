@@ -124,7 +124,7 @@ SameDiff forms
 class SameDiffForm(object):
 	email = StringField(
 		_('Email'),
-		description={'placeholder': _('kate@bush.com')},
+		description={'placeholder': _('Your email address')},
 		widget=TextInput())
 
 class SameDiffUpload(UploadForm, SameDiffForm, Form):
