@@ -31,6 +31,17 @@ You will need to register the app with Google. To do that, create a project in t
 sudo bash install.sh
 ```
 
+On Ubuntu you might need to do this:
+```
+aptitude install libblas-dev liblapack-dev
+sudo apt-get install libblas-dev liblapack-dev libatlas-base-dev gfortran
+```
+
+On OSX you might need to do this:
+```
+STATIC_DEPS=true pip install lxml
+```
+
 **3.** Start the app. Run this script and then go to localhost:5000 in your browser
 ```
 bash start.sh
