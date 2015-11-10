@@ -1,4 +1,4 @@
-import logging
+import logging, os
 from flask import Flask, Blueprint, g, redirect, request, abort
 from flask.ext.babel import Babel
 from flask_debugtoolbar import DebugToolbarExtension
@@ -23,6 +23,7 @@ app.config.from_pyfile('../config/settings.py')
 app.config.from_envvar('APP_CONFIG_FILE')
 
 # Setup sass auto-compiling
+basedir = os.path.dirname(os.path.abspath(__file__))
 app.wsgi_app = SassMiddleware(app.wsgi_app, {
 	'databasic': ('static/sass', 'static/css', '/static/css')
 })
