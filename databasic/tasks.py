@@ -34,11 +34,11 @@ def save_tfidf_results(self, job_id):
     # notify them with email
     # TODO: Internationalize and put the text stuff into some kind of templating structure
     name = job_info['email'].split('@')[0]
-    email_body = u'Dear %s, \n\nYour SameDiff job is ready at this URL: %s! \n\nSincerely, \n %s ' % (name, job_info['results_url'], settings.get('email', 'from_email'))
+    email_body = u'Dear %s, \n\nYour SameDiff job is ready at this URL: %s! \n\nSincerely, \n %s ' % (name, job_info['results_url'], settings.get('mail', 'from_email'))
     msg = Message(u'Your SameDiff job is ready!',
         recipients=[job_info['email']],
         body=email_body,
-        sender=settings.get('email', 'from_email'))
+        sender=settings.get('mail', 'from_email'))
     with app.app_context():
         mail.send(msg)
 
