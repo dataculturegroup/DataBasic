@@ -1,5 +1,5 @@
 #!/usr/bin/env python
-import datetime, os, sys, json
+import datetime, os, sys, json, tempfile
 import gzip
 import bz2
 from heapq import nlargest
@@ -47,7 +47,7 @@ class WTFCSVStat():
 
         (_, extension) = os.path.splitext(path)
 
-        pathbak = path + '.bak'
+        pathbak = os.path.join(tempfile.gettempdir(),os.path.basename(path) + '.bak')
         os.rename(path, pathbak)
         with open(pathbak, 'r') as infile, open(path, 'w') as outfile:
             for line in infile:
