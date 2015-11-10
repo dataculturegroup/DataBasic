@@ -34,10 +34,12 @@
 						<li>{{_("Column %d" % col['index'])}}</li>
 					{% endif %}
 					{% if 'type' in col %}
+						{% set is_number = False %}
 						{% if type_name == 'unicode' %}
 							{% set type_name=_('text') %}
 						{% endif %}
 						{% if type_name == 'int' or type_name == 'float' or type_name == 'long' or type_name == 'complex' %}
+							{% set is_number = True %}
 							{% set type_name = _('numbers') %}
 						{% endif %}
 						{% if type_name == 'datetime' %}
@@ -58,7 +60,11 @@
 						<li>{{ _("The most frequent values in this column are:") }}
 							<ul>
 								{% for val in col['most_freq_values'] %}
-									<li><em>{{ val }}</em></li>
+									{% if is_number %}
+										<li><em>{{ val | replace("_", ".") }}</em></li>
+									{% else %}
+										<li><em>{{ val }}</em></li>
+									{% endif %}
 								{% endfor %}
 							</ul>
 						</li>

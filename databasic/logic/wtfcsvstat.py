@@ -18,9 +18,7 @@ MAX_UNIQUE = 5
 MAX_FREQ = 5
 OPERATIONS =('min', 'max', 'sum', 'mean', 'median', 'stdev', 'nulls', 'unique', 'freq', 'len')
 
-base_dir = os.path.dirname(os.path.abspath(__file__))
-logging.basicConfig(filename=os.path.join(base_dir,'../','wtfcsv.log'),level=logging.DEBUG)
-logger = logging.getLogger(__name__)
+
 
 '''
 Public API: call this to get results!
@@ -177,7 +175,8 @@ class WTFCSVStat():
         return set(values) 
 
     def get_freq(self, c, values, stats):
-        return freq(values) 
+        mostfrequent = freq(values)
+        return mostfrequent
 
     def get_len(self, c, values, stats):
         if c.type != six.text_type:
@@ -215,8 +214,10 @@ def freq(l, n=MAX_FREQ):
     # This will iterate through dictionary, return N highest
     # values as (key, value) tuples.
     top = nlargest(n, six.iteritems(count), itemgetter(1))
-
-    return top
+    result = []
+    for item in top:
+        result.append((str(item[0]).replace('.','_'), item[1]))
+    return result
 
 if __name__ == "__main__":
     if(len(sys.argv)!=2):
