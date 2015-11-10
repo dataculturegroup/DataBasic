@@ -47,12 +47,12 @@ class WTFCSVStat():
 
         (_, extension) = os.path.splitext(path)
 
-        pathbak = os.path.join(tempfile.gettempdir(),os.path.basename(path) + '.bak')
-        os.rename(path, pathbak)
-        with open(pathbak, 'r') as infile, open(path, 'w') as outfile:
-            for line in infile:
-                outfile.write(line.replace('\n', ' '))
-        os.remove(pathbak)
+        #pathbak = os.path.join(tempfile.gettempdir(),os.path.basename(path) + '.bak')
+        #os.rename(path, pathbak)
+        #with open(pathbak, 'r') as infile, open(path, 'w') as outfile:
+        #    for line in infile:
+        #        outfile.write(line.replace('\n', ' '))
+        #os.remove(pathbak)
 
         # f = codecs.open(path, mode, encoding=enc) # this was causing problems
         f = open(path)
