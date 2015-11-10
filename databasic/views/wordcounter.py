@@ -43,8 +43,9 @@ def index():
 			ignore_stopwords = forms[btn_value].data['ignore_stopwords_upload']
 			title = _(u'Words used in %(filename)s', filename=upload_file.filename)
 		else:
+			basedir = os.path.dirname(os.path.abspath(__file__))
 			sample_file = forms['sample'].data['sample']
-			words = filehandler.convert_to_txt(sample_file)
+			words = filehandler.convert_to_txt(os.path.join(basedir,'../','../',sample_file)
 			ignore_case = forms[btn_value].data['ignore_case_sample']
 			ignore_stopwords = forms[btn_value].data['ignore_stopwords_sample']
 			title = _('Words used in %(samplename)s', samplename=sample_file)
