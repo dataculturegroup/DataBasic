@@ -117,8 +117,8 @@
 	{% if results['status'] != 'complete' %}
 		<div class="row">
 			<div class="col-md-12">
-				<h1>{{ _('Your results are being processed. We\'ll send you an email when they\'re ready, at which point you can reload this page to see them.') }}</h1>
-				<h2>{{ _('We emailed ') }} {{ results['email'] }}</h2>
+				<h1>{{ _('Your results are being processed. We\'ll send you an email to {{ results['email'] }} when they\'re ready, at which point you can reload this page to see them.') }}</h1>
+				
 			</div>
 		</div>
 	{% else %}

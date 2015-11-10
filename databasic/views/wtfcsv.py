@@ -35,9 +35,12 @@ def index():
 				return redirect(doc['authenticate'])
 			elif doc['doc'] is not None:
 				results = process_link(doc['doc'])
+		elif btn_value == 'sample':
+			basedir = os.path.dirname(os.path.abspath(__file__))
+			sample_file = forms['sample'].data['sample']
+			results = wtfcsvstat.get_summary(os.path.join(basedir,'../','../',sample_file))
 
 		if btn_value is not None and btn_value is not u'':
-			print results
 			return redirect_to_results(results)
 
 	return render_template('wtfcsv.html', forms=forms.items(), tool_name='wtfcsv')
@@ -50,7 +53,6 @@ def results():
 		return redirect(g.current_lang + '/wtfcsv')
 	else:
 		results = mongo.find_document('wtfcsv', doc_id).get('results')
-		print results['row_count']
 	return render_template('wtfcsv/results.html', results=results, tool_name='wtfcsv')
 
 def redirect_to_results(results):
