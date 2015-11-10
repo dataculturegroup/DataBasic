@@ -22,3 +22,6 @@ libsass
 textmining
 scipy
 numpy
+wtforms
+kombu
+billiard
