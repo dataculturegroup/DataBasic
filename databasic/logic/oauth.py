@@ -51,8 +51,10 @@ class OAuthHandler:
 			redirect_uri=redirect_uri)
 
 	def _load_credentials(self):
-		if os.path.isfile('config/google-credentials.json'):
-			self._key = json.load(open('config/google-credentials.json'))
+		basedir = os.path.dirname(os.path.abspath(__file__))
+		path_to_google_cred = os.path.join(basedir,'config','google-credentials')
+		if os.path.isfile(path_to_google_cred):
+			self._key = json.load(open(path_to_google_cred))
 		else:
 			print 'Credentials could not be loaded. If you haven\'t created them, follow the instructions at https://developers.google.com/api-client-library/python/auth/web-app'
 			self._key = {
