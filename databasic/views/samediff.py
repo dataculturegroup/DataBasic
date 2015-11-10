@@ -1,10 +1,11 @@
 import json
+from operator import itemgetter
 from collections import OrderedDict
 from ..application import mongo, app, mail
 from ..forms import SameDiffUpload, SameDiffSample
 from ..logic import filehandler
 import databasic.tasks
-from flask import Blueprint, render_template, request, redirect, url_for, g
+from flask import Blueprint, render_template, request, redirect, url_for, g, abort
 from flask.ext.babel import lazy_gettext as _
 
 mod = Blueprint('samediff', __name__, url_prefix='/<lang_code>/samediff', template_folder='../templates/samediff')
@@ -112,6 +113,38 @@ def results():
 		job['similarityLists'].append(info)
 
 	return render_template('samediff/results.html', results=job, tool_name='samediff', maxTfIdfScore=maxTfIdf)
+
+@mod.route('/results/<file1>-and-<file2>-common-words')
+def show_common_words(file1, file2):
+	doc_id = None if not 'id' in request.args else request.args['id']
+	if doc_id is None:
+		return redirect(g.current_lang + '/samediff')
+	try:
+		job = mongo.find_document('samediff', doc_id)
+		results = _most_common_words(doc_id,file1,file2)
+		return render_template("samediff/words-in-common.html", job=job, file1=file1, file2=file2, data=results)
+	except Exception as e:
+		# logger.exception(e)
+		print e
+		abort(400)
+
+def _most_common_words(job_id,filename1,filename2):
+	# job = app.db_collection.find_one({'_id':ObjectId(job_id)})
+	job = mongo.find_document('samediff', job_id)
+	doc1_idx = job['filenames'].index(filename1)
+	doc2_idx = job['filenames'].index(filename2)
+	# TODO: catch case where filename isn't in results
+	doc1_freq_dist = { t['term']:t['frequency'] for t in job['tfidf'][doc1_idx]}
+	doc2_freq_dist = { t['term']:t['frequency'] for t in job['tfidf'][doc2_idx]}
+	terms = set(doc1_freq_dist.keys()+doc2_freq_dist.keys())
+	# logger.debug("  Found %d words total" % (len(terms)))
+	results = [ {'term':t,'avg':float(doc1_freq_dist[t]+doc2_freq_dist[t])/2.0, 
+			  'doc1':doc1_freq_dist[t], 'doc2':doc2_freq_dist[t],
+			  'total':doc1_freq_dist[t]+doc2_freq_dist[t]} for t in terms 
+		if t in doc1_freq_dist.keys() and t in doc2_freq_dist.keys() ]
+	results = sorted(results, key=itemgetter('avg','total'),reverse=True)
+	# logger.debug("  Found %d common words" % (len(results)))
+	return results
 
 '''
 # trying to track status of the celery task here

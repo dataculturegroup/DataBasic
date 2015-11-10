@@ -1,0 +1,51 @@
+{% extends "tool_base.html" %}
+
+{% block title %}{{ _('Words in common') }}{% endblock %}
+
+{% block body %}
+
+<br />
+<br />
+<br />
+<br />
+<br />
+
+    <div class="container">
+      <div class="row" >
+        <div class="col-md-12 text-center" style="margin:20px 0">
+          <h3>{{_("Words in Common")}}: {{file1}} and {{file2}}</h3>
+          {# <p><a href="{{url_for('download_common_words',lang_code=g.current_lang,job_id=job['_id'], #}
+            {# filename1=file1, filename2=file2)}}">download the CSV</a> #}
+        </div>
+      </div>
+      
+      {% if job['status']=='complete' %}
+        <div class="row">
+          <div class="col-md-12">
+            <table class="table">
+              <tr>
+                <th>{{_("Word")}}</th>
+                <th>{{_("Total Uses")}}</th>
+                <th>{{_("Uses in")}} {{file1}}</th>
+                <th>{{_("Uses in")}} {{file2}}</th>
+              </tr>
+              {% for row in data | batch(50) | first %}
+                <tr>
+                  <td>{{ row['term'] }}</td>
+                  <td>{{ row['total'] }}</td>
+                  <td>{{ row['doc1'] }}</td>
+                  <td>{{ row['doc2'] }}</td>
+                </tr>
+              {% endfor %}
+            </table>
+          </div>
+        </div>
+      {% else %}
+        <div class="row">
+          {{ _("Sorry, your results are still being processed.")}}
+        </div>
+      {% endif %}
+      
+    </div>
+
+{% endblock %}

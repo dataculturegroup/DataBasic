@@ -48,6 +48,9 @@
 						{% if type_name == 'time' %}
 							{% set type_name = _('times') %}
 						{% endif %}
+						{% if type_name == 'date' %}
+							{% set type_name = _('dates') %}
+						{% endif %}
 						<li>{{_("This column is full of")}} {{ type_name }}</li>
 					{% endif %}
 					{% if 'values' in col %}
@@ -74,16 +77,20 @@
 					{% endif %}
 					{% if 'min' in col %}
 						<li>
-						{% if type_name == 'datetime' %}
+						{% if type_name == 'datetime' or type_name == 'date' %}
 							{{ _('The earliest date is') }}
+						{% elif type_name == 'time' %}
+							{{ _('The earliest time is') }}
 						{% else %}
 							{{_("The smallest number is") }} 
 						{% endif %} <em>{{col['min']}}</em></li>
 					{% endif %}
 					{% if 'max' in col %}
 						<li>
-						{% if type_name == 'datetime' %}
+						{% if type_name == 'datetime' or type_name == 'date' %}
 							{{ _('The latest date is') }}
+						{% elif type_name == 'time' %}
+							{{ _('The latest time is') }}
 						{% else %}
 							{{_("The biggest number is") }}
 						{% endif %} <em>{{col['max']}}</em></li>
