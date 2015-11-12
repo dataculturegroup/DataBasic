@@ -7,7 +7,7 @@ class MongoHandler:
 
 	def __init__(self, app):
 		uri = 'mongodb://' + settings.get('db', 'host') + ':' + str(settings.get('db', 'port'))
-		self._client = MongoClient(uri)
+		self._client = MongoClient(uri, connect=False)
 		self._db = self._client['DataBasic']
 	
 	def save_words(self, collection, counts, csv_files, ignore_case, ignore_stopwords, title):
