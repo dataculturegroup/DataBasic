@@ -1,14 +1,14 @@
 @mixin box-shadow() {
-      -webkit-box-shadow: 4px 4px 0 0 rgba(0, 0, 0, 0.2);
-      -moz-box-shadow: 4px 4px 0 0 rgba(0, 0, 0, 0.2);
-      box-shadow: 4px 4px 0 0 rgba(0, 0, 0, 0.2);
+	-webkit-box-shadow: 4px 4px 0 0 rgba(0, 0, 0, 0.2);
+	-moz-box-shadow: 4px 4px 0 0 rgba(0, 0, 0, 0.2);
+	box-shadow: 4px 4px 0 0 rgba(0, 0, 0, 0.2);
 }
 
 @mixin placeholder {
-  &::-webkit-input-placeholder {@content}
-  &:-moz-placeholder           {@content}
-  &::-moz-placeholder          {@content}
-  &:-ms-input-placeholder      {@content}  
+	&::-webkit-input-placeholder {@content}
+	&:-moz-placeholder           {@content}
+	&::-moz-placeholder          {@content}
+	&:-ms-input-placeholder      {@content}  
 }
 
 @mixin selection($color, $highlight) {
@@ -19,5 +19,18 @@
 	::-moz-selection {
 		color: $color;
 		background: $highlight;
+	}
+}
+
+@mixin tooltip($color, $bg-color) {
+	&[data-toggle="tooltip"] {
+		color: $color;
+		background-color: $bg-color;
+		padding: 3px 4px;
+
+		&:hover, &:focus {
+			text-decoration: none;
+			color: $color;
+		}
 	}
 }

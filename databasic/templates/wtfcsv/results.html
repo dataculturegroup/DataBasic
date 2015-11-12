@@ -1,5 +1,5 @@
 {% extends "tool_base.html" %}
-{% from 'macros.html' import share %}
+{% from 'macros.html' import share, hover_tooltip %}
 
 {% block title %}{{ _('WTFcsv results') }}{% endblock %}
 
@@ -16,39 +16,50 @@
 	<div class="row">
 		<div class="col-md-12">
 			<h2> 
-			{{ngettext("You have %(num)s row of data.", "You have %(num)s rows of data.", results['row_count'])}}
-			{{_("Here's a bit of info about each one:")}}
+			{{_("You have %(rows)s row of data grouped into %(cols)s. Here's some %(metadata)s about each one.", 
+			rows=results['row_count'],
+			cols=results['columns']|length,
+			metadata=hover_tooltip('metadata', 'Metadata summarizes basic information about data to make it easier to discover what\'s going on'))}}
 			</h2>
 		</div>
 	</div>
 	{% set column_count = results['columns']|length %}
 	{% for c in range(column_count) %}
 		{% set col=results['columns'][c] %}
+		{% set type_name=col['type'] %}
+		{% set is_number = type_name == 'float' or type_name == 'int' or type_name == 'long' or type_name == 'complex' %}
 		{% if c % 3 == 0 %}<div class="row">{% endif %}
 		<div class="col-md-4">
 			<div class="column-info">
-				<h3>{{col['name']}}</h3>
+				<h3><span class="glyphicon 
+				{% if type_name == 'unicode' %}
+					glyphicon-pencil
+				{% elif is_number %}
+					glyphicon-object-align-bottom
+				{% elif type_name == 'datetime' %}
+					glyphicon-calendar
+				{% elif type_name == 'date' %}
+					glyphicon-calendar
+				{% elif type_name == 'time' %}
+					glyphicon-time
+				{% else %}
+					glyphicon-asterisk
+				{% endif %}
+				" aria-hidden="true"></span> {{col['name']}}</h3>
 				<ul>
-					{% set type_name=col['type'] %}
 					{% if 'index' in col %}
 						<li>{{_("Column %d" % col['index'])}}</li>
 					{% endif %}
 					{% if 'type' in col %}
-						{% set is_number = False %}
 						{% if type_name == 'unicode' %}
 							{% set type_name=_('text') %}
-						{% endif %}
-						{% if type_name == 'int' or type_name == 'float' or type_name == 'long' or type_name == 'complex' %}
-							{% set is_number = True %}
+						{% elif is_number %}
 							{% set type_name = _('numbers') %}
-						{% endif %}
-						{% if type_name == 'datetime' %}
+						{% elif type_name == 'datetime' %}
 							{% set type_name = _('dates and times') %}
-						{% endif %}
-						{% if type_name == 'time' %}
+						{% elif type_name == 'time' %}
 							{% set type_name = _('times') %}
-						{% endif %}
-						{% if type_name == 'date' %}
+						{% elif type_name == 'date' %}
 							{% set type_name = _('dates') %}
 						{% endif %}
 						<li>{{_("This column is full of")}} {{ type_name }}</li>

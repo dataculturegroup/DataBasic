@@ -7,6 +7,8 @@
 h2 {
 	text-align: center;
 	color: $c-theme-dk;
+
+	a { @include tooltip($c-white, $c-theme-dk); }
 }
 
 body {
@@ -18,4 +20,8 @@ body {
 	color: $c-white;
 	padding: 1px 20px 16px 20px;
 	margin-top: 20px;
+
+	> h3 > .glyphicon {
+		font-size: smaller;
+	}
 }

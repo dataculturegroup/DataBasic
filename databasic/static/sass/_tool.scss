@@ -12,22 +12,11 @@ body {
 	}
 }
 
-a[data-toggle="tooltip"] {
-	&:hover, &:focus {
-		text-decoration: none;
-		color: $c-white;
-	}
-}
+a { @include tooltip($c-white, transparent); }
 
-p a[data-toggle="tooltip"] {
-	color: $c-theme-dk;
-	background-color: $c-white;
+p a {
 	font-size: 18px;
-	padding: 3px 4px;
-
-	&:hover, &:focus {
-		color: $c-theme-dk;
-	}
+	@include tooltip($c-theme-dk, $c-white);
 }
 
 #video-modal-btn {
