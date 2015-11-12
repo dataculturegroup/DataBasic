@@ -16,7 +16,7 @@
 	<div class="row">
 		<div class="col-md-12">
 			<h2> 
-			{{_("You have %(rows)s row of data grouped into %(cols)s. Here's some %(metadata)s about each one.", 
+			{{_("You have %(rows)s rows of data grouped into %(cols)s columns. Here's some %(metadata)s about each one.", 
 			rows=results['row_count'],
 			cols=results['columns']|length,
 			metadata=hover_tooltip('metadata', 'Metadata summarizes basic information about data to make it easier to discover what\'s going on'))}}
@@ -24,119 +24,139 @@
 		</div>
 	</div>
 	{% set column_count = results['columns']|length %}
+	<div class="list-group" id="sortableRow">
 	{% for c in range(column_count) %}
 		{% set col=results['columns'][c] %}
 		{% set type_name=col['type'] %}
 		{% set is_number = type_name == 'float' or type_name == 'int' or type_name == 'long' or type_name == 'complex' %}
-		{% if c % 3 == 0 %}<div class="row">{% endif %}
-		<div class="col-md-4">
+		<div class="col-sm-6 col-md-4 list-group-item">
 			<div class="column-info">
-				<h3><span class="glyphicon 
-				{% if type_name == 'unicode' %}
-					glyphicon-pencil
-				{% elif is_number %}
-					glyphicon-object-align-bottom
-				{% elif type_name == 'datetime' %}
-					glyphicon-calendar
-				{% elif type_name == 'date' %}
-					glyphicon-calendar
-				{% elif type_name == 'time' %}
-					glyphicon-time
-				{% else %}
-					glyphicon-asterisk
-				{% endif %}
-				" aria-hidden="true"></span> {{col['name']}}</h3>
-				<ul>
-					{% if 'index' in col %}
-						<li>{{_("Column %d" % col['index'])}}</li>
-					{% endif %}
-					{% if 'type' in col %}
+				<div class="card" id="card-{{ c }}">
+					<div class="front">
+						<h3 class="dragHandle"><span class="glyphicon 
 						{% if type_name == 'unicode' %}
-							{% set type_name=_('text') %}
+							glyphicon-pencil
 						{% elif is_number %}
-							{% set type_name = _('numbers') %}
+							glyphicon-object-align-bottom
 						{% elif type_name == 'datetime' %}
-							{% set type_name = _('dates and times') %}
-						{% elif type_name == 'time' %}
-							{% set type_name = _('times') %}
+							glyphicon-calendar
 						{% elif type_name == 'date' %}
-							{% set type_name = _('dates') %}
+							glyphicon-calendar
+						{% elif type_name == 'time' %}
+							glyphicon-time
+						{% else %}
+							glyphicon-asterisk
 						{% endif %}
-						<li>{{_("This column is full of")}} {{ type_name }}</li>
-					{% endif %}
-					{% if 'values' in col %}
-						<li>{{_("The unique values in this column are:")}}
+						" aria-hidden="true"></span> {{col['name']}}</h3>
 						<ul>
-							{% for val in col['values'] %}<li><em>{{val}}</em></li>{% endfor %}
+							{% if 'index' in col %}
+								<li>{{_("Column %d" % col['index'])}}</li>
+							{% endif %}
+							{% if 'type' in col %}
+								{% if type_name == 'unicode' %}
+									{% set type_name=_('text') %}
+								{% elif is_number %}
+									{% set type_name = _('numbers') %}
+								{% elif type_name == 'datetime' %}
+									{% set type_name = _('dates and times') %}
+								{% elif type_name == 'time' %}
+									{% set type_name = _('times') %}
+								{% elif type_name == 'date' %}
+									{% set type_name = _('dates') %}
+								{% endif %}
+								<li>{{_("This column is full of")}} {{ type_name }}</li>
+							{% endif %}
+							{% if 'values' in col %}
+								<li>{{_("The unique values in this column are:")}}
+								<ul>
+									{% for val in col['values'] %}<li><em>{{val}}</em></li>{% endfor %}
+								</ul>
+								</li>
+							{% elif 'most_freq_values' in col %}
+								<li>{{ _("The most frequent values in this column are:") }}
+									<ul>
+										{% for val in col['most_freq_values'] %}
+											{% if is_number %}
+											<li><em>{{ val['value'] | replace("_", ".") }}</em><em> ({{ val['count'] }})</em></li>
+											{% else %}
+												<li><em>{{ val['value'] }}</em><em> ({{ val['count'] }})</em></li>
+											{% endif %}
+										{% endfor %}
+									</ul>
+								</li>
+							{% endif %}
+							{% if 'max_str_len' in col %}
+								<li>{{ _("The longest word has %d characters" % col['max_str_len']) }}</li>
+							{% endif %}
+							{% if 'min' in col %}
+								<li>
+								{% if type_name == 'datetime' or type_name == 'date' %}
+									{{ _('The earliest date is') }}
+								{% elif type_name == 'time' %}
+									{{ _('The earliest time is') }}
+								{% else %}
+									{{_("The smallest number is") }} 
+								{% endif %} <em>{{col['min']}}</em></li>
+							{% endif %}
+							{% if 'max' in col %}
+								<li>
+								{% if type_name == 'datetime' or type_name == 'date' %}
+									{{ _('The latest date is') }}
+								{% elif type_name == 'time' %}
+									{{ _('The latest time is') }}
+								{% else %}
+									{{_("The biggest number is") }}
+								{% endif %} <em>{{col['max']}}</em></li>
+							{% endif %}
+							{% if 'sum' in col %}
+								<li>{{_("The total is") }} <em>{{col['sum']}}</em></li>
+							{% endif %}
+							{% if 'mean' in col %}
+								<li>{{_("The average is") }} <em>{{col['mean']}}</em></li>
+							{% endif %}
+							{% if 'median' in col %}
+								<li>{{_("The median is") }} <em>{{col['median']}}</em></li>
+							{% endif %}
+							{% if 'stdev' in col %}
+								<li>{{_("The standard deviation is") }} <em>{{col['stdev']}}</em></li>
+							{% endif %}
+							{% if 'nulls' in col %}
+								<!-- <li>{{col['nulls']}}</li> -->
+							{% endif %}
+							{% if 'freq' in col %}
+								<li>{{col['freq']}}</li>
+							{% endif %}
+							{% if 'len' in col %}
+								<li>{{_("The longest string is <em>%d</em> characters" % col['len']) }}</li>
+							{% endif %}
 						</ul>
-						</li>
-					{% elif 'most_freq_values' in col %}
-						<li>{{ _("The most frequent values in this column are:") }}
-							<ul>
-								{% for val in col['most_freq_values'] %}
-									{% if is_number %}
-									<li><em>{{ val['value'] | replace("_", ".") }}</em><em> ({{ val['count'] }})</em></li>
-									{% else %}
-										<li><em>{{ val['value'] }}</em><em> ({{ val['count'] }})</em></li>
-									{% endif %}
-								{% endfor %}
-							</ul>
-						</li>
-					{% endif %}
-					{% if 'max_str_len' in col %}
-						<li>{{ _("The longest word has %d characters" % col['max_str_len']) }}</li>
-					{% endif %}
-					{% if 'min' in col %}
-						<li>
-						{% if type_name == 'datetime' or type_name == 'date' %}
-							{{ _('The earliest date is') }}
-						{% elif type_name == 'time' %}
-							{{ _('The earliest time is') }}
-						{% else %}
-							{{_("The smallest number is") }} 
-						{% endif %} <em>{{col['min']}}</em></li>
-					{% endif %}
-					{% if 'max' in col %}
-						<li>
-						{% if type_name == 'datetime' or type_name == 'date' %}
-							{{ _('The latest date is') }}
-						{% elif type_name == 'time' %}
-							{{ _('The latest time is') }}
-						{% else %}
-							{{_("The biggest number is") }}
-						{% endif %} <em>{{col['max']}}</em></li>
-					{% endif %}
-					{% if 'sum' in col %}
-						<li>{{_("The total is") }} <em>{{col['sum']}}</em></li>
-					{% endif %}
-					{% if 'mean' in col %}
-						<li>{{_("The average is") }} <em>{{col['mean']}}</em></li>
-					{% endif %}
-					{% if 'median' in col %}
-						<li>{{_("The median is") }} <em>{{col['median']}}</em></li>
-					{% endif %}
-					{% if 'stdev' in col %}
-						<li>{{_("The standard deviation is") }} <em>{{col['stdev']}}</em></li>
-					{% endif %}
-					{% if 'nulls' in col %}
-						<!-- <li>{{col['nulls']}}</li> -->
-					{% endif %}
-					{% if 'freq' in col %}
-						<li>{{col['freq']}}</li>
-					{% endif %}
-					{% if 'len' in col %}
-						<li>{{_("The longest string is <em>%d</em> characters" % col['len']) }}</li>
-					{% endif %}
-				</ul>
+					</div>
+					<div class="back">
+						<h3 class="dragHandle">back of the card</h3>
+						<p>blah blah blah this is the baq of the qard</p>
+					</div>
+				</div>
 			</div>
 		</div>
-		{% if (c+1) % 3 == 0 %}</div>{% endif %}
 	{% endfor %}
-	{% if column_count % 3 > 0 %}</div>{% endif %}
+	</div>
 	<div class="row">
 		<div class="col-md-12">
 			{# share() #}
 		</div>
 	</div>
 </div>
+{% endblock %}
+{% block results_scripts %}
+<script type="text/javascript" src="https://cdn.rawgit.com/nnattawat/flip/v1.0.18/dist/jquery.flip.min.js"></script>
+<script type="text/javascript">
+// List with handle
+Sortable.create(sortableRow, {
+  handle: '.dragHandle',
+  animation: 150,
+  ghostClass: 'ghost'
+});
+
+$(".card").flip();
+</script>
 {% endblock %}

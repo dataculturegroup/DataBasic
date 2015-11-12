@@ -29,6 +29,7 @@
 	.checkbox, .radio {
 		background-color: $c-unselected;
 		margin: 0;
+		font-size: 16px;
 
 		&:hover {
 			background-color: $c-hover;
@@ -49,7 +50,6 @@
 		background-color: $c-selected;
 
 		label label {
-			font-size: 16px;
 			&:after {
 				content: " ✓";
 			}

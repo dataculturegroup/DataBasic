@@ -1,7 +1,8 @@
 <script type="text/javascript">
   $SCRIPT_ROOT = {{ request.script_root|tojson|safe }};
 </script>
-<script type="text/javascript" src="{{ url_for('static', filename='js/lib/jquery.js') }}"></script>
+<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+<script src="http://rubaxa.github.io/Sortable/Sortable.js"></script>
 <script type="text/javascript" src="{{ url_for('static', filename='js/lib/jquery.validate.min.js') }}"></script>
 <script type="text/javascript" src="{{ url_for('static', filename='js/lib/additional-methods.min.js') }}"></script>
 <script type="text/javascript" src="{{ url_for('static', filename='js/lib/bootstrap.min.js') }}"></script>

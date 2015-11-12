@@ -16,12 +16,32 @@ body {
 }
 
 .column-info {
-	background-color: $c-theme-md;
-	color: $c-white;
-	padding: 1px 20px 16px 20px;
-	margin-top: 20px;
-
-	> h3 > .glyphicon {
-		font-size: smaller;
+	.front, .back {
+		padding: 1px 20px 16px 20px;
 	}
+	.front {
+		background-color: $c-theme-md;
+		color: $c-white;
+		position: relative !important;
+
+		> h3 > .glyphicon {
+			font-size: smaller;
+		}
+	}
+	.back {
+		top: 0;
+		background-color: $c-black;
+	}
+}
+
+.ghost {
+	> div .front, .back {
+		background-color: $c-red;
+	}
+}
+
+.list-group-item {
+	@include no-border();
+	padding: 10px;
+	h3 { cursor: move; }
 }
