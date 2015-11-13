@@ -1,5 +1,5 @@
 {% extends "tool_base.html" %}
-
+{% from 'macros.html' import download_url %}
 {% macro sameness_table(filename, outer_loop, loop) -%}
 	
 	<div class="chart-container">
@@ -157,7 +157,7 @@
 				</div>
 				<div class="col-md-6">
 					<h4>{{_("Difference")}}</h4>
-					<p class="table-info">{{_("This table shows you the words that make this document different from the others.")}}</p>
+					<p class="table-info">{{_("This table shows you the words that make this document different from the others.")}} [<a href={{ download_url(tool_name, results['_id'], 'csv', 'tfidf', filename) }}>download</a>]</p>
 					{{ difference_table(outer_loop, loop) }}
 				</div>
 			</div>

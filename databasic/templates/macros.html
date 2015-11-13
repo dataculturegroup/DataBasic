@@ -177,3 +177,11 @@
 {% macro hover_tooltip(text, tooltip) -%}
     <a data-trigger="focus hover" data-toggle="tooltip" href="#" data-original-title="{{ tooltip }}">{{ text }}</a>
 {%- endmacro %}
+
+{% macro download_url(tool_name, doc_id, ext, suffix) -%}
+    {% set files = varargs|join('-') + '-' if varargs|length > 0 else '' %}
+    {% set suffix = suffix.replace(' ', '-') %}
+    {% set ext = ext[1:] if '.' in ext[0] else ext %}
+    {% set filename = files + suffix + '.' + ext %}
+    "/{{ g['current_lang'] }}/{{ tool_name }}/results/download/{{ doc_id }}/{{ filename }}"
+{%- endmacro %}

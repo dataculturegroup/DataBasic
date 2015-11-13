@@ -1,5 +1,5 @@
 from ..application import app
-import os, time, tempfile, codecs, unicodecsv, json, xlrd, logging
+import os, datetime, time, tempfile, codecs, unicodecsv, json, xlrd, logging
 from pyth.plugins.rtf15.reader import Rtf15Reader
 from pyth.plugins.plaintext.writer import PlaintextWriter
 from flask import Response, abort
@@ -127,6 +127,13 @@ def get_file_names(file_paths):
 	for f in file_paths:
 		file_names.append(_get_file_name(f))
 	return file_names
+
+def generate_filename(ext, suffix, *args):
+	files = '-'.join(args) + '-' if len(args) > 0 else ''
+	suffix = suffix + '-' if suffix is not None and suffix is not '' else ''
+	suffix = suffix.replace(' ', '-')
+	ext = ext[1:] if '.' in ext[0] else ext
+	return files + suffix + datetime.datetime.now().strftime("%Y%m%d-%H%M%S") + '.' + ext
 
 def _get_file_name(file_path):
 	return os.path.split(file_path)[1]

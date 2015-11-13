@@ -80,9 +80,9 @@ def results():
 		for w in range(_clamp(len(counts[c]), 0, 40)):
 			print_counts[c].append(counts[c][w])
 
-	return render_template('wordcounter/results.html', results=print_counts, csv_files=csv_files, tool_name='wordcounter', title=doc['title'])
+	return render_template('wordcounter/results.html', results=print_counts, csv_files=csv_files, tool_name='wordcounter', title=doc['title'], doc_id=doc_id)
 
-@mod.route('/download-csv/<file_path>')
+@mod.route('/results/download/<file_path>')
 def download_csv(file_path):
 	return filehandler.generate_csv(file_path)
 

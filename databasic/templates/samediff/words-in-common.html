@@ -1,4 +1,5 @@
 {% extends "tool_base.html" %}
+{% from 'macros.html' import download_url %}
 
 {% block title %}{{ _('Words in common') }}{% endblock %}
 
@@ -14,8 +15,8 @@
       <div class="row" >
         <div class="col-md-12 text-center" style="margin:20px 0">
           <h3>{{_("Words in Common")}}: {{file1}} and {{file2}}</h3>
-          {# <p><a href="{{url_for('download_common_words',lang_code=g.current_lang,job_id=job['_id'], #}
-            {# filename1=file1, filename2=file2)}}">download the CSV</a> #}
+          {# <p><a href="/{{ g['current_lang'] }}/samediff/results/download/{{ doc_id }}/{{ file1 }}-{{ file2 }}-common-words.csv">download</a></p> #}
+          <p><a href={{ download_url(tool_name, doc_id, 'csv', 'common-words', file1, file2) }}>download</a></p>
         </div>
       </div>
       
@@ -29,7 +30,7 @@
                 <th>{{_("Uses in")}} {{file1}}</th>
                 <th>{{_("Uses in")}} {{file2}}</th>
               </tr>
-              {% for row in data | batch(50) | first %}
+              {% for row in results | batch(50) | first %}
                 <tr>
                   <td>{{ row['term'] }}</td>
                   <td>{{ row['total'] }}</td>

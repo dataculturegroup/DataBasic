@@ -1,11 +1,11 @@
-import json
+import datetime, logging, json
 from operator import itemgetter
 from collections import OrderedDict
 from ..application import mongo, app, mail
 from ..forms import SameDiffUpload, SameDiffSample
 from ..logic import filehandler
 import databasic.tasks
-from flask import Blueprint, render_template, request, redirect, url_for, g, abort
+from flask import Blueprint, render_template, request, redirect, url_for, g, abort, Response
 from flask.ext.babel import lazy_gettext as _
 
 mod = Blueprint('samediff', __name__, url_prefix='/<lang_code>/samediff', template_folder='../templates/samediff')
@@ -122,14 +122,42 @@ def show_common_words(file1, file2):
 	try:
 		job = mongo.find_document('samediff', doc_id)
 		results = _most_common_words(doc_id,file1,file2)
-		return render_template("samediff/words-in-common.html", job=job, file1=file1, file2=file2, data=results)
+		return render_template("samediff/words-in-common.html", job=job, file1=file1, file2=file2, results=results, doc_id=doc_id, tool_name='samediff')
 	except Exception as e:
-		# logger.exception(e)
+		print e
+		abort(400)
+
+@mod.route('/results/download/<doc_id>/<filename>-tfidf.csv')
+def download_tfidf_csv(doc_id, filename):
+	try:
+		job = mongo.find_document('samediff', doc_id)
+		doc_idx = job['filenames'].index(filename)
+		# TODO: catch case where filename isn't in results
+		tfidf_results = job['tfidf'][doc_idx]
+		download_filename = filehandler.generate_filename('csv', 'tfidf', filename)
+		return Response(stream_csv(tfidf_results,
+			['term','tfidf','frequency'],['word','tfidf score','time used']), 
+			mimetype='text/csv; charset=utf-8', 
+            headers={"Content-Disposition":"attachment;filename="+download_filename})
+	except Exception as e:
+		print e
+		abort(400)
+
+@mod.route('/results/download/<doc_id>/<filename1>-<filename2>-common-words.csv')
+def download_common_words(doc_id, filename1, filename2):
+	try:
+		results = _most_common_words(doc_id,filename1,filename2)
+		download_filename = filehandler.generate_filename('csv', 'common-words', filename1, filename2)
+		return Response(stream_csv(results,
+			['term','avg','doc1','doc2','total'],
+			['word','average times used','times used in '+filename1,'times used in '+filename2,'times used in both files']), 
+			mimetype='text/csv; charset=utf-8', 
+            headers={"Content-Disposition":"attachment;filename="+download_filename})
+	except Exception as e:
 		print e
 		abort(400)
 
 def _most_common_words(job_id,filename1,filename2):
-	# job = app.db_collection.find_one({'_id':ObjectId(job_id)})
 	job = mongo.find_document('samediff', job_id)
 	doc1_idx = job['filenames'].index(filename1)
 	doc2_idx = job['filenames'].index(filename2)
@@ -137,14 +165,13 @@ def _most_common_words(job_id,filename1,filename2):
 	doc1_freq_dist = { t['term']:t['frequency'] for t in job['tfidf'][doc1_idx]}
 	doc2_freq_dist = { t['term']:t['frequency'] for t in job['tfidf'][doc2_idx]}
 	terms = set(doc1_freq_dist.keys()+doc2_freq_dist.keys())
-	# logger.debug("  Found %d words total" % (len(terms)))
+	
 	results = [ {'term':t,'avg':float(doc1_freq_dist[t]+doc2_freq_dist[t])/2.0, 
 			  'doc1':doc1_freq_dist[t], 'doc2':doc2_freq_dist[t],
 			  'total':doc1_freq_dist[t]+doc2_freq_dist[t]} for t in terms 
 		if t in doc1_freq_dist.keys() and t in doc2_freq_dist.keys() ]
-	results = sorted(results, key=itemgetter('avg','total'),reverse=True)
-	# logger.debug("  Found %d common words" % (len(results)))
-	return results
+	return sorted(results, key=itemgetter('avg','total'),reverse=True)
+
 
 '''
 # trying to track status of the celery task here
@@ -162,7 +189,6 @@ def queue_files(file_paths, is_sample_data, email):
 	result = databasic.tasks.save_tfidf_results.apply_async(args=[job_id])
 	print result
 	return redirect(request.url + 'results?id=' + job_id)
-	# return url_for('.taskstatus', task_id=result.id), 202
 
 def interpretCosineSimilarity(cosineDiff):
 	# Cosine Similarity
@@ -174,3 +200,22 @@ def interpretCosineSimilarity(cosineDiff):
 		return _('pretty different')
 	else:
 		return _('very different')
+
+def stream_csv(data,prop_names,col_names):
+    yield ','.join(col_names) + '\n'
+    for row in data:
+        try:
+            attributes = []
+            for p in prop_names:
+                value = row[p]
+                cleaned_value = value
+                if isinstance( value, ( int, long, float ) ):
+                    cleaned_value = str(row[p])
+                else:
+                    cleaned_value = '"'+value.encode('utf-8').replace('"','""')+'"'
+                attributes.append(cleaned_value)
+            yield ','.join(attributes) + '\n'
+        except Exception as e:
+            print "Couldn't process a CSV row: "+str(e)
+            print e
+            print row

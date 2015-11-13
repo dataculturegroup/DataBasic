@@ -1,5 +1,5 @@
 {% extends "tool_base.html" %}
-{% from 'macros.html' import hover_tooltip %}
+{% from 'macros.html' import hover_tooltip, download_url %}
 
 {% block title %}{{ _('Word-Counter results') }}{% endblock %}
 
@@ -27,7 +27,8 @@
 
 	<div class="row" id="frequencies">
 		<div class="col-sm-4">
-			<h2>{{ _('Top Words') }} <a href="/{{ g['current_lang'] }}/wordcounter/download-csv/{{ csv_files[0] }}"><span class="glyphicon glyphicon-download" aria-hidden="true"></span></a></h2>
+			<h2>{{ _('Top Words') }} 
+			<a href="/{{ g['current_lang'] }}/wordcounter/results/download/{{ csv_files[0] }}"><span class="glyphicon glyphicon-download" aria-hidden="true"></span></a></h2>
 			<table class="table">
 				<thead>
 					<tr><th>{{ _('Word') }}</th><th>{{ _('Frequency') }}</th></tr>
@@ -43,7 +44,7 @@
 			</table>
 		</div>
 		<div class="col-sm-4">
-			<h2>{{ _('%(bigrams)s', bigrams=hover_tooltip('Bigrams', 'A bigram is a two word phrase')) }} <a href="/{{ g['current_lang'] }}/wordcounter/download-csv/{{ csv_files[1] }}"><span class="glyphicon glyphicon-download" aria-hidden="true"></span></a></h2>
+			<h2>{{ _('%(bigrams)s', bigrams=hover_tooltip('Bigrams', 'A bigram is a two word phrase')) }} <a href="/{{ g['current_lang'] }}/wordcounter/results/download/{{ csv_files[1] }}"><span class="glyphicon glyphicon-download" aria-hidden="true"></span></a></h2>
 			<table class="table">
 				<thead>
 					<tr><th>{{ _('%(bigram)s', bigram=hover_tooltip('Bigram', 'A bigram is a two word phrase')) }}</th><th>{{ _('Frequency') }}</th></tr>
@@ -59,7 +60,7 @@
 			</table>
 		</div>
 		<div class="col-sm-4">
-			<h2>{{ _('%(trigrams)s', trigrams=hover_tooltip('Trigrams', 'A trigram is a three word phrase')) }} <a href="/{{ g['current_lang'] }}/wordcounter/download-csv/{{ csv_files[2] }}"><span class="glyphicon glyphicon-download" aria-hidden="true"></span></a></h2>
+			<h2>{{ _('%(trigrams)s', trigrams=hover_tooltip('Trigrams', 'A trigram is a three word phrase')) }} <a href="/{{ g['current_lang'] }}/wordcounter/results/download/{{ csv_files[2] }}"><span class="glyphicon glyphicon-download" aria-hidden="true"></span></a></h2>
 			<table class="table">
 				<thead>
 					<tr><th>{{ _('%(trigram)s', trigram=hover_tooltip('Trigram', 'A trigram is a three word phrase')) }}</th><th>{{ _('Frequency') }}</th></tr>
