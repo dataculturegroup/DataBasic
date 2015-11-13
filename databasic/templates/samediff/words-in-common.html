@@ -15,7 +15,6 @@
       <div class="row" >
         <div class="col-md-12 text-center" style="margin:20px 0">
           <h3>{{_("Words in Common")}}: {{file1}} and {{file2}}</h3>
-          {# <p><a href="/{{ g['current_lang'] }}/samediff/results/download/{{ doc_id }}/{{ file1 }}-{{ file2 }}-common-words.csv">download</a></p> #}
           <p><a href={{ download_url(tool_name, doc_id, 'csv', 'common-words', file1, file2) }}>download</a></p>
         </div>
       </div>
