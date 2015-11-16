@@ -38,7 +38,8 @@ def index():
 		elif btn_value == 'sample':
 			basedir = os.path.dirname(os.path.abspath(__file__))
 			sample_file = forms['sample'].data['sample']
-			results = wtfcsvstat.get_summary(os.path.join(basedir,'../','../',sample_file))
+			results = []
+			results.append(wtfcsvstat.get_summary(os.path.join(basedir,'../','../',sample_file)))
 
 		if btn_value is not None and btn_value is not u'':
 			return redirect_to_results(results)
@@ -47,31 +48,46 @@ def index():
 
 @mod.route('/results')
 def results():
-	results = None
 	doc_id = None if not 'id' in request.args else request.args['id']
 	if doc_id is None:
 		return redirect(g.current_lang + '/wtfcsv')
 	else:
+		return redirect(g.current_lang + '/wtfcsv/results/0?id=' + doc_id)
+
+@mod.route('/results/<index>')
+def results_sheet(index):
+	results = None
+	doc_id = request.args.get('id', None)
+	if doc_id is None:
+		return redirect(g.current_lang + '/wtfcsv')
+	else:
 		results = mongo.find_document('wtfcsv', doc_id).get('results')
-	return render_template('wtfcsv/results.html', results=results, tool_name='wtfcsv')
+	return render_template('wtfcsv/results.html', results=results, tool_name='wtfcsv', index=int(index))
 
 def redirect_to_results(results):
 	doc_id = mongo.save_csv('wtfcsv', results)
 	return redirect(request.url + 'results?id=' + doc_id)
 
-def process_paste(text):
-	file_path = filehandler.write_to_temp_file(text)
-	return wtfcsvstat.get_summary(file_path)
-
 def process_upload(csv_file):
 	file_path = filehandler.open_doc(csv_file)
-	file_path = filehandler.convert_to_csv(file_path)
-	results = wtfcsvstat.get_summary(file_path)
-	filehandler.delete_file(file_path)
+	file_paths = filehandler.convert_to_csv(file_path)
+	results = []
+	for f in file_paths:
+		summary = wtfcsvstat.get_summary(f)
+		summary['sheet_name'] = _get_sheet_name(f)
+		results.append(summary)
+	filehandler.delete_files(file_paths)
 	return results
 
 def process_link(sheet):
-	file_path = filehandler.open_sheet(sheet)
-	results = wtfcsvstat.get_summary(file_path)
-	filehandler.delete_file(file_path)
+	file_paths = filehandler.open_workbook(sheet)
+	results = []
+	for f in file_paths:
+		summary = wtfcsvstat.get_summary(f)
+		summary['sheet_name'] = _get_sheet_name(f)
+		results.append (summary)
+	filehandler.delete_files(file_paths)
 	return results
+
+def _get_sheet_name(path):
+	return os.path.split(path)[1][16:-4]

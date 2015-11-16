@@ -66,18 +66,15 @@ def convert_to_txt(file_path):
 def convert_to_csv(file_path):
 	ext = _get_extension(file_path)
 	if ext == '.csv':
-		return file_path
+		return [file_path]
 	elif ext == '.xlsx' or ext == '.xls':
 		wb = xlrd.open_workbook(file_path)
-		sh = wb.sheet_by_index(0)
-		new_file = _get_temp_file('-worksheet.csv')
-		with open(new_file, 'wb') as f:
-			writer = unicodecsv.writer(f, encoding=ENCODING, delimiter=str(u';'), quotechar=str(u'"'))
-			for row in xrange(sh.nrows):
-				writer.writerow(sh.row_values(row))
-		return new_file
+		files = []
+		for i in range(wb.nsheets):
+			files.append(_open_sheet(wb, i))
+		return files
 	print ext + ' could not be converted to csv'
-	return file_path
+	return [file_path]
 
 def open_doc(doc):
 	try:
@@ -93,19 +90,22 @@ def open_docs(docs):
 		file_paths.append(open_doc(doc))
 	return file_paths
 
+def delete_files(file_paths):
+	for f in file_paths:
+		delete_file(f)
+
 def delete_file(file_path):
 	os.remove(file_path)
 
-def open_sheet(sheet):
-	first = ''
-	for i, worksheet in enumerate(sheet.worksheets()):
-		file_path = _get_temp_file('-worksheet' + str(i) + '.csv')
-		if i == 0:
-			first = file_path
+def open_workbook(book):
+	file_paths = []
+	for i, worksheet in enumerate(book.worksheets()):
+		file_path = _get_temp_file('-' + worksheet.title + '.csv')
 		with open(file_path, 'wb') as f:
 			writer = unicodecsv.writer(f, encoding=ENCODING, delimiter=str(u';'), quotechar=str(u'"'))
 			writer.writerows(worksheet.get_all_values())
-	return first
+		file_paths.append(file_path)
+	return file_paths
 
 def get_samples(tool_id):
 	choices = []
@@ -134,6 +134,16 @@ def generate_filename(ext, suffix, *args):
 	suffix = suffix.replace(' ', '-')
 	ext = ext[1:] if '.' in ext[0] else ext
 	return files + suffix + datetime.datetime.now().strftime("%Y%m%d-%H%M%S") + '.' + ext
+
+def _open_sheet(workbook, index):
+	sh = workbook.sheet_by_index(index)
+	name = workbook.sheet_names()[index]
+	new_file = _get_temp_file('-' + name + '.csv')
+	with open(new_file, 'wb') as f:
+		writer = unicodecsv.writer(f, encoding=ENCODING, delimiter=str(u';'), quotechar=str(u'"'))
+		for row in xrange(sh.nrows):
+			writer.writerow(sh.row_values(row))
+	return new_file
 
 def _get_file_name(file_path):
 	return os.path.split(file_path)[1]

@@ -13,20 +13,34 @@
 
 {% block body %}
 <div class="container">
+	{% if results|length > 1 %}
+	<div class="row centered-row">
+        <div class="col-md-12">
+			<ul class="nav nav-tabs nav-justified">
+			{% for r in range(results|length) %}
+				<li role="presentation" {% if r == index %}class="active"{% endif %}>
+					<a href="{{ request.url.replace('/results/' + index|string, '/results/' + r|string) }}">{{ results[r]['sheet_name'] }}</a>
+				</li>
+			{% endfor %}
+			</ul>
+		</div>
+	</div>
+	{% endif %}
+
 	<div class="row">
 		<div class="col-md-12">
-			<h2> 
+			<h2>
 			{{_("You have %(rows)s rows of data grouped into %(cols)s columns. Here's some %(metadata)s about each one.", 
-			rows=results['row_count'],
-			cols=results['columns']|length,
+			rows=results[index]['row_count'],
+			cols=results[index]['columns']|length,
 			metadata=hover_tooltip('metadata', 'Metadata summarizes basic information about data to make it easier to discover what\'s going on'))}}
 			</h2>
 		</div>
 	</div>
-	{% set column_count = results['columns']|length %}
+	{% set column_count = results[index]['columns']|length %}
 	<div class="list-group" id="sortableRow">
 	{% for c in range(column_count) %}
-		{% set col=results['columns'][c] %}
+		{% set col=results[index]['columns'][c] %}
 		{% set type_name=col['type'] %}
 		{% set is_number = type_name == 'float' or type_name == 'int' or type_name == 'long' or type_name == 'complex' %}
 		<div class="col-sm-6 col-md-4 list-group-item">
@@ -44,6 +58,8 @@
 							glyphicon-calendar
 						{% elif type_name == 'time' %}
 							glyphicon-time
+						{% elif type_name == 'bool' %}
+							glyphicon-question-sign
 						{% else %}
 							glyphicon-asterisk
 						{% endif %}
@@ -52,19 +68,20 @@
 							{% if 'index' in col %}
 								<li>{{_("Column %d" % col['index'])}}</li>
 							{% endif %}
+							{% set display_type_name = type_name %}
 							{% if 'type' in col %}
 								{% if type_name == 'unicode' %}
-									{% set type_name=_('text') %}
+									{% set display_type_name=_('text') %}
 								{% elif is_number %}
-									{% set type_name = _('numbers') %}
+									{% set display_type_name = _('numbers') %}
 								{% elif type_name == 'datetime' %}
-									{% set type_name = _('dates and times') %}
+									{% set display_type_name = _('dates and times') %}
 								{% elif type_name == 'time' %}
-									{% set type_name = _('times') %}
+									{% set display_type_name = _('times') %}
 								{% elif type_name == 'date' %}
-									{% set type_name = _('dates') %}
+									{% set display_type_name = _('dates') %}
 								{% endif %}
-								<li>{{_("This column is full of")}} {{ type_name }}</li>
+								<li>{{_("This column is full of")}} {{ display_type_name }}</li>
 							{% endif %}
 							{% if 'values' in col %}
 								<li>{{_("The unique values in this column are:")}}

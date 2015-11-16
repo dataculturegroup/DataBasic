@@ -32,6 +32,9 @@ body {
 		top: 0;
 		background-color: $c-black;
 	}
+	li {
+		list-style: none;
+	}
 }
 
 .ghost {
@@ -44,4 +47,25 @@ body {
 	@include no-border();
 	padding: 10px;
 	h3 { cursor: move; }
+}
+
+ul.nav.nav-tabs {
+	@media (max-width: 767px) { width: 100%; }
+	@media (min-width: 768px) { width: 30%; }
+	margin: 0 auto;
+	font-size: 18px;
+
+	li {
+		a {
+			color: $c-white;
+			background-color: $c-unselected;
+		}
+		&.active a {
+			background-color: $c-selected;
+		}
+		&:hover a {
+			color: $c-white;
+			background-color: $c-hover;
+		}
+	}
 }

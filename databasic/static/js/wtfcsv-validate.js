@@ -7,9 +7,8 @@ $(document).ready(function(){
 		return this.optional (element) || /^https:\/\/docs.google.com\/spreadsheets/.test(value);
 	}, _("Link must be a valid Google Spreadsheet"));
 
-	jQuery.validator.addMethod("filesize", function(value, element, param) {
-		// param = size (in bytes)
-		return this.optional (element) || (element.files[0].size <= param);
+	jQuery.validator.addMethod("filesize", function(value, element, filesize) {
+		return this.optional (element) || (element.files[0].size <= filesize);
 	});
 
 	jQuery.validator.addClassRules({
