@@ -1,4 +1,4 @@
-import datetime, json, logging, time
+import datetime, json, logging, time, codecs
 from pymongo import MongoClient
 from bson.objectid import ObjectId
 from databasic import settings

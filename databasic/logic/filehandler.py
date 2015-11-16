@@ -1,4 +1,6 @@
 from ..application import app
+from bs4 import BeautifulSoup as bs
+from urllib2 import urlopen
 import os, datetime, time, tempfile, codecs, unicodecsv, json, xlrd, logging
 from pyth.plugins.rtf15.reader import Rtf15Reader
 from pyth.plugins.plaintext.writer import PlaintextWriter
@@ -134,6 +136,13 @@ def generate_filename(ext, suffix, *args):
 	suffix = suffix.replace(' ', '-')
 	ext = ext[1:] if '.' in ext[0] else ext
 	return files + suffix + datetime.datetime.now().strftime("%Y%m%d-%H%M%S") + '.' + ext
+
+def download_webpage(url):
+	soup = bs(urlopen(url))
+	soup.p.encode(ENCODING)
+	for script in soup(['script', 'style']):
+		script.extract()
+	return {'title': soup.title.string, 'text': soup.get_text()}
 
 def _open_sheet(workbook, index):
 	sh = workbook.sheet_by_index(index)

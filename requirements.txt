@@ -25,3 +25,4 @@ numpy
 wtforms
 kombu
 billiard
+beautifulsoup4

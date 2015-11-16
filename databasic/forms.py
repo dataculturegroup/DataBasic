@@ -8,7 +8,7 @@ from wtforms import StringField, BooleanField, RadioField, SelectField, SelectMu
 from wtforms.widgets import TextArea, TextInput, CheckboxInput
 
 class PasteForm(object):
-	label = _('Paste some text')
+	label = _('Paste text')
 	glyphicon = 'glyphicon-paste'
 	area = StringField(
 		_('Text'),
@@ -55,6 +55,11 @@ class LinkForm(object):
 		_('Link to spreadsheet'),
 		description={'placeholder': _('https://docs.google.com/spreadsheets/')},
 		widget=TextInput())
+
+	def __init__(self, label_text, placeholder_text):
+		super(LinkForm, self).__init__()
+		self.label = label_text
+		self.link.description={'placeholder': placeholder_text}
 
 '''
 Word-Counter forms
@@ -105,6 +110,18 @@ class WordCounterSample(SampleForm, WordCounterForm, Form):
 	def __init__(self):
 		super(WordCounterSample, self).__init__('wordcounter')
 
+class WordCounterLink(LinkForm, WordCounterForm, Form):
+	ignore_case_link = BooleanField(
+		_('Ignore case'), 
+		widget=CheckboxInput(), 
+		default=True)
+	ignore_stopwords_link = BooleanField(
+		_('Ignore stopwords'),
+		widget=CheckboxInput(), 
+		default=True)
+	def __init__(self):
+		super(WordCounterLink, self).__init__(_('Paste a link'), _('https://en.wikipedia.org/wiki/Natural_language_processing'))
+
 '''
 WTFcsv forms
 '''
@@ -112,7 +129,8 @@ class WTFCSVUpload(UploadForm, Form):
 	pass
 
 class WTFCSVLink(LinkForm, Form):
-	pass
+	def __init__(self):
+		super(WTFCSVLink, self).__init__(_('Paste a link'), _('https://docs.google.com/spreadsheets/'))
 
 class WTFCSVSample(SampleForm, Form):
 	def __init__(self):

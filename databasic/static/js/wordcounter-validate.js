@@ -26,4 +26,18 @@ $(document).ready(function(){
 			}
 		}
 	});
+	$(".link").validate({
+		rules: {
+			link: {
+				required: true,
+				url: true
+			}
+		},
+		messages: {
+			link: {
+				required: _("This field is required"),
+				url: _("You must input a URL")
+			}
+		}
+	});
 });

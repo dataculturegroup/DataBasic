@@ -1,7 +1,7 @@
 import os
 from collections import OrderedDict
 from ..application import app, mongo
-from ..forms import WordCounterPaste, WordCounterUpload, WordCounterSample
+from ..forms import WordCounterPaste, WordCounterUpload, WordCounterSample, WordCounterLink
 from ..logic import wordhandler, filehandler, oauth
 from flask import Blueprint, render_template, request, redirect, g
 from flask.ext.babel import lazy_gettext as _
@@ -24,6 +24,7 @@ def index():
 	forms['sample'] = WordCounterSample()
 	forms['paste'] = WordCounterPaste('I am Sam\nSam I am\nThat Sam-I-am!\nThat Sam-I-am!\nI do not like that Sam-I-am!\nDo you like \ngreen eggs and ham?\nI do not like them, Sam-I-am.\nI do not like\ngreen eggs and ham.\nWould you like them \nhere or there?\nI would not like them\nhere or there.\nI would not like them anywhere.')
 	forms['upload'] = WordCounterUpload()
+	forms['link'] = WordCounterLink()
 
 	if request.method == 'POST':
 		ignore_case = True
@@ -42,7 +43,7 @@ def index():
 			ignore_case = forms[btn_value].data['ignore_case_upload']
 			ignore_stopwords = forms[btn_value].data['ignore_stopwords_upload']
 			title = _(u'Words used in %(filename)s', filename=upload_file.filename)
-		else:
+		elif btn_value == 'sample':
 			basedir = os.path.dirname(os.path.abspath(__file__))
 			sample_file = forms['sample'].data['sample']
 			words = filehandler.convert_to_txt(os.path.join(basedir,'../','../',sample_file))
@@ -50,6 +51,12 @@ def index():
 			ignore_stopwords = forms[btn_value].data['ignore_stopwords_sample']
 			samplename = filehandler.get_sample_title(sample_file)
 			title = _('Words used in %(samplename)s', samplename=samplename)
+		elif btn_value == 'link':
+			content = filehandler.download_webpage(forms['link'].data['link'])
+			words = content['text']
+			ignore_case = forms[btn_value].data['ignore_case_link']
+			ignore_stopwords = forms[btn_value].data['ignore_stopwords_link']
+			title = _('Words in "' + content['title'] + '"')
 
 		if words is not None:
 			counts, csv_files = process_words(words, ignore_case, ignore_stopwords)
