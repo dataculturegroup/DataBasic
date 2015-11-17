@@ -12,32 +12,45 @@
 {% endblock %}
 
 {% block body %}
-<div class="container">
-	{% if results|length > 1 %}
-	<div class="row centered-row">
-        <div class="col-md-12">
-			<ul class="nav nav-tabs nav-justified">
-			{% for r in range(results|length) %}
-				<li role="presentation" {% if r == index %}class="active"{% endif %}>
-					<a href="{{ request.url.replace('/results/' + index|string, '/results/' + r|string) }}">{{ results[r]['sheet_name'] }}</a>
-				</li>
-			{% endfor %}
-			</ul>
+{% set column_count = results[index]['columns']|length %}
+<header>
+	<div class="container-fluid">
+		{% if results|length > 1 %}
+		<div class="row centered-row">
+	        <div class="col-md-12">
+				<ul class="nav nav-tabs nav-justified">
+				{% for r in range(results|length) %}
+					<li role="presentation" {% if r == index %}class="active"{% endif %}>
+						<a href="{{ request.url.replace('/results/' + index|string, '/results/' + r|string) }}">{{ results[r]['sheet_name'] }}</a>
+					</li>
+				{% endfor %}
+				</ul>
+			</div>
 		</div>
-	</div>
-	{% endif %}
+		{% endif %}
 
-	<div class="row">
-		<div class="col-md-12">
-			<h2>
-			{{_("You have %(rows)s rows of data grouped into %(cols)s columns. Here's some %(metadata)s about each one.", 
-			rows=results[index]['row_count'],
-			cols=results[index]['columns']|length,
-			metadata=hover_tooltip('metadata', 'Metadata summarizes basic information about data to make it easier to discover what\'s going on'))}}
-			</h2>
+		<div class="row">
+			<div class="col-md-12">
+				<h2 id="summary">
+				{{_("You have %(rows)s rows of data grouped into %(cols)s columns. Here's some %(metadata)s about each one.", 
+				rows=results[index]['row_count'],
+				cols=results[index]['columns']|length,
+				metadata=hover_tooltip('metadata', 'Metadata summarizes basic information about data to make it easier to discover what\'s going on'))}}
+				</h2>
+				<div id="position-reference">
+					<ul class="list-inline">
+						{% for c in range(column_count) %}
+						<li><a href="#"><div>p</div></a></li>
+						{% endfor %}
+					</ul>
+				</div>
+			</div>
 		</div>
 	</div>
-	{% set column_count = results[index]['columns']|length %}
+</header>
+
+
+<div class="container-fluid" id="cards">
 	<div class="list-group" id="sortableRow">
 	{% for c in range(column_count) %}
 		{% set col=results[index]['columns'][c] %}
@@ -175,5 +188,19 @@ Sortable.create(sortableRow, {
 });
 
 $(".card").flip();
+
+$('#position-reference').affix({
+	offset: {
+		top: $('#summary').outerHeight(true) + $('.navbar').outerHeight(true)
+	}
+});
+
+$(document).ready(function(){
+	$('#position-reference').on('affixed.bs.affix', function(){
+		var h = $('#summary').outerHeight(true) + $('#position-reference').outerHeight(true)
+		$('header').css('min-height', h.toString() + 'px');
+	});
+});
+
 </script>
 {% endblock %}

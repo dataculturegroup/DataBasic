@@ -2,8 +2,8 @@
 $(document).ready(function(){
 
 	jQuery.validator.addMethod("multiple_files", function(value, element) {
-		return this.optional (element) || $("input:file")[0].files.length > 1;
-	}, _("You must select more than one file"));
+		return this.optional (element) || $("input:file")[0].files.length == 2;
+	}, _("You must select two files"));
 
 	jQuery.validator.addClassRules({
 		multiple_files: { multiple_files: true }
@@ -13,7 +13,8 @@ $(document).ready(function(){
 		rules: {
 			samples: {
 				required: true,
-				minlength: 2
+				minlength: 2,
+				maxlength: 2
 			},
 			email: {
 				required: true,
@@ -23,7 +24,8 @@ $(document).ready(function(){
 		messages: {
 			samples: {
 				required: _("This field is required"),
-				minlength: _("You must select more than one option")
+				minlength: _("You must select two options"),
+				maxlength: _("You must select two options")
 			},
 			email: {
 				required: _("This field is required"),

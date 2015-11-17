@@ -69,3 +69,42 @@ ul.nav.nav-tabs {
 		}
 	}
 }
+
+header {
+	min-height: 120px;
+
+	#position-reference {
+		background-color: $c-theme-dk;
+		margin: 0 -15px;
+		min-height: 80px;
+
+		ul {
+			width: 100%;
+
+			li {
+				display: table-cell;
+				width: 1%;
+				
+				a div {
+					height: 79px;
+				}
+
+				a {
+					&:hover {
+						div { background-color: $c-theme-accent; }
+					}
+				}
+			}
+		}
+	}
+}
+
+.affix {
+	top: 0px;
+	z-index: 1;
+	width: 100%;
+}
+
+#cards {
+	margin-top: 15px;
+}
