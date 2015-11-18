@@ -100,7 +100,7 @@ header {
 					background-color: $c-theme-dk;
 
 					&:hover {
-						background-color: $c-theme-accent;
+						background-color: $c-red;
 					}
 
 					.card-reference-content {
@@ -155,4 +155,22 @@ header {
 	.hidden-card {
 		background-color: $c-grey;
 	}
+	.hover-card {
+		background-color: $c-red;
+	}
 }
+
+/* #additional-options {
+	background-color: $c-theme-lt;
+	float: left;
+
+	ul {
+		padding: 0;
+		padding-top: 10px;
+
+		li {
+			padding: 0 10px;
+			display: inline;
+		}
+	}
+} */

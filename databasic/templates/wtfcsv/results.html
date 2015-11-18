@@ -1,6 +1,29 @@
 {% extends "tool_base.html" %}
 {% from 'macros.html' import share, hover_tooltip %}
 
+{% macro card_top(type_name, name) -%}
+<div class="card-top">
+	<h3 class="dragHandle"><span class="glyphicon 
+	{% if type_name == 'unicode' %}
+		glyphicon-pencil
+	{% elif type_name == 'float' or type_name == 'int' or type_name == 'long' or type_name == 'complex' %}
+		glyphicon-object-align-bottom
+	{% elif type_name == 'datetime' %}
+		glyphicon-calendar
+	{% elif type_name == 'date' %}
+		glyphicon-calendar
+	{% elif type_name == 'time' %}
+		glyphicon-time
+	{% elif type_name == 'bool' %}
+		glyphicon-question-sign
+	{% else %}
+		glyphicon-asterisk
+	{% endif %}
+	" aria-hidden="true"></span> {{ name }}</h3>
+	<div class="close-button"><h3>X</h3></div>
+</div>
+{%- endmacro %}
+
 {% block title %}{{ _('WTFcsv results') }}{% endblock %}
 
 {% block custom_css %}
@@ -49,6 +72,12 @@
 								</li>
 							{% endfor %}
 						</ul>
+						{# <div id="additional-options">
+							<ul>
+							    <li>Show all</li>
+							    <li>Hide all</li>
+							</ul>
+						</div> #}
 					</div>
 				</div>
 			{% endif %}
@@ -59,52 +88,35 @@
 <div class="container-fluid" id="cards">
 	<div class="list-group" id="sortableRow">
 	{% for c in range(column_count) %}
+		
 		{% set col=results[index]['columns'][c] %}
 		{% set type_name=col['type'] %}
 		{% set is_number = type_name == 'float' or type_name == 'int' or type_name == 'long' or type_name == 'complex' %}
+		{% set display_type_name = type_name %}
+		{% if 'type' in col %}
+			{% if type_name == 'unicode' %}
+				{% set display_type_name=_('text') %}
+			{% elif is_number %}
+				{% set display_type_name = _('numbers') %}
+			{% elif type_name == 'datetime' %}
+				{% set display_type_name = _('dates and times') %}
+			{% elif type_name == 'time' %}
+				{% set display_type_name = _('times') %}
+			{% elif type_name == 'date' %}
+				{% set display_type_name = _('dates') %}
+			{% endif %}
+		{% endif %}
+
 		<div class="col-sm-6 col-md-4 list-group-item" id="col-card-{{ c }}">
 			<div class="column-info">
 				<div class="card" id="card-{{ c }}">
 					<div class="front">
-						<div class="card-top">
-							<h3 class="dragHandle"><span class="glyphicon 
-							{% if type_name == 'unicode' %}
-								glyphicon-pencil
-							{% elif is_number %}
-								glyphicon-object-align-bottom
-							{% elif type_name == 'datetime' %}
-								glyphicon-calendar
-							{% elif type_name == 'date' %}
-								glyphicon-calendar
-							{% elif type_name == 'time' %}
-								glyphicon-time
-							{% elif type_name == 'bool' %}
-								glyphicon-question-sign
-							{% else %}
-								glyphicon-asterisk
-							{% endif %}
-							" aria-hidden="true"></span> {{col['name']}}</h3>
-							<div class="close-button"><h3>X</h3></div>
-						</div>
+						{{ card_top(type_name, col['name']) }}
 						<div class="card-bottom">
 							<ul>
+								<li>{{_("This column is full of")}} {{ display_type_name }}</li>
 								{% if 'index' in col %}
 									<li>{{_("Column %d" % col['index'])}}</li>
-								{% endif %}
-								{% set display_type_name = type_name %}
-								{% if 'type' in col %}
-									{% if type_name == 'unicode' %}
-										{% set display_type_name=_('text') %}
-									{% elif is_number %}
-										{% set display_type_name = _('numbers') %}
-									{% elif type_name == 'datetime' %}
-										{% set display_type_name = _('dates and times') %}
-									{% elif type_name == 'time' %}
-										{% set display_type_name = _('times') %}
-									{% elif type_name == 'date' %}
-										{% set display_type_name = _('dates') %}
-									{% endif %}
-									<li>{{_("This column is full of")}} {{ display_type_name }}</li>
 								{% endif %}
 								{% if 'values' in col %}
 									<li>{{_("The unique values in this column are:")}}
@@ -173,8 +185,11 @@
 						</div>
 					</div>
 					<div class="back">
-						<h3 class="dragHandle">back of the card</h3>
-						<p>blah blah blah this is the baq of the qard</p>
+						{{ card_top(type_name, col['name']) }}
+						<div id="chart-{% if type_name == 'unicode' %}text{% elif is_number %}number{% elif type_name == 'datetime' %}datetime{% elif type_name == 'date' %}date{% elif type_name == 'time' %}time{% elif type_name == 'bool' %}bool{% else %}undefined{% endif %}
+						">
+							
+						</div>
 					</div>
 				</div>
 			</div>
@@ -191,6 +206,7 @@
 {% endblock %}
 {% block results_scripts %}
 <script type="text/javascript" src="https://cdn.rawgit.com/nnattawat/flip/v1.0.18/dist/jquery.flip.min.js"></script>
+<script type="text/javascript" src="{{ url_for('static', filename='js/lib/highcharts.js') }}"></script>
 <script type="text/javascript">
 
 // Uncomment to enable drag & drop
@@ -226,6 +242,18 @@ $(document).ready(function(){
 		var id = $(this).attr('id');
 		setCardVisible(id, !$('.list-group').find('#'+id).hasClass('hidden-card'));
 	});
+
+	$('.card')
+		.mouseover(function() {
+			var id = $(this).closest('div[class^="col-sm-6"]').attr('id');
+			var navRef = $('#card-position-reference').find('#' + id);
+			navRef.addClass('hover-card');
+		})
+		.mouseout(function() {
+			var id = $(this).closest('div[class^="col-sm-6"]').attr('id');
+			var navRef = $('#card-position-reference').find('#' + id);
+			navRef.removeClass('hover-card');
+		});
 });
 
 function setCardVisible(id, hidden) {
@@ -245,6 +273,32 @@ function setCardVisible(id, hidden) {
 			card.removeClass('hidden-card');
 	}
 }
+
+$(function () {
+	$('#chart-number').highcharts({
+		chart: {
+            type: 'bar'
+        },
+        title: {
+            text: 'Fruit Consumption'
+        },
+        xAxis: {
+            categories: ['Apples', 'Bananas', 'Oranges']
+        },
+        yAxis: {
+            title: {
+                text: 'Fruit eaten'
+            }
+        },
+        series: [{
+            name: 'Jane',
+            data: [1, 0, 4]
+        }, {
+            name: 'John',
+            data: [5, 7, 3]
+        }]
+	});
+});
 
 </script>
 {% endblock %}
