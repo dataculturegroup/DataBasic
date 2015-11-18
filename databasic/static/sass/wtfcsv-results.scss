@@ -80,25 +80,32 @@ ul.nav.nav-tabs {
 header {
 	min-height: 120px;
 
-	#position-reference {
+	#card-position-reference {
 		background-color: $c-theme-dk;
 		margin: 0 -15px;
-		min-height: 80px;
 
 		ul {
 			width: 100%;
 
 			li {
+				padding: 0;
 				display: table-cell;
 				width: 1%;
-				
-				a div {
-					height: 79px;
-				}
 
 				a {
+					padding: 20px 1px;	
+					text-align: center;
+					margin-bottom: 0;
+					border-right: 1px solid $c-white !important;
+					background-color: $c-theme-dk;
+
 					&:hover {
-						div { background-color: $c-theme-accent; }
+						background-color: $c-theme-accent;
+					}
+
+					.card-reference-content {
+						min-width: 12px;
+						min-height: 10px;
 					}
 				}
 			}
@@ -119,4 +126,33 @@ header {
 
 #cards {
 	margin-top: 15px;
+}
+
+.card {
+	.card-top {
+		height: 65px;
+
+		.dragHandle {
+			float: left;
+		}
+
+		.close-button {
+			float: right;
+			a {
+				color: $c-white;
+			}
+		}
+	}
+}
+
+.list-group {
+	.hidden-card {
+		display: none;
+	}
+}
+
+#card-position-reference {
+	.hidden-card {
+		background-color: $c-grey;
+	}
 }
