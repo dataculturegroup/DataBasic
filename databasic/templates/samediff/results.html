@@ -112,6 +112,7 @@
 	<div class="row" >
 		<div class="col-md-12 text-center">
 			<h3>{{_("Your SameDiff Report")}}</h3>
+			{{ what_next_anchor() }}
 		</div>
 	</div>
 	{% if results['status'] != 'complete' %}
@@ -163,6 +164,7 @@
 			</div>
 		{% endfor %}
 	{% endif %}
+	{{ what_next() }}
 </div>
 {% endblock %}
 

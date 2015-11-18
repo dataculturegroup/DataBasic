@@ -37,6 +37,7 @@
 				cols=results[index]['columns']|length,
 				metadata=hover_tooltip('metadata', 'Metadata summarizes basic information about data to make it easier to discover what\'s going on'))}}
 				</h2>
+				{{ what_next_anchor() }}
 				<div id="position-reference">
 					<ul class="list-inline">
 						{% for c in range(column_count) %}
@@ -150,8 +151,8 @@
 							{% if 'stdev' in col %}
 								<li>{{_("The standard deviation is") }} <em>{{col['stdev']}}</em></li>
 							{% endif %}
-							{% if 'nulls' in col %}
-								<!-- <li>{{col['nulls']}}</li> -->
+							{% if col['nulls'] %}
+								<li>{{_("There is missing data in this column")}}</li>
 							{% endif %}
 							{% if 'freq' in col %}
 								<li>{{col['freq']}}</li>
@@ -175,17 +176,19 @@
 			{# share() #}
 		</div>
 	</div>
+	{{ what_next() }}
 </div>
 {% endblock %}
 {% block results_scripts %}
 <script type="text/javascript" src="https://cdn.rawgit.com/nnattawat/flip/v1.0.18/dist/jquery.flip.min.js"></script>
 <script type="text/javascript">
 // List with handle
-Sortable.create(sortableRow, {
+// Uncomment to enable drag & drop
+/*Sortable.create(sortableRow, {
   handle: '.dragHandle',
   animation: 150,
   ghostClass: 'ghost'
-});
+});*/
 
 $(".card").flip();
 

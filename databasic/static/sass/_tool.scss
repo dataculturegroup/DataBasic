@@ -19,6 +19,17 @@ p a {
 	@include tooltip($c-theme-dk, $c-white);
 }
 
+label a {
+	font-size: 16px;
+	@include tooltip($c-theme-dk, $c-white);
+}
+
+h3 a {
+	&:active, &:hover {
+		color: $c-white;
+	}
+}
+
 #video-modal-btn {
 
 	margin: 15px 0;
@@ -31,6 +42,10 @@ p a {
 	span {
 		font-size: 48px;
 	}
+}
+
+#what-next {
+	padding: 10px 0 20px 0;
 }
 
 .modal-content {

@@ -15,6 +15,13 @@ body {
 	background-color: $c-white;
 }
 
+h3 a {
+	color: $c-theme-md;
+	&:hover, &:active {
+		color: $c-theme-md;
+	}
+}
+
 .column-info {
 	.front, .back {
 		padding: 1px 20px 16px 20px;
@@ -46,7 +53,7 @@ body {
 .list-group-item {
 	@include no-border();
 	padding: 10px;
-	h3 { cursor: move; }
+	// h3 { cursor: move; }
 }
 
 ul.nav.nav-tabs {
@@ -97,6 +104,11 @@ header {
 			}
 		}
 	}
+}
+
+#what-next {
+	margin-top: 20px;
+	background-color: $c-theme-accent;
 }
 
 .affix {

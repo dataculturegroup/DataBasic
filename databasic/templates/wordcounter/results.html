@@ -18,10 +18,9 @@
 			<div class="top-info">
 				<h3>{{ title }}</h3>
 				<p>{{ _('Here is a picture of the words used most often in your the document. Words used more often are bigger, and ones used less often are smaller. This picture, called a "word cloud", is helpful to get a sense of the most used words in a document.') }}</p>
+				{{ what_next_anchor() }}
 			</div>
-			<div class="word-cloud">
-				
-			</div>
+			<div class="word-cloud"></div>
 		</div>
 	</div>
 
@@ -34,7 +33,7 @@
 					<tr><th>{{ _('Word') }}</th><th>{{ _('Frequency') }}</th></tr>
 				</thead>
 				<tbody>
-					{% for word in results[0] %}
+					{% for word in results[0]|batch(20)|first%}
 					<tr>
 						<td>{{ word[0] }}</td>
 						<td>{{ word[1] }}</td>
@@ -50,7 +49,7 @@
 					<tr><th>{{ _('%(bigram)s', bigram=hover_tooltip('Bigram', 'A bigram is a two word phrase')) }}</th><th>{{ _('Frequency') }}</th></tr>
 				</thead>
 				<tbody>
-					{% for word in results[1] %}
+					{% for word in results[1]|batch(20)|first %}
 					<tr>
 						<td>{{ " ".join(word[0]) }}</td>
 						<td>{{ word[1] }}</td>
@@ -66,7 +65,7 @@
 					<tr><th>{{ _('%(trigram)s', trigram=hover_tooltip('Trigram', 'A trigram is a three word phrase')) }}</th><th>{{ _('Frequency') }}</th></tr>
 				</thead>
 				<tbody>
-					{% for word in results[2] %}
+					{% for word in results[2]|batch(20)|first %}
 					<tr>
 						<td>{{ " ".join(word[0]) }}</td>
 						<td>{{ word[1] }}</td>
@@ -76,6 +75,7 @@
 			</table>
 		</div>
 	</div>
+	{{ what_next() }}
 </div>
 {% endblock %}
 

@@ -30,25 +30,22 @@
 			background-color: $c-hover;
 		}
 
-		label {
+		> label {
 			width: 100%;
-			padding: 5px 0;
+			padding: 5px;
 			text-transform: lowercase;
+
+			label { padding: 5px; }
 		}
 
-		input {
-			display: none;
+		input[type="checkbox"] {
+			position: relative;
+			margin-left: 0;
 		}
 	}
 
 	.checked-div {
 		background-color: $c-selected;
-
-		label label {
-			&:after {
-				content: " ✓";
-			}
-		}
 	}
 
 	.btn:focus, .btn:hover:active {
