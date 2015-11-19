@@ -24,6 +24,8 @@
 </div>
 {%- endmacro %}
 
+{% set column_count = results[index]['columns']|length %}
+
 {% block title %}{{ _('WTFcsv results') }}{% endblock %}
 
 {% block custom_css %}
@@ -35,7 +37,6 @@
 {% endblock %}
 
 {% block body %}
-{% set column_count = results[index]['columns']|length %}
 <header>
 	<div class="container-fluid">
 		{% if results|length > 1 %}
@@ -91,33 +92,20 @@
 		
 		{% set col=results[index]['columns'][c] %}
 		{% set type_name=col['type'] %}
-		{% set is_number = type_name == 'float' or type_name == 'int' or type_name == 'long' or type_name == 'complex' %}
-		{% set display_type_name = type_name %}
-		{% if 'type' in col %}
-			{% if type_name == 'unicode' %}
-				{% set display_type_name=_('text') %}
-			{% elif is_number %}
-				{% set display_type_name = _('numbers') %}
-			{% elif type_name == 'datetime' %}
-				{% set display_type_name = _('dates and times') %}
-			{% elif type_name == 'time' %}
-				{% set display_type_name = _('times') %}
-			{% elif type_name == 'date' %}
-				{% set display_type_name = _('dates') %}
-			{% endif %}
-		{% endif %}
-
+		{% set is_number = 'numbers' in col['display_type_name'] %}
+		
 		<div class="col-sm-6 col-md-4 list-group-item" id="col-card-{{ c }}">
 			<div class="column-info">
 				<div class="card" id="card-{{ c }}">
 					<div class="front">
 						{{ card_top(type_name, col['name']) }}
+						<div id="card-chart-{{ c }}"></div>
+					</div>
+					<div class="back">
+						{{ card_top(type_name, col['name']) }}
 						<div class="card-bottom">
 							<ul>
-								<li>{{_("This column is full of")}} {{ display_type_name }}</li>
-								{% if 'index' in col %}
-									<li>{{_("Column %d" % col['index'])}}</li>
-								{% endif %}
+								<li>{{_("This column is full of")}} {{ col['display_type_name'] }}</li>
 								{% if 'values' in col %}
 									<li>{{_("The unique values in this column are:")}}
 									<ul>
@@ -138,7 +126,7 @@
 									</li>
 								{% endif %}
 								{% if 'max_str_len' in col %}
-									<li>{{ _("The longest word has %d characters" % col['max_str_len']) }}</li>
+									<li>{{ _("The longest string has %d characters" % col['max_str_len']) }}</li>
 								{% endif %}
 								{% if 'min' in col %}
 									<li>
@@ -182,13 +170,6 @@
 									<li>{{_("The longest string is <em>%d</em> characters" % col['len']) }}</li>
 								{% endif %}
 							</ul>
-						</div>
-					</div>
-					<div class="back">
-						{{ card_top(type_name, col['name']) }}
-						<div id="chart-{% if type_name == 'unicode' %}text{% elif is_number %}number{% elif type_name == 'datetime' %}datetime{% elif type_name == 'date' %}date{% elif type_name == 'time' %}time{% elif type_name == 'bool' %}bool{% else %}undefined{% endif %}
-						">
-							
 						</div>
 					</div>
 				</div>
@@ -275,30 +256,150 @@ function setCardVisible(id, hidden) {
 }
 
 $(function () {
-	$('#chart-number').highcharts({
+
+	Highcharts.theme = {
+		colors: ['#fff'],
 		chart: {
-            type: 'bar'
-        },
-        title: {
-            text: 'Fruit Consumption'
-        },
-        xAxis: {
-            categories: ['Apples', 'Bananas', 'Oranges']
-        },
-        yAxis: {
-            title: {
-                text: 'Fruit eaten'
-            }
-        },
-        series: [{
-            name: 'Jane',
-            data: [1, 0, 4]
-        }, {
-            name: 'John',
-            data: [5, 7, 3]
-        }]
+			backgroundColor: 'none'
+		},
+		xAxis: {
+			gridLineColor: '#fff',
+			lineColor: '#fff',
+			tickColor: '#fff',
+			labels: {
+				style: {
+					color: '#fff',
+					font: '14px HalisGR-Book',
+					fontWeight: 'bold'
+				}
+			},
+			title: {
+				style: {
+					color: '#fff',
+					font: '14px HalisGR-Book',
+					fontWeight: 'bold'
+				}
+			}
+		},
+		yAxis: {
+			gridLineColor: '#fff',
+			lineColor: '#fff',
+			tickColor: '#fff',
+			labels: {
+				style: {
+					color: '#fff',
+					font: '14px HalisGR-Book',
+					fontWeight: 'bold'
+				}
+			},
+			title: {
+				style: {
+					color: '#fff',
+					font: '14px HalisGR-Book',
+					fontWeight: 'bold'
+				}
+			}
+		}
+	}
+
+	var highchartsOptions = Highcharts.setOptions(Highcharts.theme);
+
+{% for c in range(column_count) %}
+{% set col=results[index]['columns'][c] %}
+{% set dname=col['display_type_name'] %}
+	$('#card-chart-{{ c }}').highcharts({
+		{% if 'text' in dname or 'numbers' in dname or 'dates' in dname or 'times' in dname or 'dates and times' in dname %}
+			title: {
+				text: null
+			},
+			tooltip: {
+				enabled: false
+			},
+			{% if 'text' in dname or 'numbers' in dname %}
+				chart: {
+					type: 'column'
+				},
+			{% endif %}
+			xAxis: {
+				title: {
+					text:
+					{% if 'text' in dname %}
+					_('Categories')
+					{% elif 'numbers' in dname %}
+					_('Counts')
+					{% elif 'dates' %}
+					_('Dates')
+					{% elif 'times' %}
+					_('Times')
+					{% elif 'dates and times' %}
+					_('Dates and times')
+					{% else %}
+					_('Undefined')
+					{% endif %}
+				},
+				categories: [
+					{% if 'most_freq_values' in col %}
+						{{ get_most_freq(col['most_freq_values'], 'value', dname) }}
+					{% endif %}
+				],
+				plotLines: [{
+					color: '#fff'
+				}]
+			},
+			yAxis: {
+				title: {
+					text: _('Values')
+				},
+				plotLines: [{
+					color: '#fff'
+				}]
+			},
+			plotOptions: {
+			    column: {
+			        pointPadding: 0,
+			        borderWidth: 0,
+			        groupPadding: 0,
+			        shadow: false
+			    }
+			},
+			series: [{
+				data: [
+					{% if 'most_freq_values' in col %}
+						{{ get_most_freq(col['most_freq_values'], 'count', dname) }}
+					{% endif %}
+				],
+				showInLegend: false,
+				marker: {
+					states: {
+						hover: {
+							enabled: false
+						}
+					}
+				}
+			}],
+			credits: {
+				enabled: false
+			}
+		{% endif %}
 	});
+	
+{% endfor %}
 });
 
 </script>
 {% endblock %}
+
+{% macro get_most_freq(most_freq_values, key, displayName) %}
+	{% set is_string = 'text' in displayName %}
+	{% for val in most_freq_values %}
+		{% if 'value' in key %}
+			{% if is_string %}
+				"{{ val[key]|string }}",
+			{% else %}
+				{{ val[key]|replace('_', '.') }},
+			{% endif %}
+		{% else %}
+			{{ val[key] }},
+		{% endif %}
+	{% endfor %}
+{% endmacro %}

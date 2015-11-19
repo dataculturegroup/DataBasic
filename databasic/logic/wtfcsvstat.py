@@ -93,6 +93,20 @@ class WTFCSVStat():
             column_info['type'] = c.type.__name__
             column_info['nulls'] = stats['nulls']
 
+            t = column_info['type']
+            dt = 'undefined'
+            if any(t in s for s in ['float', 'int', 'long', 'complex']):
+                dt = 'numbers'
+            if 'unicode' in t:
+                dt = 'text'
+            if 'time' in t:
+                dt = 'times'
+            if 'date' in t:
+                dt = 'dates'
+            if 'datetime' in t:
+                dt = 'dates and times'
+            column_info['display_type_name'] = dt
+
             if len(stats['unique']) <= MAX_UNIQUE and c.type is not bool:
                 column_info['values'] = [six.text_type(u) for u in list(stats['unique'])]
             else:
@@ -113,7 +127,6 @@ class WTFCSVStat():
                             'value': value,
                             'count': count
                             })
-                        # column_info['most_freq_values'] = {six.text_type(value): count for value,count in stats['freq']}
 
                 if c.type == six.text_type:
                     column_info['max_str_len'] = stats['len']
