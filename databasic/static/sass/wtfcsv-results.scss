@@ -24,10 +24,18 @@ h3 a {
 
 .column-info {
 	.front, .back {
-		padding: 1px 20px 16px 20px;
+		.card-content {
+			padding: 1px 20px 16px 20px;
+			background-color: $c-theme-md;
+			border: 6px solid $c-theme-md;
+			height: 100%;
+
+			&:hover {
+				border: 6px solid $c-red !important;
+			}
+		}
 	}
 	.front {
-		background-color: $c-theme-md;
 		color: $c-white;
 		position: relative !important;
 
@@ -37,7 +45,6 @@ h3 a {
 	}
 	.back {
 		top: 0;
-		background-color: $c-theme-lt;
 	}
 	li {
 		list-style: none;
@@ -46,7 +53,7 @@ h3 a {
 
 .ghost {
 	> div .front, .back {
-		background-color: $c-red;
+		border: 4px solid $c-red;
 	}
 }
 
@@ -81,6 +88,26 @@ header {
 	min-height: 120px;
 
 	#card-position-reference {
+
+		.card-reference {
+			background-color: $c-theme-dk;
+
+			&:hover {
+				cursor: pointer;
+				background-color: $c-red;
+			}
+		}
+		.hidden-card {
+			background-color: $c-grey;
+
+			&:hover {
+				background-color: $c-grey;
+			}
+		}
+		.hover-card {
+			background-color: $c-red;
+		}
+
 		background-color: $c-theme-dk;
 		margin: 0 -15px;
 
@@ -96,19 +123,18 @@ header {
 					padding: 20px 1px;	
 					text-align: center;
 					margin-bottom: 0;
-					border-right: 1px solid $c-white !important;
-					background-color: $c-theme-dk;
-
-					&:hover {
-						background-color: $c-red;
-					}
-
+					border-right: 1px solid $c-theme-accent !important;
+					
 					.card-reference-content {
 						min-width: 12px;
 						min-height: 10px;
 					}
 				}
 			}
+		}
+
+		.hidden-card {
+			background-color: $c-grey;
 		}
 	}
 }
@@ -138,8 +164,14 @@ header {
 
 		.close-button {
 			float: right;
-			a {
+			h3 {
 				color: $c-white;
+				opacity: 0.75;
+
+				&:hover {
+					opacity: 1;
+					cursor: pointer;
+				}
 			}
 		}
 	}
@@ -148,15 +180,6 @@ header {
 .list-group {
 	.hidden-card {
 		display: none;
-	}
-}
-
-#card-position-reference {
-	.hidden-card {
-		background-color: $c-grey;
-	}
-	.hover-card {
-		background-color: $c-red;
 	}
 }
 
