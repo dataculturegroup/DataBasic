@@ -58,6 +58,14 @@
 	}
 }
 
+#title {
+	margin: 30px 0;
+}
+
+#what-next {
+	background-color: $c-theme-lt;
+}
+
 /** d3 chart helpers **/
 svg {
 	font: 16px $font-lt;
