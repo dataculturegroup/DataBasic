@@ -1,5 +1,6 @@
 {% extends "tool_base.html" %}
 {% from 'macros.html' import download_url %}
+{% from 'tool_footer.html' import what_next %}
 
 {% block title %}{{ _('SameDiff results') }}{% endblock %}
 
@@ -17,16 +18,7 @@
 		<div class="col-md-12 text-center" id="title">
 			<h2>{{_("Your SameDiff Report")}}</h2>
 			{% if 'complete' in results['status'] %}
-			<h4>
-				{% set cosine_sim = results['cosineSimilarity'][0][1]|float %}
-				{% if cosine_sim < 0.33 %}
-					{{ _('These texts are very different.') }}
-				{% elif cosine_sim > 0.67 %}
-					{{ _('These texts are similar.') }}
-				{% else %}
-					{{ _('These texts are sort of similar.') }}
-				{% endif %}
-			</h4>
+			<h4>{{ results['humanReadableSimilarity'] }}</h4>
 			{% endif %}
 		</div>
 	</div>
@@ -41,7 +33,7 @@
 
 		<div class="row" id="word-clouds">
 			<div class="col-md-4">
-				<h4>{{ _('Words that make "%(document)s" different', document=results['filenames'][0]) }}</h4>
+				<h4>{{ _('Words that are only in "%(document)s"', document=results['filenames'][0]) }}</h4>
 				<div class="left-cloud"></div>
 			</div>
 			<div class="col-md-4">
@@ -49,15 +41,16 @@
 				<div class="center-cloud"></div>
 			</div>
 			<div class="col-md-4">
-				<h4>{{ _('Words that make "%(document)s" different', document=results['filenames'][1]) }}</h4>
+				<h4>{{ _('Words that are only in "%(document)s"', document=results['filenames'][1]) }}</h4>
 				<div class="right-cloud"></div>
 			</div>
 		</div>
 	{% endif %}
 </div>
-<div class="container-fluid">
-	{{ what_next() }}
-</div>
+{% endblock %}
+
+{% block custom_footer %}
+	{{ what_next("Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec a diam lectus. Sed sit amet ipsum mauris. Maecenas congue ligula ac quam viverra nec consectetur ante hendrerit. Donec et mollis dolor.") }}
 {% endblock %}
 
 {% block results_scripts %}
@@ -66,23 +59,8 @@
 <script type="text/javascript" src="/static/js/samediff.js" charset="utf-8"></script>
 <script type="text/javascript" charset="utf-8">
 {% if results %}
+
 	{% if results['status'] == 'complete' %}
-		{#$(function(){
-		  {% for idx in range(0,results['filenames']|length) %}
-		    dataset{{idx}} = {{results['similarityLists'][idx] | tojson}};
-		    renderSimilarityChart('#sameness{{idx}}Chart',dataset{{idx}});
-		    console.log(dataset{{idx}});
-		  {% endfor %}
-		  maxDiffScore = {{maxTfIdfScore}};
-		  {% for idx in range(0,results['filenames']|length) %}
-		    diffWords{{idx}} = [
-		    {% for row in results['tfidf'][idx] | batch(50) | first %}
-		      { text: "{{row['term']|safe}}", score: {{'%0.2f'| format(row['tfidf']|float)}} },
-		    {% endfor %}
-		    ];
-		    renderDiffWordCloud('#diff{{idx}}Chart', diffWords{{idx}});
-		  {% endfor %}
-		});#}
 
 	$(function() {
 		var data;

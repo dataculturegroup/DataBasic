@@ -47,4 +47,4 @@ class MongoHandler:
 		return self._db[collection].find_one({'_id': ObjectId(doc_id)})
 
 	def update_document(self, collection, doc_id, update_obj):
-		self._db[collection].update({'_id': ObjectId(doc_id)}, update_obj)
+		self._db[collection].update({'_id': ObjectId(doc_id)}, update_obj, upsert=True)

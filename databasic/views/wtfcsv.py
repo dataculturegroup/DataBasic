@@ -28,7 +28,8 @@ def index():
 		btn_value = request.form['btn']
 
 		if btn_value == 'upload':
-			results = process_upload(forms['upload'].data['upload'])
+			upload_file = forms['upload'].data['upload']
+			results = process_upload(upload_file)
 		elif btn_value == 'link':
 			doc = oauth.open_doc_from_url(forms['link'].data['link'], request.url)
 			if doc['authenticate'] is not None:
@@ -40,6 +41,7 @@ def index():
 			sample_file = forms['sample'].data['sample']
 			results = []
 			results.append(wtfcsvstat.get_summary(os.path.join(basedir,'../','../',sample_file)))
+			results[0]['filename'] = filehandler.get_sample_title(sample_file) + '.csv'
 
 		if btn_value is not None and btn_value is not u'':
 			return redirect_to_results(results)
@@ -75,6 +77,7 @@ def process_upload(csv_file):
 	for f in file_paths:
 		summary = wtfcsvstat.get_summary(f)
 		summary['sheet_name'] = _get_sheet_name(f)
+		summary['filename'] = csv_file.filename
 		results.append(summary)
 	filehandler.delete_files(file_paths)
 	return results
@@ -85,6 +88,7 @@ def process_link(sheet):
 	for f in file_paths:
 		summary = wtfcsvstat.get_summary(f)
 		summary['sheet_name'] = _get_sheet_name(f)
+		summary['filename'] = sheet.sheet1.title
 		results.append (summary)
 	filehandler.delete_files(file_paths)
 	return results

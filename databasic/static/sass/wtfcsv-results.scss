@@ -4,11 +4,11 @@
 @import "tool";
 @import "modules/input";
 
-h2 {
+.summary {
 	text-align: center;
 	color: $c-theme-dk;
 
-	a { @include tooltip($c-white, $c-theme-dk); }
+	a { @include tooltip($c-theme-dk); }
 }
 
 body {
@@ -27,12 +27,7 @@ h3 a {
 		.card-content {
 			padding: 1px 20px 16px 20px;
 			background-color: $c-theme-md;
-			border: 6px solid $c-theme-md;
 			height: 100%;
-
-			&:hover {
-				border: 6px solid $c-red !important;
-			}
 		}
 	}
 	.front {
@@ -60,7 +55,7 @@ h3 a {
 .list-group-item {
 	@include no-border();
 	padding: 10px;
-	// h3 { cursor: move; }
+	// h3 { cursor: move; } // uncomment if dragging enabled
 }
 
 ul.nav.nav-tabs {
@@ -86,62 +81,10 @@ ul.nav.nav-tabs {
 
 header {
 	min-height: 120px;
-
-	#card-position-reference {
-
-		.card-reference {
-			background-color: $c-theme-dk;
-
-			&:hover {
-				cursor: pointer;
-				background-color: $c-red;
-			}
-		}
-		.hidden-card {
-			background-color: $c-grey;
-
-			&:hover {
-				background-color: $c-grey;
-			}
-		}
-		.hover-card {
-			background-color: $c-red;
-		}
-
-		background-color: $c-theme-dk;
-		margin: 0 -15px;
-
-		ul {
-			width: 100%;
-
-			li {
-				padding: 0;
-				display: table-cell;
-				width: 1%;
-
-				a {
-					padding: 20px 1px;	
-					text-align: center;
-					margin-bottom: 0;
-					border-right: 1px solid $c-theme-accent !important;
-					
-					.card-reference-content {
-						min-width: 12px;
-						min-height: 10px;
-					}
-				}
-			}
-		}
-
-		.hidden-card {
-			background-color: $c-grey;
-		}
-	}
 }
 
 #what-next {
 	margin-top: 20px;
-	background-color: $c-theme-accent;
 }
 
 .affix {
@@ -182,18 +125,3 @@ header {
 		display: none;
 	}
 }
-
-/* #additional-options {
-	background-color: $c-theme-lt;
-	float: left;
-
-	ul {
-		padding: 0;
-		padding-top: 10px;
-
-		li {
-			padding: 0 10px;
-			display: inline;
-		}
-	}
-} */

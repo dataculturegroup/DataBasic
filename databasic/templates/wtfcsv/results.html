@@ -1,7 +1,8 @@
 {% extends "tool_base.html" %}
 {% from 'macros.html' import share, hover_tooltip %}
+{% from 'tool_footer.html' import what_next %}
 
-{% macro card_top(type_name, name) -%}
+{% macro card_top(type_name, name, glyphicon) -%}
 <div class="card-top">
 	<h3 class="dragHandle">
 	<i class="fa 
@@ -21,7 +22,7 @@
 		fa-database
 	{% endif %}
 	"></i> {{ name }}</h3>
-	<div class="close-button"><h3><span class="glyphicon glyphicon-remove" aria-hidden="true"></span></h3></div>
+	<div class="close-button"><h3><span class="glyphicon {{ glyphicon }}" aria-hidden="true"></span></h3></div>
 </div>
 {%- endmacro %}
 
@@ -31,7 +32,6 @@
 
 {% block custom_css %}
 	<link href="{{ url_for('static', filename='css/wtfcsv-results.scss.css') }}" rel="stylesheet" type="text/css">
-	<link href="{{ url_for('static', filename='css/font-awesome.min.css') }}" rel="stylesheet" type="text/css">
 {% endblock %}
 
 {% block nav %}
@@ -57,33 +57,20 @@
 
 		<div class="row">
 			<div class="col-md-12" id="intro">
-				<h2 id="summary">
-				{{_("You have %(rows)s rows of data grouped into %(cols)s columns. Here's some %(metadata)s about each one.", 
-				rows=results[index]['row_count'],
-				cols=results[index]['columns']|length,
-				metadata=hover_tooltip('metadata', 'Metadata summarizes basic information about data to make it easier to discover what\'s going on'))}}
+				<h2 class="summary">
+					{{_("WTFcsv: ")}} {{ results[index]['filename'] }} 
 				</h2>
+				<h3 class="summary">
+					{{ _("%(rows)s rows of data grouped into %(cols)s columns.",
+					rows=results[index]['row_count'],
+					cols=results[index]['columns']|length) }}
+				</h3>
+				<h3 class="summary">
+					{{_("Here's some %(metadata)s about each column.", 
+					metadata=hover_tooltip('metadata', 'Metadata summarizes basic information about data to make it easier to discover what\'s going on'))}}
+				</h3>
 				{{ what_next_anchor() }}
 			</div>
-			{% if column_count > 6 %}
-				<div class="col-md-12">
-					<div id="card-position-reference">
-						<ul class="nav nav-tabs nav-justified">
-							{% for c in range(column_count) %}
-								<li class="active" role="presentation">
-									<a href="#{{ c }}" id="col-card-{{ c }}" data-trigger="hover" data-toggle="tooltip" data-placement="bottom" class="card-reference" data-original-title="{{ results[index]['columns'][c]['name'] }}"><div class="card-reference-content"></div></a>
-								</li>
-							{% endfor %}
-						</ul>
-						{# <div id="additional-options">
-							<ul>
-							    <li>Show all</li>
-							    <li>Hide all</li>
-							</ul>
-						</div> #}
-					</div>
-				</div>
-			{% endif %}
 		</div>
 	</div>
 </header>
@@ -101,13 +88,13 @@
 				<div class="card" id="card-{{ c }}">
 					<div class="front">
 						<div class="card-content">
-							{{ card_top(type_name, col['name']) }}
+							{{ card_top(type_name, col['name'], 'glyphicon-info-sign') }}
 							<div id="card-chart-{{ c }}"></div>
 						</div>
 					</div>
 					<div class="back">
 						<div class="card-content">
-							{{ card_top(type_name, col['name']) }}
+							{{ card_top(type_name, col['name'], 'glyphicon-signal') }}
 							<div class="card-bottom">
 								<ul>
 									<li>{{_("This column is full of")}} {{ col['display_type_name'] }}</li>
@@ -188,9 +175,13 @@
 			{# share() #}
 		</div>
 	</div>
-	{{ what_next() }}
 </div>
 {% endblock %}
+
+{% block custom_footer %}
+	{{ what_next("Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec a diam lectus. Sed sit amet ipsum mauris. Maecenas congue ligula ac quam viverra nec consectetur ante hendrerit. Donec et mollis dolor.") }}
+{% endblock %}
+
 {% block results_scripts %}
 <script type="text/javascript" src="https://cdn.rawgit.com/nnattawat/flip/v1.0.18/dist/jquery.flip.min.js"></script>
 <script type="text/javascript" src="{{ url_for('static', filename='js/lib/highcharts.js') }}"></script>
@@ -212,54 +203,6 @@ $('#card-position-reference').affix({
 		top: $('#intro').outerHeight(true) + $('.navbar').outerHeight(true)
 	}
 });
-
-$(document).ready(function(){
-	$('#card-position-reference').on('affixed.bs.affix', function(){
-		var h = $('#intro').outerHeight(true) + $('#card-position-reference').outerHeight(true)
-		$('header').css('min-height', h.toString() + 'px');
-	});
-
-	$('.close-button h3').on('click', function(e){
-		var id = $(this).closest('div[class^="col-sm-6"]').attr('id');
-		setCardVisible(id, true);
-		e.stopPropagation();
-	});
-
-	$('.card-reference').on('click', function(e){
-		var id = $(this).attr('id');
-		setCardVisible(id, !$('.list-group').find('#'+id).hasClass('hidden-card'));
-	});
-
-	$('.card')
-		.mouseover(function() {
-			var id = $(this).closest('div[class^="col-sm-6"]').attr('id');
-			var navRef = $('#card-position-reference').find('#' + id);
-			navRef.addClass('hover-card');
-		})
-		.mouseout(function() {
-			var id = $(this).closest('div[class^="col-sm-6"]').attr('id');
-			var navRef = $('#card-position-reference').find('#' + id);
-			navRef.removeClass('hover-card');
-		});
-});
-
-function setCardVisible(id, hidden) {
-	var navRef = $('#card-position-reference').find('#' + id);
-	var card = $('.list-group').find('#' + id);
-	var navHasHidden = navRef.hasClass('hidden-card');
-	var cardHasHidden = card.hasClass('hidden-card');
-	if (hidden) {
-		if (!navHasHidden)
-			navRef.addClass('hidden-card');
-		if (!cardHasHidden)
-			card.addClass('hidden-card');
-	} else {
-		if (navHasHidden)
-			navRef.removeClass('hidden-card');
-		if (cardHasHidden)
-			card.removeClass('hidden-card');
-	}
-}
 
 $(function () {
 

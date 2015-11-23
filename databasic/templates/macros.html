@@ -182,7 +182,7 @@
 {%- endmacro %}
 
 {% macro hover_tooltip(text, tooltip) -%}
-    <a data-trigger="focus hover" data-toggle="tooltip" data-trigger="hover" href="#" data-original-title="{{ tooltip }}">{{ text }}</a>
+    <a data-trigger="focus hover" data-toggle="tooltip" data-trigger="hover" href="#tooltip" data-original-title="{{ tooltip }}">{{ text }}</a>
 {%- endmacro %}
 
 {% macro download_url(tool_name, doc_id, ext, suffix) -%}

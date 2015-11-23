@@ -14,11 +14,13 @@
 {% block body %}
 <div class="container">
 
-	<h2>{{ _('WordCounter analyzes your text and tells you the most common words and phrases.') }}</h2>
+	<div id="tool-description">
+		<h2>{{ _('WordCounter analyzes your text and tells you the most common words and phrases.') }}</h2>
 
-	<p>{{ _('This tool helps you count words, %(bigram)s, and %(trigram)s in plain text. This is often the first step in quantitative text analysis.',
-	bigram=hover_tooltip('bigrams', 'A bigram is a two word phrase'),
-	trigram=hover_tooltip('trigrams', 'A trigram is a three word phrase')) }}</p>
+		<p>{{ _('This tool helps you count words, %(bigram)s, and %(trigram)s in plain text. This is often the first step in quantitative text analysis.',
+		bigram=hover_tooltip('bigrams', 'A bigram is a two word phrase'),
+		trigram=hover_tooltip('trigrams', 'A trigram is a three word phrase')) }}</p>
+	</div>
 
 	{{ video_modal("How to count", "https://www.youtube.com/embed/Lur-SGl3uw8") }}
 	{{ render_forms(forms, action_url=tool_name, action_text=_('Count')) }}

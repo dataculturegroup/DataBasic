@@ -27,15 +27,18 @@
 	}
 }
 
-@mixin tooltip($color, $bg-color) {
+@mixin tooltip($color) {
 	&[data-toggle="tooltip"] {
 		color: $color;
-		background-color: $bg-color;
-		padding: 3px 4px;
-
 		&:hover, &:focus {
 			text-decoration: none;
 			color: $color;
+		}
+		&:after {
+			font-family: FontAwesome;
+			vertical-align: super;
+			font-size: 75%;
+			content: " \f059";
 		}
 	}
 }

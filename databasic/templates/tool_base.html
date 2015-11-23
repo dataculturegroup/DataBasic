@@ -1,20 +1,15 @@
 {% extends "base.html" %}
+{% from "tool_footer.html" import tool_footer %}
 
 {% macro what_next_anchor() -%}
 	<h3 class="text-center"><a href="#what-next">{{ _("What do I do next?") }}</a></h3>
 {%- endmacro %}
 
-{% macro what_next() -%}
-	<div class="row" id="what-next">
-		<div class="col-md-12 text-center">
-			<h1>{{ _('What do I do next?') }}</h1>
-			<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec a diam lectus. Sed sit amet ipsum mauris. Maecenas congue ligula ac quam viverra nec consectetur ante hendrerit. Donec et mollis dolor.</p>
-		</div>
-	</div>
-{%- endmacro %}
-
 {% block footer %}
-	{% include 'footer.html' %}
+	<footer>
+		{% block custom_footer %}{% endblock %}
+		{{ tool_footer() }}
+	</footer>
 {% endblock %}
 
 {% block custom_scripts %}

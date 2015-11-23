@@ -12,22 +12,26 @@ body {
 	}
 }
 
-a { @include tooltip($c-white, transparent); }
+a { @include tooltip($c-white); }
 
 p a {
 	font-size: 18px;
-	@include tooltip($c-theme-dk, $c-white);
+	@include tooltip($c-white);
 }
 
 label a {
 	font-size: 16px;
-	@include tooltip($c-theme-dk, $c-white);
+	@include tooltip($c-white);
 }
 
 h3 a {
 	&:active, &:hover {
 		color: $c-white;
 	}
+}
+
+#tool-description {
+	text-align: center;
 }
 
 #video-modal-btn {

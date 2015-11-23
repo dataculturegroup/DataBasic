@@ -10,7 +10,6 @@ from flask.ext.babel import lazy_gettext as _
 
 mod = Blueprint('samediff', __name__, url_prefix='/<lang_code>/samediff', template_folder='../templates/samediff')
 
-
 @mod.route('/', methods=('GET', 'POST'))
 def index():
 
@@ -50,81 +49,18 @@ def results():
 	if not 'complete' in job['status']:
 		return render_template('samediff/results.html', results=job, tool_name='samediff')
 
-	# interpret cosine similarity for top part of report 
-	# If there are only 2 docs then make a statement about how similar they are to each other
-	cosineDiff = abs(job['cosineSimilarity'][0][0] - job['cosineSimilarity'][0][1])
-	job['humanReadableSimilarity'] = interpretCosineSimilarity(cosineDiff)
-	"""
-	if len(job['filenames']) == 2:
+	if not 'humanReadableSimilarity' in job:
+		
+		# make a statement about how similar the docs are to each other
 		cosineDiff = abs(job['cosineSimilarity'][0][0] - job['cosineSimilarity'][0][1])
-		job['humanReadableSimilarity'] = interpretCosineSimilarity(cosineDiff)
-	else:
-		maxInfo = {'score':0}
-		minInfo = {'score':1}
-		for r in range(len(job['filenames'])):
-			for c in range(r+1,len(job['filenames'])):
-				score = job['cosineSimilarity'][r][c]
-				if score >= maxInfo['score']:
-					maxInfo = { 'score':score, 'doc1':r, 'doc2':c}
-				if score <= minInfo['score']:
-					minInfo = { 'score':score, 'doc1':r, 'doc2':c}
+		job['humanReadableSimilarity'] = str(interpretCosineSimilarity(cosineDiff))
 
-		job['mostSimilar'] = [ job['filenames'][maxInfo['doc1']], job['filenames'][maxInfo['doc2']] ]
-		job['mostDifferent'] = [ job['filenames'][minInfo['doc1']], job['filenames'][minInfo['doc2']] ]
-	"""
-	#	
-	# Find the lowest average cosine similarity to figure out which doc is the most unique
-	#
-	"""
-	averages = []
-	for fileCS in job['cosineSimilarity']:
-		averageSimilarity = 0
-		for cs in fileCS:
-			averageSimilarity = averageSimilarity + cs
-		averages.append( averageSimilarity / len(job['filenames']) )
+		job['sameWords'] = _most_common_words(doc_id, job['filenames'][0], job['filenames'][1])
+		job['diffWordsDoc1'] = _most_common_unique_words(job, 0, job['sameWords'])
+		job['diffWordsDoc2'] = _most_common_unique_words(job, 1, job['sameWords'])
 
-	minCS = min(averages)
-	mins = [i for i, j in enumerate(averages) if j == minCS]
-
-	if mins is not None and len(mins) > 0:
-		job['mostDifferentFile'] = job['filenames'][mins[0]]
-	"""
-
-	# figure out the highest TfIdf score
-	"""
-	allScores = []
-	for docResults in job['tfidf']:
-		scores = [ t['tfidf'] for t in docResults]
-		allScores = allScores + scores
-	maxTfIdf = max(allScores)
-	"""
-
-	# build thresholded lists of file similarity scores
-	"""
-	job['similarityLists'] = []
-	for row in range(0,len(job['filenames'])):
-		info = [ [], [], [], [], [] ]
-		for col in range(0,len(job['filenames'])):
-			if row==col:
-				continue
-			score = job['cosineSimilarity'][row][col]
-			name = job['filenames'][col] + " ("+("{0:.2f}".format(score))+")"
-			if score < 0.5:
-				info[0].append(name)
-			elif score < 0.7:
-				info[1].append(name)
-			elif score < 0.8:
-				info[2].append(name)
-			elif score < 0.9:
-				info[3].append(name)
-			elif score < 1.0:
-				info[4].append(name)
-		job['similarityLists'].append(info)
-	"""
-
-	job['sameWords'] = _most_common_words(doc_id, job['filenames'][0], job['filenames'][1])
-	job['diffWordsDoc1'] = _most_common_unique_words(job, 0, job['sameWords'])
-	job['diffWordsDoc2'] = _most_common_unique_words(job, 1, job['sameWords'])
+		# update with the new results so that this code doesn't have to run every time the page is loaded
+		mongo.update_document('samediff', doc_id, job)
 
 	return render_template('samediff/results.html', results=job, tool_name='samediff')
 
@@ -170,6 +106,13 @@ def download_common_words(doc_id, filename1, filename2):
 	except Exception as e:
 		print e
 		abort(400)
+
+@mod.route('/results/download/<doc_id>/<filename>-most-frequent-words.csv')
+def download_most_frequent_words(doc_id, filename):
+	# TODO
+	# results = mongo.find_document('samediff', doc_id)
+	# download_filename = filehandler.generate_filename('csv', 'most-frequent-words', filename)
+	pass
 
 def _most_common_words(job_id,filename1,filename2):
 	job = mongo.find_document('samediff', job_id)
