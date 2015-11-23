@@ -62,5 +62,8 @@ body {
 }
 
 svg {
-	font: 10px $font-lt;
+	g .cloud-text {
+		fill: $c-white;
+		font-family: $font-lt;
+	}
 }

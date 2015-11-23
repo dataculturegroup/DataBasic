@@ -82,55 +82,47 @@
 {% block results_scripts %}
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/d3/3.5.6/d3.min.js" charset="utf-8"></script>
 	<script type="text/javascript" src="/static/js/lib/d3.layout.cloud.js" charset="utf-8"></script>
-	<script type="text/javascript" charset="utf-8">
-		diffWordCloudDestination = null;
+	<script type="text/javascript">
 
-		function renderDiffWordCloud(elementSelector, dataset){
-		  var w = 600;
-		  var h = 400;
-		  var maxScore = Math.max.apply(Math,dataset.map(function(o){return o.score;}))
-		  var fontSizeScale = d3.scale.linear()
-		      .domain([0, maxScore])
-		      .range([10, 70]); 
-		  console.log("renderDiffChart to "+elementSelector);
-		  diffWordCloudDestination = elementSelector;
-		  var layout =  d3.layout.cloud()
-		    .size([w, h])
-		    .words(dataset)
-		    .padding(5)
-		    .rotate(0)
-		    .fontSize(function(d) { return fontSizeScale(d.score); })
-		    .on("end", drawDiffWordCloud);
-		  layout.start();
+		var data = [
+			{% for word in results[0] | batch(50) | first %}
+				{ text: "{{ word[0] }}".replace("&#39;", "'"), size: {{ word[1] }} },
+			{% endfor %}
+		];
+
+		var maxScore = Math.max.apply(Math, data.map(function(o) {return o.size;}))
+		var fontSizeScale = d3.scale.linear()
+			.domain([0, maxScore])
+			.range([8, 70]); 
+
+		var fill = d3.scale.category20();
+		var layout = d3.layout.cloud()
+			.size([700, 400])
+			.words(data)
+			.padding(8)
+			.rotate(function () { return 0; })
+			.fontSize(function(d) { return fontSizeScale(d.size); })
+			.on("end", draw);
+
+		layout.start();
+
+		function draw(words) {
+			d3.select('.word-cloud').append('svg')
+				.attr('width', layout.size()[0])
+				.attr('height', layout.size()[1])
+			.append('g')
+				.attr('transform', 'translate(' + layout.size()[0] / 2 + ',' + layout.size()[1] / 2 + ')')
+			.selectAll('text')
+				.data(words)
+			.enter().append('text')
+				.classed('cloud-text', true)
+				.style('font-size', function(d) { return d.size + 'px'; })
+				.style('font-family', function (d) { return d.size > 30 ? 'HalisGR-Medium' : 'HalisGR-Book'; })
+				.attr('text-anchor', 'middle')
+				.attr('transform', function (d) {
+					return 'translate(' + [d.x, d.y] + ')rotate(' + d.rotate + ')';
+				})
+				.text(function (d) { return d.text; });
 		}
-
-		function drawDiffWordCloud(words) {
-		  var w = 600;
-		  var h = 400;
-		  console.log("drawDiffWordCloud to "+diffWordCloudDestination);
-		  d3.select(diffWordCloudDestination).append("svg")
-		      .attr("width", w)
-		      .attr("height", h)
-		    .append("g")
-		      .attr("transform", "translate(" + w/2 + "," + h/2 + ")")
-		    .selectAll("text")
-		      .data(words)
-		    .enter().append("text")
-		      .style("font-size", function(d) { return d.size + "px"; })
-		      .attr("text-anchor", "middle")
-		      .attr("transform", function(d) {
-		        return "translate(" + [d.x, d.y] + ")rotate(" + d.rotate + ")";
-		      })
-		      .text(function(d) { return d.text; });
-		}
-
-		$(function() {
-			var data = [
-				{% for word in results[0] | batch(50) | first %}
-					{ text: "{{ word[0] }}".replace("&#39;", "'"), score: {{ word[1] }} },
-				{% endfor %}
-			];
-			renderDiffWordCloud('.word-cloud', data);
-		});
 	</script>
 {% endblock %}
