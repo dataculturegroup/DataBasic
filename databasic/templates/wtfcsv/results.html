@@ -3,23 +3,24 @@
 
 {% macro card_top(type_name, name) -%}
 <div class="card-top">
-	<h3 class="dragHandle"><span class="glyphicon 
+	<h3 class="dragHandle">
+	<i class="fa 
 	{% if type_name == 'unicode' %}
-		glyphicon-pencil
+		fa-font
 	{% elif type_name == 'float' or type_name == 'int' or type_name == 'long' or type_name == 'complex' %}
-		glyphicon-object-align-bottom
+		fa-hashtag
 	{% elif type_name == 'datetime' %}
-		glyphicon-calendar
+		fa-calendar
 	{% elif type_name == 'date' %}
-		glyphicon-calendar
+		fa-calendar
 	{% elif type_name == 'time' %}
-		glyphicon-time
+		fa-clock-o
 	{% elif type_name == 'bool' %}
-		glyphicon-question-sign
+		fa-question-circle
 	{% else %}
-		glyphicon-asterisk
+		fa-database
 	{% endif %}
-	" aria-hidden="true"></span> {{ name }}</h3>
+	"></i> {{ name }}</h3>
 	<div class="close-button"><h3><span class="glyphicon glyphicon-remove" aria-hidden="true"></span></h3></div>
 </div>
 {%- endmacro %}
@@ -30,6 +31,7 @@
 
 {% block custom_css %}
 	<link href="{{ url_for('static', filename='css/wtfcsv-results.scss.css') }}" rel="stylesheet" type="text/css">
+	<link href="{{ url_for('static', filename='css/font-awesome.min.css') }}" rel="stylesheet" type="text/css">
 {% endblock %}
 
 {% block nav %}
