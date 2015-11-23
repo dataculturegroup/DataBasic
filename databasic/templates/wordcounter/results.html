@@ -86,7 +86,7 @@
 
 		var data = [
 			{% for word in results[0] | batch(50) | first %}
-				{ text: "{{ word[0] }}".replace("&#39;", "'"), size: {{ word[1] }} },
+				{ text: "{{ word[0]|safe }}", size: {{ word[1]|float }} },
 			{% endfor %}
 		];
 

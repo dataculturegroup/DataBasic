@@ -52,6 +52,9 @@ def results():
 
 	# interpret cosine similarity for top part of report 
 	# If there are only 2 docs then make a statement about how similar they are to each other
+	cosineDiff = abs(job['cosineSimilarity'][0][0] - job['cosineSimilarity'][0][1])
+	job['humanReadableSimilarity'] = interpretCosineSimilarity(cosineDiff)
+	"""
 	if len(job['filenames']) == 2:
 		cosineDiff = abs(job['cosineSimilarity'][0][0] - job['cosineSimilarity'][0][1])
 		job['humanReadableSimilarity'] = interpretCosineSimilarity(cosineDiff)
@@ -68,9 +71,11 @@ def results():
 
 		job['mostSimilar'] = [ job['filenames'][maxInfo['doc1']], job['filenames'][maxInfo['doc2']] ]
 		job['mostDifferent'] = [ job['filenames'][minInfo['doc1']], job['filenames'][minInfo['doc2']] ]
+	"""
 	#	
 	# Find the lowest average cosine similarity to figure out which doc is the most unique
 	#
+	"""
 	averages = []
 	for fileCS in job['cosineSimilarity']:
 		averageSimilarity = 0
@@ -83,15 +88,19 @@ def results():
 
 	if mins is not None and len(mins) > 0:
 		job['mostDifferentFile'] = job['filenames'][mins[0]]
+	"""
 
 	# figure out the highest TfIdf score
+	"""
 	allScores = []
 	for docResults in job['tfidf']:
 		scores = [ t['tfidf'] for t in docResults]
 		allScores = allScores + scores
 	maxTfIdf = max(allScores)
+	"""
 
 	# build thresholded lists of file similarity scores
+	"""
 	job['similarityLists'] = []
 	for row in range(0,len(job['filenames'])):
 		info = [ [], [], [], [], [] ]
@@ -111,8 +120,13 @@ def results():
 			elif score < 1.0:
 				info[4].append(name)
 		job['similarityLists'].append(info)
+	"""
 
-	return render_template('samediff/results.html', results=job, tool_name='samediff', maxTfIdfScore=maxTfIdf)
+	job['sameWords'] = _most_common_words(doc_id, job['filenames'][0], job['filenames'][1])
+	job['diffWordsDoc1'] = _most_common_unique_words(job, 0, job['sameWords'])
+	job['diffWordsDoc2'] = _most_common_unique_words(job, 1, job['sameWords'])
+
+	return render_template('samediff/results.html', results=job, tool_name='samediff')
 
 @mod.route('/results/<file1>-and-<file2>-common-words')
 def show_common_words(file1, file2):
@@ -172,6 +186,12 @@ def _most_common_words(job_id,filename1,filename2):
 		if t in doc1_freq_dist.keys() and t in doc2_freq_dist.keys() ]
 	return sorted(results, key=itemgetter('avg','total'),reverse=True)
 
+def _most_common_unique_words(job, index, sameWords):
+	doc = job['filenames'][index]
+	doc_freq_dist = { t['term']:t['frequency'] for t in job['tfidf'][index]}
+	return sorted(
+		[ {'term':t, 'freq': doc_freq_dist[t] } for t in doc_freq_dist.keys() if t not in (i['term'] for i in job['sameWords']) ],
+		key=itemgetter('freq', 'term'), reverse=True)
 
 '''
 # trying to track status of the celery task here

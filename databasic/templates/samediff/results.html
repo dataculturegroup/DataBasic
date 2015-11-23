@@ -209,40 +209,46 @@
 		});#}
 
 	$(function() {
-		renderWordCloud('.left-cloud');
+		var data;
+
+		data = [
+			{% for w in results['diffWordsDoc1']|batch(75)|first %}
+				{ word: "{{ w['term']|safe }}", count: {{ w['freq']|float }} },
+			{% endfor %}
+		];
+		renderWordCloud(data, '.left-cloud');
+
+		data = [
+			{% for w in results['sameWords']|batch(75)|first %}
+				{ word: "{{ w['term']|safe }}", count: {{ w['total']|float }} },
+			{% endfor %}
+		];
+		renderWordCloud(data, '.center-cloud');
+
+		data = [
+			{% for w in results['diffWordsDoc2']|batch(75)|first %}
+				{ word: "{{ w['term']|safe }}", count: {{ w['freq']|float }} },
+			{% endfor %}
+		];
+		renderWordCloud(data, '.right-cloud');
 	});
 
-	function renderWordCloud(containerClass) {
+	function renderWordCloud(wordcounts, containerClass) {
 
 		var padding = 10;
-		var height = 400;
+		var height = 300;
 		var sizeRange = { min: 10, max: 24 }
 
-		var that = this;
 		var container = d3.select(containerClass);
-		var width = this.$(containerClass).width();
-		var innerWidth = (width - 8*padding)/3.0;
+		var width = $(containerClass).width();
 		var svg = container.append('svg')
 			.attr('height', height)
 			.attr('width', width);
-		var group = svg.append('g').classed('group', true);
+		var group = svg.append('g').classed('group', true)
+		    .attr('transform', 'translate(0,' + padding + ')');
 		var y = height;
 		var words;
-		var wordListHeight = height - 2*padding;
 
-		// data
-		var wordcounts = [
-			{
-				'stem': 'test',
-				'term': 'test',
-				'count': 3
-			},
-			{
-				'stem': 'test2',
-				'term': 'test2',
-				'count': 1
-			}
-		];
 		var countSel = function (d) { return d.count };
 		var sum = d3.sum(wordcounts, countSel);
 		var top = _.first(wordcounts, 100);
@@ -252,158 +258,68 @@
 
 		var terms = {}
 		_.each(top, function (d) {
-			terms[d.stem] = d;
+			terms[d.word] = d;
 		});
 
+		var fullExtent = d3.extent(wordcounts, function (d) { return d.tfnorm; });
 		var stems = _.filter(terms, function (d) { return d; });
 
-		while (y >= wordListHeight && sizeRange.max > sizeRange.min) {
+		var counter = wordcounts.length;
+		while (y >= height && counter > 0) {
 			if (stems.length > 0) {
 				words = group.selectAll('.word')
-					.data(stems, function (d) { return d.stem; });
+					.data(stems, function (d) { return d.word; });
 				words.enter()
 					.append('text').classed('word', true);
 				words
 					.attr('font-size', function (d) {
-						return 20;
-						//return that.fontSize(d, d3.extent(this.all, function (d) { return d.tfnorm }), sizeRange);
+						return fontSize(d, fullExtent, sizeRange) + 'px';
 					});
 			}
 			d3.selectAll('.word')
-	            .text(function (d) { return d.term; })
+	            .text(function (d) { return d.word; })
 	            .attr('font-weight', 'bold')
-	            .attr('fill', '#000');
-			sizeRange.max = sizeRange.max - 1;
+	            .attr('fill', '#fff');
 			y = 0;
-			y = Math.max(y, leftHeight);
+			height = listCloudLayout(words, width, fullExtent, sizeRange, padding);
+			y = Math.max(y, height);
+			counter --;
 		}
 	}
 
 	function fontSize (term, extent, sizeRange) {
-		console.log(term);
         var size = sizeRange.min
             + (sizeRange.max - sizeRange.min)
                 * ( Math.log(term.tfnorm) - Math.log(extent[0]) ) / ( Math.log(extent[1]) - Math.log(extent[0]) );
         return size;
     }
 
-    {# reference
-	function renderSvg () {
-	        var that = this;
-	        var container = d3.select(this.el).select('.content-viz');
-	        var width = this.$('.content-viz').width();
-	        var innerWidth = (width - 8*this.config.padding)/3.0;
-	        var svg = container.append('svg')
-	            .attr('height', this.config.height)
-	            .attr('width', width);
-	        var leftGroup = svg.append('g').classed('left-group', true)
-	            .attr('transform', 'translate('+2*this.config.padding+')');
-	        var intersectGroup = svg.append('g').classed('intersect-group', true)
-	            .attr('transform', 'translate('+(innerWidth+4*this.config.padding)+')');
-	        var rightGroup = svg.append('g').classed('right-group', true)
-	            .attr('transform', 'translate('+(2.0*innerWidth+6*this.config.padding)+')');
-	        var y = this.config.height;
-	        var sizeRange = this.sizeRange();
-	        var leftWords, rightWords, intersectWords;
-	        var label = intersectGroup.append('text')
-	            .text('Both')
-	            .attr('font-size', this.config.labelSize)
-	            .attr('font-weight', 'bold')
-	            .attr('text-anchor', 'middle')
-	            .attr('x', innerWidth/2.0 + this.config.labelSize/2.0)
-	            .attr('y', this.config.padding + this.config.labelSize);
-	        var legendXoff = -this.config.labelSize/2.0 - label[0][0].getBBox().width/2.0;
-	        var legendYoff = (1 + 0.25)*this.config.labelSize/2.0
-	        intersectGroup.append('circle')
-	            .attr('r', 0.7*this.config.labelSize/2.0)
-	            .attr('cy', this.config.padding + legendYoff)
-	            .attr('cx', innerWidth/2.0 + legendXoff)
-	            .attr('fill', '#000000');
-	        label = leftGroup.append('text')
-	            .text(this.collection.at(this.leftQuery).getName())
-	            .attr('font-size', this.config.labelSize)
-	            .attr('font-weight', 'bold')
-	            .attr('text-anchor', 'middle')
-	            .attr('x', innerWidth/2.0 + this.config.labelSize/2.0)
-	            .attr('y', this.config.padding + this.config.labelSize);
-	        var legendXoff = -this.config.labelSize/2.0 - label[0][0].getBBox().width/2.0;
-	        var legendYoff = (1 + 0.25)*this.config.labelSize/2.0
-	        leftGroup.append('circle')
-	            .attr('r', 0.7*this.config.labelSize/2.0)
-	            .attr('cy', this.config.padding + legendYoff)
-	            .attr('cx', innerWidth/2.0 + legendXoff)
-	            .attr('fill', this.leftModel.getColor());
-	        var label = rightGroup.append('text')
-	            .text(this.collection.at(this.rightQuery).getName())
-	            .attr('font-size', this.config.labelSize)
-	            .attr('font-weight', 'bold')
-	            .attr('text-anchor', 'middle')
-	            .attr('x', innerWidth/2.0 + this.config.labelSize/2.0)
-	            .attr('y', this.config.padding + this.config.labelSize);
-	        var legendXoff = -this.config.labelSize/2.0 - label[0][0].getBBox().width/2.0;
-	        var legendYoff = (1 + 0.25)*this.config.labelSize/2.0
-	        rightGroup.append('circle')
-	            .attr('r', 0.7*this.config.labelSize/2.0)
-	            .attr('cy', this.config.padding + legendYoff)
-	            .attr('cx', innerWidth/2.0 + legendXoff)
-	            .attr('fill', this.rightModel.getColor());
-	        var wordListHeight = this.config.height - 1.5*this.config.labelSize - 2*this.config.padding;
-	        var intersectList = intersectGroup.append('g')
-	            .attr('transform', 'translate(0,' + (2*this.config.labelSize) + ')');
-	        var leftList = leftGroup.append('g')
-	            .attr('transform', 'translate(0,' + (2*this.config.labelSize) + ')');
-	        var rightList = rightGroup.append('g')
-	            .attr('transform', 'translate(0,' + (2*this.config.labelSize) + ')');
-	        while (y >= wordListHeight && sizeRange.max > sizeRange.min) {
-	            // Create words
-	            if (this.left.length > 0) {
-	                leftWords = leftList.selectAll('.word')
-	                    .data(this.left, function (d) { return d.stem; });
-	                leftWords.enter()
-	                    .append('text').classed('word', true).classed('left', true);
-	                leftWords
-	                    .attr('font-size', function (d) {
-	                        return that.fontSize(d, that.fullExtent, sizeRange); });
-	            }
-	            if (this.right.length > 0) {
-	                rightWords = rightList.selectAll('.word')
-	                    .data(this.right, function (d) { return d.stem; });
-	                rightWords.enter()
-	                    .append('text').classed('word', true).classed('right', true);
-	                rightWords
-	                    .attr('font-size', function (d) {
-	                        return that.fontSize(d, that.fullExtent, sizeRange); });
-	            }
-	            if (this.center.length > 0) {
-	                intersectWords = intersectList.selectAll('.word')
-	                    .data(this.center, function (d) { return d.stem; });
-	                intersectWords.enter()
-	                    .append('text').classed('word', true).classed('intersect', true);
-	                intersectWords
-	                    .attr('font-size', function (d) {
-	                        return that.fontSize(d, that.fullExtent, sizeRange); });
-	            }
-	            d3.selectAll('.word')
-	                .text(function (d) { return d.term; })
-	                .attr('font-weight', 'bold');
-	            d3.selectAll('.left.word')
-	                .attr('fill', this.leftModel.getColor());
-	            d3.selectAll('.right.word')
-	                .attr('fill', this.rightModel.getColor());
-	            // Layout
-	            y = 0;
-	            leftHeight = this.listCloudLayout(leftWords, innerWidth, this.fullExtent, sizeRange);
-	            intersectHeight = this.listCloudLayout(intersectWords, innerWidth, this.fullExtent, sizeRange);
-	            rightHeight = this.listCloudLayout(rightWords, innerWidth, this.fullExtent, sizeRange);
-	            y = Math.max(y, leftHeight);
-	            y = Math.max(y, intersectHeight);
-	            y = Math.max(y, rightHeight);
-	            sizeRange.max = sizeRange.max - 1;
-	        }
-	        if (y < this.config.height) {
-	            svg.attr('height', y + 2*this.config.labelSize);
-	        }
-	    }#}
+    function listCloudLayout (words, width, extent, sizeRange, padding) {
+        var x = 0;
+        if (typeof(words) === 'undefined') {
+            return 0;
+        }
+        words.attr('x', function (d) {
+            var textLength = this.getComputedTextLength();
+            var fs = fontSize(d, extent, sizeRange);
+            var lastX = x;
+            if (x + textLength + padding > width) {
+                lastX = 0;
+            }
+            x = lastX + textLength + 0.3*fs;
+            return lastX;
+        });
+        var y = -0.5 * sizeRange.max;
+        var lastAdded = 0;
+        words.attr('y', function (d) {
+            if (d3.select(this).attr('x') == 0) {
+                y += 1.5 * fontSize(d, extent, sizeRange);
+                lastAdded = 1.5 * fontSize(d, extent, sizeRange);
+            }
+            return y;
+        });
+        return y + lastAdded;
+    }
 	{% endif %}
 {% endif %}
 </script>
