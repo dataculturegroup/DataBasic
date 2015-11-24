@@ -7,6 +7,19 @@ import textmining
 from scipy import spatial
 import filehandler
 
+def most_frequent_terms(*args):
+    tdm = textmining.TermDocumentMatrix(simple_tokenize_remove_our_stopwords)
+    for doc in args:
+        tdm.add_doc(doc)
+
+    freqs = []
+    for d in tdm.sparse:
+        f = [(freq, name) for (name, freq) in d.items()]
+        f.sort(reverse=True)
+        freqs.append(f)
+    
+    return freqs
+
 def doc_to_words(document):
     '''
     Turn a document into a list of all the words in it
@@ -83,7 +96,7 @@ def simple_tokenize_remove_our_stopwords(document):
 
     """
     document = document.lower()
-    document = re.sub('[^a-z]', ' ', document)
+    document = re.sub('[^a-z\']', ' ', document)
     words = document.strip().split()
     # Remove stopwords
     words = [word for word in words if word not in stopwords.words('english')]

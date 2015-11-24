@@ -40,6 +40,14 @@ class MongoHandler:
 		self.update_document(collection, doc_id, {'$set': {'results_url': results_url_base + doc_id}})
 		return doc_id
 
+	def save_samediff(self, collection, filenames, diffWordsDoc1, diffWordsDoc2, sameWords):
+		return str(self._db[collection].save({
+			'filenames': filenames,
+			'diffWordsDoc1': diffWordsDoc1,
+			'diffWordsDoc2': diffWordsDoc2,
+			'sameWords': sameWords
+			}))
+
 	def save_job(self, collection, job_info):
 		self._db[collection].save(job_info)
 

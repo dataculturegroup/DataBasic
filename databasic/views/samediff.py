@@ -5,6 +5,7 @@ from ..application import mongo, app, mail
 from ..forms import SameDiffUpload, SameDiffSample
 from ..logic import filehandler
 import databasic.tasks
+from databasic.logic import tfidfanalysis
 from flask import Blueprint, render_template, request, redirect, url_for, g, abort, Response
 from flask.ext.babel import lazy_gettext as _
 
@@ -33,7 +34,8 @@ def index():
 			email = forms['sample'].data['email']
 
 		if btn_value is not None and btn_value is not u'':
-			return queue_files(file_paths, is_sample_data, email)
+			return process_results(file_paths)
+			# return queue_files(file_paths, is_sample_data, email)
 
 	return render_template('samediff/samediff.html', forms=forms.items(), tool_name='samediff')
 
@@ -45,7 +47,7 @@ def results():
 		return redirect(g.current_lang + '/samediff')
 
 	job = mongo.find_document('samediff', doc_id)
-
+	'''
 	if not 'complete' in job['status']:
 		return render_template('samediff/results.html', results=job, tool_name='samediff')
 
@@ -61,7 +63,7 @@ def results():
 
 		# update with the new results so that this code doesn't have to run every time the page is loaded
 		mongo.update_document('samediff', doc_id, job)
-
+	'''
 	return render_template('samediff/results.html', results=job, tool_name='samediff')
 
 @mod.route('/results/<file1>-and-<file2>-common-words')
@@ -114,6 +116,13 @@ def download_most_frequent_words(doc_id, filename):
 	# download_filename = filehandler.generate_filename('csv', 'most-frequent-words', filename)
 	pass
 
+def process_results(file_paths):
+	file_names = filehandler.get_file_names(file_paths)
+	doc_list = [ filehandler.convert_to_txt(file_path) for file_path in file_paths ]
+	most_frequent = tfidfanalysis.most_frequent_terms(doc_list[0], doc_list[1], doc_list[0] + doc_list[1])
+	job_id = mongo.save_samediff('samediff', file_names, most_frequent[0], most_frequent[1], most_frequent[2])
+	return redirect(request.url + 'results?id=' + job_id)
+
 def _most_common_words(job_id,filename1,filename2):
 	job = mongo.find_document('samediff', job_id)
 	doc1_idx = job['filenames'].index(filename1)
@@ -150,8 +159,8 @@ def queue_files(file_paths, is_sample_data, email):
 	file_names = filehandler.get_file_names(file_paths)
 	job_id = mongo.save_queued_files('samediff', file_paths, file_names, is_sample_data, email, request.url + 'results?id=')
 	result = databasic.tasks.save_tfidf_results.apply_async(args=[job_id])
-	print result
 	return redirect(request.url + 'results?id=' + job_id)
+	
 
 def interpretCosineSimilarity(cosineDiff):
 	# Cosine Similarity

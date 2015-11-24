@@ -22,14 +22,15 @@
 			{% endif %}
 		</div>
 	</div>
-	{% if results['status'] != 'complete' %}
+
+	{# {% if results['status'] != 'complete' %}
 		<div class="row">
 			<div class="col-md-12">
 				<h1>{{ _('Your results are being processed. We\'ll send you an email when they\'re ready, at which point you can reload this page to see them.') }}</h1>
 				<h2>{{ _('Your email will arrive to:') }} {{ results['email'] }} </h2>
 			</div>
 		</div>
-	{% else %}
+	{% else %} #}
 
 		<div class="row" id="word-clouds">
 			<div class="col-md-4">
@@ -45,7 +46,7 @@
 				<div class="right-cloud"></div>
 			</div>
 		</div>
-	{% endif %}
+	{# {% endif %} #}
 </div>
 {% endblock %}
 
@@ -60,28 +61,28 @@
 <script type="text/javascript" charset="utf-8">
 {% if results %}
 
-	{% if results['status'] == 'complete' %}
-
+	{#{% if results['status'] == 'complete' %}#}
+	
 	$(function() {
 		var data;
 
 		data = [
-			{% for w in results['diffWordsDoc1']|batch(75)|first %}
-				{ word: "{{ w['term']|safe }}", count: {{ w['freq']|float }} },
+			{% for f, w in results['diffWordsDoc1']|batch(75)|first %}
+				{ word: "{{ w|safe }}", count: {{ f|float }} },
 			{% endfor %}
 		];
 		renderWordCloud(data, '.left-cloud');
-
+		
 		data = [
-			{% for w in results['sameWords']|batch(75)|first %}
-				{ word: "{{ w['term']|safe }}", count: {{ w['total']|float }} },
+			{% for f, w in results['sameWords']|batch(75)|first %}
+				{ word: "{{ w|safe }}", count: {{ f|float }} },
 			{% endfor %}
 		];
 		renderWordCloud(data, '.center-cloud');
 
 		data = [
-			{% for w in results['diffWordsDoc2']|batch(75)|first %}
-				{ word: "{{ w['term']|safe }}", count: {{ w['freq']|float }} },
+			{% for f, w in results['diffWordsDoc2']|batch(75)|first %}
+				{ word: "{{ w|safe }}", count: {{ f|float }} },
 			{% endfor %}
 		];
 		renderWordCloud(data, '.right-cloud');
@@ -175,7 +176,7 @@
         });
         return y + lastAdded;
     }
-	{% endif %}
+	{#{% endif %}#}
 {% endif %}
 </script>
 {% endblock %}

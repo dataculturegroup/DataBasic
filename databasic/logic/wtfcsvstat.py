@@ -133,7 +133,7 @@ class WTFCSVStat():
                     column_info['max_str_len'] = stats['len']
 
             if 'unicode' in column_info['type'] and not 'most_freq_values' in column_info:
-                print c.name
+                # TODO: these results could be cleaned up using textmining
                 column_info['word_counts'] = wordhandler.get_word_counts(str([s for s in values]).strip('[]').replace("u'", '').replace("',", ''))
 
             results['columns'].append( column_info )
