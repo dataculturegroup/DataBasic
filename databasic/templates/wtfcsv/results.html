@@ -4,8 +4,7 @@
 
 {% macro card_top(type_name, name, glyphicon) -%}
 <div class="card-top">
-	<h3 class="dragHandle">
-	<i class="fa 
+	<h3 class="data-type"><i class="fa 
 	{% if type_name == 'unicode' %}
 		fa-font
 	{% elif type_name == 'float' or type_name == 'int' or type_name == 'long' or type_name == 'complex' %}
@@ -21,14 +20,15 @@
 	{% else %}
 		fa-database
 	{% endif %}
-	"></i> {{ name }}</h3>
+	"></i></h3>
+	<h3 class="dragHandle">{{ name }}</h3>
 	<div class="close-button"><h3><span class="glyphicon {{ glyphicon }}" aria-hidden="true"></span></h3></div>
 </div>
 {%- endmacro %}
 
 {% set column_count = results[index]['columns']|length %}
 
-{% block title %}{{ _('WTFcsv results') }}{% endblock %}
+{% block title %}{{_("WTFcsv: ")}} {{ results[index]['filename'] }}{% endblock %}
 
 {% block custom_css %}
 	<link href="{{ url_for('static', filename='css/wtfcsv-results.scss.css') }}" rel="stylesheet" type="text/css">
@@ -141,22 +141,22 @@
 										{% endif %} <em>{{col['max']}}</em></li>
 									{% endif %}
 									{% if 'sum' in col %}
-										<li>{{_("The total is") }} <em>{{col['sum']}}</em></li>
+										<li>{{_("The total is") }} <em>{{col['sum']|round(2)}}</em></li>
 									{% endif %}
 									{% if 'mean' in col %}
-										<li>{{_("The average is") }} <em>{{col['mean']}}</em></li>
+										<li>{{_("The average is") }} <em>{{col['mean']|round(2)}}</em></li>
 									{% endif %}
 									{% if 'median' in col %}
-										<li>{{_("The median is") }} <em>{{col['median']}}</em></li>
+										<li>{{_("The median is") }} <em>{{col['median']|round(2)}}</em></li>
 									{% endif %}
 									{% if 'stdev' in col %}
-										<li>{{_("The standard deviation is") }} <em>{{col['stdev']}}</em></li>
+										<li>{{_("The standard deviation is") }} <em>{{col['stdev']|round(2)}}</em></li>
 									{% endif %}
 									{% if col['nulls'] %}
 										<li>{{_("There is missing data in this column")}}</li>
 									{% endif %}
 									{% if 'freq' in col %}
-										<li>{{col['freq']}}</li>
+										<li>{{col['freq']|round(2)}}</li>
 									{% endif %}
 									{% if 'len' in col %}
 										<li>{{_("The longest string is <em>%d</em> characters" % col['len']) }}</li>
@@ -184,6 +184,8 @@
 
 {% block results_scripts %}
 <script type="text/javascript" src="https://cdn.rawgit.com/nnattawat/flip/v1.0.18/dist/jquery.flip.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/d3/3.5.6/d3.min.js" charset="utf-8"></script>
+<script type="text/javascript" src="{{ url_for('static', filename='js/lib/d3.layout.cloud.js') }}" charset="utf-8"></script>
 <script type="text/javascript" src="{{ url_for('static', filename='js/lib/highcharts.js') }}"></script>
 <script type="text/javascript">
 
@@ -209,7 +211,9 @@ $(function () {
 	Highcharts.theme = {
 		colors: ['#fff'],
 		chart: {
-			backgroundColor: 'none'
+			backgroundColor: 'none',
+			// width: 275,
+			height: 300
 		},
 		xAxis: {
 			gridLineColor: '#fff',
@@ -231,7 +235,7 @@ $(function () {
 			}
 		},
 		yAxis: {
-			gridLineColor: '#fff',
+			gridLineColor: 'transparent',
 			lineColor: '#fff',
 			tickColor: '#fff',
 			labels: {
@@ -254,85 +258,135 @@ $(function () {
 	var highchartsOptions = Highcharts.setOptions(Highcharts.theme);
 
 {% for c in range(column_count) %}
-{% set col=results[index]['columns'][c] %}
-{% set dname=col['display_type_name'] %}
-	$('#card-chart-{{ c }}').highcharts({
+	{% set col=results[index]['columns'][c] %}
+	{% set dname=col['display_type_name'] %}
+
+	{% if not 'word_counts' in col %}
+
 		{% if 'text' in dname or 'numbers' in dname or 'dates' in dname or 'times' in dname or 'dates and times' in dname %}
-			title: {
-				text: null
-			},
-			tooltip: {
-				enabled: false
-			},
-			{% if 'text' in dname or 'numbers' in dname %}
-				chart: {
-					type: 'column'
-				},
-			{% endif %}
-			xAxis: {
+			$('#card-chart-{{ c }}').highcharts({
 				title: {
-					text:
-					{% if 'text' in dname %}
-					_('Categories')
-					{% elif 'numbers' in dname %}
-					_('Counts')
-					{% elif 'dates' %}
-					_('Dates')
-					{% elif 'times' %}
-					_('Times')
-					{% elif 'dates and times' %}
-					_('Dates and times')
-					{% else %}
-					_('Undefined')
-					{% endif %}
+					text: null
 				},
-				categories: [
-					{% if 'most_freq_values' in col %}
-						{{ get_most_freq(col['most_freq_values'], 'value', dname) }}
-					{% endif %}
-				],
-				plotLines: [{
-					color: '#fff'
-				}]
-			},
-			yAxis: {
-				title: {
-					text: _('Values')
+				tooltip: {
+					enabled: false
 				},
-				plotLines: [{
-					color: '#fff'
-				}]
-			},
-			plotOptions: {
-			    column: {
-			        pointPadding: 0,
-			        borderWidth: 0,
-			        groupPadding: 0,
-			        shadow: false
-			    }
-			},
-			series: [{
-				data: [
-					{% if 'most_freq_values' in col %}
-						{{ get_most_freq(col['most_freq_values'], 'count', dname) }}
-					{% endif %}
-				],
-				showInLegend: false,
-				marker: {
-					states: {
-						hover: {
-							enabled: false
+				{% if 'text' in dname or 'numbers' in dname %}
+					chart: {
+						type: 'column'
+					},
+				{% endif %}
+				xAxis: {
+					title: {
+						text:
+						{% if 'text' in dname %}
+						_('Categories')
+						{% elif 'numbers' in dname %}
+						_('Counts')
+						{% elif 'dates' %}
+						_('Dates')
+						{% elif 'times' %}
+						_('Times')
+						{% elif 'dates and times' %}
+						_('Dates and times')
+						{% else %}
+						_('Undefined')
+						{% endif %}
+					},
+					categories: [
+						{% if 'most_freq_values' in col %}
+							{{ get_most_freq(col['most_freq_values'], 'value', dname) }}
+						{% endif %}
+					],
+					plotLines: [{
+						color: '#fff'
+					}]
+				},
+				yAxis: {
+					title: {
+						text: _('# of rows')
+					},
+					plotLines: [{
+						color: '#fff'
+					}]
+				},
+				plotOptions: {
+				    column: {
+				        pointPadding: 0,
+				        borderWidth: 0,
+				        groupPadding: 0,
+				        shadow: false
+				    }
+				},
+				series: [{
+					data: [
+						{% if 'most_freq_values' in col %}
+							{{ get_most_freq(col['most_freq_values'], 'count', dname) }}
+						{% endif %}
+					],
+					showInLegend: false,
+					marker: {
+						states: {
+							hover: {
+								enabled: false
+							}
 						}
 					}
+				}],
+				credits: {
+					enabled: false
 				}
-			}],
-			credits: {
-				enabled: false
-			}
+			});
 		{% endif %}
-	});
 	
+	{% else %}
+
+		// Word cloud
+		var data = [
+		{% for word in col['word_counts'][0] | batch(50) | first %}
+			{ text: "{{ word[0]|safe }}", size: {{ word[1]|float }} },
+		{% endfor %}
+		];
+
+		var width = $('#card-chart-{{ c }}').width();
+
+		var maxScore = Math.max.apply(Math, data.map(function(o) {return o.size;}));
+		var fontSizeScale = d3.scale.linear()
+			.domain([0, maxScore])
+			.range([8, 70]); 
+
+		var fill = d3.scale.category20();
+		var layout = d3.layout.cloud()
+			.size([width, 300])
+			.words(data)
+			.padding(6)
+			.rotate(function () { return 0; })
+			.fontSize(function(d) { return fontSizeScale(d.size); });
+
+		layout.start();
+
+		d3.select('#card-chart-{{ c }}').append('svg')
+			.attr('width', layout.size()[0])
+			.attr('height', layout.size()[1])
+		.append('g')
+			.attr('transform', 'translate(' + layout.size()[0] / 2 + ',' + layout.size()[1] / 2 + ')')
+		.selectAll('text')
+			.data(data)
+		.enter().append('text')
+			.classed('cloud-text', true)
+			.style('font-size', function(d) { return d.size + 'px'; })
+			.style('font-family', function (d) { return d.size > 30 ? 'HalisGR-Medium' : 'HalisGR-Book'; })
+			.attr('text-anchor', 'middle')
+			.attr('fill', '#fff')
+			.attr('transform', function (d) {
+				return 'translate(' + [d.x, d.y] + ')rotate(' + d.rotate + ')';
+			})
+			.text(function (d) { return d.text; });
+
+	{% endif %}
+
 {% endfor %}
+
 });
 
 </script>

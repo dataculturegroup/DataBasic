@@ -8,6 +8,7 @@ import math
 import logging
 import six
 import codecs
+import wordhandler
 
 from csvkit import CSVKitReader, table
 from lazyfile import LazyFile
@@ -130,6 +131,10 @@ class WTFCSVStat():
 
                 if c.type == six.text_type:
                     column_info['max_str_len'] = stats['len']
+
+            if 'unicode' in column_info['type'] and not 'most_freq_values' in column_info:
+                print c.name
+                column_info['word_counts'] = wordhandler.get_word_counts(str([s for s in values]).strip('[]').replace("u'", '').replace("',", ''))
 
             results['columns'].append( column_info )
         return results
