@@ -109,18 +109,48 @@ def download_common_words(doc_id, filename1, filename2):
 		print e
 		abort(400)
 
-@mod.route('/results/download/<doc_id>/<filename>-most-frequent-words.csv')
-def download_most_frequent_words(doc_id, filename):
-	# TODO
-	# results = mongo.find_document('samediff', doc_id)
-	# download_filename = filehandler.generate_filename('csv', 'most-frequent-words', filename)
-	pass
+@mod.route('/results/download/<doc_id>/<filename1>-<filename2>-samediff.csv')
+def download(doc_id, filename1, filename2):
+	try:
+		doc = mongo.find_document('samediff', doc_id)
+		headers = ['word', 'times used in ' + str(filename1), 'times used in ' + str(filename2), 'times used in both']
+		rows = []
+		for (f, w) in doc['sameWords']:
+			doc1Count = next(f2 for (f2, w2) in doc['mostFrequentDoc1'] if w == w2)
+			doc2Count = next(f2 for (f2, w2) in doc['mostFrequentDoc2'] if w == w2)
+			rows.append([w, doc1Count, doc2Count, f])
+		for (f, w) in doc['diffWordsDoc1']:
+			rows.append([w, f, 0, 0])
+		for (f, w) in doc['diffWordsDoc2']:
+			rows.append([w, 0, f, 0])
+		# TODO: clean up file name
+		filename = filehandler.write_to_csv(headers, rows, filehandler.generate_filename('csv', 'samediff', filename1, filename2))
+		return filehandler.generate_csv(filename)
+	except Exception as e:
+		print e
+		abort(400)
 
 def process_results(file_paths):
 	file_names = filehandler.get_file_names(file_paths)
 	doc_list = [ filehandler.convert_to_txt(file_path) for file_path in file_paths ]
-	most_frequent = tfidfanalysis.most_frequent_terms(doc_list[0], doc_list[1], doc_list[0] + doc_list[1])
-	job_id = mongo.save_samediff('samediff', file_names, most_frequent[0], most_frequent[1], most_frequent[2])
+	most_frequent = tfidfanalysis.most_frequent_terms(doc_list[0], doc_list[1])
+
+	# sets are faster than lists
+	mf1 = set(most_frequent[0])
+	mf2 = set(most_frequent[1])
+	highest_val = max((most_frequent[0] + most_frequent[1]), key=lambda x: x[0])
+
+	unique_doc1 = [(f,w) for (f,w) in most_frequent[0] if w not in (w2 for (f2, w2) in mf2)]
+	unique_doc2 = [(f,w) for (f,w) in most_frequent[1] if w not in (w2 for (f2, w2) in mf1)]
+	same_words = [(f,w) for (f,w) in mf1 if w in (w2 for (f2, w2) in mf2)]
+	same = []
+	for (f, w) in same_words:
+		for (f2, w2) in mf2:
+			if (w == w2):
+				same.append(((f + f2), w))
+	same.sort(reverse=True)
+
+	job_id = mongo.save_samediff('samediff', file_names, unique_doc1, unique_doc2, same, highest_val, most_frequent[0], most_frequent[1])
 	return redirect(request.url + 'results?id=' + job_id)
 
 def _most_common_words(job_id,filename1,filename2):

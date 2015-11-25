@@ -16,7 +16,7 @@
 <div class="container">
 	<div class="row" >
 		<div class="col-md-12 text-center" id="title">
-			<h2>{{_("Your SameDiff Report")}}</h2>
+			<h2>{{_("Your SameDiff Report")}} <a href="/{{ g['current_lang'] }}/samediff/results/download/{{ request.args['id'] }}/{{ results['filenames'][0] }}-{{ results['filenames'][1] }}-samediff.csv"><span class="glyphicon glyphicon-download" aria-hidden="true"></span></a></h2>
 			{% if 'complete' in results['status'] %}
 			<h4>{{ results['humanReadableSimilarity'] }}</h4>
 			{% endif %}
@@ -64,35 +64,41 @@
 	{#{% if results['status'] == 'complete' %}#}
 	
 	$(function() {
-		var data;
+		var leftData, sameData, rightData;
 
-		data = [
+		leftData = [
 			{% for f, w in results['diffWordsDoc1']|batch(75)|first %}
 				{ word: "{{ w|safe }}", count: {{ f|float }} },
 			{% endfor %}
 		];
-		renderWordCloud(data, '.left-cloud');
-		
-		data = [
+
+		sameData = [
 			{% for f, w in results['sameWords']|batch(75)|first %}
 				{ word: "{{ w|safe }}", count: {{ f|float }} },
 			{% endfor %}
 		];
-		renderWordCloud(data, '.center-cloud');
 
-		data = [
+		rightData = [
 			{% for f, w in results['diffWordsDoc2']|batch(75)|first %}
 				{ word: "{{ w|safe }}", count: {{ f|float }} },
 			{% endfor %}
 		];
-		renderWordCloud(data, '.right-cloud');
+
+		var allData = leftData.concat(sameData).concat(rightData);
+		var countSel = function (d) { return d.count; };
+		var sum = d3.sum(allData, countSel);
+		var fullExtent = d3.extent(allData, function (d) { return d.count / sum; });
+
+		renderWordCloud(leftData, sum, fullExtent, '.left-cloud');
+		renderWordCloud(sameData, sum, fullExtent, '.center-cloud');
+		renderWordCloud(rightData, sum, fullExtent, '.right-cloud');
 	});
 
-	function renderWordCloud(wordcounts, containerClass) {
+	function renderWordCloud(wordcounts, sum, fullExtent, containerClass) {
 
 		var padding = 10;
-		var height = 300;
-		var sizeRange = { min: 10, max: 24 }
+		var height = 350;
+		var sizeRange = { min: 10, max: 24 };	
 
 		var container = d3.select(containerClass);
 		var width = $(containerClass).width();
@@ -104,8 +110,6 @@
 		var y = height;
 		var words;
 
-		var countSel = function (d) { return d.count };
-		var sum = d3.sum(wordcounts, countSel);
 		var top = _.first(wordcounts, 100);
 		_.each(top, function (d) {
 			d.tfnorm = d.count / sum;
@@ -116,7 +120,6 @@
 			terms[d.word] = d;
 		});
 
-		var fullExtent = d3.extent(wordcounts, function (d) { return d.tfnorm; });
 		var stems = _.filter(terms, function (d) { return d; });
 
 		var counter = wordcounts.length;
