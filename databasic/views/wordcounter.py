@@ -91,10 +91,22 @@ def results():
 	min_index = max(0, max_index-5)
 	random_unpopular_word = results[0][random.randrange(min_index, max_index+1)]
 
+	most_popular_word = results[0][0][0]
+	word_in_bigrams_count = 0
+	word_in_trigrams_count = 0
+
+	for b in results[1]:
+		if most_popular_word in b[0]:
+			word_in_bigrams_count += 1
+
+	for t in results[2]:
+		if most_popular_word in t[0]:
+			word_in_trigrams_count += 1
+
 	whatnext = {}
-	whatnext['most_popular_word'] = results[0][0][0]
-	whatnext['word_in_bigrams_count'] = 0
-	whatnext['word_in_trigrams_count'] = 0
+	whatnext['most_popular_word'] = most_popular_word
+	whatnext['word_in_bigrams_count'] = word_in_bigrams_count
+	whatnext['word_in_trigrams_count'] = word_in_trigrams_count
 	whatnext['random_unpopular_word'] = random_unpopular_word[0]
 	whatnext['random_unpopular_word_count'] = random_unpopular_word[1]
 

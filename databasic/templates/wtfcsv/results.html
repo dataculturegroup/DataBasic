@@ -4,9 +4,9 @@
 
 {% macro card_top(type_name, name, glyphicon) -%}
 <div class="card-top">
-	<h3 class="data-type"><i class="fa 
+	<h3 class="data-type"> <i class="fa 
 	{% if type_name == 'unicode' %}
-		fa-font
+		noun_134105
 	{% elif type_name == 'float' or type_name == 'int' or type_name == 'long' or type_name == 'complex' %}
 		fa-hashtag
 	{% elif type_name == 'datetime' %}
@@ -20,7 +20,7 @@
 	{% else %}
 		fa-database
 	{% endif %}
-	"></i></h3>
+	" aria-hidden="true"></i></h3>
 	<h3 class="dragHandle">{{ name }}</h3>
 	<div class="close-button"><h3><span class="glyphicon {{ glyphicon }}" aria-hidden="true"></span></h3></div>
 </div>

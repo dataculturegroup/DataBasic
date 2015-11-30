@@ -1,8 +1,8 @@
 <nav class="navbar navbar-default">
   
   <div class="btn-group" id="language-selector" role="group">
-    <a href="{{ request.url.replace('/es/', '/en/') }}" role="button" class="btn btn-default">en</a>
-    <a href="{{ request.url.replace('/en/', '/es/') }}" role="button" class="btn btn-default">es</a>
+    <a href="{{ request.url.replace('/es/', '/en/') }}" role="button" aria-label="{{ _('change language to english') }}" class="btn btn-default">en</a>
+    <a href="{{ request.url.replace('/en/', '/es/') }}" role="button" aria-label="{{ _('change language to spanish') }}" class="btn btn-default">es</a>
   </div>
 
   <div class="container-fluid" id="nav-container">

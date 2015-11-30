@@ -4,6 +4,7 @@
 
 {% set file1 = results['filenames'][0] %}
 {% set file2 = results['filenames'][1] %}
+{% set download="/" + g['current_lang'] + "/samediff/results/download/" + request.args['id'] + "/" + file1 + "-" + file2 + "-samediff.csv" %}
 
 {% block title %}{{ _('SameDiff results') }}{% endblock %}
 
@@ -19,7 +20,7 @@
 <div class="container">
 	<div class="row" >
 		<div class="col-md-12 text-center" id="title">
-			<h2>{{_("Your SameDiff Report")}} <a href="/{{ g['current_lang'] }}/samediff/results/download/{{ request.args['id'] }}/{{ results['filenames'][0] }}-{{ results['filenames'][1] }}-samediff.csv"><span class="glyphicon glyphicon-download" aria-hidden="true"></span></a></h2>
+			<h2>{{_("Your SameDiff Report")}} <a href="{{ download }}"><span class="glyphicon glyphicon-download" aria-hidden="true"></span></a></h2>
 			{% if 'complete' in results['status'] %}
 			<h4>{{ results['humanReadableSimilarity'] }}</h4>
 			{% endif %}
@@ -54,12 +55,13 @@
 {% endblock %}
 
 {% block custom_footer %}
-	{{ what_next(_("Comparing text documents is a great way to find out what makes each one unique.  Is it meaningful that \"%(most_common_word)s\" and \"%(second_most_common_word)s\" are the most used words appearing in both documents?  Why does %(doc2)s use \"%(doc2_most_common_word)s\" so much, but it doesn't even appear in %(doc1)s?  With these questions in mind, you can sketch out a story that compares the documents.  Find a whiteboard and start sketching out a story.  Checkout our <a href=\"#\">activity guide</a> for more help on sketching out a story to compare them.  Want to dig into the data even more?  <a href=\"#\">Download the full results as a CSV file</a> to compare the files even further.",
+	{{ what_next(_("Comparing text documents is a great way to find out what makes each one unique.  Is it meaningful that \"%(most_common_word)s\" and \"%(second_most_common_word)s\" are the most used words appearing in both documents?  Why does %(doc2)s use \"%(doc2_most_common_word)s\" so much, but it doesn't even appear in %(doc1)s?  With these questions in mind, you can sketch out a story that compares the documents.  Find a whiteboard and start sketching out a story.  Checkout our <a href=\"#\">activity guide</a> for more help on sketching out a story to compare them.  Want to dig into the data even more?  <a href=\"%(download)s\">Download the full results as a CSV file</a> to compare the files even further.",
 	most_common_word=whatnext['most_common_word'],
 	second_most_common_word=whatnext['second_most_common_word'],
 	doc2=file2,
 	doc2_most_common_word=whatnext['doc2_most_common_word'],
-	doc1=file1)) }}
+	doc1=file1,
+	download=download)) }}
 {% endblock %}
 
 {% block results_scripts %}

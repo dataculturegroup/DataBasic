@@ -25,3 +25,18 @@ a {
 	color: $c-white;
 }
 
+@font-face {
+	font-family: 'fontawesome-webfont';
+	src:url('/static/fonts/fontawesome-webfont.eot');
+	src:url('/static/fonts/fontawesome-webfont.eot') format('embedded-opentype'),
+		url('/static/fonts/fontawesome-webfont.ttf') format('truetype'),
+		url('/static/fonts/fontawesome-webfont.woff') format('woff'),
+		url('/static/fonts/fontawesome-webfont.svg') format('svg');
+	font-weight: normal;
+	font-style: normal;
+}
+
+.fa.noun_134105:before {
+	font-family: 'fontawesome-webfont';
+	content: "\e900";
+}

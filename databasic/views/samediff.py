@@ -25,7 +25,7 @@ def index():
 		is_sample_data = False
 
 		if btn_value == 'upload':
-			files = request.files.getlist('upload')
+			files = [forms['upload'].data['upload'], forms['upload'].data['upload2']]
 			file_paths = filehandler.open_docs(files)
 			# email = forms['upload'].data['email']
 		elif btn_value == 'sample':

@@ -3,7 +3,7 @@
     <div class="row centered-row">
         <div class="col-md-12">
             <div class="inputs">
-                <ul class="nav nav-tabs nav-justified">
+                <ul class="nav nav-tabs nav-justified" aria-label="{{ _('choose input type') }}">
                 {% set first=True %}
                 {% for name, form in forms %}
                     {% if first %}
@@ -12,7 +12,7 @@
                     {% else %}
                     <li role="presentation">
                     {% endif %}
-                        <a id="tab-{{ name }}" href="#{{ name }}" data-toggle="tab">{{ form.label }}</a>
+                        <a id="tab-{{ name }}" href="#{{ name }}" data-toggle="tab" role="button">{{ form.label }}</a>
                     </li>
                 {% endfor %}
                 </ul>
@@ -161,14 +161,14 @@
 {% macro video_modal(button_text, src) -%}
     
     <div class="row centered-row">
-        <a href="#video-modal" class="btn btn-lg btn-primary" id="video-modal-btn" data-toggle="modal"><span class="glyphicon glyphicon-play-circle" aria-hidden="true"></span><br>{{ _("Play video") }}</a>
+        <a href="#video-modal" class="btn btn-lg btn-primary" id="video-modal-btn" data-toggle="modal" role="button"><span class="glyphicon glyphicon-play-circle" aria-hidden="true"></span><br>{{ _("Play video") }}</a>
     </div>
 
     <div id="video-modal" class="modal fade">
         <div class="modal-dialog">
             <div class="modal-content">
                 <div class="modal-header">
-                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true" aria-label="{{ _('close video window') }}">×</button>
                     <h4 class="modal-title">{{ button_text }}</h4>
                 </div>
                 <div class="modal-body">

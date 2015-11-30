@@ -86,10 +86,10 @@
 {% endblock %}
 
 {% block custom_footer %}
-	{{ what_next(_("Examining text data in this quantitative way can help you find stories to tell in your data.  The fact that \"%(most_popular_word)s\" is the most popular word is good to know, but combine that with the %(word_in_bigrams_count)s in the top 40 bigrams, and the %(word_in_trigrams_count)s in the top 40 trigrams, to understand the context of how it is used.  With that richer understanding of the context, you can sketch out a picture of why \"%(most_popular_word)s\" is so important in \"%(title)s\".  So grab some paper and some crayons and start drawing what you see!  Checkout our <a href=\"#\">activity guide</a> for more help on sketching out a story.  Want to dig into the data more? Download all the <a href=\"%(download_words)s\">word counts</a>, <a href=\"%(download_bigrams)s\">bigrams</a>, or <a href=\"%(download_trigrams)s\">trigrams</a> and investigate why \"%(random_unpopular_word)s\" is only used %(random_unpopular_word_count)s times!",
+	{{ what_next(_("Examining text data in this quantitative way can help you find stories to tell in your data.  The fact that \"%(most_popular_word)s\" is the most popular word is good to know, but combine that with the %(word_in_bigrams_count)s uses in the top 40 bigrams, and the %(word_in_trigrams_count)s uses in the top 40 trigrams, to understand the context of how it is used.  With that richer understanding of the context, you can sketch out a picture of why \"%(most_popular_word)s\" is so important in \"%(title)s\".  So grab some paper and some crayons and start drawing what you see!  Checkout our <a href=\"#\">activity guide</a> for more help on sketching out a story.  Want to dig into the data more? Download all the <a href=\"%(download_words)s\">word counts</a>, <a href=\"%(download_bigrams)s\">bigrams</a>, or <a href=\"%(download_trigrams)s\">trigrams</a> and investigate why \"%(random_unpopular_word)s\" is only used %(random_unpopular_word_count)s times!",
 	most_popular_word=whatnext['most_popular_word'],
 	word_in_bigrams_count=whatnext['word_in_bigrams_count'],
-	word_in_trigrams_count=whatnext['word_in_trigram_count'],
+	word_in_trigrams_count=whatnext['word_in_trigrams_count'],
 	download_words=download_words,
 	download_bigrams=download_bigrams,
 	download_trigrams=download_trigrams,

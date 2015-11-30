@@ -37,8 +37,11 @@ $(document).ready(function(){
 		rules: {
 			upload: {
 				required: true,
-				extension: "txt|docx|rtf",
-				multiple_files: true
+				extension: "txt|docx|rtf"
+			},
+			upload2: {
+				required: true,
+				extension: "txt|docx|rtf"
 			},
 			email: {
 				required: true,
@@ -47,6 +50,10 @@ $(document).ready(function(){
 		},
 		messages: {
 			upload: {
+				required: _("This field is required"),
+				extension: _("Only these file types are accepted: txt, docx, rtf")
+			},
+			upload2: {
 				required: _("This field is required"),
 				extension: _("Only these file types are accepted: txt, docx, rtf")
 			},

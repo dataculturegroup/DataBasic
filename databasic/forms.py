@@ -96,7 +96,6 @@ class WordCounterUpload(UploadForm, WordCounterForm, Form):
 		_('Ignore stopwords'),
 		widget=CheckboxInput(), 
 		default=True)
-	pass
 
 class WordCounterSample(SampleForm, WordCounterForm, Form):
 	ignore_case_sample = BooleanField(
@@ -150,7 +149,9 @@ class SameDiffForm(object):
 
 class SameDiffUpload(UploadForm, SameDiffForm, Form):
 	label = _('Upload files')
-	multiple = True
+	upload2 = FileField(
+		_('Upload a second file'),
+		description={'placeholder': _('Upload...')})
 
 class SameDiffSample(MultipleSampleForm, SameDiffForm, Form):
 	def __init__(self):
