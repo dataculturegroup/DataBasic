@@ -140,10 +140,13 @@ class WTFCSVSample(SampleForm, Form):
 SameDiff forms
 '''
 class SameDiffForm(object):
+	pass
+	'''
 	email = StringField(
 		_('Email'),
 		description={'placeholder': _('Your email address')},
 		widget=TextInput())
+	'''
 
 class SameDiffUpload(UploadForm, SameDiffForm, Form):
 	label = _('Upload files')

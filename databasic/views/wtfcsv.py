@@ -3,7 +3,7 @@ from ..application import mongo
 from ..forms import WTFCSVUpload, WTFCSVLink, WTFCSVSample
 from ..logic import wtfcsvstat, filehandler, oauth
 from flask import Blueprint, render_template, request, redirect, g
-import os, logging
+import os, logging, random
 
 mod = Blueprint('wtfcsv', __name__, url_prefix='/<lang_code>/wtfcsv', template_folder='../templates/wtfcsv')
 
@@ -64,7 +64,38 @@ def results_sheet(index):
 		return redirect(g.current_lang + '/wtfcsv')
 	else:
 		results = mongo.find_document('wtfcsv', doc_id).get('results')
-	return render_template('wtfcsv/results.html', results=results, tool_name='wtfcsv', index=int(index))
+
+	def get_random_column():
+		return random.choice(results[int(index)]['columns'])
+
+	columns = results[int(index)]['columns']
+	random_column = get_random_column()
+	random_column2 = get_random_column()
+	random_column3 = get_random_column()
+
+	if len(columns) > 0 and next((c for c in columns if 'most_freq_values' in c), None) is not None:
+		while 'most_freq_values' not in random_column:
+			random_column = get_random_column()
+
+	if len(columns) > 1:
+		while random_column2 == random_column:
+			random_column2 = get_random_column()
+	else:
+		random_column2 = random_column
+	
+	if len(columns) > 2:
+		while random_column3 == random_column or random_column3 == random_column2:
+			random_column3 = get_random_column()
+	else:
+		random_column3 = random_column
+
+	whatnext = {}
+	whatnext['random_column_top_value'] = random_column['most_freq_values'][0]['value'] if 'most_freq_values' in random_column else ''
+	whatnext['random_column_name'] = random_column['name']
+	whatnext['random_column_name2'] = random_column2['name']
+	whatnext['random_column_name3'] = random_column3['name']
+
+	return render_template('wtfcsv/results.html', results=results, whatnext=whatnext, tool_name='wtfcsv', index=int(index))
 
 def redirect_to_results(results):
 	doc_id = mongo.save_csv('wtfcsv', results)

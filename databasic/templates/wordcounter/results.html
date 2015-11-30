@@ -2,6 +2,10 @@
 {% from 'macros.html' import hover_tooltip, download_url %}
 {% from 'tool_footer.html' import what_next %}
 
+{% set download_words="/" + g['current_lang'] + "/wordcounter/results/download/" + csv_files[0] %}
+{% set download_bigrams="/" + g['current_lang'] + "/wordcounter/results/download/" + csv_files[1] %}
+{% set download_trigrams="/" + g['current_lang'] + "/wordcounter/results/download/" + csv_files[2] %}
+
 {% block title %}{{ _('Word-Counter results') }}{% endblock %}
 
 {% block custom_css %}
@@ -18,7 +22,7 @@
 		<div class="col-xs-12">
 			<div class="top-info">
 				<h3>{{ title }}</h3>
-				<p>{{ _('Here is a picture of the words used most often in your the document. Words used more often are bigger, and ones used less often are smaller. This picture, called a "word cloud", is helpful to get a sense of the most used words in a document.') }}</p>
+				<p>{{ _('Here is a picture of the words used most often in your document. Words used more often are bigger, and ones used less often are smaller. This picture, called a "word cloud", is helpful to get a sense of the most used words in a document.') }}</p>
 				{{ what_next_anchor() }}
 			</div>
 			<div class="word-cloud"></div>
@@ -28,7 +32,7 @@
 	<div class="row" id="frequencies">
 		<div class="col-sm-4">
 			<h2>{{ _('Top Words') }} 
-			<a href="/{{ g['current_lang'] }}/wordcounter/results/download/{{ csv_files[0] }}"><span class="glyphicon glyphicon-download" aria-hidden="true"></span></a></h2>
+			<a href="{{ download_words }}"><span class="glyphicon glyphicon-download" aria-hidden="true"></span></a></h2>
 			<table class="table">
 				<thead>
 					<tr><th>{{ _('Word') }}</th><th>{{ _('Frequency') }}</th></tr>
@@ -44,7 +48,8 @@
 			</table>
 		</div>
 		<div class="col-sm-4">
-			<h2>{{ _('Bigrams') }} <a href="/{{ g['current_lang'] }}/wordcounter/results/download/{{ csv_files[1] }}"><span class="glyphicon glyphicon-download" aria-hidden="true"></span></a></h2>
+			<h2>{{ _('Bigrams') }} 
+			<a href="{{ download_bigrams }}"><span class="glyphicon glyphicon-download" aria-hidden="true"></span></a></h2>
 			<table class="table">
 				<thead>
 					<tr><th>{{ _('%(bigram)s', bigram=hover_tooltip('Bigram', 'A bigram is a two word phrase')) }}</th><th>{{ _('Frequency') }}</th></tr>
@@ -60,7 +65,8 @@
 			</table>
 		</div>
 		<div class="col-sm-4">
-			<h2>{{ _('Trigrams') }} <a href="/{{ g['current_lang'] }}/wordcounter/results/download/{{ csv_files[2] }}"><span class="glyphicon glyphicon-download" aria-hidden="true"></span></a></h2>
+			<h2>{{ _('Trigrams') }} 
+			<a href="{{ download_trigrams }}"><span class="glyphicon glyphicon-download" aria-hidden="true"></span></a></h2>
 			<table class="table">
 				<thead>
 					<tr><th>{{ _('%(trigram)s', trigram=hover_tooltip('Trigram', 'A trigram is a three word phrase')) }}</th><th>{{ _('Frequency') }}</th></tr>
@@ -80,7 +86,16 @@
 {% endblock %}
 
 {% block custom_footer %}
-	{{ what_next("Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec a diam lectus. Sed sit amet ipsum mauris. Maecenas congue ligula ac quam viverra nec consectetur ante hendrerit. Donec et mollis dolor.") }}
+	{{ what_next(_("Examining text data in this quantitative way can help you find stories to tell in your data.  The fact that \"%(most_popular_word)s\" is the most popular word is good to know, but combine that with the %(word_in_bigrams_count)s in the top 40 bigrams, and the %(word_in_trigrams_count)s in the top 40 trigrams, to understand the context of how it is used.  With that richer understanding of the context, you can sketch out a picture of why \"%(most_popular_word)s\" is so important in \"%(title)s\".  So grab some paper and some crayons and start drawing what you see!  Checkout our <a href=\"#\">activity guide</a> for more help on sketching out a story.  Want to dig into the data more? Download all the <a href=\"%(download_words)s\">word counts</a>, <a href=\"%(download_bigrams)s\">bigrams</a>, or <a href=\"%(download_trigrams)s\">trigrams</a> and investigate why \"%(random_unpopular_word)s\" is only used %(random_unpopular_word_count)s times!",
+	most_popular_word=whatnext['most_popular_word'],
+	word_in_bigrams_count=whatnext['word_in_bigrams_count'],
+	word_in_trigrams_count=whatnext['word_in_trigram_count'],
+	download_words=download_words,
+	download_bigrams=download_bigrams,
+	download_trigrams=download_trigrams,
+	title=title,
+	random_unpopular_word=whatnext['random_unpopular_word'],
+	random_unpopular_word_count=whatnext['random_unpopular_word_count'])) }}
 {% endblock %}
 
 {% block results_scripts %}

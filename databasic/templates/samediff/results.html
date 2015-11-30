@@ -2,6 +2,9 @@
 {% from 'macros.html' import download_url %}
 {% from 'tool_footer.html' import what_next %}
 
+{% set file1 = results['filenames'][0] %}
+{% set file2 = results['filenames'][1] %}
+
 {% block title %}{{ _('SameDiff results') }}{% endblock %}
 
 {% block custom_css %}
@@ -34,15 +37,15 @@
 
 		<div class="row" id="word-clouds">
 			<div class="col-md-4">
-				<h4>{{ _('Words that are only in "%(document)s"', document=results['filenames'][0]) }}</h4>
+				<h4>{{ _('Words that are only in "%(document)s"', document=file1) }}</h4>
 				<div class="left-cloud"></div>
 			</div>
 			<div class="col-md-4">
-				<h4>{{ _('Words that are the same in "%(doc1)s" and "%(doc2)s"', doc1=results['filenames'][0], doc2=results['filenames'][1]) }}</h4>
+				<h4>{{ _('Words that are the same in "%(doc1)s" and "%(doc2)s"', doc1=file1, doc2=file2) }}</h4>
 				<div class="center-cloud"></div>
 			</div>
 			<div class="col-md-4">
-				<h4>{{ _('Words that are only in "%(document)s"', document=results['filenames'][1]) }}</h4>
+				<h4>{{ _('Words that are only in "%(document)s"', document=file2) }}</h4>
 				<div class="right-cloud"></div>
 			</div>
 		</div>
@@ -51,7 +54,12 @@
 {% endblock %}
 
 {% block custom_footer %}
-	{{ what_next("Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec a diam lectus. Sed sit amet ipsum mauris. Maecenas congue ligula ac quam viverra nec consectetur ante hendrerit. Donec et mollis dolor.") }}
+	{{ what_next(_("Comparing text documents is a great way to find out what makes each one unique.  Is it meaningful that \"%(most_common_word)s\" and \"%(second_most_common_word)s\" are the most used words appearing in both documents?  Why does %(doc2)s use \"%(doc2_most_common_word)s\" so much, but it doesn't even appear in %(doc1)s?  With these questions in mind, you can sketch out a story that compares the documents.  Find a whiteboard and start sketching out a story.  Checkout our <a href=\"#\">activity guide</a> for more help on sketching out a story to compare them.  Want to dig into the data even more?  <a href=\"#\">Download the full results as a CSV file</a> to compare the files even further.",
+	most_common_word=whatnext['most_common_word'],
+	second_most_common_word=whatnext['second_most_common_word'],
+	doc2=file2,
+	doc2_most_common_word=whatnext['doc2_most_common_word'],
+	doc1=file1)) }}
 {% endblock %}
 
 {% block results_scripts %}

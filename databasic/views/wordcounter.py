@@ -1,4 +1,4 @@
-import os
+import os, random
 from collections import OrderedDict
 from ..application import app, mongo
 from ..forms import WordCounterPaste, WordCounterUpload, WordCounterSample, WordCounterLink
@@ -70,7 +70,7 @@ def results():
 	
 	counts = None
 	csv_files = None
-	print_counts = []
+	results = []
 
 	doc_id = None if not 'id' in request.args else request.args['id']
 
@@ -83,11 +83,22 @@ def results():
 
 	# only render the top 40 results on the page (the csv contains all results)
 	for c in range(len(counts)):
-		print_counts.append([])
+		results.append([])
 		for w in range(_clamp(len(counts[c]), 0, 40)):
-			print_counts[c].append(counts[c][w])
+			results[c].append(counts[c][w])
 
-	return render_template('wordcounter/results.html', results=print_counts, csv_files=csv_files, tool_name='wordcounter', title=doc['title'], doc_id=doc_id)
+	max_index = min(20, len(results[0]))
+	min_index = max(0, max_index-5)
+	random_unpopular_word = results[0][random.randrange(min_index, max_index+1)]
+
+	whatnext = {}
+	whatnext['most_popular_word'] = results[0][0][0]
+	whatnext['word_in_bigrams_count'] = 0
+	whatnext['word_in_trigrams_count'] = 0
+	whatnext['random_unpopular_word'] = random_unpopular_word[0]
+	whatnext['random_unpopular_word_count'] = random_unpopular_word[1]
+
+	return render_template('wordcounter/results.html', results=results, whatnext=whatnext, csv_files=csv_files, tool_name='wordcounter', title=doc['title'], doc_id=doc_id)
 
 @mod.route('/results/download/<file_path>')
 def download_csv(file_path):

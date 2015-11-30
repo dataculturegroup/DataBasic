@@ -21,17 +21,17 @@ def index():
 	if request.method == 'POST':
 
 		btn_value = request.form['btn']
-		email = None
+		# email = None
 		is_sample_data = False
 
 		if btn_value == 'upload':
 			files = request.files.getlist('upload')
 			file_paths = filehandler.open_docs(files)
-			email = forms['upload'].data['email']
+			# email = forms['upload'].data['email']
 		elif btn_value == 'sample':
 			file_paths = forms['sample'].data['samples']
 			is_sample_data = True
-			email = forms['sample'].data['email']
+			# email = forms['sample'].data['email']
 
 		if btn_value is not None and btn_value is not u'':
 			return process_results(file_paths)
@@ -47,6 +47,12 @@ def results():
 		return redirect(g.current_lang + '/samediff')
 
 	job = mongo.find_document('samediff', doc_id)
+
+	whatnext = {}
+	whatnext['most_common_word'] = job['sameWords'][0][1] if len(job['sameWords']) > 0 else ''
+	whatnext['second_most_common_word'] = job['sameWords'][1][1] if len(job['sameWords']) > 1 else ''
+	whatnext['doc2_most_common_word'] = job['diffWordsDoc2'][0][1] if len(job['diffWordsDoc2']) > 0 else ''
+
 	'''
 	if not 'complete' in job['status']:
 		return render_template('samediff/results.html', results=job, tool_name='samediff')
@@ -64,7 +70,7 @@ def results():
 		# update with the new results so that this code doesn't have to run every time the page is loaded
 		mongo.update_document('samediff', doc_id, job)
 	'''
-	return render_template('samediff/results.html', results=job, tool_name='samediff')
+	return render_template('samediff/results.html', results=job, whatnext=whatnext, tool_name='samediff')
 
 @mod.route('/results/<file1>-and-<file2>-common-words')
 def show_common_words(file1, file2):
