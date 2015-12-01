@@ -153,6 +153,12 @@ class SameDiffUpload(UploadForm, SameDiffForm, Form):
 		_('Upload a second file'),
 		description={'placeholder': _('Upload...')})
 
-class SameDiffSample(MultipleSampleForm, SameDiffForm, Form):
+class SameDiffSample(SampleForm, SameDiffForm, Form):
+	label = _('Use samples')
+	sample2 = SelectField(
+		_('Sample'))
+
 	def __init__(self):
 		super(SameDiffSample, self).__init__('samediff')
+		self.sample2.choices = filehandler.get_samples('samediff')
+		self.sample2.deafult = self.sample2.choices[1][0]

@@ -46,6 +46,10 @@ h3 a {
 	span {
 		font-size: 48px;
 	}
+
+	&:hover {
+		background-color: $c-hover;
+	}
 }
 
 #what-next {
@@ -130,6 +134,7 @@ h3 a {
 		&:hover {
 			color: $c-white;
 			background-color: $c-theme-dk;
+			cursor: pointer;
 		}
 	}
 

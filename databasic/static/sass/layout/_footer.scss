@@ -25,11 +25,11 @@ footer {
 	}
 
 	.list-inline > li {
-		padding: 24px 0;
+		padding: 23px 0;
 
 		a {
 			background-color: $c-unselected;
-			padding: 27px 10px;
+			padding: 27px 12px;
 			font-size: 20px;
 
 			&[selected] {
@@ -45,10 +45,11 @@ footer {
 	}
 
 	#footer-logo {
-		padding: 12px 0;
+		padding: 0;
+		margin-right: 20px;
 
 		img {
-			height: 56px;
+			height: 40px;
 		}
 	}
 }

@@ -11,10 +11,11 @@ $(document).ready(function(){
 
 	$(".sample").validate({
 		rules: {
-			samples: {
-				required: true,
-				minlength: 2,
-				maxlength: 2
+			sample: {
+				required: true
+			},
+			sample2: {
+				required: true
 			},
 			email: {
 				required: true,
@@ -22,10 +23,11 @@ $(document).ready(function(){
 			}
 		},
 		messages: {
-			samples: {
-				required: _("This field is required"),
-				minlength: _("You must select two options"),
-				maxlength: _("You must select two options")
+			sample: {
+				required: _("This field is required")
+			},
+			sample2: {
+				required: _("This field is required")
 			},
 			email: {
 				required: _("This field is required"),

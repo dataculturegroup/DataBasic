@@ -20,7 +20,7 @@
 <div class="container">
 	<div class="row" >
 		<div class="col-md-12 text-center" id="title">
-			<h2>{{_("Your SameDiff Report")}} <a href="{{ download }}"><span class="glyphicon glyphicon-download" aria-hidden="true"></span></a></h2>
+			<h2>{{_("Your <strong>SameDiff</strong> Report")}} <a href="{{ download }}"><span class="glyphicon glyphicon-download" aria-hidden="true"></span></a></h2>
 			{% if 'complete' in results['status'] %}
 			<h4>{{ results['humanReadableSimilarity'] }}</h4>
 			{% endif %}
@@ -38,15 +38,15 @@
 
 		<div class="row" id="word-clouds">
 			<div class="col-md-4">
-				<h4>{{ _('Words that are only in "%(document)s"', document=file1) }}</h4>
+				<div class="wordcloud-title"><h4>{{ _('Words that are only in "%(document)s"', document=file1) }}</h4></div>
 				<div class="left-cloud"></div>
 			</div>
 			<div class="col-md-4">
-				<h4>{{ _('Words that are the same in "%(doc1)s" and "%(doc2)s"', doc1=file1, doc2=file2) }}</h4>
+				<div class="wordcloud-title"><h4>{{ _('Words that are in "%(doc1)s" and "%(doc2)s"', doc1=file1, doc2=file2) }}</h4></div>
 				<div class="center-cloud"></div>
 			</div>
 			<div class="col-md-4">
-				<h4>{{ _('Words that are only in "%(document)s"', document=file2) }}</h4>
+				<div class="wordcloud-title"><h4>{{ _('Words that are only in "%(document)s"', document=file2) }}</h4></div>
 				<div class="right-cloud"></div>
 			</div>
 		</div>
@@ -95,8 +95,7 @@
 		];
 
 		var allData = leftData.concat(sameData).concat(rightData);
-		var countSel = function (d) { return d.count; };
-		var sum = d3.sum(allData, countSel);
+		var sum = d3.sum(allData, function (d) { return d.count; });
 		var fullExtent = d3.extent(allData, function (d) { return d.count / sum; });
 
 		renderWordCloud(leftData, sum, fullExtent, '.left-cloud');
@@ -120,9 +119,12 @@
 		var y = height;
 		var words;
 
+		var thisSum = d3.sum(wordcounts, function (d) { return d.count; });
+
 		var top = _.first(wordcounts, 100);
 		_.each(top, function (d) {
 			d.tfnorm = d.count / sum;
+			d.norm = d.count / thisSum;
 		});
 
 		var terms = {}
@@ -142,6 +144,9 @@
 				words
 					.attr('font-size', function (d) {
 						return fontSize(d, fullExtent, sizeRange) + 'px';
+					})
+					.attr('opacity', function (d) {
+						return getOpacity (d, fullExtent);
 					});
 			}
 			d3.selectAll('.word')
@@ -154,6 +159,8 @@
 			y = Math.max(y, height);
 			counter --;
 		}
+
+		svg.attr('height', height)
 	}
 
 	function fontSize (term, extent, sizeRange) {
@@ -161,6 +168,11 @@
             + (sizeRange.max - sizeRange.min)
                 * ( Math.log(term.tfnorm) - Math.log(extent[0]) ) / ( Math.log(extent[1]) - Math.log(extent[0]) );
         return size;
+    }
+
+    function getOpacity (term, extent) {
+    	var opacity = ( Math.log(term.norm) - Math.log(extent[0]) ) / ( Math.log(extent[1]) - Math.log(extent[0]) );
+        return opacity;
     }
 
     function listCloudLayout (words, width, extent, sizeRange, padding) {

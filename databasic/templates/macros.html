@@ -117,7 +117,7 @@
     {% for value, label, _ in field.iter_choices() %}
         <div class="radio">
             <label>
-                <input type="radio" name="{{ field.id }}" id="{{ field.id }}" value="{{ value }}">{{ label }}
+                <input type="radio" id="{{ field.id }}" value="{{ value }}">{{ label }}
             </label>
         </div>
     {% endfor %}
@@ -182,7 +182,7 @@
 {%- endmacro %}
 
 {% macro hover_tooltip(text, tooltip) -%}
-    <a data-trigger="focus hover" data-toggle="tooltip" data-trigger="hover" href="#tooltip" data-original-title="{{ tooltip }}">{{ text }}</a>
+    <a data-trigger="focus hover" data-toggle="tooltip" data-trigger="hover" href="#tooltip" data-original-title="{{ tooltip }}" aria-label="{{ _('define %(t)s', t=text) }}" role="tooltip">{{ text }}</a>
 {%- endmacro %}
 
 {% macro download_url(tool_name, doc_id, ext, suffix) -%}
