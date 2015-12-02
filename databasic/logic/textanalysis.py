@@ -1,4 +1,5 @@
 import textmining, logging
+from scipy import spatial
 
 def term_document_matrix(texts):
     term_doc_matrix = textmining.TermDocumentMatrix(tokenizer=textmining.simple_tokenize_remove_stopwords)
@@ -33,6 +34,10 @@ def common_and_unique_word_freqs(texts):
 	# get the unique doc2 words
 	unique_to_d2 = [ (f2,t) for t,f1,f2 in zip(all_terms,all_d1_freqs,all_d2_freqs) if f1 is 0]
 	unique_to_d2.sort(reverse=True)
+	# compute cosine similarity too
+	cosine_similarity = ( 1 - spatial.distance.cosine(all_d1_freqs,all_d2_freqs) )
+
 	# stitch it together to return the data
 	return {'common':common_word_freqs, 'doc1': d1, 'doc2':d2, 
-			'doc1unique':unique_to_d1, 'doc2unique': unique_to_d2}
+			'doc1unique':unique_to_d1, 'doc2unique': unique_to_d2,
+			'cosine_similarity': cosine_similarity}

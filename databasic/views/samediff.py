@@ -82,7 +82,7 @@ def process_results(file_paths):
 	data = textanalysis.common_and_unique_word_freqs(doc_list)
 	job_id = mongo.save_samediff('samediff', file_names, 
 		data['doc1unique'], data['doc2unique'], data['common'], 
-		data['doc1'], data['doc2'])
+		data['doc1'], data['doc2'], data['cosine_similarity'])
 	return redirect(request.url + 'results?id=' + job_id)
 
 def interpretCosineSimilarity(cosineDiff):
