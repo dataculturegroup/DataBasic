@@ -1,12 +1,25 @@
+body {
+	margin-bottom: 75px !important;
+}
+
+.what-next {
+	color: $c-theme-md;
+	padding: 10px 0 20px 0;
+	background-color: $c-white;
+	@include selection($c-white, $c-theme-dk);
+
+	h2 {
+		text-align: center;	
+	}
+}
+
 footer {
 	
-	color: $c-theme-md;
+	position: absolute;
+	bottom: 0;
+	width: 100%;
 
-	.footer-above {
-		padding: 10px 0 20px 0;
-		background-color: $c-white;
-		@include selection($c-white, $c-theme-dk);
-	}
+	color: $c-theme-md;
 
 	.footer-below {
 		background-color: $c-theme-md;
@@ -29,7 +42,7 @@ footer {
 
 		a {
 			background-color: $c-unselected;
-			padding: 27px 12px;
+			padding: 25px 12px;
 			font-size: 20px;
 
 			&[selected] {
