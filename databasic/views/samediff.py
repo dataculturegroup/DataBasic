@@ -29,7 +29,7 @@ def index():
 			file_paths = filehandler.open_docs(files)
 			# email = forms['upload'].data['email']
 		elif btn_value == 'sample':
-			file_paths = forms['sample'].data['samples']
+			file_paths = [forms['sample'].data['sample'], forms['sample'].data['sample2']]
 			is_sample_data = True
 			# email = forms['sample'].data['email']
 

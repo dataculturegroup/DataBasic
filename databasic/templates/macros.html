@@ -36,7 +36,7 @@
 {# http://bear-z.com/python/render-bootstrap-3-forms-with-wtforms-and-jinja/ #}
 
 {% macro render_form(form, action_url='', action_text='Submit', class_='', btn_class='btn btn-default') -%}
-    <form method="POST" action="/{{ g['current_lang'] }}/{{ action_url }}/" class="{{ class_ }}" enctype="multipart/form-data">
+    <form method="POST" action="/{{ g['current_lang'] }}/{{ action_url }}/" class="{{ class_ }}" enctype="multipart/form-data" role="form">
         {{ form.hidden_tag() if form.hidden_tag }}
         {% if caller %}
             {{ caller() }}
@@ -117,7 +117,7 @@
     {% for value, label, _ in field.iter_choices() %}
         <div class="radio">
             <label>
-                <input type="radio" name="{{ field.id }}" id="{{ field.id }}" value="{{ value }}">{{ label }}
+                <input type="radio" id="{{ field.id }}" value="{{ value }}">{{ label }}
             </label>
         </div>
     {% endfor %}
@@ -182,7 +182,7 @@
 {%- endmacro %}
 
 {% macro hover_tooltip(text, tooltip) -%}
-    <a data-trigger="focus hover" data-toggle="tooltip" data-trigger="hover" href="#tooltip" data-original-title="{{ tooltip }}">{{ text }}</a>
+    <a data-trigger="focus hover" data-toggle="tooltip" data-trigger="hover" href="#tooltip" data-original-title="{{ tooltip }}" aria-label="{{ text }}" role="definition">{{ text }}</a>
 {%- endmacro %}
 
 {% macro download_url(tool_name, doc_id, ext, suffix) -%}
