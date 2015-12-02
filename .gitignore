@@ -2,6 +2,7 @@
 .Python
 *.sublime-*
 *.pyc
+.profile
 sample-data/
 instance/
 venv/

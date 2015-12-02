@@ -49,6 +49,8 @@ bash start.sh
 
 **4.** (Optional) to add sample data, create a directory in the root called `sample-data`. Then in `config/sample-data.json` specify the paths and which tools should use them.
 
+If after running you get an exception involving sassutils/SassMiddleware, [make sure your C++ compiler is up to date](https://github.com/sass/libsass#readme)
+
 ## Translating
 ### Setup
 ```
