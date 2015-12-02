@@ -1,4 +1,4 @@
-import logging, os
+import logging, os, sys, ntpath, logging.handlers
 from flask import Flask, Blueprint, g, redirect, request, abort
 from flask.ext.babel import Babel
 from flask_debugtoolbar import DebugToolbarExtension
@@ -7,23 +7,17 @@ from sassutils.wsgi import SassMiddleware
 from babel.support import LazyProxy
 from logic import oauth
 from logic.db import MongoHandler
+import databasic
 
-logging.basicConfig(level=logging.DEBUG)
-
+# Initialize the app
 app = Flask(__name__, instance_relative_config=False)
-
-# Load the default configuration
 app.config.from_object('config.default')
-
-# Load the configuration from the instance folder
-app.config.from_pyfile('../config/settings.py')
-
+app.config.from_pyfile(databasic.get_settings_py_file_path())
 # Load the file specified by the APP_CONFIG_FILE environment variable
 # Variables defined here will override those in the default configuration
-app.config.from_envvar('APP_CONFIG_FILE')
+app.config.from_envvar(databasic.ENV_CONFIG_FILE_VAR)
 
 # Setup sass auto-compiling
-basedir = os.path.dirname(os.path.abspath(__file__))
 app.wsgi_app = SassMiddleware(app.wsgi_app, {
 	'databasic': ('static/sass', 'static/css', '/static/css')
 })

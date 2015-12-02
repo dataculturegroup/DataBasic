@@ -21,9 +21,7 @@
 	<div class="row" >
 		<div class="col-md-12 text-center" id="title">
 			<h2>{{_("Your <strong>SameDiff</strong> Report")}} <a href="{{ download }}"><span class="glyphicon glyphicon-download" aria-hidden="true"></span></a></h2>
-			{% if 'complete' in results['status'] %}
-			<h4>{{ results['humanReadableSimilarity'] }}</h4>
-			{% endif %}
+			<h4>{{ _('These two documents are')}} {{cosine_similarity['description']}}</h4>
 		</div>
 	</div>
 

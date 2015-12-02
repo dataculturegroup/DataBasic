@@ -1,0 +1,77 @@
+[
+	{
+		"title": "Aretha Franklin's lyrics",
+		"source": "sample-data/aretha-franklin-lyrics.txt",
+		"modules": ["samediff", "wordcounter"]
+	},
+	{
+		"title": "The Beatles' lyrics",
+		"source": "sample-data/beatles-lyrics.txt",
+		"modules": ["samediff", "wordcounter"]
+	},
+	{
+		"title": "Beyonce's lyrics",
+		"source": "sample-data/beyonce-knowles-lyrics.txt",
+		"modules": ["samediff", "wordcounter"]
+	},
+	{
+		"title": "Bob Dylan's lyrics",
+		"source": "sample-data/bob-dylan-lyrics.txt",
+		"modules": ["samediff", "wordcounter"]
+	},
+	{
+		"title": "Bob Marley's lyrics",
+		"source": "sample-data/bob-marley-lyrics.txt",
+		"modules": ["samediff", "wordcounter"]
+	},
+	{
+		"title": "Elvis Presley's lyrics",
+		"source": "sample-data/elvis-presley-lyrics.txt",
+		"modules": ["samediff", "wordcounter"]
+	},
+	{
+		"title": "Jimi Hendrix's lyrics",
+		"source": "sample-data/jimi-hendrix-lyrics.txt",
+		"modules": ["samediff", "wordcounter"]
+	},
+	{
+		"title": "Katy Perry's lyrics",
+		"source": "sample-data/katy-perry-lyrics.txt",
+		"modules": ["samediff", "wordcounter"]
+	},
+	{
+		"title": "Lady Gaga's lyrics",
+		"source": "sample-data/lady-gaga-lyrics.txt",
+		"modules": ["samediff", "wordcounter"]
+	},
+	{
+		"title": "Madonna's lyrics",
+		"source": "sample-data/madonna-lyrics.txt",
+		"modules": ["samediff", "wordcounter"]
+	},
+	{
+		"title": "Prince's lyrics",
+		"source": "sample-data/prince-lyrics.txt",
+		"modules": ["samediff", "wordcounter"]
+	},
+	{
+		"title": "Stevie Wonder's lyrics",
+		"source": "sample-data/stevie-wonder-lyrics.txt",
+		"modules": ["samediff", "wordcounter"]
+	},
+	{
+		"title": "Taylor Swift's lyrics",
+		"source": "sample-data/taylor-swift-lyrics.txt",
+		"modules": ["samediff", "wordcounter"]
+	},
+	{
+		"title" : "Titanic Survivors",
+		"source":"sample-data/titanic.csv",
+		"modules": ["wtfcsv"]
+	},
+	{
+		"title" : "UFO Sightings in Massachusetts",
+		"source":"sample-data/UFOMA.csv",
+		"modules": ["wtfcsv"]
+	}
+]
