@@ -1,11 +1,11 @@
-import datetime, logging, json
+import datetime, logging, json, cProfile
 from operator import itemgetter
 from collections import OrderedDict
 from ..application import mongo, app, mail
 from ..forms import SameDiffUpload, SameDiffSample
 from ..logic import filehandler
 import databasic.tasks
-from databasic.logic import tfidfanalysis
+from databasic.logic import tfidfanalysis, textanalysis
 from flask import Blueprint, render_template, request, redirect, url_for, g, abort, Response
 from flask.ext.babel import lazy_gettext as _
 
@@ -34,6 +34,7 @@ def index():
 			# email = forms['sample'].data['email']
 
 		if btn_value is not None and btn_value is not u'':
+			#return cProfile.runctx('process_results(file_paths)',globals(), locals())
 			return process_results(file_paths)
 			# return queue_files(file_paths, is_sample_data, email)
 
@@ -139,24 +140,12 @@ def download(doc_id, filename1, filename2):
 def process_results(file_paths):
 	file_names = filehandler.get_file_names(file_paths)
 	doc_list = [ filehandler.convert_to_txt(file_path) for file_path in file_paths ]
-	most_frequent = tfidfanalysis.most_frequent_terms(doc_list[0], doc_list[1])
-
-	# sets are faster than lists
-	mf1 = set(most_frequent[0])
-	mf2 = set(most_frequent[1])
-	highest_val = max((most_frequent[0] + most_frequent[1]), key=lambda x: x[0])
-
-	unique_doc1 = [(f,w) for (f,w) in most_frequent[0] if w not in (w2 for (f2, w2) in mf2)]
-	unique_doc2 = [(f,w) for (f,w) in most_frequent[1] if w not in (w2 for (f2, w2) in mf1)]
-	same_words = [(f,w) for (f,w) in mf1 if w in (w2 for (f2, w2) in mf2)]
-	same = []
-	for (f, w) in same_words:
-		for (f2, w2) in mf2:
-			if (w == w2):
-				same.append(((f + f2), w))
-	same.sort(reverse=True)
-
-	job_id = mongo.save_samediff('samediff', file_names, unique_doc1, unique_doc2, same, highest_val, most_frequent[0], most_frequent[1])
+	data = textanalysis.common_and_unique_word_freqs(doc_list)
+	most_common_in_both = data['common'][0][0] if (len(data['common'])>0) else None
+	most_common_in_doc1 = data['doc1'][0][0] if (len(data['doc1'])>0) else None
+	most_common_in_doc2 = data['doc2'][0][0] if (len(data['doc2'])>0) else None
+	job_id = mongo.save_samediff('samediff', file_names, data['doc1'], data['doc2'], data['common'], 
+		most_common_in_both, most_common_in_doc1, most_common_in_doc2)
 	return redirect(request.url + 'results?id=' + job_id)
 
 def _most_common_words(job_id,filename1,filename2):
