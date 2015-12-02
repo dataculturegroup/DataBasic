@@ -1,4 +1,4 @@
-import datetime, logging, json, cProfile
+import datetime, logging, json
 from operator import itemgetter
 from collections import OrderedDict
 from ..application import mongo, app, mail
@@ -34,9 +34,7 @@ def index():
 			# email = forms['sample'].data['email']
 
 		if btn_value is not None and btn_value is not u'':
-			#return cProfile.runctx('process_results(file_paths)',globals(), locals())
 			return process_results(file_paths)
-			# return queue_files(file_paths, is_sample_data, email)
 
 	return render_template('samediff/samediff.html', forms=forms.items(), tool_name='samediff')
 
@@ -54,138 +52,38 @@ def results():
 	whatnext['second_most_common_word'] = job['sameWords'][1][1] if len(job['sameWords']) > 1 else ''
 	whatnext['doc2_most_common_word'] = job['diffWordsDoc2'][0][1] if len(job['diffWordsDoc2']) > 0 else ''
 
-	'''
-	if not 'complete' in job['status']:
-		return render_template('samediff/results.html', results=job, tool_name='samediff')
-
-	if not 'humanReadableSimilarity' in job:
-		
-		# make a statement about how similar the docs are to each other
-		cosineDiff = abs(job['cosineSimilarity'][0][0] - job['cosineSimilarity'][0][1])
-		job['humanReadableSimilarity'] = str(interpretCosineSimilarity(cosineDiff))
-
-		job['sameWords'] = _most_common_words(doc_id, job['filenames'][0], job['filenames'][1])
-		job['diffWordsDoc1'] = _most_common_unique_words(job, 0, job['sameWords'])
-		job['diffWordsDoc2'] = _most_common_unique_words(job, 1, job['sameWords'])
-
-		# update with the new results so that this code doesn't have to run every time the page is loaded
-		mongo.update_document('samediff', doc_id, job)
-	'''
 	return render_template('samediff/results.html', results=job, whatnext=whatnext, tool_name='samediff')
-
-@mod.route('/results/<file1>-and-<file2>-common-words')
-def show_common_words(file1, file2):
-	doc_id = None if not 'id' in request.args else request.args['id']
-	if doc_id is None:
-		return redirect(g.current_lang + '/samediff')
-	try:
-		job = mongo.find_document('samediff', doc_id)
-		results = _most_common_words(doc_id,file1,file2)
-		return render_template("samediff/words-in-common.html", job=job, file1=file1, file2=file2, results=results, doc_id=doc_id, tool_name='samediff')
-	except Exception as e:
-		print e
-		abort(400)
-
-@mod.route('/results/download/<doc_id>/<filename>-tfidf.csv')
-def download_tfidf_csv(doc_id, filename):
-	try:
-		job = mongo.find_document('samediff', doc_id)
-		doc_idx = job['filenames'].index(filename)
-		# TODO: catch case where filename isn't in results
-		tfidf_results = job['tfidf'][doc_idx]
-		download_filename = filehandler.generate_filename('csv', 'tfidf', filename)
-		return Response(stream_csv(tfidf_results,
-			['term','tfidf','frequency'],['word','tfidf score','time used']), 
-			mimetype='text/csv; charset=utf-8', 
-            headers={"Content-Disposition":"attachment;filename="+download_filename})
-	except Exception as e:
-		print e
-		abort(400)
-
-@mod.route('/results/download/<doc_id>/<filename1>-<filename2>-common-words.csv')
-def download_common_words(doc_id, filename1, filename2):
-	try:
-		results = _most_common_words(doc_id,filename1,filename2)
-		download_filename = filehandler.generate_filename('csv', 'common-words', filename1, filename2)
-		return Response(stream_csv(results,
-			['term','avg','doc1','doc2','total'],
-			['word','average times used','times used in '+filename1,'times used in '+filename2,'times used in both files']), 
-			mimetype='text/csv; charset=utf-8', 
-            headers={"Content-Disposition":"attachment;filename="+download_filename})
-	except Exception as e:
-		print e
-		abort(400)
 
 @mod.route('/results/download/<doc_id>/<filename1>-<filename2>-samediff.csv')
 def download(doc_id, filename1, filename2):
 	try:
 		doc = mongo.find_document('samediff', doc_id)
-		headers = ['word', 'times used in ' + str(filename1), 'times used in ' + str(filename2), 'times used in both']
+		headers = ['word', 'uses in ' + str(filename1), 'uses ' + str(filename2), 'total uses']
 		rows = []
-		for (f, w) in doc['sameWords']:
-			doc1Count = next(f2 for (f2, w2) in doc['mostFrequentDoc1'] if w == w2)
-			doc2Count = next(f2 for (f2, w2) in doc['mostFrequentDoc2'] if w == w2)
+		for f, w in doc['sameWords']:
+			doc1Count = next(f2 for f2, w2 in doc['mostFrequentDoc1'] if w == w2)
+			doc2Count = next(f2 for f2, w2 in doc['mostFrequentDoc2'] if w == w2)
 			rows.append([w, doc1Count, doc2Count, f])
-		for (f, w) in doc['diffWordsDoc1']:
-			rows.append([w, f, 0, 0])
-		for (f, w) in doc['diffWordsDoc2']:
-			rows.append([w, 0, f, 0])
+		for f, w in doc['diffWordsDoc1']:
+			rows.append([w, f, 0, f])
+		for f, w in doc['diffWordsDoc1']:
+			rows.append([w, 0, f, f])
 		# TODO: clean up file name
-		filename = filehandler.write_to_csv(headers, rows, filehandler.generate_filename('csv', 'samediff', filename1, filename2))
+		filename = filehandler.write_to_csv(headers, rows, 
+			filehandler.generate_filename('csv', 'samediff', filename1, filename2))
 		return filehandler.generate_csv(filename)
 	except Exception as e:
-		print e
+		logging.exception(e)
 		abort(400)
 
 def process_results(file_paths):
 	file_names = filehandler.get_file_names(file_paths)
 	doc_list = [ filehandler.convert_to_txt(file_path) for file_path in file_paths ]
 	data = textanalysis.common_and_unique_word_freqs(doc_list)
-	most_common_in_both = data['common'][0][0] if (len(data['common'])>0) else None
-	most_common_in_doc1 = data['doc1'][0][0] if (len(data['doc1'])>0) else None
-	most_common_in_doc2 = data['doc2'][0][0] if (len(data['doc2'])>0) else None
-	job_id = mongo.save_samediff('samediff', file_names, data['doc1'], data['doc2'], data['common'], 
-		most_common_in_both, most_common_in_doc1, most_common_in_doc2)
+	job_id = mongo.save_samediff('samediff', file_names, 
+		data['doc1unique'], data['doc2unique'], data['common'], 
+		data['doc1'], data['doc2'])
 	return redirect(request.url + 'results?id=' + job_id)
-
-def _most_common_words(job_id,filename1,filename2):
-	job = mongo.find_document('samediff', job_id)
-	doc1_idx = job['filenames'].index(filename1)
-	doc2_idx = job['filenames'].index(filename2)
-	# TODO: catch case where filename isn't in results
-	doc1_freq_dist = { t['term']:t['frequency'] for t in job['tfidf'][doc1_idx]}
-	doc2_freq_dist = { t['term']:t['frequency'] for t in job['tfidf'][doc2_idx]}
-	terms = set(doc1_freq_dist.keys()+doc2_freq_dist.keys())
-	
-	results = [ {'term':t,'avg':float(doc1_freq_dist[t]+doc2_freq_dist[t])/2.0, 
-			  'doc1':doc1_freq_dist[t], 'doc2':doc2_freq_dist[t],
-			  'total':doc1_freq_dist[t]+doc2_freq_dist[t]} for t in terms 
-		if t in doc1_freq_dist.keys() and t in doc2_freq_dist.keys() ]
-	return sorted(results, key=itemgetter('avg','total'),reverse=True)
-
-def _most_common_unique_words(job, index, sameWords):
-	doc = job['filenames'][index]
-	doc_freq_dist = { t['term']:t['frequency'] for t in job['tfidf'][index]}
-	return sorted(
-		[ {'term':t, 'freq': doc_freq_dist[t] } for t in doc_freq_dist.keys() if t not in (i['term'] for i in job['sameWords']) ],
-		key=itemgetter('freq', 'term'), reverse=True)
-
-'''
-# trying to track status of the celery task here
-@mod.route('/status/<task_id>')
-def taskstatus(task_id):
-	task = queue_files.AsyncResult(task_id)
-	response = task.state
-	return json.dumps(response)
-	# return redirect('/')
-'''
-
-def queue_files(file_paths, is_sample_data, email):
-	file_names = filehandler.get_file_names(file_paths)
-	job_id = mongo.save_queued_files('samediff', file_paths, file_names, is_sample_data, email, request.url + 'results?id=')
-	result = databasic.tasks.save_tfidf_results.apply_async(args=[job_id])
-	return redirect(request.url + 'results?id=' + job_id)
-	
 
 def interpretCosineSimilarity(cosineDiff):
 	# Cosine Similarity

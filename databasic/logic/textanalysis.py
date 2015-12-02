@@ -21,6 +21,12 @@ def common_and_unique_word_freqs(texts):
 	all_terms = next(all_rows)
 	all_d1_freqs = next(all_rows)
 	all_d2_freqs = next(all_rows)
+	# get the doc1 words
+	d1 = [ (f1,t) for t,f1 in zip(all_terms,all_d1_freqs) if f1>0]
+	d1.sort(reverse=True)
+	# get the doc2 words
+	d2 = [ (f2,t) for t,f2 in zip(all_terms,all_d2_freqs) if f2>0]
+	d2.sort(reverse=True)
 	# get the unique doc1 words
 	unique_to_d1 = [ (f1,t) for t,f1,f2 in zip(all_terms,all_d1_freqs,all_d2_freqs) if f2 is 0]
 	unique_to_d1.sort(reverse=True)
@@ -28,4 +34,5 @@ def common_and_unique_word_freqs(texts):
 	unique_to_d2 = [ (f2,t) for t,f1,f2 in zip(all_terms,all_d1_freqs,all_d2_freqs) if f1 is 0]
 	unique_to_d2.sort(reverse=True)
 	# stitch it together to return the data
-	return {'common':common_word_freqs, 'doc1':unique_to_d1, 'doc2': unique_to_d2}
+	return {'common':common_word_freqs, 'doc1': d1, 'doc2':d2, 
+			'doc1unique':unique_to_d1, 'doc2unique': unique_to_d2}
