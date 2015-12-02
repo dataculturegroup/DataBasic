@@ -52,13 +52,15 @@ def results():
 	whatnext['second_most_common_word'] = job['sameWords'][1][1] if len(job['sameWords']) > 1 else ''
 	whatnext['doc2_most_common_word'] = job['diffWordsDoc2'][0][1] if len(job['diffWordsDoc2']) > 0 else ''
 
-	return render_template('samediff/results.html', results=job, whatnext=whatnext, tool_name='samediff')
+	return render_template('samediff/results.html', results=job, 
+		cosine_similarity= {'score':job['cosineSimilarity'],'description':interpretCosineSimilarity(job['cosineSimilarity'])},
+		whatnext=whatnext, tool_name='samediff')
 
 @mod.route('/results/download/<doc_id>/<filename1>-<filename2>-samediff.csv')
 def download(doc_id, filename1, filename2):
 	try:
 		doc = mongo.find_document('samediff', doc_id)
-		headers = ['word', 'uses in ' + str(filename1), 'uses ' + str(filename2), 'total uses']
+		headers = [_('word'), _('uses in') +' ' + str(filename1), _('uses in') + ' ' + str(filename2), _('total uses')]
 		rows = []
 		for f, w in doc['sameWords']:
 			doc1Count = next(f2 for f2, w2 in doc['mostFrequentDoc1'] if w == w2)
@@ -85,16 +87,22 @@ def process_results(file_paths):
 		data['doc1'], data['doc2'], data['cosine_similarity'])
 	return redirect(request.url + 'results?id=' + job_id)
 
-def interpretCosineSimilarity(cosineDiff):
+def interpretCosineSimilarity(score):
 	# Cosine Similarity
-	if cosineDiff <= 0.1:
-		return _('similar')
-	elif cosineDiff <= 0.2:
+	if score >= 0.9:
+		return _('almost_the_same')
+	elif score >= 0.8:
 		return _('sort of similar')
-	elif cosineDiff <= 0.3:
+	elif score >= 0.7:
+		return _('kind of similar')
+	elif score >= 0.5:
+		return _('kind of similar, kind of different')
+	elif score >= 0.3:
 		return _('pretty different')
-	else:
+	elif score >= 0.2:
 		return _('very different')
+	else:
+		return _('completely different')
 
 def stream_csv(data,prop_names,col_names):
     yield ','.join(col_names) + '\n'
