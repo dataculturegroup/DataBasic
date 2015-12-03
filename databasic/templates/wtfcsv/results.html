@@ -60,15 +60,14 @@
 				<h2 class="summary">
 					{{_("WTFcsv: ")}} {{ results[index]['filename'] }} 
 				</h2>
-				<h3 class="summary">
+				<p class="summary">
 					{{ _("%(rows)s rows of data grouped into %(cols)s columns.",
 					rows=results[index]['row_count'],
 					cols=results[index]['columns']|length) }}
-				</h3>
-				<h3 class="summary">
+					<br />
 					{{_("Here's some %(metadata)s about each column.", 
 					metadata=hover_tooltip('metadata', 'Metadata summarizes basic information about data to make it easier to discover what\'s going on'))}}
-				</h3>
+				</p>
 				{{ what_next_anchor() }}
 			</div>
 		</div>
@@ -185,10 +184,10 @@ random_column_name3=whatnext['random_column_name3'])) }}
 {% endblock %}
 
 {% block results_scripts %}
-<script type="text/javascript" src="https://cdn.rawgit.com/nnattawat/flip/v1.0.18/dist/jquery.flip.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/d3/3.5.6/d3.min.js" charset="utf-8"></script>
+<script type="text/javascript" src="{{ url_for('static', filename='js/lib/jquery.flip.min.js') }}" charset="utf-8"></script>
+<script type="text/javascript" src="{{ url_for('static', filename='js/lib/d3.min.js') }}" charset="utf-8"></script>
 <script type="text/javascript" src="{{ url_for('static', filename='js/lib/d3.layout.cloud.js') }}" charset="utf-8"></script>
-<script type="text/javascript" src="{{ url_for('static', filename='js/lib/highcharts.js') }}"></script>
+<script type="text/javascript" src="{{ url_for('static', filename='js/lib/highcharts.js') }}" charset="utf-8"></script>
 <script type="text/javascript">
 
 // Uncomment to enable drag & drop
