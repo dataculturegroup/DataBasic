@@ -22,6 +22,28 @@ h3 a {
 	}
 }
 
+#intro {
+	color: $c-white;
+	.intro-container {
+		margin-left: 10px;
+		margin-right: 10px;
+		background-color: $c-theme-md;
+		padding: 15px 0;
+
+		h2 {
+			color: $c-white !important;
+		}
+
+		h3 a {
+			color: $c-white;
+		}
+
+		p {
+			color: $c-white;
+		}
+	}
+}
+
 .column-info {
 	.front, .back {
 		.card-content {
@@ -94,7 +116,7 @@ header {
 }
 
 #cards {
-	margin-top: 15px;
+	// margin-top: 15px;
 }
 
 .card {

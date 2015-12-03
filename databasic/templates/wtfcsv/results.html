@@ -57,18 +57,20 @@
 
 		<div class="row">
 			<div class="col-md-12" id="intro">
-				<h2 class="summary">
-					{{_("WTFcsv: ")}} {{ results[index]['filename'] }} 
-				</h2>
-				<p class="summary">
-					{{ _("%(rows)s rows of data grouped into %(cols)s columns.",
-					rows=results[index]['row_count'],
-					cols=results[index]['columns']|length) }}
-					<br />
-					{{_("Here's some %(metadata)s about each column.", 
-					metadata=hover_tooltip('metadata', 'Metadata summarizes basic information about data to make it easier to discover what\'s going on'))}}
-				</p>
-				{{ what_next_anchor() }}
+				<div class="intro-container">
+					<h2 class="summary">
+						{{_("WTFcsv: ")}} {{ results[index]['filename'] }} 
+					</h2>
+					<p class="summary">
+						{{ _("%(rows)s rows of data grouped into %(cols)s columns.",
+						rows=results[index]['row_count'],
+						cols=results[index]['columns']|length) }}
+						<br />
+						{{_("Here's some %(metadata)s about each column.", 
+						metadata=hover_tooltip('metadata', 'Metadata summarizes basic information about data to make it easier to discover what\'s going on'))}}
+					</p>
+					{{ what_next_anchor() }}
+				</div>
 			</div>
 		</div>
 	</div>

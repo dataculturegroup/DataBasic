@@ -261,16 +261,10 @@ class WTFCSVStat():
             from_val = decile_groups[d]
             to_val = decile_groups[d+1]
             deciles.append(get_values_in_range(from_val, to_val))
-            '''count = len([v for v in values if v >= from_val and v < to_val])
-            val = str(round(from_val)) + " - " + str(round(to_val))
-            deciles.append({'value': val, 'count': count})'''
 
         from_val = decile_groups[len(decile_groups)-1]
         to_val = mx
         deciles.append(get_values_in_range(from_val, to_val))
-        '''count = len([v for v in values if v >= from_val and v < to_val])
-        val = str(round(from_val)) + " - " + str(round(to_val))
-        deciles.append({'value': val, 'count': count})'''
 
         return deciles
 
