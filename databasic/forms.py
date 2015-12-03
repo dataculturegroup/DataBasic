@@ -155,10 +155,11 @@ class SameDiffUpload(UploadForm, SameDiffForm, Form):
 
 class SameDiffSample(SampleForm, SameDiffForm, Form):
 	label = _('Use samples')
+	choices = filehandler.get_samples('samediff')
 	sample2 = SelectField(
-		_('Sample'))
+		_('Sample'),
+		choices=choices,
+		default=choices[1][0])
 
 	def __init__(self):
 		super(SameDiffSample, self).__init__('samediff')
-		self.sample2.choices = filehandler.get_samples('samediff')
-		self.sample2.deafult = self.sample2.choices[1][0]
