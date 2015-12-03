@@ -35,8 +35,8 @@ def write_to_temp_file(text):
 	file.close()
 	return file_path
 
-def write_to_csv(headers, rows, file_name_suffix=None):
-	file_path = _get_temp_file(file_name_suffix)
+def write_to_csv(headers, rows, file_name_suffix=None, timestamp=True):
+	file_path = _get_temp_file(file_name_suffix, timestamp)
 	with open(file_path, 'w') as f:
 		writer = unicodecsv.writer(f, encoding=ENCODING)
 		writer.writerow(headers)
@@ -160,8 +160,10 @@ def _open_sheet(workbook, index):
 def _get_file_name(file_path):
 	return os.path.split(file_path)[1]
 
-def _get_temp_file(file_name_suffix=None):
-	file_name = time.strftime("%Y%m%d-%H%M%S")
+def _get_temp_file(file_name_suffix=None, timestamp=True):
+	file_name = ''
+	if timestamp:
+		file_name = time.strftime("%Y%m%d-%H%M%S")
 	if file_name_suffix is not None:
 		file_name += file_name_suffix
 	return os.path.join(TEMP_DIR, file_name)

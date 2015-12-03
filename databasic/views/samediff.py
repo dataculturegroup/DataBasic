@@ -72,7 +72,7 @@ def download(doc_id, filename1, filename2):
 			rows.append([w, 0, f, f])
 		# TODO: clean up file name
 		filename = filehandler.write_to_csv(headers, rows, 
-			filehandler.generate_filename('csv', 'samediff', filename1, filename2))
+			filehandler.generate_filename('csv', '', filename1, filename2), False)
 		return filehandler.generate_csv(filename)
 	except Exception as e:
 		logging.exception(e)
