@@ -121,6 +121,7 @@ class WTFCSVStat():
                     column_info['mean'] = stats['mean']
                     column_info['median'] = stats['median']
                     column_info['stdev'] = stats['stdev']
+                    column_info['deciles'] = stats['deciles']
             else:
                 # if there are few unique values, get every value and their frequency
                 if len(stats['unique']) <= MAX_UNIQUE and c.type is not bool:
@@ -147,41 +148,6 @@ class WTFCSVStat():
                 # TODO: these results could be cleaned up using textmining
                 column_info['word_counts'] = wordhandler.get_word_counts(str([s for s in values]).strip('[]').replace("u'", '').replace("',", ''))
 
-            '''
-            if len(stats['unique']) <= MAX_UNIQUE and c.type is not bool:
-                column_info['values'] = [six.text_type(u) for u in list(stats['unique'])]
-                column_info['most_freq_values'] = []
-                for value, count in stats['freq']:
-                    column_info['most_freq_values'].append({
-                        'value': value,
-                        'count': count
-                        })
-            else:
-                if c.type not in [six.text_type, bool]:
-                    column_info['min'] = stats['min']
-                    column_info['max'] = stats['max']
-                    if c.type in [int, float]:
-                        column_info['sum'] = stats['sum']
-                        column_info['mean'] = stats['mean']
-                        column_info['median'] = stats['median']
-                        column_info['stdev'] = stats['stdev']
-                column_info['uniques'] = len(stats['unique'])
-
-                if len(stats['unique']) != len(values):
-                    column_info['most_freq_values'] = []
-                    for value, count in stats['freq']:
-                        column_info['most_freq_values'].append({
-                            'value': value,
-                            'count': count
-                            })
-
-                if c.type == six.text_type:
-                    column_info['max_str_len'] = stats['len']
-
-            if 'unicode' in column_info['type'] and not 'most_freq_values' in column_info:
-                # TODO: these results could be cleaned up using textmining
-                column_info['word_counts'] = wordhandler.get_word_counts(str([s for s in values]).strip('[]').replace("u'", '').replace("',", ''))
-            '''
             results['columns'].append( column_info )
         return results
 
@@ -258,7 +224,7 @@ class WTFCSVStat():
         else:
             mostfrequent = freq(values, n=NUMBER_MAX_UNIQUE)
         if 'others' not in stats:
-            stats['others'] = [v for v in values if v not in (v2 for v2, c in mostfrequent)]
+            stats['others'] = len([v for v in values if v not in (v2 for v2, c in mostfrequent)])
         return mostfrequent
 
     def get_len(self, c, values, stats):
@@ -267,15 +233,46 @@ class WTFCSVStat():
 
         return c.max_length()
 
+    # not *literally* deciles, but kinda similar
     def get_deciles(self, c, values, stats):
         if c.type not in [int, float, long, complex] or len(values) <= NUMBER_MAX_UNIQUE:
             return None
-        print values
-        decile_size = round(float(len(values)) / 10.0)
+        mx = max(values)
+        mn = min(values)
+        range_size = (mx-mn)/10.0
+        decile_groups = []
+        for x in xrange(10):
+            decile_groups.append(mn+(range_size*x))
+
+        def get_values_in_range(from_val, to_val):
+            count = len([v for v in values if v >= from_val and v < to_val])
+            pretty_from = from_val
+            val = pretty_value(from_val) + " - " + pretty_value(to_val)
+            return {'value': val, 'count': count}
+
+        def pretty_value(val):
+            if val < 1:
+                return str(val)
+            else:
+                return str(round(val)).replace('.0','')
+
         deciles = []
-        while len(deciles) < 10:
-            deciles.append(values[int(decile_size*len(deciles))])
-        return None
+        for d in xrange(len(decile_groups)-1):
+            from_val = decile_groups[d]
+            to_val = decile_groups[d+1]
+            deciles.append(get_values_in_range(from_val, to_val))
+            '''count = len([v for v in values if v >= from_val and v < to_val])
+            val = str(round(from_val)) + " - " + str(round(to_val))
+            deciles.append({'value': val, 'count': count})'''
+
+        from_val = decile_groups[len(decile_groups)-1]
+        to_val = mx
+        deciles.append(get_values_in_range(from_val, to_val))
+        '''count = len([v for v in values if v >= from_val and v < to_val])
+        val = str(round(from_val)) + " - " + str(round(to_val))
+        deciles.append({'value': val, 'count': count})'''
+
+        return deciles
 
 def median(l):
     """

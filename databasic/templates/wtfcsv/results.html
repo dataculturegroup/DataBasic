@@ -298,7 +298,9 @@ $(function () {
 						{% endif %}
 					},
 					categories: [
-						{% if 'most_freq_values' in col %}
+						{% if 'deciles' in col %}
+							{{ get_most_freq(col['deciles'], 'value', dname) }}
+						{% elif 'most_freq_values' in col %}
 							{{ get_most_freq(col['most_freq_values'], 'value', dname) }}
 						{% endif %}
 						{% if 'others' in col %}
@@ -328,11 +330,13 @@ $(function () {
 				},
 				series: [{
 					data: [
-						{% if 'most_freq_values' in col %}
+						{% if 'deciles' in col %}
+							{{ get_most_freq(col['deciles'], 'count', dname) }}
+						{% elif 'most_freq_values' in col %}
 							{{ get_most_freq(col['most_freq_values'], 'count', dname) }}
 						{% endif %}
 						{% if 'others' in col %}
-							{{ col['others']|length }}
+							{{ col['others']|int }}
 						{% endif %}
 					],
 					showInLegend: false,
@@ -410,7 +414,7 @@ $(function () {
 			{% if is_string %}
 				"{{ val[key]|string }}",
 			{% else %}
-				{{ val[key]|replace('_', '.') }},
+				"{{ val[key]|replace('_', '.')|string }}",
 			{% endif %}
 		{% else %}
 			{{ val[key] }},
