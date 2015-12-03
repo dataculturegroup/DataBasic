@@ -1,5 +1,5 @@
 {% extends "tool_base.html" %}
-{% from 'macros.html' import download_url %}
+{% from 'macros.html' import download_url, hover_tooltip %}
 {% from 'tool_footer.html' import what_next %}
 
 {% set file1 = results['filenames'][0] %}
@@ -21,7 +21,13 @@
 	<div class="row" >
 		<div class="col-md-12 text-center" id="title">
 			<h2>{{_("Your <strong>SameDiff</strong> Report")}} <a href="{{ download }}"><span class="glyphicon glyphicon-download" aria-hidden="true"></span></a></h2>
-			<h4>{{ _('These two documents are')}} {{cosine_similarity['description']}}</h4>
+			<p>
+			{{ _('These two documents are %(description)s', description=cosine_similarity['description']) }}
+			<br />
+			({{ _('they have a %(cosine_sim)s score of %(score)s',
+					cosine_sim=hover_tooltip('cosine similarity', 'The Cosine Similarity score tries to tell you how similar two documents are based on the number of times words are used in each.'),
+					score=cosine_similarity['score']|round(2)) }})
+			</p>
 		</div>
 	</div>
 
