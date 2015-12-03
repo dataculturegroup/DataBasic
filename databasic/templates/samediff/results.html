@@ -20,7 +20,9 @@
 <div class="container">
 	<div class="row" >
 		<div class="col-md-12 text-center" id="title">
-			<h2>{{_("Your <strong>SameDiff</strong> Report")}} <a href="{{ download }}"><span class="glyphicon glyphicon-download" aria-hidden="true"></span></a></h2>
+			<h2>{{_("Your <strong>SameDiff</strong> Report")}} 
+			<a href="{{ download }}" title="{{_('download')}}" aria-label="{{_('download')}}"><span class="glyphicon glyphicon-download" aria-hidden="true"></span></a>
+			</h2>
 			<p>
 			{{ _('These two documents are %(description)s', description=cosine_similarity['description']) }}
 			<br />
