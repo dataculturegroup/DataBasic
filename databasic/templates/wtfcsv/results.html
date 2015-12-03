@@ -4,6 +4,7 @@
 
 {% macro card_top(type_name, name, glyphicon) -%}
 <div class="card-top">
+	<div class="close-button pull-right" role="presentation" aria-hidden="true"><h3><span class="glyphicon {{ glyphicon }}" aria-hidden="true"></span></h3></div>
 	<h3 class="data-type" aria-hidden="true" role="presentation"> <i class="fa 
 	{% if type_name == 'unicode' %}
 		noun_134105
@@ -22,7 +23,6 @@
 	{% endif %}
 	" aria-hidden="true" role="presentation"></i></h3>
 	<h3 class="dragHandle">{{ name }}</h3>
-	<div class="close-button" role="presentation" aria-hidden="true"><h3><span class="glyphicon {{ glyphicon }}" aria-hidden="true"></span></h3></div>
 </div>
 {%- endmacro %}
 
