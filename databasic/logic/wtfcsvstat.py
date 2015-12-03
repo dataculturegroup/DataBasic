@@ -128,7 +128,7 @@ class WTFCSVStat():
                     column_info['most_freq_values'] = self.get_most_freq_values(stats)
                 else:
                     column_info['uniques'] = len(stats['unique'])
-                    
+
                     # get the min and max values of date & time columns
                     if c.type not in [six.text_type, bool]:
                         column_info['min'] = stats['min']
@@ -137,6 +137,7 @@ class WTFCSVStat():
                     # get the most frequent repeating values, if any
                     if column_info['uniques'] != len(values):
                         column_info['most_freq_values'] = self.get_most_freq_values(stats)
+                        column_info['others'] = stats['others']
 
                     # for text columns, get the longest string
                     if c.type == six.text_type:
@@ -256,6 +257,8 @@ class WTFCSVStat():
             mostfrequent = freq(values)
         else:
             mostfrequent = freq(values, n=NUMBER_MAX_UNIQUE)
+        if 'others' not in stats:
+            stats['others'] = [v for v in values if v not in (v2 for v2, c in mostfrequent)]
         return mostfrequent
 
     def get_len(self, c, values, stats):
