@@ -1,7 +1,17 @@
 [
 	{
+		"title": "Beyonce's lyrics",
+		"source": "sample-data/beyonce-knowles-lyrics.txt",
+		"modules": ["samediff", "wordcounter"]
+	},
+	{
 		"title": "Aretha Franklin's lyrics",
 		"source": "sample-data/aretha-franklin-lyrics.txt",
+		"modules": ["samediff", "wordcounter"]
+	},
+	{
+		"title": "Metallica's lyrics",
+		"source": "sample-data/metallica-lyrics.txt",
 		"modules": ["samediff", "wordcounter"]
 	},
 	{
@@ -10,18 +20,18 @@
 		"modules": ["samediff", "wordcounter"]
 	},
 	{
-		"title": "Beyonce's lyrics",
-		"source": "sample-data/beyonce-knowles-lyrics.txt",
+		"title": "Jennifer Lopez's lyrics",
+		"source": "sample-data/jennifer-lopez-lyrics.txt",
+		"modules": ["samediff", "wordcounter"]
+	},
+	{
+		"title": "Iron Maiden's lyrics",
+		"source": "sample-data/iron-maiden-lyrics.txt",
 		"modules": ["samediff", "wordcounter"]
 	},
 	{
 		"title": "Bob Dylan's lyrics",
 		"source": "sample-data/bob-dylan-lyrics.txt",
-		"modules": ["samediff", "wordcounter"]
-	},
-	{
-		"title": "Bob Marley's lyrics",
-		"source": "sample-data/bob-marley-lyrics.txt",
 		"modules": ["samediff", "wordcounter"]
 	},
 	{
@@ -32,6 +42,11 @@
 	{
 		"title": "Jimi Hendrix's lyrics",
 		"source": "sample-data/jimi-hendrix-lyrics.txt",
+		"modules": ["samediff", "wordcounter"]
+	},
+	{
+		"title": "Stevie Wonder's lyrics",
+		"source": "sample-data/stevie-wonder-lyrics.txt",
 		"modules": ["samediff", "wordcounter"]
 	},
 	{
@@ -55,8 +70,8 @@
 		"modules": ["samediff", "wordcounter"]
 	},
 	{
-		"title": "Stevie Wonder's lyrics",
-		"source": "sample-data/stevie-wonder-lyrics.txt",
+		"title": "Bob Marley's lyrics",
+		"source": "sample-data/bob-marley-lyrics.txt",
 		"modules": ["samediff", "wordcounter"]
 	},
 	{

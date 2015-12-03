@@ -96,7 +96,7 @@ def interpretCosineSimilarity(score):
 	elif score >= 0.7:
 		return _('kind of similar')
 	elif score >= 0.5:
-		return _('kind of similar, kind of different')
+		return _('kind of similar, and also kind of different')
 	elif score >= 0.3:
 		return _('pretty different')
 	elif score >= 0.2:
