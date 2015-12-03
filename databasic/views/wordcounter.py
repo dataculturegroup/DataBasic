@@ -36,13 +36,13 @@ def index():
 			words = forms['paste'].data['area']
 			ignore_case = forms[btn_value].data['ignore_case_paste']
 			ignore_stopwords = forms[btn_value].data['ignore_stopwords_paste']
-			title = _('Words in your text')
+			title = _('your text')
 		elif btn_value == 'upload':
 			upload_file = forms['upload'].data['upload']
 			words = process_upload(upload_file)
 			ignore_case = forms[btn_value].data['ignore_case_upload']
 			ignore_stopwords = forms[btn_value].data['ignore_stopwords_upload']
-			title = _(u'Words used in %(filename)s', filename=upload_file.filename)
+			title = _(u'%(filename)s', filename=upload_file.filename)
 		elif btn_value == 'sample':
 			basedir = os.path.dirname(os.path.abspath(__file__))
 			sample_file = forms['sample'].data['sample']
@@ -50,13 +50,13 @@ def index():
 			ignore_case = forms[btn_value].data['ignore_case_sample']
 			ignore_stopwords = forms[btn_value].data['ignore_stopwords_sample']
 			samplename = filehandler.get_sample_title(sample_file)
-			title = _('Words used in %(samplename)s', samplename=samplename)
+			title = _('%(samplename)s', samplename=samplename)
 		elif btn_value == 'link':
 			content = filehandler.download_webpage(forms['link'].data['link'])
 			words = content['text']
 			ignore_case = forms[btn_value].data['ignore_case_link']
 			ignore_stopwords = forms[btn_value].data['ignore_stopwords_link']
-			title = _('Words in "' + content['title'] + '"')
+			title = _(content['title'])
 
 		if words is not None:
 			counts, csv_files = process_words(words, ignore_case, ignore_stopwords)
@@ -89,7 +89,7 @@ def results():
 
 	max_index = min(20, len(results[0]))
 	min_index = max(0, max_index-5)
-	random_unpopular_word = results[0][random.randrange(min_index, max_index+1)]
+	random_unpopular_word = results[0][random.randrange(min_index, max_index+1)] if len(results[0]) > 1 else results[0][0]
 
 	most_popular_word = results[0][0][0]
 	word_in_bigrams_count = 0
