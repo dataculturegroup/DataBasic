@@ -6,7 +6,10 @@ from pyth.plugins.rtf15.reader import Rtf15Reader
 from pyth.plugins.plaintext.writer import PlaintextWriter
 from flask import Response, abort
 from flask.ext.uploads import UploadSet, configure_uploads, TEXT, patch_request_class, UploadNotAllowed
-# from docx import opendocx, getdocumenttext
+try:
+	from docx import opendocx, getdocumenttext
+except:
+	pass
 
 ENCODING = 'utf-8'
 
