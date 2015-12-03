@@ -110,6 +110,12 @@ class WTFCSVStat():
 
             if len(stats['unique']) <= MAX_UNIQUE and c.type is not bool:
                 column_info['values'] = [six.text_type(u) for u in list(stats['unique'])]
+                column_info['most_freq_values'] = []
+                for value, count in stats['freq']:
+                    column_info['most_freq_values'].append({
+                        'value': value,
+                        'count': count
+                        })
             else:
                 if c.type not in [six.text_type, bool]:
                     column_info['min'] = stats['min']
