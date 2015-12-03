@@ -161,6 +161,9 @@
 									{% if 'len' in col %}
 										<li>{{_("The longest string is <em>%d</em> characters" % col['len']) }}</li>
 									{% endif %}
+									{% if 'uniques' in col %}
+										<li>{{ _('There are <em>%d</em> unique values' % col['uniques']) }}</li>
+									{% endif %}
 								</ul>
 							</div>
 						</div>
@@ -314,9 +317,10 @@ $(function () {
 				plotOptions: {
 				    column: {
 				        pointPadding: 0,
-				        borderWidth: 0,
+				        borderWidth: 1,
 				        groupPadding: 0,
-				        shadow: false
+				        shadow: false,
+				        borderColor: '#fec52e'
 				    }
 				},
 				series: [{

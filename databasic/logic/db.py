@@ -42,7 +42,7 @@ class MongoHandler:
 		return doc_id
 
 	def save_samediff(self, collection, filenames, diff_words_doc1, diff_words_doc2, same_words, 
-					  most_frequent_doc1, most_frequent_doc2, cosine_similarity):
+					  most_frequent_doc1, most_frequent_doc2, cosine_similarity, titles):
 		return str(self._db[collection].save({
 			'filenames': filenames,
 			'diffWordsDoc1': diff_words_doc1,
@@ -50,7 +50,8 @@ class MongoHandler:
 			'sameWords': same_words,
 			'mostFrequentDoc1': most_frequent_doc1,
 			'mostFrequentDoc2': most_frequent_doc2,
-			'cosineSimilarity': cosine_similarity
+			'cosineSimilarity': cosine_similarity,
+			'titles': titles
 			}))
 
 	def save_job(self, collection, job_info):

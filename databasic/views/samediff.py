@@ -23,18 +23,27 @@ def index():
 		btn_value = request.form['btn']
 		# email = None
 		is_sample_data = False
+		titles = []
 
 		if btn_value == 'upload':
 			files = [forms['upload'].data['upload'], forms['upload'].data['upload2']]
 			file_paths = filehandler.open_docs(files)
+			f1name = files[0].filename
+			f2name = files[1].filename
+			both = unicode(_('%(f1)s and %(f2)s', f1=f1name, f2=f2name))
+			titles = [f1name, both, f2name]
 			# email = forms['upload'].data['email']
 		elif btn_value == 'sample':
 			file_paths = [forms['sample'].data['sample'], forms['sample'].data['sample2']]
 			is_sample_data = True
+			f1name = filehandler.get_sample_title(file_paths[0])
+			f2name = filehandler.get_sample_title(file_paths[1])
+			both = unicode(_('%(f1)s and %(f2)s', f1=f1name, f2=f2name))
+			titles = [f1name, both, f2name]
 			# email = forms['sample'].data['email']
 
 		if btn_value is not None and btn_value is not u'':
-			return process_results(file_paths)
+			return process_results(file_paths, titles)
 
 	return render_template('samediff/samediff.html', forms=forms.items(), tool_name='samediff')
 
@@ -78,13 +87,14 @@ def download(doc_id, filename1, filename2):
 		logging.exception(e)
 		abort(400)
 
-def process_results(file_paths):
+def process_results(file_paths, titles):
 	file_names = filehandler.get_file_names(file_paths)
 	doc_list = [ filehandler.convert_to_txt(file_path) for file_path in file_paths ]
 	data = textanalysis.common_and_unique_word_freqs(doc_list)
 	job_id = mongo.save_samediff('samediff', file_names, 
 		data['doc1unique'], data['doc2unique'], data['common'], 
-		data['doc1'], data['doc2'], data['cosine_similarity'])
+		data['doc1'], data['doc2'], data['cosine_similarity'],
+		titles)
 	return redirect(request.url + 'results?id=' + job_id)
 
 def interpretCosineSimilarity(score):

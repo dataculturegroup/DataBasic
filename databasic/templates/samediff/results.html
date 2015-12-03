@@ -24,9 +24,9 @@
 			<a href="{{ download }}" title="{{_('download')}}" aria-label="{{_('download')}}"><span class="glyphicon glyphicon-download" aria-hidden="true"></span></a>
 			</h2>
 			<p>
-			{{ _('These two documents are %(description)s', description=cosine_similarity['description']) }}
+			{{ _('These two documents are %(description)s.', description=cosine_similarity['description']) }}
 			<br />
-			({{ _('they have a %(cosine_sim)s score of %(score)s',
+			({{ _('They have a %(cosine_sim)s score of %(score)s',
 					cosine_sim=hover_tooltip('cosine similarity', 'The Cosine Similarity score tries to tell you how similar two documents are based on the number of times words are used in each.'),
 					score=cosine_similarity['score']|round(2)) }})
 			</p>
@@ -44,15 +44,15 @@
 
 		<div class="row" id="word-clouds">
 			<div class="col-md-4">
-				<div class="wordcloud-title"><h4>{{ _('Words that are only in "%(document)s"', document=file1) }}</h4></div>
+				<div class="wordcloud-title"><h4>{{ _('Words that are only in %(document)s', document=results['titles'][0]) }}</h4></div>
 				<div class="left-cloud"></div>
 			</div>
 			<div class="col-md-4">
-				<div class="wordcloud-title"><h4>{{ _('Words that are in "%(doc1)s" and "%(doc2)s"', doc1=file1, doc2=file2) }}</h4></div>
+				<div class="wordcloud-title"><h4>{{ _('Words that are in %(doc)s', doc=results['titles'][1]) }}</h4></div>
 				<div class="center-cloud"></div>
 			</div>
 			<div class="col-md-4">
-				<div class="wordcloud-title"><h4>{{ _('Words that are only in "%(document)s"', document=file2) }}</h4></div>
+				<div class="wordcloud-title"><h4>{{ _('Words that are only in %(document)s', document=results['titles'][2]) }}</h4></div>
 				<div class="right-cloud"></div>
 			</div>
 		</div>

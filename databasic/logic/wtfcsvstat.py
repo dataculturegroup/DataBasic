@@ -16,8 +16,9 @@ from lazyfile import LazyFile
 NoneType = type(None)
 
 MAX_UNIQUE = 5
+NUMBER_MAX_UNIQUE = 10
 MAX_FREQ = 5
-OPERATIONS =('min', 'max', 'sum', 'mean', 'median', 'stdev', 'nulls', 'unique', 'freq', 'len')
+OPERATIONS =('min', 'max', 'sum', 'mean', 'median', 'stdev', 'nulls', 'unique', 'freq', 'len', 'deciles')
 
 
 
@@ -86,7 +87,6 @@ class WTFCSVStat():
             for op in OPERATIONS:
                 stats[op] = getattr(self, 'get_%s' % op)(c, values, stats)
 
-            
             if c.type == None:
                 column_info['type'] = 'empty'
                 continue
@@ -106,8 +106,47 @@ class WTFCSVStat():
                 dt = 'dates'
             if 'datetime' in t:
                 dt = 'dates and times'
+            if 'bool' in t:
+                dt = 'booleans'
             column_info['display_type_name'] = dt
 
+            if 'numbers' in dt:
+                if len(stats['unique']) <= NUMBER_MAX_UNIQUE:
+                    column_info['most_freq_values'] = sorted(self.get_most_freq_values(stats), key=itemgetter('value'))
+                else:
+                    column_info['uniques'] = len(stats['unique'])
+                    column_info['min'] = stats['min']
+                    column_info['max'] = stats['max']
+                    column_info['sum'] = stats['sum']
+                    column_info['mean'] = stats['mean']
+                    column_info['median'] = stats['median']
+                    column_info['stdev'] = stats['stdev']
+            else:
+                # if there are few unique values, get every value and their frequency
+                if len(stats['unique']) <= MAX_UNIQUE and c.type is not bool:
+                    column_info['values'] = [six.text_type(u) for u in list(stats['unique'])]
+                    column_info['most_freq_values'] = self.get_most_freq_values(stats)
+                else:
+                    column_info['uniques'] = len(stats['unique'])
+                    
+                    # get the min and max values of date & time columns
+                    if c.type not in [six.text_type, bool]:
+                        column_info['min'] = stats['min']
+                        column_info['max'] = stats['max']
+                    
+                    # get the most frequent repeating values, if any
+                    if column_info['uniques'] != len(values):
+                        column_info['most_freq_values'] = self.get_most_freq_values(stats)
+
+                    # for text columns, get the longest string
+                    if c.type == six.text_type:
+                        column_info['max_str_len'] = stats['len']
+
+            if 'unicode' in column_info['type'] and not 'most_freq_values' in column_info:
+                # TODO: these results could be cleaned up using textmining
+                column_info['word_counts'] = wordhandler.get_word_counts(str([s for s in values]).strip('[]').replace("u'", '').replace("',", ''))
+
+            '''
             if len(stats['unique']) <= MAX_UNIQUE and c.type is not bool:
                 column_info['values'] = [six.text_type(u) for u in list(stats['unique'])]
                 column_info['most_freq_values'] = []
@@ -141,9 +180,18 @@ class WTFCSVStat():
             if 'unicode' in column_info['type'] and not 'most_freq_values' in column_info:
                 # TODO: these results could be cleaned up using textmining
                 column_info['word_counts'] = wordhandler.get_word_counts(str([s for s in values]).strip('[]').replace("u'", '').replace("',", ''))
-
+            '''
             results['columns'].append( column_info )
         return results
+
+    def get_most_freq_values(self, stats):
+        most_freq_values = []
+        for value, count in stats['freq']:
+            most_freq_values.append({
+                'value': value,
+                'count': count
+                })
+        return most_freq_values
 
     def get_min(self, c, values, stats):
         if c.type == NoneType:
@@ -204,7 +252,10 @@ class WTFCSVStat():
         return set(values) 
 
     def get_freq(self, c, values, stats):
-        mostfrequent = freq(values)
+        if c.type not in [int, float, long, complex]:
+            mostfrequent = freq(values)
+        else:
+            mostfrequent = freq(values, n=NUMBER_MAX_UNIQUE)
         return mostfrequent
 
     def get_len(self, c, values, stats):
@@ -212,6 +263,16 @@ class WTFCSVStat():
             return None
 
         return c.max_length()
+
+    def get_deciles(self, c, values, stats):
+        if c.type not in [int, float, long, complex] or len(values) <= NUMBER_MAX_UNIQUE:
+            return None
+        print values
+        decile_size = round(float(len(values)) / 10.0)
+        deciles = []
+        while len(deciles) < 10:
+            deciles.append(values[int(decile_size*len(deciles))])
+        return None
 
 def median(l):
     """
