@@ -24,13 +24,15 @@
 	<div class="footer-below">
 		<div class="container-fluid">
 			<div class="row">
-				<div class="col-lg-12">
+				<div class="col-md-8">
 					<ul class="list-inline">
-						<li id="footer-logo"><a href="../"><img src="/static/img/logos/databasic_white.png"></a></li>
 						{{ li_tool('wordcounter', _('Word-Counter')) }}
 						{{ li_tool('wtfcsv', _('WTFcsv')) }}
 						{{ li_tool('samediff', _('SameDiff')) }}
 					</ul>
+				</div>
+				<div class="col-md-4">
+					<a href="../" class="pull-right" id="footer-logo"><img src="/static/img/logos/databasic_white.png"></a>
 				</div>
 			</div>
 		</div>
