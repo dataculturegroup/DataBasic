@@ -33,9 +33,10 @@ sudo bash install.sh
 
 On Ubuntu you might need to do this:
 ```
-aptitude install libblas-dev liblapack-dev
-sudo apt-get install libblas-dev liblapack-dev libatlas-base-dev gfortran
+sudo apt-get install libblas-dev liblapack-dev libatlas-base-dev libamd2.2.0 libblas3gf libc6 libgcc1 libgfortran3 liblapack3gf libumfpack5.4.0 libstdc++6 build-essential gfortran python-all-dev libatlas-base-dev
 ```
+
+Also you probably want to do `apt-get install python-numpy` and modify your virtualenv with `virtualenv VIRTUALENV_DIR --system-site-packages`.
 
 On OSX you might need to do this:
 ```
