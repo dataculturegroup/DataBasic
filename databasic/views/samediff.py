@@ -1,7 +1,7 @@
-import datetime, logging, json
+import datetime, logging, json, os
 from operator import itemgetter
 from collections import OrderedDict
-from databasic import mongo, app, mail
+from databasic import mongo, app, mail, get_base_dir
 from databasic.forms import SameDiffUpload, SameDiffSample
 from databasic.logic import filehandler
 import databasic.tasks
@@ -34,7 +34,8 @@ def index():
 			titles = [f1name, both, f2name]
 			# email = forms['upload'].data['email']
 		elif btn_value == 'sample':
-			file_paths = [forms['sample'].data['sample'], forms['sample'].data['sample2']]
+			file_paths = [ os.path.join(get_base_dir(),forms['sample'].data['sample']),
+						   os.path.join(get_base_dir(),forms['sample'].data['sample2']) ]
 			is_sample_data = True
 			f1name = filehandler.get_sample_title(file_paths[0])
 			f2name = filehandler.get_sample_title(file_paths[1])
