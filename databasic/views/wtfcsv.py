@@ -1,7 +1,7 @@
 from collections import OrderedDict
-from ..application import mongo
-from ..forms import WTFCSVUpload, WTFCSVLink, WTFCSVSample
-from ..logic import wtfcsvstat, filehandler, oauth
+from databasic import mongo
+from databasic.forms import WTFCSVUpload, WTFCSVLink, WTFCSVSample
+from databasic.logic import wtfcsvstat, filehandler, oauth
 from flask import Blueprint, render_template, request, redirect, g
 import os, logging, random
 

@@ -1,9 +1,8 @@
 from __future__ import absolute_import
 import os
-from .application import app, mongo, mail
+from databasic import app, mongo, mail
 from databasic.celeryapp import celery_app
 from flask.ext.mail import Message
-from databasic import settings
 from databasic.logic import tfidfanalysis
 
 @celery_app.task(serializer='json',bind=True)

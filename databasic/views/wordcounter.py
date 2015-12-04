@@ -1,8 +1,8 @@
 import os, random
 from collections import OrderedDict
-from ..application import app, mongo
-from ..forms import WordCounterPaste, WordCounterUpload, WordCounterSample, WordCounterLink
-from ..logic import wordhandler, filehandler, oauth
+from databasic import app, mongo
+from databasic.forms import WordCounterPaste, WordCounterUpload, WordCounterSample, WordCounterLink
+from databasic.logic import wordhandler, filehandler, oauth
 from flask import Blueprint, render_template, request, redirect, g
 from flask.ext.babel import lazy_gettext as _
 

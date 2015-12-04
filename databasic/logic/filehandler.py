@@ -1,4 +1,4 @@
-from ..application import app
+from databasic import app
 from bs4 import BeautifulSoup as bs
 from urllib2 import urlopen
 import os, datetime, time, tempfile, codecs, unicodecsv, json, xlrd, logging

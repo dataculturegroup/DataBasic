@@ -1,12 +1,11 @@
 import datetime, json, logging, time, codecs
 from pymongo import MongoClient
 from bson.objectid import ObjectId
-from databasic import settings
 
 class MongoHandler:
 
-	def __init__(self, app):
-		uri = 'mongodb://' + settings.get('db', 'host') + ':' + str(settings.get('db', 'port'))
+	def __init__(self, app, host, port):
+		uri = 'mongodb://' + host + ':' + str(port)
 		self._client = MongoClient(uri, connect=False)
 		self._db = self._client['DataBasic']
 	

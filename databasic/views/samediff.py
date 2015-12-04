@@ -1,9 +1,9 @@
 import datetime, logging, json
 from operator import itemgetter
 from collections import OrderedDict
-from ..application import mongo, app, mail
-from ..forms import SameDiffUpload, SameDiffSample
-from ..logic import filehandler
+from databasic import mongo, app, mail
+from databasic.forms import SameDiffUpload, SameDiffSample
+from databasic.logic import filehandler
 import databasic.tasks
 from databasic.logic import tfidfanalysis, textanalysis
 from flask import Blueprint, render_template, request, redirect, url_for, g, abort, Response
