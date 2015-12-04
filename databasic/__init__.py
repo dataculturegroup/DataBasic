@@ -1,4 +1,4 @@
-import os, ConfigParser, ntpath, logging, logging.handlers
+import os, ConfigParser, ntpath, logging, logging.handlers, sys
 
 ENV_CONFIG_FILE_VAR = 'APP_CONFIG_FILE'	# the environment variable holding path to app config file
 ENV_CONFIG_FILE_VAR_MISSING_VAL = 'NOTSET' # the default val indicating the user needs to set the env config var
