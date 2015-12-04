@@ -48,6 +48,8 @@ bash start.sh
 
 If after running you get an exception involving sassutils/SassMiddleware, [make sure your C++ compiler is up to date](https://github.com/sass/libsass#readme)
 
+**5.** On an ubuntu server, you might need to compile the sass by hand: `python setup.py build_sass`
+
 ## Translating
 ### Setup
 ```
