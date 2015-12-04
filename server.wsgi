@@ -6,4 +6,4 @@ basedir = os.path.dirname(os.path.abspath(__file__))
 sys.path.append(basedir)
 
 # tell wsgi what to use as the application
-from databasic.application import app as application
+from databasic import app as application
