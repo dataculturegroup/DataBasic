@@ -37,7 +37,7 @@ def index():
 			file_paths = [ os.path.join(get_base_dir(),forms['sample'].data['sample']),
 						   os.path.join(get_base_dir(),forms['sample'].data['sample2']) ]
 			is_sample_data = True
-			f1name = filehandler.get_sample_title(forms['sample'].data['sample']
+			f1name = filehandler.get_sample_title(forms['sample'].data['sample'])
 			f2name = filehandler.get_sample_title(forms['sample'].data['sample2'])
 			both = unicode(_('%(f1)s and %(f2)s', f1=f1name, f2=f2name))
 			titles = [f1name, both, f2name]
