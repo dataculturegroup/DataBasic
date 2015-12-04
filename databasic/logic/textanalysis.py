@@ -17,6 +17,10 @@ def common_and_unique_word_freqs(texts):
 	total_uses = [t1 + t2 for t1,t2 in zip(common_d1_freqs,common_d2_freqs)]
 	common_word_freqs = zip(total_uses,common_terms)
 	common_word_freqs.sort(reverse=True)
+	# get word counts of common terms in each document
+	common_counts = [zip(common_d1_freqs, common_terms), zip(common_d2_freqs, common_terms)]
+	common_counts[0].sort(reverse=True)
+	common_counts[1].sort(reverse=True)
 	# get all the rows for unique-to-doc calculations
 	all_rows = tdm.rows(cutoff=0)
 	all_terms = next(all_rows)
@@ -38,6 +42,6 @@ def common_and_unique_word_freqs(texts):
 	cosine_similarity = ( 1 - spatial.distance.cosine(all_d1_freqs,all_d2_freqs) )
 
 	# stitch it together to return the data
-	return {'common':common_word_freqs, 'doc1': d1, 'doc2':d2, 
+	return {'common':common_word_freqs, 'common_counts': common_counts, 'doc1': d1, 'doc2':d2, 
 			'doc1unique':unique_to_d1, 'doc2unique': unique_to_d2,
 			'cosine_similarity': cosine_similarity}

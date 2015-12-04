@@ -41,13 +41,14 @@ class MongoHandler:
 		self.update_document(collection, doc_id, {'$set': {'results_url': results_url_base + doc_id}})
 		return doc_id
 
-	def save_samediff(self, collection, filenames, diff_words_doc1, diff_words_doc2, same_words, 
+	def save_samediff(self, collection, filenames, diff_words_doc1, diff_words_doc2, same_words, same_word_counts,
 					  most_frequent_doc1, most_frequent_doc2, cosine_similarity, titles):
 		return str(self._db[collection].save({
 			'filenames': filenames,
 			'diffWordsDoc1': diff_words_doc1,
 			'diffWordsDoc2': diff_words_doc2,
 			'sameWords': same_words,
+			'sameWordCounts': same_word_counts,
 			'mostFrequentDoc1': most_frequent_doc1,
 			'mostFrequentDoc2': most_frequent_doc2,
 			'cosineSimilarity': cosine_similarity,

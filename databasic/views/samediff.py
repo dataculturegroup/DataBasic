@@ -92,7 +92,7 @@ def process_results(file_paths, titles):
 	doc_list = [ filehandler.convert_to_txt(file_path) for file_path in file_paths ]
 	data = textanalysis.common_and_unique_word_freqs(doc_list)
 	job_id = mongo.save_samediff('samediff', file_names, 
-		data['doc1unique'], data['doc2unique'], data['common'], 
+		data['doc1unique'], data['doc2unique'], data['common'], data['common_counts'],
 		data['doc1'], data['doc2'], data['cosine_similarity'],
 		titles)
 	return redirect(request.url + 'results?id=' + job_id)
