@@ -9,9 +9,12 @@ import logging
 import six
 import codecs
 import wordhandler
+import pytz
+import calendar
 
 from csvkit import CSVKitReader, table
 from lazyfile import LazyFile
+from dateutil.parser import parse
 
 NoneType = type(None)
 
@@ -84,6 +87,40 @@ class WTFCSVStat():
 
             stats = {} 
 
+            date_count = 0
+            time_count = 0
+            value_count = len(values)
+
+            def remove_broken_datetimes():
+                new_values = []
+                for v in values:
+                    new = self.is_date(v)
+                    if new is not None:
+                        new_values.append(new)
+                return new_values
+
+            for v in values:
+                if self.is_date(v) is not None:
+                    v = self.is_date(v)
+                    if v.time() != datetime.time(0, 0):
+                        time_count += 1
+                    if v.date() != datetime.date.today():
+                        date_count += 1
+
+            date_percent = float(date_count) / float(value_count)
+            time_percent = float(time_count) / float(value_count)
+            threshold = 0.5
+            
+            if date_percent > threshold:
+                if time_percent > threshold:
+                    c.type = datetime.datetime
+                else:
+                    c.type = datetime.date
+                values = remove_broken_datetimes()
+            elif time_percent > threshold:
+                c.type = datetime.time
+                values = remove_broken_datetimes()
+
             for op in OPERATIONS:
                 stats[op] = getattr(self, 'get_%s' % op)(c, values, stats)
 
@@ -93,6 +130,21 @@ class WTFCSVStat():
                 
             column_info['type'] = c.type.__name__
             column_info['nulls'] = stats['nulls']
+
+            ''' trying to get all dates into an array here, but running into problems
+            if c.type == datetime.date:
+                all_values = []
+                for v in values:
+                    val = v.replace(tzinfo=None)
+                    print val
+                    all_values.append(val)
+                column_info['all_values'] = all_values
+                # column_info['all_values'] = [parse(v).replace(tzinfo=pytz.utc) for v in values]#[datetime.datetime.combine(parse(v), datetime.datetime.min.time()) for v in values]
+            else:
+                pass
+                # if values is not None and value_count > 0:
+                    # column_info['all_values'] = [parse(v, ignoretz=True) for v in values if v is not None]
+            '''
 
             t = column_info['type']
             dt = 'undefined'
@@ -134,7 +186,7 @@ class WTFCSVStat():
                     if c.type not in [six.text_type, bool]:
                         column_info['min'] = stats['min']
                         column_info['max'] = stats['max']
-                    
+
                     # get the most frequent repeating values, if any
                     if column_info['uniques'] != len(values):
                         column_info['most_freq_values'] = self.get_most_freq_values(stats)
@@ -251,6 +303,8 @@ class WTFCSVStat():
             return {'value': val, 'count': count}
 
         def pretty_value(val):
+            if type(value) is not float:
+                return str(val)
             if val < 1:
                 return str(val)
             else:
@@ -267,6 +321,12 @@ class WTFCSVStat():
         deciles.append(get_values_in_range(from_val, to_val))
 
         return deciles
+
+    def is_date(self, date):
+        try:
+            return parse(date)
+        except:
+            return None
 
 def median(l):
     """

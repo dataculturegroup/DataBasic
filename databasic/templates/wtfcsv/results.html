@@ -300,14 +300,14 @@ $(function () {
 						{% endif %}
 					},
 					categories: [
-						{% if 'deciles' in col %}
+						{#{% if 'deciles' in col %}
 							{{ get_most_freq(col['deciles'], 'value', dname) }}
 						{% elif 'most_freq_values' in col %}
 							{{ get_most_freq(col['most_freq_values'], 'value', dname) }}
 						{% endif %}
 						{% if 'others' in col %}
 							_('Other')
-						{% endif %}
+						{% endif %}#}
 					],
 					plotLines: [{
 						color: '#fff'
@@ -332,13 +332,18 @@ $(function () {
 				},
 				series: [{
 					data: [
-						{% if 'deciles' in col %}
+						{#{% if 'deciles' in col %}
 							{{ get_most_freq(col['deciles'], 'count', dname) }}
 						{% elif 'most_freq_values' in col %}
 							{{ get_most_freq(col['most_freq_values'], 'count', dname) }}
 						{% endif %}
 						{% if 'others' in col %}
 							{{ col['others']|int }}
+						{% endif %}#}
+						{% if 'all_values' in col %}
+							{% for val in col['all_values'] %}
+								{{ val }},
+							{% endfor %}
 						{% endif %}
 					],
 					showInLegend: false,

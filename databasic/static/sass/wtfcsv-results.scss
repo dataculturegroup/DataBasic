@@ -8,7 +8,7 @@
 	text-align: center;
 	color: $c-theme-dk;
 
-	a { @include tooltip($c-theme-dk); }
+	a { @include tooltip($c-white); }
 }
 
 body {
