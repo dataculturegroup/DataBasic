@@ -37,17 +37,17 @@
 				<h2>{{ _('Top Words') }} 
 				<a href="{{ download_words }}" aria-label="{{ _('download csv of word frequencies') }}"><span class="glyphicon glyphicon-download" aria-hidden="true"></span></a></h2>
 				<table class="table" role="presentation">
-					<thead role="tableheader">
-						<tr role="row" aria-label="{{ _('list of words and how many times they occur, ordered from most to least frequent') }}">
-							<th role="columnheader">{{ _('Word') }}</th>
-							<th role="columnheader">{{ _('Frequency') }}</th>
+					<thead>
+						<tr>
+							<th>{{ _('Word') }}</th>
+							<th>{{ _('Frequency') }}</th>
 						</tr>
 					</thead>
 					<tbody>
 						{% for word in results[0]|batch(20)|first%}
-						<tr role="row" aria-label="{{ _('%(word)s, %(times)s', word=word[0], times=word[1]) }}">
-							<td role="gridcell">{{ word[0] }}</td>
-							<td role="gridcell">{{ word[1] }}</td>
+						<tr>
+							<td>{{ word[0] }}</td>
+							<td>{{ word[1] }}</td>
 						</tr>
 						{% endfor %}
 					</tbody>
@@ -56,19 +56,19 @@
 			<div class="col-sm-4">
 				<h2>{{ _('Bigrams') }} 
 				<a href="{{ download_bigrams }}" aria-label="download csv of bigram frequencies"><span class="glyphicon glyphicon-download" aria-hidden="true"></span></a></h2>
-				<table class="table" role="presentation">
-					<thead role="tableheader">
-						<tr role="row" aria-label="{{ _('list of bigrams and how many times they occur, ordered from most to least frequent') }}">
-							<th role="columnheader">{{ _('%(bigram)s', bigram=hover_tooltip(_('Bigram'), 'A bigram is a two word phrase')) }}</th>
-							<th role="columnheader">{{ _('Frequency') }}</th>
+				<table class="table">
+					<thead>
+						<tr>
+							<th>{{ _('%(bigram)s', bigram=hover_tooltip(_('Bigram'), 'A bigram is a two word phrase')) }}</th>
+							<th>{{ _('Frequency') }}</th>
 						</tr>
 					</thead>
 					<tbody>
 						{% for word in results[1]|batch(20)|first %}
 						{% set bigram=" ".join(word[0]) %}
-						<tr role="row" aria-label="{{ _('%(word)s, %(times)s', word=bigram, times=word[1]) }}">
-							<td role="gridcell">{{ bigram }}</td>
-							<td role="gridcell">{{ word[1] }}</td>
+						<tr>
+							<td>{{ bigram }}</td>
+							<td>{{ word[1] }}</td>
 						</tr>
 						{% endfor %}
 					</tbody>
@@ -78,18 +78,18 @@
 				<h2>{{ _('Trigrams') }} 
 				<a href="{{ download_trigrams }}" aria-label="download csv of trigram frequencies"><span class="glyphicon glyphicon-download" aria-hidden="true"></span></a></h2>
 				<table class="table" role="presentation">
-					<thead role="tableheader">
-						<tr role="row" aria-label="{{ _('list of trigrams and how many times they occur, ordered from most to least frequent') }}">
-							<th role="columnheader">{{ _('%(trigram)s', trigram=hover_tooltip(_('Trigram'), 'A trigram is a three word phrase')) }}</th>
-							<th role="columnheader">{{ _('Frequency') }}</th>
+					<thead>
+						<tr>
+							<th>{{ _('%(trigram)s', trigram=hover_tooltip(_('Trigram'), 'A trigram is a three word phrase')) }}</th>
+							<th>{{ _('Frequency') }}</th>
 						</tr>
 					</thead>
 					<tbody>
 						{% for word in results[2]|batch(20)|first %}
 						{% set trigram=" ".join(word[0]) %}
-						<tr role="row" aria-label="{{ _('%(word)s, %(times)s', word=trigram, times=word[1]) }}">
-							<td role="gridcell">{{ trigram }}</td>
-							<td role="gridcell">{{ word[1] }}</td>
+						<tr>
+							<td>{{ trigram }}</td>
+							<td>{{ word[1] }}</td>
 						</tr>
 						{% endfor %}
 					</tbody>

@@ -163,8 +163,7 @@ class WTFCSVStat():
             else:
                 # if there are few unique values, get every value and their frequency
                 if len(stats['unique']) <= MAX_UNIQUE and c.type is not bool:
-                    column_info['values'] = [six.text_type(u) for u in list(stats['unique'])]
-                    column_info['most_freq_values'] = self.get_most_freq_values(stats)
+                    column_info['values'] = self.get_most_freq_values(stats)
                 else:
                     column_info['uniques'] = len(stats['unique'])
 

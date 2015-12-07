@@ -7,10 +7,10 @@
                 {% set first=True %}
                 {% for name, form in forms %}
                     {% if first %}
-                    <li role="presentation" class="active">
+                    <li role="presentation" class="active" aria-expanded="true">
                     {% set first=False %}
                     {% else %}
-                    <li role="presentation">
+                    <li role="presentation" aria-expanded="false">
                     {% endif %}
                         <a id="tab-{{ name }}" href="#{{ name }}" data-toggle="tab" role="button">{{ form.label }}</a>
                     </li>
