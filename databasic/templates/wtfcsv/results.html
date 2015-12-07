@@ -67,7 +67,7 @@
 						cols=results[index]['columns']|length) }}
 						<br />
 						{{_("Here's some %(metadata)s about each column.", 
-						metadata=hover_tooltip('metadata', 'Metadata summarizes basic information about data to make it easier to discover what\'s going on'))}}
+						metadata=hover_tooltip(_('metadata'), 'Metadata summarizes basic information about data to make it easier to discover what\'s going on'))}}
 					</p>
 					{{ what_next_anchor() }}
 				</div>
@@ -300,14 +300,14 @@ $(function () {
 						{% endif %}
 					},
 					categories: [
-						{#{% if 'deciles' in col %}
+						{% if 'deciles' in col %}
 							{{ get_most_freq(col['deciles'], 'value', dname) }}
 						{% elif 'most_freq_values' in col %}
 							{{ get_most_freq(col['most_freq_values'], 'value', dname) }}
 						{% endif %}
 						{% if 'others' in col %}
 							_('Other')
-						{% endif %}#}
+						{% endif %}
 					],
 					plotLines: [{
 						color: '#fff'
@@ -332,19 +332,19 @@ $(function () {
 				},
 				series: [{
 					data: [
-						{#{% if 'deciles' in col %}
+						{% if 'deciles' in col %}
 							{{ get_most_freq(col['deciles'], 'count', dname) }}
 						{% elif 'most_freq_values' in col %}
 							{{ get_most_freq(col['most_freq_values'], 'count', dname) }}
 						{% endif %}
 						{% if 'others' in col %}
 							{{ col['others']|int }}
-						{% endif %}#}
-						{% if 'all_values' in col %}
-							{% for val in col['all_values'] %}
-								{{ val }},
-							{% endfor %}
 						{% endif %}
+						{#{% if 'values' in col %}
+							{% for val in col['values'] %}
+								"{{ val }}",
+							{% endfor %}
+						{% endif %}#}
 					],
 					showInLegend: false,
 					marker: {
@@ -353,7 +353,8 @@ $(function () {
 								enabled: false
 							}
 						}
-					}
+					},
+					turboThreshold: 0
 				}],
 				credits: {
 					enabled: false

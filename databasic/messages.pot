@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2015-10-23 12:50-0400\n"
+"POT-Creation-Date: 2015-12-04 18:23-0500\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -17,153 +17,590 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Generated-By: Babel 2.1.1\n"
 
-#: databasic/forms.py:13
+#: databasic/forms.py:11
+msgid "Paste text"
+msgstr ""
+
+#: databasic/forms.py:14
 msgid "Text"
 msgstr ""
 
+#: databasic/forms.py:15
+msgid "Paste text..."
+msgstr ""
+
 #: databasic/forms.py:23
+msgid "Upload a file"
+msgstr ""
+
+#: databasic/forms.py:27
 msgid "Upload file"
 msgstr ""
 
-#: databasic/forms.py:29
+#: databasic/forms.py:28 databasic/forms.py:154
+msgid "Upload..."
+msgstr ""
+
+#: databasic/forms.py:31
+msgid "Use a sample"
+msgstr ""
+
+#: databasic/forms.py:34 databasic/forms.py:160
 msgid "Sample"
 msgstr ""
 
-#: databasic/forms.py:49
-msgid "Link to spreadsheet"
+#: databasic/forms.py:41 databasic/forms.py:157
+msgid "Use samples"
+msgstr ""
+
+#: databasic/forms.py:44
+msgid "Samples"
+msgstr ""
+
+#: databasic/forms.py:51
+msgid "Link to a spreadsheet"
 msgstr ""
 
 #: databasic/forms.py:55
+msgid "Link to spreadsheet"
+msgstr ""
+
+#: databasic/forms.py:56 databasic/forms.py:132
+msgid "https://docs.google.com/spreadsheets/"
+msgstr ""
+
+#: databasic/forms.py:80 databasic/forms.py:92 databasic/forms.py:102
+#: databasic/forms.py:114
 msgid "Ignore case"
 msgstr ""
 
-#: databasic/forms.py:59
+#: databasic/forms.py:84 databasic/forms.py:96 databasic/forms.py:106
+#: databasic/forms.py:118 databasic/templates/macros.html:97
 msgid "Ignore stopwords"
 msgstr ""
 
+#: databasic/forms.py:122 databasic/forms.py:132
+msgid "Paste a link"
+msgstr ""
+
+#: databasic/forms.py:122
+msgid "https://en.wikipedia.org/wiki/Natural_language_processing"
+msgstr ""
+
+#: databasic/forms.py:151
+msgid "Upload files"
+msgstr ""
+
+#: databasic/forms.py:153
+msgid "Upload a second file"
+msgstr ""
+
+#: databasic/static/js/samediff-validate.js:6
+msgid "You must select two files"
+msgstr ""
+
+#: databasic/static/js/samediff-validate.js:27
+#: databasic/static/js/samediff-validate.js:30
+#: databasic/static/js/samediff-validate.js:33
+#: databasic/static/js/samediff-validate.js:55
+#: databasic/static/js/samediff-validate.js:59
+#: databasic/static/js/samediff-validate.js:63
 #: databasic/static/js/wordcounter-validate.js:11
 #: databasic/static/js/wordcounter-validate.js:24
-#: databasic/static/js/wtfcsv-validate.js:21
-#: databasic/static/js/wtfcsv-validate.js:36
+#: databasic/static/js/wordcounter-validate.js:38
+#: databasic/static/js/wtfcsv-validate.js:28
+#: databasic/static/js/wtfcsv-validate.js:45
 msgid "This field is required"
 msgstr ""
 
+#: databasic/static/js/samediff-validate.js:34
+#: databasic/static/js/samediff-validate.js:64
+msgid "Please enter a valid email address"
+msgstr ""
+
+#: databasic/static/js/samediff-validate.js:56
+#: databasic/static/js/samediff-validate.js:60
 #: databasic/static/js/wordcounter-validate.js:25
 msgid "Only these file types are accepted: txt, docx, rtf"
 msgstr ""
 
-#: databasic/static/js/wtfcsv-validate.js:6
-msgid "Link must be a valid Google Spreadsheet"
-msgstr ""
-
-#: databasic/static/js/wtfcsv-validate.js:22
-msgid "The file must be a .csv"
-msgstr ""
-
-#: databasic/static/js/wtfcsv-validate.js:37
+#: databasic/static/js/wordcounter-validate.js:39
+#: databasic/static/js/wtfcsv-validate.js:46
 msgid "You must input a URL"
 msgstr ""
 
-#: databasic/templates/home/index.html:14
-#: databasic/templates/wordcounter/wordcounter.html:5
-msgid "Word-Counter"
+#: databasic/static/js/wtfcsv-validate.js:8
+msgid "Link must be a valid Google Spreadsheet"
 msgstr ""
 
-#: databasic/templates/home/index.html:15
-#: databasic/templates/home/index.html:24
-#: databasic/templates/home/index.html:33
+#: databasic/static/js/wtfcsv-validate.js:29
+msgid "Only these file types are accepted: csv, xls, xlsx"
+msgstr ""
+
+#: databasic/static/js/wtfcsv-validate.js:30
+#: databasic/static/js/wtfcsv-validate.js:47
+msgid "Only files under 10MB are accepted"
+msgstr ""
+
+#: databasic/templates/footer.html:13
+msgid "Finding Stories in Data"
+msgstr ""
+
+#: databasic/templates/footer.html:14
 msgid ""
-"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec a diam "
-"lectus. Sed sit amet ipsum mauris."
+"This suite of tools helps learners understand how to get started with "
+"data analysis, whether you are looking at spreadsheets or text. In our "
+"classes we introduce non-programmers to data analysis and storytelling. "
+"We want to help unlock the power of digital tools for everyone."
 msgstr ""
 
-#: databasic/templates/home/index.html:23
+#: databasic/templates/footer.html:17
+msgid "Why DataBasic?"
+msgstr ""
+
+#: databasic/templates/footer.html:18
+msgid ""
+"There are a number of computer-assisted data analysis techniques like "
+"this that are readily available to programmers. Some of these are even "
+"just one line of code, but that one line is incomprehensible if you don't"
+" know how to program. We built this site to help bridge that gap, so non-"
+"programmers can take advantage of these capabilities."
+msgstr ""
+
+#: databasic/templates/footer.html:29 databasic/templates/tool_footer.html:28
+msgid "WordCounter"
+msgstr ""
+
+#: databasic/templates/footer.html:30 databasic/templates/tool_footer.html:29
 #: databasic/templates/wtfcsv/wtfcsv.html:4
 msgid "WTFcsv"
 msgstr ""
 
-#: databasic/templates/home/index.html:32
-#: databasic/templates/samediff/samediff.html:2
+#: databasic/templates/footer.html:31 databasic/templates/tool_footer.html:30
+#: databasic/templates/samediff/samediff.html:4
 msgid "SameDiff"
 msgstr ""
 
-#: databasic/templates/wordcounter/results.html:2
-msgid "Word-Counter results"
+#: databasic/templates/footer.html:32 databasic/templates/tool_footer.html:31
+msgid "blog"
 msgstr ""
 
-#: databasic/templates/wordcounter/results.html:6
-#: databasic/templates/wordcounter/results.html:14
-#: databasic/templates/wordcounter/results.html:22
-msgid "Frequency"
+#: databasic/templates/macros.html:6
+msgid "choose input type"
 msgstr ""
 
-#: databasic/templates/wordcounter/results.html:6
-msgid "Word"
+#: databasic/templates/macros.html:98
+#, python-format
+msgid "Ignore %(stopwords)s"
 msgstr ""
 
-#: databasic/templates/wordcounter/results.html:6
-#: databasic/templates/wordcounter/results.html:14
-#: databasic/templates/wordcounter/results.html:22
+#: databasic/templates/macros.html:164
+msgid "Play video"
+msgstr ""
+
+#: databasic/templates/macros.html:171
+msgid "close video window"
+msgstr ""
+
+#: databasic/templates/nav_base.html:4
+msgid "change language to english"
+msgstr ""
+
+#: databasic/templates/nav_base.html:5
+msgid "change language to spanish"
+msgstr ""
+
+#: databasic/templates/tool_base.html:5 databasic/templates/tool_footer.html:14
+msgid "What do I do next?"
+msgstr ""
+
+#: databasic/templates/tool_nav.html:4
+#, python-format
+msgid "go to %(tool)s"
+msgstr ""
+
+#: databasic/templates/tool_nav.html:8
+msgid "go to data basic home page"
+msgstr ""
+
+#: databasic/templates/home/index.html:21
+#: databasic/templates/wordcounter/wordcounter.html:18
+msgid ""
+"WordCounter analyzes your text and tells you the most common words and "
+"phrases."
+msgstr ""
+
+#: databasic/templates/home/index.html:31
+#: databasic/templates/wtfcsv/wtfcsv.html:17
+msgid "WTFcsv tells you WTF is going on with your .csv file."
+msgstr ""
+
+#: databasic/templates/home/index.html:41
+msgid ""
+"SameDiff compares two or more text files and tells you how similar or "
+"different they are"
+msgstr ""
+
+#: databasic/templates/samediff/results.html:9
+msgid "SameDiff results"
+msgstr ""
+
+#: databasic/templates/samediff/results.html:23
+msgid "Your <strong>SameDiff</strong> Report"
+msgstr ""
+
+#: databasic/templates/samediff/results.html:24
 msgid "download"
 msgstr ""
 
-#: databasic/templates/wordcounter/results.html:14
-msgid "Bigram"
-msgstr ""
-
-#: databasic/templates/wordcounter/results.html:22
-msgid "Trigram"
-msgstr ""
-
-#: databasic/templates/wordcounter/wordcounter.html:10
-#: databasic/templates/wtfcsv/wtfcsv.html:9
-msgid "Submit"
-msgstr ""
-
-#: databasic/templates/wtfcsv/results.html:3
-msgid "WTFcsv results"
-msgstr ""
-
-#: databasic/templates/wtfcsv/results.html:9
+#: databasic/templates/samediff/results.html:27
 #, python-format
-msgid "You have %(num)s row of data."
-msgid_plural "You have %(num)s rows of data."
-msgstr[0] ""
-msgstr[1] ""
-
-#: databasic/templates/wtfcsv/results.html:10
-msgid "Here's a bit of info about each one:"
+msgid "These two documents are %(description)s."
 msgstr ""
 
-#: databasic/templates/wtfcsv/results.html:24
+#: databasic/templates/samediff/results.html:29
+#, python-format
+msgid "They have a %(cosine_sim)s score of %(score)s"
+msgstr ""
+
+#: databasic/templates/samediff/results.html:38
+#: databasic/templates/samediff/results.html:46
+#, python-format
+msgid "Words that are only in %(document)s"
+msgstr ""
+
+#: databasic/templates/samediff/results.html:42
+#, python-format
+msgid "Words that are in %(doc)s"
+msgstr ""
+
+#: databasic/templates/samediff/results.html:51
+#, python-format
+msgid ""
+"Comparing text documents is a great way to find out what makes each one "
+"unique.  Is it meaningful that \"%(most_common_word)s\" and "
+"\"%(second_most_common_word)s\" are the most used words appearing in both"
+" documents?  Why does %(doc2)s use \"%(doc2_most_common_word)s\" so much,"
+" but it doesn't even appear in %(doc1)s?  With these questions in mind, "
+"you can sketch out a story that compares the documents.  Find a "
+"whiteboard and start sketching out a story.  Checkout our <a "
+"href=\"#\">activity guide</a> for more help on sketching out a story to "
+"compare them.  Want to dig into the data even more?  <a "
+"href=\"%(download)s\">Download the full results as a CSV file</a> to "
+"compare the files even further."
+msgstr ""
+
+#: databasic/templates/samediff/results.html:106
+#, python-format
+msgid " uses in %(doc)s"
+msgstr ""
+
+#: databasic/templates/samediff/results.html:108
+msgid " uses"
+msgstr ""
+
+#: databasic/templates/samediff/samediff.html:17
+msgid ""
+"SameDiff compares two or more text files and tells you how similar or "
+"different they are."
+msgstr ""
+
+#: databasic/templates/samediff/samediff.html:18
+msgid ""
+"What distinguishes one candidate from another? One musical artist from "
+"another? One constitution from another? SameDiff shows you how similar "
+"text files are using cosine similarity and shared words and how different"
+" they are using TF-IDF to identify frequent and unique words."
+msgstr ""
+
+#: databasic/templates/samediff/samediff.html:21
+msgid "Compare"
+msgstr ""
+
+#: databasic/templates/samediff/words-in-common.html:4
+msgid "Words in common"
+msgstr ""
+
+#: databasic/templates/samediff/words-in-common.html:17
+msgid "Words in Common"
+msgstr ""
+
+#: databasic/templates/samediff/words-in-common.html:27
+#: databasic/templates/wordcounter/results.html:41
+msgid "Word"
+msgstr ""
+
+#: databasic/templates/samediff/words-in-common.html:28
+msgid "Total Uses"
+msgstr ""
+
+#: databasic/templates/samediff/words-in-common.html:29
+#: databasic/templates/samediff/words-in-common.html:30
+msgid "Uses in"
+msgstr ""
+
+#: databasic/templates/samediff/words-in-common.html:45
+msgid "Sorry, your results are still being processed."
+msgstr ""
+
+#: databasic/templates/wordcounter/results.html:9
+msgid "Word-Counter results"
+msgstr ""
+
+#: databasic/templates/wordcounter/results.html:25
+msgid ""
+"Here is a picture of the words used most often in your document. Words "
+"used more often are bigger, and ones used less often are smaller. This "
+"picture, called a \"word cloud\", is helpful to get a sense of the most "
+"used words in a document."
+msgstr ""
+
+#: databasic/templates/wordcounter/results.html:36
+msgid "Top Words"
+msgstr ""
+
+#: databasic/templates/wordcounter/results.html:40
+msgid ""
+"list of words and how many times they occur, ordered from most to least "
+"frequent"
+msgstr ""
+
+#: databasic/templates/wordcounter/results.html:42
+#: databasic/templates/wordcounter/results.html:62
+#: databasic/templates/wordcounter/results.html:83
+msgid "Frequency"
+msgstr ""
+
+#: databasic/templates/wordcounter/results.html:47
+#: databasic/templates/wordcounter/results.html:68
+#: databasic/templates/wordcounter/results.html:89
+#, python-format
+msgid "%(word)s, %(times)s"
+msgstr ""
+
+#: databasic/templates/wordcounter/results.html:56
+msgid "Bigrams"
+msgstr ""
+
+#: databasic/templates/wordcounter/results.html:60
+msgid ""
+"list of bigrams and how many times they occur, ordered from most to least"
+" frequent"
+msgstr ""
+
+#: databasic/templates/wordcounter/results.html:61
+#, python-format
+msgid "%(bigram)s"
+msgstr ""
+
+#: databasic/templates/wordcounter/results.html:77
+msgid "Trigrams"
+msgstr ""
+
+#: databasic/templates/wordcounter/results.html:81
+msgid ""
+"list of trigrams and how many times they occur, ordered from most to "
+"least frequent"
+msgstr ""
+
+#: databasic/templates/wordcounter/results.html:82
+#, python-format
+msgid "%(trigram)s"
+msgstr ""
+
+#: databasic/templates/wordcounter/results.html:99
+#, python-format
+msgid ""
+"Examining text data in this quantitative way can help you find stories to"
+" tell in your data.  The fact that \"%(most_popular_word)s\" is the most "
+"popular word is good to know, but combine that with the "
+"%(word_in_bigrams_count)s uses in the top 40 bigrams, and the "
+"%(word_in_trigrams_count)s uses in the top 40 trigrams, to understand the"
+" context of how it is used.  With that richer understanding of the "
+"context, you can sketch out a picture of why \"%(most_popular_word)s\" is"
+" so important in %(title)s.  So grab some paper and some crayons and "
+"start drawing what you see!  Checkout our <a href=\"#\">activity "
+"guide</a> for more help on sketching out a story.  Want to dig into the "
+"data more? Download all the <a href=\"%(download_words)s\">word "
+"counts</a>, <a href=\"%(download_bigrams)s\">bigrams</a>, or <a "
+"href=\"%(download_trigrams)s\">trigrams</a> and investigate why "
+"\"%(random_unpopular_word)s\" is only used "
+"%(random_unpopular_word_count)s times!"
+msgstr ""
+
+#: databasic/templates/wordcounter/wordcounter.html:4
+msgid "Word-Counter"
+msgstr ""
+
+#: databasic/templates/wordcounter/wordcounter.html:20
+#, python-format
+msgid ""
+"This tool helps you count words, %(bigram)s, and %(trigram)s in plain "
+"text. This is often the first step in quantitative text analysis."
+msgstr ""
+
+#: databasic/templates/wordcounter/wordcounter.html:26
+msgid "Count"
+msgstr ""
+
+#: databasic/templates/wtfcsv/results.html:31
+#: databasic/templates/wtfcsv/results.html:62
+msgid "WTFcsv: "
+msgstr ""
+
+#: databasic/templates/wtfcsv/results.html:65
+#, python-format
+msgid "%(rows)s rows of data grouped into %(cols)s columns."
+msgstr ""
+
+#: databasic/templates/wtfcsv/results.html:69
+#, python-format
+msgid "Here's some %(metadata)s about each column."
+msgstr ""
+
+#: databasic/templates/wtfcsv/results.html:102
 msgid "This column is full of"
 msgstr ""
 
-#: databasic/templates/wtfcsv/results.html:27
-msgid "This unique values in this column are:"
+#: databasic/templates/wtfcsv/results.html:104
+msgid "The unique values in this column are:"
 msgstr ""
 
-#: databasic/templates/wtfcsv/results.html:34
+#: databasic/templates/wtfcsv/results.html:110
+msgid "The most frequent values in this column are:"
+msgstr ""
+
+#: databasic/templates/wtfcsv/results.html:128
+msgid "The earliest date is"
+msgstr ""
+
+#: databasic/templates/wtfcsv/results.html:130
+msgid "The earliest time is"
+msgstr ""
+
+#: databasic/templates/wtfcsv/results.html:132
 msgid "The smallest number is"
 msgstr ""
 
-#: databasic/templates/wtfcsv/results.html:37
+#: databasic/templates/wtfcsv/results.html:138
+msgid "The latest date is"
+msgstr ""
+
+#: databasic/templates/wtfcsv/results.html:140
+msgid "The latest time is"
+msgstr ""
+
+#: databasic/templates/wtfcsv/results.html:142
 msgid "The biggest number is"
 msgstr ""
 
-#: databasic/templates/wtfcsv/results.html:40
+#: databasic/templates/wtfcsv/results.html:146
 msgid "The total is"
 msgstr ""
 
-#: databasic/templates/wtfcsv/results.html:43
+#: databasic/templates/wtfcsv/results.html:149
 msgid "The average is"
 msgstr ""
 
-#: databasic/templates/wtfcsv/results.html:46
+#: databasic/templates/wtfcsv/results.html:152
 msgid "The median is"
 msgstr ""
 
-#: databasic/templates/wtfcsv/results.html:49
+#: databasic/templates/wtfcsv/results.html:155
 msgid "The standard deviation is"
+msgstr ""
+
+#: databasic/templates/wtfcsv/results.html:158
+msgid "There is missing data in this column"
+msgstr ""
+
+#: databasic/templates/wtfcsv/results.html:184
+#, python-format
+msgid ""
+"Understanding what your csv file has is the first step in analyzing it "
+"for stories. Looking at individual columns can help you identify "
+"questions that might be fun to ask about your data.  For instance, is it "
+"surprising that \"%(most_common_value)s\" is the most used value in the "
+"%(random_column_name)s column?  Does it make any sense to compare the "
+"%(random_column_name2)s column to the %(random_column_name3)s column?  "
+"Are there any other datasets you could get to ask interesting questions "
+"about the %(random_column_name)s column?  Asking these types of questions"
+" is the first step in understanding the data you have, and what kind of "
+"stories you can find in it. Check out our <a href=\"#\">activity "
+"guide</a> for more help on asking questions of data sets."
+msgstr ""
+
+#: databasic/templates/wtfcsv/wtfcsv.html:18
+msgid ""
+"Data arrives at your doorstep in the form of a spreadsheet but how do you"
+" find a story in rows and columns? WTFcsv provides the first step by "
+"characterizing each column so that you can ask more questions."
+msgstr ""
+
+#: databasic/templates/wtfcsv/wtfcsv.html:21
+msgid "Analyze"
+msgstr ""
+
+#: databasic/views/samediff.py:33 databasic/views/samediff.py:42
+#, python-format
+msgid "%(f1)s and %(f2)s"
+msgstr ""
+
+#: databasic/views/samediff.py:73
+msgid "word"
+msgstr ""
+
+#: databasic/views/samediff.py:73
+msgid "uses in"
+msgstr ""
+
+#: databasic/views/samediff.py:73
+msgid "total uses"
+msgstr ""
+
+#: databasic/views/samediff.py:104
+msgid "almost_the_same"
+msgstr ""
+
+#: databasic/views/samediff.py:106
+msgid "sort of similar"
+msgstr ""
+
+#: databasic/views/samediff.py:108
+msgid "kind of similar"
+msgstr ""
+
+#: databasic/views/samediff.py:110
+msgid "kind of similar, and also kind of different"
+msgstr ""
+
+#: databasic/views/samediff.py:112
+msgid "pretty different"
+msgstr ""
+
+#: databasic/views/samediff.py:114
+msgid "very different"
+msgstr ""
+
+#: databasic/views/samediff.py:116
+msgid "completely different"
+msgstr ""
+
+#: databasic/views/wordcounter.py:39
+msgid "your text"
+msgstr ""
+
+#: databasic/views/wordcounter.py:45
+#, python-format
+msgid "%(filename)s"
+msgstr ""
+
+#: databasic/views/wordcounter.py:53
+#, python-format
+msgid "%(samplename)s"
+msgstr ""
+
+#: databasic/views/wordcounter.py:59
+msgid "title"
 msgstr ""
 

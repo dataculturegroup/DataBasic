@@ -18,8 +18,8 @@
 		<h2 role="banner">{{ _('WordCounter analyzes your text and tells you the most common words and phrases.') }}</h2>
 
 		<p>{{ _('This tool helps you count words, %(bigram)s, and %(trigram)s in plain text. This is often the first step in quantitative text analysis.',
-		bigram=hover_tooltip('bigrams', 'A bigram is a two word phrase'),
-		trigram=hover_tooltip('trigrams', 'A trigram is a three word phrase')) }}</p>
+		bigram=hover_tooltip(_('bigrams'), 'A bigram is a two word phrase'),
+		trigram=hover_tooltip(_('trigrams'), 'A trigram is a three word phrase')) }}</p>
 	</div>
 
 	{{ video_modal("How to count", "https://www.youtube.com/embed/Lur-SGl3uw8") }}

@@ -96,7 +96,7 @@ class WTFCSVStat():
                 for v in values:
                     new = self.is_date(v)
                     if new is not None:
-                        new_values.append(new)
+                        new_values.append(new.replace(tzinfo=None))
                 return new_values
 
             for v in values:
@@ -110,7 +110,7 @@ class WTFCSVStat():
             date_percent = float(date_count) / float(value_count)
             time_percent = float(time_count) / float(value_count)
             threshold = 0.5
-            
+
             if date_percent > threshold:
                 if time_percent > threshold:
                     c.type = datetime.datetime
@@ -131,21 +131,6 @@ class WTFCSVStat():
             column_info['type'] = c.type.__name__
             column_info['nulls'] = stats['nulls']
 
-            ''' trying to get all dates into an array here, but running into problems
-            if c.type == datetime.date:
-                all_values = []
-                for v in values:
-                    val = v.replace(tzinfo=None)
-                    print val
-                    all_values.append(val)
-                column_info['all_values'] = all_values
-                # column_info['all_values'] = [parse(v).replace(tzinfo=pytz.utc) for v in values]#[datetime.datetime.combine(parse(v), datetime.datetime.min.time()) for v in values]
-            else:
-                pass
-                # if values is not None and value_count > 0:
-                    # column_info['all_values'] = [parse(v, ignoretz=True) for v in values if v is not None]
-            '''
-
             t = column_info['type']
             dt = 'undefined'
             if any(t in s for s in ['float', 'int', 'long', 'complex']):
@@ -162,18 +147,19 @@ class WTFCSVStat():
                 dt = 'booleans'
             column_info['display_type_name'] = dt
 
-            if 'numbers' in dt:
+            if dt in ['numbers', 'dates', 'times', 'dates and times']:
                 if len(stats['unique']) <= NUMBER_MAX_UNIQUE:
                     column_info['most_freq_values'] = sorted(self.get_most_freq_values(stats), key=itemgetter('value'))
                 else:
                     column_info['uniques'] = len(stats['unique'])
                     column_info['min'] = stats['min']
                     column_info['max'] = stats['max']
-                    column_info['sum'] = stats['sum']
-                    column_info['mean'] = stats['mean']
-                    column_info['median'] = stats['median']
-                    column_info['stdev'] = stats['stdev']
                     column_info['deciles'] = stats['deciles']
+                    if dt in 'numbers':
+                        column_info['sum'] = stats['sum']
+                        column_info['mean'] = stats['mean']
+                        column_info['median'] = stats['median']
+                        column_info['stdev'] = stats['stdev']
             else:
                 # if there are few unique values, get every value and their frequency
                 if len(stats['unique']) <= MAX_UNIQUE and c.type is not bool:
@@ -181,11 +167,6 @@ class WTFCSVStat():
                     column_info['most_freq_values'] = self.get_most_freq_values(stats)
                 else:
                     column_info['uniques'] = len(stats['unique'])
-
-                    # get the min and max values of date & time columns
-                    if c.type not in [six.text_type, bool]:
-                        column_info['min'] = stats['min']
-                        column_info['max'] = stats['max']
 
                     # get the most frequent repeating values, if any
                     if column_info['uniques'] != len(values):
@@ -218,11 +199,7 @@ class WTFCSVStat():
 
         v = min(values)
 
-        if v in [datetime.datetime, datetime.date, datetime.time]:
-
-            return v.isoformat()
-        
-        return str(v)
+        return format_datetime(c, v)
 
     def get_max(self, c, values, stats):
         if c.type == NoneType:
@@ -230,9 +207,7 @@ class WTFCSVStat():
 
         v = max(values)
 
-        if v in [datetime.datetime, datetime.date, datetime.time]:
-            return v.isoformat()
-        return str(v)
+        return format_datetime(c, v)
 
     def get_sum(self, c, values, stats):
         if c.type not in [int, float]:
@@ -287,11 +262,15 @@ class WTFCSVStat():
 
     # not *literally* deciles, but kinda similar
     def get_deciles(self, c, values, stats):
-        if c.type not in [int, float, long, complex] or len(values) <= NUMBER_MAX_UNIQUE:
+        if c.type not in [int, float, datetime.date, datetime.time, datetime.datetime] or len(values) <= NUMBER_MAX_UNIQUE:
             return None
         mx = max(values)
         mn = min(values)
-        range_size = (mx-mn)/10.0
+        if c.type is float:
+            range_size = (mx-mn)/10.0
+        else:
+            range_size = (mx-mn)/10
+
         decile_groups = []
         for x in xrange(10):
             decile_groups.append(mn+(range_size*x))
@@ -303,7 +282,16 @@ class WTFCSVStat():
             return {'value': val, 'count': count}
 
         def pretty_value(val):
-            if type(value) is not float:
+            if c.type is int:
+                return str(val)
+            if c.type is datetime.date:
+                if mx-mn > datetime.timedelta(365):
+                    return val.strftime("%m/%d/%Y")
+                else:
+                    return val.strftime("%x")
+            if c.type is datetime.time:
+                return val.strftime("%X")
+            if c.type is datetime.datetime:
                 return str(val)
             if val < 1:
                 return str(val)
@@ -324,9 +312,19 @@ class WTFCSVStat():
 
     def is_date(self, date):
         try:
-            return parse(date)
+            return parse(str(date))
         except:
             return None
+
+def format_datetime(c, val):
+    if c.type in [datetime.datetime, datetime.date, datetime.time]:
+        if c.type is datetime.date:
+            return val.strftime("%x")
+        elif c.type is datetime.time:
+            return val.strftime("%X")
+        else:
+            return val.isoformat()
+    return str(val)
 
 def median(l):
     """

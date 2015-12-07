@@ -101,7 +101,7 @@ def process_results(file_paths, titles):
 def interpretCosineSimilarity(score):
 	# Cosine Similarity
 	if score >= 0.9:
-		return _('almost_the_same')
+		return _('almost the same')
 	elif score >= 0.8:
 		return _('sort of similar')
 	elif score >= 0.7:

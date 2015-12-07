@@ -58,7 +58,7 @@
 			<table class="table" role="presentation">
 				<thead role="tableheader">
 					<tr role="row" aria-label="{{ _('list of bigrams and how many times they occur, ordered from most to least frequent') }}">
-						<th role="columnheader">{{ _('%(bigram)s', bigram=hover_tooltip('Bigram', 'A bigram is a two word phrase')) }}</th>
+						<th role="columnheader">{{ _('%(bigram)s', bigram=hover_tooltip(_('Bigram'), 'A bigram is a two word phrase')) }}</th>
 						<th role="columnheader">{{ _('Frequency') }}</th>
 					</tr>
 				</thead>
@@ -79,7 +79,7 @@
 			<table class="table" role="presentation">
 				<thead role="tableheader">
 					<tr role="row" aria-label="{{ _('list of trigrams and how many times they occur, ordered from most to least frequent') }}">
-						<th role="columnheader">{{ _('%(trigram)s', trigram=hover_tooltip('Trigram', 'A trigram is a three word phrase')) }}</th>
+						<th role="columnheader">{{ _('%(trigram)s', trigram=hover_tooltip(_('Trigram'), 'A trigram is a three word phrase')) }}</th>
 						<th role="columnheader">{{ _('Frequency') }}</th>
 					</tr>
 				</thead>

@@ -42,7 +42,7 @@ def index():
 			words = process_upload(upload_file)
 			ignore_case = forms[btn_value].data['ignore_case_upload']
 			ignore_stopwords = forms[btn_value].data['ignore_stopwords_upload']
-			title = _(u'%(filename)s', filename=upload_file.filename)
+			title = upload_file.filename
 		elif btn_value == 'sample':
 			basedir = os.path.dirname(os.path.abspath(__file__))
 			sample_file = forms['sample'].data['sample']
@@ -50,7 +50,7 @@ def index():
 			ignore_case = forms[btn_value].data['ignore_case_sample']
 			ignore_stopwords = forms[btn_value].data['ignore_stopwords_sample']
 			samplename = filehandler.get_sample_title(sample_file)
-			title = _('%(samplename)s', samplename=samplename)
+			title = samplename
 		elif btn_value == 'link':
 			content = filehandler.download_webpage(forms['link'].data['link'])
 			words = content['text']

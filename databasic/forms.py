@@ -53,7 +53,7 @@ class LinkForm(object):
 	field_flags = ('url',)
 	link = StringField(
 		_('Link to spreadsheet'),
-		description={'placeholder': _('https://docs.google.com/spreadsheets/')},
+		description={'placeholder': 'https://docs.google.com/spreadsheets/'},
 		widget=TextInput())
 
 	def __init__(self, label_text, placeholder_text):
@@ -129,7 +129,7 @@ class WTFCSVUpload(UploadForm, Form):
 
 class WTFCSVLink(LinkForm, Form):
 	def __init__(self):
-		super(WTFCSVLink, self).__init__(_('Paste a link'), _('https://docs.google.com/spreadsheets/'))
+		super(WTFCSVLink, self).__init__(_('Paste a link'), 'https://docs.google.com/spreadsheets/')
 
 class WTFCSVSample(SampleForm, Form):
 	def __init__(self):
