@@ -17,95 +17,97 @@
 {% endblock %}
 
 {% block body %}
-<div class="container-fluid">
-	<div class="row">
-		<div class="col-xs-12">
-			<div class="top-info">
-				<h3 role="banner">Words used in {{ title }}</h3>
-				<p>{{ _('Here is a picture of the words used most often in your document. Words used more often are bigger, and ones used less often are smaller. This picture, called a "word cloud", is helpful to get a sense of the most used words in a document.') }}</p>
-				{{ what_next_anchor() }}
-			</div>
-			<div id="wc-container" aria-label="visual picture showing words sized by ok how often they appear">
-				<div class="word-cloud" role="presentation" aria-labelledby="wc-container"></div>
+<div role="main">
+	<div class="container-fluid">
+		<div class="row">
+			<div class="col-xs-12">
+				<div class="top-info">
+					<h3 role="banner">Words used in {{ title }}</h3>
+					<p>{{ _('Here is a picture of the words used most often in your document. Words used more often are bigger, and ones used less often are smaller. This picture, called a "word cloud", is helpful to get a sense of the most used words in a document.') }}</p>
+					{{ what_next_anchor() }}
+				</div>
+				<div id="wc-container" aria-hidden="true" aria-label="visual picture showing words sized by ok how often they appear">
+					<div class="word-cloud" role="presentation" aria-labelledby="wc-container"></div>
+				</div>
 			</div>
 		</div>
-	</div>
 
-	<div class="row" id="frequencies">
-		<div class="col-sm-4">
-			<h2>{{ _('Top Words') }} 
-			<a href="{{ download_words }}" aria-label="download csv of word frequencies"><span class="glyphicon glyphicon-download" aria-hidden="true"></span></a></h2>
-			<table class="table" role="presentation">
-				<thead role="tableheader">
-					<tr role="row" aria-label="{{ _('list of words and how many times they occur, ordered from most to least frequent') }}">
-						<th role="columnheader">{{ _('Word') }}</th>
-						<th role="columnheader">{{ _('Frequency') }}</th>
-					</tr>
-				</thead>
-				<tbody>
-					{% for word in results[0]|batch(20)|first%}
-					<tr role="row" aria-label="{{ _('%(word)s, %(times)s', word=word[0], times=word[1]) }}">
-						<td role="gridcell">{{ word[0] }}</td>
-						<td role="gridcell">{{ word[1] }}</td>
-					</tr>
-					{% endfor %}
-				</tbody>
-			</table>
-		</div>
-		<div class="col-sm-4">
-			<h2>{{ _('Bigrams') }} 
-			<a href="{{ download_bigrams }}" aria-label="download csv of bigram frequencies"><span class="glyphicon glyphicon-download" aria-hidden="true"></span></a></h2>
-			<table class="table" role="presentation">
-				<thead role="tableheader">
-					<tr role="row" aria-label="{{ _('list of bigrams and how many times they occur, ordered from most to least frequent') }}">
-						<th role="columnheader">{{ _('%(bigram)s', bigram=hover_tooltip(_('Bigram'), 'A bigram is a two word phrase')) }}</th>
-						<th role="columnheader">{{ _('Frequency') }}</th>
-					</tr>
-				</thead>
-				<tbody>
-					{% for word in results[1]|batch(20)|first %}
-					{% set bigram=" ".join(word[0]) %}
-					<tr role="row" aria-label="{{ _('%(word)s, %(times)s', word=bigram, times=word[1]) }}">
-						<td role="gridcell">{{ bigram }}</td>
-						<td role="gridcell">{{ word[1] }}</td>
-					</tr>
-					{% endfor %}
-				</tbody>
-			</table>
-		</div>
-		<div class="col-sm-4">
-			<h2>{{ _('Trigrams') }} 
-			<a href="{{ download_trigrams }}" aria-label="download csv of trigram frequencies"><span class="glyphicon glyphicon-download" aria-hidden="true"></span></a></h2>
-			<table class="table" role="presentation">
-				<thead role="tableheader">
-					<tr role="row" aria-label="{{ _('list of trigrams and how many times they occur, ordered from most to least frequent') }}">
-						<th role="columnheader">{{ _('%(trigram)s', trigram=hover_tooltip(_('Trigram'), 'A trigram is a three word phrase')) }}</th>
-						<th role="columnheader">{{ _('Frequency') }}</th>
-					</tr>
-				</thead>
-				<tbody>
-					{% for word in results[2]|batch(20)|first %}
-					{% set trigram=" ".join(word[0]) %}
-					<tr role="row" aria-label="{{ _('%(word)s, %(times)s', word=trigram, times=word[1]) }}">
-						<td role="gridcell">{{ trigram }}</td>
-						<td role="gridcell">{{ word[1] }}</td>
-					</tr>
-					{% endfor %}
-				</tbody>
-			</table>
+		<div class="row" id="frequencies">
+			<div class="col-sm-4">
+				<h2>{{ _('Top Words') }} 
+				<a href="{{ download_words }}" aria-label="{{ _('download csv of word frequencies') }}"><span class="glyphicon glyphicon-download" aria-hidden="true"></span></a></h2>
+				<table class="table" role="presentation">
+					<thead role="tableheader">
+						<tr role="row" aria-label="{{ _('list of words and how many times they occur, ordered from most to least frequent') }}">
+							<th role="columnheader">{{ _('Word') }}</th>
+							<th role="columnheader">{{ _('Frequency') }}</th>
+						</tr>
+					</thead>
+					<tbody>
+						{% for word in results[0]|batch(20)|first%}
+						<tr role="row" aria-label="{{ _('%(word)s, %(times)s', word=word[0], times=word[1]) }}">
+							<td role="gridcell">{{ word[0] }}</td>
+							<td role="gridcell">{{ word[1] }}</td>
+						</tr>
+						{% endfor %}
+					</tbody>
+				</table>
+			</div>
+			<div class="col-sm-4">
+				<h2>{{ _('Bigrams') }} 
+				<a href="{{ download_bigrams }}" aria-label="download csv of bigram frequencies"><span class="glyphicon glyphicon-download" aria-hidden="true"></span></a></h2>
+				<table class="table" role="presentation">
+					<thead role="tableheader">
+						<tr role="row" aria-label="{{ _('list of bigrams and how many times they occur, ordered from most to least frequent') }}">
+							<th role="columnheader">{{ _('%(bigram)s', bigram=hover_tooltip(_('Bigram'), 'A bigram is a two word phrase')) }}</th>
+							<th role="columnheader">{{ _('Frequency') }}</th>
+						</tr>
+					</thead>
+					<tbody>
+						{% for word in results[1]|batch(20)|first %}
+						{% set bigram=" ".join(word[0]) %}
+						<tr role="row" aria-label="{{ _('%(word)s, %(times)s', word=bigram, times=word[1]) }}">
+							<td role="gridcell">{{ bigram }}</td>
+							<td role="gridcell">{{ word[1] }}</td>
+						</tr>
+						{% endfor %}
+					</tbody>
+				</table>
+			</div>
+			<div class="col-sm-4">
+				<h2>{{ _('Trigrams') }} 
+				<a href="{{ download_trigrams }}" aria-label="download csv of trigram frequencies"><span class="glyphicon glyphicon-download" aria-hidden="true"></span></a></h2>
+				<table class="table" role="presentation">
+					<thead role="tableheader">
+						<tr role="row" aria-label="{{ _('list of trigrams and how many times they occur, ordered from most to least frequent') }}">
+							<th role="columnheader">{{ _('%(trigram)s', trigram=hover_tooltip(_('Trigram'), 'A trigram is a three word phrase')) }}</th>
+							<th role="columnheader">{{ _('Frequency') }}</th>
+						</tr>
+					</thead>
+					<tbody>
+						{% for word in results[2]|batch(20)|first %}
+						{% set trigram=" ".join(word[0]) %}
+						<tr role="row" aria-label="{{ _('%(word)s, %(times)s', word=trigram, times=word[1]) }}">
+							<td role="gridcell">{{ trigram }}</td>
+							<td role="gridcell">{{ word[1] }}</td>
+						</tr>
+						{% endfor %}
+					</tbody>
+				</table>
+			</div>
 		</div>
 	</div>
+	<p>{{ what_next(_("Examining text data in this quantitative way can help you find stories to tell in your data.  The fact that \"%(most_popular_word)s\" is the most popular word is good to know, but combine that with the %(word_in_bigrams_count)s uses in the top 40 bigrams, and the %(word_in_trigrams_count)s uses in the top 40 trigrams, to understand the context of how it is used.  With that richer understanding of the context, you can sketch out a picture of why \"%(most_popular_word)s\" is so important in %(title)s. <br/><br />So grab some paper and some crayons and start drawing what you see!  Checkout our <a href=\"#\">activity guide</a> for more help on sketching out a story.  Want to dig into the data more? Download all the <a href=\"%(download_words)s\">word counts</a>, <a href=\"%(download_bigrams)s\">bigrams</a>, or <a href=\"%(download_trigrams)s\">trigrams</a> and investigate why \"%(random_unpopular_word)s\" is used %(random_unpopular_word_count)s times!",
+	most_popular_word=whatnext['most_popular_word'],
+	word_in_bigrams_count=whatnext['word_in_bigrams_count'],
+	word_in_trigrams_count=whatnext['word_in_trigrams_count'],
+	download_words=download_words,
+	download_bigrams=download_bigrams,
+	download_trigrams=download_trigrams,
+	title=title,
+	random_unpopular_word=whatnext['random_unpopular_word'],
+	random_unpopular_word_count=whatnext['random_unpopular_word_count'])) }}
 </div>
-<p>{{ what_next(_("Examining text data in this quantitative way can help you find stories to tell in your data.  The fact that \"%(most_popular_word)s\" is the most popular word is good to know, but combine that with the %(word_in_bigrams_count)s uses in the top 40 bigrams, and the %(word_in_trigrams_count)s uses in the top 40 trigrams, to understand the context of how it is used.  With that richer understanding of the context, you can sketch out a picture of why \"%(most_popular_word)s\" is so important in %(title)s. <br/><br />So grab some paper and some crayons and start drawing what you see!  Checkout our <a href=\"#\">activity guide</a> for more help on sketching out a story.  Want to dig into the data more? Download all the <a href=\"%(download_words)s\">word counts</a>, <a href=\"%(download_bigrams)s\">bigrams</a>, or <a href=\"%(download_trigrams)s\">trigrams</a> and investigate why \"%(random_unpopular_word)s\" is used %(random_unpopular_word_count)s times!",
-most_popular_word=whatnext['most_popular_word'],
-word_in_bigrams_count=whatnext['word_in_bigrams_count'],
-word_in_trigrams_count=whatnext['word_in_trigrams_count'],
-download_words=download_words,
-download_bigrams=download_bigrams,
-download_trigrams=download_trigrams,
-title=title,
-random_unpopular_word=whatnext['random_unpopular_word'],
-random_unpopular_word_count=whatnext['random_unpopular_word_count'])) }}
 {% endblock %}
 
 {% block results_scripts %}

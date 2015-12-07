@@ -285,12 +285,16 @@ class WTFCSVStat():
             if c.type is int:
                 return str(val)
             if c.type is datetime.date:
+                return val.isoformat()
+                '''
                 if mx-mn > datetime.timedelta(365):
                     return val.strftime("%m/%d/%Y")
                 else:
                     return val.strftime("%x")
+                '''
             if c.type is datetime.time:
-                return val.strftime("%X")
+                return val.isoformat()
+                # return val.strftime("%X")
             if c.type is datetime.datetime:
                 return str(val)
             if val < 1:
@@ -318,12 +322,15 @@ class WTFCSVStat():
 
 def format_datetime(c, val):
     if c.type in [datetime.datetime, datetime.date, datetime.time]:
-        if c.type is datetime.date:
+        '''
+        if c.type is datetime.date and val.:
             return val.strftime("%x")
         elif c.type is datetime.time:
             return val.strftime("%X")
         else:
             return val.isoformat()
+        '''
+        return val.isoformat()
     return str(val)
 
 def median(l):
