@@ -66,11 +66,11 @@ def results():
 		cosine_similarity= {'score':job['cosineSimilarity'],'description':interpretCosineSimilarity(job['cosineSimilarity'])},
 		whatnext=whatnext, tool_name='samediff')
 
-@mod.route('/results/download/<doc_id>/<filename1>-<filename2>-samediff.csv')
-def download(doc_id, filename1, filename2):
+@mod.route('/results/download/<doc_id>/results.csv')
+def download(doc_id):
 	try:
 		doc = mongo.find_document('samediff', doc_id)
-		headers = [_('word'), _('uses in') +' ' + str(filename1), _('uses in') + ' ' + str(filename2), _('total uses')]
+		headers = [_('word'), _('uses in') +' ' + doc['filenames'][0], _('uses in') + ' ' + doc['filenames'][1], _('total uses')]
 		rows = []
 		for f, w in doc['sameWords']:
 			doc1Count = next(f2 for f2, w2 in doc['mostFrequentDoc1'] if w == w2)
@@ -82,7 +82,7 @@ def download(doc_id, filename1, filename2):
 			rows.append([w, 0, f, f])
 		# TODO: clean up file name
 		filename = filehandler.write_to_csv(headers, rows, 
-			filehandler.generate_filename('csv', '', filename1, filename2), False)
+			filehandler.generate_filename('csv', '', doc['filenames'][0], doc['filenames'][1]), False)
 		return filehandler.generate_csv(filename)
 	except Exception as e:
 		logging.exception(e)
