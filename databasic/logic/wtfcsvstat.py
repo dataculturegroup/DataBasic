@@ -89,6 +89,7 @@ class WTFCSVStat():
 
             date_count = 0
             time_count = 0
+            number_count = 0
             value_count = len(values)
 
             def remove_broken_datetimes():
@@ -100,6 +101,8 @@ class WTFCSVStat():
                 return new_values
 
             for v in values:
+                if type(v) in [float, int, long, complex]:
+                    number_count += 1
                 if self.is_date(v) is not None:
                     v = self.is_date(v)
                     if v.time() != datetime.time(0, 0):
@@ -109,17 +112,19 @@ class WTFCSVStat():
 
             date_percent = float(date_count) / float(value_count)
             time_percent = float(time_count) / float(value_count)
+            number_percent = float(number_count) / float(value_count)
             threshold = 0.5
 
-            if date_percent > threshold:
-                if time_percent > threshold:
-                    c.type = datetime.datetime
-                else:
-                    c.type = datetime.date
-                values = remove_broken_datetimes()
-            elif time_percent > threshold:
-                c.type = datetime.time
-                values = remove_broken_datetimes()
+            if number_percent < threshold:
+                if date_percent > threshold:
+                    if time_percent > threshold:
+                        c.type = datetime.datetime
+                    else:
+                        c.type = datetime.date
+                    values = remove_broken_datetimes()
+                elif time_percent > threshold:
+                    c.type = datetime.time
+                    values = remove_broken_datetimes()
 
             for op in OPERATIONS:
                 stats[op] = getattr(self, 'get_%s' % op)(c, values, stats)
@@ -164,6 +169,7 @@ class WTFCSVStat():
                 # if there are few unique values, get every value and their frequency
                 if len(stats['unique']) <= MAX_UNIQUE and c.type is not bool:
                     column_info['values'] = self.get_most_freq_values(stats)
+                    column_info['most_freq_values'] = self.get_most_freq_values(stats)
                 else:
                     column_info['uniques'] = len(stats['unique'])
 
