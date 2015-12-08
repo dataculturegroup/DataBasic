@@ -6,6 +6,15 @@ $("input[type='checkbox']").change(function(){
     }
 });
 
+$('.inputs .nav-tabs > li').click(function(){
+    // TODO: this is not working
+    var tabId = $(this).find('a').attr('id').replace('tab-', '');
+    $('.tab-content')
+        .find('#' + tabId)
+        .find('.form-group:nth(1)')
+        .find('.form-control:nth(0)')[0].focus ();
+});
+
 $(document).ready(function(){
     $('.modal').each(function(){
         var src = $(this).find('iframe').attr('src');
