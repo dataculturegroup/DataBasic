@@ -245,7 +245,8 @@ $(function () {
 				style: {
 					color: '#fff',
 					font: '14px HalisGR-Book',
-					fontWeight: 'bold'
+					fontWeight: 'bold',
+					width: '50px'
 				}
 			},
 			title: {
@@ -291,7 +292,11 @@ $(function () {
 					text: null
 				},
 				tooltip: {
-					enabled: false
+					backgroundColor: '#fff',
+					borderColor: '#C8523B',
+					formatter: function() {
+						return '<style="color: #C8523B">' + this.x + ': <strong>' + this.y + '</strong></style>';
+				    }
 				},
 				{% if 'text' in dname or 'numbers' in dname %}
 					chart: {
