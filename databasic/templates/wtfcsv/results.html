@@ -2,27 +2,35 @@
 {% from 'macros.html' import share, hover_tooltip, shareable %}
 {% from 'tool_footer.html' import what_next %}
 
-{% macro card_top(type_name, name, glyphicon) -%}
+{% macro data_type_icon(col, type_name) -%}
+	{% set is_number = type_name == 'float' or type_name == 'int' or type_name == 'long' or type_name == 'complex' %}
+	<a data-trigger="focus hover" data-toggle="tooltip" data-trigger="hover" href="#tooltip" data-original-title="{{_('This column is full of')}} {{ col['display_type_name'] }}">
+	<i class="fa 
+		{% if is_number %}
+			fa-hashtag
+		{% elif type_name == 'unicode' %}
+			noun_134105
+		{% elif type_name == 'datetime' %}
+			fa-calendar
+		{% elif type_name == 'date' %}
+			fa-calendar
+		{% elif type_name == 'time' %}
+			fa-clock-o
+		{% elif type_name == 'bool' %}
+			fa-question-circle
+		{% else %}
+			fa-database
+		{% endif %}
+		" aria-hidden="true" role="presentation">
+	</i>
+	</a>
+{%- endmacro %}
+
+{% macro card_top(type_name, col, glyphicon) -%}
 <div class="card-top">
 	<div class="close-button pull-right" role="presentation" aria-hidden="true"><h3><span class="glyphicon {{ glyphicon }}" aria-hidden="true"></span></h3></div>
-	<h3 class="data-type" aria-hidden="true" role="presentation"> <i class="fa 
-	{% if type_name == 'unicode' %}
-		noun_134105
-	{% elif type_name == 'float' or type_name == 'int' or type_name == 'long' or type_name == 'complex' %}
-		fa-hashtag
-	{% elif type_name == 'datetime' %}
-		fa-calendar
-	{% elif type_name == 'date' %}
-		fa-calendar
-	{% elif type_name == 'time' %}
-		fa-clock-o
-	{% elif type_name == 'bool' %}
-		fa-question-circle
-	{% else %}
-		fa-database
-	{% endif %}
-	" aria-hidden="true" role="presentation"></i></h3>
-	<h3 class="card-name">{{ name }}</h3>
+	<h3 class="data-type" aria-hidden="true" role="presentation">{{ data_type_icon(col, type_name) }}</h3>
+	<h3 class="card-name">{{ col['name'] }}</h3>
 </div>
 {%- endmacro %}
 
@@ -91,7 +99,7 @@
 					<div class="card" id="card-{{ c }}">
 						<div class="front">
 							<div class="card-content">
-								{{ card_top(type_name, col['name'], 'glyphicon-info-sign') }}
+								{{ card_top(type_name, col, 'glyphicon-info-sign') }}
 								<div id="card-chart-{{ c }}" class="card-chart">
 									<div class="chart" aria-hidden="true"></div>
 									<div class="table">
@@ -115,7 +123,7 @@
 						</div>
 						<div class="back">
 							<div class="card-content">
-								{{ card_top(type_name, col['name'], 'glyphicon-signal') }}
+								{{ card_top(type_name, col, 'glyphicon-signal') }}
 								<div class="card-bottom">
 									<ul>
 										<li>{{_("This column is full of")}} {{ col['display_type_name'] }}</li>
