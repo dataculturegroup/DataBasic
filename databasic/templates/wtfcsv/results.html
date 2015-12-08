@@ -213,6 +213,7 @@
 {% block results_scripts %}
 <script type="text/javascript" src="{{ url_for('static', filename='js/lib/jquery.flip.min.js') }}" charset="utf-8"></script>
 <script type="text/javascript" src="{{ url_for('static', filename='js/lib/d3.min.js') }}" charset="utf-8"></script>
+<script type="text/javascript" src="{{ url_for('static', filename='js/lib/d3.tip.js') }}"></script>
 <script type="text/javascript" src="{{ url_for('static', filename='js/lib/d3.layout.cloud.js') }}" charset="utf-8"></script>
 <script type="text/javascript" src="{{ url_for('static', filename='js/lib/highcharts.js') }}" charset="utf-8"></script>
 <script type="text/javascript">
@@ -369,6 +370,14 @@ $(function () {
 	{% else %}
 
 		// Word cloud
+
+		var tip = d3.tip()
+			.attr('class', 'd3-tip')
+			.html(function(d) { 
+				return d.text + ': ' + '<strong>' + d.size + '</strong>';
+			})
+			.offset([-5, 0]);
+
 		var data = [
 		{% for word in col['word_counts'][0] | batch(50) | first %}
 			{ text: "{{ word[0]|safe }}", size: {{ word[1]|float }} },
@@ -395,6 +404,7 @@ $(function () {
 		d3.select('#card-chart-{{ c }} .chart').append('svg')
 			.attr('width', layout.size()[0])
 			.attr('height', layout.size()[1])
+			.call(tip)
 		.append('g')
 			.attr('transform', 'translate(' + layout.size()[0] / 2 + ',' + layout.size()[1] / 2 + ')')
 		.selectAll('text')
@@ -408,7 +418,9 @@ $(function () {
 			.attr('transform', function (d) {
 				return 'translate(' + [d.x, d.y] + ')rotate(' + d.rotate + ')';
 			})
-			.text(function (d) { return d.text; });
+			.text(function (d) { return d.text; })
+			.on('mouseover', tip.show)
+            .on('mouseout', tip.hide);
 
 	{% endif %}
 

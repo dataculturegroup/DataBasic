@@ -115,10 +115,6 @@ header {
 	width: 100%;
 }
 
-#cards {
-	// margin-top: 15px;
-}
-
 .card {
 	.card-top {
 		height: 65px;
@@ -165,4 +161,15 @@ header {
 	.hidden-card {
 		display: none;
 	}
+}
+
+.d3-tip {
+	font: $font-lt;
+	border-color: #C8523B;
+	background: $c-white;
+	color: #C8523B;
+}
+.d3-tip:after {
+	border-color: #C8523B;
+	color: $c-white;
 }

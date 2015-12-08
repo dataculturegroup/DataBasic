@@ -5,6 +5,7 @@ $("input[type='checkbox']").change(function(){
         $(this).parent().parent().removeClass("checked-div");  
     }
 });
+
 $(document).ready(function(){
     $('.modal').each(function(){
         var src = $(this).find('iframe').attr('src');
