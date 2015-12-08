@@ -1,5 +1,5 @@
 #!/usr/bin/env python
-import datetime, os, sys, json, tempfile
+import datetime, os, sys, json, tempfile, re
 import gzip
 import bz2
 from heapq import nlargest
@@ -52,14 +52,6 @@ class WTFCSVStat():
 
         (_, extension) = os.path.splitext(path)
 
-        #pathbak = os.path.join(tempfile.gettempdir(),os.path.basename(path) + '.bak')
-        #os.rename(path, pathbak)
-        #with open(pathbak, 'r') as infile, open(path, 'w') as outfile:
-        #    for line in infile:
-        #        outfile.write(line.replace('\n', ' '))
-        #os.remove(pathbak)
-
-        # f = codecs.open(path, mode, encoding=enc) # this was causing problems
         f = open(path)
 
         return f
@@ -69,7 +61,6 @@ class WTFCSVStat():
         
         operations = [op for op in OPERATIONS]
 
-        # TODO: this breaks if cell contains a newline
         tab = table.Table.from_csv(self.input_file)
 
         row_count = tab.count_rows() + 1 # this value is inaccurate so I'm adding 1
@@ -289,19 +280,8 @@ class WTFCSVStat():
         def pretty_value(val):
             if c.type is int:
                 return str(val)
-            if c.type is datetime.date:
-                return val.isoformat()
-                '''
-                if mx-mn > datetime.timedelta(365):
-                    return val.strftime("%m/%d/%Y")
-                else:
-                    return val.strftime("%x")
-                '''
-            if c.type is datetime.time:
-                return val.isoformat()
-                # return val.strftime("%X")
-            if c.type is datetime.datetime:
-                return str(val)
+            if c.type in [datetime.date, datetime.time, datetime.datetime]:
+                return format_datetime(c, val)
             if val < 1:
                 return str(val)
             else:
@@ -321,21 +301,22 @@ class WTFCSVStat():
 
     def is_date(self, date):
         try:
-            return parse(str(date))
+            if re.search('[a-zA-Z]', date):
+                return None
+            else:
+                return parse(str(date))
         except:
             return None
 
 def format_datetime(c, val):
     if c.type in [datetime.datetime, datetime.date, datetime.time]:
-        '''
-        if c.type is datetime.date and val.:
-            return val.strftime("%x")
+        d = val
+        if c.type is datetime.date:
+            return "%02d/%02d/%02d" % (d.day,d.month,d.year)
         elif c.type is datetime.time:
-            return val.strftime("%X")
+            return "%02d:%02d" % (d.hour,d.minute)
         else:
-            return val.isoformat()
-        '''
-        return val.isoformat()
+            return "%02d-%02d-%02d %02d:%02d" % (d.year,d.month,d.day,d.hour,d.minute)
     return str(val)
 
 def median(l):
