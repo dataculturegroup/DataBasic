@@ -1,8 +1,10 @@
+import json, logging
 from collections import OrderedDict
 from databasic import mongo
 from databasic.forms import WTFCSVUpload, WTFCSVLink, WTFCSVSample
 from databasic.logic import wtfcsvstat, filehandler, oauth
 from flask import Blueprint, render_template, request, redirect, g
+from flask.ext.babel import gettext, ngettext
 import os, logging, random
 
 mod = Blueprint('wtfcsv', __name__, url_prefix='/<lang_code>/wtfcsv', template_folder='../templates/wtfcsv')
@@ -95,6 +97,25 @@ def results_sheet(index):
 	whatnext['random_column_name2'] = random_column2['name']
 	whatnext['random_column_name3'] = random_column3['name']
 
+	# build a list of summary result data for the chart
+	for col in columns:
+		is_string = 'text' in col['display_type_name']
+		data_to_use = []
+		# pick the right results to summarize
+		if 'deciles' in col:
+			data_to_use = col['deciles']
+		elif 'most_freq_values' in col:
+			data_to_use = col['most_freq_values']
+		# stitch together the overview
+		overview_data = {'categories':[],'values':[]}
+		for d in data_to_use:
+			key = str(d['value']) if is_string else str(d['value']).replace('_', '.')
+			overview_data['categories'].append(key)
+			overview_data['values'].append(d['count'])
+		if 'others' in col:
+			overview_data[gettext('Other')] = int(col['others'])
+		col['overview'] = overview_data
+	
 	return render_template('wtfcsv/results.html', results=results, whatnext=whatnext, tool_name='wtfcsv', index=int(index))
 
 def redirect_to_results(results):

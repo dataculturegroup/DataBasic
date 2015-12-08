@@ -92,7 +92,19 @@
 						<div class="front">
 							<div class="card-content">
 								{{ card_top(type_name, col['name'], 'glyphicon-info-sign') }}
-								<div id="card-chart-{{ c }}"></div>
+								<div id="card-chart-{{ c }}">
+									<div class="chart" aria-hidden="true"></div>
+									<div class="table" style="display:none">
+									<table class="table">
+										<thead>
+											<tr>
+											<th>{{_('value')}}</th>
+											<th>{{_('frequency')}}</th>
+											</tr>
+										</thead>
+									</table>
+									</div>
+								</div>
 							</div>
 						</div>
 						<div class="back">
@@ -274,7 +286,7 @@ $(function () {
 	{% if not 'word_counts' in col %}
 
 		{% if 'text' in dname or 'numbers' in dname or 'dates' in dname or 'times' in dname or 'dates and times' in dname %}
-			$('#card-chart-{{ c }}').highcharts({
+			$('#card-chart-{{ c }} .chart').highcharts({
 				title: {
 					text: null
 				},
@@ -303,16 +315,7 @@ $(function () {
 						_('Undefined')
 						{% endif %}
 					},
-					categories: [
-						{% if 'deciles' in col %}
-							{{ get_most_freq(col['deciles'], 'value', dname) }}
-						{% elif 'most_freq_values' in col %}
-							{{ get_most_freq(col['most_freq_values'], 'value', dname) }}
-						{% endif %}
-						{% if 'others' in col %}
-							_('Other')
-						{% endif %}
-					],
+					categories: {{ col['overview']['categories'] | tojson }},
 					plotLines: [{
 						color: '#fff'
 					}]
@@ -335,16 +338,7 @@ $(function () {
 				    }
 				},
 				series: [{
-					data: [
-						{% if 'deciles' in col %}
-							{{ get_most_freq(col['deciles'], 'count', dname) }}
-						{% elif 'most_freq_values' in col %}
-							{{ get_most_freq(col['most_freq_values'], 'count', dname) }}
-						{% endif %}
-						{% if 'others' in col %}
-							{{ col['others']|int }}
-						{% endif %}
-					],
+					data: {{ col['overview']['values'] | tojson }},
 					showInLegend: false,
 					marker: {
 						states: {
@@ -370,7 +364,7 @@ $(function () {
 		{% endfor %}
 		];
 
-		var width = $('#card-chart-{{ c }}').width();
+		var width = $('#card-chart-{{ c }} .chart').width();
 
 		var maxScore = Math.max.apply(Math, data.map(function(o) {return o.size;}));
 		var fontSizeScale = d3.scale.linear()
@@ -387,7 +381,7 @@ $(function () {
 
 		layout.start();
 
-		d3.select('#card-chart-{{ c }}').append('svg')
+		d3.select('#card-chart-{{ c }} .chart').append('svg')
 			.attr('width', layout.size()[0])
 			.attr('height', layout.size()[1])
 		.append('g')
@@ -413,18 +407,3 @@ $(function () {
 
 </script>
 {% endblock %}
-
-{% macro get_most_freq(most_freq_values, key, displayName) %}
-	{% set is_string = 'text' in displayName %}
-	{% for val in most_freq_values %}
-		{% if 'value' in key %}
-			{% if is_string %}
-				"{{ val[key]|string }}",
-			{% else %}
-				"{{ val[key]|replace('_', '.')|string }}",
-			{% endif %}
-		{% else %}
-			{{ val[key] }},
-		{% endif %}
-	{% endfor %}
-{% endmacro %}
