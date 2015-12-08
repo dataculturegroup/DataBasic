@@ -115,7 +115,8 @@ def results_sheet(index):
 			overview_data['categories'].append(key)
 			overview_data['values'].append(d['count'])
 		if 'others' in col:
-			overview_data[gettext('Other')] = int(col['others'])
+			overview_data['categories'].append(gettext('Other'))
+			overview_data['values'].append(int(col['others']))
 		col['overview'] = overview_data
 	
 	return render_template('wtfcsv/results.html', results=results, whatnext=whatnext, tool_name='wtfcsv', index=int(index))
