@@ -106,6 +106,8 @@ def results_sheet(index):
 			data_to_use = col['deciles']
 		elif 'most_freq_values' in col:
 			data_to_use = col['most_freq_values']
+		elif 'word_counts' in col:
+			data_to_use = [ {'value':r[0], 'count':r[1]} for r in col['word_counts'][0][:20] ]
 		# stitch together the overview
 		overview_data = {'categories':[],'values':[]}
 		for d in data_to_use:
