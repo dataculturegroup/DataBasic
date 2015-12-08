@@ -1,5 +1,5 @@
 {% extends "tool_base.html" %}
-{% from 'macros.html' import download_url, hover_tooltip %}
+{% from 'macros.html' import download_url, hover_tooltip, shareable %}
 {% from 'tool_footer.html' import what_next %}
 
 {% set file1 = results['filenames'][0] %}
@@ -21,8 +21,8 @@
 	<div class="container">
 		<div class="row" >
 			<div class="col-md-12 text-center" id="title">
-				<h2>{{_("Your <strong>SameDiff</strong> Report")}} 
-				<a href="{{ download }}" title="{{_('download')}}" aria-label="{{_('download')}}"><span class="glyphicon glyphicon-download" aria-hidden="true"></span></a>
+				<h2 role="banner" id="results-title">{{_("Your <strong>SameDiff</strong> Report")}} 
+				<a href="{{ download }}" title="{{_('download')}}" aria-label="{{_('download')}}"><span class="glyphicon glyphicon-download" aria-hidden="true"></span></a> {{ shareable() }}
 				</h2>
 				<p>
 				{{ _('These two documents are %(description)s.', description=cosine_similarity['description']) }}

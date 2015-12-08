@@ -1,5 +1,5 @@
 {% extends "tool_base.html" %}
-{% from 'macros.html' import share, hover_tooltip %}
+{% from 'macros.html' import share, hover_tooltip, shareable %}
 {% from 'tool_footer.html' import what_next %}
 
 {% macro card_top(type_name, name, glyphicon) -%}
@@ -59,8 +59,8 @@
 			<div class="row">
 				<div class="col-md-12" id="intro">
 					<div class="intro-container">
-						<h2 class="summary">
-							{{_("WTFcsv: ")}} {{ results[index]['filename'] }} 
+						<h2 class="summary" role="banner" id="results-title">
+							{{_("WTFcsv: ")}} {{ results[index]['filename'] }} {{ shareable() }}
 						</h2>
 						<p class="summary">
 							{{ _("%(rows)s rows of data grouped into %(cols)s columns.",

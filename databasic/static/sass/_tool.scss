@@ -64,6 +64,30 @@ h3 a {
 	}
 }
 
+#results-title {
+	.glyphicon {
+		color: $c-white;
+		font-size: 32px;
+		top: 7px;
+		opacity: 0.6;
+
+		&:hover {
+			color: $c-white;
+			opacity: 0.8;
+		}
+
+		&:focus {
+			color: $c-white;
+			opacity: 0.8;
+		}
+
+		&:active {
+			color: $c-white;
+			opacity: 0.8;
+		}
+	}
+}
+
 .modal-content {
 	background-color: $c-theme-lt;
 	border-radius: 0;

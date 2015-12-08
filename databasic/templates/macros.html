@@ -158,6 +158,27 @@
     {% endif %}
 {%- endmacro %}
 
+{% macro shareable() -%}
+    <a href="#share-modal" data-toggle="modal"><span class="glyphicon glyphicon-share" aria-hidden="true"></span></a>
+    <div id="share-modal" class="modal fade">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true" aria-label="{{ _('close video window') }}">×</button>
+                    <h4 class="modal-title">Share your results</h4>
+                </div>
+                <div class="modal-body">
+                    {# <p>{{ _('These results are valid for %(days)s days', days='30') }}</p> #}
+                    <p>{{ _('You can share these results by emailing this url:') }}</p>
+                    <form>
+                        <input id="share-modal-url" class="form-control" type="text" readonly value="{{ request.url }}">
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+{%- endmacro %}
+
 {% macro video_modal(button_text, src) -%}
     
     <div class="row centered-row">
