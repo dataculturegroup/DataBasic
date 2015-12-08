@@ -92,16 +92,22 @@
 						<div class="front">
 							<div class="card-content">
 								{{ card_top(type_name, col['name'], 'glyphicon-info-sign') }}
-								<div id="card-chart-{{ c }}">
+								<div id="card-chart-{{ c }}" class="card-chart">
 									<div class="chart" aria-hidden="true"></div>
-									<div class="table" style="display:none">
-									<table class="table">
+									<div class="table">
+									<table>
 										<thead>
 											<tr>
 											<th>{{_('value')}}</th>
 											<th>{{_('frequency')}}</th>
 											</tr>
 										</thead>
+										{% for idx in range(col['overview']['categories']|length) %}
+											<tr>
+												<td>{{ col['overview']['categories'][idx]}}</td>
+												<td>{{ col['overview']['values'][idx]}}</td>
+											</tr>
+										{% endfor %}
 									</table>
 									</div>
 								</div>
