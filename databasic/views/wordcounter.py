@@ -103,18 +103,20 @@ def results():
 	top_word = results[0][0][0]
 	word_in_bigrams_count = 0
 	word_in_trigrams_count = 0
-	for word in results[0]:
-		top_word = word[0]
-		word_in_bigrams_count = 0
-		word_in_trigrams_count = 0
-		for b in results[1]:
-			if top_word in b[0]:
-				word_in_bigrams_count += 1
-		for t in results[2]:
-			if top_word in t[0]:
-				word_in_trigrams_count += 1
-		if word_in_bigrams_count > 0 and word_in_trigrams_count > 0:
-			break	
+
+	if len(results) == 3:
+		for word in results[0]:
+			top_word = word[0]
+			word_in_bigrams_count = 0
+			word_in_trigrams_count = 0
+			for b in results[1]:
+				if top_word in b[0]:
+					word_in_bigrams_count += 1
+			for t in results[2]:
+				if top_word in t[0]:
+					word_in_trigrams_count += 1
+			if word_in_bigrams_count > 0 and word_in_trigrams_count > 0:
+				break	
 
 	if word_in_bigrams_count == 0 and word_in_trigrams_count == 0:
 		top_word = results[0][0][0]
