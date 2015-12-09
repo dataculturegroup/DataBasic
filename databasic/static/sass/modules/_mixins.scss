@@ -28,7 +28,6 @@
 }
 
 @mixin tooltip($color) {
-	// &[data-toggle="tooltip"] {
 	&[role="definition"] {
 		color: $color;
 		&:hover, &:focus {

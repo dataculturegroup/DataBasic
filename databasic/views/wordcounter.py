@@ -31,6 +31,7 @@ def index():
 		ignore_stopwords = True
 		titles = _('')
 		btn_value = request.form['btn']
+		sample_id = ''
 
 		if btn_value == 'paste':
 			words = forms['paste'].data['area']
@@ -51,8 +52,12 @@ def index():
 			ignore_stopwords = forms[btn_value].data['ignore_stopwords_sample']
 			samplename = filehandler.get_sample_title(sample_file)
 			title = samplename
+			sample_id = title
 		elif btn_value == 'link':
-			content = filehandler.download_webpage(forms['link'].data['link'])
+			url = forms['link'].data['link']
+			if not 'http://' in url:
+				url = 'http://' + url
+			content = filehandler.download_webpage(url)
 			words = content['text']
 			ignore_case = forms[btn_value].data['ignore_case_link']
 			ignore_stopwords = forms[btn_value].data['ignore_stopwords_link']
@@ -60,7 +65,7 @@ def index():
 
 		if words is not None:
 			counts, csv_files = process_words(words, ignore_case, ignore_stopwords)
-			doc_id = mongo.save_words('wordcounter', counts, csv_files, ignore_case, ignore_stopwords, title)
+			doc_id = mongo.save_words('wordcounter', counts, csv_files, ignore_case, ignore_stopwords, title, sample_id)
 			return redirect(request.url + 'results?id=' + doc_id)
 
 	return render_template('wordcounter.html', forms=forms.items(), tool_name='wordcounter')
@@ -92,23 +97,26 @@ def results():
 	random_unpopular_word = results[0][random.randrange(min_index, max_index+1)] if len(results[0]) > 1 else results[0][0]
 
 	'''
-	Find the most popular word that is also present in bigrams and trigrams. If none can be found, just get the most popular word.
+	Find the most popular word that is also present in bigrams and trigrams. 
+	If none can be found, just get the most popular word.
 	'''
 	top_word = results[0][0][0]
 	word_in_bigrams_count = 0
 	word_in_trigrams_count = 0
-	for word in results[0]:
-		top_word = word[0]
-		word_in_bigrams_count = 0
-		word_in_trigrams_count = 0
-		for b in results[1]:
-			if top_word in b[0]:
-				word_in_bigrams_count += 1
-		for t in results[2]:
-			if top_word in t[0]:
-				word_in_trigrams_count += 1
-		if word_in_bigrams_count > 0 and word_in_trigrams_count > 0:
-			break	
+
+	if len(results) == 3:
+		for word in results[0]:
+			top_word = word[0]
+			word_in_bigrams_count = 0
+			word_in_trigrams_count = 0
+			for b in results[1]:
+				if top_word in b[0]:
+					word_in_bigrams_count += 1
+			for t in results[2]:
+				if top_word in t[0]:
+					word_in_trigrams_count += 1
+			if word_in_bigrams_count > 0 and word_in_trigrams_count > 0:
+				break	
 
 	if word_in_bigrams_count == 0 and word_in_trigrams_count == 0:
 		top_word = results[0][0][0]

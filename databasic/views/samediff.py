@@ -24,6 +24,7 @@ def index():
 		# email = None
 		is_sample_data = False
 		titles = []
+		sample_id = []
 
 		if btn_value == 'upload':
 			files = [forms['upload'].data['upload'], forms['upload'].data['upload2']]
@@ -41,10 +42,11 @@ def index():
 			f2name = filehandler.get_sample_title(forms['sample'].data['sample2'])
 			both = unicode(_('%(f1)s and %(f2)s', f1=f1name, f2=f2name))
 			titles = [f1name, both, f2name]
+			sample_id = str(f1name) + str(f2name)
 			# email = forms['sample'].data['email']
 
 		if btn_value is not None and btn_value is not u'':
-			return process_results(file_paths, titles)
+			return process_results(file_paths, titles, sample_id)
 
 	return render_template('samediff/samediff.html', forms=forms.items(), tool_name='samediff')
 
@@ -88,14 +90,15 @@ def download(doc_id):
 		logging.exception(e)
 		abort(400)
 
-def process_results(file_paths, titles):
+def process_results(file_paths, titles, sample_id):
 	file_names = filehandler.get_file_names(file_paths)
 	doc_list = [ filehandler.convert_to_txt(file_path) for file_path in file_paths ]
 	data = textanalysis.common_and_unique_word_freqs(doc_list)
 	job_id = mongo.save_samediff('samediff', file_names, 
 		data['doc1unique'], data['doc2unique'], data['common'], data['common_counts'],
 		data['doc1'], data['doc2'], data['cosine_similarity'],
-		titles)
+		titles,
+		sample_id)
 	return redirect(request.url + 'results?id=' + job_id)
 
 def interpretCosineSimilarity(score):

@@ -28,6 +28,7 @@ def index():
 	if request.method == 'POST':
 
 		btn_value = request.form['btn']
+		sample_id = ''
 
 		if btn_value == 'upload':
 			upload_file = forms['upload'].data['upload']
@@ -46,7 +47,7 @@ def index():
 			results[0]['filename'] = filehandler.get_sample_title(sample_file) + '.csv'
 
 		if btn_value is not None and btn_value is not u'':
-			return redirect_to_results(results)
+			return redirect_to_results(results, sample_id)
 
 	return render_template('wtfcsv.html', forms=forms.items(), tool_name='wtfcsv')
 
@@ -121,8 +122,8 @@ def results_sheet(index):
 	
 	return render_template('wtfcsv/results.html', results=results, whatnext=whatnext, tool_name='wtfcsv', index=int(index))
 
-def redirect_to_results(results):
-	doc_id = mongo.save_csv('wtfcsv', results)
+def redirect_to_results(results, sample_id=''):
+	doc_id = mongo.save_csv('wtfcsv', results, sample_id)
 	return redirect(request.url + 'results?id=' + doc_id)
 
 def process_upload(csv_file):
