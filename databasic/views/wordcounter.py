@@ -52,7 +52,10 @@ def index():
 			samplename = filehandler.get_sample_title(sample_file)
 			title = samplename
 		elif btn_value == 'link':
-			content = filehandler.download_webpage(forms['link'].data['link'])
+			url = forms['link'].data['link']
+			if not 'http://' in url:
+				url = 'http://' + url
+			content = filehandler.download_webpage(url)
 			words = content['text']
 			ignore_case = forms[btn_value].data['ignore_case_link']
 			ignore_stopwords = forms[btn_value].data['ignore_stopwords_link']

@@ -23,7 +23,8 @@ NUMBER_MAX_UNIQUE = 10
 MAX_FREQ = 5
 OPERATIONS =('min', 'max', 'sum', 'mean', 'median', 'stdev', 'nulls', 'unique', 'freq', 'len', 'deciles')
 
-
+MONTHS = ['jan', 'january', 'feb', 'february', 'mar', 'march', 'apr', 'april', 'may', 'jun', 'june', 'jul', 'july', 'aug', 'august', 'sep', 'september', 'oct', 'october', 'nov', 'november', 'dec', 'december']
+DAYS_OF_WEEK = ['sun', 'sunday', 'mon', 'monday', 'tues', 'tue', 'tuesday', 'wed', 'wednesday', 'thu', 'thur', 'thurs', 'thursday', 'fri', 'friday', 'sat', 'saturday']
 
 '''
 Public API: call this to get results!
@@ -301,7 +302,7 @@ class WTFCSVStat():
 
     def is_date(self, date):
         try:
-            if re.search('[a-zA-Z]', date):
+            if re.search('[a-zA-Z]', date) and date not in MONTHS and date not in DAYS_OF_WEEK:
                 return None
             else:
                 return parse(str(date))
@@ -310,13 +311,12 @@ class WTFCSVStat():
 
 def format_datetime(c, val):
     if c.type in [datetime.datetime, datetime.date, datetime.time]:
-        d = val
         if c.type is datetime.date:
-            return "%02d/%02d/%02d" % (d.day,d.month,d.year)
+            return "%02d/%02d/%02d" % (val.day,val.month,val.year)
         elif c.type is datetime.time:
-            return "%02d:%02d" % (d.hour,d.minute)
+            return "%02d:%02d" % (val.hour,val.minute)
         else:
-            return "%02d-%02d-%02d %02d:%02d" % (d.year,d.month,d.day,d.hour,d.minute)
+            return "%02d/%02d/%02d %02d:%02d" % (val.day,val.month,val.year,val.hour,val.minute)
     return str(val)
 
 def median(l):
