@@ -31,6 +31,7 @@ def index():
 		ignore_stopwords = True
 		titles = _('')
 		btn_value = request.form['btn']
+		sample_id = ''
 
 		if btn_value == 'paste':
 			words = forms['paste'].data['area']
@@ -51,6 +52,7 @@ def index():
 			ignore_stopwords = forms[btn_value].data['ignore_stopwords_sample']
 			samplename = filehandler.get_sample_title(sample_file)
 			title = samplename
+			sample_id = title
 		elif btn_value == 'link':
 			url = forms['link'].data['link']
 			if not 'http://' in url:
@@ -63,7 +65,7 @@ def index():
 
 		if words is not None:
 			counts, csv_files = process_words(words, ignore_case, ignore_stopwords)
-			doc_id = mongo.save_words('wordcounter', counts, csv_files, ignore_case, ignore_stopwords, title)
+			doc_id = mongo.save_words('wordcounter', counts, csv_files, ignore_case, ignore_stopwords, title, sample_id)
 			return redirect(request.url + 'results?id=' + doc_id)
 
 	return render_template('wordcounter.html', forms=forms.items(), tool_name='wordcounter')

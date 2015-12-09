@@ -9,24 +9,35 @@ class MongoHandler:
 		self._client = MongoClient(uri, connect=False)
 		self._db = self._client['DataBasic']
 	
-	def save_words(self, collection, counts, csv_files, ignore_case, ignore_stopwords, title):
+	def save_words(self, collection, counts, csv_files, ignore_case, ignore_stopwords, title, sample_id):
+		sample = self._db[collection].find_one({'sample_id': str(sample_id), 'ignore_case': ignore_case, 'ignore_stopwords': ignore_stopwords})
+		if sample is not None:
+			return str(sample['_id'])
 		return str(self._db[collection].save({
 			'counts': counts,
 			'csv_files': csv_files,
 			'ignore_case': ignore_case,
 			'ignore_stopwords': ignore_stopwords,
 			'title': str(title),
+			'sample_id': str(sample_id),
 			'created_at': time.time()
 			}))
 
-	def save_csv(self, collection, results):
+	def save_csv(self, collection, results, sample_id):
+		sample = self._db[collection].find_one({'sample_id': str(sample_id)})
+		if sample is not None:
+			return str(sample['_id'])
 		return str(self._db[collection].save({
 			'results': results,
+			'sample_id': sample_id,
 			'created_at': time.time()
 			}))
 
 	def save_samediff(self, collection, filenames, diff_words_doc1, diff_words_doc2, same_words, same_word_counts,
-					  most_frequent_doc1, most_frequent_doc2, cosine_similarity, titles):
+					  most_frequent_doc1, most_frequent_doc2, cosine_similarity, titles, sample_id):
+		sample = self._db[collection].find_one({'sample_id': str(sample_id)})
+		if sample is not None:
+			return str(sample['_id'])
 		return str(self._db[collection].save({
 			'filenames': filenames,
 			'diffWordsDoc1': diff_words_doc1,
@@ -36,7 +47,8 @@ class MongoHandler:
 			'mostFrequentDoc1': most_frequent_doc1,
 			'mostFrequentDoc2': most_frequent_doc2,
 			'cosineSimilarity': cosine_similarity,
-			'titles': titles
+			'titles': titles,
+			'sample_id': sample_id
 			}))
 
 	def save_job(self, collection, job_info):
