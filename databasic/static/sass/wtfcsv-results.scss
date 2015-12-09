@@ -165,11 +165,19 @@ header {
 
 .d3-tip {
 	font: $font-lt;
-	border-color: #C8523B;
 	background: $c-white;
 	color: #C8523B;
+	padding: 8px;
+	font-weight: normal;
+	border: 1px solid #C8523B !important;
+	box-shadow: 1px 1px 1px 1px rgba(0,0,0,0.2);
+	font-size: 13px;
+
+	.tip-size {
+		color: black;
+		font-weight: bold;
+	}
 }
 .d3-tip:after {
-	border-color: #C8523B;
 	color: $c-white;
 }

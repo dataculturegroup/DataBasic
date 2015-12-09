@@ -92,7 +92,8 @@ def results():
 	random_unpopular_word = results[0][random.randrange(min_index, max_index+1)] if len(results[0]) > 1 else results[0][0]
 
 	'''
-	Find the most popular word that is also present in bigrams and trigrams. If none can be found, just get the most popular word.
+	Find the most popular word that is also present in bigrams and trigrams. 
+	If none can be found, just get the most popular word.
 	'''
 	top_word = results[0][0][0]
 	word_in_bigrams_count = 0
