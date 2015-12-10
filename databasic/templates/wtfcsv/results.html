@@ -257,11 +257,18 @@ $(function () {
 			lineColor: '#fff',
 			tickColor: '#fff',
 			labels: {
+				formatter: function() {
+					if (this.value.length > 15) {
+	                    return this.value.substring(0, 15) + "...";
+	                } else {
+	                	return this.value;
+	                }
+                },
 				style: {
 					color: '#fff',
 					font: '14px HalisGR-Book',
 					fontWeight: 'bold',
-					width: '50px'
+					width: '10px'
 				}
 			},
 			title: {
