@@ -6,13 +6,15 @@ $("input[type='checkbox']").change(function(){
     }
 });
 
-$('.inputs .nav-tabs > li').click(function(){
+$('.inputs .nav-tabs.nav-justified > li').click(function(){
     // TODO: this is not working
     var tabId = $(this).find('a').attr('id').replace('tab-', '');
     $('.tab-content')
         .find('#' + tabId)
         .find('.form-group:nth(1)')
-        .find('.form-control:nth(0)')[0].focus ();
+        .find('.form-control:nth(0)')[0].focus (function() {
+            alert('got it');
+        });
 });
 
 $(document).ready(function(){

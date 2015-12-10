@@ -6,7 +6,7 @@ $(document).ready(function(){
 	    if (val.length == 0) { return true; }
 	 
 	    // if user has not entered http:// https:// or ftp:// assume they mean http://
-	    if(!/^(https?|ftp):///i.test(val)) {
+	    if(!/^(https?|ftp)://i.test(val)) {
 	        val = 'http://'+val; // set both the value
 	        $(elem).val(val); // also update the form element
 	    }
