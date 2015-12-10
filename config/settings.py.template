@@ -1,3 +1,0 @@
-SECRET_KEY = 'FILL_THIS_IN'
-MAIL_USERNAME = 'kate@bush.com'
-MAIL_PASSWORD = 'password'
