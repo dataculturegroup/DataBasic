@@ -102,9 +102,15 @@ class WTFCSVStat():
                     if v.date() != datetime.date.today():
                         date_count += 1
 
-            date_percent = float(date_count) / float(value_count)
-            time_percent = float(time_count) / float(value_count)
-            number_percent = float(number_count) / float(value_count)
+            if value_count > 0:
+                date_percent = float(date_count) / float(value_count)
+                time_percent = float(time_count) / float(value_count)
+                number_percent = float(number_count) / float(value_count)
+            else:
+                date_percent = 0
+                time_percent = 0
+                number_percent = 0
+                
             threshold = 0.5
 
             if number_percent < threshold:
