@@ -12,7 +12,6 @@ mod = Blueprint('wtfcsv', __name__, url_prefix='/<lang_code>/wtfcsv', template_f
 
 @mod.route('/', methods=('GET', 'POST'))
 def index():
-	
 	doc_url = oauth.doc_url()
 	if doc_url is not None:
 		return redirect_to_results(process_link(doc_url))
@@ -51,27 +50,26 @@ def index():
 
 	return render_template('wtfcsv.html', forms=forms.items(), tool_name='wtfcsv')
 
-@mod.route('/results')
-def results():
-	doc_id = None if not 'id' in request.args else request.args['id']
-	if doc_id is None:
-		return redirect(g.current_lang + '/wtfcsv')
+@mod.route('/results/<doc_id>')
+def results(doc_id):
+	results = mongo.find_document('wtfcsv', doc_id).get('results')
+	if len(results) > 1:
+		return redirect(g.current_lang + '/wtfcsv/results/' + doc_id + '/sheets/0')
 	else:
-		return redirect(g.current_lang + '/wtfcsv/results/0?id=' + doc_id)
+		return render_results(doc_id, 0)
 
-@mod.route('/results/<index>')
-def results_sheet(index):
-	results = None
-	doc_id = request.args.get('id', None)
-	if doc_id is None:
-		return redirect(g.current_lang + '/wtfcsv')
-	else:
-		results = mongo.find_document('wtfcsv', doc_id).get('results')
+@mod.route('/results/<doc_id>/sheets/<sheet_idx>')
+def results_sheet(doc_id, sheet_idx):
+	return render_results(doc_id, sheet_idx)
+
+def render_results(doc_id, sheet_idx):
+
+	results = mongo.find_document('wtfcsv', doc_id).get('results')
 
 	def get_random_column():
-		return random.choice(results[int(index)]['columns'])
+		return random.choice(results[int(sheet_idx)]['columns'])
 
-	columns = results[int(index)]['columns']
+	columns = results[int(sheet_idx)]['columns']
 	random_column = get_random_column()
 	random_column2 = get_random_column()
 	random_column3 = get_random_column()
@@ -120,11 +118,11 @@ def results_sheet(index):
 			overview_data['values'].append(int(col['others']))
 		col['overview'] = overview_data
 	
-	return render_template('wtfcsv/results.html', results=results, whatnext=whatnext, tool_name='wtfcsv', index=int(index))
+	return render_template('wtfcsv/results.html', results=results, whatnext=whatnext, tool_name='wtfcsv', index=int(sheet_idx))
 
 def redirect_to_results(results, sample_id=''):
 	doc_id = mongo.save_csv('wtfcsv', results, sample_id)
-	return redirect(request.url + 'results?id=' + doc_id)
+	return redirect(g.current_lang + '/wtfcsv/results/' + doc_id)
 
 def process_upload(csv_file):
 	file_path = filehandler.open_doc(csv_file)

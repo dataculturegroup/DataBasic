@@ -66,25 +66,20 @@ def index():
 		if words is not None:
 			counts, csv_files = process_words(words, ignore_case, ignore_stopwords)
 			doc_id = mongo.save_words('wordcounter', counts, csv_files, ignore_case, ignore_stopwords, title, sample_id)
-			return redirect(request.url + 'results?id=' + doc_id)
+			return redirect(request.url + 'results/' + doc_id)
 
 	return render_template('wordcounter.html', forms=forms.items(), tool_name='wordcounter')
 
-@mod.route('/results')
-def results():
+@mod.route('/results/<doc_id>')
+def results(doc_id):
 	
 	counts = None
 	csv_files = None
 	results = []
 
-	doc_id = None if not 'id' in request.args else request.args['id']
-
-	if doc_id is None:
-		return redirect(g.current_lang + '/wordcounter')
-	else:
-		doc = mongo.find_document('wordcounter', doc_id)
-		counts = doc.get('counts')
-		csv_files = doc.get('csv_files')
+	doc = mongo.find_document('wordcounter', doc_id)
+	counts = doc.get('counts')
+	csv_files = doc.get('csv_files')
 
 	# only render the top 40 results on the page (the csv contains all results)
 	for c in range(len(counts)):
