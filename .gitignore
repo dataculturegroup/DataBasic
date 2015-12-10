@@ -15,3 +15,4 @@ config/settings.config
 dump.rdb
 logs/*.log
 .env
+.webassets-cache/

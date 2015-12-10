@@ -1,6 +1,7 @@
 import os, ConfigParser, ntpath, logging, logging.handlers, sys
 import logging, os, sys, ntpath, logging.handlers
 from flask import Flask, Blueprint, g, redirect, request, abort
+from flask.ext.assets import Environment, Bundle
 from flask.ext.babel import Babel
 from flask_debugtoolbar import DebugToolbarExtension
 from flask.ext.mail import Mail
@@ -62,6 +63,12 @@ app.config.from_envvar(ENV_CONFIG_FILE_VAR)
 app.wsgi_app = SassMiddleware(app.wsgi_app, {
 	'databasic': ('static/sass', 'static/css', '/static/css')
 })
+
+# Set up bundles
+assets = Environment(app)
+js_bundle = Bundle('js/lib/jquery.js', 'js/lib/jquery.validate.min.js', 'js/lib/additional-methods.min.js', 'js/lib/bootstrap.min.js',
+	filters='jsmin', output='gen/packed.js')
+assets.register('js_all', js_bundle)
 
 babel = Babel(app)
 mongo = MongoHandler(app, settings.get('db', 'host'), settings.get('db', 'port'))
