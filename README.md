@@ -30,7 +30,7 @@ To develop on OSX, like we do, you might need to do this:
 STATIC_DEPS=true pip install lxml
 ```
 
-**5.** Start the app. Run this and then go to localhost:5000 in your browser:
+**5.** Start the app. Run this and then go to http://localhost:8000 in your browser:
 ```
 gunicorn databasic:app
 ```
