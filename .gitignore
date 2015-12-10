@@ -14,3 +14,4 @@ config/settings.config
 *.scss.css.map
 dump.rdb
 logs/*.log
+.env

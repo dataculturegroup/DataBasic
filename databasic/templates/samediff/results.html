@@ -4,7 +4,7 @@
 
 {% set file1 = results['filenames'][0] %}
 {% set file2 = results['filenames'][1] %}
-{% set download="/" + g['current_lang'] + "/samediff/results/download/" + request.args['id'] + "/results.csv" %}
+{% set download="/" + g['current_lang'] + "/samediff/results/download/" + doc_id + "/results.csv" %}
 
 {% block title %}{{ _('SameDiff results') }}{% endblock %}
 

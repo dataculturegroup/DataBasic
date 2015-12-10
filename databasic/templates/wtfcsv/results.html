@@ -56,7 +56,7 @@
 					<ul class="nav nav-tabs nav-justified">
 					{% for r in range(results|length) %}
 						<li role="presentation" {% if r == index %}class="active"{% endif %}>
-							<a href="{{ request.url.replace('/results/' + index|string, '/results/' + r|string) }}">{{ results[r]['sheet_name'] }}</a>
+							<a href="{{ request.url.replace('/sheets/' + index|string, '/sheets/' + r|string) }}">{{ results[r]['sheet_name'] }}</a>
 						</li>
 					{% endfor %}
 					</ul>

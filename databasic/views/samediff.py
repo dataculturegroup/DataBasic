@@ -50,12 +50,8 @@ def index():
 
 	return render_template('samediff/samediff.html', forms=forms.items(), tool_name='samediff')
 
-@mod.route('/results')
-def results():
-
-	doc_id = None if not 'id' in request.args else request.args['id']
-	if doc_id is None:
-		return redirect(g.current_lang + '/samediff')
+@mod.route('/results/<doc_id>')
+def results(doc_id):
 
 	job = mongo.find_document('samediff', doc_id)
 
@@ -66,7 +62,7 @@ def results():
 
 	return render_template('samediff/results.html', results=job, 
 		cosine_similarity= {'score':job['cosineSimilarity'],'description':interpretCosineSimilarity(job['cosineSimilarity'])},
-		whatnext=whatnext, tool_name='samediff')
+		whatnext=whatnext, tool_name='samediff', doc_id=doc_id)
 
 @mod.route('/results/download/<doc_id>/results.csv')
 def download(doc_id):
@@ -99,7 +95,7 @@ def process_results(file_paths, titles, sample_id):
 		data['doc1'], data['doc2'], data['cosine_similarity'],
 		titles,
 		sample_id)
-	return redirect(request.url + 'results?id=' + job_id)
+	return redirect(request.url + 'results/' + job_id)
 
 def interpretCosineSimilarity(score):
 	# Cosine Similarity

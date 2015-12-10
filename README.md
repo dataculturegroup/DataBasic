@@ -22,6 +22,8 @@ cd DataBasic
 
 You will need to register the app with Google. To do that, create a project in the [Google Developers Console](https://console.developers.google.com/project/_/apiui/credential) and copy the credentials into `config/google-credentials.json`.
 
+For Heroku, we also installed and use the [scipy buildpack](https://github.com/thenovices/heroku-buildpack-scipy).
+
 **2.** Run the installation script. You will be prompted to install virtualenv if you haven't already.
 ```
 sudo bash install.sh
