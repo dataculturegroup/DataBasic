@@ -323,7 +323,7 @@ def format_datetime(c, val):
             return "%02d:%02d" % (val.hour,val.minute)
         else:
             return "%02d/%02d/%02d %02d:%02d" % (val.day,val.month,val.year,val.hour,val.minute)
-    return str(val)
+    return unicode(val)
 
 def median(l):
     """

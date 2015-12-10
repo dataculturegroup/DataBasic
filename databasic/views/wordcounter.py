@@ -17,7 +17,6 @@ def index():
 @mod.route('/', methods=('GET', 'POST'))
 def index():
 
-	tab = 'paste' if not 'tab' in request.args else request.args['tab']
 	words = None
 
 	forms = OrderedDict()
