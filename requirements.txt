@@ -33,7 +33,7 @@ kombu==3.0.29
 libsass==0.9.1
 lxml==3.4.4
 nltk==3.1
-numpy==1.10.1
+numpy==1.9.2
 oauth2client==1.5.1
 openpyxl==2.2.0-b1
 pojson==0.6
@@ -48,7 +48,7 @@ pytz==2015.7
 redis==2.10.5
 requests==2.8.1
 rsa==3.2.3
-scipy==0.16.1
+scipy==0.15.1
 simplejson==3.8.1
 six==1.10.0
 speaklater==1.3
