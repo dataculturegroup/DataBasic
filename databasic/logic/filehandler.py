@@ -117,7 +117,8 @@ def get_samples(tool_id):
 	texts = []
 	for text in samples:
 		if tool_id in text['modules']:
-			texts.append((text['source'], text['title']))
+			if(os.path.exists(text['source'])):
+				texts.append((text['source'], text['title']))
 	choices = texts
 	return choices
 
