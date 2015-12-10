@@ -18,7 +18,7 @@ class MongoHandler:
 			'csv_files': csv_files,
 			'ignore_case': ignore_case,
 			'ignore_stopwords': ignore_stopwords,
-			'title': str(title),
+			'title': unicode(title),
 			'sample_id': str(sample_id),
 			'created_at': time.time()
 			}))

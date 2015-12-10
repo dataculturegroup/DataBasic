@@ -159,7 +159,7 @@
 {%- endmacro %}
 
 {% macro shareable() -%}
-    <a href="#share-modal" data-toggle="modal"><span class="glyphicon glyphicon-share" aria-hidden="true"></span></a>
+    <a href="#share-modal" data-toggle="modal" id="share-modal-btn" data-target="#share-modal" aria-expanded="false"><span class="glyphicon glyphicon-share" aria-hidden="true"></span></a>
     <div id="share-modal" class="modal fade">
         <div class="modal-dialog">
             <div class="modal-content">
@@ -183,7 +183,7 @@
 {% macro video_modal(button_text, src) -%}
     
     <div class="row centered-row">
-        <a href="#video-modal" class="btn btn-lg btn-primary" id="video-modal-btn" data-toggle="modal" role="button"><span class="glyphicon glyphicon-play-circle" aria-hidden="true"></span><br>{{ _("Play video") }}</a>
+        <a href="#video-modal" class="btn btn-lg btn-primary" id="video-modal-btn" data-toggle="modal" role="button" aria-expanded="false" data-target="#video-modal"><span class="glyphicon glyphicon-play-circle" aria-hidden="true"></span><br>{{ _("Play video") }}</a>
     </div>
 
     <div id="video-modal" class="modal fade">

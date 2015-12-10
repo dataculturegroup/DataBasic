@@ -14,6 +14,14 @@ $('a[data-toggle="tab"]').on('shown.bs.tab', function (e) {
       .find('.form-control:nth(0)')[0].focus ();
 });
 
+$('#video-modal').on('shown.bs.modal', function () {
+  $('a').find('iframe').focus();
+});
+
+$('#share-modal').on('shown.bs.modal', function () {
+  $(this).find('input').focus();
+});
+
 $(document).ready(function(){
     $('.modal').each(function(){
         var src = $(this).find('iframe').attr('src');
