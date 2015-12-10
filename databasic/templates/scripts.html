@@ -1,15 +1,12 @@
-<script type="text/javascript">
-  $SCRIPT_ROOT = {{ request.script_root|tojson|safe }};
-</script>
-<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
-<script src="http://rubaxa.github.io/Sortable/Sortable.js"></script>
-<script type="text/javascript" src="{{ url_for('static', filename='js/lib/jquery.validate.min.js') }}"></script>
-<script type="text/javascript" src="{{ url_for('static', filename='js/lib/additional-methods.min.js') }}"></script>
-<script type="text/javascript" src="{{ url_for('static', filename='js/lib/bootstrap.min.js') }}"></script>
+{% assets "js_all" %}
+    <script type="text/javascript" src="{{ ASSET_URL }}"></script>
+{% endassets %}
+
 <script type="text/javascript" src="{{ url_for('static', filename='js/lib/Gettext.min.js') }}"></script>
 
 <!-- This is a hacky way of getting locale data for js - worth checking out if it could be improved -->
 <script type="text/javascript" src="/static/js/{{ g['current_lang'] }}-locale-data.js"></script>
+
 <script>
 $(function () {
   $('[data-toggle="tooltip"]').tooltip();
