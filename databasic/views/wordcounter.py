@@ -89,32 +89,35 @@ def results(doc_id):
 
 	max_index = min(20, len(results[0]))
 	min_index = max(0, max_index-5)
-	random_unpopular_word = results[0][random.randrange(min_index, max_index+1)] if len(results[0]) > 1 else results[0][0]
-
-	'''
-	Find the most popular word that is also present in bigrams and trigrams. 
-	If none can be found, just get the most popular word.
-	'''
-	top_word = results[0][0][0]
+	random_unpopular_word = ['','']
+	top_word = ''
 	word_in_bigrams_count = 0
 	word_in_trigrams_count = 0
 
-	if len(results) == 3:
-		for word in results[0]:
-			top_word = word[0]
-			word_in_bigrams_count = 0
-			word_in_trigrams_count = 0
-			for b in results[1]:
-				if top_word in b[0]:
-					word_in_bigrams_count += 1
-			for t in results[2]:
-				if top_word in t[0]:
-					word_in_trigrams_count += 1
-			if word_in_bigrams_count > 0 and word_in_trigrams_count > 0:
-				break	
+	if len(results[0]) > 0:
+		random_unpopular_word = results[0][random.randrange(min_index, max_index+1)] if len(results[0]) > 1 else results[0][0]
 
-	if word_in_bigrams_count == 0 and word_in_trigrams_count == 0:
-		top_word = results[0][0][0]
+		'''
+		Find the most popular word that is also present in bigrams and trigrams. 
+		If none can be found, just get the most popular word.
+		'''
+
+		if len(results) == 3:
+			for word in results[0]:
+				top_word = word[0]
+				word_in_bigrams_count = 0
+				word_in_trigrams_count = 0
+				for b in results[1]:
+					if top_word in b[0]:
+						word_in_bigrams_count += 1
+				for t in results[2]:
+					if top_word in t[0]:
+						word_in_trigrams_count += 1
+				if word_in_bigrams_count > 0 and word_in_trigrams_count > 0:
+					break	
+
+		if word_in_bigrams_count == 0 and word_in_trigrams_count == 0:
+			top_word = results[0][0][0]
 
 	whatnext = {}
 	whatnext['top_word'] = top_word
