@@ -6,15 +6,12 @@ $("input[type='checkbox']").change(function(){
     }
 });
 
-$('.inputs .nav-tabs.nav-justified > li').click(function(){
-    // TODO: this is not working
-    var tabId = $(this).find('a').attr('id').replace('tab-', '');
-    $('.tab-content')
-        .find('#' + tabId)
-        .find('.form-group:nth(1)')
-        .find('.form-control:nth(0)')[0].focus (function() {
-            alert('got it');
-        });
+$('a[data-toggle="tab"]').on('shown.bs.tab', function (e) {
+  var tabId = $(this).attr('id').replace('tab-', '');
+  $('.tab-content')
+      .find('#' + tabId)
+      .find('.form-group:nth(1)')
+      .find('.form-control:nth(0)')[0].focus ();
 });
 
 $(document).ready(function(){
