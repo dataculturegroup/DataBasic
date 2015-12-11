@@ -190,7 +190,8 @@ class WTFCSVStat():
                     # get the most frequent repeating values, if any
                     if column_info['uniques'] != len(values):
                         column_info['most_freq_values'] = self.get_most_freq_values(stats)
-                        column_info['others'] = stats['others']
+                        if c.type is not bool:
+                            column_info['others'] = stats['others']
 
                     # for text columns, get the longest string
                     if c.type == six.text_type:

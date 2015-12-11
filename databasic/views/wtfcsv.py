@@ -91,7 +91,10 @@ def render_results(doc_id, sheet_idx):
 		random_column3 = random_column
 
 	whatnext = {}
-	whatnext['random_column_top_value'] = random_column['most_freq_values'][0]['value'] if 'most_freq_values' in random_column else ''
+	if 'most_freq_values' in random_column and len(random_column['most_freq_values']) > 0:
+		whatnext['random_column_top_value'] = random_column['most_freq_values'][0]['value'] if 'most_freq_values' in random_column else ''
+	else:
+		whatnext['random_column_top_value'] = 0
 	whatnext['random_column_name'] = random_column['name']
 	whatnext['random_column_name2'] = random_column2['name']
 	whatnext['random_column_name3'] = random_column3['name']

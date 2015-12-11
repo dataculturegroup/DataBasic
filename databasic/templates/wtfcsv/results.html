@@ -103,20 +103,24 @@
 								<div id="card-chart-{{ c }}" class="card-chart">
 									<div class="chart" aria-hidden="true"></div>
 									<div class="table">
-									<table>
-										<thead>
-											<tr>
-											<th>{{_('value')}}</th>
-											<th>{{_('frequency')}}</th>
-											</tr>
-										</thead>
-										{% for idx in range(col['overview']['categories']|length) %}
-											<tr>
-												<td>{{ col['overview']['categories'][idx]}}</td>
-												<td>{{ col['overview']['values'][idx]}}</td>
-											</tr>
-										{% endfor %}
-									</table>
+									{% if col['overview']['categories']|length > 0 %}
+										<table>
+											<thead>
+												<tr>
+													<th>{{_('value')}}</th>
+													<th>{{_('frequency')}}</th>
+												</tr>
+											</thead>
+											{% for idx in range(col['overview']['categories']|length) %}
+												<tr>
+													<td>{{ col['overview']['categories'][idx]}}</td>
+													<td>{{ col['overview']['values'][idx]}}</td>
+												</tr>
+											{% endfor %}
+										</table>
+									{% else %}
+										<p>{{ _('No data to display.') }}</p>
+									{% endif %}
 									</div>
 								</div>
 							</div>
@@ -183,9 +187,6 @@
 										{% if 'stdev' in col %}
 											<li>{{_("The standard deviation is") }} <em>{{col['stdev']|round(2)}}</em></li>
 										{% endif %}
-										{# {% if col['nulls'] %}
-											<li>{{_("There is missing data in this column")}}</li>
-										{% endif %} #}
 										{% if col['nulls'] > 0 %}
 											<li>{{ ngettext("There is %(num)s row of missing data", "There are %(num)s rows of missing data", col['nulls']) }}</li>
 										{% endif %}
@@ -311,7 +312,7 @@ $(function () {
 
 	{% if not 'word_counts' in col %}
 
-		{% if 'text' in dname or 'numbers' in dname or 'dates' in dname or 'times' in dname or 'dates and times' in dname %}
+		{% if 'text' in dname or 'numbers' in dname or 'dates' in dname or 'times' in dname or 'dates and times' in dname or 'booleans' in dname %}
 			$('#card-chart-{{ c }} .chart').highcharts({
 				title: {
 					text: null
@@ -323,7 +324,7 @@ $(function () {
 						return '<style="color: #C8523B">' + this.x + ': <strong>' + this.y + '</strong></style>';
 				    }
 				},
-				{% if 'text' in dname or 'numbers' in dname %}
+				{% if 'text' in dname or 'numbers' in dname or 'booleans' in dname %}
 					chart: {
 						type: 'column'
 					},
@@ -335,12 +336,14 @@ $(function () {
 						_('Categories')
 						{% elif 'numbers' in dname %}
 						_('Counts')
-						{% elif 'dates' %}
+						{% elif 'dates' in dname %}
 						_('Dates')
-						{% elif 'times' %}
+						{% elif 'times' in dname %}
 						_('Times')
-						{% elif 'dates and times' %}
+						{% elif 'dates and times' in dname %}
 						_('Dates and times')
+						{% elif 'booleans' in dname %}
+						_('Booleans')
 						{% else %}
 						_('Undefined')
 						{% endif %}
