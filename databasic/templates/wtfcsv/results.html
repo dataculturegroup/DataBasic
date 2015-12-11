@@ -183,8 +183,11 @@
 										{% if 'stdev' in col %}
 											<li>{{_("The standard deviation is") }} <em>{{col['stdev']|round(2)}}</em></li>
 										{% endif %}
-										{% if col['nulls'] %}
+										{# {% if col['nulls'] %}
 											<li>{{_("There is missing data in this column")}}</li>
+										{% endif %} #}
+										{% if col['nulls'] > 0 %}
+											<li>{{ ngettext("There is %(num)s row of missing data", "There are %(num)s rows of missing data", col['nulls']) }}</li>
 										{% endif %}
 										{% if 'freq' in col %}
 											<li>{{col['freq']|round(2)}}</li>

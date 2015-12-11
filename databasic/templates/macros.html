@@ -138,24 +138,9 @@
         {% if multiple %}
             {{ field(class='form-control', multiple=True, **kwargs) }}
         {% else %}
-            {{ field(class='form-control', **kwargs) }} 
+            {{ field(class='form-control', **kwargs) }}
         {% endif %}
     </div>
-{%- endmacro %}
-
-{% macro share(facebook=true, twitter=true) -%}
-    {% if facebook %}
-        <a href="javascript:fbshareCurrentPage()" target="_blank" alt="Share on Facebook">Facebook</a>
-        <script language="javascript">
-            function fbshareCurrentPage()
-            {window.open("https://www.facebook.com/sharer/sharer.php?u="+escape(window.location.href)+"&t="+document.title, '', 'menubar=no,toolbar=no,resizable=yes,scrollbars=yes,height=300,width=600');return false; }
-        </script>
-    {% endif %}
-    
-    {% if twitter %}
-        <a href="https://twitter.com/share" class="twitter-share-button" data-via="civicMIT" data-size="large" data-count="none">Tweet</a>
-    <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
-    {% endif %}
 {%- endmacro %}
 
 {% macro shareable() -%}

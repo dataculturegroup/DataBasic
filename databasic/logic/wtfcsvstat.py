@@ -259,7 +259,12 @@ class WTFCSVStat():
         return math.sqrt(sum(math.pow(v - stats['mean'], 2) for v in values) / len(values)) 
 
     def get_nulls(self, c, values, stats):
-        return c.has_nulls()
+        null_count = 0
+        if c.has_nulls():
+            for v in c:
+                if v is None:
+                    null_count += 1
+        return null_count
 
     def get_unique(self, c, values, stats):
         return set(values) 
