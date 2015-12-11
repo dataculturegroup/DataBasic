@@ -18,7 +18,7 @@ TEMP_DIR = tempfile.gettempdir()
 app.config['UPLOADED_DOCS_DEST'] = TEMP_DIR
 docs = UploadSet(name='docs', extensions=('txt', 'docx', 'rtf', 'csv', 'xlsx', 'xls'))
 configure_uploads(app, (docs))
-patch_request_class(app, 10 * 1024 * 1024) # 10MB
+patch_request_class(app, 100 * 1024 * 1024) # 100MB
 
 basedir = os.path.dirname(os.path.abspath(__file__))
 sample_data_dir_path = os.path.join(basedir,'../','../','sample-data')
