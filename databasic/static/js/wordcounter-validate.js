@@ -1,6 +1,14 @@
 
 $(document).ready(function(){
 
+	jQuery.validator.addMethod("custom_url", function(value, element) {
+		return this.optional (element) || /^[^ "]+$/.test(value);
+	}, _("You must input a valid url"));
+
+	jQuery.validator.addClassRules({
+		custom_url: { custom_url: true }
+	});
+
 	$(".paste").validate({
 		rules: {
 			area: {
@@ -31,13 +39,13 @@ $(document).ready(function(){
 		rules: {
 			link: {
 				required: true,
-				url: true
+				custom_url: true
 			}
 		},
 		messages: {
 			link: {
 				required: _("This field is required"),
-				url: _("You must input a URL")
+				custom_url: _("You must input a URL")
 			}
 		}
 	});
