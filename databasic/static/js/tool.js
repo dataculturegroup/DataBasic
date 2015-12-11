@@ -16,10 +16,22 @@ $('a[data-toggle="tab"]').on('shown.bs.tab', function (e) {
 
 $('#video-modal').on('shown.bs.modal', function () {
   $('a').find('iframe').focus();
+  $('#video-modal-btn').prop('aria-expanded', true);
+});
+
+$('#video-modal').on('hidden.bs.modal', function () {
+  $('a').find('iframe').focus();
+  $('#video-modal-btn').prop('aria-expanded', false);
 });
 
 $('#share-modal').on('shown.bs.modal', function () {
   $(this).find('input').focus();
+  $('#share-modal-btn').prop('aria-expanded', true);
+});
+
+$('#share-modal').on('hidden.bs.modal', function () {
+  $(this).find('input').focus();
+  $('#share-modal-btn').prop('aria-expanded', false);
 });
 
 $(document).ready(function(){
