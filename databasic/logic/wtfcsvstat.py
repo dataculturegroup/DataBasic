@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 #!/usr/bin/env python
 import datetime, os, sys, json, tempfile, re
 import gzip
@@ -93,7 +94,7 @@ class WTFCSVStat():
                 return new_values
 
             for v in values:
-                if type(v) in [float, int, long, complex]:
+                if type(v) in [float, int, long, complex] or self.is_number(unicode(v)):
                     number_count += 1
                 if self.is_date(v) is not None:
                     v = self.is_date(v)
@@ -123,6 +124,21 @@ class WTFCSVStat():
                 elif time_percent > threshold:
                     c.type = datetime.time
                     values = remove_broken_datetimes()
+            else:
+                c.type = float
+                new_values = []
+                for v in values:
+                    new = self.is_number(v)
+                    if new is not None:
+                        new_values.append(new)
+                values = new_values
+
+            if c.type == unicode:
+                new_values = []
+                for v in values:
+                    if v != '&nbsp;':
+                        new_values.append(v)
+                values = new_values
 
             for op in OPERATIONS:
                 stats[op] = getattr(self, 'get_%s' % op)(c, values, stats)
@@ -289,10 +305,10 @@ class WTFCSVStat():
                 return str(val)
             if c.type in [datetime.date, datetime.time, datetime.datetime]:
                 return format_datetime(c, val)
-            if val < 1:
-                return str(val)
+            if mx-mn > 10:
+                return str(round(val)).replace('.0', '')
             else:
-                return str(round(val)).replace('.0','')
+                return str(round(val*100)/100).replace('.0','')
 
         deciles = []
         for d in xrange(len(decile_groups)-1):
@@ -314,6 +330,20 @@ class WTFCSVStat():
                 return parse(str(date))
         except:
             return None
+
+    def is_number(self, s):
+        try:
+            return float(s)
+        except ValueError:
+            pass
+     
+        try:
+            import unicodedata
+            return unicodedata.numeric(s)
+        except (TypeError, ValueError):
+            pass
+     
+        return None
 
 def format_datetime(c, val):
     if c.type in [datetime.datetime, datetime.date, datetime.time]:
