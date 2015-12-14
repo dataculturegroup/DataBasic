@@ -20,7 +20,7 @@ git clone https://github.com/c4fcm/DataBasic.git
 cd DataBasic
 ```
 
-**2.** Edit the `config/development.py` file and enter your settings. You will need to register the app with Google. To do that, create a project in the [Google Developers Console](https://console.developers.google.com/project/_/apiui/credential) and copy the credentials into `config/development.py`.
+**2.** Copy `config/development.py.template` to `config/development.py` and enter your settings.
 
 **3.** Create a venv and install the requirements `pip install -r requirements`
 
