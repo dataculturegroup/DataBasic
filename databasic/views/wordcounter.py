@@ -127,9 +127,20 @@ def results(doc_id):
 
 	return render_template('wordcounter/results.html', results=results, whatnext=whatnext, csv_files=csv_files, tool_name='wordcounter', title=doc['title'], doc_id=doc_id)
 
-@mod.route('/results/download/<file_path>')
-def download_csv(file_path):
-	return filehandler.generate_csv(file_path)
+@mod.route('/results/<doc_id>/download/<file_path>')
+def download_csv(doc_id, file_path):
+	if filehandler.file_exists(file_path):
+		return filehandler.generate_csv(file_path)
+	else:
+		# if temp file has expired, generate a new one
+		doc = mongo.find_document('wordcounter', doc_id)
+		files = create_csv_files(doc.get('counts'))
+		f = files[0]
+		if '-bigram-counts.csv' in file_path:
+			f = files[1]
+		elif '-trigram-counts.csv' in file_path:
+			f = files[2]
+		return filehandler.generate_csv(f)
 
 def process_upload(doc):
 	file_path = filehandler.open_doc(doc)

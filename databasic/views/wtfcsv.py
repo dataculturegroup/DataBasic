@@ -73,34 +73,38 @@ def render_results(doc_id, sheet_idx):
 		return random.choice(results[int(sheet_idx)]['columns'])
 
 	columns = results[int(sheet_idx)]['columns']
-	random_column = get_random_column()
-	random_column2 = get_random_column()
-	random_column3 = get_random_column()
 
-	if len(columns) > 0 and next((c for c in columns if 'most_freq_values' in c), None) is not None:
-		while 'most_freq_values' not in random_column:
-			random_column = get_random_column()
+	if len(columns) < 1:
+		whatnext = 'no_data'
+	else:
+		random_column = get_random_column()
+		random_column2 = get_random_column()
+		random_column3 = get_random_column()
 
-	if len(columns) > 1:
-		while random_column2 == random_column:
-			random_column2 = get_random_column()
-	else:
-		random_column2 = random_column
-	
-	if len(columns) > 2:
-		while random_column3 == random_column or random_column3 == random_column2:
-			random_column3 = get_random_column()
-	else:
-		random_column3 = random_column
+		if len(columns) > 0 and next((c for c in columns if 'most_freq_values' in c), None) is not None:
+			while 'most_freq_values' not in random_column:
+				random_column = get_random_column()
 
-	whatnext = {}
-	if 'most_freq_values' in random_column and len(random_column['most_freq_values']) > 0:
-		whatnext['random_column_top_value'] = random_column['most_freq_values'][0]['value'] if 'most_freq_values' in random_column else ''
-	else:
-		whatnext['random_column_top_value'] = 0
-	whatnext['random_column_name'] = random_column['name']
-	whatnext['random_column_name2'] = random_column2['name']
-	whatnext['random_column_name3'] = random_column3['name']
+		if len(columns) > 1:
+			while random_column2 == random_column:
+				random_column2 = get_random_column()
+		else:
+			random_column2 = random_column
+		
+		if len(columns) > 2:
+			while random_column3 == random_column or random_column3 == random_column2:
+				random_column3 = get_random_column()
+		else:
+			random_column3 = random_column
+
+		whatnext = {}
+		if 'most_freq_values' in random_column and len(random_column['most_freq_values']) > 0:
+			whatnext['random_column_top_value'] = random_column['most_freq_values'][0]['value'] if 'most_freq_values' in random_column else ''
+		else:
+			whatnext['random_column_top_value'] = 0
+		whatnext['random_column_name'] = random_column['name']
+		whatnext['random_column_name2'] = random_column2['name']
+		whatnext['random_column_name3'] = random_column3['name']
 
 	# build a list of summary result data for the chart
 	for col in columns:

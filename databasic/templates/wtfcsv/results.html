@@ -86,7 +86,9 @@
 								{{_("Here's some %(metadata)s about each column.", 
 								metadata=hover_tooltip(_('metadata'), 'Metadata summarizes basic information about data to make it easier to discover what\'s going on'))}}
 							</p>
-							{{ what_next_anchor() }}
+							{% if 'no_data' not in whatnext %}
+								{{ what_next_anchor() }}
+							{% endif %}
 						</div>
 					</div>
 				</div>
@@ -231,11 +233,13 @@
 			</div>
 		</div>
 	
-		{{ what_next(_("Understanding the data in your csv file is the first step in analyzing it for stories. Looking at individual columns can help you identify questions that might be fun to ask about your data.  For instance, is it surprising that \"%(most_common_value)s\" is the most frequent value in the %(random_column_name)s column?  Does it make any sense to compare the %(random_column_name2)s column to the %(random_column_name3)s column?  Are there any other datasets you could find to ask interesting questions about the %(random_column_name)s column?  <br /><br />Asking these types of questions is the first step in understanding the data you have, and what kind of stories you can find in it. Check out our <a href=\"#\">activity guide</a> for more help on asking questions of data sets.",
-		most_common_value=whatnext['random_column_top_value'],
-		random_column_name=whatnext['random_column_name'],
-		random_column_name2=whatnext['random_column_name2'],
-		random_column_name3=whatnext['random_column_name3'])) }}
+			{% if 'no_data' not in whatnext %}
+				{{ what_next(_("Understanding the data in your csv file is the first step in analyzing it for stories. Looking at individual columns can help you identify questions that might be fun to ask about your data.  For instance, is it surprising that \"%(most_common_value)s\" is the most frequent value in the %(random_column_name)s column?  Does it make any sense to compare the %(random_column_name2)s column to the %(random_column_name3)s column?  Are there any other datasets you could find to ask interesting questions about the %(random_column_name)s column?  <br /><br />Asking these types of questions is the first step in understanding the data you have, and what kind of stories you can find in it. Check out our <a href=\"#\">activity guide</a> for more help on asking questions of data sets.",
+				most_common_value=whatnext['random_column_top_value'],
+				random_column_name=whatnext['random_column_name'],
+				random_column_name2=whatnext['random_column_name2'],
+				random_column_name3=whatnext['random_column_name3'])) }}
+			{% endif %}
 
 		{% endif %}
 </div>

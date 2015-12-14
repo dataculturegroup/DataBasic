@@ -2,9 +2,9 @@
 {% from 'macros.html' import hover_tooltip, download_url, shareable %}
 {% from 'tool_footer.html' import what_next %}
 
-{% set download_words="/" + g['current_lang'] + "/wordcounter/results/download/" + csv_files[0] %}
-{% set download_bigrams="/" + g['current_lang'] + "/wordcounter/results/download/" + csv_files[1] %}
-{% set download_trigrams="/" + g['current_lang'] + "/wordcounter/results/download/" + csv_files[2] %}
+{% set download_words="/" + g['current_lang'] + "/wordcounter/results/" + doc_id + "/download/" + csv_files[0] %}
+{% set download_bigrams="/" + g['current_lang'] + "/wordcounter/results/" + doc_id + "/download/" + csv_files[1] %}
+{% set download_trigrams="/" + g['current_lang'] + "/wordcounter/results/" + doc_id + "/download/" + csv_files[2] %}
 {% set has_results=whatnext['top_word'] != '' %}
 
 {% block title %}{{ _('Word-Counter results') }}{% endblock %}

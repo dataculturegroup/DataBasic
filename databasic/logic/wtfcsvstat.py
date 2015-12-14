@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 #!/usr/bin/env python
-import datetime, os, sys, json, tempfile, re
+import datetime, os, sys, json, tempfile, re, csv
 import gzip
 import bz2
 from heapq import nlargest
@@ -41,6 +41,7 @@ A hacked-up version of after CSVState
 class WTFCSVStat():
     
     def __init__(self, input_path, has_header_row=True, encoding='utf-8'):
+        self.input_path = input_path
         self.has_header_row = has_header_row
         self.input_file = self._open_input_file(input_path, encoding)
         
@@ -62,6 +63,11 @@ class WTFCSVStat():
         results = {}
         
         operations = [op for op in OPERATIONS]
+
+        if self._csv_has_rows(self.input_path) == False:
+            results['row_count'] = 0
+            results['columns'] = []
+            return results
 
         tab = table.Table.from_csv(self.input_file)
 
@@ -354,6 +360,14 @@ class WTFCSVStat():
             pass
      
         return None
+
+    def _csv_has_rows(self, file_path):
+        with open(file_path, "rb") as f:         
+            #Read in parameter values as a dictionary
+            paradict = csv.DictReader(f)
+            for line in paradict:
+                return True
+        return False
 
 def format_datetime(c, val):
     if c.type in [datetime.datetime, datetime.date, datetime.time]:
