@@ -30,7 +30,7 @@
 <div class="card-top">
 	<div class="close-button pull-right" role="presentation" aria-hidden="true"><h3><span class="glyphicon {{ glyphicon }}" aria-hidden="true"></span></h3></div>
 	<h3 class="data-type" aria-hidden="true" role="presentation">{{ data_type_icon(col, type_name) }}</h3>
-	<h3 class="card-name">{{ col['name'] }}</h3>
+	<h3 class="card-name">{{ col['name']|truncate(20) }}</h3>
 </div>
 {%- endmacro %}
 
@@ -64,7 +64,7 @@
 						<ul class="nav nav-tabs nav-justified">
 						{% for r in range(results|length) %}
 							<li role="presentation" {% if r == index %}class="active"{% endif %}>
-								<a href="{{ request.url.replace('/sheets/' + index|string, '/sheets/' + r|string) }}">{{ results[r]['sheet_name'] }}</a>
+								<a href="{{ request.url.replace('/sheets/' + index|string, '/sheets/' + r|string) }}">{{ results[r]['sheet_name']|truncate(22) }}</a>
 							</li>
 						{% endfor %}
 						</ul>
@@ -143,6 +143,9 @@
 									{{ card_top(type_name, col, 'glyphicon-signal') }}
 									<div class="card-bottom">
 										<ul>
+											{% if col['name']|length > 16 %}
+												<li>{{ _('Full name: "%(name)s"', name=col['name']) }}</li>
+											{% endif %}
 											<li>{{_("This column is full of")}} {{ col['display_type_name'] }}</li>
 											{% if 'values' in col %}
 												<li>{{_("The unique values in this column are:")}}

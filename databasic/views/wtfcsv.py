@@ -123,8 +123,6 @@ def render_results(doc_id, sheet_idx):
 			overview_data['categories'].append(gettext('Other'))
 			overview_data['values'].append(int(col['others']))
 		col['overview'] = overview_data
-		if len(col['name']) > 15:
-			col['name'] = col['name'][:15] + '...'
 	
 	return render_template('wtfcsv/results.html', results=results, whatnext=whatnext, tool_name='wtfcsv', index=int(sheet_idx))
 
