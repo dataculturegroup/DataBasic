@@ -142,9 +142,8 @@ def generate_filename(ext, suffix, *args):
 
 def download_webpage(url):
 	soup = bs(urlopen(url))
-	print soup
-	print soup.p
-	soup.p.encode(ENCODING)
+	if soup.p is not None:
+		soup.p.encode(ENCODING)
 	for script in soup(['script', 'style']):
 		script.extract()
 	return {'title': soup.title.string, 'text': soup.get_text()}
