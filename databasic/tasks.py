@@ -1,10 +1,11 @@
 from __future__ import absolute_import
 import os
-from databasic import app, mongo, mail
-from databasic.celeryapp import celery_app
+from databasic import app, mongo
+#from databasic import mail
+#from databasic.celeryapp import celery_app
 from flask.ext.mail import Message
 from databasic.logic import tfidfanalysis
-
+'''
 @celery_app.task(serializer='json',bind=True)
 def save_tfidf_results(self, job_id):
 
@@ -42,3 +43,4 @@ def save_tfidf_results(self, job_id):
         mail.send(msg)
 
     print "sent ya an email ;)"
+'''

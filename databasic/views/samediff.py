@@ -1,7 +1,8 @@
 import datetime, logging, json, os
 from operator import itemgetter
 from collections import OrderedDict
-from databasic import mongo, app, mail, get_base_dir
+from databasic import mongo, app, get_base_dir
+#form databasic import mail
 from databasic.forms import SameDiffUpload, SameDiffSample
 from databasic.logic import filehandler
 import databasic.tasks

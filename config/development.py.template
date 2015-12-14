@@ -1,0 +1,22 @@
+
+# Put a unique hexadecimal token in here (needed by our forms library).
+SECRET_KEY = 'SECRET_KEY'
+
+# Put in the url for your mongodb server, and the database name on that server.
+MONGODB_URL = 'mongodb://localhost/'
+MONGODB_NAME = 'databasic-dev'
+
+# To allow processing of google spreadsheets in WTFcsv, you need to put in a Google API token here.
+# Create a project in the Google Developers Console and copy the credentials here.
+#   https://console.developers.google.com/project/_/apiui/credential
+GOOGLE_CLIENT_ID = "MY_CLIENT_ID"
+GOOGLE_CLIENT_SECRET = "MY_SECRET_ID"
+
+# To track visits put in a google analytics id here.
+GOOGLE_ANALYTICS_ID = ''
+
+# If you are deploying in production to a read-only filesystem you'll need to put a that url in here.
+SAMPLE_DATA_SERVER = 'http://my.static.server.for.stuff/'
+
+# Set to boolean True or False for Flask debugging assists.
+DEBUG = True

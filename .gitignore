@@ -16,3 +16,4 @@ dump.rdb
 logs/*.log
 .env
 .webassets-cache/
+config/development.py

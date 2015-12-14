@@ -4,14 +4,14 @@
 # and update these paths
 
 # linux / os x:
-export APP_CONFIG_FILE=../config/development.py
+export APP_MODE=development
 
 # windows:
 # set APP_CONFIG_FILE=..\config\development.py
 
 alias activate=". venv/bin/activate"
-python run.py
-wait
+gunicorn databasic:app
+# wait
 # redis-server & celery -A databasic worker --app=databasic.celeryapp --loglevel=debug & python run.py & apid=$!;
 # wait;
 # while kill -0 $apid; do ps auxww | grep 'celery worker' | awk '{print $2}' | xargs kill -9; done

@@ -4,10 +4,9 @@ from bson.objectid import ObjectId
 
 class MongoHandler:
 
-	def __init__(self, app, host, port):
-		uri = 'mongodb://' + host + ':' + str(port)
+	def __init__(self, uri, db_name):
 		self._client = MongoClient(uri, connect=False)
-		self._db = self._client['DataBasic']
+		self._db = self._client[db_name]
 	
 	def save_words(self, collection, counts, csv_files, ignore_case, ignore_stopwords, title, sample_id):
 		if sample_id != '':
