@@ -34,8 +34,6 @@
 </div>
 {%- endmacro %}
 
-{% set column_count = results[index]['columns']|length %}
-
 {% block title %}{{_("WTFcsv: ")}} {{ results[index]['filename'] }}{% endblock %}
 
 {% block custom_css %}
@@ -50,175 +48,193 @@
 <div role="main">
 	<header>
 		<div class="container-fluid">
-			{% if results|length > 1 %}
-			<div class="row centered-row">
-		        <div class="col-md-12">
-					<ul class="nav nav-tabs nav-justified">
-					{% for r in range(results|length) %}
-						<li role="presentation" {% if r == index %}class="active"{% endif %}>
-							<a href="{{ request.url.replace('/sheets/' + index|string, '/sheets/' + r|string) }}">{{ results[r]['sheet_name'] }}</a>
-						</li>
-					{% endfor %}
-					</ul>
-				</div>
-			</div>
-			{% endif %}
-
-			<div class="row">
-				<div class="col-md-12" id="intro">
-					<div class="intro-container">
+			{% if 'bad_formatting' in results %}
+				<div class="row">
+					<div class="col-md-12" id="intro">
 						<h2 class="summary" role="banner" id="results-title">
-							{{_("WTFcsv: ")}} {{ results[index]['filename'] }} {{ shareable() }}
+							{{ _('We can\'t analyze that data because it\'s not in a standard form. Your first row should contain the names of your columns.') }}
 						</h2>
-						<p class="summary">
-							{{ _("%(rows)s rows of data grouped into %(cols)s columns.",
-							rows=results[index]['row_count'],
-							cols=results[index]['columns']|length) }}
-							<br />
-							{{_("Here's some %(metadata)s about each column.", 
-							metadata=hover_tooltip(_('metadata'), 'Metadata summarizes basic information about data to make it easier to discover what\'s going on'))}}
-						</p>
-						{{ what_next_anchor() }}
 					</div>
 				</div>
-			</div>
+			{% else %}
+
+				{% if results|length > 1 %}
+				<div class="row centered-row">
+			        <div class="col-md-12">
+						<ul class="nav nav-tabs nav-justified">
+						{% for r in range(results|length) %}
+							<li role="presentation" {% if r == index %}class="active"{% endif %}>
+								<a href="{{ request.url.replace('/sheets/' + index|string, '/sheets/' + r|string) }}">{{ results[r]['sheet_name'] }}</a>
+							</li>
+						{% endfor %}
+						</ul>
+					</div>
+				</div>
+				{% endif %}
+
+				<div class="row">
+					<div class="col-md-12" id="intro">
+						<div class="intro-container">
+							<h2 class="summary" role="banner" id="results-title">
+								{{_("WTFcsv: ")}} {{ results[index]['filename'] }} {{ shareable() }}
+							</h2>
+							<p class="summary">
+								{{ _("%(rows)s rows of data grouped into %(cols)s columns.",
+								rows=results[index]['row_count'],
+								cols=results[index]['columns']|length) }}
+								<br />
+								{{_("Here's some %(metadata)s about each column.", 
+								metadata=hover_tooltip(_('metadata'), 'Metadata summarizes basic information about data to make it easier to discover what\'s going on'))}}
+							</p>
+							{{ what_next_anchor() }}
+						</div>
+					</div>
+				</div>
+			{% endif %}
 		</div>
 	</header>
 
-	<div class="container-fluid" id="cards">
-		<div class="list-group" id="sortableRow">
-		<p>.</p>
-		{% for c in range(column_count) %}
-			
-			{% set col=results[index]['columns'][c] %}
-			{% set type_name=col['type'] %}
-			{% set is_number = 'numbers' in col['display_type_name'] %}
-			
-			<div class="col-sm-6 col-md-4 list-group-item" id="col-card-{{ c }}">
-				<div class="column-info">
-					<div class="card" id="card-{{ c }}">
-						<div class="front">
-							<div class="card-content">
-								{{ card_top(type_name, col, 'glyphicon-info-sign') }}
-								<div id="card-chart-{{ c }}" class="card-chart">
-									<div class="chart" aria-hidden="true"></div>
-									<div class="table">
-									{% if col['overview']['categories']|length > 0 %}
-										<table>
-											<thead>
-												<tr>
-													<th>{{_('value')}}</th>
-													<th>{{_('frequency')}}</th>
-												</tr>
-											</thead>
-											{% for idx in range(col['overview']['categories']|length) %}
-												<tr>
-													<td>{{ col['overview']['categories'][idx]}}</td>
-													<td>{{ col['overview']['values'][idx]}}</td>
-												</tr>
-											{% endfor %}
-										</table>
-									{% else %}
-										<p>{{ _('No data to display.') }}</p>
-									{% endif %}
+	{% if 'bad_formatting' not in results %}
+
+		{% set column_count = results[index]['columns']|length %}
+
+		<div class="container-fluid" id="cards">
+			<div class="list-group" id="sortableRow">
+			<p>.</p>
+			{% for c in range(column_count) %}
+				
+				{% set col=results[index]['columns'][c] %}
+				{% set type_name=col['type'] %}
+				{% set is_number = 'numbers' in col['display_type_name'] %}
+				
+				<div class="col-sm-6 col-md-4 list-group-item" id="col-card-{{ c }}">
+					<div class="column-info">
+						<div class="card" id="card-{{ c }}">
+							<div class="front">
+								<div class="card-content">
+									{{ card_top(type_name, col, 'glyphicon-info-sign') }}
+									<div id="card-chart-{{ c }}" class="card-chart">
+										<div class="chart" aria-hidden="true"></div>
+										<div class="table">
+										{% if col['overview']['categories']|length > 0 %}
+											<table>
+												<thead>
+													<tr>
+														<th>{{_('value')}}</th>
+														<th>{{_('frequency')}}</th>
+													</tr>
+												</thead>
+												{% for idx in range(col['overview']['categories']|length) %}
+													<tr>
+														<td>{{ col['overview']['categories'][idx]}}</td>
+														<td>{{ col['overview']['values'][idx]}}</td>
+													</tr>
+												{% endfor %}
+											</table>
+										{% else %}
+											<p>{{ _('No data to display.') }}</p>
+										{% endif %}
+										</div>
+									</div>
+								</div>
+							</div>
+							<div class="back">
+								<div class="card-content">
+									{{ card_top(type_name, col, 'glyphicon-signal') }}
+									<div class="card-bottom">
+										<ul>
+											<li>{{_("This column is full of")}} {{ col['display_type_name'] }}</li>
+											{% if 'values' in col %}
+												<li>{{_("The unique values in this column are:")}}
+												<ul>
+													{% for val in col['values'] %}
+														<li><em>{{ val['value'] }}</em> <em>({{ val['count'] }})</em></li>
+													{% endfor %}
+												</ul>
+												</li>
+											{% elif 'most_freq_values' in col %}
+												<li>{{ _("The most frequent values in this column are:") }}
+													<ul>
+														{% for val in col['most_freq_values'] %}
+															{% if is_number %}
+															<li>{{ val['value'] | replace("_", ".") }}<em> ({{ _("occurs %(frequency)s times", frequency=val['count']) }})</em></li>
+															{% else %}
+																<li><em>{{ val['value'] }}</em><em> ({{ val['count'] }})</em></li>
+															{% endif %}
+														{% endfor %}
+													</ul>
+												</li>
+											{% endif %}
+											{% if 'max_str_len' in col %}
+												<li>{{ _("The longest string has %d characters" % col['max_str_len']) }}</li>
+											{% endif %}
+											{% if 'min' in col %}
+												<li>
+												{% if type_name == 'datetime' or type_name == 'date' %}
+													{{ _('The earliest date is') }}
+												{% elif type_name == 'time' %}
+													{{ _('The earliest time is') }}
+												{% else %}
+													{{_("The smallest number is") }} 
+												{% endif %} <em>{{col['min']}}</em></li>
+											{% endif %}
+											{% if 'max' in col %}
+												<li>
+												{% if type_name == 'datetime' or type_name == 'date' %}
+													{{ _('The latest date is') }}
+												{% elif type_name == 'time' %}
+													{{ _('The latest time is') }}
+												{% else %}
+													{{_("The biggest number is") }}
+												{% endif %} <em>{{col['max']}}</em></li>
+											{% endif %}
+											{% if 'sum' in col %}
+												<li>{{_("The total is") }} <em>{{col['sum']|round(2)}}</em></li>
+											{% endif %}
+											{% if 'mean' in col %}
+												<li>{{_("The average is") }} <em>{{col['mean']|round(2)}}</em></li>
+											{% endif %}
+											{% if 'median' in col %}
+												<li>{{_("The median is") }} <em>{{col['median']|round(2)}}</em></li>
+											{% endif %}
+											{% if 'stdev' in col %}
+												<li>{{_("The standard deviation is") }} <em>{{col['stdev']|round(2)}}</em></li>
+											{% endif %}
+											{% if col['nulls'] > 0 %}
+												<li>{{ ngettext("There is %(num)s row of missing data", "There are %(num)s rows of missing data", col['nulls']) }}</li>
+											{% endif %}
+											{% if 'freq' in col %}
+												<li>{{col['freq']|round(2)}}</li>
+											{% endif %}
+											{% if 'len' in col %}
+												<li>{{_("The longest string is <em>%d</em> characters" % col['len']) }}</li>
+											{% endif %}
+											{% if 'uniques' in col %}
+												<li>{{ _('There are <em>%d</em> unique values' % col['uniques']) }}</li>
+											{% endif %}
+										</ul>
 									</div>
 								</div>
 							</div>
 						</div>
-						<div class="back">
-							<div class="card-content">
-								{{ card_top(type_name, col, 'glyphicon-signal') }}
-								<div class="card-bottom">
-									<ul>
-										<li>{{_("This column is full of")}} {{ col['display_type_name'] }}</li>
-										{% if 'values' in col %}
-											<li>{{_("The unique values in this column are:")}}
-											<ul>
-												{% for val in col['values'] %}
-													<li><em>{{ val['value'] }}</em> <em>({{ val['count'] }})</em></li>
-												{% endfor %}
-											</ul>
-											</li>
-										{% elif 'most_freq_values' in col %}
-											<li>{{ _("The most frequent values in this column are:") }}
-												<ul>
-													{% for val in col['most_freq_values'] %}
-														{% if is_number %}
-														<li>{{ val['value'] | replace("_", ".") }}<em> ({{ _("occurs %(frequency)s times", frequency=val['count']) }})</em></li>
-														{% else %}
-															<li><em>{{ val['value'] }}</em><em> ({{ val['count'] }})</em></li>
-														{% endif %}
-													{% endfor %}
-												</ul>
-											</li>
-										{% endif %}
-										{% if 'max_str_len' in col %}
-											<li>{{ _("The longest string has %d characters" % col['max_str_len']) }}</li>
-										{% endif %}
-										{% if 'min' in col %}
-											<li>
-											{% if type_name == 'datetime' or type_name == 'date' %}
-												{{ _('The earliest date is') }}
-											{% elif type_name == 'time' %}
-												{{ _('The earliest time is') }}
-											{% else %}
-												{{_("The smallest number is") }} 
-											{% endif %} <em>{{col['min']}}</em></li>
-										{% endif %}
-										{% if 'max' in col %}
-											<li>
-											{% if type_name == 'datetime' or type_name == 'date' %}
-												{{ _('The latest date is') }}
-											{% elif type_name == 'time' %}
-												{{ _('The latest time is') }}
-											{% else %}
-												{{_("The biggest number is") }}
-											{% endif %} <em>{{col['max']}}</em></li>
-										{% endif %}
-										{% if 'sum' in col %}
-											<li>{{_("The total is") }} <em>{{col['sum']|round(2)}}</em></li>
-										{% endif %}
-										{% if 'mean' in col %}
-											<li>{{_("The average is") }} <em>{{col['mean']|round(2)}}</em></li>
-										{% endif %}
-										{% if 'median' in col %}
-											<li>{{_("The median is") }} <em>{{col['median']|round(2)}}</em></li>
-										{% endif %}
-										{% if 'stdev' in col %}
-											<li>{{_("The standard deviation is") }} <em>{{col['stdev']|round(2)}}</em></li>
-										{% endif %}
-										{% if col['nulls'] > 0 %}
-											<li>{{ ngettext("There is %(num)s row of missing data", "There are %(num)s rows of missing data", col['nulls']) }}</li>
-										{% endif %}
-										{% if 'freq' in col %}
-											<li>{{col['freq']|round(2)}}</li>
-										{% endif %}
-										{% if 'len' in col %}
-											<li>{{_("The longest string is <em>%d</em> characters" % col['len']) }}</li>
-										{% endif %}
-										{% if 'uniques' in col %}
-											<li>{{ _('There are <em>%d</em> unique values' % col['uniques']) }}</li>
-										{% endif %}
-									</ul>
-								</div>
-							</div>
-						</div>
 					</div>
 				</div>
+			{% endfor %}
 			</div>
-		{% endfor %}
-		</div>
-		<div class="row">
-			<div class="col-md-12">
-				{# share() #}
+			<div class="row">
+				<div class="col-md-12">
+					{# share() #}
+				</div>
 			</div>
 		</div>
-	</div>
-	{{ what_next(_("Understanding the data in your csv file is the first step in analyzing it for stories. Looking at individual columns can help you identify questions that might be fun to ask about your data.  For instance, is it surprising that \"%(most_common_value)s\" is the most frequent value in the %(random_column_name)s column?  Does it make any sense to compare the %(random_column_name2)s column to the %(random_column_name3)s column?  Are there any other datasets you could find to ask interesting questions about the %(random_column_name)s column?  <br /><br />Asking these types of questions is the first step in understanding the data you have, and what kind of stories you can find in it. Check out our <a href=\"#\">activity guide</a> for more help on asking questions of data sets.",
-	most_common_value=whatnext['random_column_top_value'],
-	random_column_name=whatnext['random_column_name'],
-	random_column_name2=whatnext['random_column_name2'],
-	random_column_name3=whatnext['random_column_name3'])) }}
+	
+		{{ what_next(_("Understanding the data in your csv file is the first step in analyzing it for stories. Looking at individual columns can help you identify questions that might be fun to ask about your data.  For instance, is it surprising that \"%(most_common_value)s\" is the most frequent value in the %(random_column_name)s column?  Does it make any sense to compare the %(random_column_name2)s column to the %(random_column_name3)s column?  Are there any other datasets you could find to ask interesting questions about the %(random_column_name)s column?  <br /><br />Asking these types of questions is the first step in understanding the data you have, and what kind of stories you can find in it. Check out our <a href=\"#\">activity guide</a> for more help on asking questions of data sets.",
+		most_common_value=whatnext['random_column_top_value'],
+		random_column_name=whatnext['random_column_name'],
+		random_column_name2=whatnext['random_column_name2'],
+		random_column_name3=whatnext['random_column_name3'])) }}
+
+		{% endif %}
 </div>
 {% endblock %}
 
@@ -306,146 +322,151 @@ $(function () {
 
 	var highchartsOptions = Highcharts.setOptions(Highcharts.theme);
 
-{% for c in range(column_count) %}
-	{% set col=results[index]['columns'][c] %}
-	{% set dname=col['display_type_name'] %}
-
-	{% if not 'word_counts' in col %}
-
-		{% if 'text' in dname or 'numbers' in dname or 'dates' in dname or 'times' in dname or 'dates and times' in dname or 'booleans' in dname %}
-			$('#card-chart-{{ c }} .chart').highcharts({
-				title: {
-					text: null
-				},
-				tooltip: {
-					backgroundColor: '#fff',
-					borderColor: '#C8523B',
-					formatter: function() {
-						return '<style="color: #C8523B">' + this.x + ': <strong>' + this.y + '</strong></style>';
-				    }
-				},
-				{% if 'text' in dname or 'numbers' in dname or 'booleans' in dname %}
-					chart: {
-						type: 'column'
-					},
-				{% endif %}
-				xAxis: {
-					title: {
-						text:
-						{% if 'text' in dname %}
-						_('Categories')
-						{% elif 'numbers' in dname %}
-						_('Counts')
-						{% elif 'dates' in dname %}
-						_('Dates')
-						{% elif 'times' in dname %}
-						_('Times')
-						{% elif 'dates and times' in dname %}
-						_('Dates and times')
-						{% elif 'booleans' in dname %}
-						_('Booleans')
-						{% else %}
-						_('Undefined')
-						{% endif %}
-					},
-					categories: {{ col['overview']['categories'] | tojson }},
-					plotLines: [{
-						color: '#fff'
-					}]
-				},
-				yAxis: {
-					title: {
-						text: _('# of rows')
-					},
-					plotLines: [{
-						color: '#fff'
-					}]
-				},
-				plotOptions: {
-				    column: {
-				        pointPadding: 0,
-				        borderWidth: 1,
-				        groupPadding: 0,
-				        shadow: false,
-				        borderColor: '#fec52e'
-				    }
-				},
-				series: [{
-					data: {{ col['overview']['values'] | tojson }},
-					showInLegend: false,
-					marker: {
-						states: {
-							hover: {
-								enabled: false
-							}
-						}
-					},
-					turboThreshold: 0
-				}],
-				credits: {
-					enabled: false
-				}
-			});
-		{% endif %}
+{% if 'bad_formatting' not in results %}
 	
-	{% else %}
+	{% set column_count = results[index]['columns']|length %}
 
-		// Word cloud
+	{% for c in range(column_count) %}
+		{% set col=results[index]['columns'][c] %}
+		{% set dname=col['display_type_name'] %}
 
-		var tip = d3.tip()
-			.attr('class', 'd3-tip')
-			.html(function(d) { 
-				return d.text + ': ' + '<span class="tip-size">' + d.size + '</span>';
-			})
-			.offset([-5, 0]);
+		{% if not 'word_counts' in col %}
 
-		var data = [
-		{% for word in col['word_counts'][0] | batch(50) | first %}
-			{ text: "{{ word[0]|safe }}", size: {{ word[1]|float }} },
-		{% endfor %}
-		];
+			{% if 'text' in dname or 'numbers' in dname or 'dates' in dname or 'times' in dname or 'dates and times' in dname or 'booleans' in dname %}
+				$('#card-chart-{{ c }} .chart').highcharts({
+					title: {
+						text: null
+					},
+					tooltip: {
+						backgroundColor: '#fff',
+						borderColor: '#C8523B',
+						formatter: function() {
+							return '<style="color: #C8523B">' + this.x + ': <strong>' + this.y + '</strong></style>';
+					    }
+					},
+					{% if 'text' in dname or 'numbers' in dname or 'booleans' in dname %}
+						chart: {
+							type: 'column'
+						},
+					{% endif %}
+					xAxis: {
+						title: {
+							text:
+							{% if 'text' in dname %}
+							_('Categories')
+							{% elif 'numbers' in dname %}
+							_('Counts')
+							{% elif 'dates' in dname %}
+							_('Dates')
+							{% elif 'times' in dname %}
+							_('Times')
+							{% elif 'dates and times' in dname %}
+							_('Dates and times')
+							{% elif 'booleans' in dname %}
+							_('Booleans')
+							{% else %}
+							_('Undefined')
+							{% endif %}
+						},
+						categories: {{ col['overview']['categories'] | tojson }},
+						plotLines: [{
+							color: '#fff'
+						}]
+					},
+					yAxis: {
+						title: {
+							text: _('# of rows')
+						},
+						plotLines: [{
+							color: '#fff'
+						}]
+					},
+					plotOptions: {
+					    column: {
+					        pointPadding: 0,
+					        borderWidth: 1,
+					        groupPadding: 0,
+					        shadow: false,
+					        borderColor: '#fec52e'
+					    }
+					},
+					series: [{
+						data: {{ col['overview']['values'] | tojson }},
+						showInLegend: false,
+						marker: {
+							states: {
+								hover: {
+									enabled: false
+								}
+							}
+						},
+						turboThreshold: 0
+					}],
+					credits: {
+						enabled: false
+					}
+				});
+			{% endif %}
+		
+		{% else %}
 
-		var width = $('#card-chart-{{ c }} .chart').width();
+			// Word cloud
 
-		var maxScore = Math.max.apply(Math, data.map(function(o) {return o.size;}));
-		var fontSizeScale = d3.scale.linear()
-			.domain([0, maxScore])
-			.range([8, 70]); 
+			var tip = d3.tip()
+				.attr('class', 'd3-tip')
+				.html(function(d) { 
+					return d.text + ': ' + '<span class="tip-size">' + d.size + '</span>';
+				})
+				.offset([-5, 0]);
 
-		var fill = d3.scale.category20();
-		var layout = d3.layout.cloud()
-			.size([width, 295])
-			.words(data)
-			.padding(6)
-			.rotate(function () { return 0; })
-			.fontSize(function(d) { return fontSizeScale(d.size); });
+			var data = [
+			{% for word in col['word_counts'][0] | batch(50) | first %}
+				{ text: "{{ word[0]|safe }}", size: {{ word[1]|float }} },
+			{% endfor %}
+			];
 
-		layout.start();
+			var width = $('#card-chart-{{ c }} .chart').width();
 
-		d3.select('#card-chart-{{ c }} .chart').append('svg')
-			.attr('width', layout.size()[0])
-			.attr('height', layout.size()[1])
-			.call(tip)
-		.append('g')
-			.attr('transform', 'translate(' + layout.size()[0] / 2 + ',' + layout.size()[1] / 2 + ')')
-		.selectAll('text')
-			.data(data)
-		.enter().append('text')
-			.classed('cloud-text', true)
-			.style('font-size', function(d) { return d.size + 'px'; })
-			.style('font-family', function (d) { return d.size > 30 ? 'HalisGR-Medium' : 'HalisGR-Book'; })
-			.attr('text-anchor', 'middle')
-			.attr('fill', '#fff')
-			.attr('transform', function (d) {
-				return 'translate(' + [d.x, d.y] + ')rotate(' + d.rotate + ')';
-			})
-			.text(function (d) { return d.text; })
-			.on('mouseover', tip.show)
-            .on('mouseout', tip.hide);
+			var maxScore = Math.max.apply(Math, data.map(function(o) {return o.size;}));
+			var fontSizeScale = d3.scale.linear()
+				.domain([0, maxScore])
+				.range([8, 70]); 
 
-	{% endif %}
+			var fill = d3.scale.category20();
+			var layout = d3.layout.cloud()
+				.size([width, 295])
+				.words(data)
+				.padding(6)
+				.rotate(function () { return 0; })
+				.fontSize(function(d) { return fontSizeScale(d.size); });
 
-{% endfor %}
+			layout.start();
+
+			d3.select('#card-chart-{{ c }} .chart').append('svg')
+				.attr('width', layout.size()[0])
+				.attr('height', layout.size()[1])
+				.call(tip)
+			.append('g')
+				.attr('transform', 'translate(' + layout.size()[0] / 2 + ',' + layout.size()[1] / 2 + ')')
+			.selectAll('text')
+				.data(data)
+			.enter().append('text')
+				.classed('cloud-text', true)
+				.style('font-size', function(d) { return d.size + 'px'; })
+				.style('font-family', function (d) { return d.size > 30 ? 'HalisGR-Medium' : 'HalisGR-Book'; })
+				.attr('text-anchor', 'middle')
+				.attr('fill', '#fff')
+				.attr('transform', function (d) {
+					return 'translate(' + [d.x, d.y] + ')rotate(' + d.rotate + ')';
+				})
+				.text(function (d) { return d.text; })
+				.on('mouseover', tip.show)
+	            .on('mouseout', tip.hide);
+
+		{% endif %}
+
+	{% endfor %}
+{% endif %}
 
 });
 

@@ -72,6 +72,10 @@ class WTFCSVStat():
         
         results['columns'] = []
         for c in tab:
+
+            if c.name == '_unnamed':
+                return 'bad_formatting'
+
             column_info = {}
             column_info['index'] = c.order + 1
             column_info['name'] = c.name

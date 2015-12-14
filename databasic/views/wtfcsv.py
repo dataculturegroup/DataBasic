@@ -66,6 +66,9 @@ def render_results(doc_id, sheet_idx):
 
 	results = mongo.find_document('wtfcsv', doc_id).get('results')
 
+	if 'bad_formatting' in results:
+		return render_template('wtfcsv/results.html', results=results, tool_name='wtfcsv', index=0)
+
 	def get_random_column():
 		return random.choice(results[int(sheet_idx)]['columns'])
 
@@ -135,8 +138,9 @@ def process_upload(csv_file):
 	results = []
 	for f in file_paths:
 		summary = wtfcsvstat.get_summary(f)
-		summary['sheet_name'] = _get_sheet_name(f)
-		summary['filename'] = csv_file.filename
+		if 'bad_formatting' not in summary:
+			summary['sheet_name'] = _get_sheet_name(f)
+			summary['filename'] = csv_file.filename
 		results.append(summary)
 	filehandler.delete_files(file_paths)
 	return results
@@ -146,8 +150,9 @@ def process_link(sheet):
 	results = []
 	for f in file_paths:
 		summary = wtfcsvstat.get_summary(f)
-		summary['sheet_name'] = _get_sheet_name(f)
-		summary['filename'] = sheet.sheet1.title
+		if 'bad_formatting' not in summary:
+			summary['sheet_name'] = _get_sheet_name(f)
+			summary['filename'] = sheet.sheet1.title
 		results.append (summary)
 	filehandler.delete_files(file_paths)
 	return results
