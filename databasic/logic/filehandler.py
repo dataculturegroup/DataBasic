@@ -13,13 +13,14 @@ except:
 import databasic
 
 ENCODING = 'utf-8'
+TEMP_DIR = tempfile.gettempdir()
 
 samples = []
 docs = None
 
 def init_uploads():
     global docs
-    TEMP_DIR = tempfile.gettempdir()
+    global TEMP_DIR
     databasic.app.config['UPLOADED_DOCS_DEST'] = TEMP_DIR
     docs = UploadSet(name='docs', extensions=('txt', 'docx', 'rtf', 'csv', 'xlsx', 'xls'))
     configure_uploads(databasic.app, (docs))
