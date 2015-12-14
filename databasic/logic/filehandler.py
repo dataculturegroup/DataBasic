@@ -18,7 +18,7 @@ TEMP_DIR = tempfile.gettempdir()
 databasic.app.config['UPLOADED_DOCS_DEST'] = TEMP_DIR
 docs = UploadSet(name='docs', extensions=('txt', 'docx', 'rtf', 'csv', 'xlsx', 'xls'))
 configure_uploads(databasic.app, (docs))
-patch_request_class(databasic.app, 10 * 1024 * 1024) # 10MB
+patch_request_class(databasic.app, 100 * 1024 * 1024) # 100MB
 
 samples_config_file_path = os.path.join(databasic.get_config_dir(),'sample-data.json')
 samples = json.load(open(samples_config_file_path))
@@ -154,7 +154,8 @@ def generate_filename(ext, suffix, *args):
 
 def download_webpage(url):
     soup = bs(urlopen(url))
-    soup.p.encode(ENCODING)
+    if soup.p is not None:
+        soup.p.encode(ENCODING)
     for script in soup(['script', 'style']):
         script.extract()
     return {'title': soup.title.string, 'text': soup.get_text()}

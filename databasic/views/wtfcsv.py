@@ -66,6 +66,9 @@ def render_results(doc_id, sheet_idx):
 
 	results = mongo.find_document('wtfcsv', doc_id).get('results')
 
+	if 'bad_formatting' in results:
+		return render_template('wtfcsv/results.html', results=results, tool_name='wtfcsv', index=0)
+
 	def get_random_column():
 		return random.choice(results[int(sheet_idx)]['columns'])
 
@@ -91,7 +94,10 @@ def render_results(doc_id, sheet_idx):
 		random_column3 = random_column
 
 	whatnext = {}
-	whatnext['random_column_top_value'] = random_column['most_freq_values'][0]['value'] if 'most_freq_values' in random_column else ''
+	if 'most_freq_values' in random_column and len(random_column['most_freq_values']) > 0:
+		whatnext['random_column_top_value'] = random_column['most_freq_values'][0]['value'] if 'most_freq_values' in random_column else ''
+	else:
+		whatnext['random_column_top_value'] = 0
 	whatnext['random_column_name'] = random_column['name']
 	whatnext['random_column_name2'] = random_column2['name']
 	whatnext['random_column_name3'] = random_column3['name']
@@ -117,8 +123,6 @@ def render_results(doc_id, sheet_idx):
 			overview_data['categories'].append(gettext('Other'))
 			overview_data['values'].append(int(col['others']))
 		col['overview'] = overview_data
-		if len(col['name']) > 15:
-			col['name'] = col['name'][:15] + '...'
 	
 	return render_template('wtfcsv/results.html', results=results, whatnext=whatnext, tool_name='wtfcsv', index=int(sheet_idx))
 
@@ -132,8 +136,9 @@ def process_upload(csv_file):
 	results = []
 	for f in file_paths:
 		summary = wtfcsvstat.get_summary(f)
-		summary['sheet_name'] = _get_sheet_name(f)
-		summary['filename'] = csv_file.filename
+		if 'bad_formatting' not in summary:
+			summary['sheet_name'] = _get_sheet_name(f)
+			summary['filename'] = csv_file.filename
 		results.append(summary)
 	filehandler.delete_files(file_paths)
 	return results
@@ -143,8 +148,9 @@ def process_link(sheet):
 	results = []
 	for f in file_paths:
 		summary = wtfcsvstat.get_summary(f)
-		summary['sheet_name'] = _get_sheet_name(f)
-		summary['filename'] = sheet.sheet1.title
+		if 'bad_formatting' not in summary:
+			summary['sheet_name'] = _get_sheet_name(f)
+			summary['filename'] = sheet.sheet1.title
 		results.append (summary)
 	filehandler.delete_files(file_paths)
 	return results

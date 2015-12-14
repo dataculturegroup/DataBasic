@@ -63,7 +63,7 @@ def index():
 			title = _(content['title'])
 
 		if words is not None:
-			counts, csv_files = process_words(words, ignore_case, ignore_stopwords)
+			counts, csv_files = process_words(words, ignore_case, ignore_stopwords, btn_value=='sample')
 			doc_id = mongo.save_words('wordcounter', counts, csv_files, ignore_case, ignore_stopwords, title, sample_id)
 			return redirect(request.url + 'results/' + doc_id)
 
@@ -137,12 +137,14 @@ def process_upload(doc):
 	filehandler.delete_file(file_path)
 	return words
 
-def process_words(words, ignore_case, ignore_stopwords):
+def process_words(words, ignore_case, ignore_stopwords, is_sample):
 
+	stopwords_language = 'english' if is_sample or g.current_lang == 'en' else 'spanish'
 	counts = wordhandler.get_word_counts(
 		words,
 		ignore_case,
-		ignore_stopwords)
+		ignore_stopwords,
+		stopwords_language)
 
 	csv_files = create_csv_files(counts)
 

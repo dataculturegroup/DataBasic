@@ -1,7 +1,7 @@
 
 $(document).ready(function(){
 	
-	var maxFileSize = 10000000; // 10MB
+	var maxFileSize = 100000000; // 100MB
 
 	jQuery.validator.addMethod("spreadsheet", function(value, element) {
 		return this.optional (element) || /^https:\/\/docs.google.com\/spreadsheets/.test(value);
