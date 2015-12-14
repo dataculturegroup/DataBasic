@@ -8,7 +8,7 @@ from flask_debugtoolbar import DebugToolbarExtension
 from sassutils.wsgi import SassMiddleware
 from babel.support import LazyProxy
 
-import logic.db, logic.oauth, config.development
+import logic.filehandler, logic.db, logic.oauth, config.development
 
 CONFIG_DIR_NAME = 'config'
 
@@ -73,6 +73,8 @@ assets.register('js_all', js_bundle)
 babel = Babel(app)
 mongo = logic.db.MongoHandler(app.config.get('MONGODB_URL'),app.config.get('MONGODB_NAME'))
 logic.oauth.init(app.config.get('GOOGLE_CLIENT_ID'),app.config.get('GOOGLE_CLIENT_SECRET'))
+logic.filehandler.init_uploads()
+logic.filehandler.init_samples()
 
 #mail = Mail(app)
 # uncomment to use toolbar (this slows the app down quite a bit)

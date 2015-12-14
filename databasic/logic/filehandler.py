@@ -1,4 +1,4 @@
-import databasic, tempfile
+import tempfile
 from bs4 import BeautifulSoup as bs
 from urllib2 import urlopen
 import os, datetime, time, tempfile, codecs, unicodecsv, json, xlrd, logging
@@ -10,34 +10,41 @@ try:
     from docx import opendocx, getdocumenttext
 except:
     pass
+import databasic
 
 ENCODING = 'utf-8'
 
-# setup file uploading
-TEMP_DIR = tempfile.gettempdir()
-databasic.app.config['UPLOADED_DOCS_DEST'] = TEMP_DIR
-docs = UploadSet(name='docs', extensions=('txt', 'docx', 'rtf', 'csv', 'xlsx', 'xls'))
-configure_uploads(databasic.app, (docs))
-patch_request_class(databasic.app, 100 * 1024 * 1024) # 100MB
+samples = []
+docs = None
 
-samples_config_file_path = os.path.join(databasic.get_config_dir(),'sample-data.json')
-samples = json.load(open(samples_config_file_path))
-if databasic.app.config.get(databasic.ENV_APP_MODE) == databasic.APP_MODE_DEV:
-    # change the paths to absolute ones
-    for sample in samples:
-        sample['source'] = os.path.join(databasic.get_base_dir(),sample['source'])
-    logging.info("Updated sample data with base dir: %s" % databasic.get_base_dir())
-else:
-    # copy from server to local temp dir and change to abs paths (to temp dir files)
-    url_base = app.config['SAMPLE_DATA_SERVER']
-    for sample in samples:
-        url = url_base+sample['source']
-        text = urlopen(url).read()
-        f = tempfile.NamedTemporaryFile(delete=False)
-        f.write(text)
-        f.close()
-        sample['source'] = f.name
-    logging.info("Downloaded sample data and saved to tempdir")
+def init_uploads():
+    global docs
+    TEMP_DIR = tempfile.gettempdir()
+    databasic.app.config['UPLOADED_DOCS_DEST'] = TEMP_DIR
+    docs = UploadSet(name='docs', extensions=('txt', 'docx', 'rtf', 'csv', 'xlsx', 'xls'))
+    configure_uploads(databasic.app, (docs))
+    patch_request_class(databasic.app, 100 * 1024 * 1024) # 100MB
+
+def init_samples():
+    global samples
+    samples_config_file_path = os.path.join(databasic.get_config_dir(),'sample-data.json')
+    samples = json.load(open(samples_config_file_path))
+    if databasic.app.config.get(databasic.ENV_APP_MODE) == databasic.APP_MODE_DEV:
+        # change the paths to absolute ones
+        for sample in samples:
+            sample['source'] = os.path.join(databasic.get_base_dir(),sample['source'])
+        logging.info("Updated sample data with base dir: %s" % databasic.get_base_dir())
+    else:
+        # copy from server to local temp dir and change to abs paths (to temp dir files)
+        url_base = databasic.app.config.get('SAMPLE_DATA_SERVER')
+        for sample in samples:
+            url = url_base+sample['source']
+            text = urlopen(url).read()
+            f = tempfile.NamedTemporaryFile(delete=False)
+            f.write(text)
+            f.close()
+            sample['source'] = f.name
+        logging.info("Downloaded sample data and saved to tempdir")
 
 def write_to_temp_file(text):
     file_path = _get_temp_file()
