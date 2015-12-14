@@ -30,19 +30,21 @@ def get_config_dir():
     return os.path.join(get_base_dir(),CONFIG_DIR_NAME)
 
 # init the logging config
-log_file_path = os.path.join(get_base_dir(),'logs', app_mode+'.log')
-handler = logging.handlers.RotatingFileHandler(log_file_path, maxBytes=5242880, backupCount=10)
-formatter = logging.Formatter('%(asctime)s - %(name)s - %(levelname)s - %(message)s')
-handler.setFormatter(formatter)
 root_logger = logging.getLogger('')
 root_logger.setLevel(logging.DEBUG)
-root_logger.addHandler(handler)
+if app_mode == APP_MODE_DEV:
+    log_file_path = os.path.join(get_base_dir(),'logs', app_mode+'.log')
+    handler = logging.handlers.RotatingFileHandler(log_file_path, maxBytes=5242880, backupCount=10)
+    formatter = logging.Formatter('%(asctime)s - %(name)s - %(levelname)s - %(message)s')
+    handler.setFormatter(formatter)
+    root_logger.addHandler(handler)
 logging.info("------------------------------------------------------------------------------")
 logging.info("Starting DataBasic in %s mode" % app_mode)
 
 # Initialize the app
 app = Flask(__name__, instance_relative_config=False)
-config_var_names = ['SECRET_KEY','MONGODB_URL','MONGODB_NAME','GOOGLE_CLIENT_ID','GOOGLE_CLIENT_SECRET','GOOGLE_ANALYTICS_ID']
+app.config[ENV_APP_MODE] = app_mode
+config_var_names = ['SECRET_KEY','MONGODB_URL','MONGODB_NAME','GOOGLE_CLIENT_ID','GOOGLE_CLIENT_SECRET','GOOGLE_ANALYTICS_ID','SAMPLE_DATA_SERVER']
 if app_mode == APP_MODE_DEV:
     logging.info('Loading config from %s:' % (APP_MODE_DEV))
     app.config.from_object(config.development)
