@@ -362,7 +362,7 @@ class WTFCSVStat():
         return None
 
     def _csv_has_rows(self, file_path):
-        with open(file_path, "rb") as f:         
+        with open(file_path, 'rU') as f:
             #Read in parameter values as a dictionary
             paradict = csv.DictReader(f)
             for line in paradict:

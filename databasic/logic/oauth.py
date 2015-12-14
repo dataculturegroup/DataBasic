@@ -46,7 +46,7 @@ https://gist.github.com/cspickert/1650271
 '''
 class OAuthHandler:
 
-    def __init__(self, client_id, client_secret, redirect_uri='http://localhost:5000/auth'):
+    def __init__(self, client_id, client_secret, redirect_uri='http://localhost:8000/auth'):
         self.authorized = False
         self.redirect_to = '' # the url to return to after the user has granted permissions
         self.doc_url = None   # the url of the doc to open after the user has granted permissions
