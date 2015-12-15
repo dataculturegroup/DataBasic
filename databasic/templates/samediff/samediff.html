@@ -1,5 +1,5 @@
 {% extends "tool_base.html" %}
-{% from 'macros.html' import render_forms, video_modal %}
+{% from 'macros.html' import render_forms, video_modal, hover_tooltip %}
 
 {% block title %}{{ _('SameDiff') }}{% endblock %}
 
@@ -15,7 +15,10 @@
 <div class="container" role="main">
 	<div id="tool-description">
 		<h3 role="banner">{{ _('SameDiff compares two or more text files and tells you how similar or different they are.') }}</h3>
-		<p>{{ _('What distinguishes one candidate from another? One musical artist from another? One constitution from another? SameDiff shows you how similar text files are using cosine similarity and shared words and how different they are using TF-IDF to identify frequent and unique words.') }}</p>
+		<p>{{ _('SameDiff compares one %(corpus)s of text to another corpus of text to show you similarities and differences. It uses a %(cosine_similarity)s %(algorithm)s to rate whether the documents are really similar or totally different.',
+		corpus=hover_tooltip('corpus', 'A collection of written texts. For example, all of the lyrics in Katy Perry songs.'),
+		cosine_similarity=hover_tooltip('cosine similarity', 'The Cosine Similarity score tries to tell you how similar two documents are based on the number of times words are used in each.'),
+		algorithm=hover_tooltip('algorithm', 'A set of steps you (or a computer) do in order to solve a problem. For example, when you type in a search term, Google runs an algorithm to figure out which pages to show you.')) }}</p>
 	</div>
 	{{ video_modal("How to count", "https://www.youtube.com/embed/Lur-SGl3uw8") }}
 	{{ render_forms(forms, action_url=tool_name, action_text=_('Compare')) }}
