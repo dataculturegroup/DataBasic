@@ -50,7 +50,8 @@ def init_samples():
             sample['path'] = f.name
         logger.info("Downloaded sample data and saved to tempdir")
     for sample in samples:
-        logger.debug("  Cached %s to %s", sample['source'], sample['path'])
+        file_size = os.stat(sample['path']).st_size
+        logger.debug("  Cached %d bytes of %s to %s", file_size, sample['source'], sample['path'])
 
 def write_to_temp_file(text):
     file_path = _get_temp_file()
@@ -83,6 +84,8 @@ def convert_to_txt(file_path):
     words = None
     if not os.path.exists(file_path):
         logger.error("missing file %s", file_path)
+    file_size = os.stat(file_path).st_size
+    logger.debug("convert_to_txt: %d bytes at %s",file_size, file_path)
     ext = _get_extension(file_path)
     if ext == '.txt':
         logger.debug("loading txt file")
