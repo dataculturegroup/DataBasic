@@ -203,7 +203,7 @@ def _get_temp_file(file_name_suffix=None, timestamp=True):
     if file_name_suffix is not None:
         file_name += file_name_suffix
     file_path = os.path.join(TEMP_DIR, file_name)
-    logger.debug("new tempfile at %s", file_name)
+    logger.debug("new tempfile at %s", file_path)
     return file_path
 
 def _get_extension(file_path):

@@ -77,6 +77,7 @@ def results(doc_id):
 @mod.route('/results/download/<doc_id>/results.csv')
 def download(doc_id):
 	try:
+		logger.debug("Download %s", doc_id)
 		doc = mongo.find_document('samediff', doc_id)
 		headers = [_('word'), _('uses in') +' ' + doc['filenames'][0], _('uses in') + ' ' + doc['filenames'][1], _('total uses')]
 		rows = []
@@ -91,6 +92,7 @@ def download(doc_id):
 		# TODO: clean up file name
 		file_path = filehandler.write_to_csv(headers, rows, 
 			filehandler.generate_filename('csv', '', doc['filenames'][0], doc['filenames'][1]), False)
+		logger.debug('  created csv to download at %s', file_path)
 		return filehandler.generate_csv(file_path)
 	except Exception as e:
 		logging.exception(e)
