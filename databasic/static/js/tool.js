@@ -63,6 +63,7 @@ $(document).ready(function(){
     });
 });
 
+// Style upload fields
 $(window).load(function () {
     
     handle_upload('upload');

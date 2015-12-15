@@ -1,5 +1,5 @@
 {% extends "tool_base.html" %}
-{% from 'macros.html' import hover_tooltip, download_url, shareable %}
+{% from 'macros.html' import hover_tooltip, download_url, shareable, ga_event with context %}
 {% from 'tool_footer.html' import what_next %}
 
 {% set download_words="/" + g['current_lang'] + "/wordcounter/results/" + doc_id + "/download/words.csv" %}
@@ -44,7 +44,7 @@
 		<div class="row" id="frequencies">
 			<div class="col-sm-4">
 				<h2>{{ _('Top Words') }} 
-				<a href="{{ download_words }}" aria-label="{{ _('download csv of word frequencies') }}"><span class="glyphicon glyphicon-download" aria-hidden="true"></span></a></h2>
+				<a href="{{ download_words }}" aria-label="{{ _('download csv of word frequencies') }}" {{ ga_event('words-dl') }}><span class="glyphicon glyphicon-download" aria-hidden="true"></span></a></h2>
 				<table class="table" role="presentation">
 					<thead>
 						<tr>
@@ -64,7 +64,7 @@
 			</div>
 			<div class="col-sm-4">
 				<h2>{{ _('Bigrams') }} 
-				<a href="{{ download_bigrams }}" aria-label="download csv of bigram frequencies"><span class="glyphicon glyphicon-download" aria-hidden="true"></span></a></h2>
+				<a href="{{ download_bigrams }}" aria-label="{{ _('download csv of bigram frequencies') }}" {{ ga_event('bigrams-dl') }}><span class="glyphicon glyphicon-download" aria-hidden="true"></span></a></h2>
 				<table class="table">
 					<thead>
 						<tr>
@@ -85,7 +85,7 @@
 			</div>
 			<div class="col-sm-4">
 				<h2>{{ _('Trigrams') }} 
-				<a href="{{ download_trigrams }}" aria-label="download csv of trigram frequencies"><span class="glyphicon glyphicon-download" aria-hidden="true"></span></a></h2>
+				<a href="{{ download_trigrams }}" aria-label="{{ _('download csv of trigram frequencies') }}" {{ ga_event('trigrams-dl') }}><span class="glyphicon glyphicon-download" aria-hidden="true"></span></a></h2>
 				<table class="table" role="presentation">
 					<thead>
 						<tr>
@@ -113,7 +113,7 @@
 	+ ngettext("the %(num)d use ", "the %(num)d uses ", whatnext['word_in_bigrams_count']) 
 	+ _("in the top 40 bigrams, and ")
 	+ ngettext("the %(num)s use ", "the %(num)s uses ", whatnext['word_in_trigrams_count'])
-	+ _("in the top 40 trigrams, to understand the context of how it is used.  With that richer understanding of the context, you can sketch out a picture of why \"%(top_word)s\" is so important in %(title)s. <br/><br />So grab some paper and some crayons and start drawing what you see!  Checkout our <a href=\"#\">activity guide</a> for more help on sketching out a story.  Want to dig into the data more? Download all the <a href=\"%(download_words)s\">word counts</a>, <a href=\"%(download_bigrams)s\">bigrams</a>, or <a href=\"%(download_trigrams)s\">trigrams</a> and investigate why \"%(random_unpopular_word)s\" is used %(random_unpopular_word_count)s times!",
+	+ _("in the top 40 trigrams, to understand the context of how it is used.  With that richer understanding of the context, you can sketch out a picture of why \"%(top_word)s\" is so important in %(title)s. <br/><br />So grab some paper and some crayons and start drawing what you see!  Check out our <a href=\"#\" onclick=\"ga('send', 'event', 'wordcounter', 'activity-guide');\">activity guide</a> for more help on sketching out a story.  Want to dig into the data more? Download all the <a href=\"%(download_words)s\" onclick=\"ga('send', 'event', 'wordcounter', 'words-dl');\">word counts</a>, <a href=\"%(download_bigrams)s\" onclick=\"ga('send', 'event', 'wordcounter', 'bigrams-dl');\">bigrams</a>, or <a href=\"%(download_trigrams)s\" onclick=\"ga('send', 'event', 'wordcounter', 'trigrams-dl');\">trigrams</a> and investigate why \"%(random_unpopular_word)s\" is used %(random_unpopular_word_count)s times!",
 	top_word=whatnext['top_word'],
 	download_words=download_words,
 	download_bigrams=download_bigrams,
