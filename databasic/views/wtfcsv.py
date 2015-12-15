@@ -3,12 +3,13 @@ from collections import OrderedDict
 from databasic import mongo
 from databasic.forms import WTFCSVUpload, WTFCSVLink, WTFCSVSample
 from databasic.logic import wtfcsvstat, filehandler, oauth
-from flask import Blueprint, render_template, request, redirect, g
+from flask import Blueprint, render_template, request, redirect, g, abort
 from flask.ext.babel import gettext, ngettext
 import os, logging, random
 
 mod = Blueprint('wtfcsv', __name__, url_prefix='/<lang_code>/wtfcsv', template_folder='../templates/wtfcsv')
 
+logger = logging.getLogger(__name__)
 
 @mod.route('/', methods=('GET', 'POST'))
 def index():
@@ -31,19 +32,25 @@ def index():
 
 		if btn_value == 'upload':
 			upload_file = forms['upload'].data['upload']
+			logger.debug("New from upload: %s", upload_file.filename)
 			results = process_upload(upload_file)
 		elif btn_value == 'link':
-			doc = oauth.open_doc_from_url(forms['link'].data['link'], request.url)
+			doc_url = forms['link'].data['link']
+			logger.debug("New from link: %s", doc_url)
+			doc = oauth.open_doc_from_url(doc_url, request.url)
 			if doc['authenticate'] is not None:
 				return redirect(doc['authenticate'])
 			elif doc['doc'] is not None:
 				results = process_link(doc['doc'])
 		elif btn_value == 'sample':
 			basedir = os.path.dirname(os.path.abspath(__file__))
-			sample_file = forms['sample'].data['sample']
+			sample_source = forms['sample'].data['sample']
+			logger.debug("New from sample: %s", sample_source)
+			sample_path = filehandler.get_sample_path(sample_source)
+			logger.debug("  loading from %s", sample_path)
 			results = []
-			results.append(wtfcsvstat.get_summary(os.path.join(basedir,'../','../',sample_file)))
-			results[0]['filename'] = filehandler.get_sample_title(sample_file) + '.csv'
+			results.append(wtfcsvstat.get_summary(sample_path))
+			results[0]['filename'] = filehandler.get_sample_title(sample_source) + '.csv'
 
 		if btn_value is not None and btn_value is not u'':
 			return redirect_to_results(results, sample_id)
@@ -52,11 +59,15 @@ def index():
 
 @mod.route('/results/<doc_id>')
 def results(doc_id):
-	results = mongo.find_document('wtfcsv', doc_id).get('results')
-	if len(results) > 1:
-		return redirect(g.current_lang + '/wtfcsv/results/' + doc_id + '/sheets/0')
-	else:
-		return render_results(doc_id, 0)
+	try:
+		results = mongo.find_document('wtfcsv', doc_id).get('results')
+		if len(results) > 1:
+			return redirect(g.current_lang + '/wtfcsv/results/' + doc_id + '/sheets/0')
+		else:
+			return render_results(doc_id, 0)
+	except:
+		logger.warning("Unable to find doc '%s'", doc_id)
+		abort(400)
 
 @mod.route('/results/<doc_id>/sheets/<sheet_idx>')
 def results_sheet(doc_id, sheet_idx):
@@ -136,6 +147,8 @@ def redirect_to_results(results, sample_id=''):
 
 def process_upload(csv_file):
 	file_path = filehandler.open_doc(csv_file)
+	file_size = os.stat(file_path).st_size # because browser might not have sent content_length
+	logger.debug("Upload: %d bytes", file_size)
 	file_paths = filehandler.convert_to_csv(file_path)
 	results = []
 	for f in file_paths:

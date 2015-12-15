@@ -8,11 +8,11 @@ _oauth = None   # singleton instance
 '''
 Public API
 '''
-def init(client_id,client_secret):
+def init(client_id,client_secret,redirect_uri):
     global _oauth
     if len(client_id)>0 and len(client_secret)>0:
         logging.info("Initialized oauth with id & secret")
-        _oauth = OAuthHandler(client_id,client_secret)
+        _oauth = OAuthHandler(client_id,client_secret,redirect_uri)
     else: 
         logging.error("No client_id and client_secret specificed - oauth won't work!")
 
@@ -46,7 +46,7 @@ https://gist.github.com/cspickert/1650271
 '''
 class OAuthHandler:
 
-    def __init__(self, client_id, client_secret, redirect_uri='http://localhost:8000/auth'):
+    def __init__(self, client_id, client_secret, redirect_uri):
         self.authorized = False
         self.redirect_to = '' # the url to return to after the user has granted permissions
         self.doc_url = None   # the url of the doc to open after the user has granted permissions

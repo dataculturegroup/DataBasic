@@ -12,6 +12,8 @@ from flask.ext.babel import lazy_gettext as _
 
 mod = Blueprint('samediff', __name__, url_prefix='/<lang_code>/samediff', template_folder='../templates/samediff')
 
+logger = logging.getLogger(__name__)
+
 @mod.route('/', methods=('GET', 'POST'))
 def index():
 
@@ -33,12 +35,15 @@ def index():
 			file_paths = filehandler.open_docs(files)
 			f1name = files[0].filename
 			f2name = files[1].filename
+			logger.debug("New from upload: %s & %s", f1name, f2name)
 			both = unicode(_('%(f1)s and %(f2)s', f1=f1name, f2=f2name))
 			titles = [f1name, both, f2name]
 			# email = forms['upload'].data['email']
 		elif btn_value == 'sample':
-			file_paths = [ os.path.join(get_base_dir(),forms['sample'].data['sample']),
-						   os.path.join(get_base_dir(),forms['sample'].data['sample2']) ]
+			sample_sources = [ forms['sample'].data['sample'], forms['sample'].data['sample2'] ]
+			logger.debug("New from sample: %s", ", ".join(sample_sources))
+			file_paths = [ filehandler.get_sample_path(sample_source) for sample_source in sample_sources ]
+			logger.debug("  loading from %s", ", ".join(file_paths))
 			is_sample_data = True
 			f1name = filehandler.get_sample_title(forms['sample'].data['sample'])
 			f2name = filehandler.get_sample_title(forms['sample'].data['sample2'])
@@ -65,7 +70,11 @@ def index():
 @mod.route('/results/<doc_id>')
 def results(doc_id):
 
-	job = mongo.find_document('samediff', doc_id)
+	try:
+		job = mongo.find_document('samediff', doc_id)
+	except:
+		logger.warning("Unable to find doc '%s'", doc_id)
+		abort(400)
 
 	whatnext = {}
 	whatnext['most_common_word'] = job['sameWords'][0][1] if len(job['sameWords']) > 0 else ''
@@ -79,6 +88,7 @@ def results(doc_id):
 @mod.route('/results/download/<doc_id>/results.csv')
 def download(doc_id):
 	try:
+		logger.debug("Download %s", doc_id)
 		doc = mongo.find_document('samediff', doc_id)
 		headers = [_('word'), _('uses in') +' ' + doc['filenames'][0], _('uses in') + ' ' + doc['filenames'][1], _('total uses')]
 		rows = []
@@ -91,15 +101,18 @@ def download(doc_id):
 		for f, w in doc['diffWordsDoc1']:
 			rows.append([w, 0, f, f])
 		# TODO: clean up file name
-		filename = filehandler.write_to_csv(headers, rows, 
+		file_path = filehandler.write_to_csv(headers, rows, 
 			filehandler.generate_filename('csv', '', doc['filenames'][0], doc['filenames'][1]), False)
-		return filehandler.generate_csv(filename)
+		logger.debug('  created csv to download at %s', file_path)
+		return filehandler.generate_csv(file_path)
 	except Exception as e:
 		logging.exception(e)
 		abort(400)
 
 def process_results(file_paths, titles, sample_id):
 	file_names = filehandler.get_file_names(file_paths)
+	file_sizes = [ str(os.stat(file_path).st_size) for file_path in file_paths ] # because browser might not have sent content_length
+	logger.debug("Upload: %s bytes", ", ".join(file_sizes))
 	doc_list = [ filehandler.convert_to_txt(file_path) for file_path in file_paths ]
 	data = textanalysis.common_and_unique_word_freqs(doc_list)
 	job_id = mongo.save_samediff('samediff', file_names, 

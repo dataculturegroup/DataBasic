@@ -7,8 +7,9 @@ from flask_debugtoolbar import DebugToolbarExtension
 #from flask.ext.mail import Mail
 from sassutils.wsgi import SassMiddleware
 from babel.support import LazyProxy
+import nltk
 
-import logic.filehandler, logic.db, logic.oauth, config.development
+import logic.filehandler, logic.db, logic.oauth
 
 CONFIG_DIR_NAME = 'config'
 
@@ -38,26 +39,29 @@ if app_mode == APP_MODE_DEV:
     formatter = logging.Formatter('%(asctime)s - %(name)s - %(levelname)s - %(message)s')
     handler.setFormatter(formatter)
     root_logger.addHandler(handler)
-logging.info("------------------------------------------------------------------------------")
-logging.info("Starting DataBasic in %s mode" % app_mode)
+logger = logging.getLogger(__file__)
+logger.info("------------------------------------------------------------------------------")
+logger.info("Starting DataBasic in %s mode" % app_mode)
 
 # Initialize the app
 app = Flask(__name__, instance_relative_config=False)
 app.config[ENV_APP_MODE] = app_mode
-config_var_names = ['SECRET_KEY','MONGODB_URL','MONGODB_NAME','GOOGLE_CLIENT_ID','GOOGLE_CLIENT_SECRET','GOOGLE_ANALYTICS_ID','SAMPLE_DATA_SERVER']
+config_var_names = ['SECRET_KEY','MONGODB_URL','MONGODB_NAME', 'SAMPLE_DATA_SERVER', 'GOOGLE_ANALYTICS_ID',
+                    'GOOGLE_CLIENT_ID','GOOGLE_CLIENT_SECRET', 'OAUTH_REDIRECT_URI']
 if app_mode == APP_MODE_DEV:
-    logging.info('Loading config from %s:' % (APP_MODE_DEV))
+    import config.development
+    logger.info('Loading config from %s:' % (APP_MODE_DEV))
     app.config.from_object(config.development)
     for var_name in config_var_names:
-        logging.info('  %s=%s' % (var_name,app.config.get(var_name)))
+        logger.info('  %s=%s' % (var_name,app.config.get(var_name)))
 elif app_mode == APP_MODE_PRODUCTION:
-    logging.info('Loading config from environment variables')
+    logger.info('Loading config from environment variables')
     for var_name in config_var_names:
         app.config[var_name] = os.environ.get(var_name, None)
         if app.config[var_name] is None:
-            logging.error("Looks like you have not set the %s environment variable!" % var_name)
+            logger.error("Looks like you have not set the %s environment variable!" % var_name)
 else:
-    logging.error("invalid APP_MODE of %s" % app_mode)
+    logger.error("invalid APP_MODE of %s" % app_mode)
 
 # Setup sass auto-compiling
 app.wsgi_app = SassMiddleware(app.wsgi_app, {
@@ -70,11 +74,15 @@ js_bundle = Bundle('js/lib/jquery.js', 'js/lib/jquery.validate.min.js', 'js/lib/
 	filters='jsmin', output='gen/packed.js')
 assets.register('js_all', js_bundle)
 
+# initialize helper components
 babel = Babel(app)
 mongo = logic.db.MongoHandler(app.config.get('MONGODB_URL'),app.config.get('MONGODB_NAME'))
-logic.oauth.init(app.config.get('GOOGLE_CLIENT_ID'),app.config.get('GOOGLE_CLIENT_SECRET'))
+logic.oauth.init(app.config.get('GOOGLE_CLIENT_ID'),app.config.get('GOOGLE_CLIENT_SECRET'),app.config.get('OAUTH_REDIRECT_URI'))
 logic.filehandler.init_uploads()
 logic.filehandler.init_samples()
+local_nltk_path = os.path.join(get_base_dir(),'nltk_data')
+logger.info("Adding nltk path %s",local_nltk_path)
+nltk.data.path.append(local_nltk_path)
 
 #mail = Mail(app)
 # uncomment to use toolbar (this slows the app down quite a bit)

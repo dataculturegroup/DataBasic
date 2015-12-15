@@ -12,6 +12,8 @@ except:
     pass
 import databasic
 
+logger = logging.getLogger(__name__)
+
 ENCODING = 'utf-8'
 TEMP_DIR = tempfile.gettempdir()
 
@@ -21,6 +23,7 @@ docs = None
 def init_uploads():
     global docs
     global TEMP_DIR
+    logger.info("Uploads will be written to %s", TEMP_DIR)
     databasic.app.config['UPLOADED_DOCS_DEST'] = TEMP_DIR
     docs = UploadSet(name='docs', extensions=('txt', 'docx', 'rtf', 'csv', 'xlsx', 'xls'))
     configure_uploads(databasic.app, (docs))
@@ -33,8 +36,8 @@ def init_samples():
     if databasic.app.config.get(databasic.ENV_APP_MODE) == databasic.APP_MODE_DEV:
         # change the paths to absolute ones
         for sample in samples:
-            sample['source'] = os.path.join(databasic.get_base_dir(),sample['source'])
-        logging.info("Updated sample data with base dir: %s" % databasic.get_base_dir())
+            sample['path'] = os.path.join(databasic.get_base_dir(),sample['source'])
+        logger.info("Updated sample data with base dir: %s" % databasic.get_base_dir())
     else:
         # copy from server to local temp dir and change to abs paths (to temp dir files)
         url_base = databasic.app.config.get('SAMPLE_DATA_SERVER')
@@ -44,8 +47,11 @@ def init_samples():
             f = tempfile.NamedTemporaryFile(delete=False)
             f.write(text)
             f.close()
-            sample['source'] = f.name
-        logging.info("Downloaded sample data and saved to tempdir")
+            sample['path'] = f.name
+        logger.info("Downloaded sample data and saved to tempdir")
+    for sample in samples:
+        file_size = os.stat(sample['path']).st_size
+        logger.debug("  Cached %d bytes of %s to %s", file_size, sample['source'], sample['path'])
 
 def write_to_temp_file(text):
     file_path = _get_temp_file()
@@ -61,10 +67,10 @@ def write_to_csv(headers, rows, file_name_suffix=None, timestamp=True):
         writer.writerow(headers)
         for row in rows:
             writer.writerow(row)
-    return _get_file_name(file_path)
+    return file_path
 
-def generate_csv(file_name):
-    file_path = os.path.join(TEMP_DIR, file_name)
+def generate_csv(file_path):
+    file_name = _get_file_name(file_path)
     if not os.path.isfile(file_path):
         return abort(400)
     def generate():
@@ -74,21 +80,29 @@ def generate_csv(file_name):
                 yield ','.join(row) + '\n'
     return Response(generate(), headers={'Content-Disposition':'attachment;filename='+file_name},mimetype='text/csv')
 
-def file_exists(file_name):
-	file_path = os.path.join(TEMP_DIR, file_name)
-	return os.path.isfile(file_path)
-	
 def convert_to_txt(file_path):
     words = None
+    if not os.path.exists(file_path):
+        logger.error("missing file %s", file_path)
+    file_size = os.stat(file_path).st_size
+    logger.debug("convert_to_txt: %d bytes at %s",file_size, file_path)
     ext = _get_extension(file_path)
     if ext == '.txt':
+        logger.debug("loading txt file")
         with codecs.open(file_path, 'r', ENCODING) as myfile:
             words = myfile.read()
     elif ext == '.docx':
+        logger.debug("loading docx file")
         words = _docx_to_txt(file_path)
     elif ext == '.rtf':
+        logger.debug("loading rtf file")
         doc = Rtf15Reader.read(open(file_path))
         words = PlaintextWriter.write(doc).getvalue()
+    else:
+        logging.warning("Couldn't find an extension on the file, so assuming text")
+        with codecs.open(file_path, 'r', ENCODING) as myfile:
+            words = myfile.read()
+    logger.debug("loaded %d chars" % len(words))
     return words
 
 def convert_to_csv(file_path):
@@ -140,16 +154,24 @@ def get_samples(tool_id):
     texts = []
     for text in samples:
         if tool_id in text['modules']:
-            if(os.path.exists(text['source'])):
+            if(os.path.exists(text['path'])):
                 texts.append((text['source'], text['title']))
+            else:
+                logger.error("%s: file for %s doesn't exist at %s",tool_id, text['source'], text['path'])
     choices = texts
     return choices
 
-def get_sample_title(path):
+def get_sample_title(source):
     for text in samples:
-        if path in text['source']:
+        if source in text['source']:
             return text['title']
-    return path
+    return source
+
+def get_sample_path(source):
+    for text in samples:
+        if source in text['source']:
+            return text['path']
+    return source
 
 def get_file_names(file_paths):
     file_names = []
@@ -165,7 +187,7 @@ def generate_filename(ext, suffix, *args):
     return files + suffix + datetime.datetime.now().strftime("%Y%m%d-%H%M%S") + '.' + ext
 
 def download_webpage(url):
-    soup = bs(urlopen(url))
+    soup = bs(urlopen(url),"lxml")
     if soup.p is not None:
         soup.p.encode(ENCODING)
     for script in soup(['script', 'style']):
@@ -191,7 +213,9 @@ def _get_temp_file(file_name_suffix=None, timestamp=True):
         file_name = time.strftime("%Y%m%d-%H%M%S")
     if file_name_suffix is not None:
         file_name += file_name_suffix
-    return os.path.join(TEMP_DIR, file_name)
+    file_path = os.path.join(TEMP_DIR, file_name)
+    logger.debug("new tempfile at %s", file_path)
+    return file_path
 
 def _get_extension(file_path):
     return os.path.splitext(file_path)[1]

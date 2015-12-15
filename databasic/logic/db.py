@@ -8,14 +8,13 @@ class MongoHandler:
 		self._client = MongoClient(uri, connect=False)
 		self._db = self._client[db_name]
 	
-	def save_words(self, collection, counts, csv_files, ignore_case, ignore_stopwords, title, sample_id):
+	def save_words(self, collection, counts, ignore_case, ignore_stopwords, title, sample_id):
 		if sample_id != '':
 			sample = self._db[collection].find_one({'sample_id': str(sample_id), 'ignore_case': ignore_case, 'ignore_stopwords': ignore_stopwords})
 			if sample is not None:
 				return str(sample['_id'])
 		return str(self._db[collection].save({
 			'counts': counts,
-			'csv_files': csv_files,
 			'ignore_case': ignore_case,
 			'ignore_stopwords': ignore_stopwords,
 			'title': unicode(title),
