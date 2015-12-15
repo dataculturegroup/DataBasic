@@ -145,8 +145,10 @@ def get_samples(tool_id):
     texts = []
     for text in samples:
         if tool_id in text['modules']:
-            if(os.path.exists(text['source'])):
+            if(os.path.exists(text['path'])):
                 texts.append((text['source'], text['title']))
+            else:
+                logger.error("%s: file for %s doesn't exist at %s",tool_id, text['source'], text['path'])
     choices = texts
     return choices
 
