@@ -79,10 +79,6 @@ def generate_csv(file_path):
                 yield ','.join(row) + '\n'
     return Response(generate(), headers={'Content-Disposition':'attachment;filename='+file_name},mimetype='text/csv')
 
-def file_exists(file_name):
-	file_path = os.path.join(TEMP_DIR, file_name)
-	return os.path.isfile(file_path)
-	
 def convert_to_txt(file_path):
     words = None
     ext = _get_extension(file_path)
