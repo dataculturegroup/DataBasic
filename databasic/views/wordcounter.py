@@ -53,10 +53,6 @@ def index():
 			logger.debug("New from sample: %s", sample_source)
 			sample_path = filehandler.get_sample_path(sample_source)
 			logger.debug("  loading from %s", sample_path)
-			if not os.path.exists(sample_path):
-				logging.warning("couldn't find %s at %s", sample_source, sample_path)
-				logging.info("redownloading samples in case tmp files dissapeared")
-				file_handler.init_samples()
 			words = filehandler.convert_to_txt(sample_path)
 			ignore_case = forms[btn_value].data['ignore_case_sample']
 			ignore_stopwords = forms[btn_value].data['ignore_stopwords_sample']

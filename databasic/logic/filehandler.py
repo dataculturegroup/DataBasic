@@ -81,6 +81,8 @@ def generate_csv(file_path):
 
 def convert_to_txt(file_path):
     words = None
+    if not os.path.exists(file_path):
+        logger.error("missing file %s", file_path)
     ext = _get_extension(file_path)
     if ext == '.txt':
         logger.debug("loading txt file")
