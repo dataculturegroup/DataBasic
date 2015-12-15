@@ -1,12 +1,14 @@
-import os, random
+import os, random, logging
 from collections import OrderedDict
 from databasic import app, mongo
 from databasic.forms import WordCounterPaste, WordCounterUpload, WordCounterSample, WordCounterLink
 from databasic.logic import wordhandler, filehandler, oauth
-from flask import Blueprint, render_template, request, redirect, g
+from flask import Blueprint, render_template, request, redirect, g, abort
 from flask.ext.babel import lazy_gettext as _
 
 mod = Blueprint('wordcounter', __name__, url_prefix='/<lang_code>/wordcounter', template_folder='../templates/wordcounter')
+
+logger = logging.getLogger(__name__)
 
 """
 @app.route('/', subdomain='wordcounter')
@@ -76,7 +78,12 @@ def results(doc_id):
 	csv_files = None
 	results = []
 
-	doc = mongo.find_document('wordcounter', doc_id)
+	try:
+		doc = mongo.find_document('wordcounter', doc_id)
+	except:
+		logger.warning("Unable to find doc '%s'", doc_id)
+		abort(400)
+
 	counts = doc.get('counts')
 	csv_files = doc.get('csv_files')
 

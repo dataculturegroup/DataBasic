@@ -3,12 +3,13 @@ from collections import OrderedDict
 from databasic import mongo
 from databasic.forms import WTFCSVUpload, WTFCSVLink, WTFCSVSample
 from databasic.logic import wtfcsvstat, filehandler, oauth
-from flask import Blueprint, render_template, request, redirect, g
+from flask import Blueprint, render_template, request, redirect, g, abort
 from flask.ext.babel import gettext, ngettext
 import os, logging, random
 
 mod = Blueprint('wtfcsv', __name__, url_prefix='/<lang_code>/wtfcsv', template_folder='../templates/wtfcsv')
 
+logger = logging.getLogger(__name__)
 
 @mod.route('/', methods=('GET', 'POST'))
 def index():
@@ -52,11 +53,15 @@ def index():
 
 @mod.route('/results/<doc_id>')
 def results(doc_id):
-	results = mongo.find_document('wtfcsv', doc_id).get('results')
-	if len(results) > 1:
-		return redirect(g.current_lang + '/wtfcsv/results/' + doc_id + '/sheets/0')
-	else:
-		return render_results(doc_id, 0)
+	try:
+		results = mongo.find_document('wtfcsv', doc_id).get('results')
+		if len(results) > 1:
+			return redirect(g.current_lang + '/wtfcsv/results/' + doc_id + '/sheets/0')
+		else:
+			return render_results(doc_id, 0)
+	except:
+		logger.warning("Unable to find doc '%s'", doc_id)
+		abort(400)
 
 @mod.route('/results/<doc_id>/sheets/<sheet_idx>')
 def results_sheet(doc_id, sheet_idx):

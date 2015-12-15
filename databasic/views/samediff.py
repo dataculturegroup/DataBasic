@@ -12,6 +12,8 @@ from flask.ext.babel import lazy_gettext as _
 
 mod = Blueprint('samediff', __name__, url_prefix='/<lang_code>/samediff', template_folder='../templates/samediff')
 
+logger = logging.getLogger(__name__)
+
 @mod.route('/', methods=('GET', 'POST'))
 def index():
 
@@ -54,7 +56,11 @@ def index():
 @mod.route('/results/<doc_id>')
 def results(doc_id):
 
-	job = mongo.find_document('samediff', doc_id)
+	try:
+		job = mongo.find_document('samediff', doc_id)
+	except:
+		logger.warning("Unable to find doc '%s'", doc_id)
+		abort(400)
 
 	whatnext = {}
 	whatnext['most_common_word'] = job['sameWords'][0][1] if len(job['sameWords']) > 0 else ''
