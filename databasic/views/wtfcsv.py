@@ -32,9 +32,12 @@ def index():
 
 		if btn_value == 'upload':
 			upload_file = forms['upload'].data['upload']
+			logger.debug("New from upload: %s", upload_file.filename)
 			results = process_upload(upload_file)
 		elif btn_value == 'link':
-			doc = oauth.open_doc_from_url(forms['link'].data['link'], request.url)
+			doc_url = forms['link'].data['link']
+			logger.debug("New from link: %s", doc_url)
+			doc = oauth.open_doc_from_url(doc_url, request.url)
 			if doc['authenticate'] is not None:
 				return redirect(doc['authenticate'])
 			elif doc['doc'] is not None:
@@ -42,6 +45,7 @@ def index():
 		elif btn_value == 'sample':
 			basedir = os.path.dirname(os.path.abspath(__file__))
 			sample_file = forms['sample'].data['sample']
+			logger.debug("New from sample: %s", sample_file)
 			results = []
 			results.append(wtfcsvstat.get_summary(os.path.join(basedir,'../','../',sample_file)))
 			results[0]['filename'] = filehandler.get_sample_title(sample_file) + '.csv'
@@ -141,6 +145,8 @@ def redirect_to_results(results, sample_id=''):
 
 def process_upload(csv_file):
 	file_path = filehandler.open_doc(csv_file)
+	file_size = os.stat(file_path).st_size # because browser might not have sent content_length
+	logger.debug("Upload: %d bytes", file_size)
 	file_paths = filehandler.convert_to_csv(file_path)
 	results = []
 	for f in file_paths:

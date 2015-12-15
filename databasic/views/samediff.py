@@ -34,6 +34,7 @@ def index():
 			file_paths = filehandler.open_docs(files)
 			f1name = files[0].filename
 			f2name = files[1].filename
+			logger.debug("New from upload: %s & %s", f1name, f2name)
 			both = unicode(_('%(f1)s and %(f2)s', f1=f1name, f2=f2name))
 			titles = [f1name, both, f2name]
 			# email = forms['upload'].data['email']
@@ -43,6 +44,7 @@ def index():
 			is_sample_data = True
 			f1name = filehandler.get_sample_title(forms['sample'].data['sample'])
 			f2name = filehandler.get_sample_title(forms['sample'].data['sample2'])
+			logger.debug("New from sample: %s & %s", f1name, f2name)
 			both = unicode(_('%(f1)s and %(f2)s', f1=f1name, f2=f2name))
 			titles = [f1name, both, f2name]
 			sample_id = str(f1name) + str(f2name)
@@ -95,6 +97,8 @@ def download(doc_id):
 
 def process_results(file_paths, titles, sample_id):
 	file_names = filehandler.get_file_names(file_paths)
+	file_sizes = [ str(os.stat(file_path).st_size) for file_path in file_paths ] # because browser might not have sent content_length
+	logger.debug("Upload: %s bytes", ", ".join(file_sizes))
 	doc_list = [ filehandler.convert_to_txt(file_path) for file_path in file_paths ]
 	data = textanalysis.common_and_unique_word_freqs(doc_list)
 	job_id = mongo.save_samediff('samediff', file_names, 

@@ -38,6 +38,7 @@ def index():
 			words = forms['paste'].data['area']
 			ignore_case = forms[btn_value].data['ignore_case_paste']
 			ignore_stopwords = forms[btn_value].data['ignore_stopwords_paste']
+			logger.debug("New from paste: %d chars", len(words) )
 			title = _('your text')
 		elif btn_value == 'upload':
 			upload_file = forms['upload'].data['upload']
@@ -45,9 +46,11 @@ def index():
 			ignore_case = forms[btn_value].data['ignore_case_upload']
 			ignore_stopwords = forms[btn_value].data['ignore_stopwords_upload']
 			title = upload_file.filename
+			logger.debug("New from upload: %s", title )
 		elif btn_value == 'sample':
 			basedir = os.path.dirname(os.path.abspath(__file__))
 			sample_file = forms['sample'].data['sample']
+			logger.debug("New from sample: %s", sample_file)
 			words = filehandler.convert_to_txt(os.path.join(basedir,'../','../',sample_file))
 			ignore_case = forms[btn_value].data['ignore_case_sample']
 			ignore_stopwords = forms[btn_value].data['ignore_stopwords_sample']
@@ -58,6 +61,7 @@ def index():
 			url = forms['link'].data['link']
 			if not 'http://' in url:
 				url = 'http://' + url
+			logger.debug("New from link: %s", url)
 			content = filehandler.download_webpage(url)
 			words = content['text']
 			ignore_case = forms[btn_value].data['ignore_case_link']
@@ -151,6 +155,8 @@ def download_csv(doc_id, file_path):
 
 def process_upload(doc):
 	file_path = filehandler.open_doc(doc)
+	file_size = os.stat(file_path).st_size # because browser might not have sent content_length
+	logger.debug("Upload: %d bytes", file_size)
 	words = filehandler.convert_to_txt(file_path)
 	filehandler.delete_file(file_path)
 	return words
