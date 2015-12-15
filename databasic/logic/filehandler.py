@@ -12,6 +12,8 @@ except:
     pass
 import databasic
 
+logger = logging.getLogger(__name__)
+
 ENCODING = 'utf-8'
 TEMP_DIR = tempfile.gettempdir()
 
@@ -21,6 +23,7 @@ docs = None
 def init_uploads():
     global docs
     global TEMP_DIR
+    logger.info("Uploads will be written to %s", TEMP_DIR)
     databasic.app.config['UPLOADED_DOCS_DEST'] = TEMP_DIR
     docs = UploadSet(name='docs', extensions=('txt', 'docx', 'rtf', 'csv', 'xlsx', 'xls'))
     configure_uploads(databasic.app, (docs))
@@ -34,7 +37,7 @@ def init_samples():
         # change the paths to absolute ones
         for sample in samples:
             sample['path'] = os.path.join(databasic.get_base_dir(),sample['source'])
-        logging.info("Updated sample data with base dir: %s" % databasic.get_base_dir())
+        logger.info("Updated sample data with base dir: %s" % databasic.get_base_dir())
     else:
         # copy from server to local temp dir and change to abs paths (to temp dir files)
         url_base = databasic.app.config.get('SAMPLE_DATA_SERVER')
@@ -45,9 +48,9 @@ def init_samples():
             f.write(text)
             f.close()
             sample['path'] = f.name
-        logging.info("Downloaded sample data and saved to tempdir")
+        logger.info("Downloaded sample data and saved to tempdir")
     for sample in samples:
-        logging.debug("  Cached %s to %s", sample['source'], sample['path'])
+        logger.debug("  Cached %s to %s", sample['source'], sample['path'])
 
 def write_to_temp_file(text):
     file_path = _get_temp_file()
@@ -63,10 +66,10 @@ def write_to_csv(headers, rows, file_name_suffix=None, timestamp=True):
         writer.writerow(headers)
         for row in rows:
             writer.writerow(row)
-    return _get_file_name(file_path)
+    return file_path
 
-def generate_csv(file_name):
-    file_path = os.path.join(TEMP_DIR, file_name)
+def generate_csv(file_path):
+    file_name = _get_file_name(file_path)
     if not os.path.isfile(file_path):
         return abort(400)
     def generate():
@@ -199,7 +202,9 @@ def _get_temp_file(file_name_suffix=None, timestamp=True):
         file_name = time.strftime("%Y%m%d-%H%M%S")
     if file_name_suffix is not None:
         file_name += file_name_suffix
-    return os.path.join(TEMP_DIR, file_name)
+    file_path = os.path.join(TEMP_DIR, file_name)
+    logger.debug("new tempfile at %s", file_name)
+    return file_path
 
 def _get_extension(file_path):
     return os.path.splitext(file_path)[1]

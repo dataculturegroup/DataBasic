@@ -71,8 +71,8 @@ def index():
 			title = _(content['title'])
 
 		if words is not None:
-			counts, csv_files = process_words(words, ignore_case, ignore_stopwords, btn_value=='sample')
-			doc_id = mongo.save_words('wordcounter', counts, csv_files, ignore_case, ignore_stopwords, title, sample_id)
+			counts = process_words(words, ignore_case, ignore_stopwords, btn_value=='sample')
+			doc_id = mongo.save_words('wordcounter', counts, ignore_case, ignore_stopwords, title, sample_id)
 			return redirect(request.url + 'results/' + doc_id)
 
 	return render_template('wordcounter.html', forms=forms.items(), tool_name='wordcounter')
@@ -81,7 +81,6 @@ def index():
 def results(doc_id):
 	
 	counts = None
-	csv_files = None
 	results = []
 
 	try:
@@ -91,7 +90,6 @@ def results(doc_id):
 		abort(400)
 
 	counts = doc.get('counts')
-	csv_files = doc.get('csv_files')
 
 	# only render the top 40 results on the page (the csv contains all results)
 	for c in range(len(counts)):
@@ -138,22 +136,24 @@ def results(doc_id):
 	whatnext['random_unpopular_word'] = random_unpopular_word[0]
 	whatnext['random_unpopular_word_count'] = random_unpopular_word[1]
 
-	return render_template('wordcounter/results.html', results=results, whatnext=whatnext, csv_files=csv_files, tool_name='wordcounter', title=doc['title'], doc_id=doc_id)
+	return render_template('wordcounter/results.html', results=results, whatnext=whatnext, tool_name='wordcounter', title=doc['title'], doc_id=doc_id)
 
-@mod.route('/results/<doc_id>/download/<file_path>')
-def download_csv(doc_id, file_path):
-	if filehandler.file_exists(file_path):
-		return filehandler.generate_csv(file_path)
-	else:
-		# if temp file has expired, generate a new one
+@mod.route('/results/<doc_id>/download/<analysis_type>.csv')
+def download_csv(doc_id, analysis_type):
+	logger.debug("Download %s", analysis_type)
+	if analysis_type not in ['words','bigrams','trigrams']:
+		logger.warning("Requested unknown csv type: %s",analysis_type)
+		abort(400)
+	try:
 		doc = mongo.find_document('wordcounter', doc_id)
-		files = create_csv_files(doc.get('counts'))
-		f = files[0]
-		if '-bigram-counts.csv' in file_path:
-			f = files[1]
-		elif '-trigram-counts.csv' in file_path:
-			f = files[2]
-		return filehandler.generate_csv(f)
+	except:
+		logger.warning("Unable to find doc '%s'", doc_id)
+		abort(400)
+	file_path = create_csv_file(doc.get('counts'),analysis_type)
+	logger.debug('  created %s csv to download at %s', analysis_type, file_path)
+	if file_path is None:
+		abort(500)
+	return filehandler.generate_csv(file_path)
 
 def process_upload(doc):
 	file_path = filehandler.open_doc(doc)
@@ -164,38 +164,33 @@ def process_upload(doc):
 	return words
 
 def process_words(words, ignore_case, ignore_stopwords, is_sample):
-
 	stopwords_language = 'english' if is_sample or g.current_lang == 'en' else 'spanish'
 	counts = wordhandler.get_word_counts(
 		words,
 		ignore_case,
 		ignore_stopwords,
 		stopwords_language)
+	return counts
 
-	csv_files = create_csv_files(counts)
-
-	return counts, csv_files
-
-def create_csv_files(counts):
-	files = []
-	files.append(filehandler.write_to_csv(['word', 'frequency'], counts[0], '-word-counts.csv'))
-
-	bigrams = []
-	for w in counts[1]:
-		freq = w[1]
-		phrase = " ".join(w[0])
-		bigrams.append([phrase, freq])
-
-	files.append(filehandler.write_to_csv(['bigram phrase', 'frequency'], bigrams, '-bigram-counts.csv'))
-	
-	trigrams = []
-	for w in counts[2]:
-		freq = w[1]
-		phrase = " ".join(w[0])
-		trigrams.append([phrase, freq])
-
-	files.append(filehandler.write_to_csv(['trigram phrase', 'frequency'], trigrams, '-trigram-counts.csv'))
-	return files
+def create_csv_file(counts,analysis_type):
+	if analysis_type == 'words':
+		return filehandler.write_to_csv(['word', 'frequency'], counts[0], '-word-counts.csv')
+	elif analysis_type == 'bigrams':
+		bigrams = []
+		for w in counts[1]:
+			freq = w[1]
+			phrase = " ".join(w[0])
+			bigrams.append([phrase, freq])
+		return filehandler.write_to_csv(['bigram phrase', 'frequency'], bigrams, '-bigram-counts.csv')
+	elif analysis_type == 'trigrams':
+		trigrams = []
+		for w in counts[2]:
+			freq = w[1]
+			phrase = " ".join(w[0])
+			trigrams.append([phrase, freq])
+		return filehandler.write_to_csv(['trigram phrase', 'frequency'], trigrams, '-trigram-counts.csv')
+	logger.error("Requested unknown csv type: %s",analysis_type)
+	return None # if was an invalid analysis_type
 
 def _clamp(n, minn, maxn):
     return max(min(maxn, n), minn)
