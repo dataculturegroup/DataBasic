@@ -89,9 +89,9 @@ def download(doc_id):
 		for f, w in doc['diffWordsDoc1']:
 			rows.append([w, 0, f, f])
 		# TODO: clean up file name
-		filename = filehandler.write_to_csv(headers, rows, 
+		file_path = filehandler.write_to_csv(headers, rows, 
 			filehandler.generate_filename('csv', '', doc['filenames'][0], doc['filenames'][1]), False)
-		return filehandler.generate_csv(filename)
+		return filehandler.generate_csv(file_path)
 	except Exception as e:
 		logging.exception(e)
 		abort(400)
