@@ -8,7 +8,7 @@ from flask_debugtoolbar import DebugToolbarExtension
 from sassutils.wsgi import SassMiddleware
 from babel.support import LazyProxy
 
-import logic.filehandler, logic.db, logic.oauth, config.development
+import logic.filehandler, logic.db, logic.oauth
 
 CONFIG_DIR_NAME = 'config'
 
@@ -46,6 +46,7 @@ app = Flask(__name__, instance_relative_config=False)
 app.config[ENV_APP_MODE] = app_mode
 config_var_names = ['SECRET_KEY','MONGODB_URL','MONGODB_NAME','GOOGLE_CLIENT_ID','GOOGLE_CLIENT_SECRET','GOOGLE_ANALYTICS_ID','SAMPLE_DATA_SERVER']
 if app_mode == APP_MODE_DEV:
+    import config.development
     logging.info('Loading config from %s:' % (APP_MODE_DEV))
     app.config.from_object(config.development)
     for var_name in config_var_names:
