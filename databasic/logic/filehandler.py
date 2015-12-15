@@ -165,7 +165,7 @@ def generate_filename(ext, suffix, *args):
     return files + suffix + datetime.datetime.now().strftime("%Y%m%d-%H%M%S") + '.' + ext
 
 def download_webpage(url):
-    soup = bs(urlopen(url))
+    soup = bs(urlopen(url),"lxml")
     if soup.p is not None:
         soup.p.encode(ENCODING)
     for script in soup(['script', 'style']):
