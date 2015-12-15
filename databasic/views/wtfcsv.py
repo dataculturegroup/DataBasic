@@ -44,11 +44,13 @@ def index():
 				results = process_link(doc['doc'])
 		elif btn_value == 'sample':
 			basedir = os.path.dirname(os.path.abspath(__file__))
-			sample_file = forms['sample'].data['sample']
-			logger.debug("New from sample: %s", sample_file)
+			sample_source = forms['sample'].data['sample']
+			logger.debug("New from sample: %s", sample_source)
+			sample_path = filehandler.get_sample_path(sample_source)
+			logger.debug("  loading from %s", sample_path)
 			results = []
-			results.append(wtfcsvstat.get_summary(os.path.join(basedir,'../','../',sample_file)))
-			results[0]['filename'] = filehandler.get_sample_title(sample_file) + '.csv'
+			results.append(wtfcsvstat.get_summary(sample_path))
+			results[0]['filename'] = filehandler.get_sample_title(sample_source) + '.csv'
 
 		if btn_value is not None and btn_value is not u'':
 			return redirect_to_results(results, sample_id)

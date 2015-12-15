@@ -33,7 +33,7 @@ def init_samples():
     if databasic.app.config.get(databasic.ENV_APP_MODE) == databasic.APP_MODE_DEV:
         # change the paths to absolute ones
         for sample in samples:
-            sample['source'] = os.path.join(databasic.get_base_dir(),sample['source'])
+            sample['path'] = os.path.join(databasic.get_base_dir(),sample['source'])
         logging.info("Updated sample data with base dir: %s" % databasic.get_base_dir())
     else:
         # copy from server to local temp dir and change to abs paths (to temp dir files)
@@ -44,8 +44,10 @@ def init_samples():
             f = tempfile.NamedTemporaryFile(delete=False)
             f.write(text)
             f.close()
-            sample['source'] = f.name
+            sample['path'] = f.name
         logging.info("Downloaded sample data and saved to tempdir")
+    for sample in samples:
+        logging.debug("  Cached %s to %s", sample['source'], sample['path'])
 
 def write_to_temp_file(text):
     file_path = _get_temp_file()
@@ -145,11 +147,17 @@ def get_samples(tool_id):
     choices = texts
     return choices
 
-def get_sample_title(path):
+def get_sample_title(source):
     for text in samples:
-        if path in text['source']:
+        if source in text['source']:
             return text['title']
-    return path
+    return source
+
+def get_sample_path(source):
+    for text in samples:
+        if source in text['source']:
+            return text['path']
+    return source
 
 def get_file_names(file_paths):
     file_names = []

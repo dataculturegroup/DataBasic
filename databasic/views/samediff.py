@@ -39,12 +39,13 @@ def index():
 			titles = [f1name, both, f2name]
 			# email = forms['upload'].data['email']
 		elif btn_value == 'sample':
-			file_paths = [ os.path.join(get_base_dir(),forms['sample'].data['sample']),
-						   os.path.join(get_base_dir(),forms['sample'].data['sample2']) ]
+			sample_sources = [ forms['sample'].data['sample'], forms['sample'].data['sample2'] ]
+			logger.debug("New from sample: %s", ", ".join(sample_sources))
+			file_paths = [ filehandler.get_sample_path(sample_source) for sample_source in sample_sources ]
+			logger.debug("  loading from %s", ", ".join(file_paths))
 			is_sample_data = True
 			f1name = filehandler.get_sample_title(forms['sample'].data['sample'])
 			f2name = filehandler.get_sample_title(forms['sample'].data['sample2'])
-			logger.debug("New from sample: %s & %s", f1name, f2name)
 			both = unicode(_('%(f1)s and %(f2)s', f1=f1name, f2=f2name))
 			titles = [f1name, both, f2name]
 			sample_id = str(f1name) + str(f2name)
