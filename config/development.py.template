@@ -20,3 +20,6 @@ SAMPLE_DATA_SERVER = 'http://my.static.server.for.stuff/'
 
 # Set to boolean True or False for Flask debugging assists.
 DEBUG = True
+
+# Se this to the url Google should redirect to after OAuth has been set up
+OAUTH_REDIRECT_URI = "http://127.0.0.1:8000/auth"

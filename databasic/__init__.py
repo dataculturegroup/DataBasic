@@ -46,7 +46,8 @@ logger.info("Starting DataBasic in %s mode" % app_mode)
 # Initialize the app
 app = Flask(__name__, instance_relative_config=False)
 app.config[ENV_APP_MODE] = app_mode
-config_var_names = ['SECRET_KEY','MONGODB_URL','MONGODB_NAME','GOOGLE_CLIENT_ID','GOOGLE_CLIENT_SECRET','GOOGLE_ANALYTICS_ID','SAMPLE_DATA_SERVER']
+config_var_names = ['SECRET_KEY','MONGODB_URL','MONGODB_NAME', 'SAMPLE_DATA_SERVER', 'GOOGLE_ANALYTICS_ID',
+                    'GOOGLE_CLIENT_ID','GOOGLE_CLIENT_SECRET', 'OAUTH_REDIRECT_URI']
 if app_mode == APP_MODE_DEV:
     import config.development
     logger.info('Loading config from %s:' % (APP_MODE_DEV))
@@ -76,7 +77,7 @@ assets.register('js_all', js_bundle)
 # initialize helper components
 babel = Babel(app)
 mongo = logic.db.MongoHandler(app.config.get('MONGODB_URL'),app.config.get('MONGODB_NAME'))
-logic.oauth.init(app.config.get('GOOGLE_CLIENT_ID'),app.config.get('GOOGLE_CLIENT_SECRET'))
+logic.oauth.init(app.config.get('GOOGLE_CLIENT_ID'),app.config.get('GOOGLE_CLIENT_SECRET'),app.config.get('OAUTH_REDIRECT_URI'))
 logic.filehandler.init_uploads()
 logic.filehandler.init_samples()
 local_nltk_path = os.path.join(get_base_dir(),'nltk_data')
