@@ -4,6 +4,7 @@
 	{% block head %}
 	<meta charset="utf-8">
 	<title>{% block title %}{% endblock %}</title>
+	<link rel="icon" type="image/ico" href="{{ url_for('static', filename='img/icons/favicon.ico') }}">
 	<link href="{{ url_for('static', filename='css/bootstrap.min.css') }}" rel="stylesheet">
 	<link href="{{ url_for('static', filename='css/font-awesome.min.css') }}" rel="stylesheet" type="text/css">
 	<script type="text/javascript" src="{{ url_for('static', filename='fonts/MyFontsWebfontsKit.js') }}"></script>
