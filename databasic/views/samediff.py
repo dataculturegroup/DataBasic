@@ -3,7 +3,7 @@ from operator import itemgetter
 from collections import OrderedDict
 from databasic import mongo, app, get_base_dir
 #form databasic import mail
-from databasic.forms import SameDiffUpload, SameDiffSample
+from databasic.forms import SameDiffUpload, SameDiffSample, SameDiffLink
 from databasic.logic import filehandler
 import databasic.tasks
 from databasic.logic import tfidfanalysis, textanalysis
@@ -18,6 +18,7 @@ def index():
 	forms = OrderedDict()
 	forms['sample'] = SameDiffSample()
 	forms['upload'] = SameDiffUpload()
+	# forms['link'] = SameDiffLink()
 
 	if request.method == 'POST':
 
@@ -45,6 +46,16 @@ def index():
 			titles = [f1name, both, f2name]
 			sample_id = str(f1name) + str(f2name)
 			# email = forms['sample'].data['email']
+		elif btn_value == 'link':
+			url1 = forms['link'].data['link']
+			url2 = forms['link'].data['link2']
+			if not 'http://' in url1:
+				url1 = 'http://' + url1
+			if not 'http://' in url2:
+				url2 = 'http://' + url2
+			file_paths = [ filehandler.write_to_temp_file(filehandler.download_webpage(url1)), 
+						   filehandler.write_to_temp_file(filehandler.download_webpage(url2)) ]
+			titles = ['1', 'both', '2']
 
 		if btn_value is not None and btn_value is not u'':
 			return process_results(file_paths, titles, sample_id)

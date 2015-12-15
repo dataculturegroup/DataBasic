@@ -133,12 +133,14 @@
         {{ macros.render_upload_field(form.upload, True) }}
  #}
 {% macro render_upload_field(field, multiple) -%}
-    <div class="form-group {% if field.errors %}has-error{% endif %} {{ kwargs.pop('class_', '') }}">
+    <div class="form-group {% if field.errors %}has-error{% endif %} {{ kwargs.pop('class_', '') }} upload-field">
         <!-- <label for="{{ field.id }}" class="control-label">{{ field.label|safe }}</label> -->
         {% if multiple %}
             {{ field(class='form-control', multiple=True, **kwargs) }}
         {% else %}
-            {{ field(class='form-control', **kwargs) }}
+            {{ field(class='form-control') }}
+            {# {{ field(class='form-control', style="display:none") }} #}
+            <button id="browse-click-{{ field.id }}" name="btn" class="btn btn-default">{{ field.label }}</button>
         {% endif %}
     </div>
 {%- endmacro %}

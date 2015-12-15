@@ -1,6 +1,14 @@
 
 $(document).ready(function(){
 
+	jQuery.validator.addMethod("custom_url", function(value, element) {
+		return this.optional (element) || /^[^ "]+$/.test(value);
+	}, _("You must input a valid url"));
+
+	jQuery.validator.addClassRules({
+		custom_url: { custom_url: true }
+	});
+
 	jQuery.validator.addMethod("multiple_files", function(value, element) {
 		return this.optional (element) || $("input:file")[0].files.length == 2;
 	}, _("You must select two files"));
@@ -62,6 +70,28 @@ $(document).ready(function(){
 			email: {
 				required: _("This field is required"),
 				email: _("Please enter a valid email address")
+			}
+		}
+	});
+	$(".link").validate({
+		rules: {
+			link: {
+				required: true,
+				custom_url: true
+			},
+			link2: {
+				required: true,
+				custom_url: true
+			}
+		},
+		messages: {
+			link: {
+				required: _("This field is required"),
+				custom_url: _("You must input a URL")
+			},
+			link2: {
+				required: _("This field is required"),
+				custom_url: _("You must input a URL")
 			}
 		}
 	});

@@ -27,6 +27,10 @@ class UploadForm(object):
 		_('Upload file'),
 		description={'placeholder': _('Upload...')})
 
+	def __init__(self, upload_label=_('Upload a file')):
+		super(UploadForm, self).__init__()
+		self.upload.label = upload_label
+
 class SampleForm(object):
 	label = _('Use a sample')
 	glyphicon = 'glyphicon-file'
@@ -65,14 +69,6 @@ class LinkForm(object):
 Word-Counter forms
 '''
 class WordCounterForm(object):
-	# ignore_case = BooleanField(
-	# 	_('Ignore case'), 
-	# 	widget=CheckboxInput(), 
-	# 	default=True)
-	# ignore_stopwords = BooleanField(
-	# 	_('Ignore stopwords'),
-	# 	widget=CheckboxInput(), 
-	# 	default=True)
 	pass
 
 class WordCounterPaste(PasteForm, WordCounterForm, Form):
@@ -140,18 +136,15 @@ SameDiff forms
 '''
 class SameDiffForm(object):
 	pass
-	'''
-	email = StringField(
-		_('Email'),
-		description={'placeholder': _('Your email address')},
-		widget=TextInput())
-	'''
 
 class SameDiffUpload(UploadForm, SameDiffForm, Form):
 	label = _('Upload files')
 	upload2 = FileField(
-		_('Upload a second file'),
+		_('Browse file 2'),
 		description={'placeholder': _('Upload...')})
+
+	def __init__(self):
+		super(SameDiffUpload, self).__init__(_('Browse file 1'))
 
 class SameDiffSample(SampleForm, SameDiffForm, Form):
 	label = _('Use samples')
@@ -163,3 +156,14 @@ class SameDiffSample(SampleForm, SameDiffForm, Form):
 
 	def __init__(self):
 		super(SameDiffSample, self).__init__('samediff')
+
+class SameDiffLink(LinkForm, SameDiffForm, Form):
+	label = _('Paste links')
+	field_flags = ('url',)
+	link2 = StringField(
+		_('Paste links'),
+		description={'placeholder': _('https://en.wikipedia.org/wiki/Natural_language_processing')},
+		widget=TextInput())
+
+	def __init__(self):
+		super(SameDiffLink, self).__init__(_('Paste links'), _('https://en.wikipedia.org/wiki/Natural_language_processing'))

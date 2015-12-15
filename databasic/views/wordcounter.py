@@ -54,7 +54,10 @@ def index():
 			sample_id = title
 		elif btn_value == 'link':
 			url = forms['link'].data['link']
-			if not 'http://' in url:
+			# TODO: should actually accept https
+			if 'https://' in url:
+				url = url.replace('https', 'http')
+			elif not 'http://' in url:
 				url = 'http://' + url
 			content = filehandler.download_webpage(url)
 			words = content['text']

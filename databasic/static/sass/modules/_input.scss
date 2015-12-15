@@ -48,6 +48,19 @@
 		background-color: $c-selected;
 	}
 
+	.upload-field .btn {
+		color: $c-theme-dk;
+		background-color: $c-white;
+		text-transform: lowercase;
+	}
+
+	input[id="upload"], input[id="upload2"] {
+		position: absolute;
+		left: 0;
+		opacity: 0;
+		z-index: -1;
+	}
+
 	.btn:focus, .btn:hover:active {
 		background-color: $c-theme-md;
 		color: $c-white;

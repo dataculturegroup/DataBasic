@@ -62,3 +62,22 @@ $(document).ready(function(){
         });
     });
 });
+
+$(window).load(function () {
+    
+    handle_upload('upload');
+    handle_upload('upload2');
+
+    function handle_upload(id) {
+      $('#browse-click-' + id).on('click', function () {
+          $('.form-control[name="' + id + '"]').click();
+          setInterval(function() {
+            var label = $('.form-control[name="' + id + '"]').val();
+            if (label != "") {
+              $('#browse-click-' + id).html(label);
+            }
+          }, 1);
+          return false;
+      });
+    }
+});
