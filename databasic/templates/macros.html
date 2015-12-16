@@ -139,14 +139,13 @@
             {{ field(class='form-control', multiple=True, **kwargs) }}
         {% else %}
             {{ field(class='form-control') }}
-            {# {{ field(class='form-control', style="display:none") }} #}
             <button id="browse-click-{{ field.id }}" name="btn" class="btn btn-default">{{ field.label }}</button>
         {% endif %}
     </div>
 {%- endmacro %}
 
 {% macro shareable() -%}
-    <a href="#share-modal" data-toggle="modal" id="share-modal-btn" data-target="#share-modal" aria-expanded="false"><span class="glyphicon glyphicon-share" aria-hidden="true"></span></a>
+    <a href="#share-modal" data-toggle="modal" id="share-modal-btn" data-target="#share-modal" aria-expanded="false" {{ ga_event('share') }}><span class="glyphicon glyphicon-share" aria-hidden="true"></span></a>
     <div id="share-modal" class="modal fade">
         <div class="modal-dialog">
             <div class="modal-content">
@@ -191,7 +190,7 @@
 {%- endmacro %}
 
 {% macro hover_tooltip(text, tooltip) -%}
-    <a data-trigger="focus hover" data-toggle="tooltip" data-trigger="hover" href="#tooltip" data-original-title="{{ tooltip }}" aria-label="{{ text }}" role="definition">{{ text }}</a>
+    <a data-trigger="focus hover" data-toggle="tooltip" data-trigger="hover" href="#tooltip" data-original-title="{{ tooltip }}" aria-label="{{ text }}" role="definition" onmouseover="ga('send', 'event', '{{ tool_name }}', '{{ text }}', 'tooltip');">{{ text }}</a>
 {%- endmacro %}
 
 {% macro download_url(tool_name, doc_id, ext, suffix) -%}
@@ -200,4 +199,8 @@
     {% set ext = ext[1:] if '.' in ext[0] else ext %}
     {% set filename = files + suffix + '.' + ext %}
     "/{{ g['current_lang'] }}/{{ tool_name }}/results/download/{{ doc_id }}/{{ filename }}"
+{%- endmacro %}
+
+{% macro ga_event(action) -%}
+    onclick="ga('send', 'event', '{{ tool_name }}', '{{ action }}');"
 {%- endmacro %}
