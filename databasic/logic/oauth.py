@@ -4,7 +4,7 @@ from oauth2client.client import SignedJwtAssertionCredentials, OAuth2WebServerFl
 
 _oauth = None   # singleton instance
 
-logger = logging.getLogger(__file__)
+logger = logging.getLogger(__name__)
 
 '''
 Public API
