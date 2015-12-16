@@ -68,9 +68,11 @@ class OAuthHandler:
             redirect_uri=redirect_uri)
 
     def authenticate_app(self):
+        logger.debug("OAuthHandler.authenticate_app")
         return self.flow.step1_get_authorize_url()
 
     def authorize(self, code):
+        logger.debug("OAuthHandler.authorize")
         credentials = self.flow.step2_exchange(code)
         self._client = gspread.authorize(credentials)
         self._data_client.ClientLogin(self._key['client_id'], self._key['client_secret'])
@@ -80,15 +82,19 @@ class OAuthHandler:
         # TODO: make this work with docs as well (only spreadsheets work at the moment)
         # ^^ (this is very hard :o) ^^
         try:
+            logger.debug("OAuthHandler.open_url")
             return self._client.open_by_url(url)
         except gspread.SpreadsheetNotFound:
+            logger.error("open_url: spreasheet not found %s", url)
             self.authorized = False
             return None
         except gspread.NoValidUrlKeyFound:
+            logger.error("open_url: no valid url found %s", url)
             self.authorized = False
             return None
 
     def get_doc_url(self):
+        logger.debug("get_doc_url")
         if self.doc_url is None:
             return None
         u = self.open_url(self.doc_url)
