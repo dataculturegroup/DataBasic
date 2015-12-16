@@ -60,7 +60,7 @@
 {% endblock %}
 
 {% block results_scripts %}
-<script src="https://cdnjs.cloudflare.com/ajax/libs/d3/3.5.6/d3.min.js" charset="utf-8"></script>
+<script type="text/javascript" src="{{ url_for('static', filename='js/lib/d3.min.js') }}" charset="utf-8"></script>
 <script type="text/javascript" src="{{ url_for('static', filename='js/lib/d3.tip.js') }}"></script>
 <script type="text/javascript" src="{{ url_for('static', filename='js/lib/underscore.min.js') }}"></script>
 <script type="text/javascript" src="/static/js/samediff.js" charset="utf-8"></script>
