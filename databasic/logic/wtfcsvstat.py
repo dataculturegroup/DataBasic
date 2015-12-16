@@ -411,7 +411,7 @@ def freq(l, n=MAX_FREQ):
     top = nlargest(n, six.iteritems(count), itemgetter(1))
     result = []
     for item in top:
-        result.append((str(item[0]).replace('.','_'), item[1]))
+        result.append((unicode(item[0]).replace('.','_'), item[1]))
     return result
 
 if __name__ == "__main__":
