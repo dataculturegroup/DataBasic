@@ -2,14 +2,16 @@ import os, sys, json, gspread, logging
 import gdata.docs.service
 from oauth2client.client import SignedJwtAssertionCredentials, OAuth2WebServerFlow
 
-
 _oauth = None   # singleton instance
+
+logger = logging.getLogger(__file__)
 
 '''
 Public API
 '''
 def init(client_id,client_secret,redirect_uri):
     global _oauth
+    logger.info("Init oauth with redirect to %s", redirect_uri)
     if len(client_id)>0 and len(client_secret)>0:
         logging.info("Initialized oauth with id & secret")
         _oauth = OAuthHandler(client_id,client_secret,redirect_uri)
@@ -17,17 +19,21 @@ def init(client_id,client_secret,redirect_uri):
         logging.error("No client_id and client_secret specificed - oauth won't work!")
 
 def authorize(code):
+    logger.debug("authorize %s", code)
     _oauth.authorize(code)
 
 def open_doc_from_url(url, redirect_to):
+    logger.debug("open_doc %s -> %s", url, redirect_to)
     _oauth.redirect_to = redirect_to
     if not _oauth.authorized:
+        logger.warning("not authorized %s -> %s", url, redirect_to)
         _oauth.doc_url = url
         return {
             'authenticate': _oauth.authenticate_app(),
             'doc': None
         }
     else:
+        logger.debug("authorized for %s -> %s", url, redirect_to)
         _oauth.doc_url = None
         return {
             'authenticate': None,
