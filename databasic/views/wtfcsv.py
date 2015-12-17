@@ -13,9 +13,10 @@ logger = logging.getLogger(__name__)
 
 @mod.route('/', methods=('GET', 'POST'))
 def index():
+	
 	doc_url = oauth.doc_url()
 	if doc_url is not None:
-		return redirect_to_results(process_link(doc_url))
+		return redirect_to_results(process_link(doc_url), 'link')
 
 	tab = 'paste' if not 'tab' in request.args else request.args['tab']
 	results = None
@@ -53,7 +54,7 @@ def index():
 			results[0]['filename'] = filehandler.get_sample_title(sample_source) + '.csv'
 
 		if btn_value is not None and btn_value is not u'':
-			return redirect_to_results(results, sample_id)
+			return redirect_to_results(results, btn_value, sample_id)
 
 	return render_template('wtfcsv.html', forms=forms.items(), tool_name='wtfcsv')
 
@@ -62,7 +63,9 @@ def results(doc_id):
 	try:
 		results = mongo.find_document('wtfcsv', doc_id).get('results')
 		if len(results) > 1:
-			return redirect(g.current_lang + '/wtfcsv/results/' + doc_id + '/sheets/0')
+			submit = request.args.get('submit', '')
+			param = '?submit=true' if 'true' in submit else ''
+			return redirect(g.current_lang + '/wtfcsv/results/' + doc_id + '/sheets/0' + param)
 		else:
 			return render_results(doc_id, 0)
 	except:
@@ -75,7 +78,8 @@ def results_sheet(doc_id, sheet_idx):
 
 def render_results(doc_id, sheet_idx):
 
-	results = mongo.find_document('wtfcsv', doc_id).get('results')
+	doc = mongo.find_document('wtfcsv', doc_id)
+	results = doc.get('results')
 
 	if 'bad_formatting' in results:
 		return render_template('wtfcsv/results.html', results=results, tool_name='wtfcsv', index=0)
@@ -139,11 +143,11 @@ def render_results(doc_id, sheet_idx):
 			overview_data['values'].append(int(col['others']))
 		col['overview'] = overview_data
 	
-	return render_template('wtfcsv/results.html', results=results, whatnext=whatnext, tool_name='wtfcsv', index=int(sheet_idx))
+	return render_template('wtfcsv/results.html', results=results, whatnext=whatnext, tool_name='wtfcsv', index=int(sheet_idx), source=doc['source'])
 
-def redirect_to_results(results, sample_id=''):
-	doc_id = mongo.save_csv('wtfcsv', results, sample_id)
-	return redirect(g.current_lang + '/wtfcsv/results/' + doc_id)
+def redirect_to_results(results, source, sample_id=''):
+	doc_id = mongo.save_csv('wtfcsv', results, sample_id, source)
+	return redirect(g.current_lang + '/wtfcsv/results/' + doc_id + '?submit=true')
 
 def process_upload(csv_file):
 	file_path = filehandler.open_doc(csv_file)

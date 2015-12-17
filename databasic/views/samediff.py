@@ -63,7 +63,7 @@ def index():
 			titles = ['1', 'both', '2']
 
 		if btn_value is not None and btn_value is not u'':
-			return process_results(file_paths, titles, sample_id)
+			return process_results(file_paths, titles, sample_id, btn_value)
 
 	return render_template('samediff/samediff.html', forms=forms.items(), tool_name='samediff')
 
@@ -109,7 +109,7 @@ def download(doc_id):
 		logging.exception(e)
 		abort(400)
 
-def process_results(file_paths, titles, sample_id):
+def process_results(file_paths, titles, sample_id, source):
 	file_names = filehandler.get_file_names(file_paths)
 	file_sizes = [ str(os.stat(file_path).st_size) for file_path in file_paths ] # because browser might not have sent content_length
 	logger.debug("Upload: %s bytes", ", ".join(file_sizes))
@@ -119,8 +119,9 @@ def process_results(file_paths, titles, sample_id):
 		data['doc1unique'], data['doc2unique'], data['common'], data['common_counts'],
 		data['doc1'], data['doc2'], data['cosine_similarity'],
 		titles,
-		sample_id)
-	return redirect(request.url + 'results/' + job_id)
+		sample_id,
+		source)
+	return redirect(request.url + 'results/' + job_id + '?submit=true')
 
 def interpretCosineSimilarity(score):
 	# Cosine Similarity

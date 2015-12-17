@@ -249,6 +249,8 @@
 {% assets "js_tool" %}<script type="text/javascript" src="{{ ASSET_URL }}"></script>{% endassets %}
 <script type="text/javascript">
 
+send_submit_event('{{ tool_name }}', '{{ source }}');
+
 // Uncomment to enable drag & drop
 /*Sortable.create(sortableRow, {
   handle: '.dragHandle',

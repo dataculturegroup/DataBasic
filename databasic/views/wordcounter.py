@@ -75,8 +75,8 @@ def index():
 
 		if words is not None:
 			counts = process_words(words, ignore_case, ignore_stopwords, btn_value=='sample')
-			doc_id = mongo.save_words('wordcounter', counts, ignore_case, ignore_stopwords, title, sample_id)
-			return redirect(request.url + 'results/' + doc_id)
+			doc_id = mongo.save_words('wordcounter', counts, ignore_case, ignore_stopwords, title, sample_id, btn_value)
+			return redirect(request.url + 'results/' + doc_id + '?submit=true')
 
 	return render_template('wordcounter.html', forms=forms.items(), tool_name='wordcounter')
 
@@ -139,7 +139,7 @@ def results(doc_id):
 	whatnext['random_unpopular_word'] = random_unpopular_word[0]
 	whatnext['random_unpopular_word_count'] = random_unpopular_word[1]
 
-	return render_template('wordcounter/results.html', results=results, whatnext=whatnext, tool_name='wordcounter', title=doc['title'], doc_id=doc_id)
+	return render_template('wordcounter/results.html', results=results, whatnext=whatnext, tool_name='wordcounter', title=doc['title'], doc_id=doc_id, source=doc['source'])
 
 @mod.route('/results/<doc_id>/download/<analysis_type>.csv')
 def download_csv(doc_id, analysis_type):

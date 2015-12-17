@@ -129,6 +129,8 @@
 	{% assets "js_tool" %}<script type="text/javascript" src="{{ ASSET_URL }}"></script>{% endassets %}
 	<script type="text/javascript">
 
+		send_submit_event('{{ tool_name }}', '{{ source }}');
+
 		var data = [
 			{% for word in results[0] | batch(50) | first %}
 				{ text: "{{ word[0]|safe }}", size: {{ word[1]|float }} },

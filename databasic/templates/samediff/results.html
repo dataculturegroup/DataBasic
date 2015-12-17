@@ -63,6 +63,9 @@
 {% assets "js_tool" %}<script type="text/javascript" src="{{ ASSET_URL }}"></script>{% endassets %}
 <script type="text/javascript" src="{{ url_for('static', filename='js/samediff.js') }}" charset="utf-8"></script>
 <script type="text/javascript" charset="utf-8">
+
+send_submit_event('{{ tool_name }}', '{{ results["source"] }}');
+
 {% if results %}
 
 	$(function() {
