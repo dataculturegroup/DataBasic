@@ -58,6 +58,7 @@ class OAuthHandler:
         self.doc_url = None   # the url of the doc to open after the user has granted permissions
         self._data_client = gdata.docs.service.DocsService() # used for docs
         self._key = { 'client_id': client_id, 'client_secret': client_secret}
+        self._client = None     # initialize so we can check later
         self.flow = OAuth2WebServerFlow(
             client_id=self._key['client_id'],
             client_secret=self._key['client_secret'],
@@ -81,6 +82,9 @@ class OAuthHandler:
     def open_url(self, url):
         # TODO: make this work with docs as well (only spreadsheets work at the moment)
         # ^^ (this is very hard :o) ^^
+        if self._client is None:
+            logger.debug("OAuthHandler doesn't have _client yet")
+            return None
         try:
             logger.debug("OAuthHandler.open_url")
             return self._client.open_by_url(url)
