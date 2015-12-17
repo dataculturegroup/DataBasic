@@ -58,3 +58,4 @@ unicodecsv==0.14.1
 wsgiref==0.1.2
 xlrd==0.9.4
 jsmin==2.1.6
+cssmin=0.2.0

@@ -70,9 +70,15 @@ app.wsgi_app = SassMiddleware(app.wsgi_app, {
 
 # Set up bundles
 assets = Environment(app)
-js_bundle = Bundle('js/lib/jquery.js', 'js/lib/jquery.validate.min.js', 'js/lib/additional-methods.min.js', 'js/lib/bootstrap.min.js',
+js_bundle = Bundle('js/lib/jquery.js', 'js/lib/jquery.validate.min.js', 'js/lib/additional-methods.min.js', 'js/lib/bootstrap.min.js', 'js/lib/Gettext.js',
 	filters='jsmin', output='gen/packed.js')
-assets.register('js_all', js_bundle)
+assets.register('js_base', js_bundle)
+js_tool = Bundle('js/lib/d3.min.js', 'js/lib/d3.layout.cloud.js', 'js/lib/d3.tip.js', 'js/lib/underscore.min.js', 'js/lib/jquery.flip.min.js', 'js/lib/highcharts.src.js',
+    filters='jsmin', output='gen/packed_tool.js')
+assets.register('js_tool', js_tool)
+css_bundle = Bundle('css/bootstrap.css', 'css/font-awesome.min.css',
+    filters='cssmin', output='gen/packed.css')
+assets.register('css_base', css_bundle)
 
 # initialize helper components
 babel = Babel(app)
