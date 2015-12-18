@@ -17,8 +17,6 @@ from csvkit import CSVKitReader, table
 from lazyfile import LazyFile
 from dateutil.parser import parse
 
-import unicodecsv
-
 NoneType = type(None)
 
 MAX_UNIQUE = 5

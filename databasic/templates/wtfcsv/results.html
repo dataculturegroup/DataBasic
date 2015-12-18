@@ -26,9 +26,13 @@
 	</a>
 {%- endmacro %}
 
-{% macro card_top(type_name, col, glyphicon) -%}
+{% macro flip_icon(front) -%}
+	<a class="flip-icon {% if front %}front-icon{% else %}back-icon{% endif %}" data-placement="left" data-trigger="focus hover" data-toggle="tooltip" data-trigger="hover" href="#tooltip" data-original-title="{% if front %}{{ _('Click to see the details') }}{% else %}{{ _('Click to see the chart') }}{% endif %}"><i class="glyphicon {% if front %}glyphicon-info-sign{% else %}glyphicon-signal{% endif %}" aria-hidden="true" role="presentation"></i></a>
+{%- endmacro %}
+
+{% macro card_top(type_name, col, front) -%}
 <div class="card-top">
-	<div class="close-button pull-right" role="presentation" aria-hidden="true"><h3><span class="glyphicon {{ glyphicon }}" aria-hidden="true"></span></h3></div>
+	<h3 class="flip-icon pull-right">{{ flip_icon(front) }}</h3>
 	<h3 class="data-type" aria-hidden="true" role="presentation">{{ data_type_icon(col, type_name) }}</h3>
 	<h3 class="card-name">{{ col['name']|truncate(20) }}</h3>
 </div>
@@ -114,7 +118,7 @@
 						<div class="card" id="card-{{ c }}">
 							<div class="front">
 								<div class="card-content">
-									{{ card_top(type_name, col, 'glyphicon-info-sign') }}
+									{{ card_top(type_name, col, True) }}
 									<div id="card-chart-{{ c }}" class="card-chart">
 										<div class="chart" aria-hidden="true"></div>
 										<div class="table">
@@ -142,7 +146,7 @@
 							</div>
 							<div class="back">
 								<div class="card-content">
-									{{ card_top(type_name, col, 'glyphicon-signal') }}
+									{{ card_top(type_name, col, False) }}
 									<div class="card-bottom">
 										<ul>
 											{% if col['name']|length > 16 %}
@@ -260,6 +264,12 @@ send_submit_event('{{ tool_name }}', '{{ source }}');
 
 // Card flipping
 $('.card').flip();
+$('.front-icon').click(function() {
+	$(this).parents('.card').flip(true);
+});
+$('.back-icon').click(function() {
+	$(this).parents('.card').flip(false);
+});
 
 // Card navigation
 $('#card-position-reference').affix({
@@ -274,7 +284,6 @@ $(function () {
 		colors: ['#fff'],
 		chart: {
 			backgroundColor: 'none',
-			// width: 275,
 			height: 300
 		},
 		xAxis: {

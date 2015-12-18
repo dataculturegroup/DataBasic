@@ -138,6 +138,7 @@ header {
 
 		.close-button {
 			float: right;
+			margin-top: 20px;
 			h3 {
 				color: $c-white;
 				opacity: 0.75;
@@ -146,6 +147,12 @@ header {
 					opacity: 1;
 					cursor: pointer;
 				}
+			}
+		}
+
+		.flip-icon {
+			i {
+				color: $c-white;
 			}
 		}
 	}
