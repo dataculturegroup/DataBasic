@@ -131,7 +131,7 @@ h3 a {
 }
 
 .inputs {
-	margin: 25px auto;
+	margin: 60px auto;
 	max-width: 600px;
 	background-color: $c-theme-md;
 	@include box-shadow();
@@ -183,6 +183,73 @@ h3 a {
 	.form-control {
 		min-height: 40px;
 		font-size: 20px;
+	}
+}
+
+.bottom-section {
+
+	h2, h3 {
+		margin-bottom: 20px;
+	}
+	text-align: center;
+	
+	.js-video {
+	  height: 0;
+	  padding-top: 25px;
+	  padding-bottom: 67.5%;
+	  margin-bottom: 10px;
+	  position: relative;
+	  overflow: hidden;
+	}
+	 
+	.js-video.widescreen {
+	  padding-bottom: 56.34%;
+	}
+	 
+	.js-video.vimeo {
+	  padding-top: 0;
+	}
+
+	.js-video embed, .js-video iframe, .js-video object, .js-video video {
+	  top: 0;
+	  left: 0;
+	  width: 100%;
+	  height: 100%;
+	  position: absolute;
+	}
+
+	#activity-thumbnail {
+		width: 100%;
+	}
+
+	#video-section, #activity-section {
+		padding: 0 25px;
+		.btn {
+			width: 100% !important;
+			background-color: $c-unselected;
+
+			&:hover {
+				background-color: $c-hover;
+			}
+			&:active, &:focus {
+				background-color: $c-selected;
+			}
+			&#download-spanish {
+				margin-top: 15px;
+			}
+		}
+	}
+
+	#activity-section p {
+		margin-bottom: 20px;
+	}
+}
+
+.tool {
+	margin-top: 60px;
+
+	.container {
+		margin-bottom: 40px;
 	}
 }
 

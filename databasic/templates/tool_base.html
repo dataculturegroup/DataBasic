@@ -5,6 +5,36 @@
 	<h3 class="text-center" aria-hidden="true"><a href="#what-next">{{ _("What do I do next?") }}</a></h3>
 {%- endmacro %}
 
+{% macro about_section(name) -%}
+	<div class="bottom-section">
+		<div class="container-fluid">
+			<div class="row" id="what-next">
+				<div class="col-sm-6" id="video-section">
+				    <h2>{{ _("About %(tool_name)s", tool_name=name) }}</h2>
+				    <div class="js-video vimeo widescreen">
+					    <iframe src="https://player.vimeo.com/video/146805861" width="500" height="281" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
+					</div>
+				</div>
+				<div class="col-sm-6" id="activity-section">
+					<div class="row">
+					    <h3>{{ _("Are you an Educator? Try our Activity Guide") }}</h3>
+					    <p>{{_("DataBasic activities are suitable for classes and workshops for participants from middle school through higher education. No prior data experience necessary!")}}</p>
+					</div>
+					<div class="row">
+						<div class="col-sm-5">
+							<img src="http://lorempixel.com/300/300/cats/" id="activity-thumbnail">
+						</div>
+						<div class="col-sm-7">
+							<button class="btn btn-lg btn-primary" id="download-english">{{ _('Download (English)') }}</button>
+							<button class="btn btn-lg btn-primary" id="download-spanish">{{ _('Download (Español)') }}</button>
+						</div>
+					</div>
+				</div>	
+			</div>
+		</div>
+	</div>
+{%- endmacro %}
+
 {% block footer %}
 	<footer>
 		{% block custom_footer %}{% endblock %}
