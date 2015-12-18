@@ -356,21 +356,21 @@ $(function () {
 					{% endif %}
 					xAxis: {
 						title: {
-							text:
+							text: 
 							{% if 'text' in dname %}
-							_('Categories')
+							"{{ _('Categories') }}"
 							{% elif 'numbers' in dname %}
-							_('Counts')
+							"{{ _('Counts') }}"
 							{% elif 'dates' in dname %}
-							_('Dates')
+							"{{ _('Dates') }}"
 							{% elif 'times' in dname %}
-							_('Times')
+							"{{ _('Times') }}"
 							{% elif 'dates and times' in dname %}
-							_('Dates and times')
+							"{{ _('Dates and times') }}"
 							{% elif 'booleans' in dname %}
-							_('Booleans')
+							"{{ _('Booleans') }}"
 							{% else %}
-							_('Undefined')
+							"{{ _('Undefined') }}"
 							{% endif %}
 						},
 						categories: {{ col['overview']['categories'] | tojson }},
@@ -380,7 +380,7 @@ $(function () {
 					},
 					yAxis: {
 						title: {
-							text: _('# of rows')
+							text: "{{ _('# of rows') }}"
 						},
 						plotLines: [{
 							color: '#fff'

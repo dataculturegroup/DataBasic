@@ -85,8 +85,8 @@
 		"modules": ["wtfcsv"]
 	},
 	{
-		"title" : "UFO Sightings in Massachusetts",
-		"source":"sample-data/UFOMA.csv",
+		"title" : "UFO Sightings",
+		"source":"sample-data/UFOSightings.csv",
 		"modules": ["wtfcsv"]
 	}
 ]

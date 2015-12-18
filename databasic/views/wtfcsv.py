@@ -14,6 +14,7 @@ logger = logging.getLogger(__name__)
 @mod.route('/', methods=('GET', 'POST'))
 def index():
 	
+	mongo.clear_collection()
 	doc_url = oauth.doc_url()
 	if doc_url is not None:
 		return redirect_to_results(process_link(doc_url), 'link')
@@ -24,7 +25,7 @@ def index():
 	forms = OrderedDict()
 	forms['sample'] = WTFCSVSample()
 	forms['upload'] = WTFCSVUpload()
-	forms['link'] = WTFCSVLink()
+	# forms['link'] = WTFCSVLink()
 
 	if request.method == 'POST':
 
