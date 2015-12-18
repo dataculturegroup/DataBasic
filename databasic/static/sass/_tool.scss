@@ -240,8 +240,14 @@ h3 a {
 		}
 	}
 
-	#activity-section p {
-		margin-bottom: 20px;
+	#activity-section {
+		#thumbnail-container {
+			padding: 0;
+		}
+		p {
+			text-align: left;
+			margin-bottom: 20px;
+		}
 	}
 }
 
