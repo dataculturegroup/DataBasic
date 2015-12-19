@@ -12,13 +12,17 @@
 {% endblock %}
 
 {% block body %}
-<div class="container" role="main">
-	<div id="tool-description">
-		<h2 role="banner">{{ _('WTFcsv tells you WTF is going on with your .csv file.') }}</h2>
-		<p>{{ _('Data arrives at your doorstep in the form of a spreadsheet but how do you find a story in rows and columns? WTFcsv provides the first step by characterizing each column\'s %(data_type)s and contents so that you can ask more questions.',
-		data_type=hover_tooltip('data type', 'Data is often classified by type. Common types of data include numbers, dates and text.')) }}</p>
+<div class="tool" role="main">
+	<div class="container">
+		<div class="row">
+			<div id="tool-description">
+				<h2 role="banner">{{ _('WTFcsv tells you WTF is going on with your .csv file.') }}</h2>
+				<p>{{ _('Data arrives at your doorstep in the form of a spreadsheet but how do you find a story in rows and columns? WTFcsv provides the first step by characterizing each column\'s %(data_type)s and contents so that you can ask more questions.',
+				data_type=hover_tooltip('data type', 'Data is often classified by type. Common types of data include numbers, dates and text.')) }}</p>
+			</div>
+		</div>
+		{{ render_forms(forms, action_url=tool_name, action_text=_('Analyze')) }}
 	</div>
-	{{ video_modal("How to count", "https://www.youtube.com/embed/Lur-SGl3uw8") }}
-	{{ render_forms(forms, action_url=tool_name, action_text=_('Analyze')) }}
+	{{ about_section(_('WTFcsv'), '146805861') }}
 </div>
 {% endblock %}

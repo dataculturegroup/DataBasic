@@ -14,7 +14,7 @@ logger = logging.getLogger(__name__)
 @mod.route('/', methods=('GET', 'POST'))
 def index():
 	
-	mongo.clear_collection()
+	mongo.clear_collection('wtfcsv')
 	doc_url = oauth.doc_url()
 	if doc_url is not None:
 		return redirect_to_results(process_link(doc_url), 'link')

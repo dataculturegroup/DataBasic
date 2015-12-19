@@ -56,6 +56,7 @@ class WTFCSVStat():
         (_, extension) = os.path.splitext(path)
 
         f = open(path)
+        # f = codecs.open(path, mode, encoding='utf-8')
 
         return f
 
@@ -419,5 +420,5 @@ if __name__ == "__main__":
         print("You must pass in a csv file to parse!")
         sys.exit(1)
     wtfcsvstat = WTFCSVStat(sys.argv[1])
-    results = wtfcsvstat.get_summary()
-    print(results)
+    # results = wtfcsvstat.get_summary()
+    # print(results)

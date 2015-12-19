@@ -45,6 +45,9 @@
 
 	a {
 		color: $c-theme-dk;
+		&:after {
+			content: '';
+		}
 	}
 }
 

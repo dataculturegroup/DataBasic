@@ -17,3 +17,5 @@ logs/*.log
 .env
 .webassets-cache/
 config/development.py
+certs/
+logs/*.log.*

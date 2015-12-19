@@ -2,17 +2,6 @@ body {
 	margin-bottom: 75px !important;
 }
 
-.what-next {
-	color: $c-theme-md;
-	padding: 10px 0 20px 0;
-	background-color: $c-white;
-	@include selection($c-white, $c-theme-dk);
-
-	h2 {
-		text-align: center;	
-	}
-}
-
 footer {
 	
 	position: absolute;
