@@ -8,10 +8,12 @@
 {% endblock %}
 {% block body %}
 <div class="container" role="main">
+
 	<div class="row" id="intro">
 		<h2 role="banner">{{ _('DataBasic is a suite of easy-to-use web tools for beginners that introduce concepts of working with data.') }}</h2>
 		<p>{{ _('These simple tools make it easy to work with data in fun ways, so you can learn how to find great stories to tell.') }}</p>
 	</div>
+
 	<div class="row row-centered">
 		<div class="col-sm-4">
 			<div class="thumbnail">
@@ -44,7 +46,57 @@
 			</div>
 		</div>
 	</div>
+
+	<div class="row" id="about">
+		<div class="col-sm-8 feature-box">
+			<h2>{{ _("Why use DataBasic?") }}</h2>
+			<p>{{_("blah vlah al blah vlah al blah vlah al blah vlah al blah vlah al blah vlah al blah vlah al blah vlah al")}}</p>
+		</div>
+		<div class="col-sm-4 feature-box">
+			<h3>{{ _("Making Data Fun") }}</h3>
+			<p>{{_("Spreadsheets and large Word documents... can you think of anything more boring?  We think working with data should be more fun! Take a look at our activity guides for hands-on approaches to analyzing your data using these tools.  These can help you take a playful approach to finding stories in your data, which works better and is more fun!  Come on now, don't you want to know \"what the fudge\" is going on with your CSV file?")}}</p>
+		</div>
+	</div>
+
+	<br />
+	
+	<div class="row">
+		<div class="col-sm-4 feature-box">
+			<h3>{{ _("Ensuring Your Privacy") }}</h3>
+			<p>{{_("With more and more data-centric tools moving online, sometimes it can be hard to tell where your data is going and what will happen with it after you upload it.  We store information you upload for only the amount of time it takes us to analyze it, then we delete it.  The aggregate results we show you are kept for 30 days, and then delete them.  All communications are over https, so other folks can't eavesdrop on the data as you upload it.")}}</p>
+		</div>
+		<div class="col-md-4 feature-box">
+			<h3>{{ _("Focused on Learning ") }}</h3>
+			<p>{{_("Sometimes faster isn't better.  If you really want to learn how to work with data to find stories to tell, you'll need to use tools that do more than just give you a chart as quickly as possible.  That's why we've built DataBasic with learners in mind.  Don't know what some technical word means? Hover over it to see a quick definition.  Not sure how to use a tool?  Try some of the sample data we've included to get started.")}}</p>
+		</div>
+		<div class="col-sm-4 feature-box">
+			<h3>{{ _("Fitting in to Your Pipeline") }}</h3>
+			<p>{{_("Working with data online always involves using a mismash of tools; we're not going to solve that problem anytime soon.  So we've built DataBasic to take in a variety of types of data, and output results in the formats you're used to.  Read some content from website, download CSV files of your results - these are just two of the ways we try to introduce you to, and plug in to, the way most folks work data online.")}}</p>
+		</div>
+	</div>
+
+	<br />
+	
+	<div class="row">
+		<div class="col-sm-4 feature-box">
+			<h3>{{ _("By Educators, for Educators") }}</h3>
+			<p>{{_("Work with high-schoolers?  Journalists? Community groups? Graduate students?  Us too!!!  That's why we designed and tested the DataBasic tools and activities in our classrooms and in workshops with those audiences.  These tools were born out of frustration with things we were trying to use in our undergraduate classes, so we feel your pain.")}}</p>
+		</div>
+		<div class="col-sm-4 feature-box">
+			<h3>{{ _("Accessible to All") }}</h3>
+			<p>{{_("Digital technologies have empowered those with disabilities in a variety of ways, and new web standards have made it easier than ever to build new tools that are accessible to all.  DataBasic implements those technologies to support screen readers so the visually impaired can start working with data in new and exciting ways.")}}</p>
+		</div>
+		<div class="col-sm-4 feature-box">
+			<h3>{{ _("Doing One Thing Well") }}</h3>
+			<p>{{_("There are tons of tools for working with data; many so complex they are intimidating to even start with.  We've built each DataBasic to focus on doing on thing well, so you know exactly what each can eb used for.  This lets us concentrate on making that one thing both simple and powerful.")}}</p>
+		</div>
+	</div>
+
 </div>
+
+<br />
+<br />
+
 {% endblock %}
 
 {% block footer %}
