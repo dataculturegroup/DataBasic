@@ -1,8 +1,8 @@
 {% extends "nav_base.html" %}
 {% block nav_container %}
-	<div class="row">
-		<a href="/{{ g['current_lang'] }}/{{ tool_name }}" role="button" aria-label="{{ _('go to %(tool)s', tool=tool_name) }}"><img src="/static/img/logos/{{ tool_name }}.png" class="tool-logo" id="tool-logo-{{tool_name}}"></a>
-	</div>
+  <div class="row">
+    <a href="/{{ g['current_lang'] }}/{{ tool_name }}" role="button" aria-label="{{ _('go to %(tool)s', tool=tool_name) }}"><img src="/static/img/logos/{{ tool_name }}.png" class="tool-logo" id="tool-logo-{{tool_name}}"></a>
+  </div>
 {% endblock %}
 {% block logo %}
 <a href="{{ url_for('index') }}" class="pull-left" id="logo" role="button" aria-label="{{ _('go to data basic home page') }}"><img src="/static/img/logos/databasic.png"></a>

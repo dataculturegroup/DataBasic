@@ -4,27 +4,27 @@
 {% block title %}{{ _('WordCounter') }}{% endblock %}
 
 {% block custom_css %}
-	<link href="{{ url_for('static', filename='css/wordcounter.scss.css') }}" rel="stylesheet" type="text/css">
+  <link href="{{ url_for('static', filename='css/wordcounter.scss.css') }}" rel="stylesheet" type="text/css">
 {% endblock %}
 
 {% block nav %}
-	{% include 'tool_nav.html' %}
+  {% include 'tool_nav.html' %}
 {% endblock %}
 
 {% block body %}
 <div class="tool" role="main">
-	<div class="container">
-		<div class="row">
-			<div id="tool-description">
-				<h2 role="banner">{{ _('WordCounter analyzes your text and tells you the most common words and phrases.') }}</h2>
+  <div class="container">
+    <div class="row">
+      <div id="tool-description">
+        <h2 role="banner">{{ _('WordCounter analyzes your text and tells you the most common words and phrases.') }}</h2>
 
-				<p>{{ _('This tool helps you count words, %(bigram)s, and %(trigram)s in plain text. This is often the first step in quantitative text analysis.',
-				bigram=hover_tooltip(_('bigrams'), _('A bigram is a two word phrase')),
-				trigram=hover_tooltip(_('trigrams'), _('A trigram is a three word phrase'))) }}</p>
-			</div>
-		</div>
-		{{ render_forms(forms, action_url=tool_name, action_text=_('Count')) }}
-	</div>
-	{{ about_section(_('WordCounter'), 'QU1-4dqu0Rg') }}
+        <p>{{ _('This tool helps you count words, %(bigram)s, and %(trigram)s in plain text. This is often the first step in quantitative text analysis.',
+        bigram=hover_tooltip(_('bigrams'), _('A bigram is a two word phrase')),
+        trigram=hover_tooltip(_('trigrams'), _('A trigram is a three word phrase'))) }}</p>
+      </div>
+    </div>
+    {{ render_forms(forms, action_url=tool_name, action_text=_('Count')) }}
+  </div>
+  {{ about_section(_('WordCounter'), 'QU1-4dqu0Rg') }}
 </div>
 {% endblock %}

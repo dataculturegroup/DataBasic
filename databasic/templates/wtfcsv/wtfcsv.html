@@ -4,25 +4,25 @@
 {% block title %}{{ _('WTFcsv') }}{% endblock %}
 
 {% block custom_css %}
-	<link href="{{ url_for('static', filename='css/wtfcsv.scss.css') }}" rel="stylesheet" type="text/css">
+  <link href="{{ url_for('static', filename='css/wtfcsv.scss.css') }}" rel="stylesheet" type="text/css">
 {% endblock %}
 
 {% block nav %}
-	{% include 'tool_nav.html' %}
+  {% include 'tool_nav.html' %}
 {% endblock %}
 
 {% block body %}
 <div class="tool" role="main">
-	<div class="container">
-		<div class="row">
-			<div id="tool-description">
-				<h2 role="banner">{{ _('WTFcsv tells you WTF is going on with your .csv file.') }}</h2>
-				<p>{{ _('Data arrives at your doorstep in the form of a spreadsheet but how do you find a story in rows and columns? WTFcsv provides the first step by characterizing each column\'s %(data_type)s and contents so that you can ask more questions.',
-				data_type=hover_tooltip('data type', 'Data is often classified by type. Common types of data include numbers, dates and text.')) }}</p>
-			</div>
-		</div>
-		{{ render_forms(forms, action_url=tool_name, action_text=_('Analyze')) }}
-	</div>
-	{{ about_section(_('WTFcsv'), 'bWlFTwrv3hI') }}
+  <div class="container">
+    <div class="row">
+      <div id="tool-description">
+        <h2 role="banner">{{ _('WTFcsv tells you WTF is going on with your .csv file.') }}</h2>
+        <p>{{ _('Data arrives at your doorstep in the form of a spreadsheet but how do you find a story in rows and columns? WTFcsv provides the first step by characterizing each column\'s %(data_type)s and contents so that you can ask more questions.',
+        data_type=hover_tooltip('data type', 'Data is often classified by type. Common types of data include numbers, dates and text.')) }}</p>
+      </div>
+    </div>
+    {{ render_forms(forms, action_url=tool_name, action_text=_('Analyze')) }}
+  </div>
+  {{ about_section(_('WTFcsv'), 'bWlFTwrv3hI') }}
 </div>
 {% endblock %}

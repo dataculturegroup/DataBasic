@@ -1,19 +1,19 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-	{% block head %}
-	<meta charset="utf-8">
-	<title>{% block title %}{% endblock %}</title>
-	<link rel="icon" type="image/ico" href="{{ url_for('static', filename='img/icons/favicon.ico') }}">
-	{% assets "css_base" %}<link rel="stylesheet" href="{{ ASSET_URL }}" />{% endassets %}
-	<script type="text/javascript" src="{{ url_for('static', filename='fonts/MyFontsWebfontsKit.js') }}"></script>
-	{% endblock %}
-	{% block custom_css %}{% endblock %}
+  {% block head %}
+  <meta charset="utf-8">
+  <title>{% block title %}{% endblock %}</title>
+  <link rel="icon" type="image/ico" href="{{ url_for('static', filename='img/icons/favicon.ico') }}">
+  {% assets "css_base" %}<link rel="stylesheet" href="{{ ASSET_URL }}" />{% endassets %}
+  <script type="text/javascript" src="{{ url_for('static', filename='fonts/MyFontsWebfontsKit.js') }}"></script>
+  {% endblock %}
+  {% block custom_css %}{% endblock %}
 </head>
 <body>
-	{% block nav %}{% endblock %}
-	{% block body %}{% endblock %}
-	{% block footer %}{% endblock %}
-	{% include 'scripts.html' %}
-	{% block custom_scripts %}{% endblock %}
+  {% block nav %}{% endblock %}
+  {% block body %}{% endblock %}
+  {% block footer %}{% endblock %}
+  {% include 'scripts.html' %}
+  {% block custom_scripts %}{% endblock %}
 </body>

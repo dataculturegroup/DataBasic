@@ -1,206 +1,206 @@
 
 {% macro render_forms(forms, action_url='', action_text='Submit') -%}
-    <div class="row centered-row">
-        <div class="col-md-12">
-            <div class="inputs">
-                <ul class="nav nav-tabs nav-justified" aria-label="{{ _('choose input type') }}">
-                {% set first=True %}
-                {% for name, form in forms %}
-                    {% if first %}
-                        <li role="presentation" class="active">
-                    {% else %}
-                        <li role="presentation">
-                    {% endif %}
-                        <a id="tab-{{ name }}" href="#{{ name }}" data-toggle="tab" aria-expanded="{% if first %}true{% else %}false{% endif %}" role="button">{{ form.label }}</a>
-                    </li>
-                    {% set first=False %}
-                {% endfor %}
-                </ul>
-            
-                {% set first=True %}
-                <div class="tab-content">
-                {% for name, form in forms %}
-                    <div id="{{ name }}" class="tab-pane fade {% if first %}in active{% endif %}">
-                    {% if first %}
-                        {% set first=False %}
-                    {% endif %}
-                    {{ render_form(form, class_=name, action_url=action_url, action_text=action_text) }}
-                    </div>
-                {% endfor %}
-                </div>
-            </div><!-- /.inputs -->
-        </div><!-- /.col-md-12 -->
-    </div><!-- /.row centered-row -->
+  <div class="row centered-row">
+    <div class="col-md-12">
+      <div class="inputs">
+        <ul class="nav nav-tabs nav-justified" aria-label="{{ _('choose input type') }}">
+        {% set first=True %}
+        {% for name, form in forms %}
+          {% if first %}
+            <li role="presentation" class="active">
+          {% else %}
+            <li role="presentation">
+          {% endif %}
+            <a id="tab-{{ name }}" href="#{{ name }}" data-toggle="tab" aria-expanded="{% if first %}true{% else %}false{% endif %}" role="button">{{ form.label }}</a>
+          </li>
+          {% set first=False %}
+        {% endfor %}
+        </ul>
+      
+        {% set first=True %}
+        <div class="tab-content">
+        {% for name, form in forms %}
+          <div id="{{ name }}" class="tab-pane fade {% if first %}in active{% endif %}">
+          {% if first %}
+            {% set first=False %}
+          {% endif %}
+          {{ render_form(form, class_=name, action_url=action_url, action_text=action_text) }}
+          </div>
+        {% endfor %}
+        </div>
+      </div><!-- /.inputs -->
+    </div><!-- /.col-md-12 -->
+  </div><!-- /.row centered-row -->
 {%- endmacro %}
 
 {# http://bear-z.com/python/render-bootstrap-3-forms-with-wtforms-and-jinja/ #}
 
 {% macro render_form(form, action_url='', action_text='Submit', class_='', btn_class='btn btn-default') -%}
-    <form method="POST" action="/{{ g['current_lang'] }}/{{ action_url }}/" class="{{ class_ }}" enctype="multipart/form-data" role="form">
-        {{ form.hidden_tag() if form.hidden_tag }}
-        {% if caller %}
-            {{ caller() }}
+  <form method="POST" action="/{{ g['current_lang'] }}/{{ action_url }}/" class="{{ class_ }}" enctype="multipart/form-data" role="form">
+    {{ form.hidden_tag() if form.hidden_tag }}
+    {% if caller %}
+      {{ caller() }}
+    {% else %}
+      {% for f in form %}
+        {% if f.type == 'BooleanField' %}
+          {{ render_checkbox_field(f) }}
+        {% elif f.type == 'RadioField' %}
+          {{ render_radio_field(f) }}
+        {% elif f.type == 'FileField' %}
+          {{ render_upload_field(f, form.multiple) }}
         {% else %}
-            {% for f in form %}
-                {% if f.type == 'BooleanField' %}
-                    {{ render_checkbox_field(f) }}
-                {% elif f.type == 'RadioField' %}
-                    {{ render_radio_field(f) }}
-                {% elif f.type == 'FileField' %}
-                    {{ render_upload_field(f, form.multiple) }}
-                {% else %}
-                    {{ render_field(f, false, f.description['placeholder']) }}
-                {% endif %}
-            {% endfor %}
+          {{ render_field(f, false, f.description['placeholder']) }}
         {% endif %}
-        <button type="submit" name="btn" class="{{ btn_class }}" value="{{ class_ }}">{{ action_text }}</button>
-    </form>
+      {% endfor %}
+    {% endif %}
+    <button type="submit" name="btn" class="{{ btn_class }}" value="{{ class_ }}">{{ action_text }}</button>
+  </form>
 {%- endmacro %}
 
 {% macro render_field(field, label_visible=true, placeholder='') -%}
-    {% set class_ = 'form-control' %}
-    {% if field.flags.url %}
-        {{ kwargs.setdefault('input_type', 'url') }}
+  {% set class_ = 'form-control' %}
+  {% if field.flags.url %}
+    {{ kwargs.setdefault('input_type', 'url') }}
+  {% endif %}
+   <div class="form-group {% if field.errors %}has-error{% endif %} {{ kwargs.pop('class_', '') }}">
+    
+    {% if field.type != 'HiddenField' and label_visible and field.widget.input_type != 'hidden' %}
+      <label for="{{ field.id }}" class="control-label">{{ field.label|safe }}</label>
     {% endif %}
-     <div class="form-group {% if field.errors %}has-error{% endif %} {{ kwargs.pop('class_', '') }}">
-        
-        {% if field.type != 'HiddenField' and label_visible and field.widget.input_type != 'hidden' %}
-            <label for="{{ field.id }}" class="control-label">{{ field.label|safe }}</label>
-        {% endif %}
 
-        {{ field(class_=class_, placeholder=placeholder, **kwargs) }}
+    {{ field(class_=class_, placeholder=placeholder, **kwargs) }}
 
-        {% if field.errors %}
-            <p class="help-block">{{ field.errors|join(', ') }}</p>
-        {% endif %}
+    {% if field.errors %}
+      <p class="help-block">{{ field.errors|join(', ') }}</p>
+    {% endif %}
 
-        {% if field.description['instructions'] %}
-            <p class="help-block">{{ field.description['instructions']|safe }}</p>
-        {% endif %}
-    </div>
+    {% if field.description['instructions'] %}
+      <p class="help-block">{{ field.description['instructions']|safe }}</p>
+    {% endif %}
+  </div>
 {%- endmacro %}
 
 {# Renders checkbox fields since they are represented differently in bootstrap
-    Params:
-        field - WTForm field (there are no check, but you should put here only BooleanField.
-        kwargs - pass any arguments you want in order to put them into the html attributes.
-        There are few exceptions: for - for_, class - class_, class__ - class_
+  Params:
+    field - WTForm field (there are no check, but you should put here only BooleanField.
+    kwargs - pass any arguments you want in order to put them into the html attributes.
+    There are few exceptions: for - for_, class - class_, class__ - class_
 
-    Example usage:
-        {{ macros.render_checkbox_field(form.remember_me) }}
+  Example usage:
+    {{ macros.render_checkbox_field(form.remember_me) }}
  #}
 {% macro render_checkbox_field(field) -%}
-    <div class="checkbox {% if field.default %}checked-div{% endif %}">
-        <label>
-        {{ field(type='checkbox', **kwargs) }} 
-        {# hack to show the stopwords tooltip #}
-        {% if _('Ignore stopwords') in field.label.text %}
-            {{ _('Ignore %(stopwords)s',
-            stopwords=hover_tooltip(_('stopwords'), 'Stopwords are words in text analysis that are ignored such as "this", "that", "and" and "but."')) }}
-        {% else %}
-            {{ field.label }}
-        {% endif %}
-        </label>
-    </div>
+  <div class="checkbox {% if field.default %}checked-div{% endif %}">
+    <label>
+    {{ field(type='checkbox', **kwargs) }} 
+    {# hack to show the stopwords tooltip #}
+    {% if _('Ignore stopwords') in field.label.text %}
+      {{ _('Ignore %(stopwords)s',
+      stopwords=hover_tooltip(_('stopwords'), 'Stopwords are words in text analysis that are ignored such as "this", "that", "and" and "but."')) }}
+    {% else %}
+      {{ field.label }}
+    {% endif %}
+    </label>
+  </div>
 {%- endmacro %}
 
 {# Renders radio field
-    Params:
-        field - WTForm field (there are no check, but you should put here only RadioField.
-        kwargs - pass any arguments you want in order to put them into the html attributes.
-        There are few exceptions: for - for_, class - class_, class__ - class_
+  Params:
+    field - WTForm field (there are no check, but you should put here only RadioField.
+    kwargs - pass any arguments you want in order to put them into the html attributes.
+    There are few exceptions: for - for_, class - class_, class__ - class_
 
-    Example usage:
-        {{ macros.render_radio_field(form.answers) }}
+  Example usage:
+    {{ macros.render_radio_field(form.answers) }}
  #}
 {% macro render_radio_field(field) -%}
-    {% for value, label, _ in field.iter_choices() %}
-        <div class="radio">
-            <label>
-                <input type="radio" id="{{ field.id }}" value="{{ value }}">{{ label }}
-            </label>
-        </div>
-    {% endfor %}
+  {% for value, label, _ in field.iter_choices() %}
+    <div class="radio">
+      <label>
+        <input type="radio" id="{{ field.id }}" value="{{ value }}">{{ label }}
+      </label>
+    </div>
+  {% endfor %}
 {%- endmacro %}
 
 {# Renders upload field
-    Params:
-        field - WTForm field (there are no check, but you should put here only BooleanField.
-        kwargs - pass any arguments you want in order to put them into the html attributes.
-        There are few exceptions: for - for_, class - class_, class__ - class_
+  Params:
+    field - WTForm field (there are no check, but you should put here only BooleanField.
+    kwargs - pass any arguments you want in order to put them into the html attributes.
+    There are few exceptions: for - for_, class - class_, class__ - class_
 
-    Example usage:
-        {{ macros.render_upload_field(form.upload, True) }}
+  Example usage:
+    {{ macros.render_upload_field(form.upload, True) }}
  #}
 {% macro render_upload_field(field, multiple) -%}
-    <div class="form-group {% if field.errors %}has-error{% endif %} {{ kwargs.pop('class_', '') }} upload-field">
-        <!-- <label for="{{ field.id }}" class="control-label">{{ field.label|safe }}</label> -->
-        {% if multiple %}
-            {{ field(class='form-control', multiple=True, **kwargs) }}
-        {% else %}
-            {{ field(class='form-control') }}
-            <button id="browse-click-{{ field.id }}" name="btn" class="btn btn-default">{{ field.label }}</button>
-        {% endif %}
-    </div>
+  <div class="form-group {% if field.errors %}has-error{% endif %} {{ kwargs.pop('class_', '') }} upload-field">
+    <!-- <label for="{{ field.id }}" class="control-label">{{ field.label|safe }}</label> -->
+    {% if multiple %}
+      {{ field(class='form-control', multiple=True, **kwargs) }}
+    {% else %}
+      {{ field(class='form-control') }}
+      <button id="browse-click-{{ field.id }}" name="btn" class="btn btn-default">{{ field.label }}</button>
+    {% endif %}
+  </div>
 {%- endmacro %}
 
 {% macro shareable() -%}
-    <a href="#share-modal" data-toggle="modal" id="share-modal-btn" data-target="#share-modal" aria-expanded="false" {{ ga_event('share') }}><span class="glyphicon glyphicon-share" aria-hidden="true"></span></a>
-    <div id="share-modal" class="modal fade">
-        <div class="modal-dialog">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true" aria-label="{{ _('close video window') }}">×</button>
-                    <h4 class="modal-title">Share your results</h4>
-                </div>
-                <div class="modal-body">
-                    {# TODO: uncomment when results are being expired #}
-                    {# <p>{{ _('These results are valid for %(days)s days', days='30') }}</p> #}
-                    <p>{{ _('You can share these results by emailing this url:') }}</p>
-                    <form>
-                        <input id="share-modal-url" class="form-control" type="text" readonly value="{{ request.url }}">
-                    </form>
-                </div>
-            </div>
+  <a href="#share-modal" data-toggle="modal" id="share-modal-btn" data-target="#share-modal" aria-expanded="false" {{ ga_event('share') }}><span class="glyphicon glyphicon-share" aria-hidden="true"></span></a>
+  <div id="share-modal" class="modal fade">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal" aria-hidden="true" aria-label="{{ _('close video window') }}">×</button>
+          <h4 class="modal-title">Share your results</h4>
         </div>
+        <div class="modal-body">
+          {# TODO: uncomment when results are being expired #}
+          {# <p>{{ _('These results are valid for %(days)s days', days='30') }}</p> #}
+          <p>{{ _('You can share these results by emailing this url:') }}</p>
+          <form>
+            <input id="share-modal-url" class="form-control" type="text" readonly value="{{ request.url }}">
+          </form>
+        </div>
+      </div>
     </div>
+  </div>
 {%- endmacro %}
 
 {% macro video_modal(button_text, src) -%}
-    
-    <div class="row centered-row">
-        <a href="#video-modal" class="btn btn-lg btn-primary" id="video-modal-btn" data-toggle="modal" role="button" aria-expanded="false" data-target="#video-modal"><span class="glyphicon glyphicon-play-circle" aria-hidden="true"></span><br>{{ _("Play video") }}</a>
-    </div>
+  
+  <div class="row centered-row">
+    <a href="#video-modal" class="btn btn-lg btn-primary" id="video-modal-btn" data-toggle="modal" role="button" aria-expanded="false" data-target="#video-modal"><span class="glyphicon glyphicon-play-circle" aria-hidden="true"></span><br>{{ _("Play video") }}</a>
+  </div>
 
-    <div id="video-modal" class="modal fade">
-        <div class="modal-dialog">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true" aria-label="{{ _('close video window') }}">×</button>
-                    <h4 class="modal-title">{{ button_text }}</h4>
-                </div>
-                <div class="modal-body">
-                    <div>
-                        <iframe id="playerid" width="560" height="315" src={{ src }} frameborder="0" allowfullscreen></iframe>
-                    </div>
-                </div>
-            </div>
+  <div id="video-modal" class="modal fade">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal" aria-hidden="true" aria-label="{{ _('close video window') }}">×</button>
+          <h4 class="modal-title">{{ button_text }}</h4>
         </div>
+        <div class="modal-body">
+          <div>
+            <iframe id="playerid" width="560" height="315" src={{ src }} frameborder="0" allowfullscreen></iframe>
+          </div>
+        </div>
+      </div>
     </div>
+  </div>
 {%- endmacro %}
 
 {% macro hover_tooltip(text, tooltip, position='top') -%}
-    <a data-trigger="focus hover" data-placement="{{ position }}" data-toggle="tooltip" data-trigger="hover" href="#tooltip" data-original-title="{{ tooltip }}" aria-label="{{ text }}" role="definition" onmouseover="ga('send', 'event', '{{ tool_name }}', '{{ text }}', 'tooltip');">{{ text }}</a>
+  <a data-trigger="focus hover" data-placement="{{ position }}" data-toggle="tooltip" data-trigger="hover" href="#tooltip" data-original-title="{{ tooltip }}" aria-label="{{ text }}" role="definition" onmouseover="ga('send', 'event', '{{ tool_name }}', '{{ text }}', 'tooltip');">{{ text }}</a>
 {%- endmacro %}
 
 {% macro download_url(tool_name, doc_id, ext, suffix) -%}
-    {% set files = varargs|join('-') + '-' if varargs|length > 0 else '' %}
-    {% set suffix = suffix.replace(' ', '-') %}
-    {% set ext = ext[1:] if '.' in ext[0] else ext %}
-    {% set filename = files + suffix + '.' + ext %}
-    "/{{ g['current_lang'] }}/{{ tool_name }}/results/download/{{ doc_id }}/{{ filename }}"
+  {% set files = varargs|join('-') + '-' if varargs|length > 0 else '' %}
+  {% set suffix = suffix.replace(' ', '-') %}
+  {% set ext = ext[1:] if '.' in ext[0] else ext %}
+  {% set filename = files + suffix + '.' + ext %}
+  "/{{ g['current_lang'] }}/{{ tool_name }}/results/download/{{ doc_id }}/{{ filename }}"
 {%- endmacro %}
 
 {% macro ga_event(action) -%}
-    onclick="ga('send', 'event', '{{ tool_name }}', '{{ action }}');"
+  onclick="ga('send', 'event', '{{ tool_name }}', '{{ action }}');"
 {%- endmacro %}

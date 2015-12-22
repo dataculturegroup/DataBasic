@@ -4,27 +4,27 @@
 {% block title %}{{ _('SameDiff') }}{% endblock %}
 
 {% block custom_css %}
-	<link href="{{ url_for('static', filename='css/samediff.scss.css') }}" rel="stylesheet" type="text/css">
+  <link href="{{ url_for('static', filename='css/samediff.scss.css') }}" rel="stylesheet" type="text/css">
 {% endblock %}
 
 {% block nav %}
-	{% include 'tool_nav.html' %}
+  {% include 'tool_nav.html' %}
 {% endblock %}
 
 {% block body %}
 <div class="tool" role="main">
-	<div class="container">
-		<div class="row">
-			<div id="tool-description">
-				<h3 role="banner">{{ _('SameDiff compares two or more text files and tells you how similar or different they are.') }}</h3>
-				<p>{{ _('SameDiff compares one %(corpus)s of text to another corpus of text to show you similarities and differences. It uses a %(cosine_similarity)s %(algorithm)s to rate whether the documents are really similar or totally different.',
-				corpus=hover_tooltip('corpus', 'A collection of written texts. For example, all of the lyrics in Katy Perry songs.'),
-				cosine_similarity=hover_tooltip('cosine similarity', 'The Cosine Similarity score tries to tell you how similar two documents are based on the number of times words are used in each.'),
-				algorithm=hover_tooltip('algorithm', 'A set of steps you (or a computer) do in order to solve a problem. For example, when you type in a search term, Google runs an algorithm to figure out which pages to show you.')) }}</p>
-			</div>
-		</div>
-		{{ render_forms(forms, action_url=tool_name, action_text=_('Compare')) }}
-	</div>
-	{{ about_section(_('SameDiff'), 'Yjb6H0wqYws') }}
+  <div class="container">
+    <div class="row">
+      <div id="tool-description">
+        <h3 role="banner">{{ _('SameDiff compares two or more text files and tells you how similar or different they are.') }}</h3>
+        <p>{{ _('SameDiff compares one %(corpus)s of text to another corpus of text to show you similarities and differences. It uses a %(cosine_similarity)s %(algorithm)s to rate whether the documents are really similar or totally different.',
+        corpus=hover_tooltip('corpus', 'A collection of written texts. For example, all of the lyrics in Katy Perry songs.'),
+        cosine_similarity=hover_tooltip('cosine similarity', 'The Cosine Similarity score tries to tell you how similar two documents are based on the number of times words are used in each.'),
+        algorithm=hover_tooltip('algorithm', 'A set of steps you (or a computer) do in order to solve a problem. For example, when you type in a search term, Google runs an algorithm to figure out which pages to show you.')) }}</p>
+      </div>
+    </div>
+    {{ render_forms(forms, action_url=tool_name, action_text=_('Compare')) }}
+  </div>
+  {{ about_section(_('SameDiff'), 'Yjb6H0wqYws') }}
 </div>
 {% endblock %}

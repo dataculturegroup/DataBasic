@@ -10,167 +10,167 @@
 {% block title %}{{ _('Word-Counter results') }}{% endblock %}
 
 {% block custom_css %}
-	<link href="{{ url_for('static', filename='css/wordcounter-results.scss.css') }}" rel="stylesheet" type="text/css">
+  <link href="{{ url_for('static', filename='css/wordcounter-results.scss.css') }}" rel="stylesheet" type="text/css">
 {% endblock %}
 
 {% block nav %}
-	{% include 'tool_nav.html' %}
+  {% include 'tool_nav.html' %}
 {% endblock %}
 
 {% block body %}
 <div role="main">
-	<div class="container-fluid">
-		<div class="row">
-			<div class="col-xs-12">
-				{% if has_results %}
-				<div class="top-info">
-					<h2 role="banner" id="results-title">Words used in {{ title }} {{ shareable() }}</h2>
-						<p>{{ _('Here is a picture of the words used most often in your document. Words used more often are bigger, and ones used less often are smaller. This picture, called a "word cloud", is helpful to get a sense of the most used words in a document.') }}</p>
-						{{ what_next_anchor() }}
-				</div>
-				<div id="wc-container" aria-hidden="true" aria-label="visual picture showing words sized by ok how often they appear">
-					<div class="word-cloud" role="presentation" aria-labelledby="wc-container"></div>
-				</div>
-				{% else %}
-				<div class="top-info">
-					<h2>No Results To Show</h2>
-					<p>{{ _('Sorry, but we didn\'t find any results to show. Maybe your text is too short... or maybe it is all %(stopwords)s', stopwords=hover_tooltip(_('stopwords.'), 'Stopwords are words in text analysis that are ignored such as "this", "that", "and" and "but."')) }}</p>
-				</div>
-				{% endif %}
-			</div>
-		</div>
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-xs-12">
+        {% if has_results %}
+        <div class="top-info">
+          <h2 role="banner" id="results-title">Words used in {{ title }} {{ shareable() }}</h2>
+            <p>{{ _('Here is a picture of the words used most often in your document. Words used more often are bigger, and ones used less often are smaller. This picture, called a "word cloud", is helpful to get a sense of the most used words in a document.') }}</p>
+            {{ what_next_anchor() }}
+        </div>
+        <div id="wc-container" aria-hidden="true" aria-label="visual picture showing words sized by ok how often they appear">
+          <div class="word-cloud" role="presentation" aria-labelledby="wc-container"></div>
+        </div>
+        {% else %}
+        <div class="top-info">
+          <h2>No Results To Show</h2>
+          <p>{{ _('Sorry, but we didn\'t find any results to show. Maybe your text is too short... or maybe it is all %(stopwords)s', stopwords=hover_tooltip(_('stopwords.'), 'Stopwords are words in text analysis that are ignored such as "this", "that", "and" and "but."')) }}</p>
+        </div>
+        {% endif %}
+      </div>
+    </div>
 
-		{% if has_results %}
-		<div class="row" id="frequencies">
-			<div class="col-sm-4">
-				<h2>{{ _('Top Words') }} 
-				<a href="{{ download_words }}" aria-label="{{ _('download csv of word frequencies') }}" {{ ga_event('words-dl') }}><span class="glyphicon glyphicon-download" aria-hidden="true"></span></a></h2>
-				<table class="table" role="presentation">
-					<thead>
-						<tr>
-							<th>{{ _('Word') }}</th>
-							<th>{{ _('Frequency') }}</th>
-						</tr>
-					</thead>
-					<tbody>
-						{% for word in results[0]|batch(20)|first%}
-						<tr>
-							<td>{{ word[0] }}</td>
-							<td>{{ word[1] }}</td>
-						</tr>
-						{% endfor %}
-					</tbody>
-				</table>
-			</div>
-			<div class="col-sm-4">
-				<h2>{{ _('Bigrams') }} 
-				<a href="{{ download_bigrams }}" aria-label="{{ _('download csv of bigram frequencies') }}" {{ ga_event('bigrams-dl') }}><span class="glyphicon glyphicon-download" aria-hidden="true"></span></a></h2>
-				<table class="table">
-					<thead>
-						<tr>
-							<th>{{ _('%(bigram)s', bigram=hover_tooltip(_('Bigram'), 'A bigram is a two word phrase')) }}</th>
-							<th>{{ _('Frequency') }}</th>
-						</tr>
-					</thead>
-					<tbody>
-						{% for word in results[1]|batch(20)|first %}
-						{% set bigram=" ".join(word[0]) %}
-						<tr>
-							<td>{{ bigram }}</td>
-							<td>{{ word[1] }}</td>
-						</tr>
-						{% endfor %}
-					</tbody>
-				</table>
-			</div>
-			<div class="col-sm-4">
-				<h2>{{ _('Trigrams') }} 
-				<a href="{{ download_trigrams }}" aria-label="{{ _('download csv of trigram frequencies') }}" {{ ga_event('trigrams-dl') }}><span class="glyphicon glyphicon-download" aria-hidden="true"></span></a></h2>
-				<table class="table" role="presentation">
-					<thead>
-						<tr>
-							<th>{{ _('%(trigram)s', trigram=hover_tooltip(_('Trigram'), 'A trigram is a three word phrase')) }}</th>
-							<th>{{ _('Frequency') }}</th>
-						</tr>
-					</thead>
-					<tbody>
-						{% for word in results[2]|batch(20)|first %}
-						{% set trigram=" ".join(word[0]) %}
-						<tr>
-							<td>{{ trigram }}</td>
-							<td>{{ word[1] }}</td>
-						</tr>
-						{% endfor %}
-					</tbody>
-				</table>
-			</div>
-		</div>
-		{% endif %}
-	</div>
-	{% if has_results %}
-	{{ what_next(_("Examining text data in this quantitative way can help you find stories to tell in your data.  The fact that \"%(top_word)s\" is a popular word is good to know, but combine that with ",
-	top_word=whatnext['top_word']) 
-	+ ngettext("the %(num)d use ", "the %(num)d uses ", whatnext['word_in_bigrams_count']) 
-	+ _("in the top 40 bigrams, and ")
-	+ ngettext("the %(num)s use ", "the %(num)s uses ", whatnext['word_in_trigrams_count'])
-	+ _("in the top 40 trigrams, to understand the context of how it is used.  With that richer understanding of the context, you can sketch out a picture of why \"%(top_word)s\" is so important in %(title)s. <br/><br />So grab some paper and some crayons and start drawing what you see!  Check out our <a href=\"#\" onclick=\"ga('send', 'event', 'wordcounter', 'activity-guide');\">activity guide</a> for more help on sketching out a story.  Want to dig into the data more? Download all the <a href=\"%(download_words)s\" onclick=\"ga('send', 'event', 'wordcounter', 'words-dl');\">word counts</a>, <a href=\"%(download_bigrams)s\" onclick=\"ga('send', 'event', 'wordcounter', 'bigrams-dl');\">bigrams</a>, or <a href=\"%(download_trigrams)s\" onclick=\"ga('send', 'event', 'wordcounter', 'trigrams-dl');\">trigrams</a> and investigate why \"%(random_unpopular_word)s\" is used %(random_unpopular_word_count)s times!",
-	top_word=whatnext['top_word'],
-	download_words=download_words,
-	download_bigrams=download_bigrams,
-	download_trigrams=download_trigrams,
-	title=title,
-	random_unpopular_word=whatnext['random_unpopular_word'],
-	random_unpopular_word_count=whatnext['random_unpopular_word_count'])) }}
-	{% endif %}
+    {% if has_results %}
+    <div class="row" id="frequencies">
+      <div class="col-sm-4">
+        <h2>{{ _('Top Words') }} 
+        <a href="{{ download_words }}" aria-label="{{ _('download csv of word frequencies') }}" {{ ga_event('words-dl') }}><span class="glyphicon glyphicon-download" aria-hidden="true"></span></a></h2>
+        <table class="table" role="presentation">
+          <thead>
+            <tr>
+              <th>{{ _('Word') }}</th>
+              <th>{{ _('Frequency') }}</th>
+            </tr>
+          </thead>
+          <tbody>
+            {% for word in results[0]|batch(20)|first%}
+            <tr>
+              <td>{{ word[0] }}</td>
+              <td>{{ word[1] }}</td>
+            </tr>
+            {% endfor %}
+          </tbody>
+        </table>
+      </div>
+      <div class="col-sm-4">
+        <h2>{{ _('Bigrams') }} 
+        <a href="{{ download_bigrams }}" aria-label="{{ _('download csv of bigram frequencies') }}" {{ ga_event('bigrams-dl') }}><span class="glyphicon glyphicon-download" aria-hidden="true"></span></a></h2>
+        <table class="table">
+          <thead>
+            <tr>
+              <th>{{ _('%(bigram)s', bigram=hover_tooltip(_('Bigram'), 'A bigram is a two word phrase')) }}</th>
+              <th>{{ _('Frequency') }}</th>
+            </tr>
+          </thead>
+          <tbody>
+            {% for word in results[1]|batch(20)|first %}
+            {% set bigram=" ".join(word[0]) %}
+            <tr>
+              <td>{{ bigram }}</td>
+              <td>{{ word[1] }}</td>
+            </tr>
+            {% endfor %}
+          </tbody>
+        </table>
+      </div>
+      <div class="col-sm-4">
+        <h2>{{ _('Trigrams') }} 
+        <a href="{{ download_trigrams }}" aria-label="{{ _('download csv of trigram frequencies') }}" {{ ga_event('trigrams-dl') }}><span class="glyphicon glyphicon-download" aria-hidden="true"></span></a></h2>
+        <table class="table" role="presentation">
+          <thead>
+            <tr>
+              <th>{{ _('%(trigram)s', trigram=hover_tooltip(_('Trigram'), 'A trigram is a three word phrase')) }}</th>
+              <th>{{ _('Frequency') }}</th>
+            </tr>
+          </thead>
+          <tbody>
+            {% for word in results[2]|batch(20)|first %}
+            {% set trigram=" ".join(word[0]) %}
+            <tr>
+              <td>{{ trigram }}</td>
+              <td>{{ word[1] }}</td>
+            </tr>
+            {% endfor %}
+          </tbody>
+        </table>
+      </div>
+    </div>
+    {% endif %}
+  </div>
+  {% if has_results %}
+  {{ what_next(_("Examining text data in this quantitative way can help you find stories to tell in your data.  The fact that \"%(top_word)s\" is a popular word is good to know, but combine that with ",
+  top_word=whatnext['top_word']) 
+  + ngettext("the %(num)d use ", "the %(num)d uses ", whatnext['word_in_bigrams_count']) 
+  + _("in the top 40 bigrams, and ")
+  + ngettext("the %(num)s use ", "the %(num)s uses ", whatnext['word_in_trigrams_count'])
+  + _("in the top 40 trigrams, to understand the context of how it is used.  With that richer understanding of the context, you can sketch out a picture of why \"%(top_word)s\" is so important in %(title)s. <br/><br />So grab some paper and some crayons and start drawing what you see!  Check out our <a href=\"#\" onclick=\"ga('send', 'event', 'wordcounter', 'activity-guide');\">activity guide</a> for more help on sketching out a story.  Want to dig into the data more? Download all the <a href=\"%(download_words)s\" onclick=\"ga('send', 'event', 'wordcounter', 'words-dl');\">word counts</a>, <a href=\"%(download_bigrams)s\" onclick=\"ga('send', 'event', 'wordcounter', 'bigrams-dl');\">bigrams</a>, or <a href=\"%(download_trigrams)s\" onclick=\"ga('send', 'event', 'wordcounter', 'trigrams-dl');\">trigrams</a> and investigate why \"%(random_unpopular_word)s\" is used %(random_unpopular_word_count)s times!",
+  top_word=whatnext['top_word'],
+  download_words=download_words,
+  download_bigrams=download_bigrams,
+  download_trigrams=download_trigrams,
+  title=title,
+  random_unpopular_word=whatnext['random_unpopular_word'],
+  random_unpopular_word_count=whatnext['random_unpopular_word_count'])) }}
+  {% endif %}
 </div>
 {% endblock %}
 
 {% block results_scripts %}
-	{% assets "js_tool" %}<script type="text/javascript" src="{{ ASSET_URL }}"></script>{% endassets %}
-	<script type="text/javascript">
+  {% assets "js_tool" %}<script type="text/javascript" src="{{ ASSET_URL }}"></script>{% endassets %}
+  <script type="text/javascript">
 
-		send_submit_event('{{ tool_name }}', '{{ source }}');
+    send_submit_event('{{ tool_name }}', '{{ source }}');
 
-		var data = [
-			{% for word in results[0] | batch(50) | first %}
-				{ text: "{{ word[0]|safe }}", size: {{ word[1]|float }} },
-			{% endfor %}
-		];
+    var data = [
+      {% for word in results[0] | batch(50) | first %}
+        { text: "{{ word[0]|safe }}", size: {{ word[1]|float }} },
+      {% endfor %}
+    ];
 
-		var maxScore = Math.max.apply(Math, data.map(function(o) {return o.size;}))
-		var fontSizeScale = d3.scale.linear()
-			.domain([0, maxScore])
-			.range([8, 70]); 
+    var maxScore = Math.max.apply(Math, data.map(function(o) {return o.size;}))
+    var fontSizeScale = d3.scale.linear()
+      .domain([0, maxScore])
+      .range([8, 70]); 
 
-		var fill = d3.scale.category20();
-		var layout = d3.layout.cloud()
-			.size([700, 400])
-			.words(data)
-			.padding(8)
-			.rotate(function () { return 0; })
-			.fontSize(function(d) { return fontSizeScale(d.size); })
-			.on("end", draw);
+    var fill = d3.scale.category20();
+    var layout = d3.layout.cloud()
+      .size([700, 400])
+      .words(data)
+      .padding(8)
+      .rotate(function () { return 0; })
+      .fontSize(function(d) { return fontSizeScale(d.size); })
+      .on("end", draw);
 
-		layout.start();
+    layout.start();
 
-		function draw(words) {
-			d3.select('.word-cloud').append('svg')
-				.attr('width', layout.size()[0])
-				.attr('height', layout.size()[1])
-			.append('g')
-				.attr('transform', 'translate(' + layout.size()[0] / 2 + ',' + layout.size()[1] / 2 + ')')
-			.selectAll('text')
-				.data(words)
-			.enter().append('text')
-				.classed('cloud-text', true)
-				.style('font-size', function(d) { return d.size + 'px'; })
-				.style('font-family', function (d) { return d.size > 30 ? 'HalisGR-Medium' : 'HalisGR-Book'; })
-				.attr('text-anchor', 'middle')
-				.attr('transform', function (d) {
-					return 'translate(' + [d.x, d.y] + ')rotate(' + d.rotate + ')';
-				})
-				.text(function (d) { return d.text; })
-				.attr('aria-labelledby', 'wc-container');
-		}
-	</script>
+    function draw(words) {
+      d3.select('.word-cloud').append('svg')
+        .attr('width', layout.size()[0])
+        .attr('height', layout.size()[1])
+      .append('g')
+        .attr('transform', 'translate(' + layout.size()[0] / 2 + ',' + layout.size()[1] / 2 + ')')
+      .selectAll('text')
+        .data(words)
+      .enter().append('text')
+        .classed('cloud-text', true)
+        .style('font-size', function(d) { return d.size + 'px'; })
+        .style('font-family', function (d) { return d.size > 30 ? 'HalisGR-Medium' : 'HalisGR-Book'; })
+        .attr('text-anchor', 'middle')
+        .attr('transform', function (d) {
+          return 'translate(' + [d.x, d.y] + ')rotate(' + d.rotate + ')';
+        })
+        .text(function (d) { return d.text; })
+        .attr('aria-labelledby', 'wc-container');
+    }
+  </script>
 {% endblock %}

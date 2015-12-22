@@ -9,53 +9,53 @@
 {% block title %}{{ _('SameDiff results') }}{% endblock %}
 
 {% block custom_css %}
-	<link href="{{ url_for('static', filename='css/samediff-results.scss.css') }}" rel="stylesheet" type="text/css">
+  <link href="{{ url_for('static', filename='css/samediff-results.scss.css') }}" rel="stylesheet" type="text/css">
 {% endblock %}
 
 {% block nav %}
-	{% include 'tool_nav.html' %}
+  {% include 'tool_nav.html' %}
 {% endblock %}
 
 {% block body %}
 <div role="main">
-	<div class="container">
-		<div class="row" >
-			<div class="col-md-12 text-center" id="title">
-				<h2 role="banner" id="results-title">{{_("Your <strong>SameDiff</strong> Report")}} 
-				<a href="{{ download }}" title="{{_('download')}}" aria-label="{{_('download')}}" {{ ga_event('samediff-dl') }}><span class="glyphicon glyphicon-download" aria-hidden="true"></span></a> {{ shareable() }}
-				</h2>
-				<p>
-				{{ _('These two documents are %(description)s.', description=cosine_similarity['description']) }}
-				<br />
-				({{ _('They have a %(cosine_sim)s score of %(score)s',
-						cosine_sim=hover_tooltip(_('cosine similarity'), 'The Cosine Similarity score tries to tell you how similar two documents are based on the number of times words are used in each.'),
-						score=cosine_similarity['score']|round(2)) }})
-				</p>
-			</div>
-		</div>
+  <div class="container">
+    <div class="row" >
+      <div class="col-md-12 text-center" id="title">
+        <h2 role="banner" id="results-title">{{_("Your <strong>SameDiff</strong> Report")}} 
+        <a href="{{ download }}" title="{{_('download')}}" aria-label="{{_('download')}}" {{ ga_event('samediff-dl') }}><span class="glyphicon glyphicon-download" aria-hidden="true"></span></a> {{ shareable() }}
+        </h2>
+        <p>
+        {{ _('These two documents are %(description)s.', description=cosine_similarity['description']) }}
+        <br />
+        ({{ _('They have a %(cosine_sim)s score of %(score)s',
+            cosine_sim=hover_tooltip(_('cosine similarity'), 'The Cosine Similarity score tries to tell you how similar two documents are based on the number of times words are used in each.'),
+            score=cosine_similarity['score']|round(2)) }})
+        </p>
+      </div>
+    </div>
 
-		<div class="row" id="word-clouds">
-			<div class="col-md-4">
-				<div class="wordcloud-title"><h4>{{ _('Words that are only in %(document)s', document=results['titles'][0]) }}</h4></div>
-				<div class="left-cloud"></div>
-			</div>
-			<div class="col-md-4">
-				<div class="wordcloud-title"><h4>{{ _('Words that are in %(doc)s', doc=results['titles'][1]) }}</h4></div>
-				<div class="center-cloud"></div>
-			</div>
-			<div class="col-md-4">
-				<div class="wordcloud-title"><h4>{{ _('Words that are only in %(document)s', document=results['titles'][2]) }}</h4></div>
-				<div class="right-cloud"></div>
-			</div>
-		</div>
-	</div>
-	{{ what_next(_("Comparing text documents is a great way to find out what makes each one unique.  Is it meaningful that \"%(most_common_word)s\" and \"%(second_most_common_word)s\" are the most used words appearing in both documents?  Why does %(doc2)s use \"%(doc2_most_common_word)s\" so much, but it doesn't even appear in %(doc1)s?  With these questions in mind, you can sketch out a story that compares the documents.  <br /><br />Find a whiteboard and start sketching out a story.  Check out our <a href=\"#\" onclick=\"ga('send', 'event', 'samediff', 'activity-guide');\">activity guide</a> for more help on sketching out a story to compare them.  Want to dig into the data even more?  <a href=\"%(download)s\" onclick=\"ga('send', 'event', 'samediff', 'samediff-dl');\">Download the full results as a CSV file</a> to compare the files even further.",
-	most_common_word=whatnext['most_common_word'],
-	second_most_common_word=whatnext['second_most_common_word'],
-	doc2=results['titles'][2],
-	doc2_most_common_word=whatnext['doc2_most_common_word'],
-	doc1=results['titles'][0],
-	download=download)) }}
+    <div class="row" id="word-clouds">
+      <div class="col-md-4">
+        <div class="wordcloud-title"><h4>{{ _('Words that are only in %(document)s', document=results['titles'][0]) }}</h4></div>
+        <div class="left-cloud"></div>
+      </div>
+      <div class="col-md-4">
+        <div class="wordcloud-title"><h4>{{ _('Words that are in %(doc)s', doc=results['titles'][1]) }}</h4></div>
+        <div class="center-cloud"></div>
+      </div>
+      <div class="col-md-4">
+        <div class="wordcloud-title"><h4>{{ _('Words that are only in %(document)s', document=results['titles'][2]) }}</h4></div>
+        <div class="right-cloud"></div>
+      </div>
+    </div>
+  </div>
+  {{ what_next(_("Comparing text documents is a great way to find out what makes each one unique.  Is it meaningful that \"%(most_common_word)s\" and \"%(second_most_common_word)s\" are the most used words appearing in both documents?  Why does %(doc2)s use \"%(doc2_most_common_word)s\" so much, but it doesn't even appear in %(doc1)s?  With these questions in mind, you can sketch out a story that compares the documents.  <br /><br />Find a whiteboard and start sketching out a story.  Check out our <a href=\"#\" onclick=\"ga('send', 'event', 'samediff', 'activity-guide');\">activity guide</a> for more help on sketching out a story to compare them.  Want to dig into the data even more?  <a href=\"%(download)s\" onclick=\"ga('send', 'event', 'samediff', 'samediff-dl');\">Download the full results as a CSV file</a> to compare the files even further.",
+  most_common_word=whatnext['most_common_word'],
+  second_most_common_word=whatnext['second_most_common_word'],
+  doc2=results['titles'][2],
+  doc2_most_common_word=whatnext['doc2_most_common_word'],
+  doc1=results['titles'][0],
+  download=download)) }}
 </div>
 {% endblock %}
 
@@ -68,111 +68,111 @@ send_submit_event('{{ tool_name }}', '{{ results["source"] }}');
 
 {% if results %}
 
-	$(function() {
-		
-		var leftData, sameData, rightData;
+  $(function() {
+    
+    var leftData, sameData, rightData;
 
-		leftData = [
-			{% for f, w in results['diffWordsDoc1']|batch(75)|first %}
-				{ word: "{{ w|safe }}", count: {{ f|float }} },
-			{% endfor %}
-		];
+    leftData = [
+      {% for f, w in results['diffWordsDoc1']|batch(75)|first %}
+        { word: "{{ w|safe }}", count: {{ f|float }} },
+      {% endfor %}
+    ];
 
-		sameData = [
-			{% for f, w in results['sameWords']|batch(75)|first %}
-				{ word: "{{ w|safe }}", count: {{ f|float }}, doc1count: {{ results['sameWordCounts'][0][loop.index0][0]|safe }}, doc2count: {{ results['sameWordCounts'][1][loop.index0][0]|safe }} },
-			{% endfor %}
-		];
+    sameData = [
+      {% for f, w in results['sameWords']|batch(75)|first %}
+        { word: "{{ w|safe }}", count: {{ f|float }}, doc1count: {{ results['sameWordCounts'][0][loop.index0][0]|safe }}, doc2count: {{ results['sameWordCounts'][1][loop.index0][0]|safe }} },
+      {% endfor %}
+    ];
 
-		rightData = [
-			{% for f, w in results['diffWordsDoc2']|batch(75)|first %}
-				{ word: "{{ w|safe }}", count: {{ f|float }} },
-			{% endfor %}
-		];
+    rightData = [
+      {% for f, w in results['diffWordsDoc2']|batch(75)|first %}
+        { word: "{{ w|safe }}", count: {{ f|float }} },
+      {% endfor %}
+    ];
 
-		var allData = leftData.concat(sameData).concat(rightData);
-		var sum = d3.sum(allData, function (d) { return d.count; });
-		var fullExtent = d3.extent(allData, function (d) { return d.count / sum; });
+    var allData = leftData.concat(sameData).concat(rightData);
+    var sum = d3.sum(allData, function (d) { return d.count; });
+    var fullExtent = d3.extent(allData, function (d) { return d.count / sum; });
 
-		renderWordCloud(leftData, sum, fullExtent, '.left-cloud');
-		renderWordCloud(sameData, sum, fullExtent, '.center-cloud');
-		renderWordCloud(rightData, sum, fullExtent, '.right-cloud');
-	});
+    renderWordCloud(leftData, sum, fullExtent, '.left-cloud');
+    renderWordCloud(sameData, sum, fullExtent, '.center-cloud');
+    renderWordCloud(rightData, sum, fullExtent, '.right-cloud');
+  });
 
-	function renderWordCloud(wordcounts, sum, fullExtent, containerClass) {
+  function renderWordCloud(wordcounts, sum, fullExtent, containerClass) {
 
-		var tip = d3.tip()
-			.attr('class', 'd3-tip')
-			.html(function(d) { 
-				if (d.doc1count != undefined && d.doc2count != undefined) {
-					return d.doc1count + "{{ _(' uses in %(doc)s', doc=results['titles'][0]) }}<br>" + d.doc2count + "{{ _(' uses in %(doc)s', doc=results['titles'][2]) }}";
-				}
-				return d.count + "{{ _(' uses') }}"; })
-			.offset([-5, 0]);
+    var tip = d3.tip()
+      .attr('class', 'd3-tip')
+      .html(function(d) { 
+        if (d.doc1count != undefined && d.doc2count != undefined) {
+          return d.doc1count + "{{ _(' uses in %(doc)s', doc=results['titles'][0]) }}<br>" + d.doc2count + "{{ _(' uses in %(doc)s', doc=results['titles'][2]) }}";
+        }
+        return d.count + "{{ _(' uses') }}"; })
+      .offset([-5, 0]);
 
-		var padding = 10;
-		var height = 350;
-		var sizeRange = { min: 14, max: 30 };	
+    var padding = 10;
+    var height = 350;
+    var sizeRange = { min: 14, max: 30 }; 
 
-		var container = d3.select(containerClass);
-		var width = $(containerClass).width();
-		var svg = container.append('svg')
-			.attr('height', height)
-			.attr('width', width);
-		var group = svg.append('g').classed('group', true)
-		    .attr('transform', 'translate(0,' + padding + ')');
-		var y = height;
-		var words;
+    var container = d3.select(containerClass);
+    var width = $(containerClass).width();
+    var svg = container.append('svg')
+      .attr('height', height)
+      .attr('width', width);
+    var group = svg.append('g').classed('group', true)
+        .attr('transform', 'translate(0,' + padding + ')');
+    var y = height;
+    var words;
 
-		var thisSum = d3.sum(wordcounts, function (d) { return d.count; });
+    var thisSum = d3.sum(wordcounts, function (d) { return d.count; });
 
-		var top = _.first(wordcounts, 100);
-		_.each(top, function (d) {
-			d.tfnorm = d.count / sum;
-			d.norm = d.count / thisSum;
-		});
+    var top = _.first(wordcounts, 100);
+    _.each(top, function (d) {
+      d.tfnorm = d.count / sum;
+      d.norm = d.count / thisSum;
+    });
 
-		var terms = {}
-		_.each(top, function (d) {
-			terms[d.word] = d;
-		});
+    var terms = {}
+    _.each(top, function (d) {
+      terms[d.word] = d;
+    });
 
-		var stems = _.filter(terms, function (d) { return d; });
+    var stems = _.filter(terms, function (d) { return d; });
 
-		svg.call(tip);
+    svg.call(tip);
 
-		var counter = wordcounts.length;
-		while (y >= height && counter > 0) {
-			if (stems.length > 0) {
-				words = group.selectAll('.word')
-					.data(stems, function (d) { return d.word; });
-				words.enter()
-					.append('text').classed('word', true);
-				words
-					.attr('font-size', function (d) {
-						return fontSize(d, fullExtent, sizeRange) + 'px';
-					})
-					.attr('opacity', function (d) {
-						return getOpacity (d, fullExtent);
-					});
-			}
-			d3.selectAll('.word')
-	            .text(function (d) { return d.word; })
-	            .style('font-family', function (d) { return d.tfnorm > 0.02 ? 'HalisGR-Medium' : 'HalisGR-Book'; })
-	            .attr('font-weight', 'bold')
-	            .attr('fill', '#fff')
-	            .on('mouseover', tip.show)
-	            .on('mouseout', tip.hide);
-			y = 0;
-			height = listCloudLayout(words, width, fullExtent, sizeRange, padding);
-			y = Math.max(y, height);
-			counter --;
-		}
+    var counter = wordcounts.length;
+    while (y >= height && counter > 0) {
+      if (stems.length > 0) {
+        words = group.selectAll('.word')
+          .data(stems, function (d) { return d.word; });
+        words.enter()
+          .append('text').classed('word', true);
+        words
+          .attr('font-size', function (d) {
+            return fontSize(d, fullExtent, sizeRange) + 'px';
+          })
+          .attr('opacity', function (d) {
+            return getOpacity (d, fullExtent);
+          });
+      }
+      d3.selectAll('.word')
+              .text(function (d) { return d.word; })
+              .style('font-family', function (d) { return d.tfnorm > 0.02 ? 'HalisGR-Medium' : 'HalisGR-Book'; })
+              .attr('font-weight', 'bold')
+              .attr('fill', '#fff')
+              .on('mouseover', tip.show)
+              .on('mouseout', tip.hide);
+      y = 0;
+      height = listCloudLayout(words, width, fullExtent, sizeRange, padding);
+      y = Math.max(y, height);
+      counter --;
+    }
 
-		svg.attr('height', height)
-	}
+    svg.attr('height', height)
+  }
 
-	function fontSize (term, extent, sizeRange) {
+  function fontSize (term, extent, sizeRange) {
         var size = sizeRange.min
             + (sizeRange.max - sizeRange.min)
                 * ( Math.log(term.tfnorm) - Math.log(extent[0]) ) / ( Math.log(extent[1]) - Math.log(extent[0]) );
@@ -180,7 +180,7 @@ send_submit_event('{{ tool_name }}', '{{ results["source"] }}');
     }
 
     function getOpacity (term, extent) {
-    	var opacity = ( Math.log(term.norm) - Math.log(extent[0]) ) / ( Math.log(extent[1]) - Math.log(extent[0]) );
+      var opacity = ( Math.log(term.norm) - Math.log(extent[0]) ) / ( Math.log(extent[1]) - Math.log(extent[0]) );
         return opacity;
     }
 
