@@ -43,7 +43,7 @@ $(document).ready(function() {
 
   $('.nav-tabs a').click(function (e) {
     $(this).tab('show');
-    window.location.hash = this.hash;
+    history.pushState(null,null,this.hash); // use history so it doesn't refresh the page and navigate to element
   });
 
   // Modals accessibility
