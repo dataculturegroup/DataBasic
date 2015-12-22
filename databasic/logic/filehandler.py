@@ -14,7 +14,8 @@ import databasic
 
 logger = logging.getLogger(__name__)
 
-ENCODING = 'utf-8'
+ENCODING_UTF_8 = 'utf-8'
+ENCODING_LATIN_1 = 'latin-1'
 TEMP_DIR = tempfile.gettempdir()
 
 samples = []
@@ -55,7 +56,7 @@ def init_samples():
 
 def write_to_temp_file(text):
     file_path = _get_temp_file()
-    file = codecs.open(file_path, 'w', ENCODING)
+    file = codecs.open(file_path, 'w', ENCODING_UTF_8)
     file.write(text)
     file.close()
     return file_path
@@ -63,7 +64,7 @@ def write_to_temp_file(text):
 def write_to_csv(headers, rows, file_name_suffix=None, timestamp=True):
     file_path = _get_temp_file(file_name_suffix, timestamp)
     with open(file_path, 'w') as f:
-        writer = unicodecsv.writer(f, encoding=ENCODING)
+        writer = unicodecsv.writer(f, encoding=ENCODING_UTF_8)
         writer.writerow(headers)
         for row in rows:
             writer.writerow(row)
@@ -75,12 +76,13 @@ def generate_csv(file_path):
         return abort(400)
     def generate():
         with open(file_path, 'r') as f:
-            reader = unicodecsv.reader(f, encoding=ENCODING)
+            reader = unicodecsv.reader(f, encoding=ENCODING_UTF_8)
             for row in reader:
                 yield ','.join(row) + '\n'
     return Response(generate(), headers={'Content-Disposition':'attachment;filename='+file_name},mimetype='text/csv')
 
 def convert_to_txt(file_path):
+    logger.debug("convert_to_txt: %s" % file_path)
     words = None
     if not os.path.exists(file_path):
         logger.error("missing file %s", file_path)
@@ -89,8 +91,27 @@ def convert_to_txt(file_path):
     ext = _get_extension(file_path)
     if ext == '.txt':
         logger.debug("loading txt file")
-        with codecs.open(file_path, 'r', ENCODING) as myfile:
-            words = myfile.read()
+        worked = False
+        try:    # try UTF8
+            logger.debug("trying to convert_to_txt with %s" % ENCODING_UTF_8)
+            with codecs.open(file_path, 'r', ENCODING_UTF_8) as myfile:
+                words = myfile.read()
+            worked = True
+        except Exception as e: 
+            logger.warning("convert_to_txt with %s failed on %s" % (ENCODING_UTF_8,file_path))
+            worked = False
+        if not worked:
+            logger.debug("trying to convert_to_txt with %s" % ENCODING_LATIN_1)
+            try:    # try latin-1
+                with codecs.open(file_path, 'r', ENCODING_LATIN_1) as myfile:
+                    words = myfile.read()
+                worked = True
+            except Exception as e: 
+                logger.warning("convert_to_txt with %s failed on %s" % (ENCODING_LATIN_1,file_path))
+                worked = False
+        if not worked:
+            logger.error("Couldn't read txt file in either codec :-(")
+            words = ""
     elif ext == '.docx':
         logger.debug("loading docx file")
         words = _docx_to_txt(file_path)
@@ -100,7 +121,7 @@ def convert_to_txt(file_path):
         words = PlaintextWriter.write(doc).getvalue()
     else:
         logging.warning("Couldn't find an extension on the file, so assuming text")
-        with codecs.open(file_path, 'r', ENCODING) as myfile:
+        with codecs.open(file_path, 'r', ENCODING_UTF_8) as myfile:
             words = myfile.read()
     logger.debug("loaded %d chars" % len(words))
     return words
@@ -144,7 +165,7 @@ def open_workbook(book):
     for i, worksheet in enumerate(book.worksheets()):
         file_path = _get_temp_file('-' + worksheet.title + '.csv')
         with open(file_path, 'wb') as f:
-            writer = unicodecsv.writer(f, encoding=ENCODING, delimiter=str(u';'), quotechar=str(u'"'))
+            writer = unicodecsv.writer(f, encoding=ENCODING_UTF_8, delimiter=str(u';'), quotechar=str(u'"'))
             writer.writerows(worksheet.get_all_values())
         file_paths.append(file_path)
     return file_paths
@@ -189,7 +210,7 @@ def generate_filename(ext, suffix, *args):
 def download_webpage(url):
     soup = bs(urlopen(url),"lxml")
     if soup.p is not None:
-        soup.p.encode(ENCODING)
+        soup.p.encode(ENCODING_UTF_8)
     for script in soup(['script', 'style']):
         script.extract()
     return {'title': soup.title.string, 'text': soup.get_text()}
@@ -199,7 +220,7 @@ def _open_sheet(workbook, index):
     name = workbook.sheet_names()[index]
     new_file = _get_temp_file('-' + name + '.csv')
     with open(new_file, 'wb') as f:
-        writer = unicodecsv.writer(f, encoding=ENCODING, delimiter=str(u';'), quotechar=str(u'"'))
+        writer = unicodecsv.writer(f, encoding=ENCODING_UTF_8, delimiter=str(u';'), quotechar=str(u'"'))
         for row in xrange(sh.nrows):
             writer.writerow(sh.row_values(row))
     return new_file
@@ -226,5 +247,5 @@ def _docx_to_txt(file_path):
     paratextlist = getdocumenttext(document)
     newparatextlist = []
     for paratext in paratextlist:
-        newparatextlist.append(paratext.encode(ENCODING))
+        newparatextlist.append(paratext.encode(ENCODING_UTF_8))
     return '\n\n'.join(newparatextlist)
