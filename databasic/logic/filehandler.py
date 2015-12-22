@@ -56,6 +56,7 @@ def init_samples():
 
 def write_to_temp_file(text):
     file_path = _get_temp_file()
+    logger.debug("writing %d chars to %s" % (len(text),file_path))
     file = codecs.open(file_path, 'w', ENCODING_UTF_8)
     file.write(text)
     file.close()
