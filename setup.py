@@ -11,8 +11,8 @@ setup(
         'databasic': ('static/sass', 'static/css')
     },
     install_requires=['flask','flask_debugtoolbar','flask-uploads','Flask-WTF',
-    	'Flask-Babel','Flask-Mail','pojson','requests','nltk','docx','unicodecsv',
-    	'csvkit','xlrd','gspread','gdata','oauth2client','pymongo','celery','redis',
-    	'pyth','libsass >= 0.6.0','textmining','scipy','numpy','wtforms','kombu','billiard',
-    	'beautifulsoup4']
+        'Flask-Babel','Flask-Mail','pojson','requests','nltk','docx','unicodecsv',
+        'csvkit','xlrd','gspread','gdata','oauth2client','pymongo','celery','redis',
+        'pyth','libsass >= 0.6.0','textmining','scipy','numpy','wtforms','kombu','billiard',
+        'beautifulsoup4']
 )

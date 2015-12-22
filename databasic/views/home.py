@@ -7,4 +7,4 @@ logger = logging.getLogger(__name__)
 
 @mod.route('/')
 def index():
-	return render_template('index.html')
+    return render_template('index.html')

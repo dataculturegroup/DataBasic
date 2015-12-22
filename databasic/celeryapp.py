@@ -4,9 +4,9 @@ from celery import Celery
 from databasic import settings
 
 celery_app = Celery('databasic',
-	broker=settings.get('queue','broker_url'),
-	backend=settings.get('queue','backend_url'),
-	include=['databasic.tasks'])
+    broker=settings.get('queue','broker_url'),
+    backend=settings.get('queue','backend_url'),
+    include=['databasic.tasks'])
 
 # expire backend results in one hour
 celery_app.conf.update(
@@ -14,4 +14,4 @@ celery_app.conf.update(
 )
 
 if __name__ == '__main__':
-	celery_app.start()
+    celery_app.start()
