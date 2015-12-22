@@ -3,8 +3,8 @@
   
   <div class="btn-group" id="language-selector" role="group">
     <a href="{{ request.url.replace('/es/', '/en/') }}" role="button" aria-label="{{ _('change language to english') }}" class="btn btn-default">en</a>
-    {# <a href="{{ request.url.replace('/en/', '/es/') }}" role="button" aria-label="{{ _('change language to spanish') }}" class="btn btn-default">es</a> #}
-    <a class="btn btn-default" data-trigger="focus hover" data-placement="bottom" data-toggle="tooltip" data-trigger="hover" href="#tooltip" data-original-title="Coming soon..." aria-label="es" role="definition" onmouseover="ga('send', 'event', '{{ tool_name }}', 'es', 'tooltip');">es</a>
+     <a href="{{ request.url.replace('/en/', '/es/') }}" role="button" aria-label="{{ _('change language to spanish') }}" class="btn btn-default">es</a> 
+    {#<a class="btn btn-default" data-trigger="focus hover" data-placement="bottom" data-toggle="tooltip" data-trigger="hover" href="#tooltip" data-original-title="Coming soon..." aria-label="es" role="definition" onmouseover="ga('send', 'event', '{{ tool_name }}', 'es', 'tooltip');">es</a>#}
   </div>
 
   <div class="container-fluid" id="nav-container">

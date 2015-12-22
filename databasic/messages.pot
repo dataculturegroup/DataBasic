@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2015-12-18 10:45-0500\n"
+"POT-Creation-Date: 2015-12-22 11:06-0500\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -155,47 +155,34 @@ msgstr ""
 msgid "Only files under 10MB are accepted"
 msgstr ""
 
-#: databasic/templates/footer.html:13
-msgid "Finding Stories in Data"
-msgstr ""
-
-#: databasic/templates/footer.html:14
-msgid ""
-"This suite of tools helps learners understand how to get started with "
-"data analysis, whether you are looking at spreadsheets or text. In our "
-"classes we introduce non-programmers to data analysis and storytelling. "
-"We want to help unlock the power of digital tools for everyone."
-msgstr ""
-
-#: databasic/templates/footer.html:17
-msgid "Why DataBasic?"
-msgstr ""
-
-#: databasic/templates/footer.html:18
-msgid ""
-"There are a number of computer-assisted data analysis techniques like "
-"this that are readily available to programmers. Some of these are even "
-"just one line of code, but that one line is incomprehensible if you don't"
-" know how to program. We built this site to help bridge that gap, so non-"
-"programmers can take advantage of these capabilities."
-msgstr ""
-
-#: databasic/templates/footer.html:30 databasic/templates/tool_footer.html:29
+#: databasic/templates/footer.html:16 databasic/templates/tool_footer.html:29
+#: databasic/templates/wordcounter/wordcounter.html:4
+#: databasic/templates/wordcounter/wordcounter.html:28
 msgid "WordCounter"
 msgstr ""
 
-#: databasic/templates/footer.html:31 databasic/templates/tool_footer.html:30
+#: databasic/templates/footer.html:17 databasic/templates/tool_footer.html:30
 #: databasic/templates/wtfcsv/wtfcsv.html:4
+#: databasic/templates/wtfcsv/wtfcsv.html:26
 msgid "WTFcsv"
 msgstr ""
 
-#: databasic/templates/footer.html:32 databasic/templates/tool_footer.html:31
+#: databasic/templates/footer.html:18 databasic/templates/tool_footer.html:31
 #: databasic/templates/samediff/samediff.html:4
+#: databasic/templates/samediff/samediff.html:28
 msgid "SameDiff"
 msgstr ""
 
-#: databasic/templates/footer.html:33 databasic/templates/tool_footer.html:32
+#: databasic/templates/footer.html:19 databasic/templates/tool_footer.html:32
+msgid "about"
+msgstr ""
+
+#: databasic/templates/footer.html:20 databasic/templates/tool_footer.html:33
 msgid "blog"
+msgstr ""
+
+#: databasic/templates/footer.html:21 databasic/templates/tool_footer.html:34
+msgid "help"
 msgstr ""
 
 #: databasic/templates/macros.html:6
@@ -223,16 +210,40 @@ msgstr ""
 msgid "Play video"
 msgstr ""
 
-#: databasic/templates/nav_base.html:4
+#: databasic/templates/nav_base.html:5
 msgid "change language to english"
 msgstr ""
 
-#: databasic/templates/nav_base.html:5
+#: databasic/templates/nav_base.html:6
 msgid "change language to spanish"
 msgstr ""
 
 #: databasic/templates/tool_base.html:5 databasic/templates/tool_footer.html:14
 msgid "What do I do next?"
+msgstr ""
+
+#: databasic/templates/tool_base.html:13
+#, python-format
+msgid "About %(tool_name)s"
+msgstr ""
+
+#: databasic/templates/tool_base.html:25
+msgid "Are you an Educator? Try our Activity Guide"
+msgstr ""
+
+#: databasic/templates/tool_base.html:26
+msgid ""
+"DataBasic activities are suitable for classes and workshops for "
+"participants from middle school through higher education. No prior data "
+"experience necessary!"
+msgstr ""
+
+#: databasic/templates/tool_base.html:33
+msgid "Download (English)"
+msgstr ""
+
+#: databasic/templates/tool_base.html:34
+msgid "Download (Español)"
 msgstr ""
 
 #: databasic/templates/tool_nav.html:4
@@ -244,43 +255,144 @@ msgstr ""
 msgid "go to data basic home page"
 msgstr ""
 
-#: databasic/templates/home/index.html:12
+#: databasic/templates/home/index.html:14
 msgid ""
 "DataBasic is a suite of easy-to-use web tools for beginners that "
 "introduce concepts of working with data."
 msgstr ""
 
-#: databasic/templates/home/index.html:13
+#: databasic/templates/home/index.html:15
 msgid ""
 "These simple tools make it easy to work with data in fun ways, so you can"
 " learn how to find great stories to tell."
 msgstr ""
 
-#: databasic/templates/home/index.html:22
-#: databasic/templates/wordcounter/wordcounter.html:18
+#: databasic/templates/home/index.html:25
+#: databasic/templates/wordcounter/wordcounter.html:19
 msgid ""
 "WordCounter analyzes your text and tells you the most common words and "
 "phrases."
 msgstr ""
 
-#: databasic/templates/home/index.html:32
-#: databasic/templates/wtfcsv/wtfcsv.html:17
+#: databasic/templates/home/index.html:35
+#: databasic/templates/wtfcsv/wtfcsv.html:19
 msgid "WTFcsv tells you WTF is going on with your .csv file."
 msgstr ""
 
-#: databasic/templates/home/index.html:42
+#: databasic/templates/home/index.html:45
 msgid ""
 "SameDiff compares two or more text files and tells you how similar or "
 "different they are"
 msgstr ""
 
-#: databasic/templates/samediff/samediff.html:17
+#: databasic/templates/home/index.html:53
+msgid "Why use DataBasic?"
+msgstr ""
+
+#: databasic/templates/home/index.html:59
+msgid "Making Data Fun"
+msgstr ""
+
+#: databasic/templates/home/index.html:60
+msgid ""
+"Spreadsheets and large Word documents can be boring and intimidating. We "
+"think working with data should be more fun! Take a look at our activity "
+"guides for hands-on approaches to analyzing your data using these tools."
+"  Activity guides combined with fun data sets like music lyrics can help "
+"you take a playful approach to finding stories in your data. Don't you "
+"want to know \"what the fudge\" is going on with your CSV file?"
+msgstr ""
+
+#: databasic/templates/home/index.html:68
+msgid "Doing One Thing Well"
+msgstr ""
+
+#: databasic/templates/home/index.html:69
+msgid ""
+"There are tons of tools for working with data; many so complex they are "
+"intimidating to even start with.  We've built each DataBasic tool to "
+"focus on doing one thing well, so you know exactly what each can be used "
+"for.  This lets us concentrate on making that one thing both simple and "
+"powerful."
+msgstr ""
+
+#: databasic/templates/home/index.html:72
+msgid "Focused on Learning "
+msgstr ""
+
+#: databasic/templates/home/index.html:73
+msgid ""
+"Sometimes faster isn't better.  If you really want to learn how to work "
+"with data to find stories to tell, you'll need to use tools that do more "
+"than just give you a chart as quickly as possible.  That's why we've "
+"built DataBasic with learners in mind.  Don't know what some technical "
+"word means? Hover over it to see a quick definition.  Not sure how to use"
+" a tool?  Try some of the fun sample data like music lyrics and UFO "
+"sightings we've included to get started."
+msgstr ""
+
+#: databasic/templates/home/index.html:76
+msgid "Fitting in to Your Pipeline"
+msgstr ""
+
+#: databasic/templates/home/index.html:77
+msgid ""
+"Working with data online always involves using a mishmash of tools. We're"
+" not going to solve that problem anytime soon.  So we've built DataBasic "
+"to take in a variety of types of data, and output results in the formats "
+"you're used to.  Read some content from website and download CSV files of"
+" your results. These are just two of the ways we try to introduce you to "
+"the way most folks work data online."
+msgstr ""
+
+#: databasic/templates/home/index.html:85
+msgid "Ensuring Your Privacy"
+msgstr ""
+
+#: databasic/templates/home/index.html:86
+msgid ""
+"With more and more data-centric tools moving online, sometimes it can be "
+"hard to tell where your data is going and what will happen with it after "
+"you upload it.  We store information you upload for only the amount of "
+"time it takes us to analyze it, then we delete it.  The aggregate results"
+" we show you - metadata - are kept for 60 days, and then we delete them."
+"  All communications are over https, so other folks can't eavesdrop on "
+"the data as you upload it."
+msgstr ""
+
+#: databasic/templates/home/index.html:89
+msgid "By Educators, for Educators"
+msgstr ""
+
+#: databasic/templates/home/index.html:90
+msgid ""
+"Work with high-schoolers? Journalists? Community groups? Graduate "
+"students?  Us too!!!  That's why we designed and tested the DataBasic "
+"tools and activities in our classrooms and in workshops with those "
+"audiences.  These tools were born out of frustration with things we were "
+"trying to use in our undergraduate classes, so we feel your pain."
+msgstr ""
+
+#: databasic/templates/home/index.html:94
+msgid "Accessible to All"
+msgstr ""
+
+#: databasic/templates/home/index.html:95
+msgid ""
+"Digital technologies have empowered those with disabilities in a variety "
+"of ways, and new web standards have made it easier than ever to build new"
+" tools that are accessible to all.  DataBasic implements those "
+"technologies to support screen readers so the visually impaired can start"
+" working with data in new and exciting ways."
+msgstr ""
+
+#: databasic/templates/samediff/samediff.html:19
 msgid ""
 "SameDiff compares two or more text files and tells you how similar or "
 "different they are."
 msgstr ""
 
-#: databasic/templates/samediff/samediff.html:18
+#: databasic/templates/samediff/samediff.html:20
 #, python-format
 msgid ""
 "SameDiff compares one %(corpus)s of text to another corpus of text to "
@@ -289,34 +401,38 @@ msgid ""
 " different."
 msgstr ""
 
-#: databasic/templates/samediff/samediff.html:24
+#: databasic/templates/samediff/samediff.html:26
 msgid "Compare"
 msgstr ""
 
-#: databasic/templates/wordcounter/wordcounter.html:4
-msgid "Word-Counter"
-msgstr ""
-
-#: databasic/templates/wordcounter/wordcounter.html:20
+#: databasic/templates/wordcounter/wordcounter.html:21
 #, python-format
 msgid ""
 "This tool helps you count words, %(bigram)s, and %(trigram)s in plain "
 "text. This is often the first step in quantitative text analysis."
 msgstr ""
 
-#: databasic/templates/wordcounter/wordcounter.html:21
+#: databasic/templates/wordcounter/wordcounter.html:22
 msgid "bigrams"
 msgstr ""
 
 #: databasic/templates/wordcounter/wordcounter.html:22
+msgid "A bigram is a two word phrase"
+msgstr ""
+
+#: databasic/templates/wordcounter/wordcounter.html:23
 msgid "trigrams"
+msgstr ""
+
+#: databasic/templates/wordcounter/wordcounter.html:23
+msgid "A trigram is a three word phrase"
 msgstr ""
 
 #: databasic/templates/wordcounter/wordcounter.html:26
 msgid "Count"
 msgstr ""
 
-#: databasic/templates/wtfcsv/wtfcsv.html:18
+#: databasic/templates/wtfcsv/wtfcsv.html:20
 #, python-format
 msgid ""
 "Data arrives at your doorstep in the form of a spreadsheet but how do you"
@@ -325,7 +441,7 @@ msgid ""
 "ask more questions."
 msgstr ""
 
-#: databasic/templates/wtfcsv/wtfcsv.html:22
+#: databasic/templates/wtfcsv/wtfcsv.html:24
 msgid "Analyze"
 msgstr ""
 
@@ -382,7 +498,7 @@ msgstr ""
 msgid "title"
 msgstr ""
 
-#: databasic/views/wtfcsv.py:142
+#: databasic/views/wtfcsv.py:143
 msgid "Other"
 msgstr ""
 

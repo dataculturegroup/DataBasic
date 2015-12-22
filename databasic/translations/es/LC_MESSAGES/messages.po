@@ -3,13 +3,12 @@
 # This file is distributed under the same license as the PROJECT project.
 # FIRST AUTHOR <EMAIL@ADDRESS>, 2015.
 #
-#, fuzzy
 msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2015-12-18 10:45-0500\n"
-"PO-Revision-Date: 2015-12-18 10:45-0500\n"
+"POT-Creation-Date: 2015-12-22 11:06-0500\n"
+"PO-Revision-Date: 2015-12-21 14:00-0600\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language: es\n"
 "Language-Team: es <LL@li.org>\n"
@@ -21,94 +20,94 @@ msgstr ""
 
 #: databasic/forms.py:11
 msgid "Paste text"
-msgstr ""
+msgstr "Pegar texto"
 
 #: databasic/forms.py:14
 msgid "Text"
-msgstr ""
+msgstr "Texto"
 
 #: databasic/forms.py:15
 msgid "Paste text..."
-msgstr ""
+msgstr "Pegar texto..."
 
 #: databasic/forms.py:23 databasic/forms.py:30
 msgid "Upload a file"
-msgstr ""
+msgstr "Subir un archivo"
 
 #: databasic/forms.py:27
 msgid "Upload file"
-msgstr ""
+msgstr "Subir archivo"
 
 #: databasic/forms.py:28 databasic/forms.py:144
 msgid "Upload..."
-msgstr ""
+msgstr "Subir..."
 
 #: databasic/forms.py:35
 msgid "Use a sample"
-msgstr ""
+msgstr "Usar una muestra"
 
 #: databasic/forms.py:38 databasic/forms.py:153
 msgid "Sample"
-msgstr ""
+msgstr "Muestra"
 
 #: databasic/forms.py:45 databasic/forms.py:150
 msgid "Use samples"
-msgstr ""
+msgstr "Usar muestras"
 
 #: databasic/forms.py:48
 msgid "Samples"
-msgstr ""
+msgstr "Muestras"
 
 #: databasic/forms.py:55
 msgid "Link to a spreadsheet"
-msgstr ""
+msgstr "Liga a una hoja de cálculo"
 
 #: databasic/forms.py:59
 msgid "Link to spreadsheet"
-msgstr ""
+msgstr "Liga a hoja de cálculo"
 
 #: databasic/forms.py:76 databasic/forms.py:88 databasic/forms.py:98
 #: databasic/forms.py:110
 msgid "Ignore case"
-msgstr ""
+msgstr "Ignorar mayúsculas"
 
 #: databasic/forms.py:80 databasic/forms.py:92 databasic/forms.py:102
 #: databasic/forms.py:114 databasic/templates/macros.html:97
 msgid "Ignore stopwords"
-msgstr ""
+msgstr "Ignorar palabras de paro"
 
 #: databasic/forms.py:118 databasic/forms.py:128
 msgid "Paste a link"
-msgstr ""
+msgstr "Pegar una liga"
 
 #: databasic/forms.py:118 databasic/forms.py:165 databasic/forms.py:169
 msgid "https://en.wikipedia.org/wiki/Natural_language_processing"
-msgstr ""
+msgstr "https://en.wikipedia.org/wiki/Natural_language_processing"
 
 #: databasic/forms.py:141
 msgid "Upload files"
-msgstr ""
+msgstr "Subir archivos"
 
 #: databasic/forms.py:143
 msgid "Browse file 2"
-msgstr ""
+msgstr "Explorar archivo 2"
 
 #: databasic/forms.py:147
 msgid "Browse file 1"
-msgstr ""
+msgstr "Explorar archivo 1"
 
 #: databasic/forms.py:161 databasic/forms.py:164 databasic/forms.py:169
 msgid "Paste links"
-msgstr ""
+msgstr "Pegar ligas"
 
 #: databasic/static/js/samediff-validate.js:6
 #: databasic/static/js/wordcounter-validate.js:6
 msgid "You must input a valid url"
-msgstr ""
+msgstr "Debes introducir una url válida"
 
 #: databasic/static/js/samediff-validate.js:14
 msgid "You must select two files"
-msgstr ""
+msgstr "Debes seleccionar dos archivos"
 
 #: databasic/static/js/samediff-validate.js:35
 #: databasic/static/js/samediff-validate.js:38
@@ -124,165 +123,290 @@ msgstr ""
 #: databasic/static/js/wtfcsv-validate.js:28
 #: databasic/static/js/wtfcsv-validate.js:45
 msgid "This field is required"
-msgstr ""
+msgstr "Se requiere este campo"
 
 #: databasic/static/js/samediff-validate.js:42
 #: databasic/static/js/samediff-validate.js:72
 msgid "Please enter a valid email address"
-msgstr ""
+msgstr "Por favor introduzca una dirección de correo electrónico válida"
 
 #: databasic/static/js/samediff-validate.js:64
 #: databasic/static/js/samediff-validate.js:68
 #: databasic/static/js/wordcounter-validate.js:34
 msgid "Only these file types are accepted: txt, docx, rtf"
-msgstr ""
+msgstr "Sólo se aceptan estos tipos de archivos: txt, docx, rtf"
 
 #: databasic/static/js/samediff-validate.js:90
 #: databasic/static/js/samediff-validate.js:94
 #: databasic/static/js/wordcounter-validate.js:48
 #: databasic/static/js/wtfcsv-validate.js:46
 msgid "You must input a URL"
-msgstr ""
+msgstr "Debes introducir una URL"
 
 #: databasic/static/js/wtfcsv-validate.js:8
 msgid "Link must be a valid Google Spreadsheet"
-msgstr ""
+msgstr "La liga debe ser una Hoja de Cálculo de Google válida"
 
 #: databasic/static/js/wtfcsv-validate.js:29
 msgid "Only these file types are accepted: csv, xls, xlsx"
-msgstr ""
+msgstr "Sólo se aceptan estos tipos de archivos: csv, xls, xlsx"
 
 #: databasic/static/js/wtfcsv-validate.js:30
 #: databasic/static/js/wtfcsv-validate.js:47
 msgid "Only files under 10MB are accepted"
-msgstr ""
+msgstr "Sólo se aceptan archivos menores a 10MB"
 
-#: databasic/templates/footer.html:13
-msgid "Finding Stories in Data"
-msgstr ""
-
-#: databasic/templates/footer.html:14
-msgid ""
-"This suite of tools helps learners understand how to get started with "
-"data analysis, whether you are looking at spreadsheets or text. In our "
-"classes we introduce non-programmers to data analysis and storytelling. "
-"We want to help unlock the power of digital tools for everyone."
-msgstr ""
-
-#: databasic/templates/footer.html:17
-msgid "Why DataBasic?"
-msgstr ""
-
-#: databasic/templates/footer.html:18
-msgid ""
-"There are a number of computer-assisted data analysis techniques like "
-"this that are readily available to programmers. Some of these are even "
-"just one line of code, but that one line is incomprehensible if you don't"
-" know how to program. We built this site to help bridge that gap, so non-"
-"programmers can take advantage of these capabilities."
-msgstr ""
-
-#: databasic/templates/footer.html:30 databasic/templates/tool_footer.html:29
+#: databasic/templates/footer.html:16 databasic/templates/tool_footer.html:29
+#: databasic/templates/wordcounter/wordcounter.html:4
+#: databasic/templates/wordcounter/wordcounter.html:28
 msgid "WordCounter"
-msgstr ""
+msgstr "WordCounter"
 
-#: databasic/templates/footer.html:31 databasic/templates/tool_footer.html:30
+#: databasic/templates/footer.html:17 databasic/templates/tool_footer.html:30
 #: databasic/templates/wtfcsv/wtfcsv.html:4
+#: databasic/templates/wtfcsv/wtfcsv.html:26
 msgid "WTFcsv"
-msgstr ""
+msgstr "WTFcsv"
 
-#: databasic/templates/footer.html:32 databasic/templates/tool_footer.html:31
+#: databasic/templates/footer.html:18 databasic/templates/tool_footer.html:31
 #: databasic/templates/samediff/samediff.html:4
+#: databasic/templates/samediff/samediff.html:28
 msgid "SameDiff"
-msgstr ""
+msgstr "SameDiff"
 
-#: databasic/templates/footer.html:33 databasic/templates/tool_footer.html:32
+#: databasic/templates/footer.html:19 databasic/templates/tool_footer.html:32
+#, fuzzy
+msgid "about"
+msgstr "Contar"
+
+#: databasic/templates/footer.html:20 databasic/templates/tool_footer.html:33
 msgid "blog"
+msgstr "blog"
+
+#: databasic/templates/footer.html:21 databasic/templates/tool_footer.html:34
+msgid "help"
 msgstr ""
 
 #: databasic/templates/macros.html:6
 msgid "choose input type"
-msgstr ""
+msgstr "elegir tipo de entrada"
 
 #: databasic/templates/macros.html:98
 #, python-format
 msgid "Ignore %(stopwords)s"
-msgstr ""
+msgstr "Ignorar %(stopwords)s"
 
 #: databasic/templates/macros.html:99
 msgid "stopwords"
-msgstr ""
+msgstr "palabras de paro"
 
 #: databasic/templates/macros.html:153 databasic/templates/macros.html:179
 msgid "close video window"
-msgstr ""
+msgstr "cerrar ventana de video"
 
 #: databasic/templates/macros.html:159
 msgid "You can share these results by emailing this url:"
-msgstr ""
+msgstr "Puedes compartir estos resultados con esta url:"
 
 #: databasic/templates/macros.html:172
 msgid "Play video"
-msgstr ""
-
-#: databasic/templates/nav_base.html:4
-msgid "change language to english"
-msgstr ""
+msgstr "Reproducir video"
 
 #: databasic/templates/nav_base.html:5
+msgid "change language to english"
+msgstr "cambiar lenguaje a inglés"
+
+#: databasic/templates/nav_base.html:6
 msgid "change language to spanish"
-msgstr ""
+msgstr "cambiar lenguaje a español"
 
 #: databasic/templates/tool_base.html:5 databasic/templates/tool_footer.html:14
 msgid "What do I do next?"
+msgstr "¿Qué hago ahora?"
+
+#: databasic/templates/tool_base.html:13
+#, fuzzy, python-format
+msgid "About %(tool_name)s"
+msgstr "ir a %(tool_name)s"
+
+#: databasic/templates/tool_base.html:25
+msgid "Are you an Educator? Try our Activity Guide"
+msgstr ""
+
+#: databasic/templates/tool_base.html:26
+msgid ""
+"DataBasic activities are suitable for classes and workshops for "
+"participants from middle school through higher education. No prior data "
+"experience necessary!"
+msgstr ""
+
+#: databasic/templates/tool_base.html:33
+msgid "Download (English)"
+msgstr ""
+
+#: databasic/templates/tool_base.html:34
+msgid "Download (Español)"
 msgstr ""
 
 #: databasic/templates/tool_nav.html:4
 #, python-format
 msgid "go to %(tool)s"
-msgstr ""
+msgstr "ir a %(tool)s"
 
 #: databasic/templates/tool_nav.html:8
 msgid "go to data basic home page"
-msgstr ""
+msgstr "ir a página de inicio de data basic"
 
-#: databasic/templates/home/index.html:12
+#: databasic/templates/home/index.html:14
 msgid ""
 "DataBasic is a suite of easy-to-use web tools for beginners that "
 "introduce concepts of working with data."
 msgstr ""
+"DataBasic es una suite de herramientas de uso fácil para principiantes "
+"que los introduce a conceptos del trabajo con datos."
 
-#: databasic/templates/home/index.html:13
+#: databasic/templates/home/index.html:15
 msgid ""
 "These simple tools make it easy to work with data in fun ways, so you can"
 " learn how to find great stories to tell."
 msgstr ""
+"Estas herramientas sencillas hacen que sea fácil trabajar con los datos "
+"de formas divertidas, para que puedas aprender cómo encontrar grandes "
+"historias que contar."
 
-#: databasic/templates/home/index.html:22
-#: databasic/templates/wordcounter/wordcounter.html:18
+#: databasic/templates/home/index.html:25
+#: databasic/templates/wordcounter/wordcounter.html:19
 msgid ""
 "WordCounter analyzes your text and tells you the most common words and "
 "phrases."
 msgstr ""
+"WordCounter analiza tu texto y te muestra las palabras y frases más "
+"comunes."
 
-#: databasic/templates/home/index.html:32
-#: databasic/templates/wtfcsv/wtfcsv.html:17
+#: databasic/templates/home/index.html:35
+#: databasic/templates/wtfcsv/wtfcsv.html:19
 msgid "WTFcsv tells you WTF is going on with your .csv file."
-msgstr ""
+msgstr "WTFcsv te dice qué diablo está pasando con tu archivo .csv."
 
-#: databasic/templates/home/index.html:42
+#: databasic/templates/home/index.html:45
 msgid ""
 "SameDiff compares two or more text files and tells you how similar or "
 "different they are"
 msgstr ""
+"SameDiff compara dos o más archivos de texto y te dice qué tan similares "
+"o diferentes son."
 
-#: databasic/templates/samediff/samediff.html:17
+#: databasic/templates/home/index.html:53
+#, fuzzy
+msgid "Why use DataBasic?"
+msgstr "¿Por qué DataBasic?"
+
+#: databasic/templates/home/index.html:59
+msgid "Making Data Fun"
+msgstr ""
+
+#: databasic/templates/home/index.html:60
+msgid ""
+"Spreadsheets and large Word documents can be boring and intimidating. We "
+"think working with data should be more fun! Take a look at our activity "
+"guides for hands-on approaches to analyzing your data using these tools."
+"  Activity guides combined with fun data sets like music lyrics can help "
+"you take a playful approach to finding stories in your data. Don't you "
+"want to know \"what the fudge\" is going on with your CSV file?"
+msgstr ""
+
+#: databasic/templates/home/index.html:68
+msgid "Doing One Thing Well"
+msgstr ""
+
+#: databasic/templates/home/index.html:69
+msgid ""
+"There are tons of tools for working with data; many so complex they are "
+"intimidating to even start with.  We've built each DataBasic tool to "
+"focus on doing one thing well, so you know exactly what each can be used "
+"for.  This lets us concentrate on making that one thing both simple and "
+"powerful."
+msgstr ""
+
+#: databasic/templates/home/index.html:72
+msgid "Focused on Learning "
+msgstr ""
+
+#: databasic/templates/home/index.html:73
+msgid ""
+"Sometimes faster isn't better.  If you really want to learn how to work "
+"with data to find stories to tell, you'll need to use tools that do more "
+"than just give you a chart as quickly as possible.  That's why we've "
+"built DataBasic with learners in mind.  Don't know what some technical "
+"word means? Hover over it to see a quick definition.  Not sure how to use"
+" a tool?  Try some of the fun sample data like music lyrics and UFO "
+"sightings we've included to get started."
+msgstr ""
+
+#: databasic/templates/home/index.html:76
+msgid "Fitting in to Your Pipeline"
+msgstr ""
+
+#: databasic/templates/home/index.html:77
+msgid ""
+"Working with data online always involves using a mishmash of tools. We're"
+" not going to solve that problem anytime soon.  So we've built DataBasic "
+"to take in a variety of types of data, and output results in the formats "
+"you're used to.  Read some content from website and download CSV files of"
+" your results. These are just two of the ways we try to introduce you to "
+"the way most folks work data online."
+msgstr ""
+
+#: databasic/templates/home/index.html:85
+msgid "Ensuring Your Privacy"
+msgstr ""
+
+#: databasic/templates/home/index.html:86
+msgid ""
+"With more and more data-centric tools moving online, sometimes it can be "
+"hard to tell where your data is going and what will happen with it after "
+"you upload it.  We store information you upload for only the amount of "
+"time it takes us to analyze it, then we delete it.  The aggregate results"
+" we show you - metadata - are kept for 60 days, and then we delete them."
+"  All communications are over https, so other folks can't eavesdrop on "
+"the data as you upload it."
+msgstr ""
+
+#: databasic/templates/home/index.html:89
+msgid "By Educators, for Educators"
+msgstr ""
+
+#: databasic/templates/home/index.html:90
+msgid ""
+"Work with high-schoolers? Journalists? Community groups? Graduate "
+"students?  Us too!!!  That's why we designed and tested the DataBasic "
+"tools and activities in our classrooms and in workshops with those "
+"audiences.  These tools were born out of frustration with things we were "
+"trying to use in our undergraduate classes, so we feel your pain."
+msgstr ""
+
+#: databasic/templates/home/index.html:94
+msgid "Accessible to All"
+msgstr ""
+
+#: databasic/templates/home/index.html:95
+msgid ""
+"Digital technologies have empowered those with disabilities in a variety "
+"of ways, and new web standards have made it easier than ever to build new"
+" tools that are accessible to all.  DataBasic implements those "
+"technologies to support screen readers so the visually impaired can start"
+" working with data in new and exciting ways."
+msgstr ""
+
+#: databasic/templates/samediff/samediff.html:19
 msgid ""
 "SameDiff compares two or more text files and tells you how similar or "
 "different they are."
 msgstr ""
+"SameDiff compara dos o más archivos de texto y te dice qué tan similares "
+"o diferentes son."
 
-#: databasic/templates/samediff/samediff.html:18
+#: databasic/templates/samediff/samediff.html:20
 #, python-format
 msgid ""
 "SameDiff compares one %(corpus)s of text to another corpus of text to "
@@ -290,35 +414,46 @@ msgid ""
 "%(algorithm)s to rate whether the documents are really similar or totally"
 " different."
 msgstr ""
+"SameDiff compara un %(corpus)s de texto con otro corpus de texto para "
+"mostrarte las similitudes y diferencias. Usa un %(algorithm)s de "
+"%(cosine_similarity)s para evaluar si los documentos son realmente "
+"similares o totalmente diferentes."
 
-#: databasic/templates/samediff/samediff.html:24
+#: databasic/templates/samediff/samediff.html:26
 msgid "Compare"
-msgstr ""
+msgstr "Comparar"
 
-#: databasic/templates/wordcounter/wordcounter.html:4
-msgid "Word-Counter"
-msgstr ""
-
-#: databasic/templates/wordcounter/wordcounter.html:20
+#: databasic/templates/wordcounter/wordcounter.html:21
 #, python-format
 msgid ""
 "This tool helps you count words, %(bigram)s, and %(trigram)s in plain "
 "text. This is often the first step in quantitative text analysis."
 msgstr ""
-
-#: databasic/templates/wordcounter/wordcounter.html:21
-msgid "bigrams"
-msgstr ""
+"Esta herramienta te ayuda a contar palabras, %(bigram)s y %(trigram)s "
+"en el texto plano. A menudo este es el primer paso en el análisis "
+"cuantitativo de texto."
 
 #: databasic/templates/wordcounter/wordcounter.html:22
+msgid "bigrams"
+msgstr "bigramas"
+
+#: databasic/templates/wordcounter/wordcounter.html:22
+msgid "A bigram is a two word phrase"
+msgstr ""
+
+#: databasic/templates/wordcounter/wordcounter.html:23
 msgid "trigrams"
+msgstr "trigramas"
+
+#: databasic/templates/wordcounter/wordcounter.html:23
+msgid "A trigram is a three word phrase"
 msgstr ""
 
 #: databasic/templates/wordcounter/wordcounter.html:26
 msgid "Count"
-msgstr ""
+msgstr "Contar"
 
-#: databasic/templates/wtfcsv/wtfcsv.html:18
+#: databasic/templates/wtfcsv/wtfcsv.html:20
 #, python-format
 msgid ""
 "Data arrives at your doorstep in the form of a spreadsheet but how do you"
@@ -326,65 +461,275 @@ msgid ""
 "characterizing each column's %(data_type)s and contents so that you can "
 "ask more questions."
 msgstr ""
+"Los datos llegan a tu puerta en forma de hoja de cálculo, pero ¿cómo "
+"encontrar una historia entre las filas y las columnas? WTFcsv te "
+"proporciona el primer paso para caracterizar cada columna de cada %(data_type)s y contenidos para que puedas hacer más preguntas."
 
-#: databasic/templates/wtfcsv/wtfcsv.html:22
+#: databasic/templates/wtfcsv/wtfcsv.html:24
 msgid "Analyze"
-msgstr ""
+msgstr "Analizar"
 
 #: databasic/views/samediff.py:39 databasic/views/samediff.py:50
 #, python-format
 msgid "%(f1)s and %(f2)s"
-msgstr ""
+msgstr "%(f1)s y %(f2)s"
 
 #: databasic/views/samediff.py:93
 msgid "word"
-msgstr ""
+msgstr "palabra"
 
 #: databasic/views/samediff.py:93
 msgid "uses in"
-msgstr ""
+msgstr "usos en"
 
 #: databasic/views/samediff.py:93
 msgid "total uses"
-msgstr ""
+msgstr "usos totales"
 
 #: databasic/views/samediff.py:129
 msgid "almost the same"
-msgstr ""
+msgstr "casi lo mismo"
 
 #: databasic/views/samediff.py:131
 msgid "sort of similar"
-msgstr ""
+msgstr "algo similares"
 
 #: databasic/views/samediff.py:133
 msgid "kind of similar"
-msgstr ""
+msgstr "un poco similares"
 
 #: databasic/views/samediff.py:135
 msgid "kind of similar, and also kind of different"
-msgstr ""
+msgstr "un poco similares y un poco diferentes también"
 
 #: databasic/views/samediff.py:137
 msgid "pretty different"
-msgstr ""
+msgstr "bastante diferentes"
 
 #: databasic/views/samediff.py:139
 msgid "very different"
-msgstr ""
+msgstr "muy diferentes"
 
 #: databasic/views/samediff.py:141
 msgid "completely different"
-msgstr ""
+msgstr "completamente diferentes"
 
 #: databasic/views/wordcounter.py:42
 msgid "your text"
-msgstr ""
+msgstr "tu texto"
 
 #: databasic/views/wordcounter.py:74
 msgid "title"
-msgstr ""
+msgstr "título"
 
-#: databasic/views/wtfcsv.py:142
+#: databasic/views/wtfcsv.py:143
+#, fuzzy
 msgid "Other"
-msgstr ""
+msgstr "Otro"
+
+#~ msgid "https://docs.google.com/spreadsheets/"
+#~ msgstr ""
+
+#~ msgid ""
+#~ msgstr ""
+
+#~ msgid "%(word)s, %(times)s"
+#~ msgstr ""
+
+#~ msgid "almost_the_same"
+#~ msgstr ""
+
+#~ msgid "%(filename)s"
+#~ msgstr ""
+
+#~ msgid "%(samplename)s"
+#~ msgstr ""
+
+#~ msgid "Upload a second file"
+#~ msgstr "subir un archivo"
+
+#~ msgid "SameDiff results"
+#~ msgstr ""
+
+#~ msgid "Your <strong>SameDiff</strong> Report"
+#~ msgstr ""
+
+#~ msgid "download"
+#~ msgstr ""
+
+#~ msgid "These two documents are %(description)s."
+#~ msgstr ""
+
+#~ msgid "They have a %(cosine_sim)s score of %(score)s"
+#~ msgstr ""
+
+#~ msgid "cosine similarity"
+#~ msgstr ""
+
+#~ msgid "Words that are only in %(document)s"
+#~ msgstr ""
+
+#~ msgid "Words that are in %(doc)s"
+#~ msgstr ""
+
+#~ msgid " uses in %(doc)s"
+#~ msgstr ""
+
+#~ msgid " uses"
+#~ msgstr ""
+
+#~ msgid "Words in common"
+#~ msgstr ""
+
+#~ msgid "Words in Common"
+#~ msgstr ""
+
+#~ msgid "Word"
+#~ msgstr ""
+
+#~ msgid "Total Uses"
+#~ msgstr ""
+
+#~ msgid "Uses in"
+#~ msgstr ""
+
+#~ msgid "Sorry, your results are still being processed."
+#~ msgstr ""
+
+#~ msgid "Word-Counter results"
+#~ msgstr ""
+
+#~ msgid "Top Words"
+#~ msgstr ""
+
+#~ msgid "download csv of word frequencies"
+#~ msgstr ""
+
+#~ msgid "Frequency"
+#~ msgstr ""
+
+#~ msgid "Bigrams"
+#~ msgstr ""
+
+#~ msgid "%(bigram)s"
+#~ msgstr ""
+
+#~ msgid "Bigram"
+#~ msgstr ""
+
+#~ msgid "Trigrams"
+#~ msgstr ""
+
+#~ msgid "%(trigram)s"
+#~ msgstr ""
+
+#~ msgid "Trigram"
+#~ msgstr ""
+
+#~ msgid "WTFcsv: "
+#~ msgstr ""
+
+#~ msgid "%(rows)s rows of data grouped into %(cols)s columns."
+#~ msgstr ""
+
+#~ msgid "Here's some %(metadata)s about each column."
+#~ msgstr ""
+
+#~ msgid "metadata"
+#~ msgstr ""
+
+#~ msgid "This column is full of"
+#~ msgstr ""
+
+#~ msgid "The unique values in this column are:"
+#~ msgstr ""
+
+#~ msgid "The most frequent values in this column are:"
+#~ msgstr ""
+
+#~ msgid "occurs %(frequency)s times"
+#~ msgstr ""
+
+#~ msgid "The earliest date is"
+#~ msgstr ""
+
+#~ msgid "The earliest time is"
+#~ msgstr ""
+
+#~ msgid "The smallest number is"
+#~ msgstr ""
+
+#~ msgid "The latest date is"
+#~ msgstr ""
+
+#~ msgid "The latest time is"
+#~ msgstr ""
+
+#~ msgid "The biggest number is"
+#~ msgstr ""
+
+#~ msgid "The total is"
+#~ msgstr ""
+
+#~ msgid "The average is"
+#~ msgstr ""
+
+#~ msgid "The median is"
+#~ msgstr ""
+
+#~ msgid "The standard deviation is"
+#~ msgstr ""
+
+#~ msgid "There is missing data in this column"
+#~ msgstr ""
+
+#~ msgid "Finding Stories in Data"
+#~ msgstr "Encontrando historias en los datos"
+
+#~ msgid ""
+#~ "This suite of tools helps learners "
+#~ "understand how to get started with "
+#~ "data analysis, whether you are looking"
+#~ " at spreadsheets or text. In our "
+#~ "classes we introduce non-programmers to"
+#~ " data analysis and storytelling. We "
+#~ "want to help unlock the power of"
+#~ " digital tools for everyone."
+#~ msgstr ""
+#~ "Esta suite de herramientas ayuda a "
+#~ "los estudiantes a entender cómo empezar"
+#~ " con los análisis de datos, ya "
+#~ "sea que trabajes con hojas de "
+#~ "cálculo o textos. En nuestras clases,"
+#~ " introducimos a los no programadores "
+#~ "a los análisis y las narrativas de"
+#~ " datos. Queremos ayudar a liberar el"
+#~ " poder de las herramientas digitales "
+#~ "para todos."
+
+#~ msgid ""
+#~ "There are a number of computer-"
+#~ "assisted data analysis techniques like "
+#~ "this that are readily available to "
+#~ "programmers. Some of these are even "
+#~ "just one line of code, but that"
+#~ " one line is incomprehensible if you"
+#~ " don't know how to program. We "
+#~ "built this site to help bridge "
+#~ "that gap, so non-programmers can "
+#~ "take advantage of these capabilities."
+#~ msgstr ""
+#~ "Hay varias técnicas de análisis de "
+#~ "datos asistidas por computadora como "
+#~ "éstas que están fácilmente disponibles "
+#~ "para los programadores. Algunas de estas"
+#~ " son una sola línea de código, "
+#~ "pero esa línea es incomprensible si "
+#~ "no sabes programar. Creamos este sitio"
+#~ " para ayudar a franquear esa barrera,"
+#~ " y que los no programadores puedan"
+#~ " aprovechar estas capacidades."
+
+#~ msgid "Word-Counter"
+#~ msgstr "Word-Counter"
 
