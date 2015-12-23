@@ -110,6 +110,18 @@ def get_locale():
 def index():
     return redirect('/' + get_locale())
 
+@app.route('/wordcounter')
+def wordcounter():
+    return redirect('/' + get_locale() + '/wordcounter')
+
+@app.route('/samediff')
+def samediff():
+    return redirect('/' + get_locale() + '/samediff')
+
+@app.route('/wtfcsv')
+def wtfcsv():
+    return redirect('/' + get_locale() + '/wtfcsv')
+
 @app.route('/auth')
 def auth():
     if 'code' not in request.args:
