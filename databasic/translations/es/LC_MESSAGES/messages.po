@@ -175,9 +175,8 @@ msgid "SameDiff"
 msgstr "SameDiff"
 
 #: databasic/templates/footer.html:19 databasic/templates/tool_footer.html:32
-#, fuzzy
 msgid "about"
-msgstr "Contar"
+msgstr "acerca"
 
 #: databasic/templates/footer.html:20 databasic/templates/tool_footer.html:33
 msgid "blog"
@@ -185,7 +184,7 @@ msgstr "blog"
 
 #: databasic/templates/footer.html:21 databasic/templates/tool_footer.html:34
 msgid "help"
-msgstr ""
+msgstr "ayuda"
 
 #: databasic/templates/macros.html:6
 msgid "choose input type"
@@ -225,13 +224,12 @@ msgid "What do I do next?"
 msgstr "¿Qué hago ahora?"
 
 #: databasic/templates/tool_base.html:13
-#, fuzzy, python-format
 msgid "About %(tool_name)s"
-msgstr "ir a %(tool_name)s"
+msgstr "Acerca de %(tool_name)s"
 
 #: databasic/templates/tool_base.html:25
 msgid "Are you an Educator? Try our Activity Guide"
-msgstr ""
+msgstr "¿Ud. es maestro? Prueba nuestra guía de actividades"
 
 #: databasic/templates/tool_base.html:26
 msgid ""
@@ -242,11 +240,11 @@ msgstr ""
 
 #: databasic/templates/tool_base.html:33
 msgid "Download (English)"
-msgstr ""
+msgstr "Bajar (English)"
 
 #: databasic/templates/tool_base.html:34
 msgid "Download (Español)"
-msgstr ""
+msgstr "Bajar (Español)"
 
 #: databasic/templates/tool_nav.html:4
 #, python-format
@@ -297,13 +295,12 @@ msgstr ""
 "o diferentes son."
 
 #: databasic/templates/home/index.html:53
-#, fuzzy
 msgid "Why use DataBasic?"
 msgstr "¿Por qué DataBasic?"
 
 #: databasic/templates/home/index.html:59
 msgid "Making Data Fun"
-msgstr ""
+msgstr "Datos Divertidos"
 
 #: databasic/templates/home/index.html:60
 msgid ""
@@ -523,7 +520,6 @@ msgid "title"
 msgstr "título"
 
 #: databasic/views/wtfcsv.py:143
-#, fuzzy
 msgid "Other"
 msgstr "Otro"
 
