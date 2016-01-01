@@ -23,6 +23,9 @@
     </div>
     {{ render_forms(forms, action_url=tool_name, action_text=_('Analyze')) }}
   </div>
-  {{ about_section(_('WTFcsv'), 'b1iJGmDNUSM') }}
+  {{ about_section(_('WTFcsv'), 'b1iJGmDNUSM', 
+        url_for('static', filename='img/wordcounter-sheet-thumbnail.jpg') 
+
+  ) }}
 </div>
 {% endblock %}

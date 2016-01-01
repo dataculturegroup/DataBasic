@@ -25,6 +25,9 @@
     </div>
     {{ render_forms(forms, action_url=tool_name, action_text=_('Compare')) }}
   </div>
-  {{ about_section(_('SameDiff'), 'hZ_-S-uLuRs') }}
+  {{ about_section(_('SameDiff'), 'hZ_-S-uLuRs', 
+        url_for('static', filename='img/samediff-sheet-thumbnail.jpg') 
+
+  ) }}
 </div>
 {% endblock %}

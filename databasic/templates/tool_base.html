@@ -5,7 +5,7 @@
   <h3 class="text-center" aria-hidden="true"><a href="#what-next">{{ _("What do I do next?") }}</a></h3>
 {%- endmacro %}
 
-{% macro about_section(name, video_id) -%}
+{% macro about_section(name, video_id, activity_sheet_thumbnail_img, activity_sheet_en, activity_sheet_es) -%}
   <div class="bottom-section">
     <div class="container-fluid">
       <div class="row" id="what-next">
@@ -26,10 +26,10 @@
             <p>{{_("DataBasic activities are suitable for classes and workshops for participants from middle school through higher education. No prior data experience necessary!")}}</p>
           </div>
           <div class="row">
-            <div class="col-sm-5" id="thumbnail-container">
-              <img src="http://lorempixel.com/300/300/cats/" id="activity-thumbnail">
+            <div class="col-sm-2" id="thumbnail-container">
+              <img width=-"116" height="150" class="img-thumbnail" src="{{activity_sheet_thumbnail_img}}" id="activity-thumbnail" alt="{{ _("activity sheet thumbnail")}}" aria-hidden="true">
             </div>
-            <div class="col-sm-7">
+            <div class="col-sm-6">
               <button class="btn btn-lg btn-primary" id="download-english">{{ _('Download (English)') }}</button>
               <button class="btn btn-lg btn-primary" id="download-spanish">{{ _('Download (Español)') }}</button>
             </div>

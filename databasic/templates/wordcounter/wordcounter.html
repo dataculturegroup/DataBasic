@@ -25,6 +25,9 @@
     </div>
     {{ render_forms(forms, action_url=tool_name, action_text=_('Count')) }}
   </div>
-  {{ about_section(_('WordCounter'), '3FvxOALuGOk') }}
+  {{ about_section(_('WordCounter'), '3FvxOALuGOk',
+          url_for('static', filename='img/wordcounter-sheet-thumbnail.jpg') 
+
+  ) }}
 </div>
 {% endblock %}
