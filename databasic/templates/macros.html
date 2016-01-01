@@ -96,7 +96,7 @@
     {# hack to show the stopwords tooltip #}
     {% if _('Ignore stopwords') in field.label.text %}
       {{ _('Ignore %(stopwords)s',
-      stopwords=hover_tooltip("stopwords")) }}
+      stopwords=hover_tooltip(_("stopwords"), _('Stopwords are words in text analysis that are ignored such as "this", "that", "and" and "but."'))) }}
     {% else %}
       {{ field.label }}
     {% endif %}
@@ -189,35 +189,7 @@
   </div>
 {%- endmacro %}
 
-{% macro hover_tooltip(term, position='top') -%}
-  {% if term == 'bigram' %}
-    {% set term = _("bigram") %}
-    {% set tooltip = _("A bigram is a two word phrase") %}
-  {% elif term == 'trigram' %}
-    {% set term = _("trigram") %}
-    {% set tooltip = _("A trigram is a three word phrase") %}
-  {% elif term == 'stopwords' %}
-    {% set term = _("stopwords") %}
-    {% set tooltip = _('Stopwords are words in text analysis that are ignored such as "this", "that", "and" and "but."') %}
-  {% elif term == 'cosine similarity' %}
-    {% set term = _("cosine similarity") %}
-    {% set tooltip = _("The Cosine Similarity score tries to tell you how similar two documents are based on the number of times words are used in each.") %}
-  {% elif term == 'corpus' %}
-    {% set term = _("corpus") %}
-    {% set tooltip = _("A collection of written texts. For example, all of the lyrics in Katy Perry songs.") %}
-  {% elif term == 'algorithm' %}
-    {% set term = _("algorithm") %}
-    {% set tooltip = _("A set of steps you (or a computer) do in order to solve a problem. For example, when you type in a search term, Google runs an algorithm to figure out which pages to show you.") %}
-  {% elif term == 'metadata' %}
-    {% set term = _("metadata") %}
-    {% set tooltip = _("Metadata summarizes basic information about your data.") %}
-  {% elif term == 'data type' %} 
-    {% set term = _("data type") %}
-    {% set tooltip = _("Data is often classified by type. Common types of data include numbers, dates and text.") %}  
-  {% else %}
-    {% set term = "missing term" %}
-    {% set tooltip = "missing tooltip" %}
-  {% endif %}
+{% macro hover_tooltip(term, tooltip, position='top') -%}
   <a data-trigger="focus hover" data-placement="{{ position }}" data-toggle="tooltip" data-trigger="hover" href="#tooltip" data-original-title="{{ tooltip }}" aria-label="{{ term }}" role="definition" onmouseover="ga('send', 'event', '{{ tool_name }}', '{{ term }}', 'tooltip');">{{ term }}</a>
 {%- endmacro %}
 

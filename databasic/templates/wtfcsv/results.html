@@ -88,7 +88,7 @@
                 cols=results[index]['columns']|length) }}
                 <br />
                 {{_("Here's some %(metadata)s about each column.", 
-                metadata=hover_tooltip('metadata'))}}
+                metadata=hover_tooltip( _('metadata'), _("Metadata summarizes basic information about your data.") ))}}
               </p>
               {% if 'no_data' not in whatnext %}
                 {{ what_next_anchor() }}

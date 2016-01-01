@@ -34,7 +34,7 @@
         {% else %}
         <div class="top-info">
           <h2>No Results To Show</h2>
-          <p>{{ _('Sorry, but we didn\'t find any results to show. Maybe your text is too short... or maybe it is all %(stopwords)s', stopwords=hover_tooltip('stopwords')) }}</p>
+          <p>{{ _('Sorry, but we didn\'t find any results to show. Maybe your text is too short... or maybe it is all %(stopwords)s', stopwords=hover_tooltip( _('stopwords'), _('Stopwords are words in text analysis that are ignored such as "this", "that", "and" and "but."') )) }}</p>
         </div>
         {% endif %}
       </div>
@@ -68,7 +68,7 @@
         <table class="table">
           <thead>
             <tr>
-              <th>{{ _('%(bigram)s', bigram=hover_tooltip("bigram")) }}</th>
+              <th>{{ _('%(bigram)s', bigram=hover_tooltip( _("bigram"), _('A bigram is a two word phrase') )) }}</th>
               <th>{{ _('Frequency') }}</th>
             </tr>
           </thead>
@@ -89,7 +89,7 @@
         <table class="table" role="presentation">
           <thead>
             <tr>
-              <th>{{ _('%(trigram)s', trigram=hover_tooltip("trigram")) }}</th>
+              <th>{{ _('%(trigram)s', trigram=hover_tooltip(_("trigram"), _('A trigram is a three word phrase') )) }}</th>
               <th>{{ _('Frequency') }}</th>
             </tr>
           </thead>

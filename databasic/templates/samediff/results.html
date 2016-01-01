@@ -28,7 +28,7 @@
         {{ _('These two documents are %(description)s.', description=cosine_similarity['description']) }}
         <br />
         ({{ _('They have a %(cosine_sim)s score of %(score)s',
-            cosine_sim=hover_tooltip(_('cosine similarity')),
+            cosine_sim=hover_tooltip(_('cosine similarity'), _("The Cosine Similarity score tries to tell you how similar two documents are based on the number of times words are used in each.")),
             score=cosine_similarity['score']|round(2)) }})
         </p>
       </div>
