@@ -429,7 +429,7 @@ msgstr ""
 
 #: databasic/templates/samediff/samediff.html:21
 msgid "corpus"
-msgstr ""
+msgstr "corpus"
 
 #: databasic/templates/samediff/samediff.html:21
 msgid ""
@@ -438,26 +438,25 @@ msgid ""
 msgstr "Una colleción de textos. Por ejemplo, todos los líricos de Katy Perry."
 
 #: databasic/templates/samediff/samediff.html:22
-#, fuzzy
 msgid "cosine similarity"
-msgstr "un poco similares"
+msgstr "similitud coseno"
 
 #: databasic/templates/samediff/samediff.html:22
 msgid ""
 "The Cosine Similarity score tries to tell you how similar two documents "
 "are based on the number of times words are used in each."
-msgstr ""
+msgstr "El índice de similitud coseno te dice cuan parecidos son dos documentos. Está basado en la frecuencia de las palabras."
 
 #: databasic/templates/samediff/samediff.html:23
 msgid "algorithm"
-msgstr ""
+msgstr "algorithm"
 
 #: databasic/templates/samediff/samediff.html:23
 msgid ""
 "A set of steps you (or a computer) do in order to solve a problem. For "
 "example, when you type in a search term, Google runs an algorithm to "
 "figure out which pages to show you."
-msgstr ""
+msgstr "Una collectión de pasos que hace una computadora o un ser humano para solucionar un problema."
 
 #: databasic/templates/samediff/samediff.html:26
 msgid "Compare"
