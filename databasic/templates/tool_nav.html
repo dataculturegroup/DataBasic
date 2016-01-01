@@ -5,5 +5,5 @@
   </div>
 {% endblock %}
 {% block logo %}
-<a href="{{ url_for('index') }}" class="pull-left" id="logo" role="button" aria-label="{{ _('go to data basic home page') }}"><img src="/static/img/logos/databasic.png"></a>
+<a href="{{ url_for('index') }}{{ g['current_lang'] }}" class="pull-left" id="logo" role="button" aria-label="{{ _('go to data basic home page') }}"><img src="/static/img/logos/databasic.png"></a>
 {% endblock %}
