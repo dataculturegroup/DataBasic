@@ -1,14 +1,14 @@
 # Translations template for PROJECT.
-# Copyright (C) 2015 ORGANIZATION
+# Copyright (C) 2016 ORGANIZATION
 # This file is distributed under the same license as the PROJECT project.
-# FIRST AUTHOR <EMAIL@ADDRESS>, 2015.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2016.
 #
 #, fuzzy
 msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2015-12-22 11:06-0500\n"
+"POT-Creation-Date: 2016-01-01 14:27-0500\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -156,8 +156,6 @@ msgid "Only files under 10MB are accepted"
 msgstr ""
 
 #: databasic/templates/footer.html:16 databasic/templates/tool_footer.html:29
-#: databasic/templates/wordcounter/wordcounter.html:4
-#: databasic/templates/wordcounter/wordcounter.html:28
 msgid "WordCounter"
 msgstr ""
 
@@ -194,7 +192,7 @@ msgstr ""
 msgid "Ignore %(stopwords)s"
 msgstr ""
 
-#: databasic/templates/macros.html:99
+#: databasic/templates/macros.html:99 databasic/templates/macros.html:200
 msgid "stopwords"
 msgstr ""
 
@@ -210,11 +208,82 @@ msgstr ""
 msgid "Play video"
 msgstr ""
 
-#: databasic/templates/nav_base.html:5
+#: databasic/templates/macros.html:194
+msgid "bigram"
+msgstr ""
+
+#: databasic/templates/macros.html:195
+msgid "A bigram is a two word phrase"
+msgstr ""
+
+#: databasic/templates/macros.html:197
+msgid "trigram"
+msgstr ""
+
+#: databasic/templates/macros.html:198
+msgid "A trigram is a three word phrase"
+msgstr ""
+
+#: databasic/templates/macros.html:201
+msgid ""
+"Stopwords are words in text analysis that are ignored such as \"this\", "
+"\"that\", \"and\" and \"but.\""
+msgstr ""
+
+#: databasic/templates/macros.html:203
+msgid "cosine similarity"
+msgstr ""
+
+#: databasic/templates/macros.html:204
+msgid ""
+"The Cosine Similarity score tries to tell you how similar two documents "
+"are based on the number of times words are used in each."
+msgstr ""
+
+#: databasic/templates/macros.html:206
+msgid "corpus"
+msgstr ""
+
+#: databasic/templates/macros.html:207
+msgid ""
+"A collection of written texts. For example, all of the lyrics in Katy "
+"Perry songs."
+msgstr ""
+
+#: databasic/templates/macros.html:209
+msgid "algorithm"
+msgstr ""
+
+#: databasic/templates/macros.html:210
+msgid ""
+"A set of steps you (or a computer) do in order to solve a problem. For "
+"example, when you type in a search term, Google runs an algorithm to "
+"figure out which pages to show you."
+msgstr ""
+
+#: databasic/templates/macros.html:212
+msgid "metadata"
+msgstr ""
+
+#: databasic/templates/macros.html:213
+msgid "Metadata summarizes basic information about your data."
+msgstr ""
+
+#: databasic/templates/macros.html:215
+msgid "data type"
+msgstr ""
+
+#: databasic/templates/macros.html:216
+msgid ""
+"Data is often classified by type. Common types of data include numbers, "
+"dates and text."
+msgstr ""
+
+#: databasic/templates/nav_base.html:4
 msgid "change language to english"
 msgstr ""
 
-#: databasic/templates/nav_base.html:6
+#: databasic/templates/nav_base.html:5
 msgid "change language to spanish"
 msgstr ""
 
@@ -268,7 +337,6 @@ msgid ""
 msgstr ""
 
 #: databasic/templates/home/index.html:25
-#: databasic/templates/wordcounter/wordcounter.html:19
 msgid ""
 "WordCounter analyzes your text and tells you the most common words and "
 "phrases."
@@ -403,33 +471,6 @@ msgstr ""
 
 #: databasic/templates/samediff/samediff.html:26
 msgid "Compare"
-msgstr ""
-
-#: databasic/templates/wordcounter/wordcounter.html:21
-#, python-format
-msgid ""
-"This tool helps you count words, %(bigram)s, and %(trigram)s in plain "
-"text. This is often the first step in quantitative text analysis."
-msgstr ""
-
-#: databasic/templates/wordcounter/wordcounter.html:22
-msgid "bigrams"
-msgstr ""
-
-#: databasic/templates/wordcounter/wordcounter.html:22
-msgid "A bigram is a two word phrase"
-msgstr ""
-
-#: databasic/templates/wordcounter/wordcounter.html:23
-msgid "trigrams"
-msgstr ""
-
-#: databasic/templates/wordcounter/wordcounter.html:23
-msgid "A trigram is a three word phrase"
-msgstr ""
-
-#: databasic/templates/wordcounter/wordcounter.html:26
-msgid "Count"
 msgstr ""
 
 #: databasic/templates/wtfcsv/wtfcsv.html:20

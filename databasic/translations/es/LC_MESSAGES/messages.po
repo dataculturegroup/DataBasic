@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2015-12-22 11:06-0500\n"
+"POT-Creation-Date: 2016-01-01 14:27-0500\n"
 "PO-Revision-Date: 2015-12-21 14:00-0600\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language: es\n"
@@ -157,8 +157,6 @@ msgid "Only files under 10MB are accepted"
 msgstr "Sólo se aceptan archivos menores a 10MB"
 
 #: databasic/templates/footer.html:16 databasic/templates/tool_footer.html:29
-#: databasic/templates/wordcounter/wordcounter.html:4
-#: databasic/templates/wordcounter/wordcounter.html:28
 msgid "WordCounter"
 msgstr "WordCounter"
 
@@ -195,7 +193,7 @@ msgstr "elegir tipo de entrada"
 msgid "Ignore %(stopwords)s"
 msgstr "Ignorar %(stopwords)s"
 
-#: databasic/templates/macros.html:99
+#: databasic/templates/macros.html:99 databasic/templates/macros.html:200
 msgid "stopwords"
 msgstr "palabras de paro"
 
@@ -211,11 +209,93 @@ msgstr "Puedes compartir estos resultados con esta url:"
 msgid "Play video"
 msgstr "Reproducir video"
 
-#: databasic/templates/nav_base.html:5
+#: databasic/templates/macros.html:194
+#, fuzzy
+msgid "bigram"
+msgstr "bigramas"
+
+#: databasic/templates/macros.html:195
+msgid "A bigram is a two word phrase"
+msgstr "Una bigrama es una frase con dos palabras"
+
+#: databasic/templates/macros.html:197
+#, fuzzy
+msgid "trigram"
+msgstr "trigramas"
+
+#: databasic/templates/macros.html:198
+msgid "A trigram is a three word phrase"
+msgstr "Una trigrama es una frase con tres palabras"
+
+#: databasic/templates/macros.html:201
+msgid ""
+"Stopwords are words in text analysis that are ignored such as \"this\", "
+"\"that\", \"and\" and \"but.\""
+msgstr ""
+"Palabras de paro están ignorados en el analisís de texto por ejemplo \"este\", "
+"\"aquello\", \"y\" and \"pero.\""
+
+#: databasic/templates/macros.html:203
+#, fuzzy
+msgid "cosine similarity"
+msgstr "similitud cosine"
+
+#: databasic/templates/macros.html:204
+msgid ""
+"The Cosine Similarity score tries to tell you how similar two documents "
+"are based on the number of times words are used in each."
+msgstr ""
+
+#: databasic/templates/macros.html:206
+msgid "corpus"
+msgstr "corpus"
+
+#: databasic/templates/macros.html:207
+msgid ""
+"A collection of written texts. For example, all of the lyrics in Katy "
+"Perry songs."
+msgstr ""
+"Una collectión de textos. Por ejemplo, todas los líricos de las canciones"
+" de Katy Perry"
+
+#: databasic/templates/macros.html:209
+msgid "algorithm"
+msgstr "algorithm"
+
+#: databasic/templates/macros.html:210
+msgid ""
+"A set of steps you (or a computer) do in order to solve a problem. For "
+"example, when you type in a search term, Google runs an algorithm to "
+"figure out which pages to show you."
+msgstr ""
+"Una colleción de pasos hechos por una computadora o un ser humano para "
+"solucionar un problema."
+
+#: databasic/templates/macros.html:212
+msgid "metadata"
+msgstr "metadata"
+
+#: databasic/templates/macros.html:213
+msgid "Metadata summarizes basic information about your data."
+msgstr "Metadata hace un resumen de tus datos."
+
+#: databasic/templates/macros.html:215
+msgid "data type"
+msgstr "Tipo de datos"
+
+#: databasic/templates/macros.html:216
+msgid ""
+"Data is often classified by type. Common types of data include numbers, "
+"dates and text."
+msgstr ""
+"Se classifican los datos por su tipo. Los tipos incluyen números, fechas "
+"y texto."
+
+#: databasic/templates/nav_base.html:4
 msgid "change language to english"
 msgstr "cambiar lenguaje a inglés"
 
-#: databasic/templates/nav_base.html:6
+#: databasic/templates/nav_base.html:5
 msgid "change language to spanish"
 msgstr "cambiar lenguaje a español"
 
@@ -224,6 +304,7 @@ msgid "What do I do next?"
 msgstr "¿Qué hago ahora?"
 
 #: databasic/templates/tool_base.html:13
+#, python-format
 msgid "About %(tool_name)s"
 msgstr "Acerca de %(tool_name)s"
 
@@ -273,7 +354,6 @@ msgstr ""
 "historias que contar."
 
 #: databasic/templates/home/index.html:25
-#: databasic/templates/wordcounter/wordcounter.html:19
 msgid ""
 "WordCounter analyzes your text and tells you the most common words and "
 "phrases."
@@ -420,36 +500,6 @@ msgstr ""
 msgid "Compare"
 msgstr "Comparar"
 
-#: databasic/templates/wordcounter/wordcounter.html:21
-#, python-format
-msgid ""
-"This tool helps you count words, %(bigram)s, and %(trigram)s in plain "
-"text. This is often the first step in quantitative text analysis."
-msgstr ""
-"Esta herramienta te ayuda a contar palabras, %(bigram)s y %(trigram)s "
-"en el texto plano. A menudo este es el primer paso en el análisis "
-"cuantitativo de texto."
-
-#: databasic/templates/wordcounter/wordcounter.html:22
-msgid "bigrams"
-msgstr "bigramas"
-
-#: databasic/templates/wordcounter/wordcounter.html:22
-msgid "A bigram is a two word phrase"
-msgstr ""
-
-#: databasic/templates/wordcounter/wordcounter.html:23
-msgid "trigrams"
-msgstr "trigramas"
-
-#: databasic/templates/wordcounter/wordcounter.html:23
-msgid "A trigram is a three word phrase"
-msgstr ""
-
-#: databasic/templates/wordcounter/wordcounter.html:26
-msgid "Count"
-msgstr "Contar"
-
 #: databasic/templates/wtfcsv/wtfcsv.html:20
 #, python-format
 msgid ""
@@ -460,7 +510,8 @@ msgid ""
 msgstr ""
 "Los datos llegan a tu puerta en forma de hoja de cálculo, pero ¿cómo "
 "encontrar una historia entre las filas y las columnas? WTFcsv te "
-"proporciona el primer paso para caracterizar cada columna de cada %(data_type)s y contenidos para que puedas hacer más preguntas."
+"proporciona el primer paso para caracterizar cada columna de cada "
+"%(data_type)s y contenidos para que puedas hacer más preguntas."
 
 #: databasic/templates/wtfcsv/wtfcsv.html:24
 msgid "Analyze"
@@ -682,50 +733,9 @@ msgstr "Otro"
 #~ msgid "Finding Stories in Data"
 #~ msgstr "Encontrando historias en los datos"
 
-#~ msgid ""
-#~ "This suite of tools helps learners "
-#~ "understand how to get started with "
-#~ "data analysis, whether you are looking"
-#~ " at spreadsheets or text. In our "
-#~ "classes we introduce non-programmers to"
-#~ " data analysis and storytelling. We "
-#~ "want to help unlock the power of"
-#~ " digital tools for everyone."
-#~ msgstr ""
-#~ "Esta suite de herramientas ayuda a "
-#~ "los estudiantes a entender cómo empezar"
-#~ " con los análisis de datos, ya "
-#~ "sea que trabajes con hojas de "
-#~ "cálculo o textos. En nuestras clases,"
-#~ " introducimos a los no programadores "
-#~ "a los análisis y las narrativas de"
-#~ " datos. Queremos ayudar a liberar el"
-#~ " poder de las herramientas digitales "
-#~ "para todos."
-
-#~ msgid ""
-#~ "There are a number of computer-"
-#~ "assisted data analysis techniques like "
-#~ "this that are readily available to "
-#~ "programmers. Some of these are even "
-#~ "just one line of code, but that"
-#~ " one line is incomprehensible if you"
-#~ " don't know how to program. We "
-#~ "built this site to help bridge "
-#~ "that gap, so non-programmers can "
-#~ "take advantage of these capabilities."
-#~ msgstr ""
-#~ "Hay varias técnicas de análisis de "
-#~ "datos asistidas por computadora como "
-#~ "éstas que están fácilmente disponibles "
-#~ "para los programadores. Algunas de estas"
-#~ " son una sola línea de código, "
-#~ "pero esa línea es incomprensible si "
-#~ "no sabes programar. Creamos este sitio"
-#~ " para ayudar a franquear esa barrera,"
-#~ " y que los no programadores puedan"
-#~ " aprovechar estas capacidades."
-
 #~ msgid "Word-Counter"
 #~ msgstr "Word-Counter"
+
+#~ msgid "Count"
+#~ msgstr "Contar"
 
