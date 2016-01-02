@@ -445,7 +445,7 @@ msgstr "similitud coseno"
 msgid ""
 "The Cosine Similarity score tries to tell you how similar two documents "
 "are based on the number of times words are used in each."
-msgstr "El índice de similitud coseno te dice cuan parecidos son dos documentos. Está basado en la frecuencia de las palabras."
+msgstr "El índice de similitud coseno te dice cuan parecidos son dos documentos. Está basado en la frecuencia de las palabras.`"
 
 #: databasic/templates/samediff/samediff.html:23
 msgid "algorithm"
@@ -507,13 +507,13 @@ msgstr ""
 
 #: databasic/templates/wtfcsv/wtfcsv.html:21
 msgid "data type"
-msgstr ""
+msgstr "tipo de datos"
 
 #: databasic/templates/wtfcsv/wtfcsv.html:21
 msgid ""
 "Data is often classified by type. Common types of data include numbers, "
 "dates and text."
-msgstr ""
+msgstr "Se classifican los datos por su típo. Típos de datos incluyen números, fechas y texto."
 
 #: databasic/templates/wtfcsv/wtfcsv.html:24
 msgid "Analyze"
@@ -598,10 +598,10 @@ msgstr "Otro"
 #~ msgstr "subir un archivo"
 
 #~ msgid "SameDiff results"
-#~ msgstr ""
+#~ msgstr "SameDiff resultados"
 
 #~ msgid "Your <strong>SameDiff</strong> Report"
-#~ msgstr ""
+#~ msgstr "Su Informe de <strong>SameDiff</strong>"
 
 #~ msgid "download"
 #~ msgstr ""
