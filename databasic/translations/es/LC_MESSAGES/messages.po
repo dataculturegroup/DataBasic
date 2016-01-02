@@ -629,7 +629,7 @@ msgstr[1] ""
 
 #: databasic/templates/wordcounter/results.html:114
 msgid "in the top 40 bigrams, and "
-msgstr ""
+msgstr "en las 40 bigramas con más frecuencia, y"
 
 #: databasic/templates/wordcounter/results.html:115
 #, python-format
@@ -682,31 +682,31 @@ msgstr "Contar"
 #: databasic/templates/wtfcsv/results.html:7
 #: databasic/templates/wtfcsv/results.html:155
 msgid "This column is full of"
-msgstr ""
+msgstr "Esta columna tiene"
 
 #: databasic/templates/wtfcsv/results.html:30
 msgid "Click to see the details"
-msgstr ""
+msgstr "Haga clic para ver las detalles"
 
 #: databasic/templates/wtfcsv/results.html:30
 msgid "Click to see the chart"
-msgstr ""
+msgstr "Haga clic para ver la gráfica"
 
 #: databasic/templates/wtfcsv/results.html:41
 #: databasic/templates/wtfcsv/results.html:83
 msgid "WTFcsv: "
-msgstr ""
+msgstr "WTFcsv"
 
 #: databasic/templates/wtfcsv/results.html:59
 msgid ""
 "We can't analyze that data because it's not in a standard form. Your "
 "first row should contain the names of your columns."
-msgstr ""
+msgstr "No podemos analizar estos datos porque no están en una forma estándar. La primera fila debe contener los nombres de las columnas."
 
 #: databasic/templates/wtfcsv/results.html:86
 #, python-format
 msgid "%(rows)s rows of data grouped into %(cols)s columns."
-msgstr ""
+msgstr "%(rows)s filas de datos agrupados en %(cols)s columnas."
 
 #: databasic/templates/wtfcsv/results.html:90
 #, python-format
