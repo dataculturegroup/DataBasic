@@ -96,10 +96,6 @@ nltk.data.path.append(local_nltk_path)
 
 @app.before_request
 def before():
-    if app_mode == APP_MODE_PRODUCTION:
-        if 'https' not in request.url:
-            logger.debug("forcing https")
-            return redirect(request.url.replace('http', 'https'))
     if request.view_args and 'lang_code' in request.view_args:
         if request.view_args['lang_code'] not in ('es', 'en'):
             return abort(404) # bail on invalid language
