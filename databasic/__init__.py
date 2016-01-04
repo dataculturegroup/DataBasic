@@ -4,6 +4,7 @@ from flask import Flask, Blueprint, g, redirect, request, abort
 from flask.ext.assets import Environment, Bundle
 from flask.ext.babel import Babel
 from flask_debugtoolbar import DebugToolbarExtension
+from flask_sslify import SSLify
 #from flask.ext.mail import Mail
 from sassutils.wsgi import SassMiddleware
 from babel.support import LazyProxy
@@ -62,6 +63,11 @@ elif app_mode == APP_MODE_PRODUCTION:
             logger.error("Looks like you have not set the %s environment variable!" % var_name)
 else:
     logger.error("invalid APP_MODE of %s" % app_mode)
+
+# Use ssl if we're in production mode on Heroku
+if app_mode == APP_MODE_PRODUCTION:
+    logger.info("Using SSLify")
+    sslify = SSLify(app)
 
 # Setup sass auto-compiling
 app.wsgi_app = SassMiddleware(app.wsgi_app, {
