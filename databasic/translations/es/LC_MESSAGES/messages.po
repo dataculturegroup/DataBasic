@@ -715,53 +715,53 @@ msgstr ""
 
 #: databasic/templates/wtfcsv/results.html:91
 msgid "metadata"
-msgstr ""
+msgstr "metadata"
 
 #: databasic/templates/wtfcsv/results.html:91
 msgid "Metadata summarizes basic information about your data."
-msgstr ""
+msgstr "Metadata "
 
 #: databasic/templates/wtfcsv/results.html:129
 msgid "value"
-msgstr ""
+msgstr "valor"
 
 #: databasic/templates/wtfcsv/results.html:130
 msgid "frequency"
-msgstr ""
+msgstr "frecuencia"
 
 #: databasic/templates/wtfcsv/results.html:141
 msgid "No data to display."
-msgstr ""
+msgstr "No hay información que mostrar."
 
 #: databasic/templates/wtfcsv/results.html:153
 #, python-format
 msgid "Full name: \"%(name)s\""
-msgstr ""
+msgstr "Nombre y apellido: \"%(name)s\""
 
 #: databasic/templates/wtfcsv/results.html:157
 msgid "The unique values in this column are:"
-msgstr ""
+msgstr "Los valores distintos en esta columna son:"
 
 #: databasic/templates/wtfcsv/results.html:165
 msgid "The most frequent values in this column are:"
-msgstr ""
+msgstr "Los valores mas frecuentes en esta columna son:"
 
 #: databasic/templates/wtfcsv/results.html:169
 #, python-format
 msgid "occurs %(frequency)s times"
-msgstr ""
+msgstr "ocurre %(frequency)s veces"
 
 #: databasic/templates/wtfcsv/results.html:183
 msgid "The earliest date is"
-msgstr ""
+msgstr "La primera fecha es"
 
 #: databasic/templates/wtfcsv/results.html:185
 msgid "The earliest time is"
-msgstr ""
+msgstr "La primera hora es"
 
 #: databasic/templates/wtfcsv/results.html:187
 msgid "The smallest number is"
-msgstr ""
+msgstr "El número"
 
 #: databasic/templates/wtfcsv/results.html:193
 msgid "The latest date is"
@@ -818,7 +818,7 @@ msgstr ""
 
 #: databasic/templates/wtfcsv/results.html:370
 msgid "Categories"
-msgstr ""
+msgstr "Categorías"
 
 #: databasic/templates/wtfcsv/results.html:372
 #, fuzzy
