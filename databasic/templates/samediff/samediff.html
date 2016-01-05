@@ -27,7 +27,7 @@
   </div>
   {{ about_section(_('SameDiff'), '150671162',
         url_for('static', filename='img/samediff-sheet-thumbnail.jpg'), 
-        url_for('static', filename='files/SameDiff Activity Guide v1_0_0.pdf')
+        "/"+g['current_lang']+"/samediff/samediff-activity-guide.pdf"
   ) }}
 </div>
 {% endblock %}

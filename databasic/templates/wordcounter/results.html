@@ -113,14 +113,15 @@
   + ngettext("the %(num)d use ", "the %(num)d uses ", whatnext['word_in_bigrams_count']) 
   + _("in the top 40 bigrams, and ")
   + ngettext("the %(num)s use ", "the %(num)s uses ", whatnext['word_in_trigrams_count'])
-  + _("in the top 40 trigrams, to understand the context of how it is used.  With that richer understanding of the context, you can sketch out a picture of why \"%(top_word)s\" is so important in %(title)s. <br/><br />So grab some paper and some crayons and start drawing what you see!  Check out our <a href=\"#\" onclick=\"ga('send', 'event', 'wordcounter', 'activity-guide');\">activity guide</a> for more help on sketching out a story.  Want to dig into the data more? Download all the <a href=\"%(download_words)s\" onclick=\"ga('send', 'event', 'wordcounter', 'words-dl');\">word counts</a>, <a href=\"%(download_bigrams)s\" onclick=\"ga('send', 'event', 'wordcounter', 'bigrams-dl');\">bigrams</a>, or <a href=\"%(download_trigrams)s\" onclick=\"ga('send', 'event', 'wordcounter', 'trigrams-dl');\">trigrams</a> and investigate why \"%(random_unpopular_word)s\" is used %(random_unpopular_word_count)s times!",
+  + _("in the top 40 trigrams, to understand the context of how it is used.  With that richer understanding of the context, you can sketch out a picture of why \"%(top_word)s\" is so important in %(title)s. <br/><br />So grab some paper and some crayons and start drawing what you see!  Check out our <a href=\"%(activity_guide_url)s\" onclick=\"ga('send', 'event', 'wordcounter', 'activity-guide');\">activity guide</a> for more help on sketching out a story.  Want to dig into the data more? Download all the <a href=\"%(download_words)s\" onclick=\"ga('send', 'event', 'wordcounter', 'words-dl');\">word counts</a>, <a href=\"%(download_bigrams)s\" onclick=\"ga('send', 'event', 'wordcounter', 'bigrams-dl');\">bigrams</a>, or <a href=\"%(download_trigrams)s\" onclick=\"ga('send', 'event', 'wordcounter', 'trigrams-dl');\">trigrams</a> and investigate why \"%(random_unpopular_word)s\" is used %(random_unpopular_word_count)s times!",
   top_word=whatnext['top_word'],
   download_words=download_words,
   download_bigrams=download_bigrams,
   download_trigrams=download_trigrams,
   title=title,
   random_unpopular_word=whatnext['random_unpopular_word'],
-  random_unpopular_word_count=whatnext['random_unpopular_word_count'])) }}
+  random_unpopular_word_count=whatnext['random_unpopular_word_count'],
+  activity_guide_url="/"+g['current_lang']+"/wordcounter/wordcounter-activity-guide.pdf")) }}
   {% endif %}
 </div>
 {% endblock %}

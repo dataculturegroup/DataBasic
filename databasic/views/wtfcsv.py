@@ -1,9 +1,9 @@
 import json, logging
 from collections import OrderedDict
-from databasic import mongo
+from databasic import mongo, get_base_dir
 from databasic.forms import WTFCSVUpload, WTFCSVLink, WTFCSVSample
 from databasic.logic import wtfcsvstat, filehandler, oauth
-from flask import Blueprint, render_template, request, redirect, g, abort
+from flask import Blueprint, render_template, request, redirect, g, abort, send_from_directory
 from flask.ext.babel import gettext, ngettext
 import os, logging, random
 
@@ -76,6 +76,16 @@ def results(doc_id):
 @mod.route('/results/<doc_id>/sheets/<sheet_idx>')
 def results_sheet(doc_id, sheet_idx):
     return render_results(doc_id, sheet_idx)
+
+@mod.route('/wtfcsv-activity-guide.pdf')
+def download_activity_guide():
+    filename = None
+    if g.current_lang == 'en':
+        filename = "WTFcsv Activity Guide v1_0_0.pdf"
+    if filename is None:
+        abort(500)
+    files_path = os.path.join(get_base_dir(),'databasic','static','files')
+    return send_from_directory(directory=files_path, filename=filename)
 
 def render_results(doc_id, sheet_idx):
 

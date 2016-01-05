@@ -25,7 +25,7 @@
   </div>
   {{ about_section(_('WTFcsv'), '150216437', 
         url_for('static', filename='img/wtfcsv-sheet-thumbnail.jpg'), 
-        url_for('static', filename='files/WTFcsv Activity Guide v1_0_0.pdf')
+        "/"+g['current_lang']+"/wtfcsv/wtfcsv-activity-guide.pdf"
   ) }}
 </div>
 {% endblock %}

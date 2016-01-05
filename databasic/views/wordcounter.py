@@ -1,9 +1,9 @@
 import os, random, logging
 from collections import OrderedDict
-from databasic import app, mongo
+from databasic import app, mongo, get_base_dir
 from databasic.forms import WordCounterPaste, WordCounterUpload, WordCounterSample, WordCounterLink
 from databasic.logic import wordhandler, filehandler, oauth
-from flask import Blueprint, render_template, request, redirect, g, abort
+from flask import Blueprint, render_template, request, redirect, g, abort, send_from_directory
 from flask.ext.babel import lazy_gettext as _
 
 mod = Blueprint('wordcounter', __name__, url_prefix='/<lang_code>/wordcounter', template_folder='../templates/wordcounter')
@@ -157,6 +157,16 @@ def download_csv(doc_id, analysis_type):
     if file_path is None:
         abort(500)
     return filehandler.generate_csv(file_path)
+
+@mod.route('/wordcounter-activity-guide.pdf')
+def download_activity_guide():
+    filename = None
+    if g.current_lang == 'en':
+        filename = "WordCounter Activity Guide v1_0_0.pdf"
+    if filename is None:
+        abort(500)
+    files_path = os.path.join(get_base_dir(),'databasic','static','files')
+    return send_from_directory(directory=files_path, filename=filename)
 
 def process_upload(doc):
     file_path = filehandler.open_doc(doc)

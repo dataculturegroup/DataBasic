@@ -27,7 +27,7 @@
   </div>
   {{ about_section(_('WordCounter'), '150671183',
         url_for('static', filename='img/wordcounter-sheet-thumbnail.jpg'), 
-        url_for('static', filename='files/WordCounter Activity Guide v1_0_0.pdf')
+        "/"+g['current_lang']+"/wordcounter/wordcounter-activity-guide.pdf"
   ) }}
 </div>
 {% endblock %}

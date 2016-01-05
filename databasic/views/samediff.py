@@ -7,7 +7,7 @@ from databasic.forms import SameDiffUpload, SameDiffSample, SameDiffLink
 from databasic.logic import filehandler
 import databasic.tasks
 from databasic.logic import tfidfanalysis, textanalysis
-from flask import Blueprint, render_template, request, redirect, url_for, g, abort, Response
+from flask import Blueprint, render_template, request, redirect, url_for, g, abort, Response, send_from_directory
 from flask.ext.babel import lazy_gettext as _
 
 mod = Blueprint('samediff', __name__, url_prefix='/<lang_code>/samediff', template_folder='../templates/samediff')
@@ -108,6 +108,16 @@ def download(doc_id):
     except Exception as e:
         logging.exception(e)
         abort(400)
+
+@mod.route('/samediff-activity-guide.pdf')
+def download_activity_guide():
+    filename = None
+    if g.current_lang == 'en':
+        filename = "SameDiff Activity Guide v1_0_0.pdf"
+    if filename is None:
+        abort(500)
+    files_path = os.path.join(get_base_dir(),'databasic','static','files')
+    return send_from_directory(directory=files_path, filename=filename)
 
 def process_results(file_paths, titles, sample_id, source):
     file_names = filehandler.get_file_names(file_paths)
