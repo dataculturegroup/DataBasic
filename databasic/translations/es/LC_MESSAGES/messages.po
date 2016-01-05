@@ -591,8 +591,8 @@ msgstr "en las 40 bigramas con más frecuencia, y"
 #, python-format
 msgid "the %(num)s use "
 msgid_plural "the %(num)s uses "
-msgstr[0] "el %(num)d uso"
-msgstr[1] "los %(num)d usos"
+msgstr[0] "el %(num)s uso"
+msgstr[1] "los %(num)s usos"
 
 #: databasic/templates/wordcounter/results.html:116
 #, python-format
