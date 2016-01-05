@@ -26,8 +26,8 @@
     {{ render_forms(forms, action_url=tool_name, action_text=_('Compare')) }}
   </div>
   {{ about_section(_('SameDiff'), 'hZ_-S-uLuRs', 
-        url_for('static', filename='img/samediff-sheet-thumbnail.jpg') 
-
+        url_for('static', filename='img/samediff-sheet-thumbnail.jpg'), 
+        url_for('static', filename='files/SameDiff Activity Guide v1_0_0.pdf')
   ) }}
 </div>
 {% endblock %}

@@ -1,5 +1,5 @@
 {% extends "tool_base.html" %}
-{% from 'macros.html' import render_forms, hover_tooltip with context %}
+{% from 'macros.html' import render_forms, about_section, hover_tooltip with context %}
 
 {% block title %}{{ _('WordCounter') }}{% endblock %}
 
@@ -26,8 +26,8 @@
     {{ render_forms(forms, action_url=tool_name, action_text=_('Count')) }}
   </div>
   {{ about_section(_('WordCounter'), '3FvxOALuGOk',
-          url_for('static', filename='img/wordcounter-sheet-thumbnail.jpg') 
-
+        url_for('static', filename='img/wordcounter-sheet-thumbnail.jpg'), 
+        url_for('static', filename='files/WordCounter Activity Guide v1_0_0.pdf')
   ) }}
 </div>
 {% endblock %}
