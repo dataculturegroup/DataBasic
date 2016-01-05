@@ -385,7 +385,7 @@ msgstr "Estos dos documentos son %(description)s."
 #: databasic/templates/samediff/results.html:30
 #, python-format
 msgid "They have a %(cosine_sim)s score of %(score)s"
-msgstr ""
+msgstr "Tienen un índice de %(cosine_sim)s de %(score)s"
 
 #: databasic/templates/samediff/results.html:31
 #: databasic/templates/samediff/samediff.html:22
@@ -429,15 +429,28 @@ msgid ""
 "'samediff-dl');\">Download the full results as a CSV file</a> to compare "
 "the files even further."
 msgstr ""
+"Comparar documentos de texto es una manera de aprender lo que hace cada uno "
+"único. ¿Es significativo que \"%(most_common_word)s\" y  "
+"\"%(second_most_common_word)s\" son las palabras usadas con más frecuencia? "
+"¿Por qúe el documento %(doc2)s usa la palabra \"%(doc2_most_common_word)s\" tantas veces,"
+" mientras que ni aparezca en el documento %(doc1)s? Con estas preguntas, "
+"se puede hacer un boceto que compara los dos documentos. <br /><br />Encuentre"
+" una pizarra blanca y empiece su historia. Echa un vistazo a nuestra <a "
+"href=\"#\" onclick=\"ga('send', 'event', 'samediff', 'activity-"
+"guide');\">guía de actividades</a> para ayuda en dibujar su historia "
+"de comparación.  ¿Quiere aprender más de sus datos?  <a "
+"href=\"%(download)s\" onclick=\"ga('send', 'event', 'samediff', "
+"'samediff-dl');\">Baja todos los resultados como archivo .CSV </a> para compararlos "
+"más."
 
 #: databasic/templates/samediff/results.html:108
 #, python-format
 msgid " uses in %(doc)s"
-msgstr "usos en %(doc)s"
+msgstr " usos en %(doc)s"
 
 #: databasic/templates/samediff/results.html:110
 msgid " uses"
-msgstr "usos"
+msgstr " usos"
 
 #: databasic/templates/samediff/samediff.html:19
 msgid ""
@@ -498,6 +511,10 @@ msgid ""
 "picture, called a \"word cloud\", is helpful to get a sense of the most "
 "used words in a document."
 msgstr ""
+"Aquí una imagen de las palabras usadas en su documento. Palabras "
+"con más frecuencia son más grandes, y con menos son más pequeñas. Esta "
+"gráfica, llamada una \"nube de palabras\", le ayuda a comprender cuales palabras "
+"aparezcan con más frecuencia en el documento."
 
 #: databasic/templates/wordcounter/results.html:37
 #, python-format
@@ -733,15 +750,15 @@ msgstr "El número"
 
 #: databasic/templates/wtfcsv/results.html:193
 msgid "The latest date is"
-msgstr ""
+msgstr "La última fecha es"
 
 #: databasic/templates/wtfcsv/results.html:195
 msgid "The latest time is"
-msgstr ""
+msgstr "La última hora es"
 
 #: databasic/templates/wtfcsv/results.html:197
 msgid "The biggest number is"
-msgstr ""
+msgstr "El número más grande es"
 
 #: databasic/templates/wtfcsv/results.html:201
 msgid "The total is"
