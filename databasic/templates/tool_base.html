@@ -25,7 +25,7 @@
               <img width=-"116" height="150" class="img-thumbnail" src="{{activity_sheet_thumbnail_img}}" id="activity-thumbnail" alt="{{ _("activity sheet thumbnail")}}" aria-hidden="true">
             </div>
             <div class="col-xs-10">
-              <a href="{{activity_sheet_en}}"><button class="btn btn-lg btn-primary" id="download-english">{{ _('Download (English)') }}</button></a>
+              <a href="{{activity_sheet_en}}" onclick="ga('send', 'event', {{tool_name}}, 'activity-guide');"><button class="btn btn-lg btn-primary" id="download-english">{{ _('Download (English)') }}</button></a>
               <!--
               <button class="btn btn-lg btn-primary" id="download-spanish">{{ _('Download (Español)') }}</button>
               -->
