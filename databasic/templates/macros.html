@@ -166,29 +166,6 @@
   </div>
 {%- endmacro %}
 
-{% macro video_modal(button_text, src) -%}
-  
-  <div class="row centered-row">
-    <a href="#video-modal" class="btn btn-lg btn-primary" id="video-modal-btn" data-toggle="modal" role="button" aria-expanded="false" data-target="#video-modal"><span class="glyphicon glyphicon-play-circle" aria-hidden="true"></span><br>{{ _("Play video") }}</a>
-  </div>
-
-  <div id="video-modal" class="modal fade">
-    <div class="modal-dialog">
-      <div class="modal-content">
-        <div class="modal-header">
-          <button type="button" class="close" data-dismiss="modal" aria-hidden="true" aria-label="{{ _('close video window') }}">×</button>
-          <h4 class="modal-title">{{ button_text }}</h4>
-        </div>
-        <div class="modal-body">
-          <div>
-            <iframe id="playerid" width="560" height="315" src={{ src }} frameborder="0" allowfullscreen></iframe>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-{%- endmacro %}
-
 {% macro hover_tooltip(term, tooltip, position='top') -%}
   <a data-trigger="focus hover" data-placement="{{ position }}" data-toggle="tooltip" data-trigger="hover" href="#tooltip" data-original-title="{{ tooltip }}" aria-label="{{ term }}" role="definition" onmouseover="ga('send', 'event', '{{ tool_name }}', '{{ term }}', 'tooltip');">{{ term }}</a>
 {%- endmacro %}
