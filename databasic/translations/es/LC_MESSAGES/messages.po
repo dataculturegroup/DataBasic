@@ -241,15 +241,8 @@ msgid "Are you an Educator? Try our Activity Guide"
 msgstr "¿Ud. es maestro? Prueba nuestra guía de actividades"
 
 #: databasic/templates/tool_base.html:26
-msgid ""
-"DataBasic activities are suitable for classes and workshops for "
-"participants from middle school through higher education. No prior data "
-"experience necessary!"
-msgstr ""
-
-#: databasic/templates/tool_base.html:30
-msgid "activity sheet thumbnail"
-msgstr ""
+msgid "DataBasic activities are suitable for classes and workshops for participants from middle school through higher education. No prior data experience necessary!"
+msgstr "Las actividades de DataBasic son adecuadas para cursos y talleres para participantes desde educación media básica hasta educación superior.  ¡No se necesita experiencia previa en datos!"
 
 #: databasic/templates/tool_base.html:33
 msgid "Download (English)"
@@ -316,88 +309,52 @@ msgid "Making Data Fun"
 msgstr "Datos Divertidos"
 
 #: databasic/templates/home/index.html:60
-msgid ""
-"Spreadsheets and large Word documents can be boring and intimidating. We "
-"think working with data should be more fun! Take a look at our activity "
-"guides for hands-on approaches to analyzing your data using these tools."
-"  Activity guides combined with fun data sets like music lyrics can help "
-"you take a playful approach to finding stories in your data. Don't you "
-"want to know \"what the fudge\" is going on with your CSV file?"
-msgstr ""
+msgid "Spreadsheets and large Word documents can be boring and intimidating. We think working with data should be more fun! Take a look at our activity guides for hands-on approaches to analyzing your data using these tools.  Activity guides combined with fun data sets like music lyrics can help you take a playful approach to finding stories in your data. Don't you want to know \"what the fudge\" is going on with your CSV file?"
+msgstr "Las hojas de cálculo y los documentos grandes de Word pueden ser aburridos e intimidantes. ¡Nosotros creemos que trabajar con datos debería ser divertido! Échale un vistazo a nuestras guías de actividades para encontrar acercamientos prácticos al análisis de tus datos usando estas herramientas. Las guías de actividades combinadas con datos divertidos, como letras musicales, pueden ayudarte a que abordes de manera entretenida la búsqueda de historias en tus datos. ¿No te gustaría saber \"qué diablos\" está pasando en tu archivo CSV?"
 
 #: databasic/templates/home/index.html:68
 msgid "Doing One Thing Well"
-msgstr ""
+msgstr "Hacer una sola cosa bien"
 
 #: databasic/templates/home/index.html:69
-msgid ""
-"There are tons of tools for working with data; many so complex they are "
-"intimidating to even start with.  We've built each DataBasic tool to "
-"focus on doing one thing well, so you know exactly what each can be used "
-"for.  This lets us concentrate on making that one thing both simple and "
-"powerful."
-msgstr ""
+msgid "There are tons of tools for working with data; many so complex they are intimidating to even start with.  We've built each DataBasic tool to focus on doing one thing well, so you know exactly what each can be used for.  This lets us concentrate on making that one thing both simple and powerful."
+msgstr "Hay muchas herramientas para trabajar con datos; algunas son tan complejas que hasta los primeros pasos son intimidantes. Hemos creado cada herramienta de DataBasic para centrarnos en hacer una sola cosa bien, para que sepas exactamente para qué se puede usar cada una. Esto nos permite concentrarnos en que esa cosa sea a la vez simple y poderosa. "
 
 #: databasic/templates/home/index.html:72
 msgid "Focused on Learning "
-msgstr ""
+msgstr "Un enfoque en el aprendizaje"
 
 #: databasic/templates/home/index.html:73
-msgid ""
-"Sometimes faster isn't better.  If you really want to learn how to work "
-"with data to find stories to tell, you'll need to use tools that do more "
-"than just give you a chart as quickly as possible.  That's why we've "
-"built DataBasic with learners in mind.  Don't know what some technical "
-"word means? Hover over it to see a quick definition.  Not sure how to use"
-" a tool?  Try some of the fun sample data like music lyrics and UFO "
-"sightings we've included to get started."
-msgstr ""
+msgid "Sometimes faster isn't better.  If you really want to learn how to work with data to find stories to tell, you'll need to use tools that do more than just give you a chart as quickly as possible.  That's why we've built DataBasic with learners in mind.  Don't know what some technical word means? Hover over it to see a quick definition.  Not sure how to use a tool?  Try some of the fun sample data like music lyrics and UFO sightings we've included to get started."
+msgstr "A veces lo más rápido no es lo mejor.  Si de verdad quieres aprender a trabajar con datos para encontrar historias en ellos, tendrás que usar herramientas que hacen algo más que darte una gráfica rápida. Por eso creamos DataBasic pensando en los que están aprendiendo. ¿No sabes lo que significa una palabra técnica? Pon el cursor sobre ella para ver una definición rápida. ¿No sabes bien cómo usar una herramienta? Prueba algunos de los divertidos datos de muestra que hemos incluido para empezar, como letras musicales o avistamientos de OVNIS."
 
 #: databasic/templates/home/index.html:76
 msgid "Fitting in to Your Pipeline"
-msgstr ""
+msgstr "Ajustándose a tu proyecto"
 
 #: databasic/templates/home/index.html:77
-msgid ""
-"Working with data online always involves using a mishmash of tools. We're"
-" not going to solve that problem anytime soon.  So we've built DataBasic "
-"to take in a variety of types of data, and output results in the formats "
-"you're used to.  Read some content from website and download CSV files of"
-" your results. These are just two of the ways we try to introduce you to "
-"the way most folks work data online."
-msgstr ""
+msgid "Working with data online always involves using a mishmash of tools. We're not going to solve that problem anytime soon.  So we've built DataBasic to take in a variety of types of data, and output results in the formats you're used to.  Read some content from website and download CSV files of your results. These are just two of the ways we try to introduce you to the way most folks work data online."
+msgstr "Trabajar con datos en línea siempre implica una mescolanza de herramientas. Ese problema no se va a solucionar pronto. Por eso hicimos que DataBasic pueda manejar varios tipos de datos, y ofrezca resultados en los formatos acostumbrados. Lee contenido del sitio y descarga archivos CSV de tus resultados. Estos son sólo dos de los modos en que tratamos de introducirte a la forma en la que casi todos trabajan los datos en línea. "
 
 #: databasic/templates/home/index.html:85
 msgid "Ensuring Your Privacy"
-msgstr ""
+msgstr "Tu privacidad asegurada"
 
 #: databasic/templates/home/index.html:86
-msgid ""
-"With more and more data-centric tools moving online, sometimes it can be "
-"hard to tell where your data is going and what will happen with it after "
-"you upload it.  We store information you upload for only the amount of "
-"time it takes us to analyze it, then we delete it.  The aggregate results"
-" we show you - metadata - are kept for 60 days, and then we delete them."
-"  All communications are over https, so other folks can't eavesdrop on "
-"the data as you upload it."
-msgstr ""
+msgid "With more and more data-centric tools moving online, sometimes it can be hard to tell where your data is going and what will happen with it after you upload it.  We store information you upload for only the amount of time it takes us to analyze it, then we delete it.  The aggregate results we show you - metadata - are kept for 60 days, and then we delete them.  All communications are over https, so other folks can't eavesdrop on the data as you upload it."
+msgstr "Con más y más herramientas para datos moviéndose en línea, a veces es difícil saber a dónde van tus datos y qué le pasará cuando los subas. Nosotros guardamos la información que subes sólo por el tiempo que nos toma analizarla, y luego la borramos. Los resultados agregados que te mostramos--los metadatos--se conservan por 60 días, y luego los borramos. Toda la comunicación ocurre por https, así que nadie puede fisgonear en tus datos mientras los subes. "
 
 #: databasic/templates/home/index.html:89
 msgid "By Educators, for Educators"
-msgstr ""
+msgstr "Por educadores, para educadores"
 
 #: databasic/templates/home/index.html:90
-msgid ""
-"Work with high-schoolers? Journalists? Community groups? Graduate "
-"students?  Us too!!!  That's why we designed and tested the DataBasic "
-"tools and activities in our classrooms and in workshops with those "
-"audiences.  These tools were born out of frustration with things we were "
-"trying to use in our undergraduate classes, so we feel your pain."
-msgstr ""
+msgid "Work with high-schoolers? Journalists? Community groups? Graduate students?  Us too!!!  That's why we designed and tested the DataBasic tools and activities in our classrooms and in workshops with those audiences.  These tools were born out of frustration with things we were trying to use in our undergraduate classes, so we feel your pain."
+msgstr "¿Trabajas con estudiantes adolescentes? ¿Periodistas? ¿Grupos comunitarios? ¿Estudiantes de posgrado? ¡Nosotros también! Por eso diseñamos y probamos las herramientas y actividades de DataBasic en nuestros cursos y talleres dirigidos a esos públicos. Estas herramientas nacieron de la frustración que nos causaban las cosas que usábamos en nuestras clases universitarias, así que sentimos tu dolor."
 
 #: databasic/templates/home/index.html:94
 msgid "Accessible to All"
-msgstr ""
+msgstr "Accesibles para todos"
 
 #: databasic/templates/home/index.html:95
 msgid ""
@@ -406,7 +363,7 @@ msgid ""
 " tools that are accessible to all.  DataBasic implements those "
 "technologies to support screen readers so the visually impaired can start"
 " working with data in new and exciting ways."
-msgstr ""
+msgstr "Las tecnologías digitales les han dado mucho poder a las personas con discapacidad en varias formas, y los nuevos estándares de la red han facilitado más que nunca la creación de herramientas accesibles para todos. DataBasic implementa esas tecnologías para soportar lectores de pantalla para que aquellos con deficiencias visuales puedan trabajar con los datos en formas nuevas y emocionantes."
 
 #: databasic/templates/samediff/results.html:9
 msgid "SameDiff results"
@@ -1112,4 +1069,3 @@ msgstr "Otro"
 
 #~ msgid "data type"
 #~ msgstr "Tipo de datos"
-
