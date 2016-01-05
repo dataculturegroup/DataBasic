@@ -367,20 +367,20 @@ msgstr "Las tecnologías digitales les han dado mucho poder a las personas con d
 
 #: databasic/templates/samediff/results.html:9
 msgid "SameDiff results"
-msgstr ""
+msgstr "Resultados de SameDiff"
 
 #: databasic/templates/samediff/results.html:24
 msgid "Your <strong>SameDiff</strong> Report"
-msgstr ""
+msgstr "Su Informe de <strong>SameDiff</strong>"
 
 #: databasic/templates/samediff/results.html:25
 msgid "download"
-msgstr ""
+msgstr "bajar"
 
 #: databasic/templates/samediff/results.html:28
 #, python-format
 msgid "These two documents are %(description)s."
-msgstr ""
+msgstr "Estos dos documentos son %(description)s."
 
 #: databasic/templates/samediff/results.html:30
 #, python-format
@@ -405,12 +405,12 @@ msgstr ""
 #: databasic/templates/samediff/results.html:47
 #, python-format
 msgid "Words that are only in %(document)s"
-msgstr ""
+msgstr "Palabras que solo ocurren en %(document)s"
 
 #: databasic/templates/samediff/results.html:43
 #, python-format
 msgid "Words that are in %(doc)s"
-msgstr ""
+msgstr "Palabras en %(doc)s"
 
 #: databasic/templates/samediff/results.html:52
 #, python-format
@@ -489,7 +489,7 @@ msgstr "Comparar"
 
 #: databasic/templates/wordcounter/results.html:10
 msgid "Word-Counter results"
-msgstr ""
+msgstr "resultados de Word-Counter"
 
 #: databasic/templates/wordcounter/results.html:28
 msgid ""
@@ -504,7 +504,7 @@ msgstr ""
 msgid ""
 "Sorry, but we didn't find any results to show. Maybe your text is too "
 "short... or maybe it is all %(stopwords)s"
-msgstr ""
+msgstr "Siento que no hay resultados. Tal vez su texto es demasiado corto... o quizás solo contiene palabras de paro."
 
 #: databasic/templates/wordcounter/results.html:46
 msgid "Top Words"
@@ -522,7 +522,7 @@ msgstr "Palabra"
 #: databasic/templates/wordcounter/results.html:72
 #: databasic/templates/wordcounter/results.html:93
 msgid "Frequency"
-msgstr ""
+msgstr "Frecuencia"
 
 #: databasic/templates/wordcounter/results.html:66
 msgid "Bigrams"
@@ -533,13 +533,13 @@ msgid "download csv of bigram frequencies"
 msgstr "bajar csv de frecuencias de bigramas"
 
 #: databasic/templates/wordcounter/results.html:71
-#, fuzzy, python-format
+#, python-format
 msgid "%(bigram)s"
-msgstr "bigramas"
+msgstr "%(bigram)s"
 
 #: databasic/templates/wordcounter/results.html:71
 msgid "bigram"
-msgstr "bigramas"
+msgstr "bigrama"
 
 #: databasic/templates/wordcounter/results.html:71
 #: databasic/templates/wordcounter/wordcounter.html:22
@@ -555,14 +555,13 @@ msgid "download csv of trigram frequencies"
 msgstr "bajar csv de frecuencias de trigramas"
 
 #: databasic/templates/wordcounter/results.html:92
-#, fuzzy, python-format
+#, python-format
 msgid "%(trigram)s"
-msgstr "trigramas"
+msgstr "%(trigram)s"
 
 #: databasic/templates/wordcounter/results.html:92
-#, fuzzy
 msgid "trigram"
-msgstr "trigramas"
+msgstr "trigrama"
 
 #: databasic/templates/wordcounter/results.html:92
 #: databasic/templates/wordcounter/wordcounter.html:23
@@ -575,14 +574,14 @@ msgid ""
 "Examining text data in this quantitative way can help you find stories to"
 " tell in your data.  The fact that \"%(top_word)s\" is a popular word is "
 "good to know, but combine that with "
-msgstr ""
+msgstr "Analizando datos textuales de una manera cuantitativa le ayuda a encontrar historias a contar. El hecho que \"%(top_word)s\" es una palabra popular es bueno saber. Combínalo con "
 
 #: databasic/templates/wordcounter/results.html:113
 #, python-format
 msgid "the %(num)d use "
 msgid_plural "the %(num)d uses "
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "el %(num)d uso"
+msgstr[1] "los %(num)d usos"
 
 #: databasic/templates/wordcounter/results.html:114
 msgid "in the top 40 bigrams, and "
@@ -592,8 +591,8 @@ msgstr "en las 40 bigramas con más frecuencia, y"
 #, python-format
 msgid "the %(num)s use "
 msgid_plural "the %(num)s uses "
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "el %(num)d uso"
+msgstr[1] "los %(num)d usos"
 
 #: databasic/templates/wordcounter/results.html:116
 #, python-format
@@ -652,7 +651,7 @@ msgstr "Haga clic para ver la gráfica"
 #: databasic/templates/wtfcsv/results.html:41
 #: databasic/templates/wtfcsv/results.html:83
 msgid "WTFcsv: "
-msgstr "WTFcsv"
+msgstr "WTFcsv: "
 
 #: databasic/templates/wtfcsv/results.html:59
 msgid ""
@@ -668,7 +667,7 @@ msgstr "%(rows)s filas de datos agrupados en %(cols)s columnas."
 #: databasic/templates/wtfcsv/results.html:90
 #, python-format
 msgid "Here's some %(metadata)s about each column."
-msgstr ""
+msgstr "Aqui hay %(metadata)s sobre cada columna"
 
 #: databasic/templates/wtfcsv/results.html:91
 msgid "metadata"
@@ -733,28 +732,27 @@ msgid "The biggest number is"
 msgstr ""
 
 #: databasic/templates/wtfcsv/results.html:201
-#, fuzzy
 msgid "The total is"
-msgstr "usos totales"
+msgstr "El total es"
 
 #: databasic/templates/wtfcsv/results.html:204
 msgid "The average is"
-msgstr ""
+msgstr "El promedio es"
 
 #: databasic/templates/wtfcsv/results.html:207
 msgid "The median is"
-msgstr ""
+msgstr "La media es"
 
 #: databasic/templates/wtfcsv/results.html:210
 msgid "The standard deviation is"
-msgstr ""
+msgstr "La desviación estándar es"
 
 #: databasic/templates/wtfcsv/results.html:213
 #, python-format
 msgid "There is %(num)s row of missing data"
 msgid_plural "There are %(num)s rows of missing data"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "Hay %(num)s fila de datos faltantes"
+msgstr[1] "Hay %(num)s filas de datos faltantes"
 
 #: databasic/templates/wtfcsv/results.html:241
 #, python-format
@@ -771,41 +769,42 @@ msgid ""
 "what kind of stories you can find in it. Check out our <a href=\"#\" "
 "onclick=\"ga('send', 'event', 'wtfcsv', 'activity-guide');\">activity "
 "guide</a> for more help on asking questions of data sets."
-msgstr ""
+msgstr "Comprender los datos en su archivo csv es la primera etapa de analizarlo. Mirar columnas le puede ayudar identificar preguntas divertidas de sus datos. Por ejemplo, ¿le sorprende que \"%(most_common_value)s\" ocurre con la más frecuencia en la columna %(random_column_name)s? ¿Tiene sentido comparar la columna %(random_column_name2)s con la columna %(random_column_name3)s? ¿Hay más colleciónes de datos que puede encontrar para hacer preguntas interesantes de la columna %(random_column_name)s? <br /><br />Hacer estos tipos "
+"de preguntas es la primera etapa de entender los datos que tiene, y las historias que contienen. Echa un vistazo a nuestras  <a href=\"#\" "
+"onclick=\"ga('send', 'event', 'wtfcsv', 'activity-guide');\">guías de activdades "
+"</a> para más ayuda en hacer preguntas buenas de sus datos."
 
 #: databasic/templates/wtfcsv/results.html:370
 msgid "Categories"
 msgstr "Categorías"
 
 #: databasic/templates/wtfcsv/results.html:372
-#, fuzzy
 msgid "Counts"
-msgstr "Contar"
+msgstr "Totales"
 
 #: databasic/templates/wtfcsv/results.html:374
 msgid "Dates"
-msgstr ""
+msgstr "Fechas"
 
 #: databasic/templates/wtfcsv/results.html:376
-#, fuzzy
 msgid "Times"
-msgstr "trigramas"
+msgstr "Veces"
 
 #: databasic/templates/wtfcsv/results.html:378
 msgid "Dates and times"
-msgstr ""
+msgstr "Fechas y horas"
 
 #: databasic/templates/wtfcsv/results.html:380
 msgid "Booleans"
-msgstr ""
+msgstr "Booleanos"
 
 #: databasic/templates/wtfcsv/results.html:382
 msgid "Undefined"
-msgstr ""
+msgstr "Indefinido"
 
 #: databasic/templates/wtfcsv/results.html:392
 msgid "# of rows"
-msgstr ""
+msgstr "# de filas"
 
 #: databasic/templates/wtfcsv/wtfcsv.html:20
 #, python-format
