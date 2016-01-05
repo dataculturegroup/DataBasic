@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2016-01-05 13:22-0500\n"
+"POT-Creation-Date: 2016-01-02 09:22-0500\n"
 "PO-Revision-Date: 2015-12-21 14:00-0600\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language: es\n"
@@ -207,13 +207,17 @@ msgid ""
 "\"that\", \"and\" and \"but.\""
 msgstr "Palabras de paro"
 
-#: databasic/templates/macros.html:153
+#: databasic/templates/macros.html:153 databasic/templates/macros.html:179
 msgid "close video window"
 msgstr "cerrar ventana de video"
 
 #: databasic/templates/macros.html:159
 msgid "You can share these results by emailing this url:"
 msgstr "Puedes compartir estos resultados con esta url:"
+
+#: databasic/templates/macros.html:172
+msgid "Play video"
+msgstr "Reproducir video"
 
 #: databasic/templates/nav_base.html:4
 msgid "change language to english"
@@ -232,29 +236,19 @@ msgstr "¿Qué hago ahora?"
 msgid "About %(tool_name)s"
 msgstr "Acerca de %(tool_name)s"
 
-#: databasic/templates/tool_base.html:20
+#: databasic/templates/tool_base.html:25
 msgid "Are you an Educator? Try our Activity Guide"
 msgstr "¿Ud. es maestro? Prueba nuestra guía de actividades"
 
-#: databasic/templates/tool_base.html:21
-msgid ""
-"DataBasic activities are suitable for classes and workshops for "
-"participants from middle school through higher education. No prior data "
-"experience necessary!"
-msgstr ""
-"Las actividades de DataBasic son adecuadas para cursos y talleres para "
-"participantes desde educación media básica hasta educación superior.  ¡No"
-" se necesita experiencia previa en datos!"
+#: databasic/templates/tool_base.html:26
+msgid "DataBasic activities are suitable for classes and workshops for participants from middle school through higher education. No prior data experience necessary!"
+msgstr "Las actividades de DataBasic son adecuadas para cursos y talleres para participantes desde educación media básica hasta educación superior.  ¡No se necesita experiencia previa en datos!"
 
-#: databasic/templates/tool_base.html:25
-msgid "activity sheet thumbnail"
-msgstr ""
-
-#: databasic/templates/tool_base.html:28
+#: databasic/templates/tool_base.html:33
 msgid "Download (English)"
 msgstr "Bajar (English)"
 
-#: databasic/templates/tool_base.html:30
+#: databasic/templates/tool_base.html:34
 msgid "Download (Español)"
 msgstr "Bajar (Español)"
 
@@ -315,126 +309,48 @@ msgid "Making Data Fun"
 msgstr "Datos Divertidos"
 
 #: databasic/templates/home/index.html:60
-msgid ""
-"Spreadsheets and large Word documents can be boring and intimidating. We "
-"think working with data should be more fun! Take a look at our activity "
-"guides for hands-on approaches to analyzing your data using these tools."
-"  Activity guides combined with fun data sets like music lyrics can help "
-"you take a playful approach to finding stories in your data. Don't you "
-"want to know \"what the fudge\" is going on with your CSV file?"
-msgstr ""
-"Las hojas de cálculo y los documentos grandes de Word pueden ser "
-"aburridos e intimidantes. ¡Nosotros creemos que trabajar con datos "
-"debería ser divertido! Échale un vistazo a nuestras guías de actividades "
-"para encontrar acercamientos prácticos al análisis de tus datos usando "
-"estas herramientas. Las guías de actividades combinadas con datos "
-"divertidos, como letras musicales, pueden ayudarte a que abordes de "
-"manera entretenida la búsqueda de historias en tus datos. ¿No te gustaría"
-" saber \"qué diablos\" está pasando en tu archivo CSV?"
+msgid "Spreadsheets and large Word documents can be boring and intimidating. We think working with data should be more fun! Take a look at our activity guides for hands-on approaches to analyzing your data using these tools.  Activity guides combined with fun data sets like music lyrics can help you take a playful approach to finding stories in your data. Don't you want to know \"what the fudge\" is going on with your CSV file?"
+msgstr "Las hojas de cálculo y los documentos grandes de Word pueden ser aburridos e intimidantes. ¡Nosotros creemos que trabajar con datos debería ser divertido! Échale un vistazo a nuestras guías de actividades para encontrar acercamientos prácticos al análisis de tus datos usando estas herramientas. Las guías de actividades combinadas con datos divertidos, como letras musicales, pueden ayudarte a que abordes de manera entretenida la búsqueda de historias en tus datos. ¿No te gustaría saber \"qué diablos\" está pasando en tu archivo CSV?"
 
 #: databasic/templates/home/index.html:68
 msgid "Doing One Thing Well"
 msgstr "Hacer una sola cosa bien"
 
 #: databasic/templates/home/index.html:69
-msgid ""
-"There are tons of tools for working with data; many so complex they are "
-"intimidating to even start with.  We've built each DataBasic tool to "
-"focus on doing one thing well, so you know exactly what each can be used "
-"for.  This lets us concentrate on making that one thing both simple and "
-"powerful."
-msgstr ""
-"Hay muchas herramientas para trabajar con datos; algunas son tan "
-"complejas que hasta los primeros pasos son intimidantes. Hemos creado "
-"cada herramienta de DataBasic para centrarnos en hacer una sola cosa "
-"bien, para que sepas exactamente para qué se puede usar cada una. Esto "
-"nos permite concentrarnos en que esa cosa sea a la vez simple y poderosa."
-" "
+msgid "There are tons of tools for working with data; many so complex they are intimidating to even start with.  We've built each DataBasic tool to focus on doing one thing well, so you know exactly what each can be used for.  This lets us concentrate on making that one thing both simple and powerful."
+msgstr "Hay muchas herramientas para trabajar con datos; algunas son tan complejas que hasta los primeros pasos son intimidantes. Hemos creado cada herramienta de DataBasic para centrarnos en hacer una sola cosa bien, para que sepas exactamente para qué se puede usar cada una. Esto nos permite concentrarnos en que esa cosa sea a la vez simple y poderosa. "
 
 #: databasic/templates/home/index.html:72
 msgid "Focused on Learning "
 msgstr "Un enfoque en el aprendizaje"
 
 #: databasic/templates/home/index.html:73
-msgid ""
-"Sometimes faster isn't better.  If you really want to learn how to work "
-"with data to find stories to tell, you'll need to use tools that do more "
-"than just give you a chart as quickly as possible.  That's why we've "
-"built DataBasic with learners in mind.  Don't know what some technical "
-"word means? Hover over it to see a quick definition.  Not sure how to use"
-" a tool?  Try some of the fun sample data like music lyrics and UFO "
-"sightings we've included to get started."
-msgstr ""
-"A veces lo más rápido no es lo mejor.  Si de verdad quieres aprender a "
-"trabajar con datos para encontrar historias en ellos, tendrás que usar "
-"herramientas que hacen algo más que darte una gráfica rápida. Por eso "
-"creamos DataBasic pensando en los que están aprendiendo. ¿No sabes lo que"
-" significa una palabra técnica? Pon el cursor sobre ella para ver una "
-"definición rápida. ¿No sabes bien cómo usar una herramienta? Prueba "
-"algunos de los divertidos datos de muestra que hemos incluido para "
-"empezar, como letras musicales o avistamientos de OVNIS."
+msgid "Sometimes faster isn't better.  If you really want to learn how to work with data to find stories to tell, you'll need to use tools that do more than just give you a chart as quickly as possible.  That's why we've built DataBasic with learners in mind.  Don't know what some technical word means? Hover over it to see a quick definition.  Not sure how to use a tool?  Try some of the fun sample data like music lyrics and UFO sightings we've included to get started."
+msgstr "A veces lo más rápido no es lo mejor.  Si de verdad quieres aprender a trabajar con datos para encontrar historias en ellos, tendrás que usar herramientas que hacen algo más que darte una gráfica rápida. Por eso creamos DataBasic pensando en los que están aprendiendo. ¿No sabes lo que significa una palabra técnica? Pon el cursor sobre ella para ver una definición rápida. ¿No sabes bien cómo usar una herramienta? Prueba algunos de los divertidos datos de muestra que hemos incluido para empezar, como letras musicales o avistamientos de OVNIS."
 
 #: databasic/templates/home/index.html:76
 msgid "Fitting in to Your Pipeline"
 msgstr "Ajustándose a tu proyecto"
 
 #: databasic/templates/home/index.html:77
-msgid ""
-"Working with data online always involves using a mishmash of tools. We're"
-" not going to solve that problem anytime soon.  So we've built DataBasic "
-"to take in a variety of types of data, and output results in the formats "
-"you're used to.  Read some content from website and download CSV files of"
-" your results. These are just two of the ways we try to introduce you to "
-"the way most folks work data online."
-msgstr ""
-"Trabajar con datos en línea siempre implica una mescolanza de "
-"herramientas. Ese problema no se va a solucionar pronto. Por eso hicimos "
-"que DataBasic pueda manejar varios tipos de datos, y ofrezca resultados "
-"en los formatos acostumbrados. Lee contenido del sitio y descarga "
-"archivos CSV de tus resultados. Estos son sólo dos de los modos en que "
-"tratamos de introducirte a la forma en la que casi todos trabajan los "
-"datos en línea. "
+msgid "Working with data online always involves using a mishmash of tools. We're not going to solve that problem anytime soon.  So we've built DataBasic to take in a variety of types of data, and output results in the formats you're used to.  Read some content from website and download CSV files of your results. These are just two of the ways we try to introduce you to the way most folks work data online."
+msgstr "Trabajar con datos en línea siempre implica una mescolanza de herramientas. Ese problema no se va a solucionar pronto. Por eso hicimos que DataBasic pueda manejar varios tipos de datos, y ofrezca resultados en los formatos acostumbrados. Lee contenido del sitio y descarga archivos CSV de tus resultados. Estos son sólo dos de los modos en que tratamos de introducirte a la forma en la que casi todos trabajan los datos en línea. "
 
 #: databasic/templates/home/index.html:85
 msgid "Ensuring Your Privacy"
 msgstr "Tu privacidad asegurada"
 
 #: databasic/templates/home/index.html:86
-msgid ""
-"With more and more data-centric tools moving online, sometimes it can be "
-"hard to tell where your data is going and what will happen with it after "
-"you upload it.  We store information you upload for only the amount of "
-"time it takes us to analyze it, then we delete it.  The aggregate results"
-" we show you - metadata - are kept for 60 days, and then we delete them."
-"  All communications are over https, so other folks can't eavesdrop on "
-"the data as you upload it."
-msgstr ""
-"Con más y más herramientas para datos moviéndose en línea, a veces es "
-"difícil saber a dónde van tus datos y qué le pasará cuando los subas. "
-"Nosotros guardamos la información que subes sólo por el tiempo que nos "
-"toma analizarla, y luego la borramos. Los resultados agregados que te "
-"mostramos--los metadatos--se conservan por 60 días, y luego los borramos."
-" Toda la comunicación ocurre por https, así que nadie puede fisgonear en "
-"tus datos mientras los subes. "
+msgid "With more and more data-centric tools moving online, sometimes it can be hard to tell where your data is going and what will happen with it after you upload it.  We store information you upload for only the amount of time it takes us to analyze it, then we delete it.  The aggregate results we show you - metadata - are kept for 60 days, and then we delete them.  All communications are over https, so other folks can't eavesdrop on the data as you upload it."
+msgstr "Con más y más herramientas para datos moviéndose en línea, a veces es difícil saber a dónde van tus datos y qué le pasará cuando los subas. Nosotros guardamos la información que subes sólo por el tiempo que nos toma analizarla, y luego la borramos. Los resultados agregados que te mostramos--los metadatos--se conservan por 60 días, y luego los borramos. Toda la comunicación ocurre por https, así que nadie puede fisgonear en tus datos mientras los subes. "
 
 #: databasic/templates/home/index.html:89
 msgid "By Educators, for Educators"
 msgstr "Por educadores, para educadores"
 
 #: databasic/templates/home/index.html:90
-msgid ""
-"Work with high-schoolers? Journalists? Community groups? Graduate "
-"students?  Us too!!!  That's why we designed and tested the DataBasic "
-"tools and activities in our classrooms and in workshops with those "
-"audiences.  These tools were born out of frustration with things we were "
-"trying to use in our undergraduate classes, so we feel your pain."
-msgstr ""
-"¿Trabajas con estudiantes adolescentes? ¿Periodistas? ¿Grupos "
-"comunitarios? ¿Estudiantes de posgrado? ¡Nosotros también! Por eso "
-"diseñamos y probamos las herramientas y actividades de DataBasic en "
-"nuestros cursos y talleres dirigidos a esos públicos. Estas herramientas "
-"nacieron de la frustración que nos causaban las cosas que usábamos en "
-"nuestras clases universitarias, así que sentimos tu dolor."
+msgid "Work with high-schoolers? Journalists? Community groups? Graduate students?  Us too!!!  That's why we designed and tested the DataBasic tools and activities in our classrooms and in workshops with those audiences.  These tools were born out of frustration with things we were trying to use in our undergraduate classes, so we feel your pain."
+msgstr "¿Trabajas con estudiantes adolescentes? ¿Periodistas? ¿Grupos comunitarios? ¿Estudiantes de posgrado? ¡Nosotros también! Por eso diseñamos y probamos las herramientas y actividades de DataBasic en nuestros cursos y talleres dirigidos a esos públicos. Estas herramientas nacieron de la frustración que nos causaban las cosas que usábamos en nuestras clases universitarias, así que sentimos tu dolor."
 
 #: databasic/templates/home/index.html:94
 msgid "Accessible to All"
@@ -447,13 +363,7 @@ msgid ""
 " tools that are accessible to all.  DataBasic implements those "
 "technologies to support screen readers so the visually impaired can start"
 " working with data in new and exciting ways."
-msgstr ""
-"Las tecnologías digitales les han dado mucho poder a las personas con "
-"discapacidad en varias formas, y los nuevos estándares de la red han "
-"facilitado más que nunca la creación de herramientas accesibles para "
-"todos. DataBasic implementa esas tecnologías para soportar lectores de "
-"pantalla para que aquellos con deficiencias visuales puedan trabajar con "
-"los datos en formas nuevas y emocionantes."
+msgstr "Las tecnologías digitales les han dado mucho poder a las personas con discapacidad en varias formas, y los nuevos estándares de la red han facilitado más que nunca la creación de herramientas accesibles para todos. DataBasic implementa esas tecnologías para soportar lectores de pantalla para que aquellos con deficiencias visuales puedan trabajar con los datos en formas nuevas y emocionantes."
 
 #: databasic/templates/samediff/results.html:9
 msgid "SameDiff results"
@@ -512,33 +422,33 @@ msgid ""
 " but it doesn't even appear in %(doc1)s?  With these questions in mind, "
 "you can sketch out a story that compares the documents.  <br /><br />Find"
 " a whiteboard and start sketching out a story.  Check out our <a "
-"href=\"%(activity_guide_url)s\" onclick=\"ga('send', 'event', 'samediff',"
-" 'activity-guide');\">activity guide</a> for more help on sketching out a"
-" story to compare them.  Want to dig into the data even more?  <a "
+"href=\"#\" onclick=\"ga('send', 'event', 'samediff', 'activity-"
+"guide');\">activity guide</a> for more help on sketching out a story to "
+"compare them.  Want to dig into the data even more?  <a "
 "href=\"%(download)s\" onclick=\"ga('send', 'event', 'samediff', "
 "'samediff-dl');\">Download the full results as a CSV file</a> to compare "
 "the files even further."
 msgstr ""
-"Comparar documentos de texto es una manera de aprender lo que hace cada "
-"uno único. ¿Es significativo que \"%(most_common_word)s\" y  "
-"\"%(second_most_common_word)s\" son las palabras usadas con más "
-"frecuencia? ¿Por qúe el documento %(doc2)s usa la palabra "
-"\"%(doc2_most_common_word)s\" tantas veces, mientras que ni aparezca en "
-"el documento %(doc1)s? Con estas preguntas, se puede hacer un boceto que "
-"compara los dos documentos. <br /><br />Encuentre una pizarra blanca y "
-"empiece su historia. Echa un vistazo a nuestra <a href=\"#\" "
-"onclick=\"ga('send', 'event', 'samediff', 'activity-guide');\">guía de "
-"actividades</a> para ayuda en dibujar su historia de comparación.  "
-"¿Quiere aprender más de sus datos?  <a href=\"%(download)s\" "
-"onclick=\"ga('send', 'event', 'samediff', 'samediff-dl');\">Baja todos "
-"los resultados como archivo .CSV </a> para compararlos más."
+"Comparar documentos de texto es una manera de aprender lo que hace cada uno "
+"único. ¿Es significativo que \"%(most_common_word)s\" y  "
+"\"%(second_most_common_word)s\" son las palabras usadas con más frecuencia? "
+"¿Por qúe el documento %(doc2)s usa la palabra \"%(doc2_most_common_word)s\" tantas veces,"
+" mientras que ni aparezca en el documento %(doc1)s? Con estas preguntas, "
+"se puede hacer un boceto que compara los dos documentos. <br /><br />Encuentre"
+" una pizarra blanca y empiece su historia. Echa un vistazo a nuestra <a "
+"href=\"#\" onclick=\"ga('send', 'event', 'samediff', 'activity-"
+"guide');\">guía de actividades</a> para ayuda en dibujar su historia "
+"de comparación.  ¿Quiere aprender más de sus datos?  <a "
+"href=\"%(download)s\" onclick=\"ga('send', 'event', 'samediff', "
+"'samediff-dl');\">Baja todos los resultados como archivo .CSV </a> para compararlos "
+"más."
 
-#: databasic/templates/samediff/results.html:109
+#: databasic/templates/samediff/results.html:108
 #, python-format
 msgid " uses in %(doc)s"
 msgstr " usos en %(doc)s"
 
-#: databasic/templates/samediff/results.html:111
+#: databasic/templates/samediff/results.html:110
 msgid " uses"
 msgstr " usos"
 
@@ -601,9 +511,9 @@ msgid ""
 "picture, called a \"word cloud\", is helpful to get a sense of the most "
 "used words in a document."
 msgstr ""
-"Aquí una imagen de las palabras usadas en su documento. Palabras con más "
-"frecuencia son más grandes, y con menos son más pequeñas. Esta gráfica, "
-"llamada una \"nube de palabras\", le ayuda a comprender cuales palabras "
+"Aquí una imagen de las palabras usadas en su documento. Palabras "
+"con más frecuencia son más grandes, y con menos son más pequeñas. Esta "
+"gráfica, llamada una \"nube de palabras\", le ayuda a comprender cuales palabras "
 "aparezcan con más frecuencia en el documento."
 
 #: databasic/templates/wordcounter/results.html:37
@@ -611,9 +521,7 @@ msgstr ""
 msgid ""
 "Sorry, but we didn't find any results to show. Maybe your text is too "
 "short... or maybe it is all %(stopwords)s"
-msgstr ""
-"Siento que no hay resultados. Tal vez su texto es demasiado corto... o "
-"quizás solo contiene palabras de paro."
+msgstr "Siento que no hay resultados. Tal vez su texto es demasiado corto... o quizás solo contiene palabras de paro."
 
 #: databasic/templates/wordcounter/results.html:46
 msgid "Top Words"
@@ -683,10 +591,7 @@ msgid ""
 "Examining text data in this quantitative way can help you find stories to"
 " tell in your data.  The fact that \"%(top_word)s\" is a popular word is "
 "good to know, but combine that with "
-msgstr ""
-"Analizando datos textuales de una manera cuantitativa le ayuda a "
-"encontrar historias a contar. El hecho que \"%(top_word)s\" es una "
-"palabra popular es bueno saber. Combínalo con "
+msgstr "Analizando datos textuales de una manera cuantitativa le ayuda a encontrar historias a contar. El hecho que \"%(top_word)s\" es una palabra popular es bueno saber. Combínalo con "
 
 #: databasic/templates/wordcounter/results.html:113
 #, python-format
@@ -707,39 +612,35 @@ msgstr[0] "el %(num)s uso"
 msgstr[1] "los %(num)s usos"
 
 #: databasic/templates/wordcounter/results.html:116
-#  python-format
+#, python-format
 msgid ""
 "in the top 40 trigrams, to understand the context of how it is used.  "
 "With that richer understanding of the context, you can sketch out a "
 "picture of why \"%(top_word)s\" is so important in %(title)s. <br/><br "
 "/>So grab some paper and some crayons and start drawing what you see!  "
-"Check out our <a href=\"%(activity_guide_url)s\" onclick=\"ga('send', "
-"'event', 'wordcounter', 'activity-guide');\">activity guide</a> for more "
-"help on sketching out a story.  Want to dig into the data more? Download "
-"all the <a href=\"%(download_words)s\" onclick=\"ga('send', 'event', "
-"'wordcounter', 'words-dl');\">word counts</a>, <a "
-"href=\"%(download_bigrams)s\" onclick=\"ga('send', 'event', "
-"'wordcounter', 'bigrams-dl');\">bigrams</a>, or <a "
-"href=\"%(download_trigrams)s\" onclick=\"ga('send', 'event', "
-"'wordcounter', 'trigrams-dl');\">trigrams</a> and investigate why "
-"\"%(random_unpopular_word)s\" is used %(random_unpopular_word_count)s "
-"times!"
-msgstr ""
-"en las 40 trigramas con más frecuencia, para comprender el contexto. Con "
-"este entendimiento del contexto, Ud. puede hacer un boceto que explica "
-"porque \"%(top_word)s\" es tan importante en %(title)s. <br/><br />Agárre"
-" una hoja de papel y unas ceras y empiece a pintar lo que ve! Eche un "
-"vistazo a nuestra <a href=\"#\" onclick=\"ga('send', 'event', "
-"'wordcounter', 'activity-guide');\">guía de actividades</a> para ayuda en"
-" hacer su boceto.  ¿Quiere aprender más de sus datos? Baje <a "
+"Check out our <a href=\"#\" onclick=\"ga('send', 'event', 'wordcounter', "
+"'activity-guide');\">activity guide</a> for more help on sketching out a "
+"story.  Want to dig into the data more? Download all the <a "
 "href=\"%(download_words)s\" onclick=\"ga('send', 'event', 'wordcounter', "
-"'words-dl');\">los totales de las palabras</a>, <a "
-"href=\"%(download_bigrams)s\" onclick=\"ga('send', 'event', "
-"'wordcounter', 'bigrams-dl');\">bigramas</a>, o <a "
-"href=\"%(download_trigrams)s\" onclick=\"ga('send', 'event', "
-"'wordcounter', 'trigrams-dl');\">trigramas</a> y averiguar porque "
-"\"%(random_unpopular_word)s\" está usado %(random_unpopular_word_count)s "
-"veces!"
+"'words-dl');\">word counts</a>, <a href=\"%(download_bigrams)s\" "
+"onclick=\"ga('send', 'event', 'wordcounter', 'bigrams-"
+"dl');\">bigrams</a>, or <a href=\"%(download_trigrams)s\" "
+"onclick=\"ga('send', 'event', 'wordcounter', 'trigrams-"
+"dl');\">trigrams</a> and investigate why \"%(random_unpopular_word)s\" is"
+" used %(random_unpopular_word_count)s times!"
+msgstr "en las 40 trigramas con más frecuencia, para comprender el contexto. Con este entendimiento"
+" del contexto, Ud. puede hacer un boceto que explica porque \"%(top_word)s\" es tan importante en %(title)s. <br/><br />"
+"Agárre una hoja de papel y unas ceras y empiece a pintar lo que ve! "
+"Eche un vistazo a nuestra <a href=\"#\" onclick=\"ga('send', 'event', 'wordcounter', "
+"'activity-guide');\">guía de actividades</a> para ayuda en hacer su boceto"
+".  ¿Quiere aprender más de sus datos? Baje <a "
+"href=\"%(download_words)s\" onclick=\"ga('send', 'event', 'wordcounter', "
+"'words-dl');\">los totales de las palabras</a>, <a href=\"%(download_bigrams)s\" "
+"onclick=\"ga('send', 'event', 'wordcounter', 'bigrams-"
+"dl');\">bigramas</a>, o <a href=\"%(download_trigrams)s\" "
+"onclick=\"ga('send', 'event', 'wordcounter', 'trigrams-"
+"dl');\">trigramas</a> y averiguar porque \"%(random_unpopular_word)s\" está"
+" usado %(random_unpopular_word_count)s veces!"
 
 #: databasic/templates/wordcounter/wordcounter.html:21
 #, python-format
@@ -785,9 +686,7 @@ msgstr "WTFcsv: "
 msgid ""
 "We can't analyze that data because it's not in a standard form. Your "
 "first row should contain the names of your columns."
-msgstr ""
-"No podemos analizar estos datos porque no están en una forma estándar. La"
-" primera fila debe contener los nombres de las columnas."
+msgstr "No podemos analizar estos datos porque no están en una forma estándar. La primera fila debe contener los nombres de las columnas."
 
 #: databasic/templates/wtfcsv/results.html:86
 #, python-format
@@ -885,7 +784,7 @@ msgstr[0] "Hay %(num)s fila de datos faltantes"
 msgstr[1] "Hay %(num)s filas de datos faltantes"
 
 #: databasic/templates/wtfcsv/results.html:241
-#  python-format
+#, python-format
 msgid ""
 "Understanding the data in your csv file is the first step in analyzing it"
 " for stories. Looking at individual columns can help you identify "
@@ -896,53 +795,43 @@ msgid ""
 "Are there any other datasets you could find to ask interesting questions "
 "about the %(random_column_name)s column?  <br /><br />Asking these types "
 "of questions is the first step in understanding the data you have, and "
-"what kind of stories you can find in it. Check out our <a "
-"href=\"%(activity_guide_url)s\" onclick=\"ga('send', 'event', 'wtfcsv', "
-"'activity-guide');\">activity guide</a> for more help on asking questions"
-" of data sets."
-msgstr ""
-"Comprender los datos en su archivo csv es la primera etapa de analizarlo."
-" Mirar columnas le puede ayudar identificar preguntas divertidas de sus "
-"datos. Por ejemplo, ¿le sorprende que \"%(most_common_value)s\" ocurre "
-"con la más frecuencia en la columna %(random_column_name)s? ¿Tiene "
-"sentido comparar la columna %(random_column_name2)s con la columna "
-"%(random_column_name3)s? ¿Hay más colleciónes de datos que puede "
-"encontrar para hacer preguntas interesantes de la columna "
-"%(random_column_name)s? <br /><br />Hacer estos tipos de preguntas es la "
-"primera etapa de entender los datos que tiene, y las historias que "
-"contienen. Echa un vistazo a nuestras  <a href=\"#\" onclick=\"ga('send',"
-" 'event', 'wtfcsv', 'activity-guide');\">guías de activdades </a> para "
-"más ayuda en hacer preguntas buenas de sus datos."
+"what kind of stories you can find in it. Check out our <a href=\"#\" "
+"onclick=\"ga('send', 'event', 'wtfcsv', 'activity-guide');\">activity "
+"guide</a> for more help on asking questions of data sets."
+msgstr "Comprender los datos en su archivo csv es la primera etapa de analizarlo. Mirar columnas le puede ayudar identificar preguntas divertidas de sus datos. Por ejemplo, ¿le sorprende que \"%(most_common_value)s\" ocurre con la más frecuencia en la columna %(random_column_name)s? ¿Tiene sentido comparar la columna %(random_column_name2)s con la columna %(random_column_name3)s? ¿Hay más colleciónes de datos que puede encontrar para hacer preguntas interesantes de la columna %(random_column_name)s? <br /><br />Hacer estos tipos "
+"de preguntas es la primera etapa de entender los datos que tiene, y las historias que contienen. Echa un vistazo a nuestras  <a href=\"#\" "
+"onclick=\"ga('send', 'event', 'wtfcsv', 'activity-guide');\">guías de activdades "
+"</a> para más ayuda en hacer preguntas buenas de sus datos."
 
-#: databasic/templates/wtfcsv/results.html:371
+#: databasic/templates/wtfcsv/results.html:370
 msgid "Categories"
 msgstr "Categorías"
 
-#: databasic/templates/wtfcsv/results.html:373
+#: databasic/templates/wtfcsv/results.html:372
 msgid "Counts"
 msgstr "Totales"
 
-#: databasic/templates/wtfcsv/results.html:375
+#: databasic/templates/wtfcsv/results.html:374
 msgid "Dates"
 msgstr "Fechas"
 
-#: databasic/templates/wtfcsv/results.html:377
+#: databasic/templates/wtfcsv/results.html:376
 msgid "Times"
 msgstr "Veces"
 
-#: databasic/templates/wtfcsv/results.html:379
+#: databasic/templates/wtfcsv/results.html:378
 msgid "Dates and times"
 msgstr "Fechas y horas"
 
-#: databasic/templates/wtfcsv/results.html:381
+#: databasic/templates/wtfcsv/results.html:380
 msgid "Booleans"
 msgstr "Booleanos"
 
-#: databasic/templates/wtfcsv/results.html:383
+#: databasic/templates/wtfcsv/results.html:382
 msgid "Undefined"
 msgstr "Indefinido"
 
-#: databasic/templates/wtfcsv/results.html:393
+#: databasic/templates/wtfcsv/results.html:392
 msgid "# of rows"
 msgstr "# de filas"
 
@@ -992,31 +881,31 @@ msgstr "usos en"
 msgid "total uses"
 msgstr "usos totales"
 
-#: databasic/views/samediff.py:139
+#: databasic/views/samediff.py:129
 msgid "almost the same"
 msgstr "casi lo mismo"
 
-#: databasic/views/samediff.py:141
+#: databasic/views/samediff.py:131
 msgid "sort of similar"
 msgstr "algo similares"
 
-#: databasic/views/samediff.py:143
+#: databasic/views/samediff.py:133
 msgid "kind of similar"
 msgstr "un poco similares"
 
-#: databasic/views/samediff.py:145
+#: databasic/views/samediff.py:135
 msgid "kind of similar, and also kind of different"
 msgstr "un poco similares y un poco diferentes también"
 
-#: databasic/views/samediff.py:147
+#: databasic/views/samediff.py:137
 msgid "pretty different"
 msgstr "bastante diferentes"
 
-#: databasic/views/samediff.py:149
+#: databasic/views/samediff.py:139
 msgid "very different"
 msgstr "muy diferentes"
 
-#: databasic/views/samediff.py:151
+#: databasic/views/samediff.py:141
 msgid "completely different"
 msgstr "completamente diferentes"
 
@@ -1028,7 +917,7 @@ msgstr "tu texto"
 msgid "title"
 msgstr "título"
 
-#: databasic/views/wtfcsv.py:153
+#: databasic/views/wtfcsv.py:143
 msgid "Other"
 msgstr "Otro"
 
@@ -1208,7 +1097,3 @@ msgstr "Otro"
 
 #~ msgid "data type"
 #~ msgstr "Tipo de datos"
-
-#~ msgid "Play video"
-#~ msgstr "Reproducir video"
-

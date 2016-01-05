@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2016-01-02 09:22-0500\n"
+"POT-Creation-Date: 2016-01-05 13:22-0500\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -206,16 +206,12 @@ msgid ""
 "\"that\", \"and\" and \"but.\""
 msgstr ""
 
-#: databasic/templates/macros.html:153 databasic/templates/macros.html:179
+#: databasic/templates/macros.html:153
 msgid "close video window"
 msgstr ""
 
 #: databasic/templates/macros.html:159
 msgid "You can share these results by emailing this url:"
-msgstr ""
-
-#: databasic/templates/macros.html:172
-msgid "Play video"
 msgstr ""
 
 #: databasic/templates/nav_base.html:4
@@ -235,26 +231,26 @@ msgstr ""
 msgid "About %(tool_name)s"
 msgstr ""
 
-#: databasic/templates/tool_base.html:25
+#: databasic/templates/tool_base.html:20
 msgid "Are you an Educator? Try our Activity Guide"
 msgstr ""
 
-#: databasic/templates/tool_base.html:26
+#: databasic/templates/tool_base.html:21
 msgid ""
 "DataBasic activities are suitable for classes and workshops for "
 "participants from middle school through higher education. No prior data "
 "experience necessary!"
 msgstr ""
 
-#: databasic/templates/tool_base.html:30
+#: databasic/templates/tool_base.html:25
 msgid "activity sheet thumbnail"
 msgstr ""
 
-#: databasic/templates/tool_base.html:33
+#: databasic/templates/tool_base.html:28
 msgid "Download (English)"
 msgstr ""
 
-#: databasic/templates/tool_base.html:34
+#: databasic/templates/tool_base.html:30
 msgid "Download (Español)"
 msgstr ""
 
@@ -453,20 +449,20 @@ msgid ""
 " but it doesn't even appear in %(doc1)s?  With these questions in mind, "
 "you can sketch out a story that compares the documents.  <br /><br />Find"
 " a whiteboard and start sketching out a story.  Check out our <a "
-"href=\"#\" onclick=\"ga('send', 'event', 'samediff', 'activity-"
-"guide');\">activity guide</a> for more help on sketching out a story to "
-"compare them.  Want to dig into the data even more?  <a "
+"href=\"%(activity_guide_url)s\" onclick=\"ga('send', 'event', 'samediff',"
+" 'activity-guide');\">activity guide</a> for more help on sketching out a"
+" story to compare them.  Want to dig into the data even more?  <a "
 "href=\"%(download)s\" onclick=\"ga('send', 'event', 'samediff', "
 "'samediff-dl');\">Download the full results as a CSV file</a> to compare "
 "the files even further."
 msgstr ""
 
-#: databasic/templates/samediff/results.html:108
+#: databasic/templates/samediff/results.html:109
 #, python-format
 msgid " uses in %(doc)s"
 msgstr ""
 
-#: databasic/templates/samediff/results.html:110
+#: databasic/templates/samediff/results.html:111
 msgid " uses"
 msgstr ""
 
@@ -624,16 +620,17 @@ msgid ""
 "With that richer understanding of the context, you can sketch out a "
 "picture of why \"%(top_word)s\" is so important in %(title)s. <br/><br "
 "/>So grab some paper and some crayons and start drawing what you see!  "
-"Check out our <a href=\"#\" onclick=\"ga('send', 'event', 'wordcounter', "
-"'activity-guide');\">activity guide</a> for more help on sketching out a "
-"story.  Want to dig into the data more? Download all the <a "
-"href=\"%(download_words)s\" onclick=\"ga('send', 'event', 'wordcounter', "
-"'words-dl');\">word counts</a>, <a href=\"%(download_bigrams)s\" "
-"onclick=\"ga('send', 'event', 'wordcounter', 'bigrams-"
-"dl');\">bigrams</a>, or <a href=\"%(download_trigrams)s\" "
-"onclick=\"ga('send', 'event', 'wordcounter', 'trigrams-"
-"dl');\">trigrams</a> and investigate why \"%(random_unpopular_word)s\" is"
-" used %(random_unpopular_word_count)s times!"
+"Check out our <a href=\"%(activity_guide_url)s\" onclick=\"ga('send', "
+"'event', 'wordcounter', 'activity-guide');\">activity guide</a> for more "
+"help on sketching out a story.  Want to dig into the data more? Download "
+"all the <a href=\"%(download_words)s\" onclick=\"ga('send', 'event', "
+"'wordcounter', 'words-dl');\">word counts</a>, <a "
+"href=\"%(download_bigrams)s\" onclick=\"ga('send', 'event', "
+"'wordcounter', 'bigrams-dl');\">bigrams</a>, or <a "
+"href=\"%(download_trigrams)s\" onclick=\"ga('send', 'event', "
+"'wordcounter', 'trigrams-dl');\">trigrams</a> and investigate why "
+"\"%(random_unpopular_word)s\" is used %(random_unpopular_word_count)s "
+"times!"
 msgstr ""
 
 #: databasic/templates/wordcounter/wordcounter.html:21
@@ -786,40 +783,41 @@ msgid ""
 "Are there any other datasets you could find to ask interesting questions "
 "about the %(random_column_name)s column?  <br /><br />Asking these types "
 "of questions is the first step in understanding the data you have, and "
-"what kind of stories you can find in it. Check out our <a href=\"#\" "
-"onclick=\"ga('send', 'event', 'wtfcsv', 'activity-guide');\">activity "
-"guide</a> for more help on asking questions of data sets."
+"what kind of stories you can find in it. Check out our <a "
+"href=\"%(activity_guide_url)s\" onclick=\"ga('send', 'event', 'wtfcsv', "
+"'activity-guide');\">activity guide</a> for more help on asking questions"
+" of data sets."
 msgstr ""
 
-#: databasic/templates/wtfcsv/results.html:370
+#: databasic/templates/wtfcsv/results.html:371
 msgid "Categories"
 msgstr ""
 
-#: databasic/templates/wtfcsv/results.html:372
+#: databasic/templates/wtfcsv/results.html:373
 msgid "Counts"
 msgstr ""
 
-#: databasic/templates/wtfcsv/results.html:374
+#: databasic/templates/wtfcsv/results.html:375
 msgid "Dates"
 msgstr ""
 
-#: databasic/templates/wtfcsv/results.html:376
+#: databasic/templates/wtfcsv/results.html:377
 msgid "Times"
 msgstr ""
 
-#: databasic/templates/wtfcsv/results.html:378
+#: databasic/templates/wtfcsv/results.html:379
 msgid "Dates and times"
 msgstr ""
 
-#: databasic/templates/wtfcsv/results.html:380
+#: databasic/templates/wtfcsv/results.html:381
 msgid "Booleans"
 msgstr ""
 
-#: databasic/templates/wtfcsv/results.html:382
+#: databasic/templates/wtfcsv/results.html:383
 msgid "Undefined"
 msgstr ""
 
-#: databasic/templates/wtfcsv/results.html:392
+#: databasic/templates/wtfcsv/results.html:393
 msgid "# of rows"
 msgstr ""
 
@@ -863,31 +861,31 @@ msgstr ""
 msgid "total uses"
 msgstr ""
 
-#: databasic/views/samediff.py:129
+#: databasic/views/samediff.py:139
 msgid "almost the same"
 msgstr ""
 
-#: databasic/views/samediff.py:131
+#: databasic/views/samediff.py:141
 msgid "sort of similar"
 msgstr ""
 
-#: databasic/views/samediff.py:133
+#: databasic/views/samediff.py:143
 msgid "kind of similar"
 msgstr ""
 
-#: databasic/views/samediff.py:135
+#: databasic/views/samediff.py:145
 msgid "kind of similar, and also kind of different"
 msgstr ""
 
-#: databasic/views/samediff.py:137
+#: databasic/views/samediff.py:147
 msgid "pretty different"
 msgstr ""
 
-#: databasic/views/samediff.py:139
+#: databasic/views/samediff.py:149
 msgid "very different"
 msgstr ""
 
-#: databasic/views/samediff.py:141
+#: databasic/views/samediff.py:151
 msgid "completely different"
 msgstr ""
 
@@ -899,7 +897,7 @@ msgstr ""
 msgid "title"
 msgstr ""
 
-#: databasic/views/wtfcsv.py:143
+#: databasic/views/wtfcsv.py:153
 msgid "Other"
 msgstr ""
 
