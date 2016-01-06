@@ -8,6 +8,8 @@ body {
 	background-image: url("/static/img/backgrounds/tiled_background_yellow.png");
 }
 
-#video-modal-btn {
-	background-color: $c-theme-accent;
+footer {
+	nav {
+		background-color: $c-theme-bg;
+	}
 }

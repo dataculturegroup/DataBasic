@@ -1,0 +1,63 @@
+@charset "UTF-8";
+
+header {
+	min-height: 140px;
+
+	background-color: $c-white;
+
+	.navbar-toggle {
+		border: none;
+
+		.icon-bar {
+			background-color: $c-black;
+			font-size: 18px;
+			width: 44px;
+			height: 7px;
+		}
+	}
+
+	.navbar-nav > li > a {
+		color: $c-black;
+		font-size: 18px;
+	}
+
+	box-shadow: 0px 4px 0 0 rgba(0,0,0,0.3);
+
+	#logo {
+		vertical-align: bottom;
+		img {
+			max-height: 48px;
+		}
+	}
+
+
+	.tool-logo {
+		height: 64px;
+	}
+
+	#header-logo-container {
+		padding-top: 42px;
+		text-align: center;
+		.logo-container {
+			height: 98px;
+			img {
+				position: absolute;
+				bottom: 10px;
+			}
+		}
+	}
+
+	#language-selector {
+		float: right;
+		padding-top: 10px;
+		padding-right: 10px;
+
+		a {
+			color: $c-theme-dk;
+			&:after {
+				content: '';
+			}
+		}
+	}
+
+}
