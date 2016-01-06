@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2016-01-05 13:22-0500\n"
+"POT-Creation-Date: 2016-01-06 10:22-0500\n"
 "PO-Revision-Date: 2015-12-21 14:00-0600\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language: es\n"
@@ -236,7 +236,7 @@ msgstr "Acerca de %(tool_name)s"
 msgid "Are you an Educator? Try our Activity Guide"
 msgstr "¿Ud. es maestro? Prueba nuestra guía de actividades"
 
-#: databasic/templates/tool_base.html:21
+#: databasic/templates/tool_base.html:24
 msgid ""
 "DataBasic activities are suitable for classes and workshops for "
 "participants from middle school through higher education. No prior data "
@@ -246,17 +246,13 @@ msgstr ""
 "participantes desde educación media básica hasta educación superior.  ¡No"
 " se necesita experiencia previa en datos!"
 
-#: databasic/templates/tool_base.html:25
+#: databasic/templates/tool_base.html:27
 msgid "activity sheet thumbnail"
 msgstr ""
 
 #: databasic/templates/tool_base.html:28
-msgid "Download (English)"
-msgstr "Bajar (English)"
-
-#: databasic/templates/tool_base.html:30
-msgid "Download (Español)"
-msgstr "Bajar (Español)"
+msgid "Download"
+msgstr "Bajar"
 
 #: databasic/templates/tool_nav.html:4
 #, python-format
@@ -707,7 +703,7 @@ msgstr[0] "el %(num)s uso"
 msgstr[1] "los %(num)s usos"
 
 #: databasic/templates/wordcounter/results.html:116
-#  python-format
+#, python-format
 msgid ""
 "in the top 40 trigrams, to understand the context of how it is used.  "
 "With that richer understanding of the context, you can sketch out a "
@@ -885,7 +881,7 @@ msgstr[0] "Hay %(num)s fila de datos faltantes"
 msgstr[1] "Hay %(num)s filas de datos faltantes"
 
 #: databasic/templates/wtfcsv/results.html:241
-#  python-format
+#, python-format
 msgid ""
 "Understanding the data in your csv file is the first step in analyzing it"
 " for stories. Looking at individual columns can help you identify "
@@ -992,31 +988,31 @@ msgstr "usos en"
 msgid "total uses"
 msgstr "usos totales"
 
-#: databasic/views/samediff.py:139
+#: databasic/views/samediff.py:141
 msgid "almost the same"
 msgstr "casi lo mismo"
 
-#: databasic/views/samediff.py:141
+#: databasic/views/samediff.py:143
 msgid "sort of similar"
 msgstr "algo similares"
 
-#: databasic/views/samediff.py:143
+#: databasic/views/samediff.py:145
 msgid "kind of similar"
 msgstr "un poco similares"
 
-#: databasic/views/samediff.py:145
+#: databasic/views/samediff.py:147
 msgid "kind of similar, and also kind of different"
 msgstr "un poco similares y un poco diferentes también"
 
-#: databasic/views/samediff.py:147
+#: databasic/views/samediff.py:149
 msgid "pretty different"
 msgstr "bastante diferentes"
 
-#: databasic/views/samediff.py:149
+#: databasic/views/samediff.py:151
 msgid "very different"
 msgstr "muy diferentes"
 
-#: databasic/views/samediff.py:151
+#: databasic/views/samediff.py:153
 msgid "completely different"
 msgstr "completamente diferentes"
 
@@ -1028,7 +1024,7 @@ msgstr "tu texto"
 msgid "title"
 msgstr "título"
 
-#: databasic/views/wtfcsv.py:153
+#: databasic/views/wtfcsv.py:155
 msgid "Other"
 msgstr "Otro"
 
@@ -1211,4 +1207,10 @@ msgstr "Otro"
 
 #~ msgid "Play video"
 #~ msgstr "Reproducir video"
+
+#~ msgid "Download (English)"
+#~ msgstr "Bajar (English)"
+
+#~ msgid "Download (Español)"
+#~ msgstr "Bajar (Español)"
 

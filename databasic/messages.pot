@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2016-01-05 13:22-0500\n"
+"POT-Creation-Date: 2016-01-06 10:22-0500\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -235,23 +235,19 @@ msgstr ""
 msgid "Are you an Educator? Try our Activity Guide"
 msgstr ""
 
-#: databasic/templates/tool_base.html:21
+#: databasic/templates/tool_base.html:24
 msgid ""
 "DataBasic activities are suitable for classes and workshops for "
 "participants from middle school through higher education. No prior data "
 "experience necessary!"
 msgstr ""
 
-#: databasic/templates/tool_base.html:25
+#: databasic/templates/tool_base.html:27
 msgid "activity sheet thumbnail"
 msgstr ""
 
 #: databasic/templates/tool_base.html:28
-msgid "Download (English)"
-msgstr ""
-
-#: databasic/templates/tool_base.html:30
-msgid "Download (Español)"
+msgid "Download"
 msgstr ""
 
 #: databasic/templates/tool_nav.html:4
@@ -861,31 +857,31 @@ msgstr ""
 msgid "total uses"
 msgstr ""
 
-#: databasic/views/samediff.py:139
+#: databasic/views/samediff.py:141
 msgid "almost the same"
 msgstr ""
 
-#: databasic/views/samediff.py:141
+#: databasic/views/samediff.py:143
 msgid "sort of similar"
 msgstr ""
 
-#: databasic/views/samediff.py:143
+#: databasic/views/samediff.py:145
 msgid "kind of similar"
 msgstr ""
 
-#: databasic/views/samediff.py:145
+#: databasic/views/samediff.py:147
 msgid "kind of similar, and also kind of different"
 msgstr ""
 
-#: databasic/views/samediff.py:147
+#: databasic/views/samediff.py:149
 msgid "pretty different"
 msgstr ""
 
-#: databasic/views/samediff.py:149
+#: databasic/views/samediff.py:151
 msgid "very different"
 msgstr ""
 
-#: databasic/views/samediff.py:151
+#: databasic/views/samediff.py:153
 msgid "completely different"
 msgstr ""
 
@@ -897,7 +893,7 @@ msgstr ""
 msgid "title"
 msgstr ""
 
-#: databasic/views/wtfcsv.py:153
+#: databasic/views/wtfcsv.py:155
 msgid "Other"
 msgstr ""
 
