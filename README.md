@@ -66,13 +66,16 @@ We have built DataBasic to support multiple langauges in the user interface.
 ### Setup
 ```
 $ bash init-translations.sh
+
+This initializes the translation files. You should only do this once or it'll erase your existing .po files that have translations.
 ```
 
 ### Updating
 ```
 $ bash update-translations.sh
 ```
-Translate the .po file. If the .po is marked fuzzy, remove 'fuzzy.'
+This command extracts all items for translation from the app. Each time you add a new bit of text you need to run this comment. Then translate the .po file. If any translations in the .po are marked fuzzy, check them to for accuracy and then remove 'fuzzy.'
 ```
 $ bash compile-translations.sh
 ```
+This command compiles the translations from the .po files into binary form. You need to run this every time you update a .po file. Then restart the app.
