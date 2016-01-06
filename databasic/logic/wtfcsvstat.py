@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 #!/usr/bin/env python
-import datetime, os, sys, json, tempfile, re, csv
+import datetime, os, sys, json, tempfile, re, csv, time
 import gzip
 import bz2
 from heapq import nlargest
@@ -12,6 +12,7 @@ import codecs
 import wordhandler
 import pytz
 import calendar
+import numpy.random
 
 from csvkit import CSVKitReader, table
 from lazyfile import LazyFile
@@ -19,6 +20,7 @@ from dateutil.parser import parse
 
 NoneType = type(None)
 
+SAMPLE_FOR_TYPE = False
 MAX_UNIQUE = 5
 NUMBER_MAX_UNIQUE = 10
 MAX_FREQ = 5
@@ -26,6 +28,8 @@ OPERATIONS =('min', 'max', 'sum', 'mean', 'median', 'stdev', 'nulls', 'unique', 
 
 MONTHS = ['jan', 'january', 'feb', 'february', 'mar', 'march', 'apr', 'april', 'may', 'jun', 'june', 'jul', 'july', 'aug', 'august', 'sep', 'september', 'oct', 'october', 'nov', 'november', 'dec', 'december']
 DAYS_OF_WEEK = ['sun', 'sunday', 'mon', 'monday', 'tues', 'tue', 'tuesday', 'wed', 'wednesday', 'thu', 'thur', 'thurs', 'thursday', 'fri', 'friday', 'sat', 'saturday']
+
+logger = logging.getLogger(__name__)
 
 '''
 Public API: call this to get results!
@@ -61,6 +65,7 @@ class WTFCSVStat():
         return f
 
     def get_summary(self):
+        summary_start = time.clock()
         results = {}
         
         operations = [op for op in OPERATIONS]
@@ -70,15 +75,19 @@ class WTFCSVStat():
             results['columns'] = []
             return results
 
+        start_time = time.clock()
         tab = table.Table.from_csv(self.input_file)
+        logger.debug("  %f ms to create table from csv" % (1000*(time.clock()-start_time)))
 
         row_count = tab.count_rows() + 1 # this value is inaccurate so I'm adding 1
         if self.has_header_row:
             row_count -= 1
         results['row_count'] = row_count
+        logger.debug("  found %d rows" % row_count)
         
         results['columns'] = []
         for c in tab:
+            logger.debug("  column: %s" % c.name)
 
             if c.name == '_unnamed':
                 return 'bad_formatting'
@@ -91,20 +100,28 @@ class WTFCSVStat():
 
             stats = {} 
 
+            # figure out what type the column is
+            start_time = time.clock()
+
             date_count = 0
             time_count = 0
             number_count = 0
             value_count = len(values)
+            if SAMPLE_FOR_TYPE and value_count>100:    # try sampling to speed this up
+                sampled_values = numpy.random.choice(values,100)
+            else: 
+                sampled_values = values
+            sampled_value_count = len(sampled_values)
 
             def remove_broken_datetimes():
                 new_values = []
-                for v in values:
+                for v in sampled_values:
                     new = self.is_date(v)
                     if new is not None:
                         new_values.append(new.replace(tzinfo=None))
                 return new_values
 
-            for v in values:
+            for v in sampled_values:
                 if type(v) in [float, int, long, complex] or self.is_number(unicode(v)):
                     number_count += 1
                 if self.is_date(v) is not None:
@@ -114,10 +131,10 @@ class WTFCSVStat():
                     if v.date() != datetime.date.today():
                         date_count += 1
 
-            if value_count > 0:
-                date_percent = float(date_count) / float(value_count)
-                time_percent = float(time_count) / float(value_count)
-                number_percent = float(number_count) / float(value_count)
+            if sampled_value_count > 0:
+                date_percent = float(date_count) / float(sampled_value_count)
+                time_percent = float(time_count) / float(sampled_value_count)
+                number_percent = float(number_count) / float(sampled_value_count)
             else:
                 date_percent = 0
                 time_percent = 0
@@ -151,8 +168,13 @@ class WTFCSVStat():
                         new_values.append(v)
                 values = new_values
 
+            logger.debug("  type is %s (%f ms)" % (c.type, (time.clock()-start_time)*1000))
+
+            # do the default operations on the values
+            start_time = time.clock()
             for op in OPERATIONS:
                 stats[op] = getattr(self, 'get_%s' % op)(c, values, stats)
+            logger.debug("  default ops took %f ms" % ((time.clock()-start_time)*1000))
 
             if c.type == None:
                 column_info['type'] = 'empty'
@@ -213,6 +235,8 @@ class WTFCSVStat():
                 column_info['word_counts'] = wordhandler.get_word_counts(str([s for s in values]).strip('[]').replace("u'", '').replace("',", ''))
 
             results['columns'].append( column_info )
+
+        logger.debug("  done in %f ms" % ((time.clock()-summary_start)*1000 ))
         return results
 
     def get_most_freq_values(self, stats):
