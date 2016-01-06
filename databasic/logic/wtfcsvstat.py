@@ -20,7 +20,7 @@ from dateutil.parser import parse
 
 NoneType = type(None)
 
-SAMPLE_FOR_TYPE = False
+SAMPLE_FOR_TYPE = True
 MAX_UNIQUE = 5
 NUMBER_MAX_UNIQUE = 10
 MAX_FREQ = 5
