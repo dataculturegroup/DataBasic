@@ -36,6 +36,13 @@
 #nav-container {
 	padding-top: 42px;
 	text-align: center;
+	.logo-container {
+		height: 98px;
+		img {
+			position: absolute;
+			bottom: 10px;
+		}
+	}
 }
 
 #language-selector {
@@ -52,11 +59,9 @@
 }
 
 #logo {
-	padding-left: 10px;
-	margin-top: -36px;
-
+	vertical-align: bottom;
 	img {
-		height: 56px;
+		max-height: 48px;
 	}
 }
 
