@@ -114,6 +114,8 @@ def download_activity_guide():
     filename = None
     if g.current_lang == 'en':
         filename = "SameDiff Activity Guide v1_0_0.pdf"
+    elif g.current_lang == 'es':
+        filename = "SameDiff Activity Guide v1_0_0.pdf"
     if filename is None:
         abort(500)
     files_path = os.path.join(get_base_dir(),'databasic','static','files')
