@@ -29,7 +29,7 @@
             {{ what_next_anchor() }}
         </div>
         <div id="wc-container" aria-hidden="true" aria-label="visual picture showing words sized by ok how often they appear">
-          <div class="word-cloud" role="presentation" aria-labelledby="wc-container"></div>
+          <div id="word-cloud" role="presentation" aria-labelledby="wc-container"></div>
         </div>
         {% else %}
         <div class="top-info">
@@ -144,8 +144,9 @@
       .range([8, 70]); 
 
     var fill = d3.scale.category20();
+    var containerWidth = parseInt(d3.select('#word-cloud').style('width'), 10);
     var layout = d3.layout.cloud()
-      .size([700, 400])
+      .size([containerWidth, 400])
       .words(data)
       .padding(8)
       .rotate(function () { return 0; })
@@ -155,7 +156,7 @@
     layout.start();
 
     function draw(words) {
-      d3.select('.word-cloud').append('svg')
+      d3.select('#word-cloud').append('svg')
         .attr('width', layout.size()[0])
         .attr('height', layout.size()[1])
       .append('g')
