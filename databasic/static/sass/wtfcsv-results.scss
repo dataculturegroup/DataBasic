@@ -157,6 +157,15 @@ header {
 		}
 	}
 
+	.card-bottom {
+		ul {
+			padding-left: 0px;
+			ul {
+				padding-left: 10px;
+			}
+		}
+	}
+
 	.card-chart {
 		height: 300px;
 		overflow: hidden;
