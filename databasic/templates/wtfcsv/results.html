@@ -48,8 +48,8 @@
 {% endblock %}
 
 {% block body %}
-<div role="main">
-  <header>
+<div role="main" id="wtfcsv-results">
+  
     <div class="container-fluid">
       {% if 'bad_formatting' in results %}
         <div class="row">
@@ -97,7 +97,6 @@
         </div>
       {% endif %}
     </div>
-  </header>
 
   {% if 'bad_formatting' not in results %}
 
