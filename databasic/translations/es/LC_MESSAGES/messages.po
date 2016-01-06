@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2016-01-06 10:22-0500\n"
+"POT-Creation-Date: 2016-01-06 16:28-0500\n"
 "PO-Revision-Date: 2015-12-21 14:00-0600\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language: es\n"
@@ -156,35 +156,42 @@ msgstr "Sólo se aceptan estos tipos de archivos: csv, xls, xlsx"
 msgid "Only files under 10MB are accepted"
 msgstr "Sólo se aceptan archivos menores a 10MB"
 
-#: databasic/templates/footer.html:16 databasic/templates/tool_footer.html:29
+#: databasic/templates/footer.html:25
 #: databasic/templates/wordcounter/wordcounter.html:4
 #: databasic/templates/wordcounter/wordcounter.html:28
 msgid "WordCounter"
 msgstr "WordCounter"
 
-#: databasic/templates/footer.html:17 databasic/templates/tool_footer.html:30
-#: databasic/templates/wtfcsv/wtfcsv.html:4
+#: databasic/templates/footer.html:26 databasic/templates/wtfcsv/wtfcsv.html:4
 #: databasic/templates/wtfcsv/wtfcsv.html:26
 msgid "WTFcsv"
 msgstr "WTFcsv"
 
-#: databasic/templates/footer.html:18 databasic/templates/tool_footer.html:31
+#: databasic/templates/footer.html:27
 #: databasic/templates/samediff/samediff.html:4
 #: databasic/templates/samediff/samediff.html:28
 msgid "SameDiff"
 msgstr "SameDiff"
 
-#: databasic/templates/footer.html:19 databasic/templates/tool_footer.html:32
+#: databasic/templates/footer.html:28
 msgid "about"
 msgstr "acerca"
 
-#: databasic/templates/footer.html:20 databasic/templates/tool_footer.html:33
+#: databasic/templates/footer.html:29
 msgid "blog"
 msgstr "blog"
 
-#: databasic/templates/footer.html:21 databasic/templates/tool_footer.html:34
+#: databasic/templates/footer.html:30
 msgid "help"
 msgstr "ayuda"
+
+#: databasic/templates/header_base.html:4
+msgid "change language to english"
+msgstr "cambiar lenguaje a inglés"
+
+#: databasic/templates/header_base.html:5
+msgid "change language to spanish"
+msgstr "cambiar lenguaje a español"
 
 #: databasic/templates/macros.html:6
 msgid "choose input type"
@@ -196,12 +203,12 @@ msgid "Ignore %(stopwords)s"
 msgstr "Ignorar %(stopwords)s"
 
 #: databasic/templates/macros.html:99
-#: databasic/templates/wordcounter/results.html:37
+#: databasic/templates/wordcounter/results.html:36
 msgid "stopwords"
 msgstr "Ignorar palabras de paro"
 
 #: databasic/templates/macros.html:99
-#: databasic/templates/wordcounter/results.html:37
+#: databasic/templates/wordcounter/results.html:36
 msgid ""
 "Stopwords are words in text analysis that are ignored such as \"this\", "
 "\"that\", \"and\" and \"but.\""
@@ -215,28 +222,20 @@ msgstr "cerrar ventana de video"
 msgid "You can share these results by emailing this url:"
 msgstr "Puedes compartir estos resultados con esta url:"
 
-#: databasic/templates/nav_base.html:4
-msgid "change language to english"
-msgstr "cambiar lenguaje a inglés"
-
-#: databasic/templates/nav_base.html:5
-msgid "change language to spanish"
-msgstr "cambiar lenguaje a español"
-
-#: databasic/templates/tool_base.html:5 databasic/templates/tool_footer.html:14
+#: databasic/templates/tool_base.html:5 databasic/templates/tool_base.html:13
 msgid "What do I do next?"
 msgstr "¿Qué hago ahora?"
 
-#: databasic/templates/tool_base.html:13
+#: databasic/templates/tool_base.html:26
 #, python-format
 msgid "About %(tool_name)s"
 msgstr "Acerca de %(tool_name)s"
 
-#: databasic/templates/tool_base.html:20
+#: databasic/templates/tool_base.html:33
 msgid "Are you an Educator? Try our Activity Guide"
 msgstr "¿Ud. es maestro? Prueba nuestra guía de actividades"
 
-#: databasic/templates/tool_base.html:24
+#: databasic/templates/tool_base.html:37
 msgid ""
 "DataBasic activities are suitable for classes and workshops for "
 "participants from middle school through higher education. No prior data "
@@ -246,24 +245,24 @@ msgstr ""
 "participantes desde educación media básica hasta educación superior.  ¡No"
 " se necesita experiencia previa en datos!"
 
-#: databasic/templates/tool_base.html:27
+#: databasic/templates/tool_base.html:40
 msgid "activity sheet thumbnail"
-msgstr ""
+msgstr "guía de actividades"
 
-#: databasic/templates/tool_base.html:28
+#: databasic/templates/tool_base.html:41
 msgid "Download"
 msgstr "Bajar"
 
-#: databasic/templates/tool_nav.html:4
+#: databasic/templates/tool_header.html:3
 #, python-format
 msgid "go to %(tool)s"
 msgstr "ir a %(tool)s"
 
-#: databasic/templates/tool_nav.html:8
+#: databasic/templates/tool_header.html:6
 msgid "go to data basic home page"
 msgstr "ir a página de inicio de data basic"
 
-#: databasic/templates/home/index.html:14
+#: databasic/templates/home/index.html:15
 msgid ""
 "DataBasic is a suite of easy-to-use web tools for beginners that "
 "introduce concepts of working with data."
@@ -271,7 +270,7 @@ msgstr ""
 "DataBasic es una suite de herramientas de uso fácil para principiantes "
 "que los introduce a conceptos del trabajo con datos."
 
-#: databasic/templates/home/index.html:15
+#: databasic/templates/home/index.html:16
 msgid ""
 "These simple tools make it easy to work with data in fun ways, so you can"
 " learn how to find great stories to tell."
@@ -280,7 +279,7 @@ msgstr ""
 "de formas divertidas, para que puedas aprender cómo encontrar grandes "
 "historias que contar."
 
-#: databasic/templates/home/index.html:25
+#: databasic/templates/home/index.html:26
 #: databasic/templates/wordcounter/wordcounter.html:19
 msgid ""
 "WordCounter analyzes your text and tells you the most common words and "
@@ -289,12 +288,12 @@ msgstr ""
 "WordCounter analiza tu texto y te muestra las palabras y frases más "
 "comunes."
 
-#: databasic/templates/home/index.html:35
+#: databasic/templates/home/index.html:36
 #: databasic/templates/wtfcsv/wtfcsv.html:19
 msgid "WTFcsv tells you WTF is going on with your .csv file."
 msgstr "WTFcsv te dice qué diablo está pasando con tu archivo .csv."
 
-#: databasic/templates/home/index.html:45
+#: databasic/templates/home/index.html:46
 msgid ""
 "SameDiff compares two or more text files and tells you how similar or "
 "different they are"
@@ -302,15 +301,15 @@ msgstr ""
 "SameDiff compara dos o más archivos de texto y te dice qué tan similares "
 "o diferentes son."
 
-#: databasic/templates/home/index.html:53
+#: databasic/templates/home/index.html:54
 msgid "Why use DataBasic?"
 msgstr "¿Por qué DataBasic?"
 
-#: databasic/templates/home/index.html:59
+#: databasic/templates/home/index.html:62
 msgid "Making Data Fun"
 msgstr "Datos Divertidos"
 
-#: databasic/templates/home/index.html:60
+#: databasic/templates/home/index.html:63
 msgid ""
 "Spreadsheets and large Word documents can be boring and intimidating. We "
 "think working with data should be more fun! Take a look at our activity "
@@ -328,11 +327,11 @@ msgstr ""
 "manera entretenida la búsqueda de historias en tus datos. ¿No te gustaría"
 " saber \"qué diablos\" está pasando en tu archivo CSV?"
 
-#: databasic/templates/home/index.html:68
+#: databasic/templates/home/index.html:71
 msgid "Doing One Thing Well"
 msgstr "Hacer una sola cosa bien"
 
-#: databasic/templates/home/index.html:69
+#: databasic/templates/home/index.html:72
 msgid ""
 "There are tons of tools for working with data; many so complex they are "
 "intimidating to even start with.  We've built each DataBasic tool to "
@@ -347,11 +346,11 @@ msgstr ""
 "nos permite concentrarnos en que esa cosa sea a la vez simple y poderosa."
 " "
 
-#: databasic/templates/home/index.html:72
+#: databasic/templates/home/index.html:75
 msgid "Focused on Learning "
 msgstr "Un enfoque en el aprendizaje"
 
-#: databasic/templates/home/index.html:73
+#: databasic/templates/home/index.html:76
 msgid ""
 "Sometimes faster isn't better.  If you really want to learn how to work "
 "with data to find stories to tell, you'll need to use tools that do more "
@@ -370,11 +369,11 @@ msgstr ""
 "algunos de los divertidos datos de muestra que hemos incluido para "
 "empezar, como letras musicales o avistamientos de OVNIS."
 
-#: databasic/templates/home/index.html:76
+#: databasic/templates/home/index.html:79
 msgid "Fitting in to Your Pipeline"
 msgstr "Ajustándose a tu proyecto"
 
-#: databasic/templates/home/index.html:77
+#: databasic/templates/home/index.html:80
 msgid ""
 "Working with data online always involves using a mishmash of tools. We're"
 " not going to solve that problem anytime soon.  So we've built DataBasic "
@@ -391,11 +390,11 @@ msgstr ""
 "tratamos de introducirte a la forma en la que casi todos trabajan los "
 "datos en línea. "
 
-#: databasic/templates/home/index.html:85
+#: databasic/templates/home/index.html:88
 msgid "Ensuring Your Privacy"
 msgstr "Tu privacidad asegurada"
 
-#: databasic/templates/home/index.html:86
+#: databasic/templates/home/index.html:89
 msgid ""
 "With more and more data-centric tools moving online, sometimes it can be "
 "hard to tell where your data is going and what will happen with it after "
@@ -413,11 +412,11 @@ msgstr ""
 " Toda la comunicación ocurre por https, así que nadie puede fisgonear en "
 "tus datos mientras los subes. "
 
-#: databasic/templates/home/index.html:89
+#: databasic/templates/home/index.html:92
 msgid "By Educators, for Educators"
 msgstr "Por educadores, para educadores"
 
-#: databasic/templates/home/index.html:90
+#: databasic/templates/home/index.html:93
 msgid ""
 "Work with high-schoolers? Journalists? Community groups? Graduate "
 "students?  Us too!!!  That's why we designed and tested the DataBasic "
@@ -432,11 +431,11 @@ msgstr ""
 "nacieron de la frustración que nos causaban las cosas que usábamos en "
 "nuestras clases universitarias, así que sentimos tu dolor."
 
-#: databasic/templates/home/index.html:94
+#: databasic/templates/home/index.html:97
 msgid "Accessible to All"
 msgstr "Accesibles para todos"
 
-#: databasic/templates/home/index.html:95
+#: databasic/templates/home/index.html:98
 msgid ""
 "Digital technologies have empowered those with disabilities in a variety "
 "of ways, and new web standards have made it easier than ever to build new"
@@ -451,34 +450,34 @@ msgstr ""
 "pantalla para que aquellos con deficiencias visuales puedan trabajar con "
 "los datos en formas nuevas y emocionantes."
 
-#: databasic/templates/samediff/results.html:9
+#: databasic/templates/samediff/results.html:8
 msgid "SameDiff results"
 msgstr "Resultados de SameDiff"
 
-#: databasic/templates/samediff/results.html:24
+#: databasic/templates/samediff/results.html:23
 msgid "Your <strong>SameDiff</strong> Report"
 msgstr "Su Informe de <strong>SameDiff</strong>"
 
-#: databasic/templates/samediff/results.html:25
+#: databasic/templates/samediff/results.html:24
 msgid "download"
 msgstr "bajar"
 
-#: databasic/templates/samediff/results.html:28
+#: databasic/templates/samediff/results.html:27
 #, python-format
 msgid "These two documents are %(description)s."
 msgstr "Estos dos documentos son %(description)s."
 
-#: databasic/templates/samediff/results.html:30
+#: databasic/templates/samediff/results.html:29
 #, python-format
 msgid "They have a %(cosine_sim)s score of %(score)s"
 msgstr "Tienen un índice de %(cosine_sim)s de %(score)s"
 
-#: databasic/templates/samediff/results.html:31
+#: databasic/templates/samediff/results.html:30
 #: databasic/templates/samediff/samediff.html:22
 msgid "cosine similarity"
 msgstr "similitud coseno"
 
-#: databasic/templates/samediff/results.html:31
+#: databasic/templates/samediff/results.html:30
 #: databasic/templates/samediff/samediff.html:22
 msgid ""
 "The Cosine Similarity score tries to tell you how similar two documents "
@@ -487,18 +486,18 @@ msgstr ""
 "El índice de similitud coseno te dice cuan parecidos son dos documentos. "
 "Está basado en la frecuencia de las palabras.`"
 
-#: databasic/templates/samediff/results.html:39
-#: databasic/templates/samediff/results.html:47
+#: databasic/templates/samediff/results.html:38
+#: databasic/templates/samediff/results.html:46
 #, python-format
 msgid "Words that are only in %(document)s"
 msgstr "Palabras que solo ocurren en %(document)s"
 
-#: databasic/templates/samediff/results.html:43
+#: databasic/templates/samediff/results.html:42
 #, python-format
 msgid "Words that are in %(doc)s"
 msgstr "Palabras en %(doc)s"
 
-#: databasic/templates/samediff/results.html:52
+#: databasic/templates/samediff/results.html:51
 #, python-format
 msgid ""
 "Comparing text documents is a great way to find out what makes each one "
@@ -529,12 +528,12 @@ msgstr ""
 "onclick=\"ga('send', 'event', 'samediff', 'samediff-dl');\">Baja todos "
 "los resultados como archivo .CSV </a> para compararlos más."
 
-#: databasic/templates/samediff/results.html:109
+#: databasic/templates/samediff/results.html:108
 #, python-format
 msgid " uses in %(doc)s"
 msgstr " usos en %(doc)s"
 
-#: databasic/templates/samediff/results.html:111
+#: databasic/templates/samediff/results.html:110
 msgid " uses"
 msgstr " usos"
 
@@ -586,11 +585,11 @@ msgstr ""
 msgid "Compare"
 msgstr "Comparar"
 
-#: databasic/templates/wordcounter/results.html:10
+#: databasic/templates/wordcounter/results.html:9
 msgid "Word-Counter results"
 msgstr "resultados de Word-Counter"
 
-#: databasic/templates/wordcounter/results.html:28
+#: databasic/templates/wordcounter/results.html:27
 msgid ""
 "Here is a picture of the words used most often in your document. Words "
 "used more often are bigger, and ones used less often are smaller. This "
@@ -602,7 +601,7 @@ msgstr ""
 "llamada una \"nube de palabras\", le ayuda a comprender cuales palabras "
 "aparezcan con más frecuencia en el documento."
 
-#: databasic/templates/wordcounter/results.html:37
+#: databasic/templates/wordcounter/results.html:36
 #, python-format
 msgid ""
 "Sorry, but we didn't find any results to show. Maybe your text is too "
@@ -611,69 +610,69 @@ msgstr ""
 "Siento que no hay resultados. Tal vez su texto es demasiado corto... o "
 "quizás solo contiene palabras de paro."
 
-#: databasic/templates/wordcounter/results.html:46
+#: databasic/templates/wordcounter/results.html:45
 msgid "Top Words"
 msgstr "Palabras con más frecuencia"
 
-#: databasic/templates/wordcounter/results.html:47
+#: databasic/templates/wordcounter/results.html:46
 msgid "download csv of word frequencies"
 msgstr "bajar csv con frecuencias de palabras"
 
-#: databasic/templates/wordcounter/results.html:51
+#: databasic/templates/wordcounter/results.html:50
 msgid "Word"
 msgstr "Palabra"
 
-#: databasic/templates/wordcounter/results.html:52
-#: databasic/templates/wordcounter/results.html:72
-#: databasic/templates/wordcounter/results.html:93
+#: databasic/templates/wordcounter/results.html:51
+#: databasic/templates/wordcounter/results.html:71
+#: databasic/templates/wordcounter/results.html:92
 msgid "Frequency"
 msgstr "Frecuencia"
 
-#: databasic/templates/wordcounter/results.html:66
+#: databasic/templates/wordcounter/results.html:65
 msgid "Bigrams"
 msgstr "Bigramas"
 
-#: databasic/templates/wordcounter/results.html:67
+#: databasic/templates/wordcounter/results.html:66
 msgid "download csv of bigram frequencies"
 msgstr "bajar csv de frecuencias de bigramas"
 
-#: databasic/templates/wordcounter/results.html:71
+#: databasic/templates/wordcounter/results.html:70
 #, python-format
 msgid "%(bigram)s"
 msgstr "%(bigram)s"
 
-#: databasic/templates/wordcounter/results.html:71
+#: databasic/templates/wordcounter/results.html:70
 msgid "bigram"
 msgstr "bigrama"
 
-#: databasic/templates/wordcounter/results.html:71
+#: databasic/templates/wordcounter/results.html:70
 #: databasic/templates/wordcounter/wordcounter.html:22
 msgid "A bigram is a two word phrase"
 msgstr "Una bigrama es una frase con dos palabras"
 
-#: databasic/templates/wordcounter/results.html:87
+#: databasic/templates/wordcounter/results.html:86
 msgid "Trigrams"
 msgstr "Trigramas"
 
-#: databasic/templates/wordcounter/results.html:88
+#: databasic/templates/wordcounter/results.html:87
 msgid "download csv of trigram frequencies"
 msgstr "bajar csv de frecuencias de trigramas"
 
-#: databasic/templates/wordcounter/results.html:92
+#: databasic/templates/wordcounter/results.html:91
 #, python-format
 msgid "%(trigram)s"
 msgstr "%(trigram)s"
 
-#: databasic/templates/wordcounter/results.html:92
+#: databasic/templates/wordcounter/results.html:91
 msgid "trigram"
 msgstr "trigrama"
 
-#: databasic/templates/wordcounter/results.html:92
+#: databasic/templates/wordcounter/results.html:91
 #: databasic/templates/wordcounter/wordcounter.html:23
 msgid "A trigram is a three word phrase"
 msgstr "Una trigrama es una frase con tres palabras"
 
-#: databasic/templates/wordcounter/results.html:111
+#: databasic/templates/wordcounter/results.html:110
 #, python-format
 msgid ""
 "Examining text data in this quantitative way can help you find stories to"
@@ -684,25 +683,25 @@ msgstr ""
 "encontrar historias a contar. El hecho que \"%(top_word)s\" es una "
 "palabra popular es bueno saber. Combínalo con "
 
-#: databasic/templates/wordcounter/results.html:113
+#: databasic/templates/wordcounter/results.html:112
 #, python-format
 msgid "the %(num)d use "
 msgid_plural "the %(num)d uses "
 msgstr[0] "el %(num)d uso"
 msgstr[1] "los %(num)d usos"
 
-#: databasic/templates/wordcounter/results.html:114
+#: databasic/templates/wordcounter/results.html:113
 msgid "in the top 40 bigrams, and "
 msgstr "en las 40 bigramas con más frecuencia, y"
 
-#: databasic/templates/wordcounter/results.html:115
+#: databasic/templates/wordcounter/results.html:114
 #, python-format
 msgid "the %(num)s use "
 msgid_plural "the %(num)s uses "
 msgstr[0] "el %(num)s uso"
 msgstr[1] "los %(num)s usos"
 
-#: databasic/templates/wordcounter/results.html:116
+#: databasic/templates/wordcounter/results.html:115
 #, python-format
 msgid ""
 "in the top 40 trigrams, to understand the context of how it is used.  "
@@ -759,25 +758,25 @@ msgstr "trigramas"
 msgid "Count"
 msgstr "Contar"
 
-#: databasic/templates/wtfcsv/results.html:7
-#: databasic/templates/wtfcsv/results.html:155
+#: databasic/templates/wtfcsv/results.html:6
+#: databasic/templates/wtfcsv/results.html:153
 msgid "This column is full of"
 msgstr "Esta columna tiene"
 
-#: databasic/templates/wtfcsv/results.html:30
+#: databasic/templates/wtfcsv/results.html:29
 msgid "Click to see the details"
 msgstr "Haga clic para ver las detalles"
 
-#: databasic/templates/wtfcsv/results.html:30
+#: databasic/templates/wtfcsv/results.html:29
 msgid "Click to see the chart"
 msgstr "Haga clic para ver la gráfica"
 
-#: databasic/templates/wtfcsv/results.html:41
-#: databasic/templates/wtfcsv/results.html:83
+#: databasic/templates/wtfcsv/results.html:40
+#: databasic/templates/wtfcsv/results.html:82
 msgid "WTFcsv: "
 msgstr "WTFcsv: "
 
-#: databasic/templates/wtfcsv/results.html:59
+#: databasic/templates/wtfcsv/results.html:58
 msgid ""
 "We can't analyze that data because it's not in a standard form. Your "
 "first row should contain the names of your columns."
@@ -785,102 +784,102 @@ msgstr ""
 "No podemos analizar estos datos porque no están en una forma estándar. La"
 " primera fila debe contener los nombres de las columnas."
 
-#: databasic/templates/wtfcsv/results.html:86
+#: databasic/templates/wtfcsv/results.html:85
 #, python-format
 msgid "%(rows)s rows of data grouped into %(cols)s columns."
 msgstr "%(rows)s filas de datos agrupados en %(cols)s columnas."
 
-#: databasic/templates/wtfcsv/results.html:90
+#: databasic/templates/wtfcsv/results.html:89
 #, python-format
 msgid "Here's some %(metadata)s about each column."
 msgstr "Aqui hay %(metadata)s sobre cada columna"
 
-#: databasic/templates/wtfcsv/results.html:91
+#: databasic/templates/wtfcsv/results.html:90
 msgid "metadata"
 msgstr "metadata"
 
-#: databasic/templates/wtfcsv/results.html:91
+#: databasic/templates/wtfcsv/results.html:90
 msgid "Metadata summarizes basic information about your data."
 msgstr "Metadata "
 
-#: databasic/templates/wtfcsv/results.html:129
+#: databasic/templates/wtfcsv/results.html:127
 msgid "value"
 msgstr "valor"
 
-#: databasic/templates/wtfcsv/results.html:130
+#: databasic/templates/wtfcsv/results.html:128
 msgid "frequency"
 msgstr "frecuencia"
 
-#: databasic/templates/wtfcsv/results.html:141
+#: databasic/templates/wtfcsv/results.html:139
 msgid "No data to display."
 msgstr "No hay información que mostrar."
 
-#: databasic/templates/wtfcsv/results.html:153
+#: databasic/templates/wtfcsv/results.html:151
 #, python-format
 msgid "Full name: \"%(name)s\""
 msgstr "Nombre y apellido: \"%(name)s\""
 
-#: databasic/templates/wtfcsv/results.html:157
+#: databasic/templates/wtfcsv/results.html:155
 msgid "The unique values in this column are:"
 msgstr "Los valores distintos en esta columna son:"
 
-#: databasic/templates/wtfcsv/results.html:165
+#: databasic/templates/wtfcsv/results.html:163
 msgid "The most frequent values in this column are:"
 msgstr "Los valores mas frecuentes en esta columna son:"
 
-#: databasic/templates/wtfcsv/results.html:169
+#: databasic/templates/wtfcsv/results.html:167
 #, python-format
 msgid "occurs %(frequency)s times"
 msgstr "ocurre %(frequency)s veces"
 
-#: databasic/templates/wtfcsv/results.html:183
+#: databasic/templates/wtfcsv/results.html:181
 msgid "The earliest date is"
 msgstr "La primera fecha es"
 
-#: databasic/templates/wtfcsv/results.html:185
+#: databasic/templates/wtfcsv/results.html:183
 msgid "The earliest time is"
 msgstr "La primera hora es"
 
-#: databasic/templates/wtfcsv/results.html:187
+#: databasic/templates/wtfcsv/results.html:185
 msgid "The smallest number is"
 msgstr "El número"
 
-#: databasic/templates/wtfcsv/results.html:193
+#: databasic/templates/wtfcsv/results.html:191
 msgid "The latest date is"
 msgstr "La última fecha es"
 
-#: databasic/templates/wtfcsv/results.html:195
+#: databasic/templates/wtfcsv/results.html:193
 msgid "The latest time is"
 msgstr "La última hora es"
 
-#: databasic/templates/wtfcsv/results.html:197
+#: databasic/templates/wtfcsv/results.html:195
 msgid "The biggest number is"
 msgstr "El número más grande es"
 
-#: databasic/templates/wtfcsv/results.html:201
+#: databasic/templates/wtfcsv/results.html:199
 msgid "The total is"
 msgstr "El total es"
 
-#: databasic/templates/wtfcsv/results.html:204
+#: databasic/templates/wtfcsv/results.html:202
 msgid "The average is"
 msgstr "El promedio es"
 
-#: databasic/templates/wtfcsv/results.html:207
+#: databasic/templates/wtfcsv/results.html:205
 msgid "The median is"
 msgstr "La media es"
 
-#: databasic/templates/wtfcsv/results.html:210
+#: databasic/templates/wtfcsv/results.html:208
 msgid "The standard deviation is"
 msgstr "La desviación estándar es"
 
-#: databasic/templates/wtfcsv/results.html:213
+#: databasic/templates/wtfcsv/results.html:211
 #, python-format
 msgid "There is %(num)s row of missing data"
 msgid_plural "There are %(num)s rows of missing data"
 msgstr[0] "Hay %(num)s fila de datos faltantes"
 msgstr[1] "Hay %(num)s filas de datos faltantes"
 
-#: databasic/templates/wtfcsv/results.html:241
+#: databasic/templates/wtfcsv/results.html:239
 #, python-format
 msgid ""
 "Understanding the data in your csv file is the first step in analyzing it"
@@ -910,35 +909,35 @@ msgstr ""
 " 'event', 'wtfcsv', 'activity-guide');\">guías de activdades </a> para "
 "más ayuda en hacer preguntas buenas de sus datos."
 
-#: databasic/templates/wtfcsv/results.html:371
+#: databasic/templates/wtfcsv/results.html:369
 msgid "Categories"
 msgstr "Categorías"
 
-#: databasic/templates/wtfcsv/results.html:373
+#: databasic/templates/wtfcsv/results.html:371
 msgid "Counts"
 msgstr "Totales"
 
-#: databasic/templates/wtfcsv/results.html:375
+#: databasic/templates/wtfcsv/results.html:373
 msgid "Dates"
 msgstr "Fechas"
 
-#: databasic/templates/wtfcsv/results.html:377
+#: databasic/templates/wtfcsv/results.html:375
 msgid "Times"
 msgstr "Veces"
 
-#: databasic/templates/wtfcsv/results.html:379
+#: databasic/templates/wtfcsv/results.html:377
 msgid "Dates and times"
 msgstr "Fechas y horas"
 
-#: databasic/templates/wtfcsv/results.html:381
+#: databasic/templates/wtfcsv/results.html:379
 msgid "Booleans"
 msgstr "Booleanos"
 
-#: databasic/templates/wtfcsv/results.html:383
+#: databasic/templates/wtfcsv/results.html:381
 msgid "Undefined"
 msgstr "Indefinido"
 
-#: databasic/templates/wtfcsv/results.html:393
+#: databasic/templates/wtfcsv/results.html:391
 msgid "# of rows"
 msgstr "# de filas"
 
