@@ -1,6 +1,5 @@
 {% extends "tool_base.html" %}
 {% from 'macros.html' import share, hover_tooltip, shareable with context %}
-{% from 'tool_footer.html' import what_next %}
 
 {% macro data_type_icon(col, type_name) -%}
   {% set is_number = type_name == 'float' or type_name == 'int' or type_name == 'long' or type_name == 'complex' %}

@@ -1,8 +1,21 @@
 {% extends "base.html" %}
-{% from "tool_footer.html" import tool_footer %}
+{% from "footer.html" import footer_menu %}
 
 {% macro what_next_anchor() -%}
   <h3 class="text-center" aria-hidden="true"><a href="#what-next">{{ _("What do I do next?") }}</a></h3>
+{%- endmacro %}
+
+{% macro what_next(text) -%}
+  <div class="bottom-section">
+    <div class="container-fluid">
+      <div class="row" id="what-next">
+        <div class="col-md-12 text-center">
+          <h1>{{ _('What do I do next?') }}</h1>
+          <p>{{ text }}</p>
+        </div>
+      </div>
+    </div>
+  </div>
 {%- endmacro %}
 
 {% macro about_section(name, video_id, activity_sheet_thumbnail_img, activity_sheet_en, activity_sheet_es) -%}
@@ -37,7 +50,7 @@
 {% block footer %}
   <footer>
     {% block custom_footer %}{% endblock %}
-    {{ tool_footer() }}
+    {{ footer_menu() }}
   </footer>
 {% endblock %}
 

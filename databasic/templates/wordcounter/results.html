@@ -1,6 +1,5 @@
 {% extends "tool_base.html" %}
 {% from 'macros.html' import hover_tooltip, download_url, shareable, ga_event with context %}
-{% from 'tool_footer.html' import what_next %}
 
 {% set download_words="/" + g['current_lang'] + "/wordcounter/results/" + doc_id + "/download/words.csv" %}
 {% set download_bigrams="/" + g['current_lang'] + "/wordcounter/results/" + doc_id + "/download/bigrams.csv" %}

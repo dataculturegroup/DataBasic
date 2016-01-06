@@ -1,5 +1,6 @@
 {% extends "base.html" %}
 {% from 'macros.html' import hover_tooltip with context %}
+{% from 'footer.html' import footer_menu %}
 {% block title %}DataBasic.io{% endblock %}
 {% block custom_css %}
   <link href="{{ url_for('static', filename='css/home.scss.css') }}" rel="stylesheet" type="text/css">
@@ -106,5 +107,7 @@
 {% endblock %}
 
 {% block footer %}
-  {% include 'footer.html' %}
+  <footer>
+  {{ footer_menu() }}
+  </footer>
 {% endblock %}
