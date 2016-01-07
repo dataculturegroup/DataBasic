@@ -20,7 +20,7 @@ from dateutil.parser import parse
 
 NoneType = type(None)
 
-SAMPLE_FOR_TYPE = True
+SAMPLE_FOR_TYPE = True  # controls whether we sample values to determine what type a column is
 MAX_UNIQUE = 5
 NUMBER_MAX_UNIQUE = 10
 MAX_FREQ = 5
@@ -113,14 +113,6 @@ class WTFCSVStat():
                 sampled_values = values
             sampled_value_count = len(sampled_values)
 
-            def remove_broken_datetimes():
-                new_values = []
-                for v in sampled_values:
-                    new = self.is_date(v)
-                    if new is not None:
-                        new_values.append(new.replace(tzinfo=None))
-                return new_values
-
             for v in sampled_values:
                 if type(v) in [float, int, long, complex] or self.is_number(unicode(v)):
                     number_count += 1
@@ -148,33 +140,38 @@ class WTFCSVStat():
                         c.type = datetime.datetime
                     else:
                         c.type = datetime.date
-                    values = remove_broken_datetimes()
                 elif time_percent > threshold:
                     c.type = datetime.time
-                    values = remove_broken_datetimes()
             else:
                 c.type = float
-                new_values = []
-                for v in values:
-                    new = self.is_number(v)
-                    if new is not None:
-                        new_values.append(new)
-                values = new_values
 
-            if c.type == unicode:
-                new_values = []
-                for v in values:
-                    if v != '&nbsp;':
-                        new_values.append(v)
-                values = new_values
+            logger.debug("    type is %s (%f ms)" % (c.type, (time.clock()-start_time)*1000))
 
-            logger.debug("  type is %s (%f ms)" % (c.type, (time.clock()-start_time)*1000))
+            # clean the data, based on the type it is
+            start_time = time.clock()
+            if c.type == datetime.datetime or c.type == datetime.date:
+                old_len = len(values)
+                values = [ self.is_date(v).replace(tzinfo=None) for v in values if self.is_date(v) is not None ]
+                new_len = len(values)
+                logger.debug("    removed %d bad values" % (old_len-new_len))
+            elif c.type == float:
+                old_len = len(values)
+                values = [ self.is_number(v) for v in values if self.is_number(v) is not None ]
+                new_len = len(values)
+                logger.debug("    removed %d bad values" % (old_len-new_len))
+            elif c.type == unicode:
+                old_len = len(values)
+                values = [ v for v in values if v != '&nbsp;' ]
+                new_len = len(values)
+                logger.debug("    removed %d bad values" % (old_len-new_len))
+
+            logger.debug("    cleaned in %f ms" % ((time.clock()-start_time)*1000))
 
             # do the default operations on the values
             start_time = time.clock()
             for op in OPERATIONS:
                 stats[op] = getattr(self, 'get_%s' % op)(c, values, stats)
-            logger.debug("  default ops took %f ms" % ((time.clock()-start_time)*1000))
+            logger.debug("    default ops took %f ms" % ((time.clock()-start_time)*1000))
 
             if c.type == None:
                 column_info['type'] = 'empty'
@@ -365,7 +362,7 @@ class WTFCSVStat():
 
     def is_date(self, date):
         try:
-            if re.search('[a-zA-Z]', date) and date not in MONTHS and date not in DAYS_OF_WEEK:
+            if date is str and re.search('[a-zA-Z]', date) and date not in MONTHS and date not in DAYS_OF_WEEK:
                 return None
             else:
                 return parse(str(date))
