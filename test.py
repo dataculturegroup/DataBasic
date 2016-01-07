@@ -2,9 +2,11 @@
 import unittest, logging, os, sys
 
 from databasic.logic.test.filehandlertest import *
+from databasic.logic.test.wtfcsvstattest import *
 
 test_classes = [
-    FileHandlerTest
+    FileHandlerTest, 
+    WTFCSVStatTest
 ]
 
 # set up all logging to DEBUG (cause we're running tests here!)
