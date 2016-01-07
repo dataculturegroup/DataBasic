@@ -14,7 +14,6 @@ logger = logging.getLogger(__name__)
 @mod.route('/', methods=('GET', 'POST'))
 def index():
     
-    mongo.clear_collection('wtfcsv')
     doc_url = oauth.doc_url()
     if doc_url is not None:
         return redirect_to_results(process_link(doc_url), 'link')
@@ -45,14 +44,19 @@ def index():
             elif doc['doc'] is not None:
                 results = process_link(doc['doc'])
         elif btn_value == 'sample':
-            basedir = os.path.dirname(os.path.abspath(__file__))
             sample_source = forms['sample'].data['sample']
-            logger.debug("New from sample: %s", sample_source)
+            samplename = filehandler.get_sample_title(sample_source)
+            sample_id = sample_source
+            existing_doc_id = mongo.results_for_sample('wtfcsv',sample_id)
+            if existing_doc_id is not None:
+                logger.debug("Existing from sample: %s", sample_source)
+                return redirect(request.url + 'results/' + existing_doc_id)
+            logger.debug("New from sample: %s", samplename)
             sample_path = filehandler.get_sample_path(sample_source)
             logger.debug("  loading from %s", sample_path)
             results = []
             results.append(wtfcsvstat.get_summary(sample_path))
-            results[0]['filename'] = filehandler.get_sample_title(sample_source) + '.csv'
+            results[0]['filename'] = samplename + '.csv'
 
         if btn_value is not None and btn_value is not u'':
             return redirect_to_results(results, btn_value, sample_id)
@@ -64,10 +68,12 @@ def results(doc_id):
     try:
         results = mongo.find_document('wtfcsv', doc_id).get('results')
         if len(results) > 1:
+            logger.info("Showing results %s (sheet 0)", doc_id)
             submit = request.args.get('submit', '')
             param = '?submit=true' if 'true' in submit else ''
             return redirect(g.current_lang + '/wtfcsv/results/' + doc_id + '/sheets/0' + param)
         else:
+            logger.info("Showing results %s", doc_id)
             return render_results(doc_id, 0)
     except:
         logger.warning("Unable to find doc '%s'", doc_id)

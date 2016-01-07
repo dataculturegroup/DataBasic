@@ -48,17 +48,20 @@ def index():
             title = upload_file.filename
             logger.debug("New from upload: %s", title )
         elif btn_value == 'sample':
-            basedir = os.path.dirname(os.path.abspath(__file__))
             sample_source = forms['sample'].data['sample']
-            logger.debug("New from sample: %s", sample_source)
+            samplename = filehandler.get_sample_title(sample_source)
+            title = samplename
+            sample_id = title
+            existing_doc_id = mongo.results_for_sample('wordcounter',sample_id)
+            if existing_doc_id is not None:
+                logger.debug("Existing from sample: %s", sample_source)
+                return redirect(request.url + 'results/' + existing_doc_id)
+            logger.info("New from sample: %s", sample_source)
             sample_path = filehandler.get_sample_path(sample_source)
             logger.debug("  loading from %s", sample_path)
             words = filehandler.convert_to_txt(sample_path)
             ignore_case = forms[btn_value].data['ignore_case_sample']
             ignore_stopwords = forms[btn_value].data['ignore_stopwords_sample']
-            samplename = filehandler.get_sample_title(sample_source)
-            title = samplename
-            sample_id = title
         elif btn_value == 'link':
             url = forms['link'].data['link']
             # TODO: should actually accept https

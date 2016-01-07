@@ -41,15 +41,19 @@ def index():
             # email = forms['upload'].data['email']
         elif btn_value == 'sample':
             sample_sources = [ forms['sample'].data['sample'], forms['sample'].data['sample2'] ]
+            f1name = filehandler.get_sample_title(sample_sources[0])
+            f2name = filehandler.get_sample_title(sample_sources[1])
+            sample_id = str(f1name) + str(f2name)
+            existing_doc_id = mongo.results_for_sample('samediff',sample_id)
+            if existing_doc_id is not None:
+                logger.debug("Existing from sample: %s", sample_id)
+                return redirect(request.url + 'results/' + existing_doc_id)
             logger.debug("New from sample: %s", ", ".join(sample_sources))
             file_paths = [ filehandler.get_sample_path(sample_source) for sample_source in sample_sources ]
             logger.debug("  loading from %s", ", ".join(file_paths))
             is_sample_data = True
-            f1name = filehandler.get_sample_title(forms['sample'].data['sample'])
-            f2name = filehandler.get_sample_title(forms['sample'].data['sample2'])
             both = unicode(_('%(f1)s and %(f2)s', f1=f1name, f2=f2name))
             titles = [f1name, both, f2name]
-            sample_id = str(f1name) + str(f2name)
             # email = forms['sample'].data['email']
         elif btn_value == 'link':
             url1 = forms['link'].data['link']
