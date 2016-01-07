@@ -132,9 +132,7 @@
     send_submit_event('{{ tool_name }}', '{{ source }}');
 
     var data = [
-      {% for word in results[0] | batch(50) | first %}
-        { text: "{{ word[0]|safe }}", size: {{ word[1]|float }} },
-      {% endfor %}
+      {% for word in results[0] | batch(50) | first %}{ text: "{{ word[0]|safe }}", size: {{ word[1]|float }} },{% endfor %}
     ];
 
     var maxScore = Math.max.apply(Math, data.map(function(o) {return o.size;}))
