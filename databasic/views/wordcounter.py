@@ -51,7 +51,9 @@ def index():
             sample_source = forms['sample'].data['sample']
             samplename = filehandler.get_sample_title(sample_source)
             title = samplename
-            sample_id = title
+            ignore_case = forms[btn_value].data['ignore_case_sample']
+            ignore_stopwords = forms[btn_value].data['ignore_stopwords_sample']
+            sample_id = title+str(ignore_case)+str(ignore_stopwords)
             existing_doc_id = mongo.results_for_sample('wordcounter',sample_id)
             if existing_doc_id is not None:
                 logger.debug("Existing from sample: %s", sample_source)
@@ -60,8 +62,6 @@ def index():
             sample_path = filehandler.get_sample_path(sample_source)
             logger.debug("  loading from %s", sample_path)
             words = filehandler.convert_to_txt(sample_path)
-            ignore_case = forms[btn_value].data['ignore_case_sample']
-            ignore_stopwords = forms[btn_value].data['ignore_stopwords_sample']
         elif btn_value == 'link':
             url = forms['link'].data['link']
             # TODO: should actually accept https
