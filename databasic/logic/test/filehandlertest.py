@@ -24,3 +24,14 @@ class FileHandlerTest(unittest.TestCase):
         fixture_path = os.path.join(self._fixtures_dir,'latin-1.txt')
         text = filehandler.convert_to_txt(fixture_path) 
         self.assertEqual(len(text),860)
+
+    def test_docx_to_txt(self):
+        fixture_path = os.path.join(self._fixtures_dir,'demo.docx')
+        text = filehandler._docx_to_txt(fixture_path) 
+        self.assertEqual(len(text),9031)
+        valid_utf8 = True
+        try:
+            text.decode('utf-8')
+        except UnicodeDecodeError:
+            valid_utf8 = False
+        self.assertTrue(valid_utf8)
