@@ -3,7 +3,7 @@ var send_submit_event = function(toolName, source) {
   var submit = $.urlParam('submit');
   if (submit) {
     ga('send', 'event', toolName, source, 'input-tab');
-    window.location.href = window.location.href.replace('?submit=true', '#');
+    history.pushState('', window.title, window.location.href.replace('?submit=true', ''));
   }
 }
 
