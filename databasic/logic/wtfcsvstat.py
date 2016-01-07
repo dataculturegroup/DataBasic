@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 #!/usr/bin/env python
-import datetime, os, sys, json, tempfile, re, csv, time
+import datetime, os, sys, json, tempfile, re, csv, time, collections
 import gzip
 import bz2
 from heapq import nlargest
@@ -87,7 +87,7 @@ class WTFCSVStat():
         
         results['columns'] = []
         for c in tab:
-            logger.debug("  column: %s" % c.name)
+            #logger.debug("  column: %s" % c.name)
 
             if c.name == '_unnamed':
                 return 'bad_formatting'
@@ -145,33 +145,34 @@ class WTFCSVStat():
             else:
                 c.type = float
 
-            logger.debug("    type is %s (%f ms)" % (c.type, (time.clock()-start_time)*1000))
+            #logger.debug("    type is %s (%f ms)" % (c.type, (time.clock()-start_time)*1000))
 
             # clean the data, based on the type it is
             start_time = time.clock()
-            if c.type == datetime.datetime or c.type == datetime.date:
+            if c.type == datetime.datetime or c.type == datetime.date or c.type == datetime.time:
                 old_len = len(values)
                 values = [ self.is_date(v).replace(tzinfo=None) for v in values if self.is_date(v) is not None ]
                 new_len = len(values)
-                logger.debug("    removed %d bad values" % (old_len-new_len))
+                #logger.debug("    removed %d bad values" % (old_len-new_len))
             elif c.type == float:
                 old_len = len(values)
                 values = [ self.is_number(v) for v in values if self.is_number(v) is not None ]
                 new_len = len(values)
-                logger.debug("    removed %d bad values" % (old_len-new_len))
+                #logger.debug("    removed %d bad values" % (old_len-new_len))
             elif c.type == unicode:
                 old_len = len(values)
                 values = [ v for v in values if v != '&nbsp;' ]
                 new_len = len(values)
-                logger.debug("    removed %d bad values" % (old_len-new_len))
-
-            logger.debug("    cleaned in %f ms" % ((time.clock()-start_time)*1000))
+                #logger.debug("    removed %d bad values" % (old_len-new_len))
+            #logger.debug("    cleaned in %f ms" % ((time.clock()-start_time)*1000))
 
             # do the default operations on the values
             start_time = time.clock()
             for op in OPERATIONS:
+                op_start_time = time.clock()
                 stats[op] = getattr(self, 'get_%s' % op)(c, values, stats)
-            logger.debug("    default ops took %f ms" % ((time.clock()-start_time)*1000))
+                #logger.debug("      %s in %f" % (op,(time.clock()-op_start_time)*1000))
+            #logger.debug("    default ops took %f ms" % ((time.clock()-start_time)*1000))
 
             if c.type == None:
                 column_info['type'] = 'empty'
@@ -362,10 +363,11 @@ class WTFCSVStat():
 
     def is_date(self, date):
         try:
-            if date is str and re.search('[a-zA-Z]', date) and date not in MONTHS and date not in DAYS_OF_WEEK:
+            date_str = six.text_type(date)
+            if re.search('[a-zA-Z]', date_str) and date_str not in MONTHS and date_str not in DAYS_OF_WEEK:
                 return None
             else:
-                return parse(str(date))
+                return parse(str(date_str))
         except:
             return None
 
@@ -418,23 +420,9 @@ def freq(l, n=MAX_FREQ):
     """
     Count the number of times each value occurs in a column.
     """
-    count = {}
-
-    for x in l:
-        s = six.text_type(x)
-
-        if s in count:
-            count[s] += 1
-        else:
-            count[s] = 1
-
-    # This will iterate through dictionary, return N highest
-    # values as (key, value) tuples.
-    top = nlargest(n, six.iteritems(count), itemgetter(1))
-    result = []
-    for item in top:
-        result.append((unicode(item[0]).replace('.','_'), item[1]))
-    return result
+    counter=collections.Counter(l)
+    results = counter.most_common(n)
+    return results
 
 if __name__ == "__main__":
     if(len(sys.argv)!=2):
