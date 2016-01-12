@@ -44,7 +44,7 @@
       <div class="col-sm-4">
         <h2>{{ _('Top Words') }} 
         <a href="{{ download_words }}" aria-label="{{ _('download csv of word frequencies') }}" {{ ga_event('words-dl') }}><span class="glyphicon glyphicon-download" aria-hidden="true"></span></a></h2>
-        <table class="table" role="presentation">
+        <table class="table">
           <thead>
             <tr>
               <th>{{ _('Word') }}</th>
@@ -85,7 +85,7 @@
       <div class="col-sm-4">
         <h2>{{ _('Trigrams') }} 
         <a href="{{ download_trigrams }}" aria-label="{{ _('download csv of trigram frequencies') }}" {{ ga_event('trigrams-dl') }}><span class="glyphicon glyphicon-download" aria-hidden="true"></span></a></h2>
-        <table class="table" role="presentation">
+        <table class="table">
           <thead>
             <tr>
               <th>{{ _('%(trigram)s', trigram=hover_tooltip(_("trigram"), _('A trigram is a three word phrase') )) }}</th>
