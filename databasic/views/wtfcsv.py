@@ -87,9 +87,9 @@ def results_sheet(doc_id, sheet_idx):
 def download_activity_guide():
     filename = None
     if g.current_lang == 'en':
-        filename = "WTFcsv Activity Guide v1_0_0.pdf"
+        filename = "WTFcsv Activity Guide v1_0_1.pdf"
     elif g.current_lang == 'es':
-        filename = "WTFcsv Activity Guide v1_0_0.pdf"
+        filename = "WTFcsv Activity Guide v1_0_1.pdf"
     if filename is None:
         abort(500)
     files_path = os.path.join(get_base_dir(),'databasic','static','files')
