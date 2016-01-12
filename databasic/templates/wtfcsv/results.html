@@ -1,6 +1,83 @@
 {% extends "tool_base.html" %}
 {% from 'macros.html' import share, hover_tooltip, shareable with context %}
 
+{% macro card_details(col) -%}
+  <ul>
+    {% if col['name']|length > 16 %}
+      <li>{{ _('Full name: "%(name)s"', name=col['name']) }}</li>
+    {% endif %}
+    <li>{{_("This column is full of")}} {{ col['display_type_name'] }}</li>
+    {% if 'values' in col %}
+      <li>{{_("The unique values in this column are:")}}
+      <ul>
+        {% for val in col['values'] %}
+          <li><em>{{ val['value'] }}</em> <em>({{ val['count'] }})</em></li>
+        {% endfor %}
+      </ul>
+      </li>
+    {% elif 'most_freq_values' in col %}
+      <li>{{ _("The most frequent values in this column are:") }}
+        <ul>
+          {% for val in col['most_freq_values'] %}
+            {% if is_number %}
+            <li>{{ val['value'] | replace("_", ".") }}<em> ({{ _("occurs %(frequency)s times", frequency=val['count']) }})</em></li>
+            {% else %}
+              <li><em>{{ val['value'] }}</em><em> ({{ val['count'] }})</em></li>
+            {% endif %}
+          {% endfor %}
+        </ul>
+      </li>
+    {% endif %}
+    {% if 'max_str_len' in col %}
+      <li>{{ _("The longest string has %d characters" % col['max_str_len']) }}</li>
+    {% endif %}
+    {% if 'min' in col %}
+      <li>
+      {% if type_name == 'datetime' or type_name == 'date' %}
+        {{ _('The earliest date is') }}
+      {% elif type_name == 'time' %}
+        {{ _('The earliest time is') }}
+      {% else %}
+        {{_("The smallest number is") }} 
+      {% endif %} <em>{{col['min']}}</em></li>
+    {% endif %}
+    {% if 'max' in col %}
+      <li>
+      {% if type_name == 'datetime' or type_name == 'date' %}
+        {{ _('The latest date is') }}
+      {% elif type_name == 'time' %}
+        {{ _('The latest time is') }}
+      {% else %}
+        {{_("The biggest number is") }}
+      {% endif %} <em>{{col['max']}}</em></li>
+    {% endif %}
+    {% if 'sum' in col %}
+      <li>{{_("The total is") }} <em>{{col['sum']|round(2)}}</em></li>
+    {% endif %}
+    {% if 'mean' in col %}
+      <li>{{_("The average is") }} <em>{{col['mean']|round(2)}}</em></li>
+    {% endif %}
+    {% if 'median' in col %}
+      <li>{{_("The median is") }} <em>{{col['median']|round(2)}}</em></li>
+    {% endif %}
+    {% if 'stdev' in col %}
+      <li>{{_("The standard deviation is") }} <em>{{col['stdev']|round(2)}}</em></li>
+    {% endif %}
+    {% if col['nulls'] > 0 %}
+      <li>{{ ngettext("There is %(num)s row of missing data", "There are %(num)s rows of missing data", col['nulls']) }}</li>
+    {% endif %}
+    {% if 'freq' in col %}
+      <li>{{col['freq']|round(2)}}</li>
+    {% endif %}
+    {% if 'len' in col %}
+      <li>{{_("The longest string is <em>%d</em> characters" % col['len']) }}</li>
+    {% endif %}
+    {% if 'uniques' in col %}
+      <li>{{ _('There are <em>%d</em> unique values' % col['uniques']) }}</li>
+    {% endif %}
+  </ul>
+{%- endmacro %}
+
 {% macro data_type_icon(col, type_name) -%}
   {% set is_number = type_name == 'float' or type_name == 'int' or type_name == 'long' or type_name == 'complex' %}
   <a data-trigger="focus hover" data-toggle="tooltip" data-trigger="hover" href="#tooltip" data-original-title="{{_('This column is full of')}} {{ col['display_type_name'] }}">
@@ -31,7 +108,7 @@
 
 {% macro card_top(type_name, col, front) -%}
 <div class="card-top">
-  <h3 class="flip-icon pull-right">{{ flip_icon(front) }}</h3>
+  <h3 class="flip-icon pull-right" aria-hidden="true">{{ flip_icon(front) }}</h3>
   <h3 class="data-type" aria-hidden="true" role="presentation">{{ data_type_icon(col, type_name) }}</h3>
   <h3 class="card-name">{{ col['name']|truncate(20) }}</h3>
 </div>
@@ -119,7 +196,8 @@
                   {{ card_top(type_name, col, True) }}
                   <div id="card-chart-{{ c }}" class="card-chart">
                     <div class="chart" aria-hidden="true"></div>
-                    <div class="table">
+                    <div class="clipped-invisible">
+                      {{ card_details(col) }}
                     {% if col['overview']['categories']|length > 0 %}
                       <table>
                         <thead>
@@ -146,80 +224,7 @@
                 <div class="card-content">
                   {{ card_top(type_name, col, False) }}
                   <div class="card-bottom">
-                    <ul>
-                      {% if col['name']|length > 16 %}
-                        <li>{{ _('Full name: "%(name)s"', name=col['name']) }}</li>
-                      {% endif %}
-                      <li>{{_("This column is full of")}} {{ col['display_type_name'] }}</li>
-                      {% if 'values' in col %}
-                        <li>{{_("The unique values in this column are:")}}
-                        <ul>
-                          {% for val in col['values'] %}
-                            <li><em>{{ val['value'] }}</em> <em>({{ val['count'] }})</em></li>
-                          {% endfor %}
-                        </ul>
-                        </li>
-                      {% elif 'most_freq_values' in col %}
-                        <li>{{ _("The most frequent values in this column are:") }}
-                          <ul>
-                            {% for val in col['most_freq_values'] %}
-                              {% if is_number %}
-                              <li>{{ val['value'] | replace("_", ".") }}<em> ({{ _("occurs %(frequency)s times", frequency=val['count']) }})</em></li>
-                              {% else %}
-                                <li><em>{{ val['value'] }}</em><em> ({{ val['count'] }})</em></li>
-                              {% endif %}
-                            {% endfor %}
-                          </ul>
-                        </li>
-                      {% endif %}
-                      {% if 'max_str_len' in col %}
-                        <li>{{ _("The longest string has %d characters" % col['max_str_len']) }}</li>
-                      {% endif %}
-                      {% if 'min' in col %}
-                        <li>
-                        {% if type_name == 'datetime' or type_name == 'date' %}
-                          {{ _('The earliest date is') }}
-                        {% elif type_name == 'time' %}
-                          {{ _('The earliest time is') }}
-                        {% else %}
-                          {{_("The smallest number is") }} 
-                        {% endif %} <em>{{col['min']}}</em></li>
-                      {% endif %}
-                      {% if 'max' in col %}
-                        <li>
-                        {% if type_name == 'datetime' or type_name == 'date' %}
-                          {{ _('The latest date is') }}
-                        {% elif type_name == 'time' %}
-                          {{ _('The latest time is') }}
-                        {% else %}
-                          {{_("The biggest number is") }}
-                        {% endif %} <em>{{col['max']}}</em></li>
-                      {% endif %}
-                      {% if 'sum' in col %}
-                        <li>{{_("The total is") }} <em>{{col['sum']|round(2)}}</em></li>
-                      {% endif %}
-                      {% if 'mean' in col %}
-                        <li>{{_("The average is") }} <em>{{col['mean']|round(2)}}</em></li>
-                      {% endif %}
-                      {% if 'median' in col %}
-                        <li>{{_("The median is") }} <em>{{col['median']|round(2)}}</em></li>
-                      {% endif %}
-                      {% if 'stdev' in col %}
-                        <li>{{_("The standard deviation is") }} <em>{{col['stdev']|round(2)}}</em></li>
-                      {% endif %}
-                      {% if col['nulls'] > 0 %}
-                        <li>{{ ngettext("There is %(num)s row of missing data", "There are %(num)s rows of missing data", col['nulls']) }}</li>
-                      {% endif %}
-                      {% if 'freq' in col %}
-                        <li>{{col['freq']|round(2)}}</li>
-                      {% endif %}
-                      {% if 'len' in col %}
-                        <li>{{_("The longest string is <em>%d</em> characters" % col['len']) }}</li>
-                      {% endif %}
-                      {% if 'uniques' in col %}
-                        <li>{{ _('There are <em>%d</em> unique values' % col['uniques']) }}</li>
-                      {% endif %}
-                    </ul>
+                    {{ card_details(col) }}
                   </div>
                 </div>
               </div>
