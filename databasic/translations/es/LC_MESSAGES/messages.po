@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2016-01-06 16:28-0500\n"
+"POT-Creation-Date: 2016-01-17 13:51-0500\n"
 "PO-Revision-Date: 2015-12-21 14:00-0600\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language: es\n"
@@ -487,17 +487,33 @@ msgstr ""
 "Está basado en la frecuencia de las palabras.`"
 
 #: databasic/templates/samediff/results.html:38
-#: databasic/templates/samediff/results.html:46
+#: databasic/templates/samediff/results.html:82
 #, python-format
 msgid "Words that are only in %(document)s"
 msgstr "Palabras que solo ocurren en %(document)s"
 
-#: databasic/templates/samediff/results.html:42
+#: databasic/templates/samediff/results.html:44
+#: databasic/templates/samediff/results.html:66
+#: databasic/templates/samediff/results.html:88
+#: databasic/templates/wordcounter/results.html:50
+msgid "Word"
+msgstr "Palabra"
+
+#: databasic/templates/samediff/results.html:45
+#: databasic/templates/samediff/results.html:67
+#: databasic/templates/samediff/results.html:89
+#: databasic/templates/wordcounter/results.html:51
+#: databasic/templates/wordcounter/results.html:71
+#: databasic/templates/wordcounter/results.html:92
+msgid "Frequency"
+msgstr "Frecuencia"
+
+#: databasic/templates/samediff/results.html:60
 #, python-format
 msgid "Words that are in %(doc)s"
 msgstr "Palabras en %(doc)s"
 
-#: databasic/templates/samediff/results.html:51
+#: databasic/templates/samediff/results.html:105
 #, python-format
 msgid ""
 "Comparing text documents is a great way to find out what makes each one "
@@ -521,19 +537,20 @@ msgstr ""
 "\"%(doc2_most_common_word)s\" tantas veces, mientras que ni aparezca en "
 "el documento %(doc1)s? Con estas preguntas, se puede hacer un boceto que "
 "compara los dos documentos. <br /><br />Encuentre una pizarra blanca y "
-"empiece su historia. Echa un vistazo a nuestra <a href=\"%(activity_guide_url)s\" "
-"onclick=\"ga('send', 'event', 'samediff', 'activity-guide');\">guía de "
-"actividades</a> para ayuda en dibujar su historia de comparación.  "
-"¿Quiere aprender más de sus datos?  <a href=\"%(download)s\" "
-"onclick=\"ga('send', 'event', 'samediff', 'samediff-dl');\">Baja todos "
-"los resultados como archivo .CSV </a> para compararlos más."
+"empiece su historia. Echa un vistazo a nuestra <a "
+"href=\"%(activity_guide_url)s\" onclick=\"ga('send', 'event', 'samediff',"
+" 'activity-guide');\">guía de actividades</a> para ayuda en dibujar su "
+"historia de comparación.  ¿Quiere aprender más de sus datos?  <a "
+"href=\"%(download)s\" onclick=\"ga('send', 'event', 'samediff', "
+"'samediff-dl');\">Baja todos los resultados como archivo .CSV </a> para "
+"compararlos más."
 
-#: databasic/templates/samediff/results.html:108
+#: databasic/templates/samediff/results.html:162
 #, python-format
 msgid " uses in %(doc)s"
 msgstr " usos en %(doc)s"
 
-#: databasic/templates/samediff/results.html:110
+#: databasic/templates/samediff/results.html:164
 msgid " uses"
 msgstr " usos"
 
@@ -617,16 +634,6 @@ msgstr "Palabras con más frecuencia"
 #: databasic/templates/wordcounter/results.html:46
 msgid "download csv of word frequencies"
 msgstr "bajar csv con frecuencias de palabras"
-
-#: databasic/templates/wordcounter/results.html:50
-msgid "Word"
-msgstr "Palabra"
-
-#: databasic/templates/wordcounter/results.html:51
-#: databasic/templates/wordcounter/results.html:71
-#: databasic/templates/wordcounter/results.html:92
-msgid "Frequency"
-msgstr "Frecuencia"
 
 #: databasic/templates/wordcounter/results.html:65
 msgid "Bigrams"
@@ -724,11 +731,11 @@ msgstr ""
 "este entendimiento del contexto, Ud. puede hacer un boceto que explica "
 "porque \"%(top_word)s\" es tan importante en %(title)s. <br/><br />Agárre"
 " una hoja de papel y unas ceras y empiece a pintar lo que ve! Eche un "
-"vistazo a nuestra <a href=\"%(activity_guide_url)s\" onclick=\"ga('send', 'event', "
-"'wordcounter', 'activity-guide');\">guía de actividades</a> para ayuda en"
-" hacer su boceto.  ¿Quiere aprender más de sus datos? Baje <a "
-"href=\"%(download_words)s\" onclick=\"ga('send', 'event', 'wordcounter', "
-"'words-dl');\">los totales de las palabras</a>, <a "
+"vistazo a nuestra <a href=\"%(activity_guide_url)s\" onclick=\"ga('send',"
+" 'event', 'wordcounter', 'activity-guide');\">guía de actividades</a> "
+"para ayuda en hacer su boceto.  ¿Quiere aprender más de sus datos? Baje "
+"<a href=\"%(download_words)s\" onclick=\"ga('send', 'event', "
+"'wordcounter', 'words-dl');\">los totales de las palabras</a>, <a "
 "href=\"%(download_bigrams)s\" onclick=\"ga('send', 'event', "
 "'wordcounter', 'bigrams-dl');\">bigramas</a>, o <a "
 "href=\"%(download_trigrams)s\" onclick=\"ga('send', 'event', "
@@ -758,25 +765,90 @@ msgstr "trigramas"
 msgid "Count"
 msgstr "Contar"
 
-#: databasic/templates/wtfcsv/results.html:6
-#: databasic/templates/wtfcsv/results.html:153
+#: databasic/templates/wtfcsv/results.html:7
+#, python-format
+msgid "Full name: \"%(name)s\""
+msgstr "Nombre y apellido: \"%(name)s\""
+
+#: databasic/templates/wtfcsv/results.html:9
+#: databasic/templates/wtfcsv/results.html:83
 msgid "This column is full of"
 msgstr "Esta columna tiene"
 
-#: databasic/templates/wtfcsv/results.html:29
+#: databasic/templates/wtfcsv/results.html:11
+msgid "The unique values in this column are:"
+msgstr "Los valores distintos en esta columna son:"
+
+#: databasic/templates/wtfcsv/results.html:19
+msgid "The most frequent values in this column are:"
+msgstr "Los valores mas frecuentes en esta columna son:"
+
+#: databasic/templates/wtfcsv/results.html:23
+#, python-format
+msgid "occurs %(frequency)s times"
+msgstr "ocurre %(frequency)s veces"
+
+#: databasic/templates/wtfcsv/results.html:37
+msgid "The earliest date is"
+msgstr "La primera fecha es"
+
+#: databasic/templates/wtfcsv/results.html:39
+msgid "The earliest time is"
+msgstr "La primera hora es"
+
+#: databasic/templates/wtfcsv/results.html:41
+msgid "The smallest number is"
+msgstr "El número"
+
+#: databasic/templates/wtfcsv/results.html:47
+msgid "The latest date is"
+msgstr "La última fecha es"
+
+#: databasic/templates/wtfcsv/results.html:49
+msgid "The latest time is"
+msgstr "La última hora es"
+
+#: databasic/templates/wtfcsv/results.html:51
+msgid "The biggest number is"
+msgstr "El número más grande es"
+
+#: databasic/templates/wtfcsv/results.html:55
+msgid "The total is"
+msgstr "El total es"
+
+#: databasic/templates/wtfcsv/results.html:58
+msgid "The average is"
+msgstr "El promedio es"
+
+#: databasic/templates/wtfcsv/results.html:61
+msgid "The median is"
+msgstr "La media es"
+
+#: databasic/templates/wtfcsv/results.html:64
+msgid "The standard deviation is"
+msgstr "La desviación estándar es"
+
+#: databasic/templates/wtfcsv/results.html:67
+#, python-format
+msgid "There is %(num)s row of missing data"
+msgid_plural "There are %(num)s rows of missing data"
+msgstr[0] "Hay %(num)s fila de datos faltantes"
+msgstr[1] "Hay %(num)s filas de datos faltantes"
+
+#: databasic/templates/wtfcsv/results.html:106
 msgid "Click to see the details"
 msgstr "Haga clic para ver las detalles"
 
-#: databasic/templates/wtfcsv/results.html:29
+#: databasic/templates/wtfcsv/results.html:106
 msgid "Click to see the chart"
 msgstr "Haga clic para ver la gráfica"
 
-#: databasic/templates/wtfcsv/results.html:40
-#: databasic/templates/wtfcsv/results.html:82
+#: databasic/templates/wtfcsv/results.html:117
+#: databasic/templates/wtfcsv/results.html:159
 msgid "WTFcsv: "
 msgstr "WTFcsv: "
 
-#: databasic/templates/wtfcsv/results.html:58
+#: databasic/templates/wtfcsv/results.html:135
 msgid ""
 "We can't analyze that data because it's not in a standard form. Your "
 "first row should contain the names of your columns."
@@ -784,102 +856,37 @@ msgstr ""
 "No podemos analizar estos datos porque no están en una forma estándar. La"
 " primera fila debe contener los nombres de las columnas."
 
-#: databasic/templates/wtfcsv/results.html:85
+#: databasic/templates/wtfcsv/results.html:162
 #, python-format
 msgid "%(rows)s rows of data grouped into %(cols)s columns."
 msgstr "%(rows)s filas de datos agrupados en %(cols)s columnas."
 
-#: databasic/templates/wtfcsv/results.html:89
+#: databasic/templates/wtfcsv/results.html:166
 #, python-format
 msgid "Here's some %(metadata)s about each column."
 msgstr "Aqui hay %(metadata)s sobre cada columna"
 
-#: databasic/templates/wtfcsv/results.html:90
+#: databasic/templates/wtfcsv/results.html:167
 msgid "metadata"
 msgstr "metadata"
 
-#: databasic/templates/wtfcsv/results.html:90
+#: databasic/templates/wtfcsv/results.html:167
 msgid "Metadata summarizes basic information about your data."
 msgstr "Metadata "
 
-#: databasic/templates/wtfcsv/results.html:127
+#: databasic/templates/wtfcsv/results.html:205
 msgid "value"
 msgstr "valor"
 
-#: databasic/templates/wtfcsv/results.html:128
+#: databasic/templates/wtfcsv/results.html:206
 msgid "frequency"
 msgstr "frecuencia"
 
-#: databasic/templates/wtfcsv/results.html:139
+#: databasic/templates/wtfcsv/results.html:217
 msgid "No data to display."
 msgstr "No hay información que mostrar."
 
-#: databasic/templates/wtfcsv/results.html:151
-#, python-format
-msgid "Full name: \"%(name)s\""
-msgstr "Nombre y apellido: \"%(name)s\""
-
-#: databasic/templates/wtfcsv/results.html:155
-msgid "The unique values in this column are:"
-msgstr "Los valores distintos en esta columna son:"
-
-#: databasic/templates/wtfcsv/results.html:163
-msgid "The most frequent values in this column are:"
-msgstr "Los valores mas frecuentes en esta columna son:"
-
-#: databasic/templates/wtfcsv/results.html:167
-#, python-format
-msgid "occurs %(frequency)s times"
-msgstr "ocurre %(frequency)s veces"
-
-#: databasic/templates/wtfcsv/results.html:181
-msgid "The earliest date is"
-msgstr "La primera fecha es"
-
-#: databasic/templates/wtfcsv/results.html:183
-msgid "The earliest time is"
-msgstr "La primera hora es"
-
-#: databasic/templates/wtfcsv/results.html:185
-msgid "The smallest number is"
-msgstr "El número"
-
-#: databasic/templates/wtfcsv/results.html:191
-msgid "The latest date is"
-msgstr "La última fecha es"
-
-#: databasic/templates/wtfcsv/results.html:193
-msgid "The latest time is"
-msgstr "La última hora es"
-
-#: databasic/templates/wtfcsv/results.html:195
-msgid "The biggest number is"
-msgstr "El número más grande es"
-
-#: databasic/templates/wtfcsv/results.html:199
-msgid "The total is"
-msgstr "El total es"
-
-#: databasic/templates/wtfcsv/results.html:202
-msgid "The average is"
-msgstr "El promedio es"
-
-#: databasic/templates/wtfcsv/results.html:205
-msgid "The median is"
-msgstr "La media es"
-
-#: databasic/templates/wtfcsv/results.html:208
-msgid "The standard deviation is"
-msgstr "La desviación estándar es"
-
-#: databasic/templates/wtfcsv/results.html:211
-#, python-format
-msgid "There is %(num)s row of missing data"
-msgid_plural "There are %(num)s rows of missing data"
-msgstr[0] "Hay %(num)s fila de datos faltantes"
-msgstr[1] "Hay %(num)s filas de datos faltantes"
-
-#: databasic/templates/wtfcsv/results.html:239
+#: databasic/templates/wtfcsv/results.html:244
 #, python-format
 msgid ""
 "Understanding the data in your csv file is the first step in analyzing it"
@@ -905,39 +912,39 @@ msgstr ""
 "encontrar para hacer preguntas interesantes de la columna "
 "%(random_column_name)s? <br /><br />Hacer estos tipos de preguntas es la "
 "primera etapa de entender los datos que tiene, y las historias que "
-"contienen. Echa un vistazo a nuestras  <a href=\"%(activity_guide_url)s\" onclick=\"ga('send',"
-" 'event', 'wtfcsv', 'activity-guide');\">guías de activdades </a> para "
-"más ayuda en hacer preguntas buenas de sus datos."
+"contienen. Echa un vistazo a nuestras  <a href=\"%(activity_guide_url)s\""
+" onclick=\"ga('send', 'event', 'wtfcsv', 'activity-guide');\">guías de "
+"activdades </a> para más ayuda en hacer preguntas buenas de sus datos."
 
-#: databasic/templates/wtfcsv/results.html:369
+#: databasic/templates/wtfcsv/results.html:374
 msgid "Categories"
 msgstr "Categorías"
 
-#: databasic/templates/wtfcsv/results.html:371
+#: databasic/templates/wtfcsv/results.html:376
 msgid "Counts"
 msgstr "Totales"
 
-#: databasic/templates/wtfcsv/results.html:373
+#: databasic/templates/wtfcsv/results.html:378
 msgid "Dates"
 msgstr "Fechas"
 
-#: databasic/templates/wtfcsv/results.html:375
+#: databasic/templates/wtfcsv/results.html:380
 msgid "Times"
 msgstr "Veces"
 
-#: databasic/templates/wtfcsv/results.html:377
+#: databasic/templates/wtfcsv/results.html:382
 msgid "Dates and times"
 msgstr "Fechas y horas"
 
-#: databasic/templates/wtfcsv/results.html:379
+#: databasic/templates/wtfcsv/results.html:384
 msgid "Booleans"
 msgstr "Booleanos"
 
-#: databasic/templates/wtfcsv/results.html:381
+#: databasic/templates/wtfcsv/results.html:386
 msgid "Undefined"
 msgstr "Indefinido"
 
-#: databasic/templates/wtfcsv/results.html:391
+#: databasic/templates/wtfcsv/results.html:396
 msgid "# of rows"
 msgstr "# de filas"
 
@@ -970,48 +977,48 @@ msgstr ""
 msgid "Analyze"
 msgstr "Analizar"
 
-#: databasic/views/samediff.py:39 databasic/views/samediff.py:50
+#: databasic/views/samediff.py:39 databasic/views/samediff.py:55
 #, python-format
 msgid "%(f1)s and %(f2)s"
 msgstr "%(f1)s y %(f2)s"
 
-#: databasic/views/samediff.py:93
+#: databasic/views/samediff.py:97
 msgid "word"
 msgstr "palabra"
 
-#: databasic/views/samediff.py:93
+#: databasic/views/samediff.py:97
 msgid "uses in"
 msgstr "usos en"
 
-#: databasic/views/samediff.py:93
+#: databasic/views/samediff.py:97
 msgid "total uses"
 msgstr "usos totales"
 
-#: databasic/views/samediff.py:141
+#: databasic/views/samediff.py:145
 msgid "almost the same"
 msgstr "casi lo mismo"
 
-#: databasic/views/samediff.py:143
+#: databasic/views/samediff.py:147
 msgid "sort of similar"
 msgstr "algo similares"
 
-#: databasic/views/samediff.py:145
+#: databasic/views/samediff.py:149
 msgid "kind of similar"
 msgstr "un poco similares"
 
-#: databasic/views/samediff.py:147
+#: databasic/views/samediff.py:151
 msgid "kind of similar, and also kind of different"
 msgstr "un poco similares y un poco diferentes también"
 
-#: databasic/views/samediff.py:149
+#: databasic/views/samediff.py:153
 msgid "pretty different"
 msgstr "bastante diferentes"
 
-#: databasic/views/samediff.py:151
+#: databasic/views/samediff.py:155
 msgid "very different"
 msgstr "muy diferentes"
 
-#: databasic/views/samediff.py:153
+#: databasic/views/samediff.py:157
 msgid "completely different"
 msgstr "completamente diferentes"
 
@@ -1019,11 +1026,11 @@ msgstr "completamente diferentes"
 msgid "your text"
 msgstr "tu texto"
 
-#: databasic/views/wordcounter.py:74
+#: databasic/views/wordcounter.py:77
 msgid "title"
 msgstr "título"
 
-#: databasic/views/wtfcsv.py:155
+#: databasic/views/wtfcsv.py:161
 msgid "Other"
 msgstr "Otro"
 
