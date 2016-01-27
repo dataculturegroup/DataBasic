@@ -181,3 +181,8 @@
 {% macro ga_event(action) -%}
   onclick="ga('send', 'event', '{{ tool_name }}', '{{ action }}');"
 {%- endmacro %}
+
+{% macro url_with_language(language) -%}
+  {% set url_without_language = "/".join(request.path.split("/")[2:]) %}
+  /{{language}}/{{url_without_language}}
+{%- endmacro %}

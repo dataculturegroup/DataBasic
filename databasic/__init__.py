@@ -103,7 +103,7 @@ nltk.data.path.append(local_nltk_path)
 @app.before_request
 def before():
     if request.view_args and 'lang_code' in request.view_args:
-        if request.view_args['lang_code'] not in ('es', 'en'):
+        if request.view_args['lang_code'] not in ('es', 'en', 'pt'):
             return abort(404) # bail on invalid language
         g.current_lang = request.view_args['lang_code']
         request.view_args.pop('lang_code')
