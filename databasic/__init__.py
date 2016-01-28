@@ -12,6 +12,8 @@ import nltk
 
 import logic.filehandler, logic.db, logic.oauth
 
+VALID_LANGUAGES = ('es', 'en', 'pt')
+
 CONFIG_DIR_NAME = 'config'
 
 ENV_APP_MODE = 'APP_MODE'   # the environment variable holding which settings file to load (just the name)
@@ -103,7 +105,7 @@ nltk.data.path.append(local_nltk_path)
 @app.before_request
 def before():
     if request.view_args and 'lang_code' in request.view_args:
-        if request.view_args['lang_code'] not in ('es', 'en', 'pt'):
+        if request.view_args['lang_code'] not in VALID_LANGUAGES:
             return abort(404) # bail on invalid language
         g.current_lang = request.view_args['lang_code']
         request.view_args.pop('lang_code')
