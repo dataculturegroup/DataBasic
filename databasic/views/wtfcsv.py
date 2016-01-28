@@ -85,15 +85,10 @@ def results_sheet(doc_id, sheet_idx):
 
 @mod.route('/wtfcsv-activity-guide.pdf')
 def download_activity_guide():
-    filename = None
-    if g.current_lang == 'en':
-        filename = "WTFcsv Activity Guide v1_0_1.pdf"
-    elif g.current_lang == 'es':
-        filename = "WTFcsv Activity Guide v1_0_1.pdf"
-    if filename is None:
-        abort(500)
-    files_path = os.path.join(get_base_dir(),'databasic','static','files')
-    return send_from_directory(directory=files_path, filename=filename)
+    filename = "WTFcsv Activity Guide.pdf"
+    dir_path = os.path.join(get_base_dir(),'databasic','static','files','activity-guides',g.current_lang)
+    logger.debug("download activity guide from %s/%s", dir_path, filename)
+    return send_from_directory(directory=dir_path, filename=filename)
 
 def render_results(doc_id, sheet_idx):
 

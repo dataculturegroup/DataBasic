@@ -115,15 +115,10 @@ def download(doc_id):
 
 @mod.route('/samediff-activity-guide.pdf')
 def download_activity_guide():
-    filename = None
-    if g.current_lang == 'en':
-        filename = "SameDiff Activity Guide v1_0_0.pdf"
-    elif g.current_lang == 'es':
-        filename = "SameDiff Activity Guide v1_0_0.pdf"
-    if filename is None:
-        abort(500)
-    files_path = os.path.join(get_base_dir(),'databasic','static','files')
-    return send_from_directory(directory=files_path, filename=filename)
+    filename = "SameDiff Activity Guide.pdf"
+    dir_path = os.path.join(get_base_dir(),'databasic','static','files','activity-guides',g.current_lang)
+    logger.debug("download activity guide from %s/%s", dir_path, filename)
+    return send_from_directory(directory=dir_path, filename=filename)
 
 def process_results(file_paths, titles, sample_id, source):
     file_names = filehandler.get_file_names(file_paths)

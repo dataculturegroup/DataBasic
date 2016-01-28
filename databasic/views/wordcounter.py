@@ -163,15 +163,10 @@ def download_csv(doc_id, analysis_type):
 
 @mod.route('/wordcounter-activity-guide.pdf')
 def download_activity_guide():
-    filename = None
-    if g.current_lang == 'en':
-        filename = "WordCounter Activity Guide v1_0_0.pdf"
-    elif g.current_lang == 'es':
-        filename = "WordCounter Activity Guide v1_0_0.pdf"
-    if filename is None:
-        abort(500)
-    files_path = os.path.join(get_base_dir(),'databasic','static','files')
-    return send_from_directory(directory=files_path, filename=filename)
+    filename = "WordCounter Activity Guide.pdf"
+    dir_path = os.path.join(get_base_dir(),'databasic','static','files','activity-guides',g.current_lang)
+    logger.debug("download activity guide from %s/%s", dir_path, filename)
+    return send_from_directory(directory=dir_path, filename=filename)
 
 def process_upload(doc):
     file_path = filehandler.open_doc(doc)
