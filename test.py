@@ -7,8 +7,8 @@ from databasic.logic.test.dbtest import *
 
 test_classes = [
     FileHandlerTest, 
-    WTFCSVStatTest,
-    MongoHandlerTest
+ 	MongoHandlerTest, 
+    WTFCSVStatTest
 ]
 
 # set up all logging to DEBUG (cause we're running tests here!)
