@@ -31,7 +31,7 @@ class FileHandlerTest(unittest.TestCase):
         self.assertEqual(len(text),9031)
         valid_utf8 = True
         try:
-            text.decode('utf-8')
+            text.decode(filehandler.ENCODING_UTF_8)
         except UnicodeDecodeError:
             valid_utf8 = False
         self.assertTrue(valid_utf8)
@@ -40,3 +40,19 @@ class FileHandlerTest(unittest.TestCase):
         fixture_path = os.path.join(self._fixtures_dir,'HowAmericaInjuresItself_FromNEISS.xlsx')
         results = filehandler.convert_to_csv(fixture_path)
         self.assertEqual(len(results),1)
+
+    def test_open_with_correct_encoding(self):
+        fixture_path = os.path.join(self._fixtures_dir,'latin-1.txt')
+        encoding, file_handle, content = filehandler.open_with_correct_encoding(fixture_path)
+        self.assertEqual(encoding,filehandler.ENCODING_LATIN_1)
+        fixture_path = os.path.join(self._fixtures_dir,'utf-8.txt')
+        encoding, file_handle, content = filehandler.open_with_correct_encoding(fixture_path)
+        self.assertEqual(encoding,filehandler.ENCODING_UTF_8)
+
+    def test_convert_to_utf8(self):
+        fixture_path = os.path.join(self._fixtures_dir,'latin-1.txt')
+        encoding, file_handle, content = filehandler.open_with_correct_encoding(fixture_path)
+        self.assertEqual(encoding,filehandler.ENCODING_LATIN_1)
+        temp_utf8_file_path = filehandler.convert_to_utf8(fixture_path)
+        encoding, file_handle, content = filehandler.open_with_correct_encoding(temp_utf8_file_path)
+        self.assertEqual(encoding,filehandler.ENCODING_UTF_8)

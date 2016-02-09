@@ -15,6 +15,7 @@ import databasic
 logger = logging.getLogger(__name__)
 
 ENCODING_UTF_8 = 'utf-8'
+ENCODING_UTF_16 = 'utf-16'
 ENCODING_LATIN_1 = 'latin-1'
 TEMP_DIR = tempfile.gettempdir()
 
@@ -93,25 +94,10 @@ def convert_to_txt(file_path):
     if ext == '.txt':
         logger.debug("loading txt file")
         worked = False
-        try:    # try UTF8
-            logger.debug("trying to convert_to_txt with %s" % ENCODING_UTF_8)
-            with codecs.open(file_path, 'r', ENCODING_UTF_8) as myfile:
-                words = myfile.read()
-            worked = True
-        except Exception as e: 
-            logger.warning("convert_to_txt with %s failed on %s" % (ENCODING_UTF_8,file_path))
-            worked = False
-        if not worked:
-            logger.debug("trying to convert_to_txt with %s" % ENCODING_LATIN_1)
-            try:    # try latin-1
-                with codecs.open(file_path, 'r', ENCODING_LATIN_1) as myfile:
-                    words = myfile.read()
-                worked = True
-            except Exception as e: 
-                logger.warning("convert_to_txt with %s failed on %s" % (ENCODING_LATIN_1,file_path))
-                worked = False
-        if not worked:
-            logger.error("Couldn't read txt file in either codec :-(")
+        try:
+            encoding, file_handle, words = open_with_correct_encoding(file_path)
+        except Exception as e:
+            logger.error("Wasn't able to read the words from the file %s" % file_path)
             words = ""
     elif ext == '.docx':
         logger.debug("loading docx file")
@@ -126,6 +112,49 @@ def convert_to_txt(file_path):
             words = myfile.read()
     logger.debug("loaded %d chars" % len(words))
     return words
+
+def convert_to_utf8(file_path):
+    encoding, file_handle, content = open_with_correct_encoding(file_path)
+    if encoding is ENCODING_UTF_8:
+        return file_path
+    # now we have to save it as utf8
+    return write_to_temp_file(content)
+
+def open_with_correct_encoding(file_path):
+    '''
+    Since you can't actually detect the encoding of a file perfectly, default to utf-8
+    and fallback to any others we want.  This returns the file handle, and the content, since 
+    you have to try to read the file for it to fail on a content encoding error.
+    '''
+    file_handle = None
+    content = ""
+    worked = False
+    if not worked:
+        try:    # try UTF8
+            logger.debug("trying to convert_to_txt with %s" % ENCODING_UTF_8)
+            myfile = codecs.open(file_path, 'r', ENCODING_UTF_8)
+            content = myfile.read()
+            encoding = ENCODING_UTF_8
+            file_handle = myfile
+            worked = True
+            logger.debug("file is utf8")
+        except Exception as e: 
+            logger.warning("convert_to_txt with %s failed on %s" % (ENCODING_UTF_8,file_path))
+    if not worked:
+        logger.debug("trying to convert_to_txt with %s" % ENCODING_LATIN_1)
+        try:    # try latin-1
+            myfile = codecs.open(file_path, 'r', ENCODING_LATIN_1)
+            content = myfile.read()
+            encoding = ENCODING_LATIN_1
+            file_handle = myfile
+            worked = True
+            logger.debug("file is latin1")
+        except Exception as e: 
+            logger.warning("convert_to_txt with %s failed on %s" % (ENCODING_LATIN_1,file_path))
+    if not worked:
+        logger.error("Couldn't read txt file in either codec :-(")
+    file_handle.seek(0)
+    return [encoding, file_handle, content]
 
 def convert_to_csv(file_path):
     ext = _get_extension(file_path)
@@ -221,7 +250,7 @@ def _open_sheet(workbook, index):
     name = workbook.sheet_names()[index]
     new_file = _get_temp_file('-' + name + '.csv')
     with open(new_file, 'wb') as f:
-        writer = unicodecsv.writer(f, encoding=ENCODING_UTF_8, delimiter=str(u';'), quotechar=str(u'"'))
+        writer = unicodecsv.writer(f, encoding=ENCODING_UTF_8, delimiter=str(u','), quotechar=str(u'"'))
         for row in xrange(sh.nrows):
             writer.writerow(sh.row_values(row))
     return new_file

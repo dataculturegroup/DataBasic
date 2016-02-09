@@ -17,6 +17,7 @@ import numpy.random
 from csvkit import CSVKitReader, table
 from lazyfile import LazyFile
 from dateutil.parser import parse
+import filehandler
 
 NoneType = type(None)
 
@@ -34,8 +35,8 @@ logger = logging.getLogger(__name__)
 '''
 Public API: call this to get results!
 '''
-def get_summary(input_path, has_header_row=True, encoding='utf-8'):
-    wtfcsvstat = WTFCSVStat(input_path, has_header_row, encoding)
+def get_summary(input_path, has_header_row=True):
+    wtfcsvstat = WTFCSVStat(input_path, has_header_row)
     results = wtfcsvstat.get_summary()
     return results
 
@@ -44,11 +45,12 @@ A hacked-up version of after CSVState
 '''
 class WTFCSVStat():
     
-    def __init__(self, input_path, has_header_row=True, encoding='utf-8'):
+    def __init__(self, input_path, has_header_row=True):
         self.input_path = input_path
         self.has_header_row = has_header_row
-        self.input_file = self._open_input_file(input_path, encoding)
-        
+        utf8_file_path = filehandler.convert_to_utf8(input_path)
+        logger.debug("converted to utf8 at %s" % utf8_file_path)
+        self.input_file = codecs.open(utf8_file_path,'r',filehandler.ENCODING_UTF_8)
     
     # copied from CSVKitUtility
     def _open_input_file(self, path, enc):
@@ -76,7 +78,7 @@ class WTFCSVStat():
             return results
 
         start_time = time.clock()
-        tab = table.Table.from_csv(self.input_file)
+        tab = table.Table.from_csv(self.input_file,delimiter=',',quotechar='"')
         logger.debug("  %f ms to create table from csv" % (1000*(time.clock()-start_time)))
 
         row_count = tab.count_rows() + 1 # this value is inaccurate so I'm adding 1
