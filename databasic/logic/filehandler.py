@@ -137,7 +137,7 @@ def convert_to_csv(file_path):
         for i in range(wb.nsheets):
             files.append(_open_sheet(wb, i))
         return files
-    print ext + ' could not be converted to csv'
+    logger.error(ext + ' could not be converted to csv')
     return [file_path]
 
 def open_doc(doc):
@@ -146,7 +146,7 @@ def open_doc(doc):
         file_path = os.path.join(TEMP_DIR, file_name)
         return file_path
     except UploadNotAllowed:
-        print "supported filetypes: txt, docx, rtf, csv, xlsx, xls, love"
+        logger.error("supported filetypes: txt, docx, rtf, csv, xlsx, xls, love")
 
 def open_docs(docs):
     file_paths = []
