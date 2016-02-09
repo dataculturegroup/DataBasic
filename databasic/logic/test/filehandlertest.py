@@ -35,3 +35,8 @@ class FileHandlerTest(unittest.TestCase):
         except UnicodeDecodeError:
             valid_utf8 = False
         self.assertTrue(valid_utf8)
+
+    def test_convert_to_csv(self):
+        fixture_path = os.path.join(self._fixtures_dir,'HowAmericaInjuresItself_FromNEISS.xlsx')
+        results = filehandler.convert_to_csv(fixture_path)
+        self.assertEqual(len(results),1)
