@@ -90,6 +90,20 @@ def download_activity_guide():
     logger.debug("download activity guide from %s/%s", dir_path, filename)
     return send_from_directory(directory=dir_path, filename=filename)
 
+@mod.route('/titanic.csv')
+def download_titanic_data():
+    return _download_sample_data("sample-data/titanic.csv",'titanic.csv')
+
+@mod.route('/ufo.csv')
+def download_ufo_data():
+    return _download_sample_data("sample-data/UFOMA.csv",'ufo.csv')
+
+def _download_sample_data(source,filename_to_send):
+    sample_path = filehandler.get_sample_path(source)
+    dirname = os.path.dirname(sample_path)
+    filename = os.path.basename(sample_path)
+    return send_from_directory(directory=dirname, filename=filename)
+
 def render_results(doc_id, sheet_idx):
 
     doc = mongo.find_document('wtfcsv', doc_id)

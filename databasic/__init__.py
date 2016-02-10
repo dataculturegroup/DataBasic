@@ -1,5 +1,5 @@
-import os, ConfigParser, ntpath, logging, logging.handlers, sys
-import logging, os, sys, ntpath, logging.handlers
+import os, ConfigParser, logging, logging.handlers, sys
+import logging, os, sys, logging.handlers
 from flask import Flask, Blueprint, g, redirect, request, abort
 from flask.ext.assets import Environment, Bundle
 from flask.ext.babel import Babel
@@ -122,13 +122,25 @@ def index():
 def wordcounter():
     return redirect('/' + get_locale() + '/wordcounter')
 
+@app.route('/wordcounter/<stuff>')
+def wordcounter_with_stuff(stuff):
+    return redirect('/' + get_locale() + '/wordcounter/'+stuff)
+
 @app.route('/samediff')
 def samediff():
     return redirect('/' + get_locale() + '/samediff')
 
+@app.route('/samediff/<stuff>')
+def samediff_with_stuff(stuff):
+    return redirect('/' + get_locale() + '/samediff/'+stuff)
+
 @app.route('/wtfcsv')
 def wtfcsv():
     return redirect('/' + get_locale() + '/wtfcsv')
+
+@app.route('/wtfcsv/<stuff>')
+def wtfcsv_with_stuff(stuff):
+    return redirect('/' + get_locale() + '/wtfcsv/'+stuff)
 
 @app.route('/auth')
 def auth():
