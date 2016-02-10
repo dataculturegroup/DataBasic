@@ -96,7 +96,13 @@ def download_titanic_data():
 
 @mod.route('/ufo.csv')
 def download_ufo_data():
+    # referenced in the activity guide, so don't remove this!
     return _download_sample_data("sample-data/UFOMA.csv",'ufo.csv')
+
+@mod.route('/handout.pdf')
+def download_handout():
+    # this is the third page of the activity guide now, so redirect them there
+    return download_activity_guide()
 
 def _download_sample_data(source,filename_to_send):
     sample_path = filehandler.get_sample_path(source)
