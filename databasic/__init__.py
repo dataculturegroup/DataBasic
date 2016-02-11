@@ -12,6 +12,7 @@ import nltk
 
 import logic.filehandler, logic.db, logic.oauth
 
+
 VALID_LANGUAGES = ('es', 'en') #, 'pt')
 
 CONFIG_DIR_NAME = 'config'
@@ -22,6 +23,11 @@ APP_MODE_DEV = "development"
 APP_MODE_PRODUCTION = "production"
 
 app_mode = os.environ.get(ENV_APP_MODE, None)
+
+# ATTEMPTING UNICODE FIX
+reload(sys)
+sys.setdefaultencoding('utf-8')
+
 if(app_mode is None):
     logging.error("missing necessary environment variable %s (%s,%s)" % 
         (ENV_APP_MODE,APP_MODE_DEV,APP_MODE_PRODUCTION) )
