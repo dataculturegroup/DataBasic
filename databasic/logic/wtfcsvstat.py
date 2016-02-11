@@ -66,6 +66,20 @@ class WTFCSVStat():
 
         return f
 
+    def detectDelimiter(self):
+        with open(self.input_path, 'r') as myCsvfile:
+            header=myCsvfile.readline()
+            if header.find(",")!=-1:
+                logger.debug("Detected delimiter ,")
+                return ","
+            if header.find(";")!=-1:
+                logger.debug("Detected delimiter ;")
+                return ";"
+            if header.find("\t")!=-1:
+                logger.debug("Detected delimiter \t")
+                return "\t"
+        return ","
+
     def get_summary(self):
         summary_start = time.clock()
         results = {}
@@ -78,7 +92,14 @@ class WTFCSVStat():
             return results
 
         start_time = time.clock()
-        tab = table.Table.from_csv(self.input_file,delimiter=',',quotechar='"')
+        tab = None
+        delim = self.detectDelimiter()
+        try:
+            tab = table.Table.from_csv(self.input_file,delimiter=delim,quotechar='"')
+        except Exception as e:
+            logger.debug("Error making a table from the CSV")
+            return 'bad_formatting'
+
         logger.debug("  %f ms to create table from csv" % (1000*(time.clock()-start_time)))
 
         row_count = tab.count_rows() + 1 # this value is inaccurate so I'm adding 1
