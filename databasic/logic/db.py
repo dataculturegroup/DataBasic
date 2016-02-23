@@ -35,10 +35,12 @@ class MongoHandler:
             'created_at': time.time()
             }))
 
-    def save_samediff(self, collection, filenames, diff_words_doc1, diff_words_doc2, same_words, same_word_counts,
+    def save_samediff(self, collection, filenames, total_words_doc1, total_words_doc2, diff_words_doc1, diff_words_doc2, same_words, same_word_counts,
                       most_frequent_doc1, most_frequent_doc2, cosine_similarity, titles, sample_id, source):
         return str(self._db[collection].save({
             'filenames': filenames,
+            'totalWordsDoc1': total_words_doc1,
+            'totalWordsDoc2': total_words_doc2,
             'diffWordsDoc1': diff_words_doc1,
             'diffWordsDoc2': diff_words_doc2,
             'sameWords': same_words,
@@ -61,5 +63,5 @@ class MongoHandler:
     #def update_document(self, collection, doc_id, update_obj):
     #    self._db[collection].update({'_id': ObjectId(doc_id)}, update_obj, upsert=True)
 
-    #def clear_collection(self, collection):
-    #    self._db[collection].remove({})
+    def clear_collection(self, collection):
+       self._db[collection].remove({})

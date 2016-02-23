@@ -8,6 +8,8 @@ def term_document_matrix(texts):
     return term_doc_matrix
 
 def common_and_unique_word_freqs(texts):
+    word_count_d1 = len(texts[0].split())
+    word_count_d2 = len(texts[1].split())
     tdm = term_document_matrix(texts)
     # get the most common used words, sorted by freq
     common_rows = tdm.rows(cutoff=2)
@@ -42,6 +44,7 @@ def common_and_unique_word_freqs(texts):
     cosine_similarity = ( 1 - spatial.distance.cosine(all_d1_freqs,all_d2_freqs) )
 
     # stitch it together to return the data
-    return {'common':common_word_freqs, 'common_counts': common_counts, 'doc1': d1, 'doc2':d2, 
-            'doc1unique':unique_to_d1, 'doc2unique': unique_to_d2,
+    return {'common': common_word_freqs, 'common_counts': common_counts, 'doc1': d1, 'doc2':d2, 
+            'doc1unique': unique_to_d1, 'doc2unique': unique_to_d2,
+            'doc1total': word_count_d1, 'doc2total': word_count_d2,
             'cosine_similarity': cosine_similarity}
