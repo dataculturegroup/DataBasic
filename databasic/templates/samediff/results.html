@@ -35,10 +35,15 @@
 
     <div class="row" id="word-clouds">
       <div class="col-md-4">
-        <div class="wordcloud-title"><h4>{{ _('Words that are only in %(document)s (%(unique_word_count)s unique words out of %(word_count)s total words)', 
-        document=results['titles'][0],
-        unique_word_count=results['diffWordsDoc1']|length,
-        word_count=results['totalWordsDoc1']) }}</h4></div>
+        <div class="wordcloud-title"><h4>{{ _('Words that are only in %(document)s', 
+        document=results['titles'][0]) }} 
+        {# Check is necessary for backwards compatibility #}
+        {% if 'totalWordsDoc1' in results %}
+          {{ _('(%(unique_word_count)s unique words out of %(word_count)s total words)',
+          unique_word_count=results['diffWordsDoc1']|length,
+          word_count=results['totalWordsDoc1']) }}
+        {% endif %}
+        </h4></div>
         <div class="left-cloud" aria-hidden="true"></div>
         <div class="clipped-invisible">
           <table>
@@ -82,10 +87,15 @@
         </div>
       </div>
       <div class="col-md-4">
-        <div class="wordcloud-title"><h4>{{ _('Words that are only in %(document)s (%(unique_word_count)s unique words out of %(word_count)s total words)', 
-        document=results['titles'][2],
-        unique_word_count=results['diffWordsDoc2']|length,
-        word_count=results['totalWordsDoc2']) }}</h4></div>
+        <div class="wordcloud-title"><h4>{{ _('Words that are only in %(document)s', 
+        document=results['titles'][2]) }} 
+        {# Check is necessary for backwards compatibility #}
+        {% if 'totalWordsDoc2' in results %}
+          {{ _('(%(unique_word_count)s unique words out of %(word_count)s total words)',
+          unique_word_count=results['diffWordsDoc2']|length,
+          word_count=results['totalWordsDoc2']) }}
+        {% endif %}
+        </h4></div>
         <div class="right-cloud" aria-hidden="true"></div>
         <div class="clipped-invisible">
           <table>
