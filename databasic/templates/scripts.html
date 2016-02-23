@@ -1,7 +1,22 @@
 {% assets "js_base" %}<script type="text/javascript" src="{{ ASSET_URL }}"></script>{% endassets %}
 
-<!-- This is a hacky way of getting locale data for js - worth checking out if it could be improved -->
-<script type="text/javascript" src="/static/js/{{ g['current_lang'] }}-locale-data.js"></script>
+<script type="text/javascript">
+{% if 'messages' in g %}
+	var data = {
+		'databasic': $.parseJSON({{ g["messages"]|safe }})
+	};
+{% else %}
+	var data = null;
+{% endif %}
+
+var gt = new Gettext({
+	domain: 'databasic',
+	locale_data: data
+});
+
+var _ = function(msgid) { return gt.gettext(msgid); };
+
+</script>
 
 <script>
 $(function () {

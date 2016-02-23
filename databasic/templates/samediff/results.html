@@ -118,14 +118,14 @@
       </div>
     </div>
   </div>
-  {{ what_next(_("Comparing text documents is a great way to find out what makes each one unique.  Is it meaningful that \"%(most_common_word)s\" and \"%(second_most_common_word)s\" are the most used words appearing in both documents?  Why does %(doc2)s use \"%(doc2_most_common_word)s\" so much, but it doesn't even appear in %(doc1)s?  With these questions in mind, you can sketch out a story that compares the documents.  <br /><br />Find a whiteboard and start sketching out a story.  Check out our <a href=\"%(activity_guide_url)s\" onclick=\"ga('send', 'event', 'samediff', 'activity-guide');\">activity guide</a> for more help on sketching out a story to compare them.  Want to dig into the data even more?  <a href=\"%(download)s\" onclick=\"ga('send', 'event', 'samediff', 'samediff-dl');\">Download the full results as a CSV file</a> to compare the files even further.",
+  {{ what_next(_("Comparing text documents is a great way to find out what makes each one unique.  Is it meaningful that \"%(most_common_word)s\" and \"%(second_most_common_word)s\" are the most used words appearing in both documents?  Why does %(doc2)s use \"%(doc2_most_common_word)s\" so much, but it doesn't even appear in %(doc1)s?  With these questions in mind, you can sketch out a story that compares the documents.  <br /><br />Find a whiteboard and start sketching out a story.  Check out our <a href=\"%(activity_guide_url)s\" onclick='ga('send', 'event', 'samediff', 'activity-guide');'>activity guide</a> for more help on sketching out a story to compare them.  Want to dig into the data even more?  <a href=\"%(download)s\" onclick=\"ga('send', 'event', 'samediff', 'samediff-dl');\">Download the full results as a CSV file</a> to compare the files even further.",
   most_common_word=whatnext['most_common_word'],
   second_most_common_word=whatnext['second_most_common_word'],
   doc2=results['titles'][2],
   doc2_most_common_word=whatnext['doc2_most_common_word'],
   doc1=results['titles'][0],
   download=download,
-  activity_guide_url="/"+g['current_lang']+"/samediff/samediff-activity-guide.pdf")) }}
+  activity_guide_url='/'+g['current_lang']+'/samediff/samediff-activity-guide.pdf')) }}
 </div>
 {% endblock %}
 

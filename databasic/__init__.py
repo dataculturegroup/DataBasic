@@ -1,4 +1,4 @@
-import os, ConfigParser, logging, logging.handlers, sys
+import os, ConfigParser, logging, logging.handlers, sys, codecs, json
 import logging, os, sys, logging.handlers
 from flask import Flask, Blueprint, g, redirect, request, abort
 from flask.ext.assets import Environment, Bundle
@@ -114,6 +114,12 @@ def before():
         if request.view_args['lang_code'] not in VALID_LANGUAGES:
             return abort(404) # bail on invalid language
         g.current_lang = request.view_args['lang_code']
+
+        # loads the translation files to be used for client-side validation
+        if 'en' not in g.current_lang:
+            with codecs.open(os.path.join(get_base_dir(), 'databasic/translations', g.current_lang, 'LC_MESSAGES/messages.json'), 'r', 'utf-8') as f:
+                g.messages = json.dumps(f.read())
+
         request.view_args.pop('lang_code')
 
 @babel.localeselector

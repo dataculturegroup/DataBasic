@@ -15,13 +15,6 @@ $(document).ready(function(){
 		spreadsheet: { spreadsheet: true }
 	});
 
-	//Trying to replace the fakepath thing; It's the default behavior in Chrome
-	//Replaceing filepath doesn't work - browser just changes it back
-	$("input:file").change(function (){
-		$('#browse-click-upload').text("yup")//.replace(/C:\\fakepath\\/i, '')
-		
-	 });
-	
 	$(".upload").validate({
 	    rules: {
 	    	upload: {
