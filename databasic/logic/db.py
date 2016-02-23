@@ -63,5 +63,14 @@ class MongoHandler:
     #def update_document(self, collection, doc_id, update_obj):
     #    self._db[collection].update({'_id': ObjectId(doc_id)}, update_obj, upsert=True)
 
-    def clear_collection(self, collection):
-       self._db[collection].remove({})
+    # def clear_collection(self, collection):
+       # self._db[collection].remove({})
+
+    def remove_all_sample_data(self):
+        self.remove_sample_data('wordcounter')        
+        self.remove_sample_data('wtfcsv')        
+        self.remove_sample_data('samediff')        
+
+    def remove_sample_data(self, collection):
+        self._db[collection].remove({'sample_id': {'$exists': True, '$ne': ''}})
+
