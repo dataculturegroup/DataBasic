@@ -108,13 +108,24 @@ class WTFCSVStat():
             row_count -= 1
         results['row_count'] = row_count
         logger.debug("  found %d rows" % row_count)
+
+        column_count = len(tab)
+        empty_header_count = 0
         
         results['columns'] = []
         for c in tab:
             #logger.debug("  column: %s" % c.name)
 
+            """
+            skip over columns that don't have headers
+            also count the number of columns without headers
+            and if all columns are missing headers, tell the user that the csv is poorly formatted
+            """
             if c.name == '_unnamed':
-                return 'bad_formatting'
+                empty_header_count += 1
+                if empty_header_count == column_count:
+                    return 'bad_formatting'
+                continue
 
             column_info = {}
             column_info['index'] = c.order + 1
