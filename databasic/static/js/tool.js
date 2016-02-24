@@ -86,11 +86,11 @@ $(document).ready(function() {
     $('#browse-click-' + id).on('click', function () {
         $('.form-control[name="' + id + '"]').click();
         setInterval(function() {
-          var label = $('.form-control[name="' + id + '"]').val();
+          var label = $('.form-control[name="' + id + '"]').val().replace("C:\\fakepath\\","");
           if (label != "") {
             $('#browse-click-' + id).html(label);
           }
-        }, 1);
+        }, 10);
         return false;
     });
   }
