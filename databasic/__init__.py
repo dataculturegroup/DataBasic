@@ -163,9 +163,6 @@ def auth():
         logic.oauth.authorize(request.args['code'])
     return redirect(logic.oauth.redirect_to())
 
-def test():
-    print 'test'
-
 from databasic.views import home
 from databasic.views import samediff
 from databasic.views import wordcounter

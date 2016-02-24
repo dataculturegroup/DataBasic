@@ -28,7 +28,7 @@ def index():
         # email = None
         is_sample_data = False
         titles = []
-        sample_id = []
+        sample_id = ''
 
         if btn_value == 'upload':
             files = [forms['upload'].data['upload'], forms['upload'].data['upload2']]
@@ -74,8 +74,12 @@ def index():
 @mod.route('/results/<doc_id>')
 def results(doc_id):
 
+    remaining_days = None
+
     try:
         job = mongo.find_document('samediff', doc_id)
+        if job['sample_id'] == u'':
+            remaining_days = mongo.get_remaining_days('samediff', doc_id)
     except:
         logger.warning("Unable to find doc '%s'", doc_id)
         abort(400)
@@ -87,7 +91,8 @@ def results(doc_id):
 
     return render_template('samediff/results.html', results=job, 
         cosine_similarity= {'score':job['cosineSimilarity'],'description':interpretCosineSimilarity(job['cosineSimilarity'])},
-        whatnext=whatnext, tool_name='samediff', doc_id=doc_id)
+        whatnext=whatnext, tool_name='samediff', doc_id=doc_id,
+        remaining_days=remaining_days)
 
 @mod.route('/results/download/<doc_id>/results.csv')
 def download(doc_id):

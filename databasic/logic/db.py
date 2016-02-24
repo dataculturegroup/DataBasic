@@ -1,7 +1,8 @@
-import datetime, json, logging, time, codecs
+import datetime, json, logging, time, codecs, pytz
 from pymongo import MongoClient
 from bson.objectid import ObjectId
 
+EXPIRE_AFTER = 60 # time in days
 logger = logging.getLogger(__name__)
 
 class MongoHandler:
@@ -60,11 +61,12 @@ class MongoHandler:
     def find_document(self, collection, doc_id):
         return self._db[collection].find_one({'_id': ObjectId(doc_id)})
 
-    #def update_document(self, collection, doc_id, update_obj):
-    #    self._db[collection].update({'_id': ObjectId(doc_id)}, update_obj, upsert=True)
-
-    # def clear_collection(self, collection):
-       # self._db[collection].remove({})
+    def get_remaining_days(self, collection, doc_id):
+        doc = self.find_document(collection, doc_id)['_id']
+        now = datetime.datetime.now(pytz.utc)
+        age = now-doc.generation_time
+        remaining = datetime.timedelta(days=EXPIRE_AFTER)-age
+        return remaining.days+1
 
     def remove_all_sample_data(self):
         self.remove_sample_data('wordcounter')        
@@ -73,4 +75,17 @@ class MongoHandler:
 
     def remove_sample_data(self, collection):
         self._db[collection].remove({'sample_id': {'$exists': True, '$ne': ''}})
+
+    def remove_expired_results(self, collection):
+        limit = datetime.datetime.now(pytz.utc) - datetime.timedelta(days=EXPIRE_AFTER)
+        _id = ObjectId.from_datetime(limit)
+        docs = self._db[collection].find({'_id': {'$lt': _id}, 'sample_id': ''})
+        for d in docs:
+            print collection + ': removing ' + d['title']
+        self._db[collection].remove({'_id': {'$lt': _id}, 'sample_id': ''})
+
+    def remove_all_expired_results(self):
+        self.remove_expired_results('wordcounter')
+        self.remove_expired_results('wtfcsv')
+        self.remove_expired_results('samediff')
 

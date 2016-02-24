@@ -25,6 +25,9 @@
         <div class="top-info">
           <h2 role="banner" id="results-title">Words used in {{ title }} {{ shareable() }}</h2>
             <p>{{ _('Here is a picture of the words used most often in your document. Words used more often are bigger, and ones used less often are smaller. This picture, called a "word cloud", is helpful to get a sense of the most used words in a document.') }}</p>
+            {% if remaining_days %}
+              <p>{{ _('These results will expire in %(day)s days', day=remaining_days) }}</p>
+            {% endif %}
             {{ what_next_anchor() }}
         </div>
         <div id="wc-container" aria-hidden="true" aria-label="visual picture showing words sized by ok how often they appear">

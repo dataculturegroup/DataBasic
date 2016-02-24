@@ -88,9 +88,12 @@ def results(doc_id):
     
     counts = None
     results = []
+    remaining_days = None
 
     try:
         doc = mongo.find_document('wordcounter', doc_id)
+        if job['sample_id'] == u'':
+            remaining_days = mongo.get_remaining_days('wordcounter', doc_id)
     except:
         logger.warning("Unable to find doc '%s'", doc_id)
         abort(400)
@@ -142,7 +145,14 @@ def results(doc_id):
     whatnext['random_unpopular_word'] = random_unpopular_word[0]
     whatnext['random_unpopular_word_count'] = random_unpopular_word[1]
 
-    return render_template('wordcounter/results.html', results=results, whatnext=whatnext, tool_name='wordcounter', title=doc['title'], doc_id=doc_id, source=doc['source'])
+    return render_template('wordcounter/results.html', 
+        results=results, 
+        whatnext=whatnext, 
+        tool_name='wordcounter', 
+        title=doc['title'], 
+        doc_id=doc_id, 
+        source=doc['source'], 
+        remaining_days=remaining_days)
 
 @mod.route('/results/<doc_id>/download/<analysis_type>.csv')
 def download_csv(doc_id, analysis_type):
