@@ -181,13 +181,14 @@ def process_upload(doc):
     return words
 
 def process_words(words, ignore_case, ignore_stopwords, is_sample):
-    # stopwords_language = 'english' if is_sample or g.current_lang == 'en' else 'spanish'
     stopwords_language = 'english'
     if not is_sample:
         if g.current_lang == 'es':
             stopwords_language = 'spanish'
         elif g.current_lang == 'pt':
             stopwords_language = 'portuguese'
+        elif g.current_lang == 'hu':
+            stopwords_language = 'hungarian'
     counts = wordhandler.get_word_counts(
         words,
         ignore_case,
