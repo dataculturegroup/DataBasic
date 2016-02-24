@@ -1,0 +1,25 @@
+{% extends "tool_base.html" %}
+
+{% block title %}{{ _('No results') }}{% endblock %}
+
+{% block custom_css %}
+  <link href="{{ url_for('static', filename='css/' + tool_name + '-results.scss.css') }}" rel="stylesheet" type="text/css">
+{% endblock %}
+
+{% block nav %}
+  {% include 'tool_header.html' %}
+{% endblock %}
+
+{% block body %}
+<div role="main">
+	<div class="container-fluid">
+		<div class="row">
+			<div class="col-md-12 text-center no-results">
+				<br>
+				<h2 role="banner" id="results-title">{{ _('We couldn\'t find any results') }}</h2>
+				<p>{{ _('They might have expired. Why not try <a href="/%(lang)s/%(tool_name)s">analyzing some new data?</a>', lang=g['current_lang'], tool_name=tool_name) }}</p>
+			</div>
+		</div>
+	</div>
+</div>
+{% endblock %}

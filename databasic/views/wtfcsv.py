@@ -3,7 +3,7 @@ from collections import OrderedDict
 from databasic import mongo, get_base_dir
 from databasic.forms import WTFCSVUpload, WTFCSVLink, WTFCSVSample
 from databasic.logic import wtfcsvstat, filehandler, oauth
-from flask import Blueprint, render_template, request, redirect, g, abort, send_from_directory
+from flask import Blueprint, render_template, request, redirect, g, send_from_directory
 from flask.ext.babel import gettext, ngettext
 import os, logging, random
 
@@ -77,7 +77,7 @@ def results(doc_id):
             return render_results(doc_id, 0)
     except:
         logger.warning("Unable to find doc '%s'", doc_id)
-        abort(400)
+        return render_template('no_results.html', tool_name='wtfcsv')
 
 @mod.route('/results/<doc_id>/sheets/<sheet_idx>')
 def results_sheet(doc_id, sheet_idx):

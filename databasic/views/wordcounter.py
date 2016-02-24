@@ -96,7 +96,7 @@ def results(doc_id):
             remaining_days = mongo.get_remaining_days('wordcounter', doc_id)
     except:
         logger.warning("Unable to find doc '%s'", doc_id)
-        abort(400)
+        return render_template('no_results.html', tool_name='wordcounter')
 
     counts = doc.get('counts')
 

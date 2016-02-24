@@ -2,6 +2,7 @@
 
 @import "themes/yellow-theme";
 @import "tool";
+@import "results";
 @import "modules/input";
 
 .summary {
@@ -178,6 +179,13 @@ header {
 .list-group {
 	.hidden-card {
 		display: none;
+	}
+}
+
+.no-results {
+	color: $c-theme-dk;
+	a { 
+		color: $c-theme-dk; 
 	}
 }
 

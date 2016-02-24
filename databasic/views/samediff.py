@@ -82,7 +82,7 @@ def results(doc_id):
             remaining_days = mongo.get_remaining_days('samediff', doc_id)
     except:
         logger.warning("Unable to find doc '%s'", doc_id)
-        abort(400)
+        return render_template('no_results.html', tool_name='samediff')
 
     whatnext = {}
     whatnext['most_common_word'] = job['sameWords'][0][1] if len(job['sameWords']) > 0 else ''
