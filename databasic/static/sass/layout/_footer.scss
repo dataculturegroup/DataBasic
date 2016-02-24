@@ -7,10 +7,9 @@ footer {
 	nav {
 		background-color: #666666;
 
-		.navbar-brand {
-			img {
-				height: 24px;
-			}
+		.navbar-logo {
+			padding: 12px;
+			img { height: 26px; }
 		}
 
 		.navbar-toggle {
