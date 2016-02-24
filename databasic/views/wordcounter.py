@@ -92,7 +92,7 @@ def results(doc_id):
 
     try:
         doc = mongo.find_document('wordcounter', doc_id)
-        if job['sample_id'] == u'':
+        if doc['sample_id'] == u'':
             remaining_days = mongo.get_remaining_days('wordcounter', doc_id)
     except:
         logger.warning("Unable to find doc '%s'", doc_id)
