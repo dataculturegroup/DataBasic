@@ -16,7 +16,6 @@ Werkzeug==0.10.4
 amqp==1.4.7
 anyjson==0.3.3
 argparse==1.4.0
-beautifulsoup4==4.4.1
 billiard==3.3.0.21
 blinker==1.4
 celery==3.1.19
@@ -60,3 +59,4 @@ xlrd==0.9.4
 jsmin==2.1.6
 cssmin==0.2.0
 flask-sslify==0.1.4
+goose-extractor==1.0.2

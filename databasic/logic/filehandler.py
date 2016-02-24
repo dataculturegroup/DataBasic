@@ -1,6 +1,6 @@
 import tempfile
-from bs4 import BeautifulSoup as bs
 from urllib2 import urlopen
+from goose import Goose
 import os, datetime, time, tempfile, codecs, unicodecsv, json, xlrd, logging
 from pyth.plugins.rtf15.reader import Rtf15Reader
 from pyth.plugins.plaintext.writer import PlaintextWriter
@@ -238,12 +238,9 @@ def generate_filename(ext, suffix, *args):
     return files + suffix + datetime.datetime.now().strftime("%Y%m%d-%H%M%S") + '.' + ext
 
 def download_webpage(url):
-    soup = bs(urlopen(url),"lxml")
-    if soup.p is not None:
-        soup.p.encode(ENCODING_UTF_8)
-    for script in soup(['script', 'style']):
-        script.extract()
-    return {'title': soup.title.string, 'text': soup.get_text()}
+    g = Goose()
+    article = g.extract(url=url)
+    return {'title': article.title, 'text': article.cleaned_text}
 
 def _open_sheet(workbook, index):
     sh = workbook.sheet_by_index(index)

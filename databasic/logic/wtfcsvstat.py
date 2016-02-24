@@ -94,6 +94,7 @@ class WTFCSVStat():
         start_time = time.clock()
         tab = None
         delim = self.detectDelimiter()
+
         try:
             tab = table.Table.from_csv(self.input_file,delimiter=delim,quotechar='"')
         except Exception as e:

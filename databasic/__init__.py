@@ -169,5 +169,5 @@ from databasic.views import wordcounter
 from databasic.views import wtfcsv
 app.register_blueprint(home.mod)
 app.register_blueprint(samediff.mod)
-app.register_blueprint(wordcounter.mod)#, subdomain='wordcounter')
+app.register_blueprint(wordcounter.mod)
 app.register_blueprint(wtfcsv.mod)

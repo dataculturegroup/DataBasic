@@ -10,12 +10,6 @@ mod = Blueprint('wordcounter', __name__, url_prefix='/<lang_code>/wordcounter', 
 
 logger = logging.getLogger(__name__)
 
-"""
-@app.route('/', subdomain='wordcounter')
-def index():
-    return render_template('wordcounter/index.html')
-"""
-
 @mod.route('/', methods=('GET', 'POST'))
 def index():
 
