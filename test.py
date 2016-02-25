@@ -1,11 +1,13 @@
 #! /usr/bin/env python
 import unittest, logging, os, sys
 
+from databasic.logic.test.wordhandlertest import *
 from databasic.logic.test.filehandlertest import *
 from databasic.logic.test.wtfcsvstattest import *
 from databasic.logic.test.dbtest import *
 
 test_classes = [
+    WordHandlerTest,
     FileHandlerTest, 
  	MongoHandlerTest, 
     WTFCSVStatTest

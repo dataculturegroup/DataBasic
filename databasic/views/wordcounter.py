@@ -71,8 +71,11 @@ def index():
             title = _(content['title'])
 
         if words is not None:
+            logger.debug("  about to process words")
             counts = process_words(words, ignore_case, ignore_stopwords, btn_value=='sample')
+            logger.debug("  finished counts, about to save")
             doc_id = mongo.save_words('wordcounter', counts, ignore_case, ignore_stopwords, title, sample_id, btn_value)
+            logger.debug("  saved")
             return redirect(request.url + 'results/' + doc_id + '?submit=true')
 
     return render_template('wordcounter.html', forms=forms.items(), tool_name='wordcounter')

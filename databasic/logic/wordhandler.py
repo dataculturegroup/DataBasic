@@ -1,16 +1,21 @@
-import nltk, re, string
+import nltk, re, string, logging
 from operator import itemgetter
 from nltk import FreqDist
 from nltk.corpus import stopwords
 
 DEFAULT_TEXT = 'I am Sam\nSam I am\nThat Sam-I-am!\nThat Sam-I-am!\nI do not like that Sam-I-am!\nDo you like \ngreen eggs and ham?\nI do not like them, Sam-I-am.\nI do not like\ngreen eggs and ham.\nWould you like them \nhere or there?\nI would not like them\nhere or there.\nI would not like them anywhere.'
 
+logger = logging.getLogger(__name__)
+
+MAX_ITEMS = 10000
+
 def get_word_counts(text=None, ignore_case=True, ignore_stop_words=True, stopwords_language='english'):
     text = DEFAULT_TEXT if text is None else text
     words = _create_words(text, ignore_case)
-    word_count = _sort_count_list(_count_words(words, ignore_stop_words, stopwords_language))
-    bigram_count = _sort_count_list(_count_bigrams(words))
-    trigram_count = _sort_count_list(_count_trigrams(words))
+    word_count = _sort_count_list(_count_words(words, ignore_stop_words, stopwords_language))[0:MAX_ITEMS]
+    bigram_count = _sort_count_list(_count_bigrams(words))[0:MAX_ITEMS]
+    trigram_count = _sort_count_list(_count_trigrams(words))[0:MAX_ITEMS]
+    logger.debug("  %d words, %d bigrams, %d trigrams" % (len(word_count),len(bigram_count), len(trigram_count)))
     return [word_count, bigram_count, trigram_count]
 
 def _create_words(text, ignore_case):
