@@ -9,12 +9,21 @@ logger = logging.getLogger(__name__)
 
 MAX_ITEMS = 10000
 
-def get_word_counts(text=None, ignore_case=True, ignore_stop_words=True, stopwords_language='english'):
+def get_word_counts(text=None, ignore_case=True, ignore_stop_words=True, stopwords_language='english', get_bigrams=True, get_trigrams=True):
     text = DEFAULT_TEXT if text is None else text
     words = _create_words(text, ignore_case)
     word_count = _sort_count_list(_count_words(words, ignore_stop_words, stopwords_language))[0:MAX_ITEMS]
-    bigram_count = _sort_count_list(_count_bigrams(words))[0:MAX_ITEMS]
-    trigram_count = _sort_count_list(_count_trigrams(words))[0:MAX_ITEMS]
+    
+    if get_bigrams:
+        bigram_count = _sort_count_list(_count_bigrams(words))[0:MAX_ITEMS]
+    else:
+        bigram_count = []
+    
+    if get_trigrams:
+        trigram_count = _sort_count_list(_count_trigrams(words))[0:MAX_ITEMS]
+    else:
+        trigram_count = []
+
     logger.debug("  %d words, %d bigrams, %d trigrams" % (len(word_count),len(bigram_count), len(trigram_count)))
     return [word_count, bigram_count, trigram_count]
 

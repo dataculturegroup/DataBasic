@@ -265,7 +265,8 @@ class WTFCSVStat():
 
             if 'unicode' in column_info['type'] and not 'most_freq_values' in column_info:
                 # TODO: these results could be cleaned up using textmining
-                column_info['word_counts'] = wordhandler.get_word_counts(str([s for s in values]).strip('[]').replace("u'", '').replace("',", ''))
+                # TODO: send in the language properly?
+                column_info['word_counts'] = wordhandler.get_word_counts(str([s for s in values]).strip('[]').replace("u'", '').replace("',", ''), True, True, "english", False, False)
 
             results['columns'].append( column_info )
 
