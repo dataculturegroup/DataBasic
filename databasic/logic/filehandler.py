@@ -6,10 +6,7 @@ from pyth.plugins.rtf15.reader import Rtf15Reader
 from pyth.plugins.plaintext.writer import PlaintextWriter
 from flask import Response, abort
 from flask.ext.uploads import UploadSet, configure_uploads, TEXT, patch_request_class, UploadNotAllowed
-try:
-    from docx import opendocx, getdocumenttext
-except:
-    pass
+import textract
 import databasic
 
 logger = logging.getLogger(__name__)
@@ -269,7 +266,4 @@ def _get_extension(file_path):
     return os.path.splitext(file_path)[1]
 
 def _docx_to_txt(file_path):
-    # http://davidmburke.com/2014/02/04/python-convert-documents-doc-docx-odt-pdf-to-plain-text-without-libreoffice/
-    document = opendocx(file_path)
-    paratextlist = [ p.encode(ENCODING_UTF_8) for p in getdocumenttext(document) ]
-    return '\n\n'.join(paratextlist)
+    return textract.process(file_path).decode('utf-8')

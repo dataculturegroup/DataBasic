@@ -21,7 +21,7 @@ blinker==1.4
 celery==3.1.19
 csvkit==0.9.1
 dbf==0.94.003
-docx==0.2.4
+textract==1.4.0
 gdata==2.0.18
 gspread==0.2.5
 gunicorn==19.4.1
