@@ -58,6 +58,16 @@ If after running you get an exception involving sassutils/SassMiddleware, [make 
 
 You probably will need to compile the sass by hand: `python setup.py build_sass`
 
+Upgrading
+---------
+
+If we've changed the document structures at all, when updating you'll want to remove all the 
+sample data so it gets regenerated:
+
+```
+python dbutils.py -rm-samples
+```
+
 Translating
 -----------
 
