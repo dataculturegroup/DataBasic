@@ -19,3 +19,9 @@ class WTFCSVStatTest(unittest.TestCase):
         results = wtfcsvstat.get_summary(csv_file)
         self.assertEqual(len(results['columns']), 19)
         self.assertEqual(results['row_count'], 26303)
+
+    def test_trailing_comma(self):
+        test_data_path = os.path.join(self._fixtures_dir,'trailing-comma.csv')
+        results = wtfcsvstat.get_summary(test_data_path)
+        self.assertEqual(len(results['columns']), 2)
+        self.assertEqual(results['row_count'], 3)
