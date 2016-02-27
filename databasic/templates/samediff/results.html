@@ -32,6 +32,21 @@
         {% if remaining_days %}
           <p>{{ _('These results will expire in %(day)s days', day=remaining_days) }}</p>
         {% endif %}
+
+        <div id="results-normalized">
+          {{ _('The results below are %(normalized)s to the total number of words in each document.', 
+            normalized=hover_tooltip(_('normalized'), 'normalized', 
+              _("A process to make data points comparable in a fair way. For example, UFO sightings by location might need to be normalized by dividing by the population of that location.") ) 
+          ) }}
+          <a href="#" onClick="denormalizeResults();return false;">{{ _('Denormalize them.') }}</a>
+        </div>
+        <div id="results-not-normalized" style="display:none;">
+          {{ _('The results below are NOT %(normalized)s to the total number of words in each document.', 
+            normalized=hover_tooltip(_('normalized'), 'normalized', 
+              _("A process to make data points comparable in a fair way. For example, UFO sightings by location might need to be normalized by dividing by the population of that location.") ) 
+          ) }}
+          <a href="#" onClick="normalizeResults();return false;">{{ _('Normalize them.') }}</a>
+        </div>
       </div>
     </div>
 
@@ -39,12 +54,6 @@
       <div class="col-md-4">
         <div class="wordcloud-title"><h4>{{ _('Words that are only in %(document)s', 
         document=results['titles'][0]) }} 
-        {# Check is necessary for backwards compatibility #}
-        {% if 'totalWordsDoc1' in results %}
-          {{ _('(%(unique_word_count)s unique words out of %(word_count)s total words)',
-          unique_word_count=results['diffWordsDoc1']|length,
-          word_count=results['totalWordsDoc1']) }}
-        {% endif %}
         </h4></div>
         <div class="left-cloud" aria-hidden="true"></div>
         <div class="clipped-invisible">
@@ -91,12 +100,6 @@
       <div class="col-md-4">
         <div class="wordcloud-title"><h4>{{ _('Words that are only in %(document)s', 
         document=results['titles'][2]) }} 
-        {# Check is necessary for backwards compatibility #}
-        {% if 'totalWordsDoc2' in results %}
-          {{ _('(%(unique_word_count)s unique words out of %(word_count)s total words)',
-          unique_word_count=results['diffWordsDoc2']|length,
-          word_count=results['totalWordsDoc2']) }}
-        {% endif %}
         </h4></div>
         <div class="right-cloud" aria-hidden="true"></div>
         <div class="clipped-invisible">
@@ -140,52 +143,80 @@ send_submit_event('{{ tool_name }}', '{{ results["source"] }}');
 
 {% if results %}
 
+  // controls for toggling normalization
+  var normalized = true;
+  function denormalizeResults(){
+    normalized = false;
+    $('#results-normalized').hide();
+    $('#results-not-normalized').show();
+    renderAllWordClouds(tfExtent);
+  }
+  function normalizeResults(){
+    normalized = true;
+    $('#results-normalized').show();
+    $('#results-not-normalized').hide();
+    renderAllWordClouds(tfExtentNormalized);
+  }
+
+  // initialize all the data we need for rendering
+  var leftData, sameData, rightData;
+  leftData = [
+    {% for f, w in results['diffWordsDoc1']|batch(75)|first %}
+      { word: "{{ w|safe }}", count: {{ f|float }}, pct: {{ (f / results['totalWordsDoc1'])|float }} },
+    {% endfor %}
+  ];
+  sameData = [
+    {% for f, w in results['sameWords']|batch(75)|first %}
+      { word: "{{ w|safe }}", count: {{ f|float }}, doc1count: {{ results['sameWordCounts'][0][loop.index0][0]|safe }}, doc2count: {{ results['sameWordCounts'][1][loop.index0][0]|safe }}, doc1pct: {{ (results['sameWordCounts'][0][loop.index0][0]/results['totalWordsDoc1'])|safe }}, doc2pct: {{ (results['sameWordCounts'][1][loop.index0][0]/results['totalWordsDoc2'])|safe }}
+      },
+    {% endfor %}
+  ];
+  rightData = [
+    {% for f, w in results['diffWordsDoc2']|batch(75)|first %}
+      { word: "{{ w|safe }}", count: {{ f|float }}, pct: {{ (f / results['totalWordsDoc2'])|float }} },
+    {% endfor %}
+  ];
+  var allData = leftData.concat(sameData).concat(rightData);
+  var totalWordCount = d3.sum(allData, function (d) { return d.count; });
+  var maxTermFreq = d3.max(_.pluck(allData,'count'));
+  var tfExtent = d3.extent(allData, function (d) { return d.count / maxTermFreq });
+  var tfExtentNormalized = d3.extent(allData, function (d) { return d.count / totalWordCount; });
+
+  var sizeRange = { min: 14, max: 30 };   // the min and max font sizes for words
+
   $(function() {
-    
-    var leftData, sameData, rightData;
-
-    leftData = [
-      {% for f, w in results['diffWordsDoc1']|batch(75)|first %}
-        { word: "{{ w|safe }}", count: {{ f|float }} },
-      {% endfor %}
-    ];
-
-    sameData = [
-      {% for f, w in results['sameWords']|batch(75)|first %}
-        { word: "{{ w|safe }}", count: {{ f|float }}, doc1count: {{ results['sameWordCounts'][0][loop.index0][0]|safe }}, doc2count: {{ results['sameWordCounts'][1][loop.index0][0]|safe }} },
-      {% endfor %}
-    ];
-
-    rightData = [
-      {% for f, w in results['diffWordsDoc2']|batch(75)|first %}
-        { word: "{{ w|safe }}", count: {{ f|float }} },
-      {% endfor %}
-    ];
-
-    var allData = leftData.concat(sameData).concat(rightData);
-    var sum = d3.sum(allData, function (d) { return d.count; });
-    var fullExtent = d3.extent(allData, function (d) { return d.count / sum; });
-
-    renderWordCloud(leftData, sum, fullExtent, '.left-cloud');
-    renderWordCloud(sameData, sum, fullExtent, '.center-cloud');
-    renderWordCloud(rightData, sum, fullExtent, '.right-cloud');
+    renderAllWordClouds(tfExtentNormalized);
   });
 
-  function renderWordCloud(wordcounts, sum, fullExtent, containerClass) {
+  function renderAllWordClouds(extent){
+    renderWordCloud(leftData, totalWordCount, extent, '.left-cloud');
+    renderWordCloud(sameData, totalWordCount, extent, '.center-cloud');
+    renderWordCloud(rightData, totalWordCount, extent, '.right-cloud');
+  }
+
+  function renderWordCloud(wordcounts, totalWordCount, extent, containerClass) {
 
     var tip = d3.tip()
       .attr('class', 'd3-tip')
       .html(function(d) { 
         if (d.doc1count != undefined && d.doc2count != undefined) {
-          return d.doc1count + "{{ _(' uses in %(doc)s', doc=results['titles'][0]) }}<br>" + d.doc2count + "{{ _(' uses in %(doc)s', doc=results['titles'][2]) }}";
+          if (normalized){
+            doc1CountToShow = d.doc1pct.toFixed(3) + "%";
+            doc2CountToShow = d.doc2pct.toFixed(3) + "%";
+          } else {
+            doc1CountToShow = d.doc1count;
+            doc2CountToShow = d.doc2count;
+          }
+          return doc1CountToShow + "{{ _(' uses in %(doc)s', doc=results['titles'][0]) }}<br>" + doc2CountToShow + "{{ _(' uses in %(doc)s', doc=results['titles'][2]) }}";
         }
-        return d.count + "{{ _(' uses') }}"; })
+        return ((normalized) ? d.pct.toFixed(3)+"%" : d.count) + "{{ _(' uses') }}"; 
+      })
       .offset([-5, 0]);
 
     var padding = 10;
     var height = 350;
-    var sizeRange = { min: 14, max: 30 }; 
 
+    $(containerClass).html('');
     var container = d3.select(containerClass);
     var width = $(containerClass).width();
     var svg = container.append('svg')
@@ -196,16 +227,16 @@ send_submit_event('{{ tool_name }}', '{{ results["source"] }}');
     var y = height;
     var words;
 
-    var thisSum = d3.sum(wordcounts, function (d) { return d.count; });
-
-    var top = _.first(wordcounts, 100);
-    _.each(top, function (d) {
-      d.tfnorm = d.count / sum;
-      d.norm = d.count / thisSum;
+    _.each(wordcounts, function (d) {
+      if(normalized){
+        d.normalized = d.count / totalWordCount;
+      } else {
+        d.normalized = d.count / maxTermFreq;
+      }
     });
 
     var terms = {}
-    _.each(top, function (d) {
+    _.each(wordcounts, function (d) {
       terms[d.word] = d;
     });
 
@@ -222,21 +253,21 @@ send_submit_event('{{ tool_name }}', '{{ results["source"] }}');
           .append('text').classed('word', true);
         words
           .attr('font-size', function (d) {
-            return fontSize(d, fullExtent, sizeRange) + 'px';
+            return fontSize(d, extent, sizeRange) + 'px';
           })
           .attr('opacity', function (d) {
-            return getOpacity (d, fullExtent);
+            return getOpacity (d, extent);
           });
       }
       d3.selectAll('.word')
               .text(function (d) { return d.word; })
-              .style('font-family', function (d) { return d.tfnorm > 0.02 ? 'HalisGR-Medium' : 'HalisGR-Book'; })
+              .style('font-family', function (d) { return d.normalized > 0.02 ? 'HalisGR-Medium' : 'HalisGR-Book'; })
               .attr('font-weight', 'bold')
               .attr('fill', '#fff')
               .on('mouseover', tip.show)
               .on('mouseout', tip.hide);
       y = 0;
-      height = listCloudLayout(words, width, fullExtent, sizeRange, padding);
+      height = listCloudLayout(words, width, extent, sizeRange, padding);
       y = Math.max(y, height);
       counter --;
     }
@@ -245,43 +276,44 @@ send_submit_event('{{ tool_name }}', '{{ results["source"] }}');
   }
 
   function fontSize (term, extent, sizeRange) {
-        var size = sizeRange.min
-            + (sizeRange.max - sizeRange.min)
-                * ( Math.log(term.tfnorm) - Math.log(extent[0]) ) / ( Math.log(extent[1]) - Math.log(extent[0]) );
-        return size;
-    }
+    var size = sizeRange.min
+        + (sizeRange.max - sizeRange.min)
+            * ( Math.log(term.normalized) - Math.log(extent[0]) ) / ( Math.log(extent[1]) - Math.log(extent[0]) );
+    return size;
+  }
 
-    function getOpacity (term, extent) {
-      var opacity = ( Math.log(term.norm) - Math.log(extent[0]) ) / ( Math.log(extent[1]) - Math.log(extent[0]) );
-        return opacity;
-    }
+  function getOpacity (term, extent) {
+    var opacity = ( Math.log(term.norm) - Math.log(extent[0]) ) / ( Math.log(extent[1]) - Math.log(extent[0]) );
+    return opacity;
+  }
 
-    function listCloudLayout (words, width, extent, sizeRange, padding) {
-        var x = 0;
-        if (typeof(words) === 'undefined') {
-            return 0;
-        }
-        words.attr('x', function (d) {
-            var textLength = this.getComputedTextLength();
-            var fs = fontSize(d, extent, sizeRange);
-            var lastX = x;
-            if (x + textLength + padding > width) {
-                lastX = 0;
-            }
-            x = lastX + textLength + 0.3*fs;
-            return lastX;
-        });
-        var y = -0.5 * sizeRange.max;
-        var lastAdded = 0;
-        words.attr('y', function (d) {
-            if (d3.select(this).attr('x') == 0) {
-                y += 1.5 * fontSize(d, extent, sizeRange);
-                lastAdded = 1.5 * fontSize(d, extent, sizeRange);
-            }
-            return y;
-        });
-        return y + lastAdded;
+  function listCloudLayout (words, width, extent, sizeRange, padding) {
+    var x = 0;
+    if (typeof(words) === 'undefined') {
+        return 0;
     }
+    words.attr('x', function (d) {
+      var textLength = this.getComputedTextLength();
+      var fs = fontSize(d, extent, sizeRange);
+      var lastX = x;
+      if (x + textLength + padding > width) {
+        lastX = 0;
+      }
+      x = lastX + textLength + 0.3*fs;
+      return lastX;
+    });
+    var y = -0.5 * sizeRange.max;
+    var lastAdded = 0;
+    words.attr('y', function (d) {
+      if (d3.select(this).attr('x') == 0) {
+        y += 1.5 * fontSize(d, extent, sizeRange);
+        lastAdded = 1.5 * fontSize(d, extent, sizeRange);
+      }
+      return y;
+    });
+    return y + lastAdded;
+  }
+
 {% endif %}
 </script>
 {% endblock %}
