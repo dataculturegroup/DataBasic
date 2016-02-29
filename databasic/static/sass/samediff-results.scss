@@ -123,3 +123,27 @@ footer {
 		background-color: $c-theme-bg;
 	}
 }
+
+#normalization-controls {
+	h4 {
+		display: inline-block;
+	}
+	.btn-toggle {
+		margin-right: 5px;
+		margin-left: 5px;
+		.btn {
+			border: 1px solid rgba(0, 0, 0, 0.2) !important;
+			color: $c-white;
+		}
+
+		.btn-default {
+			color: $c-white;
+			font-weight: bold;
+			background-color: $c-theme-bg;
+		}
+
+		.btn-primary:active, .btn-primary.active {
+			background-color: $c-theme-lt;
+		}
+	}
+}
