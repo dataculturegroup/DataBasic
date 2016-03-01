@@ -23,15 +23,20 @@
         <h2 role="banner" id="results-title">{{_("Your <strong>SameDiff</strong> Report")}} 
         <a href="{{ download }}" title="{{_('download')}}" aria-label="{{_('download')}}" {{ ga_event('samediff-dl') }}><span class="glyphicon glyphicon-download" aria-hidden="true"></span></a> {{ shareable() }}
         </h2>
+        {% if remaining_days %}
+          <p><span class="{{ 'expiring' if remaining_days <= 10 else '' }}">{{ _('These results will expire in %(day)s days', day=remaining_days) }}</span></p>
+        {% endif %}
         <p>
         {{ _('These two documents are %(description)s.', description=cosine_similarity['description']) }} 
         {{ _('They have a %(cosine_sim)s score of %(score)s',
             cosine_sim=hover_tooltip(_('cosine similarity'), 'cosine similarity', _("The Cosine Similarity score tries to tell you how similar two documents are based on the number of times words are used in each.")),
             score=cosine_similarity['score']|round(2)) }}
         </p>
-        {% if remaining_days %}
-          <p>{{ _('These results will expire in %(day)s days', day=remaining_days) }}</p>
-        {% endif %}
+        
+
+        <div id="doc-length-comparison">
+        <p>hi</p>
+        </div>
 
         <div id="normalization-controls">
           
