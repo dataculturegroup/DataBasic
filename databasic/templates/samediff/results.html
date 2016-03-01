@@ -25,32 +25,34 @@
         </h2>
         <p>
         {{ _('These two documents are %(description)s.', description=cosine_similarity['description']) }} 
-        ({{ _('They have a %(cosine_sim)s score of %(score)s',
+        {{ _('They have a %(cosine_sim)s score of %(score)s',
             cosine_sim=hover_tooltip(_('cosine similarity'), 'cosine similarity', _("The Cosine Similarity score tries to tell you how similar two documents are based on the number of times words are used in each.")),
-            score=cosine_similarity['score']|round(2)) }})
+            score=cosine_similarity['score']|round(2)) }}
         </p>
         {% if remaining_days %}
           <p>{{ _('These results will expire in %(day)s days', day=remaining_days) }}</p>
         {% endif %}
 
         <div id="normalization-controls">
-          <h4>{{_('Normalization:')}}</h4>
-          <div class="btn-group btn-toggle" role="group" aria-label="{{_('Toggle normlization')}}"> 
-            <button class="btn btn-sm btn-default">ON</button>
-            <button class="btn btn-sm btn-primary active">OFF</button>
-          </div>
-          <span id="results-normalized">
+          
+          <p><span id="results-normalized">
           {{ _('The results below are %(normalized)s to the total number of words in each document.', 
             normalized=hover_tooltip(_('normalized'), 'normalized', 
               _("A process to make data points comparable in a fair way. For example, UFO sightings by location might need to be normalized by dividing by the population of that location.") ) 
           ) }}
-          </span>
-          <span id="results-not-normalized" style="display:none;">
+          </span></p>
+
+          <p><span id="results-not-normalized" style="display:none;">
             {{ _('The results below are NOT %(normalized)s to the total number of words in each document.', 
               normalized=hover_tooltip(_('normalized'), 'normalized', 
                 _("A process to make data points comparable in a fair way. For example, UFO sightings by location might need to be normalized by dividing by the population of that location.") ) 
             ) }}
-          </span>
+          </span></p>
+          <h4>{{_('Normalization:')}}</h4>
+          <div class="btn-group btn-toggle" role="group" aria-label="{{_('Toggle normlization')}}"> 
+            <button class="btn btn-sm btn-primary active">ON</button>
+            <button class="btn btn-sm btn-default">OFF</button>
+          </div>
         </div>
       
       </div>
