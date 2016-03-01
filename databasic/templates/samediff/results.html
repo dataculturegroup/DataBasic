@@ -31,17 +31,51 @@
         {{ _('They have a %(cosine_sim)s score of %(score)s',
             cosine_sim=hover_tooltip(_('cosine similarity'), 'cosine similarity', _("The Cosine Similarity score tries to tell you how similar two documents are based on the number of times words are used in each.")),
             score=cosine_similarity['score']|round(2)) }}
+        <br/> 
+        {% if results['totalWordsDoc1'] - results['totalWordsDoc2'] | abs > 50 %}
+            {{ _("The documents are of different lengths so to compare them fairly you should turn on normalization.")}}
+        {% else %}
+            {{ _("The documents are about the same length so you don't need to normalize them in order to compare them.")}}
+        {% endif %}
         </p>
         
 
-        <div id="doc-length-comparison">
-        <p>hi</p>
+        <div id="doc-length-comparison" style="width:70%; text-align:left;margin-left:15%">
+          {% if results['totalWordsDoc1'] >= results['totalWordsDoc2'] %}
+            {% set doc1TextWidth =  65 %}
+            {% set doc2TextWidth = results['totalWordsDoc2'] * 65 / results['totalWordsDoc1'] %}
+          {% endif %}
+          <table>
+            <tr>
+              <td>{{ results['titles'][0][:7] }}...{{ results['titles'][0][-7:] }}</td>
+              <td><span style="background-color:white;">
+                  {% for i in range(doc1TextWidth) %}
+                    .
+                  {% endfor %}
+                </span> 
+              </td>
+              <td>{{ results['totalWordsDoc1'] }} words
+              </td>
+            </tr>
+            <tr>
+              <td>{{ results['titles'][1][:7] }}...{{ results['titles'][1][-7:] }}</td>
+              <td><span style="background-color:white;">
+                  {% for i in range(doc2TextWidth | int)  %}
+                    .
+                  {% endfor %}
+                </span> 
+              </td>
+              <td>{{ results['totalWordsDoc2'] }} words
+              </td>
+            </tr>
+          </table>
+          
         </div>
 
         <div id="normalization-controls">
           
           <p><span id="results-normalized">
-          {{ _('The results below are %(normalized)s to the total number of words in each document.', 
+          <!--{{ _('The results below are %(normalized)s to the total number of words in each document.', 
             normalized=hover_tooltip(_('normalized'), 'normalized', 
               _("A process to make data points comparable in a fair way. For example, UFO sightings by location might need to be normalized by dividing by the population of that location.") ) 
           ) }}
@@ -52,8 +86,11 @@
               normalized=hover_tooltip(_('normalized'), 'normalized', 
                 _("A process to make data points comparable in a fair way. For example, UFO sightings by location might need to be normalized by dividing by the population of that location.") ) 
             ) }}
-          </span></p>
-          <h4>{{_('Normalization:')}}</h4>
+          </span></p>-->
+          <h4>{{ _('%(normalized)s ', 
+              normalized=hover_tooltip(_('Normalization'), 'normalized', 
+                _("A process to make data points comparable in a fair way. For example, UFO sightings by location might need to be normalized by dividing by the population of that location.") ) 
+            ) }}</h4>
           <div class="btn-group btn-toggle" role="group" aria-label="{{_('Toggle normlization')}}"> 
             <button class="btn btn-sm btn-primary active">ON</button>
             <button class="btn btn-sm btn-default">OFF</button>
