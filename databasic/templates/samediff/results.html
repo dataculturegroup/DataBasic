@@ -32,10 +32,10 @@
             cosine_sim=hover_tooltip(_('cosine similarity'), 'cosine similarity', _("The Cosine Similarity score tries to tell you how similar two documents are based on the number of times words are used in each.")),
             score=cosine_similarity['score']|round(2)) }}
         <br/> 
-        {% if results['totalWordsDoc1'] - results['totalWordsDoc2'] | abs > 50 %}
-            {{ _("The documents are of different lengths so to compare them fairly you should turn on normalization.")}}
+        {% if pct_length_diff > 0.1 %}
+            {{ _("The documents are of different lengths so to compare them fairly you should keep normalization on.")}}
         {% else %}
-            {{ _("The documents are about the same length so you don't need to normalize them in order to compare them.")}}
+            {{ _("The documents are about the same length so you don't have to normalize them in order to compare them.")}}
         {% endif %}
         </p>
         
@@ -58,7 +58,7 @@
               </td>
             </tr>
             <tr>
-              <td>{{ results['titles'][1][:7] }}...{{ results['titles'][1][-7:] }}</td>
+              <td>{{ results['titles'][2][:7] }}...{{ results['titles'][2][-7:] }}</td>
               <td><span style="background-color:white;">
                   {% for i in range(doc2TextWidth | int)  %}
                     .
@@ -75,21 +75,9 @@
         <div id="normalization-controls">
           
           <p><span id="results-normalized">
-          <!--{{ _('The results below are %(normalized)s to the total number of words in each document.', 
-            normalized=hover_tooltip(_('normalized'), 'normalized', 
-              _("A process to make data points comparable in a fair way. For example, UFO sightings by location might need to be normalized by dividing by the population of that location.") ) 
-          ) }}
-          </span></p>
-
-          <p><span id="results-not-normalized" style="display:none;">
-            {{ _('The results below are NOT %(normalized)s to the total number of words in each document.', 
-              normalized=hover_tooltip(_('normalized'), 'normalized', 
-                _("A process to make data points comparable in a fair way. For example, UFO sightings by location might need to be normalized by dividing by the population of that location.") ) 
-            ) }}
-          </span></p>-->
           <h4>{{ _('%(normalized)s ', 
               normalized=hover_tooltip(_('Normalization'), 'normalized', 
-                _("A process to make data points comparable in a fair way. For example, UFO sightings by location might need to be normalized by dividing by the population of that location.") ) 
+                _("A process to make data points comparable in a fair way. For example, word counts in a document can be normalized by dividing them by the total number of words in that document.") ) 
             ) }}</h4>
           <div class="btn-group btn-toggle" role="group" aria-label="{{_('Toggle normlization')}}"> 
             <button class="btn btn-sm btn-primary active">ON</button>

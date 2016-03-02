@@ -89,7 +89,13 @@ def results(doc_id):
     whatnext['second_most_common_word'] = job['sameWords'][1][1] if len(job['sameWords']) > 1 else ''
     whatnext['doc2_most_common_word'] = job['diffWordsDoc2'][0][1] if len(job['diffWordsDoc2']) > 0 else ''
 
+    if(job['totalWordsDoc1'] > job['totalWordsDoc2']):
+        pct_length_diff = float(job['totalWordsDoc1'] - job['totalWordsDoc2']) / float(job['totalWordsDoc1'])
+    else:
+        pct_length_diff = float(job['totalWordsDoc2'] - job['totalWordsDoc1']) / float(job['totalWordsDoc2'])
+
     return render_template('samediff/results.html', results=job, 
+        pct_length_diff = pct_length_diff,
         cosine_similarity= {'score':job['cosineSimilarity'],'description':interpretCosineSimilarity(job['cosineSimilarity'])},
         whatnext=whatnext, tool_name='samediff', doc_id=doc_id,
         remaining_days=remaining_days)
