@@ -18,6 +18,7 @@
 {% block body %}
 <div role="main">
   <div class="container">
+    
     <div class="row" >
       <div class="col-md-12 text-center" id="title">
         <h2 role="banner" id="results-title">{{_("Your <strong>SameDiff</strong> Report")}} 
@@ -26,6 +27,11 @@
         {% if remaining_days %}
           <p><span class="{{ 'expiring' if remaining_days <= 10 else '' }}">{{ _('These results will expire in %(day)s days', day=remaining_days) }}</span></p>
         {% endif %}
+      </div>
+    </div>
+
+    <div class="row" >
+      <div class="col-md-12 text-center">
         <p>
         {{ _('These two documents are %(description)s.', description=cosine_similarity['description']) }} 
         {{ _('They have a %(cosine_sim)s score of %(score)s',
@@ -38,53 +44,50 @@
             {{ _("The documents are about the same length so you don't have to normalize them in order to compare them.")}}
         {% endif %}
         </p>
+      </div>
+    </div>
         
+    {% if results['totalWordsDoc1'] >= results['totalWordsDoc2'] %}
+      {% set doc1TextWidth =  100 %}
+      {% set doc2TextWidth = results['totalWordsDoc2'] * 100 / results['totalWordsDoc1'] %}
+    {% else %}
+      {% set doc1TextWidth = results['totalWordsDoc1'] * 100 / results['totalWordsDoc2'] %}
+      {% set doc2TextWidth =  100 %}
+    {% endif %}
 
-        <div id="doc-length-comparison" style="width:70%; text-align:left;margin-left:15%">
-          {% if results['totalWordsDoc1'] >= results['totalWordsDoc2'] %}
-            {% set doc1TextWidth =  65 %}
-            {% set doc2TextWidth = results['totalWordsDoc2'] * 65 / results['totalWordsDoc1'] %}
-          {% endif %}
-          <table>
-            <tr>
-              <td>{{ results['titles'][0][:7] }}...{{ results['titles'][0][-7:] }}</td>
-              <td><span style="background-color:white;">
-                  {% for i in range(doc1TextWidth) %}
-                    .
-                  {% endfor %}
-                </span> 
-              </td>
-              <td>{{ results['totalWordsDoc1'] }} words
-              </td>
-            </tr>
-            <tr>
-              <td>{{ results['titles'][2][:7] }}...{{ results['titles'][2][-7:] }}</td>
-              <td><span style="background-color:white;">
-                  {% for i in range(doc2TextWidth | int)  %}
-                    .
-                  {% endfor %}
-                </span> 
-              </td>
-              <td>{{ results['totalWordsDoc2'] }} words
-              </td>
-            </tr>
-          </table>
-          
-        </div>
+    <div class="row" >
+      <div class="col-sm-3 text-right">
+        {{ results['titles'][0] }}:
+      </div>
+      <div class="col-sm-6">
+        <div aria-hidden="true" style="display:inline-block;width:{{doc1TextWidth}}%;height:20px;background:#ffffff"></div>
+      </div>
+      <div class="col-sm-3">
+        {{ results['totalWordsDoc1'] }} {{_('words')}}
+      </div>
+    </div>
+    <div class="row" >
+      <div class="col-sm-3 text-right">
+        {{ results['titles'][2] }}:
+      </div>
+      <div class="col-sm-6">
+        <div aria-hidden="true" style="display:inline-block;width:{{doc2TextWidth}}%;height:20px;background:#ffffff"></div>
+      </div>
+      <div class="col-sm-3">
+        {{ results['totalWordsDoc2'] }} {{_('words')}}
+      </div>
+    </div>
 
-        <div id="normalization-controls">
-          
-          <p><span id="results-normalized">
-          <h4>{{ _('%(normalized)s ', 
-              normalized=hover_tooltip(_('Normalization'), 'normalized', 
-                _("A process to make data points comparable in a fair way. For example, word counts in a document can be normalized by dividing them by the total number of words in that document.") ) 
-            ) }}</h4>
-          <div class="btn-group btn-toggle" role="group" aria-label="{{_('Toggle normlization')}}"> 
-            <button class="btn btn-sm btn-primary active">ON</button>
-            <button class="btn btn-sm btn-default">OFF</button>
-          </div>
+    <div class="row" >
+      <div class="col-md-12 text-center" id="normalization-controls">
+        <h4>{{ _('%(normalized)s ', 
+            normalized=hover_tooltip(_('Normalization'), 'normalized', 
+              _("A process to make data points comparable in a fair way. For example, word counts in a document can be normalized by dividing them by the total number of words in that document.") ) 
+          ) }}</h4>
+        <div class="btn-group btn-toggle" role="group" aria-label="{{_('Toggle normlization')}}"> 
+          <button class="btn btn-sm btn-primary active">ON</button>
+          <button class="btn btn-sm btn-default">OFF</button>
         </div>
-      
       </div>
     </div>
 
