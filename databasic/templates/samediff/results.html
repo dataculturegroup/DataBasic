@@ -39,9 +39,11 @@
             score=cosine_similarity['score']|round(2)) }}
         <br/> 
         {% if pct_length_diff > 0.1 %}
-            {{ _("The documents are of different lengths so to compare them fairly you should keep normalization on.")}}
+            {{ _("The documents are of different lengths so to compare them fairly you should keep %(normalized)s on.",normalized=hover_tooltip(_('normalization'), 'normalized', 
+              _("A process to make data points comparable in a fair way. For example, word counts in a document can be normalized by dividing them by the total number of words in that document.") ) )}}
         {% else %}
-            {{ _("The documents are about the same length so you don't have to normalize them in order to compare them.")}}
+            {{ _("The documents are about the same length so you don't have to use %(normalized)s in order to compare them.",normalized=hover_tooltip(_('normalization'), 'normalized', 
+              _("A process to make data points comparable in a fair way. For example, word counts in a document can be normalized by dividing them by the total number of words in that document.") ) )}}
         {% endif %}
         </p>
       </div>
