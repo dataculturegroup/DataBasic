@@ -63,7 +63,7 @@
         <div aria-hidden="true" style="display:inline-block;width:{{doc1TextWidth}}%;height:20px;background:#ffffff"></div>
       </div>
       <div class="col-sm-3">
-        {{ results['totalWordsDoc1'] }} {{_('words')}}
+        {{ "{:,}".format(results['totalWordsDoc1']) }} {{_('words')}}
       </div>
     </div>
     <div class="row" >
@@ -74,7 +74,7 @@
         <div aria-hidden="true" style="display:inline-block;width:{{doc2TextWidth}}%;height:20px;background:#ffffff"></div>
       </div>
       <div class="col-sm-3">
-        {{ results['totalWordsDoc2'] }} {{_('words')}}
+        {{ "{:,}".format(results['totalWordsDoc2']) }} {{_('words')}}
       </div>
     </div>
 
