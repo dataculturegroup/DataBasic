@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2016-01-17 13:51-0500\n"
+"POT-Creation-Date: 2016-03-02 11:47-0500\n"
 "PO-Revision-Date: 2016-01-17 14:01-0500\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language: hu\n"
@@ -186,12 +186,16 @@ msgstr ""
 msgid "help"
 msgstr ""
 
-#: databasic/templates/header_base.html:4
+#: databasic/templates/header_base.html:5
 msgid "change language to english"
 msgstr ""
 
-#: databasic/templates/header_base.html:5
+#: databasic/templates/header_base.html:6
 msgid "change language to spanish"
+msgstr ""
+
+#: databasic/templates/header_base.html:7
+msgid "change language to portuguese"
 msgstr ""
 
 #: databasic/templates/macros.html:6
@@ -204,12 +208,12 @@ msgid "Ignore %(stopwords)s"
 msgstr ""
 
 #: databasic/templates/macros.html:99
-#: databasic/templates/wordcounter/results.html:36
+#: databasic/templates/wordcounter/results.html:39
 msgid "stopwords"
 msgstr ""
 
 #: databasic/templates/macros.html:99
-#: databasic/templates/wordcounter/results.html:36
+#: databasic/templates/wordcounter/results.html:39
 msgid ""
 "Stopwords are words in text analysis that are ignored such as \"this\", "
 "\"that\", \"and\" and \"but.\""
@@ -221,6 +225,21 @@ msgstr ""
 
 #: databasic/templates/macros.html:159
 msgid "You can share these results by emailing this url:"
+msgstr ""
+
+#: databasic/templates/no_results.html:3
+msgid "No results"
+msgstr ""
+
+#: databasic/templates/no_results.html:19
+msgid "We couldn't find any results"
+msgstr ""
+
+#: databasic/templates/no_results.html:20
+#, python-format
+msgid ""
+"They might have expired. Why not try <a "
+"href=\"/%(lang)s/%(tool_name)s\">analyzing some new data?</a>"
 msgstr ""
 
 #: databasic/templates/tool_base.html:5 databasic/templates/tool_base.html:13
@@ -260,45 +279,45 @@ msgstr ""
 msgid "go to data basic home page"
 msgstr ""
 
-#: databasic/templates/home/index.html:15
+#: databasic/templates/home/index.html:14
 msgid ""
 "DataBasic is a suite of easy-to-use web tools for beginners that "
 "introduce concepts of working with data."
 msgstr ""
 
-#: databasic/templates/home/index.html:16
+#: databasic/templates/home/index.html:15
 msgid ""
 "These simple tools make it easy to work with data in fun ways, so you can"
 " learn how to find great stories to tell."
 msgstr ""
 
-#: databasic/templates/home/index.html:26
+#: databasic/templates/home/index.html:25
 #: databasic/templates/wordcounter/wordcounter.html:19
 msgid ""
 "WordCounter analyzes your text and tells you the most common words and "
 "phrases."
 msgstr ""
 
-#: databasic/templates/home/index.html:36
+#: databasic/templates/home/index.html:35
 #: databasic/templates/wtfcsv/wtfcsv.html:19
 msgid "WTFcsv tells you WTF is going on with your .csv file."
 msgstr ""
 
-#: databasic/templates/home/index.html:46
+#: databasic/templates/home/index.html:45
 msgid ""
 "SameDiff compares two or more text files and tells you how similar or "
 "different they are"
 msgstr ""
 
-#: databasic/templates/home/index.html:54
+#: databasic/templates/home/index.html:53
 msgid "Why use DataBasic?"
 msgstr ""
 
-#: databasic/templates/home/index.html:62
+#: databasic/templates/home/index.html:61
 msgid "Making Data Fun"
 msgstr ""
 
-#: databasic/templates/home/index.html:63
+#: databasic/templates/home/index.html:62
 msgid ""
 "Spreadsheets and large Word documents can be boring and intimidating. We "
 "think working with data should be more fun! Take a look at our activity "
@@ -308,11 +327,11 @@ msgid ""
 "want to know \"what the fudge\" is going on with your CSV file?"
 msgstr ""
 
-#: databasic/templates/home/index.html:71
+#: databasic/templates/home/index.html:70
 msgid "Doing One Thing Well"
 msgstr ""
 
-#: databasic/templates/home/index.html:72
+#: databasic/templates/home/index.html:71
 msgid ""
 "There are tons of tools for working with data; many so complex they are "
 "intimidating to even start with.  We've built each DataBasic tool to "
@@ -321,11 +340,11 @@ msgid ""
 "powerful."
 msgstr ""
 
-#: databasic/templates/home/index.html:75
+#: databasic/templates/home/index.html:74
 msgid "Focused on Learning "
 msgstr ""
 
-#: databasic/templates/home/index.html:76
+#: databasic/templates/home/index.html:75
 msgid ""
 "Sometimes faster isn't better.  If you really want to learn how to work "
 "with data to find stories to tell, you'll need to use tools that do more "
@@ -336,11 +355,11 @@ msgid ""
 "sightings we've included to get started."
 msgstr ""
 
-#: databasic/templates/home/index.html:79
+#: databasic/templates/home/index.html:78
 msgid "Fitting in to Your Pipeline"
 msgstr ""
 
-#: databasic/templates/home/index.html:80
+#: databasic/templates/home/index.html:79
 msgid ""
 "Working with data online always involves using a mishmash of tools. We're"
 " not going to solve that problem anytime soon.  So we've built DataBasic "
@@ -350,11 +369,11 @@ msgid ""
 "the way most folks work data online."
 msgstr ""
 
-#: databasic/templates/home/index.html:88
+#: databasic/templates/home/index.html:87
 msgid "Ensuring Your Privacy"
 msgstr ""
 
-#: databasic/templates/home/index.html:89
+#: databasic/templates/home/index.html:88
 msgid ""
 "With more and more data-centric tools moving online, sometimes it can be "
 "hard to tell where your data is going and what will happen with it after "
@@ -365,11 +384,11 @@ msgid ""
 "the data as you upload it."
 msgstr ""
 
-#: databasic/templates/home/index.html:92
+#: databasic/templates/home/index.html:91
 msgid "By Educators, for Educators"
 msgstr ""
 
-#: databasic/templates/home/index.html:93
+#: databasic/templates/home/index.html:92
 msgid ""
 "Work with high-schoolers? Journalists? Community groups? Graduate "
 "students?  Us too!!!  That's why we designed and tested the DataBasic "
@@ -378,11 +397,11 @@ msgid ""
 "trying to use in our undergraduate classes, so we feel your pain."
 msgstr ""
 
-#: databasic/templates/home/index.html:97
+#: databasic/templates/home/index.html:96
 msgid "Accessible to All"
 msgstr ""
 
-#: databasic/templates/home/index.html:98
+#: databasic/templates/home/index.html:97
 msgid ""
 "Digital technologies have empowered those with disabilities in a variety "
 "of ways, and new web standards have made it easier than ever to build new"
@@ -391,68 +410,125 @@ msgid ""
 " working with data in new and exciting ways."
 msgstr ""
 
+#: databasic/templates/home/index.html:104
+msgid "Designed and Developed by"
+msgstr ""
+
 #: databasic/templates/samediff/results.html:8
 msgid "SameDiff results"
 msgstr ""
 
-#: databasic/templates/samediff/results.html:23
+#: databasic/templates/samediff/results.html:24
 msgid "Your <strong>SameDiff</strong> Report"
 msgstr ""
 
-#: databasic/templates/samediff/results.html:24
+#: databasic/templates/samediff/results.html:25
 msgid "download"
 msgstr ""
 
-#: databasic/templates/samediff/results.html:27
+#: databasic/templates/samediff/results.html:28
+#: databasic/templates/wordcounter/results.html:29
+#: databasic/templates/wtfcsv/results.html:170
+#, python-format
+msgid "These results will expire in %(day)s days"
+msgstr ""
+
+#: databasic/templates/samediff/results.html:36
 #, python-format
 msgid "These two documents are %(description)s."
 msgstr ""
 
-#: databasic/templates/samediff/results.html:29
+#: databasic/templates/samediff/results.html:37
 #, python-format
 msgid "They have a %(cosine_sim)s score of %(score)s"
 msgstr ""
 
-#: databasic/templates/samediff/results.html:30
+#: databasic/templates/samediff/results.html:38
 #: databasic/templates/samediff/samediff.html:22
 msgid "cosine similarity"
 msgstr ""
 
-#: databasic/templates/samediff/results.html:30
+#: databasic/templates/samediff/results.html:38
 #: databasic/templates/samediff/samediff.html:22
 msgid ""
 "The Cosine Similarity score tries to tell you how similar two documents "
 "are based on the number of times words are used in each."
 msgstr ""
 
-#: databasic/templates/samediff/results.html:38
-#: databasic/templates/samediff/results.html:82
+#: databasic/templates/samediff/results.html:42
+#, python-format
+msgid ""
+"The documents are of different lengths so to compare them fairly you "
+"should keep %(normalized)s on."
+msgstr ""
+
+#: databasic/templates/samediff/results.html:42
+#: databasic/templates/samediff/results.html:45
+msgid "normalization"
+msgstr ""
+
+#: databasic/templates/samediff/results.html:43
+#: databasic/templates/samediff/results.html:46
+#: databasic/templates/samediff/results.html:87
+msgid ""
+"A process to make data points comparable in a fair way. For example, word"
+" counts in a document can be normalized by dividing them by the total "
+"number of words in that document."
+msgstr ""
+
+#: databasic/templates/samediff/results.html:45
+#, python-format
+msgid ""
+"The documents are about the same length so you don't have to use "
+"%(normalized)s in order to compare them."
+msgstr ""
+
+#: databasic/templates/samediff/results.html:68
+#: databasic/templates/samediff/results.html:79
+msgid "words"
+msgstr ""
+
+#: databasic/templates/samediff/results.html:85
+#, python-format
+msgid "%(normalized)s "
+msgstr ""
+
+#: databasic/templates/samediff/results.html:86
+msgid "Normalization"
+msgstr ""
+
+#: databasic/templates/samediff/results.html:89
+msgid "Toggle normlization"
+msgstr ""
+
+#: databasic/templates/samediff/results.html:98
+#: databasic/templates/samediff/results.html:144
 #, python-format
 msgid "Words that are only in %(document)s"
 msgstr ""
 
-#: databasic/templates/samediff/results.html:44
-#: databasic/templates/samediff/results.html:66
-#: databasic/templates/samediff/results.html:88
-#: databasic/templates/wordcounter/results.html:50
+#: databasic/templates/samediff/results.html:106
+#: databasic/templates/samediff/results.html:128
+#: databasic/templates/samediff/results.html:152
+#: databasic/templates/wordcounter/results.html:53
 msgid "Word"
 msgstr ""
 
-#: databasic/templates/samediff/results.html:45
-#: databasic/templates/samediff/results.html:67
-#: databasic/templates/samediff/results.html:89
-#: databasic/templates/wordcounter/results.html:51
-#: databasic/templates/wordcounter/results.html:71
-#: databasic/templates/wordcounter/results.html:92
+#: databasic/templates/samediff/results.html:107
+#: databasic/templates/samediff/results.html:129
+#: databasic/templates/samediff/results.html:153
+#: databasic/templates/wordcounter/results.html:54
+#: databasic/templates/wordcounter/results.html:74
+#: databasic/templates/wordcounter/results.html:95
 msgid "Frequency"
 msgstr ""
 
-#: databasic/templates/samediff/results.html:60
+#: databasic/templates/samediff/results.html:122
 #, python-format
 msgid "Words that are in %(doc)s"
 msgstr ""
 
-#: databasic/templates/samediff/results.html:105
+#: databasic/templates/samediff/results.html:169
 #, python-format
 msgid ""
 "Comparing text documents is a great way to find out what makes each one "
@@ -462,20 +538,20 @@ msgid ""
 " but it doesn't even appear in %(doc1)s?  With these questions in mind, "
 "you can sketch out a story that compares the documents.  <br /><br />Find"
 " a whiteboard and start sketching out a story.  Check out our <a "
-"href=\"%(activity_guide_url)s\" onclick=\"ga('send', 'event', 'samediff',"
-" 'activity-guide');\">activity guide</a> for more help on sketching out a"
-" story to compare them.  Want to dig into the data even more?  <a "
+"href=\"%(activity_guide_url)s\" onclick='ga('send', 'event', 'samediff', "
+"'activity-guide');'>activity guide</a> for more help on sketching out a "
+"story to compare them.  Want to dig into the data even more?  <a "
 "href=\"%(download)s\" onclick=\"ga('send', 'event', 'samediff', "
 "'samediff-dl');\">Download the full results as a CSV file</a> to compare "
 "the files even further."
 msgstr ""
 
-#: databasic/templates/samediff/results.html:162
+#: databasic/templates/samediff/results.html:274
 #, python-format
 msgid " uses in %(doc)s"
 msgstr ""
 
-#: databasic/templates/samediff/results.html:164
+#: databasic/templates/samediff/results.html:276
 msgid " uses"
 msgstr ""
 
@@ -531,66 +607,66 @@ msgid ""
 "used words in a document."
 msgstr ""
 
-#: databasic/templates/wordcounter/results.html:36
+#: databasic/templates/wordcounter/results.html:39
 #, python-format
 msgid ""
 "Sorry, but we didn't find any results to show. Maybe your text is too "
 "short... or maybe it is all %(stopwords)s"
 msgstr ""
 
-#: databasic/templates/wordcounter/results.html:45
+#: databasic/templates/wordcounter/results.html:48
 msgid "Top Words"
 msgstr ""
 
-#: databasic/templates/wordcounter/results.html:46
+#: databasic/templates/wordcounter/results.html:49
 msgid "download csv of word frequencies"
 msgstr ""
 
-#: databasic/templates/wordcounter/results.html:65
+#: databasic/templates/wordcounter/results.html:68
 msgid "Bigrams"
 msgstr ""
 
-#: databasic/templates/wordcounter/results.html:66
+#: databasic/templates/wordcounter/results.html:69
 msgid "download csv of bigram frequencies"
 msgstr ""
 
-#: databasic/templates/wordcounter/results.html:70
+#: databasic/templates/wordcounter/results.html:73
 #, python-format
 msgid "%(bigram)s"
 msgstr ""
 
-#: databasic/templates/wordcounter/results.html:70
+#: databasic/templates/wordcounter/results.html:73
 msgid "bigram"
 msgstr ""
 
-#: databasic/templates/wordcounter/results.html:70
+#: databasic/templates/wordcounter/results.html:73
 #: databasic/templates/wordcounter/wordcounter.html:22
 msgid "A bigram is a two word phrase"
 msgstr ""
 
-#: databasic/templates/wordcounter/results.html:86
+#: databasic/templates/wordcounter/results.html:89
 msgid "Trigrams"
 msgstr ""
 
-#: databasic/templates/wordcounter/results.html:87
+#: databasic/templates/wordcounter/results.html:90
 msgid "download csv of trigram frequencies"
 msgstr ""
 
-#: databasic/templates/wordcounter/results.html:91
+#: databasic/templates/wordcounter/results.html:94
 #, python-format
 msgid "%(trigram)s"
 msgstr ""
 
-#: databasic/templates/wordcounter/results.html:91
+#: databasic/templates/wordcounter/results.html:94
 msgid "trigram"
 msgstr ""
 
-#: databasic/templates/wordcounter/results.html:91
+#: databasic/templates/wordcounter/results.html:94
 #: databasic/templates/wordcounter/wordcounter.html:23
 msgid "A trigram is a three word phrase"
 msgstr ""
 
-#: databasic/templates/wordcounter/results.html:110
+#: databasic/templates/wordcounter/results.html:113
 #, python-format
 msgid ""
 "Examining text data in this quantitative way can help you find stories to"
@@ -598,23 +674,23 @@ msgid ""
 "good to know, but combine that with "
 msgstr ""
 
-#: databasic/templates/wordcounter/results.html:112
+#: databasic/templates/wordcounter/results.html:115
 #, python-format
 msgid "the %(num)d use "
 msgid_plural "the %(num)d uses "
 msgstr[0] ""
 
-#: databasic/templates/wordcounter/results.html:113
+#: databasic/templates/wordcounter/results.html:116
 msgid "in the top 40 bigrams, and "
 msgstr ""
 
-#: databasic/templates/wordcounter/results.html:114
+#: databasic/templates/wordcounter/results.html:117
 #, python-format
 msgid "the %(num)s use "
 msgid_plural "the %(num)s uses "
 msgstr[0] ""
 
-#: databasic/templates/wordcounter/results.html:115
+#: databasic/templates/wordcounter/results.html:118
 #, python-format
 msgid ""
 "in the top 40 trigrams, to understand the context of how it is used.  "
@@ -759,19 +835,19 @@ msgstr ""
 msgid "Metadata summarizes basic information about your data."
 msgstr ""
 
-#: databasic/templates/wtfcsv/results.html:205
+#: databasic/templates/wtfcsv/results.html:209
 msgid "value"
 msgstr ""
 
-#: databasic/templates/wtfcsv/results.html:206
+#: databasic/templates/wtfcsv/results.html:210
 msgid "frequency"
 msgstr ""
 
-#: databasic/templates/wtfcsv/results.html:217
+#: databasic/templates/wtfcsv/results.html:221
 msgid "No data to display."
 msgstr ""
 
-#: databasic/templates/wtfcsv/results.html:244
+#: databasic/templates/wtfcsv/results.html:248
 #, python-format
 msgid ""
 "Understanding the data in your csv file is the first step in analyzing it"
@@ -789,35 +865,35 @@ msgid ""
 " of data sets."
 msgstr ""
 
-#: databasic/templates/wtfcsv/results.html:374
+#: databasic/templates/wtfcsv/results.html:378
 msgid "Categories"
 msgstr ""
 
-#: databasic/templates/wtfcsv/results.html:376
+#: databasic/templates/wtfcsv/results.html:380
 msgid "Counts"
 msgstr ""
 
-#: databasic/templates/wtfcsv/results.html:378
+#: databasic/templates/wtfcsv/results.html:382
 msgid "Dates"
 msgstr ""
 
-#: databasic/templates/wtfcsv/results.html:380
+#: databasic/templates/wtfcsv/results.html:384
 msgid "Times"
 msgstr ""
 
-#: databasic/templates/wtfcsv/results.html:382
+#: databasic/templates/wtfcsv/results.html:386
 msgid "Dates and times"
 msgstr ""
 
-#: databasic/templates/wtfcsv/results.html:384
+#: databasic/templates/wtfcsv/results.html:388
 msgid "Booleans"
 msgstr ""
 
-#: databasic/templates/wtfcsv/results.html:386
+#: databasic/templates/wtfcsv/results.html:390
 msgid "Undefined"
 msgstr ""
 
-#: databasic/templates/wtfcsv/results.html:396
+#: databasic/templates/wtfcsv/results.html:400
 msgid "# of rows"
 msgstr ""
 
@@ -849,55 +925,82 @@ msgstr ""
 msgid "%(f1)s and %(f2)s"
 msgstr ""
 
-#: databasic/views/samediff.py:97
+#: databasic/views/samediff.py:108
 msgid "word"
 msgstr ""
 
-#: databasic/views/samediff.py:97
+#: databasic/views/samediff.py:108
 msgid "uses in"
 msgstr ""
 
-#: databasic/views/samediff.py:97
+#: databasic/views/samediff.py:108
 msgid "total uses"
 msgstr ""
 
-#: databasic/views/samediff.py:145
+#: databasic/views/samediff.py:153
 msgid "almost the same"
 msgstr ""
 
-#: databasic/views/samediff.py:147
+#: databasic/views/samediff.py:155
 msgid "sort of similar"
 msgstr ""
 
-#: databasic/views/samediff.py:149
+#: databasic/views/samediff.py:157
 msgid "kind of similar"
 msgstr ""
 
-#: databasic/views/samediff.py:151
+#: databasic/views/samediff.py:159
 msgid "kind of similar, and also kind of different"
 msgstr ""
 
-#: databasic/views/samediff.py:153
+#: databasic/views/samediff.py:161
 msgid "pretty different"
 msgstr ""
 
-#: databasic/views/samediff.py:155
+#: databasic/views/samediff.py:163
 msgid "very different"
 msgstr ""
 
-#: databasic/views/samediff.py:157
+#: databasic/views/samediff.py:165
 msgid "completely different"
 msgstr ""
 
-#: databasic/views/wordcounter.py:42
+#: databasic/views/wordcounter.py:36
 msgid "your text"
 msgstr ""
 
-#: databasic/views/wordcounter.py:77
+#: databasic/views/wordcounter.py:71
 msgid "title"
 msgstr ""
 
-#: databasic/views/wtfcsv.py:161
+#: databasic/views/wtfcsv.py:180
 msgid "Other"
 msgstr ""
+
+#~ msgid ""
+#~ "Comparing text documents is a great "
+#~ "way to find out what makes each"
+#~ " one unique.  Is it meaningful that"
+#~ " \"%(most_common_word)s\" and "
+#~ "\"%(second_most_common_word)s\" are the most "
+#~ "used words appearing in both documents?"
+#~ "  Why does %(doc2)s use "
+#~ "\"%(doc2_most_common_word)s\" so much, but it"
+#~ " doesn't even appear in %(doc1)s?  "
+#~ "With these questions in mind, you "
+#~ "can sketch out a story that "
+#~ "compares the documents.  <br /><br "
+#~ "/>Find a whiteboard and start sketching"
+#~ " out a story.  Check out our <a"
+#~ " href=\"%(activity_guide_url)s\" onclick=\"ga('send', "
+#~ "'event', 'samediff', 'activity-guide');\">activity"
+#~ " guide</a> for more help on sketching"
+#~ " out a story to compare them.  "
+#~ "Want to dig into the data even "
+#~ "more?  <a href=\"%(download)s\" onclick=\"ga('send',"
+#~ " 'event', 'samediff', 'samediff-dl');\">Download"
+#~ " the full results as a CSV "
+#~ "file</a> to compare the files even "
+#~ "further."
+#~ msgstr ""
 
