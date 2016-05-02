@@ -22,13 +22,13 @@ cd DataBasic
 
 **2.** Copy `config/development.py.template` to `config/development.py` and enter your settings.
 
-**3.** Create a venv and install the requirements `pip install -r requirements`
+**3.** Create a venv and install the requirements `pip install -r requirements.txt`
 
 **4.** 
 To develop on OSX, like we do, you might need to do this:
 ```
 STATIC_DEPS=true pip install lxml
-```
+```requi
 
 **5.** Start the app. Run this and then go to http://localhost:8000 in your browser:
 ```
