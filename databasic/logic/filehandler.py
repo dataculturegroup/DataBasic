@@ -26,7 +26,7 @@ def init_uploads():
     databasic.app.config['UPLOADED_DOCS_DEST'] = TEMP_DIR
     docs = UploadSet(name='docs', extensions=('txt', 'docx', 'rtf', 'csv', 'xlsx', 'xls'))
     configure_uploads(databasic.app, (docs))
-    patch_request_class(databasic.app, 10 * 1024 * 1024) # 100MB
+    #patch_request_class(databasic.app, 10 * 1024 * 1024) # 100MB
 
 def init_samples():
     global samples

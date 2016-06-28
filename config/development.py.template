@@ -23,3 +23,6 @@ DEBUG = True
 
 # Set this to the url Google should redirect to after OAuth has been set up
 OAUTH_REDIRECT_URI = "http://127.0.0.1:8000/auth"
+
+# set to byte limit for file uploads. 10,485,760 is recommended for 10MB
+MAX_CONTENT_LENGTH = 10485760

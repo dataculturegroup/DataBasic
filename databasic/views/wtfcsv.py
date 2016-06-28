@@ -34,6 +34,7 @@ def index():
         if btn_value == 'upload':
             upload_file = forms['upload'].data['upload']
             logger.debug("New from upload: %s", upload_file.filename)
+
             results = process_upload(upload_file)
         elif btn_value == 'link':
             doc_url = forms['link'].data['link']
