@@ -18,7 +18,6 @@ anyjson==0.3.3
 argparse==1.4.0
 billiard==3.3.0.21
 blinker==1.4
-celery==3.1.19
 csvkit==0.9.1
 dbf==0.94.003
 textract==1.4.0
