@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2016-03-02 11:47-0500\n"
+"POT-Creation-Date: 2016-06-28 16:28-0400\n"
 "PO-Revision-Date: 2015-12-21 14:00-0600\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language: es\n"
@@ -472,7 +472,7 @@ msgstr ""
 "los datos en formas nuevas y emocionantes."
 
 #: databasic/templates/home/index.html:104
-msgid "Diseñado y Desarrollado por"
+msgid "Designed and Developed by"
 msgstr ""
 
 #: databasic/templates/samediff/results.html:8
@@ -524,8 +524,8 @@ msgid ""
 "The documents are of different lengths so to compare them fairly you "
 "should keep %(normalized)s on."
 msgstr ""
-"Los documentos son de tamaño diferente entonces para compararlos "
-"de manera justo debe usar %(normalized)s"
+"Los documentos son de tamaño diferente entonces para compararlos de "
+"manera justo debe usar %(normalized)s"
 
 #: databasic/templates/samediff/results.html:42
 #: databasic/templates/samediff/results.html:45
@@ -540,9 +540,10 @@ msgid ""
 " counts in a document can be normalized by dividing them by the total "
 "number of words in that document."
 msgstr ""
-"Un proceso de cambiar puntos de datos para compararlos de manera justa. Por ejemplo "
-", recuentos de utilización de palabras en un documento se pueden normalizar "
-"dividiendo por el número total de palabras en ese documento. "
+"Un proceso de cambiar puntos de datos para compararlos de manera justa. "
+"Por ejemplo , recuentos de utilización de palabras en un documento se "
+"pueden normalizar dividiendo por el número total de palabras en ese "
+"documento. "
 
 #: databasic/templates/samediff/results.html:45
 #, python-format
@@ -599,6 +600,7 @@ msgid "Words that are in %(doc)s"
 msgstr "Palabras en %(doc)s"
 
 #: databasic/templates/samediff/results.html:169
+#, python-format
 msgid ""
 "Comparing text documents is a great way to find out what makes each one "
 "unique.  Is it meaningful that \"%(most_common_word)s\" and "
@@ -1303,4 +1305,7 @@ msgstr "Otro"
 
 #~ msgid "Download (Español)"
 #~ msgstr "Bajar (Español)"
+
+#~ msgid "Diseñado y Desarrollado por"
+#~ msgstr ""
 
