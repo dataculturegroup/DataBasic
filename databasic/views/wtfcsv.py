@@ -62,7 +62,7 @@ def index():
         if btn_value is not None and btn_value is not u'':
             return redirect_to_results(results, btn_value, sample_id)
 
-    return render_template('wtfcsv.html', forms=forms.items(), tool_name='wtfcsv')
+    return render_template('wtfcsv.html', forms=forms.items(), tool_name='wtfcsv', max_file_size_in_mb = g.max_file_size_mb)
 
 @mod.route('/results/<doc_id>')
 def results(doc_id):

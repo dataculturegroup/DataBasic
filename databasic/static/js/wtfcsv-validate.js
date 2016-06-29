@@ -1,8 +1,8 @@
 
 $(document).ready(function(){
 	
-	var maxFileSize = 10000000; // 100MB
-
+	var maxFileSize = $('#max-file-size-in-mb').data().value;
+	
 	jQuery.validator.addMethod("spreadsheet", function(value, element) {
 		return this.optional (element) || /^https:\/\/docs.google.com\/spreadsheets/.test(value);
 	}, _("Link must be a valid Google Spreadsheet"));
@@ -27,7 +27,7 @@ $(document).ready(function(){
 	    	upload: {
 	    		required: _("This field is required"),
 	    		extension: _("Only these file types are accepted: csv, xls, xlsx"),
-	    		filesize: _("Only files under 10MB are accepted")
+	    		filesize: _("Only files under " + maxFileSize + "MB are accepted")
 	    	}
 	    }
 	});
@@ -44,7 +44,7 @@ $(document).ready(function(){
 			link: {
 				required: _("This field is required"),
 				url: _("You must input a URL"),
-				filesize: _("Only files under 10MB are accepted")
+				filesize: _("Only files under " + maxFileSize + "MB are accepted")
 			}
 		}
 	});

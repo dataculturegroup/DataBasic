@@ -5,6 +5,7 @@
 
 {% block custom_css %}
   <link href="{{ url_for('static', filename='css/wtfcsv.scss.css') }}" rel="stylesheet" type="text/css">
+  <meta id="max-file-size-in-mb" data-value="{{ max_file_size_in_mb }}">
 {% endblock %}
 
 {% block nav %}

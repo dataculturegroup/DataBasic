@@ -56,7 +56,7 @@ logger.info("Starting DataBasic in %s mode" % app_mode)
 app = Flask(__name__, instance_relative_config=False)
 app.config[ENV_APP_MODE] = app_mode
 config_var_names = ['SECRET_KEY','MONGODB_URL','MONGODB_NAME', 'SAMPLE_DATA_SERVER', 'GOOGLE_ANALYTICS_ID',
-                    'GOOGLE_CLIENT_ID','GOOGLE_CLIENT_SECRET', 'OAUTH_REDIRECT_URI']
+                    'GOOGLE_CLIENT_ID','GOOGLE_CLIENT_SECRET', 'OAUTH_REDIRECT_URI', 'MAX_CONTENT_LENGTH']
 if app_mode == APP_MODE_DEV:
     import config.development
     logger.info('Loading config from %s:' % (APP_MODE_DEV))
@@ -114,6 +114,8 @@ def before():
         if request.view_args['lang_code'] not in VALID_LANGUAGES:
             return abort(404) # bail on invalid language
         g.current_lang = request.view_args['lang_code']
+        g.max_file_size_bytes = app.config.get('MAX_CONTENT_LENGTH')
+        g.max_file_size_mb = (g.max_file_size_bytes / 1024 / 1024)
 
         # loads the translation files to be used for client-side validation
         if 'en' not in g.current_lang:
