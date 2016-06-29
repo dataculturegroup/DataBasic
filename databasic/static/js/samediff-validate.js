@@ -1,6 +1,12 @@
 
 $(document).ready(function(){
 
+	var maxFileSize;
+
+	if( typeof $('#max-file-size-in-mb').data() !== 'undefined' ) {
+		maxFileSize = $('#max-file-size-in-mb').data().value;
+	} 
+
 	jQuery.validator.addMethod("custom_url", function(value, element) {
 		return this.optional (element) || /^[^ "]+$/.test(value);
 	}, _("You must input a valid url"));
@@ -12,6 +18,10 @@ $(document).ready(function(){
 	jQuery.validator.addMethod("multiple_files", function(value, element) {
 		return this.optional (element) || $("input:file")[0].files.length == 2;
 	}, _("You must select two files"));
+
+	jQuery.validator.addMethod("filesize", function(value, element, filesize) {
+		return this.optional (element) || (element.files[0].size / 1048576 <= filesize);
+	});
 
 	jQuery.validator.addClassRules({
 		multiple_files: { multiple_files: true }
@@ -47,11 +57,13 @@ $(document).ready(function(){
 		rules: {
 			upload: {
 				required: true,
-				extension: "txt|docx|rtf"
+				extension: "txt|docx|rtf",
+				filesize: maxFileSize
 			},
 			upload2: {
 				required: true,
-				extension: "txt|docx|rtf"
+				extension: "txt|docx|rtf",
+				filesize: maxFileSize
 			},
 			email: {
 				required: true,
@@ -61,37 +73,17 @@ $(document).ready(function(){
 		messages: {
 			upload: {
 				required: _("This field is required"),
-				extension: _("Only these file types are accepted: txt, docx, rtf")
+				extension: _("Only these file types are accepted: txt, docx, rtf"),
+				filesize: _("Only files under " + maxFileSize + "MB are accepted")
 			},
 			upload2: {
 				required: _("This field is required"),
-				extension: _("Only these file types are accepted: txt, docx, rtf")
+				extension: _("Only these file types are accepted: txt, docx, rtf"),
+				filesize: _("Only files under " + maxFileSize + "MB are accepted")
 			},
 			email: {
 				required: _("This field is required"),
 				email: _("Please enter a valid email address")
-			}
-		}
-	});
-	$(".link").validate({
-		rules: {
-			link: {
-				required: true,
-				custom_url: true
-			},
-			link2: {
-				required: true,
-				custom_url: true
-			}
-		},
-		messages: {
-			link: {
-				required: _("This field is required"),
-				custom_url: _("You must input a URL")
-			},
-			link2: {
-				required: _("This field is required"),
-				custom_url: _("You must input a URL")
 			}
 		}
 	});

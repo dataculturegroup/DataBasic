@@ -69,7 +69,7 @@ def index():
         if btn_value is not None and btn_value is not u'':
             return process_results(file_paths, titles, sample_id, btn_value)
 
-    return render_template('samediff/samediff.html', forms=forms.items(), tool_name='samediff')
+    return render_template('samediff/samediff.html', forms=forms.items(), tool_name='samediff', max_file_size_in_mb = g.max_file_size_mb)
 
 @mod.route('/results/<doc_id>')
 def results(doc_id):

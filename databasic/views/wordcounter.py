@@ -78,7 +78,7 @@ def index():
             logger.debug("  saved")
             return redirect(request.url + 'results/' + doc_id + '?submit=true')
 
-    return render_template('wordcounter.html', forms=forms.items(), tool_name='wordcounter')
+    return render_template('wordcounter.html', forms=forms.items(), tool_name='wordcounter', max_file_size_in_mb = g.max_file_size_mb)
 
 @mod.route('/results/<doc_id>')
 def results(doc_id):

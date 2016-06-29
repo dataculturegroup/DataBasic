@@ -1,14 +1,18 @@
 
 $(document).ready(function(){
 	
-	var maxFileSize = $('#max-file-size-in-mb').data().value;
+	var maxFileSize;
+
+	if( typeof $('#max-file-size-in-mb').data() !== 'undefined' ) {
+		maxFileSize = $('#max-file-size-in-mb').data().value;
+	} 
 	
 	jQuery.validator.addMethod("spreadsheet", function(value, element) {
 		return this.optional (element) || /^https:\/\/docs.google.com\/spreadsheets/.test(value);
 	}, _("Link must be a valid Google Spreadsheet"));
 
 	jQuery.validator.addMethod("filesize", function(value, element, filesize) {
-		return this.optional (element) || (element.files[0].size <= filesize);
+		return this.optional (element) || (element.files[0].size / 1048576 <= filesize);
 	});
 
 	jQuery.validator.addClassRules({
