@@ -272,14 +272,17 @@ send_submit_event('{{ tool_name }}', '{{ source }}');
 
 // Card flipping
 $('.card').flip();
+$('.back-icon').hide();
 
 $('.card').click(function(card){
   thisCard = card.currentTarget;
-  var flipped = $(thisCard).data("flip-model").isFlipped;
+  var flipped = $(this).data("flip-model").isFlipped;
   if( flipped) {
-    $(thisCard).find("svg").fadeOut("fast");
+    $(this).find("svg").fadeOut("fast");
+    $(this).find('.back-icon').fadeIn("fast")
   } else {
     $(this).find("svg").fadeIn("slow");
+    $(this).find('.back-icon').fadeOut("fast")
   }
 })
   
