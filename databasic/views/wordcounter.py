@@ -149,7 +149,8 @@ def results(doc_id):
         title=doc['title'], 
         doc_id=doc_id, 
         source=doc['source'], 
-        remaining_days=remaining_days)
+        remaining_days=remaining_days, 
+        total_words=len(counts[0]))
 
 @mod.route('/results/<doc_id>/download/<analysis_type>.csv')
 def download_csv(doc_id, analysis_type):

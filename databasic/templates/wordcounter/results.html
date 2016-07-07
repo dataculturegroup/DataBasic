@@ -135,8 +135,14 @@
     send_submit_event('{{ tool_name }}', '{{ source }}');
 
     var data = [
-      {% for word in results[0] | batch(50) | first %}{ text: "{{ word[0]|safe }}", size: {{ word[1]|float }} },{% endfor %}
+      {% for word in results[0] | batch(50) | first %}{ text: "{{ word[0]|safe }}", size: {{ word[1]|float }}  },{% endfor %}
     ];
+    var tip = d3.tip()
+      .attr('class', 'd3-tip')
+      .html(function(d) { 
+        return d.size + " occurences out of {{total_words}} total words"; 
+      })
+      .offset([-5, 0]);
 
     var maxScore = Math.max.apply(Math, data.map(function(o) {return o.size;}))
     var fontSizeScale = d3.scale.linear()
@@ -157,6 +163,7 @@
 
     function draw(words) {
       d3.select('#word-cloud').append('svg')
+        .call(tip)
         .attr('width', layout.size()[0])
         .attr('height', layout.size()[1])
       .append('g')
@@ -172,7 +179,9 @@
           return 'translate(' + [d.x, d.y] + ')rotate(' + d.rotate + ')';
         })
         .text(function (d) { return d.text; })
-        .attr('aria-labelledby', 'wc-container');
+        .attr('aria-labelledby', 'wc-container')
+        .on('mouseover', tip.show)
+        .on('mouseout', tip.hide);
     }
   </script>
 {% endblock %}
