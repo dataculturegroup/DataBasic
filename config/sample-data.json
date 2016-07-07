@@ -2,111 +2,139 @@
 	{
 		"title": "Hillary Clinton's Speeches",
 		"source": "sample-data/hillary-clinton-speech.txt",
-		"modules": ["samediff", "wordcounter"]
+		"modules": ["samediff", "wordcounter"],
+		"lang" : "en"
 	},
 	{
 		"title": "Donald Trump's Speeches",
 		"source": "sample-data/donald-trump-speech.txt",
-		"modules": ["samediff", "wordcounter"]
+		"modules": ["samediff", "wordcounter"],
+		"lang" : "en"
 	},
 	{
 		"title": "Ted Cruz's Speeches",
 		"source": "sample-data/ted-cruz-speech.txt",
-		"modules": ["samediff", "wordcounter"]
+		"modules": ["samediff", "wordcounter"],
+		"lang" : "en"
 	},
 	{
 		"title": "Bernie Sanders' Speeches",
 		"source": "sample-data/bernie-sanders-speech.txt",
-		"modules": ["samediff", "wordcounter"]
+		"modules": ["samediff", "wordcounter"],
+		"lang" : "en"
 	},
 	{
 		"title": "Beyonce's lyrics",
 		"source": "sample-data/beyonce-knowles-lyrics.txt",
-		"modules": ["samediff", "wordcounter"]
+		"modules": ["samediff", "wordcounter"],
+		"lang" : "en"
 	},
 	{
 		"title": "Aretha Franklin's lyrics",
 		"source": "sample-data/aretha-franklin-lyrics.txt",
-		"modules": ["samediff", "wordcounter"]
+		"modules": ["samediff", "wordcounter"],
+		"lang" : "en"
 	},
 	{
 		"title": "Metallica's lyrics",
 		"source": "sample-data/metallica-lyrics.txt",
-		"modules": ["samediff", "wordcounter"]
+		"modules": ["samediff", "wordcounter"],
+		"lang" : "en"
 	},
 	{
 		"title": "The Beatles' lyrics",
 		"source": "sample-data/beatles-lyrics.txt",
-		"modules": ["samediff", "wordcounter"]
+		"modules": ["samediff", "wordcounter"],
+		"lang" : "en"
 	},
 	{
 		"title": "Jennifer Lopez's lyrics",
 		"source": "sample-data/jennifer-lopez-lyrics.txt",
-		"modules": ["samediff", "wordcounter"]
+		"modules": ["samediff", "wordcounter"],
+		"lang" : "en"
 	},
 	{
 		"title": "Iron Maiden's lyrics",
 		"source": "sample-data/iron-maiden-lyrics.txt",
-		"modules": ["samediff", "wordcounter"]
+		"modules": ["samediff", "wordcounter"],
+		"lang" : "en"
 	},
 	{
 		"title": "Bob Dylan's lyrics",
 		"source": "sample-data/bob-dylan-lyrics.txt",
-		"modules": ["samediff", "wordcounter"]
+		"modules": ["samediff", "wordcounter"],
+		"lang" : "en"
 	},
 	{
 		"title": "Elvis Presley's lyrics",
 		"source": "sample-data/elvis-presley-lyrics.txt",
-		"modules": ["samediff", "wordcounter"]
+		"modules": ["samediff", "wordcounter"],
+		"lang" : "en"
 	},
 	{
 		"title": "Jimi Hendrix's lyrics",
 		"source": "sample-data/jimi-hendrix-lyrics.txt",
-		"modules": ["samediff", "wordcounter"]
+		"modules": ["samediff", "wordcounter"],
+		"lang" : "en"
 	},
 	{
 		"title": "Stevie Wonder's lyrics",
 		"source": "sample-data/stevie-wonder-lyrics.txt",
-		"modules": ["samediff", "wordcounter"]
+		"modules": ["samediff", "wordcounter"],
+		"lang" : "en"
 	},
 	{
 		"title": "Katy Perry's lyrics",
 		"source": "sample-data/katy-perry-lyrics.txt",
-		"modules": ["samediff", "wordcounter"]
+		"modules": ["samediff", "wordcounter"],
+		"lang" : "en"
 	},
 	{
 		"title": "Lady Gaga's lyrics",
 		"source": "sample-data/lady-gaga-lyrics.txt",
-		"modules": ["samediff", "wordcounter"]
+		"modules": ["samediff", "wordcounter"],
+		"lang" : "en"
 	},
 	{
 		"title": "Madonna's lyrics",
 		"source": "sample-data/madonna-lyrics.txt",
-		"modules": ["samediff", "wordcounter"]
+		"modules": ["samediff", "wordcounter"],
+		"lang" : "en"
 	},
 	{
 		"title": "Prince's lyrics",
 		"source": "sample-data/prince-lyrics.txt",
-		"modules": ["samediff", "wordcounter"]
+		"modules": ["samediff", "wordcounter"],
+		"lang" : "en"
 	},
 	{
 		"title": "Bob Marley's lyrics",
 		"source": "sample-data/bob-marley-lyrics.txt",
-		"modules": ["samediff", "wordcounter"]
+		"modules": ["samediff", "wordcounter"],
+		"lang" : "en"
 	},
 	{
 		"title": "Taylor Swift's lyrics",
 		"source": "sample-data/taylor-swift-lyrics.txt",
-		"modules": ["samediff", "wordcounter"]
+		"modules": ["samediff", "wordcounter"],
+		"lang" : "en"
 	},
 	{
 		"title" : "Titanic Survivors",
 		"source":"sample-data/titanic.csv",
-		"modules": ["wtfcsv"]
+		"modules": ["wtfcsv"],
+		"lang" : "en"
 	},
 	{
 		"title" : "UFO Sightings in Massachusetts",
 		"source":"sample-data/UFOMA.csv",
-		"modules": ["wtfcsv"]
+		"modules": ["wtfcsv"],
+		"lang" : "en"
+	},
+	{
+		"title" : "Letras do Anitta",
+		"source":"sample-data/anitta-lyrics.txt",
+		"modules": ["samediff", "wordcounter"],
+		"lang" : "po"
 	}
 ]
