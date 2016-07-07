@@ -55,7 +55,7 @@
             </tr>
           </thead>
           <tbody>
-            {% for word in results[0]|batch(20)|first%}
+            {% for word in results['unique_words']|batch(20)|first%}
             <tr>
               <td>{{ word[0] }}</td>
               <td>{{ word[1] }}</td>
@@ -75,7 +75,7 @@
             </tr>
           </thead>
           <tbody>
-            {% for word in results[1]|batch(20)|first %}
+            {% for word in results['bigrams']|batch(20)|first %}
             {% set bigram=" ".join(word[0]) %}
             <tr>
               <td>{{ bigram }}</td>
@@ -96,7 +96,7 @@
             </tr>
           </thead>
           <tbody>
-            {% for word in results[2]|batch(20)|first %}
+            {% for word in results['trigrams']|batch(20)|first %}
             {% set trigram=" ".join(word[0]) %}
             <tr>
               <td>{{ trigram }}</td>
@@ -135,12 +135,12 @@
     send_submit_event('{{ tool_name }}', '{{ source }}');
 
     var data = [
-      {% for word in results[0] | batch(50) | first %}{ text: "{{ word[0]|safe }}", size: {{ word[1]|float }}  },{% endfor %}
+      {% for word in results['unique_words'] | batch(50) | first %}{ text: "{{ word[0]|safe }}", size: {{ word[1]|float }}, count: {{ word[1]|float }}  },{% endfor %}
     ];
     var tip = d3.tip()
       .attr('class', 'd3-tip')
       .html(function(d) { 
-        return d.size + " occurences out of {{total_words}} total words"; 
+        return d.count + " occurences out of {{total_words}} total words"; 
       })
       .offset([-5, 0]);
 

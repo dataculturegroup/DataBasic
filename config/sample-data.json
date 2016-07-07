@@ -1,5 +1,25 @@
 [
 	{
+		"title": "Hillary Clinton's Speeches",
+		"source": "sample-data/hillary-clinton-speech.txt",
+		"modules": ["samediff", "wordcounter"]
+	},
+	{
+		"title": "Donald Trump's Speeches",
+		"source": "sample-data/donald-trump-speech.txt",
+		"modules": ["samediff", "wordcounter"]
+	},
+	{
+		"title": "Ted Cruz's Speeches",
+		"source": "sample-data/ted-cruz-speech.txt",
+		"modules": ["samediff", "wordcounter"]
+	},
+	{
+		"title": "Bernie Sanders' Speeches",
+		"source": "sample-data/bernie-sanders-speech.txt",
+		"modules": ["samediff", "wordcounter"]
+	},
+	{
 		"title": "Beyonce's lyrics",
 		"source": "sample-data/beyonce-knowles-lyrics.txt",
 		"modules": ["samediff", "wordcounter"]
