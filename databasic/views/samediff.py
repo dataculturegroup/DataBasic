@@ -18,7 +18,7 @@ logger = logging.getLogger(__name__)
 def index():
     
     forms = OrderedDict()
-    forms['sample'] = SameDiffSample()
+    forms['sample'] = SameDiffSample(g.current_lang)
     forms['upload'] = SameDiffUpload()
     # forms['link'] = SameDiffLink()
 

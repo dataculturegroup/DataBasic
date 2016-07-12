@@ -197,11 +197,11 @@ def open_workbook(book):
         file_paths.append(file_path)
     return file_paths
 
-def get_samples(tool_id):
+def get_samples(tool_id, lang):
     choices = []
     texts = []
     for text in samples:
-        if tool_id in text['modules']:
+        if tool_id in text['modules'] and text['lang'] == lang:
             if(os.path.exists(text['path'])):
                 texts.append((text['source'], text['title']))
             else:

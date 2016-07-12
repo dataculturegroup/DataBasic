@@ -133,8 +133,20 @@
 	},
 	{
 		"title" : "Letras do Anitta",
-		"source":"sample-data/anitta-lyrics.txt",
+		"source":"sample-data/lyrics-anitta.txt",
 		"modules": ["samediff", "wordcounter"],
-		"lang" : "po"
+		"lang" : "pt"
+	},
+	{
+		"title" : "Marisa Monte",
+		"source":"sample-data/lyrics-marisa-monte.txt",
+		"modules": ["samediff", "wordcounter"],
+		"lang" : "pt"
+	},
+	{
+		"title" : "Legião Urbana",
+		"source":"sample-data/lyrics-legião-urbana.txt",
+		"modules": ["samediff", "wordcounter"],
+		"lang" : "pt"
 	}
 ]

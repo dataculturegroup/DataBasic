@@ -16,10 +16,12 @@ def index():
     words = None
 
     forms = OrderedDict()
-    forms['sample'] = WordCounterSample()
+    forms['sample'] = WordCounterSample(g.current_lang)
     forms['paste'] = WordCounterPaste('I am Sam\nSam I am\nThat Sam-I-am!\nThat Sam-I-am!\nI do not like that Sam-I-am!\nDo you like \ngreen eggs and ham?\nI do not like them, Sam-I-am.\nI do not like\ngreen eggs and ham.\nWould you like them \nhere or there?\nI would not like them\nhere or there.\nI would not like them anywhere.')
     forms['upload'] = WordCounterUpload()
     forms['link'] = WordCounterLink()
+
+
 
     if request.method == 'POST':
         ignore_case = True
@@ -96,7 +98,7 @@ def results(doc_id):
         return render_template('no_results.html', tool_name='wordcounter')
 
     counts = doc.get('counts')
-    
+    print counts['unique_words']
     # only render the top 40 results on the page (the csv contains all results)
     results['unique_words'] = counts['unique_words'][:40]
     results['bigrams'] = counts['bigrams'][:40]

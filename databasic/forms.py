@@ -37,9 +37,10 @@ class SampleForm(object):
     sample = SelectField(
         _('Sample'))
 
-    def __init__(self, tool_id):
+    def __init__(self, tool_id, lang):
         super(SampleForm, self).__init__()
-        self.sample.choices = filehandler.get_samples(tool_id)
+        self.sample.choices = filehandler.get_samples(tool_id, lang)
+        self.lang = lang
 
 class MultipleSampleForm(object):
     label = _('Use samples')
@@ -48,8 +49,8 @@ class MultipleSampleForm(object):
         _('Samples'))
 
     def __init__(self, tool_id):
-        super(MultipleSampleForm, self).__init__()
-        self.samples.choices = filehandler.get_samples(tool_id)
+        super(MultipleSampleForm, self, lang).__init__()
+        self.samples.choices = filehandler.get_samples(tool_id, lang)
 
 class LinkForm(object):
     label = _('Link to a spreadsheet')
@@ -102,8 +103,8 @@ class WordCounterSample(SampleForm, WordCounterForm, Form):
         _('Ignore stopwords'),
         widget=CheckboxInput(), 
         default=True)
-    def __init__(self):
-        super(WordCounterSample, self).__init__('wordcounter')
+    def __init__(self, lang):
+        super(WordCounterSample, self).__init__('wordcounter', lang)
 
 class WordCounterLink(LinkForm, WordCounterForm, Form):
     ignore_case_link = BooleanField(
@@ -148,14 +149,14 @@ class SameDiffUpload(UploadForm, SameDiffForm, Form):
 
 class SameDiffSample(SampleForm, SameDiffForm, Form):
     label = _('Use samples')
-    choices = filehandler.get_samples('samediff')
     sample2 = SelectField(
-        _('Sample'),
-        choices=choices,
-        default=choices[1][0])
-
-    def __init__(self):
-        super(SameDiffSample, self).__init__('samediff')
+        _('Sample'))
+    def __init__(self, lang):
+        super(SameDiffSample, self).__init__('samediff', lang)
+        choices = filehandler.get_samples('samediff', lang)
+        self.sample2.choices = choices
+        self.sample2.default = choices[1][0]
+        
 
 class SameDiffLink(LinkForm, SameDiffForm, Form):
     label = _('Paste links')
