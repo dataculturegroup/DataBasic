@@ -154,8 +154,12 @@ class SameDiffSample(SampleForm, SameDiffForm, Form):
     def __init__(self, lang):
         super(SameDiffSample, self).__init__('samediff', lang)
         choices = filehandler.get_samples('samediff', lang)
+        # This is a little clunky because self.sample2.default doesn't get processed in the init function
+        # so just reordering the list so that default option shows properly
+        firstItem = choices.pop(0)
+        choices.insert(1, firstItem)
         self.sample2.choices = choices
-        self.sample2.default = choices[1][0]
+    
         
 
 class SameDiffLink(LinkForm, SameDiffForm, Form):
