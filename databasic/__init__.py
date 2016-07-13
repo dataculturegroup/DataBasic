@@ -114,7 +114,7 @@ def before():
         if request.view_args['lang_code'] not in VALID_LANGUAGES:
             return abort(404) # bail on invalid language
         g.current_lang = request.view_args['lang_code']
-        g.max_file_size_bytes = app.config.get('MAX_CONTENT_LENGTH')
+        g.max_file_size_bytes = int(app.config.get('MAX_CONTENT_LENGTH'))
         g.max_file_size_mb = (g.max_file_size_bytes / 1024 / 1024)
 
         # loads the translation files to be used for client-side validation
