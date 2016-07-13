@@ -19,3 +19,5 @@ logs/*.log
 config/development.py
 certs/
 logs/*.log.*
+
+HANDY_SNIPPETS

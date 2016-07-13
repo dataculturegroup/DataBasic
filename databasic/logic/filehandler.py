@@ -42,6 +42,7 @@ def init_samples():
         url_base = databasic.app.config.get('SAMPLE_DATA_SERVER')
         for sample in samples:
             url = url_base+sample['source']
+            logger.info("Loading sample data file: %s" % url)
             text = urlopen(url).read()
             f = tempfile.NamedTemporaryFile(delete=False)
             f.write(text)

@@ -195,8 +195,6 @@ def process_words(words, ignore_case, ignore_stopwords, is_sample):
         stopwords_language = 'portuguese'
     elif g.current_lang == 'hu':
         stopwords_language = 'hungarian'
-    print "STOPWORDS LANGUAGE"
-    print stopwords_language
 
     counts = wordhandler.get_word_counts(
         words,
