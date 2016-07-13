@@ -120,7 +120,7 @@
 		"lang" : "en"
 	},
 	{
-		"title" : "Titanic Survivors",
+		"title" : "Titanic Passengers",
 		"source":"sample-data/en/titanic.csv",
 		"modules": ["wtfcsv"],
 		"lang" : "en"
