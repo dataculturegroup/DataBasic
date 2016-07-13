@@ -145,7 +145,7 @@
 	},
 	{
 		"title" : "Legião Urbana",
-		"source":"sample-data/pt/lyrics-legião-urbana.txt",
+		"source":"sample-data/pt/lyrics-legiao-urbana.txt",
 		"modules": ["samediff", "wordcounter"],
 		"lang" : "pt"
 	},
