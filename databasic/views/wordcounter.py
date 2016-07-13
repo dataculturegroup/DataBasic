@@ -98,7 +98,7 @@ def results(doc_id):
         return render_template('no_results.html', tool_name='wordcounter')
 
     counts = doc.get('counts')
-    print counts['unique_words']
+    
     # only render the top 40 results on the page (the csv contains all results)
     results['unique_words'] = counts['unique_words'][:40]
     results['bigrams'] = counts['bigrams'][:40]
@@ -188,13 +188,16 @@ def process_upload(doc):
 
 def process_words(words, ignore_case, ignore_stopwords, is_sample):
     stopwords_language = 'english'
-    if not is_sample:
-        if g.current_lang == 'es':
-            stopwords_language = 'spanish'
-        elif g.current_lang == 'pt':
-            stopwords_language = 'portuguese'
-        elif g.current_lang == 'hu':
-            stopwords_language = 'hungarian'
+    
+    if g.current_lang == 'es':
+        stopwords_language = 'spanish'
+    elif g.current_lang == 'pt':
+        stopwords_language = 'portuguese'
+    elif g.current_lang == 'hu':
+        stopwords_language = 'hungarian'
+    print "STOPWORDS LANGUAGE"
+    print stopwords_language
+
     counts = wordhandler.get_word_counts(
         words,
         ignore_case,
