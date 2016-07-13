@@ -22,7 +22,7 @@ def index():
     results = None
 
     forms = OrderedDict()
-    forms['sample'] = WTFCSVSample()
+    forms['sample'] = WTFCSVSample(g.current_lang)
     forms['upload'] = WTFCSVUpload()
     # forms['link'] = WTFCSVLink()
 

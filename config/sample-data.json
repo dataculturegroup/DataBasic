@@ -1,152 +1,188 @@
 [
 	{
 		"title": "Hillary Clinton's Speeches",
-		"source": "sample-data/hillary-clinton-speech.txt",
+		"source": "sample-data/en/hillary-clinton-speech.txt",
 		"modules": ["samediff", "wordcounter"],
 		"lang" : "en"
 	},
 	{
 		"title": "Donald Trump's Speeches",
-		"source": "sample-data/donald-trump-speech.txt",
+		"source": "sample-data/en/donald-trump-speech.txt",
 		"modules": ["samediff", "wordcounter"],
 		"lang" : "en"
 	},
 	{
 		"title": "Ted Cruz's Speeches",
-		"source": "sample-data/ted-cruz-speech.txt",
+		"source": "sample-data/en/ted-cruz-speech.txt",
 		"modules": ["samediff", "wordcounter"],
 		"lang" : "en"
 	},
 	{
 		"title": "Bernie Sanders' Speeches",
-		"source": "sample-data/bernie-sanders-speech.txt",
+		"source": "sample-data/en/bernie-sanders-speech.txt",
 		"modules": ["samediff", "wordcounter"],
 		"lang" : "en"
 	},
 	{
 		"title": "Beyonce's lyrics",
-		"source": "sample-data/beyonce-knowles-lyrics.txt",
+		"source": "sample-data/en/beyonce-knowles-lyrics.txt",
 		"modules": ["samediff", "wordcounter"],
 		"lang" : "en"
 	},
 	{
 		"title": "Aretha Franklin's lyrics",
-		"source": "sample-data/aretha-franklin-lyrics.txt",
+		"source": "sample-data/en/aretha-franklin-lyrics.txt",
 		"modules": ["samediff", "wordcounter"],
 		"lang" : "en"
 	},
 	{
 		"title": "Metallica's lyrics",
-		"source": "sample-data/metallica-lyrics.txt",
+		"source": "sample-data/en/metallica-lyrics.txt",
 		"modules": ["samediff", "wordcounter"],
 		"lang" : "en"
 	},
 	{
 		"title": "The Beatles' lyrics",
-		"source": "sample-data/beatles-lyrics.txt",
+		"source": "sample-data/en/beatles-lyrics.txt",
 		"modules": ["samediff", "wordcounter"],
 		"lang" : "en"
 	},
 	{
 		"title": "Jennifer Lopez's lyrics",
-		"source": "sample-data/jennifer-lopez-lyrics.txt",
+		"source": "sample-data/en/jennifer-lopez-lyrics.txt",
 		"modules": ["samediff", "wordcounter"],
 		"lang" : "en"
 	},
 	{
 		"title": "Iron Maiden's lyrics",
-		"source": "sample-data/iron-maiden-lyrics.txt",
+		"source": "sample-data/en/iron-maiden-lyrics.txt",
 		"modules": ["samediff", "wordcounter"],
 		"lang" : "en"
 	},
 	{
 		"title": "Bob Dylan's lyrics",
-		"source": "sample-data/bob-dylan-lyrics.txt",
+		"source": "sample-data/en/bob-dylan-lyrics.txt",
 		"modules": ["samediff", "wordcounter"],
 		"lang" : "en"
 	},
 	{
 		"title": "Elvis Presley's lyrics",
-		"source": "sample-data/elvis-presley-lyrics.txt",
+		"source": "sample-data/en/elvis-presley-lyrics.txt",
 		"modules": ["samediff", "wordcounter"],
 		"lang" : "en"
 	},
 	{
 		"title": "Jimi Hendrix's lyrics",
-		"source": "sample-data/jimi-hendrix-lyrics.txt",
+		"source": "sample-data/en/jimi-hendrix-lyrics.txt",
 		"modules": ["samediff", "wordcounter"],
 		"lang" : "en"
 	},
 	{
 		"title": "Stevie Wonder's lyrics",
-		"source": "sample-data/stevie-wonder-lyrics.txt",
+		"source": "sample-data/en/stevie-wonder-lyrics.txt",
 		"modules": ["samediff", "wordcounter"],
 		"lang" : "en"
 	},
 	{
 		"title": "Katy Perry's lyrics",
-		"source": "sample-data/katy-perry-lyrics.txt",
+		"source": "sample-data/en/katy-perry-lyrics.txt",
 		"modules": ["samediff", "wordcounter"],
 		"lang" : "en"
 	},
 	{
 		"title": "Lady Gaga's lyrics",
-		"source": "sample-data/lady-gaga-lyrics.txt",
+		"source": "sample-data/en/lady-gaga-lyrics.txt",
 		"modules": ["samediff", "wordcounter"],
 		"lang" : "en"
 	},
 	{
 		"title": "Madonna's lyrics",
-		"source": "sample-data/madonna-lyrics.txt",
+		"source": "sample-data/en/madonna-lyrics.txt",
 		"modules": ["samediff", "wordcounter"],
 		"lang" : "en"
 	},
 	{
 		"title": "Prince's lyrics",
-		"source": "sample-data/prince-lyrics.txt",
+		"source": "sample-data/en/prince-lyrics.txt",
 		"modules": ["samediff", "wordcounter"],
 		"lang" : "en"
 	},
 	{
 		"title": "Bob Marley's lyrics",
-		"source": "sample-data/bob-marley-lyrics.txt",
+		"source": "sample-data/en/bob-marley-lyrics.txt",
 		"modules": ["samediff", "wordcounter"],
 		"lang" : "en"
 	},
 	{
 		"title": "Taylor Swift's lyrics",
-		"source": "sample-data/taylor-swift-lyrics.txt",
+		"source": "sample-data/en/taylor-swift-lyrics.txt",
 		"modules": ["samediff", "wordcounter"],
 		"lang" : "en"
 	},
 	{
 		"title" : "Titanic Survivors",
-		"source":"sample-data/titanic.csv",
+		"source":"sample-data/en/titanic.csv",
 		"modules": ["wtfcsv"],
 		"lang" : "en"
 	},
 	{
 		"title" : "UFO Sightings in Massachusetts",
-		"source":"sample-data/UFOMA.csv",
+		"source":"sample-data/en/UFOMA.csv",
 		"modules": ["wtfcsv"],
 		"lang" : "en"
 	},
 	{
 		"title" : "Letras do Anitta",
-		"source":"sample-data/lyrics-anitta.txt",
+		"source":"sample-data/pt/lyrics-anitta.txt",
 		"modules": ["samediff", "wordcounter"],
 		"lang" : "pt"
 	},
 	{
 		"title" : "Marisa Monte",
-		"source":"sample-data/lyrics-marisa-monte.txt",
+		"source":"sample-data/pt/lyrics-marisa-monte.txt",
 		"modules": ["samediff", "wordcounter"],
 		"lang" : "pt"
 	},
 	{
 		"title" : "Legião Urbana",
-		"source":"sample-data/lyrics-legião-urbana.txt",
+		"source":"sample-data/pt/lyrics-legião-urbana.txt",
 		"modules": ["samediff", "wordcounter"],
 		"lang" : "pt"
+	},
+	{
+		"title" : "Altura y Peso de Personas entre 6 - 16 años",
+		"source":"sample-data/es/csv-altura-y-peso.csv",
+		"modules": ["wtfcsv"],
+		"lang" : "es"
+	},
+	{
+		"title" : "El tiempo de San José, Costa Rica, en 2016",
+		"source":"sample-data/es/el-tiempo-de-san-jose-2016.csv",
+		"modules": ["wtfcsv"],
+		"lang" : "es"
+	},
+	{
+		"title" : "Maná",
+		"source":"sample-data/es/lyrics-mana.txt",
+		"modules": ["samediff", "wordcounter"],
+		"lang" : "es"
+	},
+	{
+		"title" : "Paulina Rubio",
+		"source":"sample-data/es/lyrics-paulina-rubio.txt",
+		"modules": ["samediff", "wordcounter"],
+		"lang" : "es"
+	},
+	{
+		"title" : "Ricky Martin",
+		"source":"sample-data/es/lyrics-ricky-martin.txt",
+		"modules": ["samediff", "wordcounter"],
+		"lang" : "es"
+	},
+	{
+		"title" : "Shakira",
+		"source":"sample-data/es/lyrics-shakira.txt",
+		"modules": ["samediff", "wordcounter"],
+		"lang" : "es"
 	}
 ]

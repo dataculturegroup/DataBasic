@@ -129,8 +129,8 @@ class WTFCSVLink(LinkForm, Form):
         super(WTFCSVLink, self).__init__(_('Paste a link'), 'https://docs.google.com/spreadsheets/')
 
 class WTFCSVSample(SampleForm, Form):
-    def __init__(self):
-        super(WTFCSVSample, self).__init__('wtfcsv')
+    def __init__(self, lang):
+        super(WTFCSVSample, self).__init__('wtfcsv', lang)
 
 '''
 SameDiff forms
