@@ -456,7 +456,7 @@ $(function () {
         .offset([-5, 0]);
 
       var data = [
-      {% for word in col['word_counts'][0] | batch(50) | first %}
+      {% for word in col['word_counts']['unique_words'] | batch(50) | first %}
         { text: "{{ word[0]|safe }}", size: {{ word[1]|float }} },
       {% endfor %}
       ];

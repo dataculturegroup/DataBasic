@@ -5,7 +5,7 @@ from databasic.forms import WTFCSVUpload, WTFCSVLink, WTFCSVSample
 from databasic.logic import wtfcsvstat, filehandler, oauth
 from flask import Blueprint, render_template, request, redirect, g, send_from_directory
 from flask.ext.babel import gettext, ngettext
-import os, logging, random
+import os, logging, random, sys, traceback
 
 mod = Blueprint('wtfcsv', __name__, url_prefix='/<lang_code>/wtfcsv', template_folder='../templates/wtfcsv')
 
@@ -67,7 +67,10 @@ def index():
 @mod.route('/results/<doc_id>')
 def results(doc_id):
     try:
+       
         results = mongo.find_document('wtfcsv', doc_id).get('results')
+        
+        #Doc has more than one sheet to analyze
         if len(results) > 1:
             logger.info("Showing results %s (sheet 0)", doc_id)
             submit = request.args.get('submit', '')
@@ -77,7 +80,11 @@ def results(doc_id):
             logger.info("Showing results %s", doc_id)
             return render_results(doc_id, 0)
     except:
+        #more robust exception logging
         logger.warning("Unable to find doc '%s'", doc_id)
+        logger.warning("Unexpected error:", sys.exc_info()[0])
+        logger.warning(traceback.format_exc())
+
         return render_template('no_results.html', tool_name='wtfcsv')
 
 @mod.route('/results/<doc_id>/sheets/<sheet_idx>')
@@ -115,6 +122,7 @@ def render_results(doc_id, sheet_idx):
 
     doc = mongo.find_document('wtfcsv', doc_id)
     results = doc.get('results')
+
     if doc['sample_id'] == u'':
         remaining_days = mongo.get_remaining_days('wtfcsv', doc_id)
     else:
@@ -170,7 +178,9 @@ def render_results(doc_id, sheet_idx):
         elif 'most_freq_values' in col:
             data_to_use = col['most_freq_values']
         elif 'word_counts' in col:
-            data_to_use = [ {'value':r[0], 'count':r[1]} for r in col['word_counts'][0][:20] ]
+            for word in col['word_counts']['unique_words'][:20]:
+                print str(word[0]) + " is " + str(word[1])
+            data_to_use = [ {'value':word[0], 'count':word[1]} for word in col['word_counts']['unique_words'][:20] ]
         # stitch together the overview
         overview_data = {'categories':[],'values':[]}
         for d in data_to_use:
@@ -181,7 +191,6 @@ def render_results(doc_id, sheet_idx):
             overview_data['categories'].append(gettext('Other'))
             overview_data['values'].append(int(col['others']))
         col['overview'] = overview_data
-    
     return render_template('wtfcsv/results.html', 
         results=results, 
         whatnext=whatnext, 

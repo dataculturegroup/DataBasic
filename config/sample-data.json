@@ -184,5 +184,11 @@
 		"source":"sample-data/es/lyrics-shakira.txt",
 		"modules": ["samediff", "wordcounter"],
 		"lang" : "es"
+	},
+	{
+		"title" : "Nomes próprios em Portugal (2014)",
+		"source":"sample-data/pt/nomes-registados-2014.csv",
+		"modules": ["wtfcsv"],
+		"lang" : "pt"
 	}
 ]

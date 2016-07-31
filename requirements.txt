@@ -39,7 +39,7 @@ pojson==0.6
 polib==1.0.7
 pyasn1==0.1.9
 pyasn1-modules==0.0.8
-pymongo==3.1
+pymongo==3.3
 pytest==2.8.2
 pyth==0.6.0
 python-dateutil==2.2

@@ -25,6 +25,7 @@ class MongoHandler:
     def results_for_sample(self,collection,sample_id):
         logger.debug("checking for sample %s",sample_id)
         sample = self._db[collection].find_one({'sample_id': str(sample_id)})
+
         if sample is not None:
             return str(sample['_id'])
 
