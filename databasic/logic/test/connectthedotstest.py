@@ -74,7 +74,7 @@ class ConnectTheDotsTest(unittest.TestCase):
         results = ctd.get_summary(test_data_path)
         graph = results['graph']
 
-        # self.assertEqual(len(results['centrality_scores']), 40)
+        self.assertEqual(len(results['centrality_scores']), 40)
         self.assertEqual(results['centrality_scores'][0][0], u'Valjean')
 
         nodes = graph.nodes()
