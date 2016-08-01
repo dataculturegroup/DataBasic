@@ -45,6 +45,7 @@ class ConnectTheDots():
         results['centrality_scores'] = self.get_centrality_scores()
         results['degree_scores'] = self.get_degree_scores()
 
+        results['graph'] = self.graph
         results['json'] = self.as_json()
 
         return results
