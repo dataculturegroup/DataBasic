@@ -20,9 +20,8 @@ class ConnectTheDots():
         """
         utf8_file_path = filehandler.convert_to_utf8(input_path)
         input_file = codecs.open(utf8_file_path, 'r', filehandler.ENCODING_UTF_8)
-        self.has_header_row = has_header_row
         try:
-            self.table = table.Table.from_csv(input_file)
+            self.table = table.Table.from_csv(input_file, no_header_row=not has_header_row)
         except Exception as e:
             logger.debug('[CTD] Unable to make table from csv')
         try:

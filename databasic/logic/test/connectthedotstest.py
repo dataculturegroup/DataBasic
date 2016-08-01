@@ -22,6 +22,19 @@ class ConnectTheDotsTest(unittest.TestCase):
         results = ctd.get_summary(test_data_path)
         self.assertEqual(results['edges'], 254) # self.table.count_rows()
 
+    def test_import_xls(self):
+        test_data_path = os.path.join(self._fixtures_dir, 'zachary-karate-club.xlsx')
+        csv_file = filehandler.convert_to_csv(test_data_path)[0]
+        results = ctd.get_summary(csv_file)
+        self.assertEqual(results['nodes'], 34)
+        self.assertEqual(results['edges'], 78)
+
+    def test_import_no_header(self):
+        test_data_path = os.path.join(self._fixtures_dir, 'handshake-problem.csv')
+        results = ctd.get_summary(test_data_path, False)
+        self.assertEqual(results['nodes'], 5)
+        self.assertEqual(results['edges'], 10)
+
     def test_clustering_score(self):
         """
         Test global clustering score with generalized formula
@@ -54,7 +67,7 @@ class ConnectTheDotsTest(unittest.TestCase):
 
     def test_clustering_score_clique(self):
         test_data_path = os.path.join(self._fixtures_dir, 'handshake-problem.csv')
-        results = ctd.get_summary(test_data_path)
+        results = ctd.get_summary(test_data_path, False)
         self.assertEqual(results['clustering'], 1) # complete graph, all nodes connected
 
     def test_density_score(self):
