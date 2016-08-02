@@ -1,0 +1,15 @@
+@charset "UTF-8";
+
+@import "themes/red-theme";
+@import "tool";
+@import "modules/input";
+
+body {
+  background-image: url("/static/img/backgrounds/tiled_background_red.png");
+}
+
+footer {
+  nav {
+    background-color: $c-theme-bg;
+  }
+}

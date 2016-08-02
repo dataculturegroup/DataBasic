@@ -1,0 +1,27 @@
+@charset "UTF-8";
+
+@import "themes/red-theme";
+@import "tool";
+@import "modules/input";
+
+body {
+  background-image: url("/static/img/backgrounds/tiled_background_red.png");
+}
+
+.ctd-graph {
+  background-color: $c-white;
+  .nodes > circle {
+    fill: $c-theme-bg;
+    stroke: $c-white;
+  }
+  .edges > line {
+    stroke: $c-black;
+    stroke-opacity: 0.25;
+  }
+}
+
+footer {
+  nav {
+    background-color: $c-theme-bg;
+  }
+}

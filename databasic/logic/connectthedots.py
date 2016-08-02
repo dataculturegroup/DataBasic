@@ -1,4 +1,4 @@
-import codecs, json, logging, networkx as nx, operator
+import codecs, json, logging, networkx as nx, operator, os
 import filehandler
 from csvkit import table
 from networkx.readwrite import json_graph
@@ -44,7 +44,9 @@ class ConnectTheDots():
         results['centrality_scores'] = self.get_centrality_scores()
         results['degree_scores'] = self.get_degree_scores()
 
-        results['graph'] = self.graph
+        if os.environ['APP_MODE'] == 'development':
+            results['graph'] = self.graph # testing purposes only
+        
         results['json'] = self.as_json()
 
         return results

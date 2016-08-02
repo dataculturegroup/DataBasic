@@ -74,7 +74,7 @@ class ConnectTheDotsTest(unittest.TestCase):
         test_data_path = os.path.join(self._fixtures_dir, 'les-miserables.csv')
         results = ctd.get_summary(test_data_path)
         self.assertEqual(results['density'], 0.08680792891319207) # float(2 * self.count_edges()) /
-                                                                  # count_nodes() * (self.count_nodes() - 1)
+                                                                  # (count_nodes() * (self.count_nodes() - 1))
 
     def test_centrality_scores(self):
         """

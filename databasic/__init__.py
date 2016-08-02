@@ -169,7 +169,9 @@ from databasic.views import home
 from databasic.views import samediff
 from databasic.views import wordcounter
 from databasic.views import wtfcsv
+from databasic.views import connectthedots
 app.register_blueprint(home.mod)
 app.register_blueprint(samediff.mod)
 app.register_blueprint(wordcounter.mod)
 app.register_blueprint(wtfcsv.mod)
+app.register_blueprint(connectthedots.mod)

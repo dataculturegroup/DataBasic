@@ -1,0 +1,28 @@
+{% extends 'tool_base.html' %}
+{% from 'macros.html' import render_forms, hover_tooltip with context %}
+
+{% block title %}{{ _('ConnectTheDots') }}{% endblock %}
+
+{% block custom_css %}
+  <link href="{{ url_for('static', filename='css/connectthedots.scss.css') }}" rel="stylesheet" type="text/css">
+  <meta id="max-file-size-in-mb" data-value="{{ max_file_size_in_mb }}">
+{% endblock %}
+
+{% block nav %}
+  {% include 'tool_header.html' %}
+{% endblock %}
+
+{% block body %}
+<div class="tool" role="main">
+  <div class="container">
+    <div class="row">
+      <div id="tool-description">
+        <h2 role="banner">{{ _('ConnectTheDots tagline goes here.') }}</h2>
+        <p>{{ _('Description of ConnectTheDots tool with definitions of %(key_terms)s. Lorem ipsum sagittis lacus vel augue laoreet rutrum faucibus dolor auctor. Praesent commodo cursus magna, vel scelerisque nisl consectetur et. Nulla vitae elit libero, a pharetra augue.',
+        key_terms=hover_tooltip( _('key terms'), 'key terms', _("This is the definition of a key term.") )) }}</p>
+      </div>
+    </div>
+    {{ render_forms(forms, action_url=tool_name, action_text=_('Graph')) }}
+  </div>
+</div>
+{% endblock %}

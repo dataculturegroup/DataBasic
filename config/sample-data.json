@@ -190,5 +190,11 @@
 		"source":"sample-data/pt/nomes-registados-2014.csv",
 		"modules": ["wtfcsv"],
 		"lang" : "pt"
-	}
+	},
+  {
+    "title": "Les Misérables Character Co-occurence",
+    "source": "sample-data/en/les-miserables.csv",
+    "modules": ["connectthedots"],
+    "lang": "en"
+  }
 ]
