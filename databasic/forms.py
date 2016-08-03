@@ -176,7 +176,10 @@ class SameDiffLink(LinkForm, SameDiffForm, Form):
 ConnectTheDots forms
 '''
 class ConnectTheDotsUpload(UploadForm, Form):
-    pass
+    has_header_row = BooleanField(
+        _('Has header row'), 
+        widget=CheckboxInput(), 
+        default=True)
 
 class ConnectTheDotsSample(SampleForm, Form):
     def __init__(self, lang):
