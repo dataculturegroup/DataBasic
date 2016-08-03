@@ -35,6 +35,11 @@ class ConnectTheDotsTest(unittest.TestCase):
         self.assertEqual(results['nodes'], 5)
         self.assertEqual(results['edges'], 10)
 
+    def test_invalid_import(self):
+        test_data_path = os.path.join(self._fixtures_dir, 'invalid-graph.csv')
+        results = ctd.get_summary(test_data_path)
+        self.assertEqual(results, {})
+
     def test_clustering_score(self):
         """
         Test global clustering score with generalized formula

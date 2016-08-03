@@ -22,12 +22,9 @@ class ConnectTheDots():
         input_file = codecs.open(utf8_file_path, 'r', filehandler.ENCODING_UTF_8)
         try:
             self.table = table.Table.from_csv(input_file, no_header_row=not has_header_row)
-        except Exception as e:
-            logger.debug('[CTD] Unable to make table from csv')
-        try:
             self.graph = nx.from_edgelist(self.table.to_rows())
         except Exception as e:
-            logger.debug('[CTD] Unable to make graph from data')
+            logger.debug('[CTD] Unable to make table from csv')
 
     def get_summary(self):
         """
@@ -35,19 +32,20 @@ class ConnectTheDots():
         """
         results = {}
 
-        results['nodes'] = self.count_nodes()
-        results['edges'] = self.count_edges()
+        if hasattr(self, 'graph'):
+            results['nodes'] = self.count_nodes()
+            results['edges'] = self.count_edges()
 
-        results['clustering'] = self.get_clustering_score()
-        results['density'] = self.get_density_score()
+            results['clustering'] = self.get_clustering_score()
+            results['density'] = self.get_density_score()
 
-        results['centrality_scores'] = self.get_centrality_scores()
-        results['degree_scores'] = self.get_degree_scores()
+            results['centrality_scores'] = self.get_centrality_scores()
+            results['degree_scores'] = self.get_degree_scores()
 
-        if os.environ['APP_MODE'] == 'development':
-            results['graph'] = self.graph # testing purposes only
-        
-        results['json'] = self.as_json()
+            if os.environ['APP_MODE'] == 'development':
+                results['graph'] = self.graph # testing purposes only
+            
+            results['json'] = self.as_json()
 
         return results
 

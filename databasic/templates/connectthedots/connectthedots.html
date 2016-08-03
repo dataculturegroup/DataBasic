@@ -15,6 +15,9 @@
 {% block body %}
 <div class="tool" role="main">
   <div class="container">
+    {% if upload_failed %}
+      <h4 class="text-center">Upload failed! Make sure your file has exactly two columns and try again.</h4>
+    {% endif %}
     <div class="row">
       <div id="tool-description">
         <h2 role="banner">{{ _('ConnectTheDots tagline goes here.') }}</h2>

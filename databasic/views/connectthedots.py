@@ -2,7 +2,7 @@ import logging, os
 from collections import OrderedDict
 from databasic import mongo
 from databasic.forms import ConnectTheDotsUpload, ConnectTheDotsSample
-from databasic.logic import connectthedots, filehandler
+from databasic.logic import connectthedots as ctd, filehandler
 from flask import Blueprint, g, redirect, render_template, request
 
 mod = Blueprint('connectthedots', __name__,
@@ -16,6 +16,7 @@ def index():
     forms = OrderedDict()
     forms['sample'] = ConnectTheDotsSample(g.current_lang)
     forms['upload'] = ConnectTheDotsUpload()
+    upload_failed = False
 
     if request.method == 'POST':
         btn_value = request.form['btn']
@@ -41,13 +42,16 @@ def index():
             logger.debug('[CTD] New doc from upload: %s', upload_file.filename)
             results = process_upload(upload_file, has_header_row)
 
-        if btn_value is not None and btn_value is not u'':
+        if btn_value is not None and btn_value is not u'' and results:
             return redirect_to_results(results, btn_value, sample_id)
+        else:
+            upload_failed = True
 
     return render_template('connectthedots.html',
                            forms=forms.items(),
                            tool_name='connectthedots',
-                           max_file_size_in_mb = g.max_file_size_mb)
+                           max_file_size_in_mb=g.max_file_size_mb,
+                           upload_failed=upload_failed)
 
 def process_sample(source):        
     sample_name = filehandler.get_sample_title(source)
@@ -55,7 +59,7 @@ def process_sample(source):
     logger.debug('[CTD] Loading from: %s', sample_path)
 
     results = []
-    results.append(connectthedots.get_summary(sample_path))
+    results.append(ctd.get_summary(sample_path))
     results[0]['filename'] = sample_name + '.csv'
     
     if os.environ['APP_MODE'] == 'development':
@@ -73,7 +77,9 @@ def process_upload(file, has_header_row=True):
     file_paths = filehandler.convert_to_csv(file_path)
 
     for f in file_paths:
-        summary = connectthedots.get_summary(f, has_header_row)
+        summary = ctd.get_summary(f, has_header_row)
+        if not summary:
+            continue
         summary['sheet_name'] = get_sheet_name(f)
         summary['filename'] = file_name
         if os.environ['APP_MODE'] == 'development':
