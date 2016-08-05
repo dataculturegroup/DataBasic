@@ -10,8 +10,14 @@ def get_summary(input_path, has_header_row=True):
     Publicly access data summary
     """
     ctd = ConnectTheDots(input_path, has_header_row)
-    results = ctd.get_summary()
-    return results
+    return ctd.get_summary()
+
+def get_graph(input_path, has_header_row=True):
+    """
+    Return the graph for testing purposes
+    """
+    ctd = ConnectTheDots(input_path, has_header_row)
+    return ctd.as_graph()
 
 class ConnectTheDots():
     def __init__(self, input_path, has_header_row=True):
@@ -41,9 +47,6 @@ class ConnectTheDots():
 
             results['centrality_scores'] = self.get_centrality_scores()
             results['degree_scores'] = self.get_degree_scores()
-
-            if os.environ['APP_MODE'] == 'development':
-                results['graph'] = self.graph # testing purposes only
             
             results['json'] = self.as_json()
 
@@ -86,6 +89,12 @@ class ConnectTheDots():
         """
         degree_scores = sorted(self.graph.degree().items(), key=operator.itemgetter(1), reverse=True)
         return degree_scores[0:n]
+
+    def as_graph(self):
+        """
+        Return the networkx graph
+        """
+        return self.graph
 
     def as_json(self):
         """

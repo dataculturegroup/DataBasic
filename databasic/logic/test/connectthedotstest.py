@@ -52,7 +52,7 @@ class ConnectTheDotsTest(unittest.TestCase):
         """
         test_data_path = os.path.join(self._fixtures_dir, 'les-miserables.csv')
         results = ctd.get_summary(test_data_path)
-        graph = results['graph']
+        graph = ctd.get_graph(test_data_path)
 
         local_scores = []
         for v in graph.nodes():
@@ -90,7 +90,7 @@ class ConnectTheDotsTest(unittest.TestCase):
         """
         test_data_path = os.path.join(self._fixtures_dir, 'les-miserables.csv')
         results = ctd.get_summary(test_data_path)
-        graph = results['graph']
+        graph = ctd.get_graph(test_data_path)
 
         self.assertEqual(len(results['centrality_scores']), 40)
         self.assertEqual(results['centrality_scores'][0][0], u'Valjean')

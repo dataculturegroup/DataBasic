@@ -61,10 +61,6 @@ def process_sample(source):
     results = []
     results.append(ctd.get_summary(sample_path))
     results[0]['filename'] = sample_name + '.csv'
-    
-    if os.environ['APP_MODE'] == 'development':
-        del results[0]['graph']
-
     return results
 
 def process_upload(file, has_header_row=True):
@@ -82,8 +78,6 @@ def process_upload(file, has_header_row=True):
             continue
         summary['sheet_name'] = get_sheet_name(f)
         summary['filename'] = file_name
-        if os.environ['APP_MODE'] == 'development':
-            del summary['graph']
         results.append(summary)
 
     filehandler.delete_files(file_paths)
