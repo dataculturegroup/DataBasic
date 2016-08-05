@@ -37,8 +37,15 @@
           <h3>{{ results['clustering'] | round(3) }}</h3>
           <h4>clustering score</h4>
         </div>
+
         <h4>
-          {{ results['centrality_scores'][0][0] }} is the most central node<br>
+          {% set kevin_bacon = results['centrality_scores'][0][0] %}
+          {% if kevin_bacon is number and kevin_bacon is equalto kevin_bacon | round %}
+            {{ kevin_bacon | int }}
+          {% else %}
+            {{ kevin_bacon }}
+          {% endif %}
+          is the most central node<br>
           with a Kevin Bacon score of {{ results['centrality_scores'][0][1] | round(3) }}
         </h4>
       </div>
@@ -62,7 +69,11 @@
           <tbody>
           {% for node in results['degree_scores'] %}
             <tr>
-              <td>{{ node[0] | string }}</td>
+            {% if node[0] is number and node[0] is equalto node[0] | round %}
+              <td>{{ node[0] | int }}</td>
+            {% else %}
+              <td>{{ node[0] }}</td>
+            {% endif %}
               <td>{{ node[1] }}</td>
             </tr>
           {% endfor %}
@@ -80,7 +91,11 @@
           <tbody>
           {% for node in results['centrality_scores'] %}
             <tr>
-              <td>{{ node[0] | string }}</td>
+            {% if node[0] is number and node[0] is equalto node[0] | round %}
+              <td>{{ node[0] | int }}</td>
+            {% else %}
+              <td>{{ node[0] }}</td>
+            {% endif %}
               <td>{{ node[1] | round(3) }}</td>
             </tr>
           {% endfor %}
