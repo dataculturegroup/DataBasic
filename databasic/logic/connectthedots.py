@@ -30,7 +30,7 @@ class ConnectTheDots():
             self.table = table.Table.from_csv(input_file, no_header_row=not has_header_row)
             self.graph = nx.from_edgelist(self.table.to_rows())
         except Exception as e:
-            logger.debug('[CTD] Unable to make table from csv')
+            logger.warning('[CTD] Unable to make table from csv')
 
     def get_summary(self):
         """

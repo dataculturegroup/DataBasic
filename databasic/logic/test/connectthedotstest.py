@@ -1,8 +1,6 @@
-import json, logging, networkx as nx, operator, os, unittest
+import json, networkx as nx, operator, os, unittest
 import databasic.logic.connectthedots as ctd
 import databasic.logic.filehandler as filehandler
-
-logger = logging.getLogger(__name__)
 
 class ConnectTheDotsTest(unittest.TestCase):
     """

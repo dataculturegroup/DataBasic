@@ -13,6 +13,9 @@ logger = logging.getLogger(__name__)
 
 @mod.route('/', methods=('GET', 'POST'))
 def index():
+    """
+    POST request and redirect to results; otherwise, show the homepage
+    """
     forms = OrderedDict()
     forms['sample'] = ConnectTheDotsSample(g.current_lang)
     forms['upload'] = ConnectTheDotsUpload()
@@ -53,58 +56,66 @@ def index():
                            max_file_size_in_mb=g.max_file_size_mb,
                            upload_failed=upload_failed)
 
-def process_sample(source):        
+def process_sample(source):
+    """
+    Return results for a sample file
+    """
     sample_name = filehandler.get_sample_title(source)
     sample_path = filehandler.get_sample_path(source)
     logger.debug('[CTD] Loading from: %s', sample_path)
 
-    results = []
-    results.append(ctd.get_summary(sample_path))
-    results[0]['filename'] = sample_name + '.csv'
+    results = ctd.get_summary(sample_path)
+    results['has_multiple_sheets'] = False
+    results['filename'] = sample_name
+
     return results
 
 def process_upload(file, has_header_row=True):
+    """
+    Return results for an uploaded file
+    """
     file_path = filehandler.open_doc(file)
     file_name = file.filename
     file_size = os.stat(file_path).st_size
     logger.debug('[CTD] File size: %d bytes', file_size)
 
-    results = []
-    file_paths = filehandler.convert_to_csv(file_path)
+    csv_paths = filehandler.convert_to_csv(file_path)
+    results = ctd.get_summary(csv_paths[0], has_header_row) # only use first sheet
+    results['has_multiple_sheets'] = True if len(csv_paths) > 1 else False
+    results['filename'] = file_name
 
-    for f in file_paths:
-        summary = ctd.get_summary(f, has_header_row)
-        if not summary:
-            continue
-        summary['sheet_name'] = get_sheet_name(f)
-        summary['filename'] = file_name
-        results.append(summary)
-
-    filehandler.delete_files(file_paths)
+    filehandler.delete_files(csv_paths)
     return results
 
-def get_sheet_name(path):
-    return os.path.split(path)[1][16:-4]
-
 def redirect_to_results(results, source, sample_id=''):
+    """
+    Redirect to results page
+    """
     doc_id = mongo.save_csv('connectthedots', results, sample_id, source)
     return redirect(g.current_lang + '/connectthedots/results/' + doc_id + '?submit=true')
 
 @mod.route('/results/<doc_id>')
 def results(doc_id):
+    """
+    Lookup results for a given document
+    """
     try:
         results = mongo.find_document('connectthedots', doc_id).get('results')
-        logger.info('[CTD] Showing results for %s', doc_id)
+        logger.info('[CTD] Showing results for doc: %s', doc_id)
         return render_results(doc_id)
     except:
         logger.warning('[CTD] Unable to find doc: %s', doc_id)
         return render_template('no_results.html', tool_name='connectthedots')
 
 def render_results(doc_id):
+    """
+    Render results page
+    """
     doc = mongo.find_document('connectthedots', doc_id)
     results = doc.get('results')
 
     return render_template('connectthedots/results.html', 
         results=results,
         tool_name='connectthedots',
-        source=doc['source'])
+        source=doc['source'],
+        has_multiple_sheets=results['has_multiple_sheets'])
