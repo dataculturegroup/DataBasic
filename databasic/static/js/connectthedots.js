@@ -83,13 +83,7 @@
              });
 
       tooltip.classed('fade', true)
-             .classed('in', true)
-             .style('left', function(d) {
-               return d.x - tooltip.node().getBoundingClientRect().width / 2 + padding + 'px';
-             })
-             .style('top', function(d) {
-               return d.y - tooltip.node().getBoundingClientRect().height + 'px';
-             });
+             .classed('in', true);
     }
 
     /**
