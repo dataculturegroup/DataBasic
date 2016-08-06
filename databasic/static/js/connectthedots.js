@@ -1,5 +1,6 @@
 (function() {
-  var DISPLAY_RESOLUTION = 1.6,
+  var BACKGROUND_COLOR = '#f4f4f4',
+      DISPLAY_RESOLUTION = 1.6,
       NODE_RADIUS = 6,
       NODE_STROKE = 1.5,
       EDGE_WIDTH = 1,
@@ -20,7 +21,7 @@
 
     svg.attr('width', width)
        .attr('height', height)
-       .style('background-color', '#fff');
+       .style('background-color', BACKGROUND_COLOR);
 
     var simulation = d3.forceSimulation()
                        .force('charge', d3.forceManyBody())
@@ -83,7 +84,13 @@
              });
 
       tooltip.classed('fade', true)
-             .classed('in', true);
+             .classed('in', true)
+             .style('left', function(d) {
+               return d.x - tooltip.node().getBoundingClientRect().width / 2 + padding + 'px';
+             })
+             .style('top', function(d) {
+               return d.y - tooltip.node().getBoundingClientRect().height + 'px';
+             });
     }
 
     /**
@@ -113,9 +120,7 @@
       if (!d3.event.active) simulation.alphaTarget(0.3).restart();
       d.fx = d.x;
       d.fy = d.y;
-
-      activeNode = d.id;
-      showTooltip(d);
+      setActiveNode(d);
     }
 
     function dragUpdate(d) {
@@ -134,11 +139,34 @@
               .force('link').links(graph.links);
   }
 
-  // map link data (indices) to node ids
+  // Map link data (indices) to node ids
   data.links.forEach(function(e) {
     e.source = data.nodes[e.source].id;
     e.target = data.nodes[e.target].id;
   });
 
   drawGraph(data);
+
+  // Event handlers for export buttons
+  document.querySelector('#export-png').addEventListener('click', function() {
+    saveSvgAsPng(document.querySelector('svg'), getFilename(filename, 'png'), {scale: 2.0});
+  });
+
+  document.querySelector('#export-svg').addEventListener('click', function() {
+    svgAsDataUri(document.querySelector('svg'), {}, function(uri) {
+      let a = document.createElement('a');
+      a.download = getFilename(filename, 'svg');
+      a.href = uri;
+      document.body.appendChild(a);
+      a.click();
+      a.parentNode.removeChild(a);
+    });
+  });
+
+  /**
+   * Return a suggested filename for the exported graph
+   */
+  function getFilename(name, extension) {
+    return name.replace(/[^a-z0-9]/gi, '-').toLowerCase() + '-graph.' + extension;
+  }
 })();

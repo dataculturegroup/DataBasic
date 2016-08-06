@@ -10,9 +10,9 @@
 {% block results_scripts %}
   <script type="text/javascript">
     var data = JSON.parse({{ results['json'] | tojson }});
+    var filename = '{{ results["filename"] }}';
   </script>
-  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/d3/4.2.0/d3.min.js"></script>{# TODO: rewrite dataviz code for D3 3.5 #}
-  <script type="text/javascript" src="{{ url_for('static', filename='js/connectthedots.js') }}" /></script>
+  {% assets "js_ctd" %}<script type="text/javascript" src="{{ ASSET_URL }}"></script>{% endassets %}
 {% endblock %}
 
 {% block nav %}
@@ -29,25 +29,32 @@
       <div class="col-md-12">
         <h1>{{ results['filename'] }}</h1>
         <h4>{{ results['nodes'] }} nodes, {{ results['edges'] }} edges</h4>
-        <div class="col-md-6">
-          <h3>{{ results['density'] | round(3) }}</h3>
-          <h4>density score</h4>
+        <div class="btn-group" role="group">
+          <button id="export-png" class="btn btn-default" type="button">PNG</button>
+          <button id="export-svg" class="btn btn-default" type="button">SVG</button>
         </div>
-        <div class="col-md-6">
-          <h3>{{ results['clustering'] | round(3) }}</h3>
-          <h4>clustering score</h4>
-        </div>
+      </div>
+    </div>
 
-        <h4>
+    <div class="row text-center">
+      <div class="col-md-4">
+        <h3>{{ results['density'] | round(3) }}</h3>
+        <h4>density score</h4>
+      </div>
+      <div class="col-md-4">
+        <h3>
           {% set kevin_bacon = results['centrality_scores'][0][0] %}
           {% if kevin_bacon is number and kevin_bacon is equalto kevin_bacon | round %}
             {{ kevin_bacon | int }}
           {% else %}
             {{ kevin_bacon }}
           {% endif %}
-          is the most central node<br>
-          with a Kevin Bacon score of {{ results['centrality_scores'][0][1] | round(3) }}
-        </h4>
+        </h3>
+        <h4>most central node (score = {{ results['centrality_scores'][0][1] | round(3) }})</h4>
+      </div>
+      <div class="col-md-4">
+        <h3>{{ results['clustering'] | round(3) }}</h3>
+        <h4>clustering score</h4>
       </div>
     </div>
 
