@@ -8,8 +8,14 @@ body {
   background-image: url("/static/img/backgrounds/tiled_background_red.png");
 }
 
+.ctd-container {
+  .tooltip {
+    z-index: 1;
+    pointer-events: none;
+  }
+}
+
 .ctd-graph {
-  background-color: $c-white;
   .nodes > circle {
     fill: $c-theme-bg;
     stroke: $c-white;
