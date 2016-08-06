@@ -9,10 +9,18 @@ body {
 }
 
 .ctd-container {
-  .tooltip {
-    z-index: 1;
-    pointer-events: none;
-  }
+  position: relative;
+}
+
+.ctd-tooltip {
+  z-index: 1;
+  pointer-events: none;
+}
+
+.ctd-progress {
+  position: absolute;
+  height: 5px;
+  background-color: $c-theme-bg;
 }
 
 .ctd-graph {

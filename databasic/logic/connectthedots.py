@@ -92,7 +92,7 @@ class ConnectTheDots():
 
     def as_graph(self):
         """
-        Return the networkx graph
+        Return the networkx graph object
         """
         return self.graph
 
