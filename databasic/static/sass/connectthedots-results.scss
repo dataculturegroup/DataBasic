@@ -20,17 +20,41 @@ body {
 .ctd-progress {
   position: absolute;
   height: 5px;
-  background-color: $c-theme-bg;
+  background-color: $c-theme-dk;
 }
 
 .ctd-graph {
   .nodes > circle {
     fill: $c-theme-bg;
     stroke: $c-white;
+    transition: fill 150ms linear;
+    &.hover {
+      fill: $c-hover;
+    }
+    &.active {
+      fill: $c-selected;
+    }
   }
   .edges > line {
     stroke: $c-black;
     stroke-opacity: 0.25;
+  }
+}
+
+.ctd-table {
+  tbody > tr {
+    td {
+      transition: background 150ms linear;
+    }
+    &:hover {
+      cursor: pointer;
+    }
+    &.hover > td {
+      background-color: $c-hover;
+    }
+    &.active > td {
+      background-color: $c-selected;
+    }
   }
 }
 

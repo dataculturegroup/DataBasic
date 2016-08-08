@@ -59,8 +59,8 @@
       </div>
     </div>
 
-    <div class="row text-center">
-      <div class="ctd-container col-md-12">
+    <div class="row">
+      <div class="ctd-container col-md-8">
         <div class="ctd-progress"></div>
         <div class="ctd-tooltip tooltip top" role="tooltip">
           <div class="tooltip-arrow"></div>
@@ -68,11 +68,8 @@
         </div>
         <svg class="ctd-graph"></svg>
       </div>
-    </div>
-
-    <div class="row">
-      <div class="col-md-6">
-        <table class="table">
+      <div class="col-md-4">
+        <table class="ctd-table table">
           <thead>
             <tr>
               <th>Name</th>
@@ -81,7 +78,7 @@
           </thead>
           <tbody>
           {% for node in results['degree_scores'] %}
-            <tr>
+            <tr data-id="{{ node[0] }}">
             {% if node[0] is number and node[0] is equalto node[0] | round %}
               <td>{{ node[0] | int }}</td>
             {% else %}
@@ -92,9 +89,7 @@
           {% endfor %}
           </tbody>
         </table>
-      </div>
-      <div class="col-md-6">
-        <table class="table">
+        <table class="ctd-table table">
           <thead>
             <tr>
               <th>Name</th>
@@ -103,7 +98,7 @@
           </thead>
           <tbody>
           {% for node in results['centrality_scores'] %}
-            <tr>
+            <tr data-id="{{ node[0] }}">
             {% if node[0] is number and node[0] is equalto node[0] | round %}
               <td>{{ node[0] | int }}</td>
             {% else %}
