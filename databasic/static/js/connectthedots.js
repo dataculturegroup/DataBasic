@@ -213,7 +213,7 @@
     let a = document.createElement('a');
     a.download = getFilename(filename, 'gexf');
     url = window.location.href.split('?')[0];
-    url += url.slice(-1) === '/' ? 'graph.gexf' : '/graph.gexf';
+    url += '/graph.gexf';
     a.href = url;
     document.body.appendChild(a);
     a.click();
