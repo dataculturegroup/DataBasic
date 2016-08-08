@@ -18,9 +18,8 @@
 
     var padding = parseFloat(container.style('padding-left').slice(0, -2)),
         width = container.node().offsetWidth - 2 * padding,
-        height = width / DISPLAY_RESOLUTION;
-
-    var scale = {factor: 1, dx: 0, dy: 0};
+        height = width / DISPLAY_RESOLUTION,
+        scale = {factor: 1, dx: 0, dy: 0};
 
     svg.attr('width', width)
        .attr('height', height)
@@ -208,6 +207,17 @@
       a.click();
       a.parentNode.removeChild(a);
     });
+  });
+
+  document.querySelector('#export-gexf').addEventListener('click', function() {
+    let a = document.createElement('a');
+    a.download = getFilename(filename, 'gexf');
+    url = window.location.href.split('?')[0];
+    url += url.slice(-1) === '/' ? 'graph.gexf' : '/graph.gexf';
+    a.href = url;
+    document.body.appendChild(a);
+    a.click();
+    a.parentNode.removeChild(a);
   });
 
   /**

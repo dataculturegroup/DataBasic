@@ -1,9 +1,9 @@
-import logging, os
+import logging, os, StringIO
 from collections import OrderedDict
 from databasic import mongo
 from databasic.forms import ConnectTheDotsUpload, ConnectTheDotsSample
 from databasic.logic import connectthedots as ctd, filehandler
-from flask import Blueprint, g, redirect, render_template, request
+from flask import Blueprint, g, redirect, render_template, request, Response
 
 mod = Blueprint('connectthedots', __name__,
                 url_prefix='/<lang_code>/connectthedots',
@@ -119,3 +119,15 @@ def render_results(doc_id):
         tool_name='connectthedots',
         source=doc['source'],
         has_multiple_sheets=results['has_multiple_sheets'])
+
+@mod.route('/results/<doc_id>/graph.gexf')
+def download_gexf(doc_id):
+    """
+    Download GEXF file
+    """
+    logger.info('[CTD] Requesting GEXF for doc: %s', doc_id)
+    doc = mongo.find_document('connectthedots', doc_id)
+    sio = StringIO.StringIO()
+    sio.write(doc.get('results')['gexf'])
+    sio.seek(0)
+    return Response(sio, mimetype='application/xml')

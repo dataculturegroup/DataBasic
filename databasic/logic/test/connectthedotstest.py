@@ -181,3 +181,13 @@ class ConnectTheDotsTest(unittest.TestCase):
         for n in range(1, 4):
             self.assertEqual(nodes[edges[n]['source']]['id'], 'C')
             self.assertEqual(nodes[edges[n]['target']]['id'], targets[n - 1])
+
+    def test_as_gexf(self):
+        test_data_path = os.path.join(self._fixtures_dir, 'les-miserables.csv')
+        results = ctd.get_gexf(test_data_path)
+
+        test_gexf_path = os.path.join(self._fixtures_dir, 'graph.gexf')
+        with open(test_gexf_path, 'r') as gexf:
+            contents = gexf.read()
+
+        self.assertEqual(contents, results)

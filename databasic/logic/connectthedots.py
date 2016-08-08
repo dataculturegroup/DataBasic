@@ -1,4 +1,4 @@
-import codecs, json, logging, networkx as nx, operator, os
+import codecs, json, logging, networkx as nx, operator, os, StringIO
 import filehandler
 from csvkit import table
 from networkx.readwrite import json_graph
@@ -49,6 +49,7 @@ class ConnectTheDots():
             results['degree_scores'] = self.get_degree_scores()
             
             results['json'] = self.as_json()
+            results['gexf'] = self.as_gexf()
 
         return results
 
@@ -106,3 +107,11 @@ class ConnectTheDots():
             node['centrality'] = bc[node['id']]
             node['degree'] = self.graph.degree(node['id'])
         return json.dumps(output)
+
+    def as_gexf(self):
+        """
+        Return the graph as GEXF for download
+        """
+        sio = StringIO.StringIO()
+        nx.write_gexf(self.graph, sio)
+        return sio.getvalue()
