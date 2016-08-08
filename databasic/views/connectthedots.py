@@ -1,4 +1,4 @@
-import logging, os, StringIO
+import logging, os
 from collections import OrderedDict
 from databasic import mongo
 from databasic.forms import ConnectTheDotsUpload, ConnectTheDotsSample
@@ -127,7 +127,32 @@ def download_gexf(doc_id):
     """
     logger.info('[CTD] Requesting GEXF for doc: %s', doc_id)
     doc = mongo.find_document('connectthedots', doc_id)
-    sio = StringIO.StringIO()
-    sio.write(doc.get('results')['gexf'])
-    sio.seek(0)
-    return Response(sio, mimetype='application/xml')
+    return Response(doc.get('results')['gexf'], mimetype='application/xml')
+
+@mod.route('/results/<doc_id>/centrality.csv')
+def download_centrality(doc_id):
+    """
+    Download CSV of centrality scores
+    """
+    logger.info('[CTD] Requesting CSV of centrality scores for doc: %s', doc_id)
+    doc = mongo.find_document('connectthedots', doc_id)
+    return download_csv(doc.get('results')['centrality_scores'], ['node', 'centrality'])
+
+@mod.route('/results/<doc_id>/degree.csv')
+def download_degree(doc_id):
+    """
+    Download CSV of degree scores
+    """
+    logger.info('[CTD] Requesting CSV of degree scores for doc: %s', doc_id)
+    doc = mongo.find_document('connectthedots', doc_id)
+    return download_csv(doc.get('results')['degree_scores'], ['node', 'degree'])
+
+def download_csv(rows, headers):
+    """
+    Return nested list as a CSV download
+    """
+    def as_csv(rows, headers):
+        yield ','.join(headers) + '\n'
+        for r in rows:
+            yield ','.join(map(str, r)) + '\n'
+    return Response(as_csv(rows, headers), mimetype='text/csv')
