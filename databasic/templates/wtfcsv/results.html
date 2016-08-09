@@ -278,7 +278,9 @@ $('.card').click(function(card){
   thisCard = card.currentTarget;
   var flipped = $(this).data("flip-model").isFlipped;
   if( flipped) {
+    var fixedHeight = $(this).height();
     $(this).find("svg").fadeOut("fast");
+    $(this).height(fixedHeight);
     $(this).find('.back-icon').fadeIn("fast")
   } else {
     $(this).find("svg").fadeIn("slow");
