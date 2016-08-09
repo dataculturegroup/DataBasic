@@ -466,11 +466,10 @@ $(function () {
       var width = $('#card-chart-{{ c }} .chart').width();
 
       var maxScore = Math.max.apply(Math, data.map(function(o) {return o.size;}));
-      var fontSizeScale = d3.scale.linear()
+      var fontSizeScale = d3.scaleLinear()
         .domain([0, maxScore])
         .range([8, 70]); 
 
-      var fill = d3.scale.category20();
       var layout = d3.layout.cloud()
         .size([width, 295])
         .words(data)
@@ -499,7 +498,7 @@ $(function () {
         })
         .text(function (d) { return d.text; })
         .on('mouseover', tip.show)
-              .on('mouseout', tip.hide);
+        .on('mouseout', tip.hide);
 
     {% endif %}
 
