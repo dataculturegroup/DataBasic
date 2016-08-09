@@ -90,7 +90,7 @@ assets.register('js_base', js_bundle)
 js_tool = Bundle('js/lib/d3.min.js', 'js/lib/d3.layout.cloud.js', 'js/lib/d3.tip.js', 'js/lib/underscore.min.js', 'js/lib/jquery.flip.min.js', 'js/lib/highcharts.src.js',
     filters='jsmin', output='gen/packed_tool.js')
 assets.register('js_tool', js_tool)
-js_ctd = Bundle('js/lib/d3-4.2.1.min.js', 'js/lib/saveSvgAsPng.js', 'js/connectthedots.js',
+js_ctd = Bundle('js/lib/d3.min.js', 'js/lib/saveSvgAsPng.js', 'js/connectthedots.js',
     filters='jsmin', output='gen/packed_ctd.js')
 assets.register('js_ctd', js_ctd)
 css_bundle = Bundle('css/bootstrap.css', 'css/font-awesome.min.css',
