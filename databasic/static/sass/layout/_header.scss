@@ -54,11 +54,13 @@ header {
 		padding-right: 10px;
 
 		a {
-			color: $c-theme-dk;
 			&:after {
 				content: '';
 			}
 		}
+	}
+	#language-selector:hover{
+		background-color: white;
 	}
 
 }
