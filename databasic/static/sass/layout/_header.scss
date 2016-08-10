@@ -62,5 +62,14 @@ header {
 	#language-selector:hover{
 		background-color: white;
 	}
+	.badge:hover{
+		border-radius:10px !important;
+	}
+	.badge a:hover{
+		color:white;
+		background:transparent;
+		text-decoration:none;
+
+	}
 
 }
