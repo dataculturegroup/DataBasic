@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2016-06-28 16:28-0400\n"
+"POT-Creation-Date: 2016-08-10 09:17-0400\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -37,7 +37,7 @@ msgstr ""
 msgid "Upload file"
 msgstr ""
 
-#: databasic/forms.py:28 databasic/forms.py:144
+#: databasic/forms.py:28 databasic/forms.py:145
 msgid "Upload..."
 msgstr ""
 
@@ -49,126 +49,126 @@ msgstr ""
 msgid "Sample"
 msgstr ""
 
-#: databasic/forms.py:45 databasic/forms.py:150
+#: databasic/forms.py:46 databasic/forms.py:151
 msgid "Use samples"
 msgstr ""
 
-#: databasic/forms.py:48
+#: databasic/forms.py:49
 msgid "Samples"
 msgstr ""
 
-#: databasic/forms.py:55
+#: databasic/forms.py:56
 msgid "Link to a spreadsheet"
 msgstr ""
 
-#: databasic/forms.py:59
+#: databasic/forms.py:60
 msgid "Link to spreadsheet"
 msgstr ""
 
-#: databasic/forms.py:76 databasic/forms.py:88 databasic/forms.py:98
-#: databasic/forms.py:110
+#: databasic/forms.py:77 databasic/forms.py:89 databasic/forms.py:99
+#: databasic/forms.py:111
 msgid "Ignore case"
 msgstr ""
 
-#: databasic/forms.py:80 databasic/forms.py:92 databasic/forms.py:102
-#: databasic/forms.py:114 databasic/templates/macros.html:97
+#: databasic/forms.py:81 databasic/forms.py:93 databasic/forms.py:103
+#: databasic/forms.py:115 databasic/templates/macros.html:97
 msgid "Ignore stopwords"
 msgstr ""
 
-#: databasic/forms.py:118 databasic/forms.py:128
+#: databasic/forms.py:119 databasic/forms.py:129
 msgid "Paste a link"
 msgstr ""
 
-#: databasic/forms.py:118 databasic/forms.py:165 databasic/forms.py:169
+#: databasic/forms.py:119 databasic/forms.py:170 databasic/forms.py:174
 msgid "https://en.wikipedia.org/wiki/Natural_language_processing"
 msgstr ""
 
-#: databasic/forms.py:141
+#: databasic/forms.py:142
 msgid "Upload files"
 msgstr ""
 
-#: databasic/forms.py:143
+#: databasic/forms.py:144
 msgid "Browse file 2"
 msgstr ""
 
-#: databasic/forms.py:147
+#: databasic/forms.py:148
 msgid "Browse file 1"
 msgstr ""
 
-#: databasic/forms.py:161 databasic/forms.py:164 databasic/forms.py:169
+#: databasic/forms.py:166 databasic/forms.py:169 databasic/forms.py:174
 msgid "Paste links"
 msgstr ""
 
-#: databasic/static/js/samediff-validate.js:6
-#: databasic/static/js/wordcounter-validate.js:6
+#: databasic/static/js/samediff-validate.js:12
+#: databasic/static/js/wordcounter-validate.js:12
 msgid "You must input a valid url"
 msgstr ""
 
-#: databasic/static/js/samediff-validate.js:14
+#: databasic/static/js/samediff-validate.js:20
 msgid "You must select two files"
 msgstr ""
 
-#: databasic/static/js/samediff-validate.js:35
-#: databasic/static/js/samediff-validate.js:38
-#: databasic/static/js/samediff-validate.js:41
-#: databasic/static/js/samediff-validate.js:63
-#: databasic/static/js/samediff-validate.js:67
-#: databasic/static/js/samediff-validate.js:71
-#: databasic/static/js/samediff-validate.js:89
-#: databasic/static/js/samediff-validate.js:93
-#: databasic/static/js/wordcounter-validate.js:20
-#: databasic/static/js/wordcounter-validate.js:33
-#: databasic/static/js/wordcounter-validate.js:47
-#: databasic/static/js/wtfcsv-validate.js:28
-#: databasic/static/js/wtfcsv-validate.js:45
+#: databasic/static/js/samediff-validate.js:45
+#: databasic/static/js/samediff-validate.js:48
+#: databasic/static/js/samediff-validate.js:51
+#: databasic/static/js/samediff-validate.js:75
+#: databasic/static/js/samediff-validate.js:80
+#: databasic/static/js/samediff-validate.js:85
+#: databasic/static/js/wordcounter-validate.js:30
+#: databasic/static/js/wordcounter-validate.js:44
+#: databasic/static/js/wordcounter-validate.js:60
+#: databasic/static/js/wtfcsv-validate.js:32
+#: databasic/static/js/wtfcsv-validate.js:49
 msgid "This field is required"
 msgstr ""
 
-#: databasic/static/js/samediff-validate.js:42
-#: databasic/static/js/samediff-validate.js:72
+#: databasic/static/js/samediff-validate.js:52
+#: databasic/static/js/samediff-validate.js:86
 msgid "Please enter a valid email address"
 msgstr ""
 
-#: databasic/static/js/samediff-validate.js:64
-#: databasic/static/js/samediff-validate.js:68
-#: databasic/static/js/wordcounter-validate.js:34
+#: databasic/static/js/samediff-validate.js:76
+#: databasic/static/js/samediff-validate.js:81
+#: databasic/static/js/wordcounter-validate.js:45
 msgid "Only these file types are accepted: txt, docx, rtf"
 msgstr ""
 
-#: databasic/static/js/samediff-validate.js:90
-#: databasic/static/js/samediff-validate.js:94
-#: databasic/static/js/wordcounter-validate.js:48
-#: databasic/static/js/wtfcsv-validate.js:46
+#: databasic/static/js/samediff-validate.js:77
+#: databasic/static/js/samediff-validate.js:82
+#: databasic/static/js/wordcounter-validate.js:46
+#: databasic/static/js/wordcounter-validate.js:62
+#: databasic/static/js/wtfcsv-validate.js:34
+#: databasic/static/js/wtfcsv-validate.js:51
+msgid "Only files under MB are accepted"
+msgstr ""
+
+#: databasic/static/js/wordcounter-validate.js:61
+#: databasic/static/js/wtfcsv-validate.js:50
 msgid "You must input a URL"
 msgstr ""
 
-#: databasic/static/js/wtfcsv-validate.js:8
+#: databasic/static/js/wtfcsv-validate.js:12
 msgid "Link must be a valid Google Spreadsheet"
 msgstr ""
 
-#: databasic/static/js/wtfcsv-validate.js:29
+#: databasic/static/js/wtfcsv-validate.js:33
 msgid "Only these file types are accepted: csv, xls, xlsx"
-msgstr ""
-
-#: databasic/static/js/wtfcsv-validate.js:30
-#: databasic/static/js/wtfcsv-validate.js:47
-msgid "Only files under 10MB are accepted"
 msgstr ""
 
 #: databasic/templates/footer.html:25
 #: databasic/templates/wordcounter/wordcounter.html:4
-#: databasic/templates/wordcounter/wordcounter.html:28
+#: databasic/templates/wordcounter/wordcounter.html:30
 msgid "WordCounter"
 msgstr ""
 
 #: databasic/templates/footer.html:26 databasic/templates/wtfcsv/wtfcsv.html:4
-#: databasic/templates/wtfcsv/wtfcsv.html:26
+#: databasic/templates/wtfcsv/wtfcsv.html:27
 msgid "WTFcsv"
 msgstr ""
 
 #: databasic/templates/footer.html:27
 #: databasic/templates/samediff/samediff.html:4
-#: databasic/templates/samediff/samediff.html:28
+#: databasic/templates/samediff/samediff.html:29
 msgid "SameDiff"
 msgstr ""
 
@@ -185,14 +185,21 @@ msgid "help"
 msgstr ""
 
 #: databasic/templates/header_base.html:5
+msgid "Choose your language: "
+msgstr ""
+
+#: databasic/templates/header_base.html:5
+#: databasic/templates/header_base.html:9
 msgid "change language to english"
 msgstr ""
 
-#: databasic/templates/header_base.html:6
+#: databasic/templates/header_base.html:5
+#: databasic/templates/header_base.html:10
 msgid "change language to spanish"
 msgstr ""
 
-#: databasic/templates/header_base.html:7
+#: databasic/templates/header_base.html:5
+#: databasic/templates/header_base.html:11
 msgid "change language to portuguese"
 msgstr ""
 
@@ -290,14 +297,14 @@ msgid ""
 msgstr ""
 
 #: databasic/templates/home/index.html:25
-#: databasic/templates/wordcounter/wordcounter.html:19
+#: databasic/templates/wordcounter/wordcounter.html:21
 msgid ""
 "WordCounter analyzes your text and tells you the most common words and "
 "phrases."
 msgstr ""
 
 #: databasic/templates/home/index.html:35
-#: databasic/templates/wtfcsv/wtfcsv.html:19
+#: databasic/templates/wtfcsv/wtfcsv.html:20
 msgid "WTFcsv tells you WTF is going on with your .csv file."
 msgstr ""
 
@@ -412,6 +419,14 @@ msgstr ""
 msgid "Designed and Developed by"
 msgstr ""
 
+#: databasic/templates/home/index.html:105
+msgid ""
+"Databasic is a project led by Rahul Bhargava (MIT Center for Civic Media)"
+" and Catherine D'Ignazio (Engagement Lab). Spanish translation by Alezsu "
+"Bajak. Portuguese translation by Daniel Paz de Araújo. Portuguese data "
+"contributed by Vivian Guilherme."
+msgstr ""
+
 #: databasic/templates/samediff/results.html:8
 msgid "SameDiff results"
 msgstr ""
@@ -442,12 +457,12 @@ msgid "They have a %(cosine_sim)s score of %(score)s"
 msgstr ""
 
 #: databasic/templates/samediff/results.html:38
-#: databasic/templates/samediff/samediff.html:22
+#: databasic/templates/samediff/samediff.html:23
 msgid "cosine similarity"
 msgstr ""
 
 #: databasic/templates/samediff/results.html:38
-#: databasic/templates/samediff/samediff.html:22
+#: databasic/templates/samediff/samediff.html:23
 msgid ""
 "The Cosine Similarity score tries to tell you how similar two documents "
 "are based on the number of times words are used in each."
@@ -553,13 +568,13 @@ msgstr ""
 msgid " uses"
 msgstr ""
 
-#: databasic/templates/samediff/samediff.html:19
+#: databasic/templates/samediff/samediff.html:20
 msgid ""
 "SameDiff compares two or more text files and tells you how similar or "
 "different they are."
 msgstr ""
 
-#: databasic/templates/samediff/samediff.html:20
+#: databasic/templates/samediff/samediff.html:21
 #, python-format
 msgid ""
 "SameDiff compares one %(corpus)s of text to another corpus of text to "
@@ -568,28 +583,28 @@ msgid ""
 " different."
 msgstr ""
 
-#: databasic/templates/samediff/samediff.html:21
+#: databasic/templates/samediff/samediff.html:22
 msgid "corpus"
 msgstr ""
 
-#: databasic/templates/samediff/samediff.html:21
+#: databasic/templates/samediff/samediff.html:22
 msgid ""
 "A collection of written texts. For example, all of the lyrics in Katy "
 "Perry songs."
 msgstr ""
 
-#: databasic/templates/samediff/samediff.html:23
+#: databasic/templates/samediff/samediff.html:24
 msgid "algorithm"
 msgstr ""
 
-#: databasic/templates/samediff/samediff.html:23
+#: databasic/templates/samediff/samediff.html:24
 msgid ""
 "A set of steps you (or a computer) do in order to solve a problem. For "
 "example, when you type in a search term, Google runs an algorithm to "
 "figure out which pages to show you."
 msgstr ""
 
-#: databasic/templates/samediff/samediff.html:26
+#: databasic/templates/samediff/samediff.html:27
 msgid "Compare"
 msgstr ""
 
@@ -638,7 +653,7 @@ msgid "bigram"
 msgstr ""
 
 #: databasic/templates/wordcounter/results.html:73
-#: databasic/templates/wordcounter/wordcounter.html:22
+#: databasic/templates/wordcounter/wordcounter.html:24
 msgid "A bigram is a two word phrase"
 msgstr ""
 
@@ -660,7 +675,7 @@ msgid "trigram"
 msgstr ""
 
 #: databasic/templates/wordcounter/results.html:94
-#: databasic/templates/wordcounter/wordcounter.html:23
+#: databasic/templates/wordcounter/wordcounter.html:25
 msgid "A trigram is a three word phrase"
 msgstr ""
 
@@ -710,22 +725,22 @@ msgid ""
 "times!"
 msgstr ""
 
-#: databasic/templates/wordcounter/wordcounter.html:21
+#: databasic/templates/wordcounter/wordcounter.html:23
 #, python-format
 msgid ""
 "This tool helps you count words, %(bigrams)s, and %(trigrams)s in plain "
 "text. This is often the first step in quantitative text analysis."
 msgstr ""
 
-#: databasic/templates/wordcounter/wordcounter.html:22
+#: databasic/templates/wordcounter/wordcounter.html:24
 msgid "bigrams"
 msgstr ""
 
-#: databasic/templates/wordcounter/wordcounter.html:23
+#: databasic/templates/wordcounter/wordcounter.html:25
 msgid "trigrams"
 msgstr ""
 
-#: databasic/templates/wordcounter/wordcounter.html:26
+#: databasic/templates/wordcounter/wordcounter.html:28
 msgid "Count"
 msgstr ""
 
@@ -866,39 +881,39 @@ msgid ""
 " of data sets."
 msgstr ""
 
-#: databasic/templates/wtfcsv/results.html:378
+#: databasic/templates/wtfcsv/results.html:394
 msgid "Categories"
 msgstr ""
 
-#: databasic/templates/wtfcsv/results.html:380
+#: databasic/templates/wtfcsv/results.html:396
 msgid "Counts"
 msgstr ""
 
-#: databasic/templates/wtfcsv/results.html:382
+#: databasic/templates/wtfcsv/results.html:398
 msgid "Dates"
 msgstr ""
 
-#: databasic/templates/wtfcsv/results.html:384
+#: databasic/templates/wtfcsv/results.html:400
 msgid "Times"
 msgstr ""
 
-#: databasic/templates/wtfcsv/results.html:386
+#: databasic/templates/wtfcsv/results.html:402
 msgid "Dates and times"
 msgstr ""
 
-#: databasic/templates/wtfcsv/results.html:388
+#: databasic/templates/wtfcsv/results.html:404
 msgid "Booleans"
 msgstr ""
 
-#: databasic/templates/wtfcsv/results.html:390
+#: databasic/templates/wtfcsv/results.html:406
 msgid "Undefined"
 msgstr ""
 
-#: databasic/templates/wtfcsv/results.html:400
+#: databasic/templates/wtfcsv/results.html:416
 msgid "# of rows"
 msgstr ""
 
-#: databasic/templates/wtfcsv/wtfcsv.html:20
+#: databasic/templates/wtfcsv/wtfcsv.html:21
 #, python-format
 msgid ""
 "Data arrives at your doorstep in the form of a spreadsheet but how do you"
@@ -907,17 +922,17 @@ msgid ""
 "ask more questions."
 msgstr ""
 
-#: databasic/templates/wtfcsv/wtfcsv.html:21
+#: databasic/templates/wtfcsv/wtfcsv.html:22
 msgid "data type"
 msgstr ""
 
-#: databasic/templates/wtfcsv/wtfcsv.html:21
+#: databasic/templates/wtfcsv/wtfcsv.html:22
 msgid ""
 "Data is often classified by type. Common types of data include numbers, "
 "dates and text."
 msgstr ""
 
-#: databasic/templates/wtfcsv/wtfcsv.html:24
+#: databasic/templates/wtfcsv/wtfcsv.html:25
 msgid "Analyze"
 msgstr ""
 
@@ -966,15 +981,15 @@ msgstr ""
 msgid "completely different"
 msgstr ""
 
-#: databasic/views/wordcounter.py:36
+#: databasic/views/wordcounter.py:38
 msgid "your text"
 msgstr ""
 
-#: databasic/views/wordcounter.py:71
+#: databasic/views/wordcounter.py:73
 msgid "title"
 msgstr ""
 
-#: databasic/views/wtfcsv.py:180
+#: databasic/views/wtfcsv.py:191
 msgid "Other"
 msgstr ""
 
