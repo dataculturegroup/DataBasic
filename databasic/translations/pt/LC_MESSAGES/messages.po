@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2016-08-10 09:17-0400\n"
+"POT-Creation-Date: 2016-08-11 17:01-0400\n"
 "PO-Revision-Date: 2016-01-26 15:13-0200\n"
 "Last-Translator: \n"
 "Language: pt\n"
@@ -140,7 +140,6 @@ msgstr "Apenas estes tipos de arquivos são aceitos: txt, docx, rtf"
 #: databasic/static/js/wordcounter-validate.js:62
 #: databasic/static/js/wtfcsv-validate.js:34
 #: databasic/static/js/wtfcsv-validate.js:51
-#, fuzzy
 msgid "Only files under MB are accepted"
 msgstr "Apenas arquivos com menos de 10MB são aceitos"
 
@@ -202,7 +201,6 @@ msgstr "mudar idioma para espanhol"
 
 #: databasic/templates/header_base.html:5
 #: databasic/templates/header_base.html:11
-#, fuzzy
 msgid "change language to portuguese"
 msgstr "mudar idioma para inglês"
 
@@ -238,20 +236,19 @@ msgid "You can share these results by emailing this url:"
 msgstr "Você pode compartilhar estes resultados enviando por email esta url:"
 
 #: databasic/templates/no_results.html:3
-#, fuzzy
 msgid "No results"
-msgstr "Resultados SameDiff"
+msgstr "No Resultados"
 
 #: databasic/templates/no_results.html:19
 msgid "We couldn't find any results"
-msgstr ""
+msgstr "No Resultados"
 
 #: databasic/templates/no_results.html:20
 #, python-format
 msgid ""
 "They might have expired. Why not try <a "
 "href=\"/%(lang)s/%(tool_name)s\">analyzing some new data?</a>"
-msgstr ""
+msgstr "Resultados expirados."
 
 #: databasic/templates/tool_base.html:5 databasic/templates/tool_base.html:13
 msgid "What do I do next?"
@@ -541,12 +538,12 @@ msgstr ""
 msgid ""
 "The documents are of different lengths so to compare them fairly you "
 "should keep %(normalized)s on."
-msgstr ""
+msgstr "Os documentos são de diferentes comprimentos para compará-los de forma justa por favor ligar %(normalized)s"
 
 #: databasic/templates/samediff/results.html:42
 #: databasic/templates/samediff/results.html:45
 msgid "normalization"
-msgstr ""
+msgstr "normalização"
 
 #: databasic/templates/samediff/results.html:43
 #: databasic/templates/samediff/results.html:46
@@ -555,33 +552,35 @@ msgid ""
 "A process to make data points comparable in a fair way. For example, word"
 " counts in a document can be normalized by dividing them by the total "
 "number of words in that document."
-msgstr ""
+msgstr "Um processo para tornar os dados comparáveis ​​aponta de forma justa."
+" Por exemplo, a contagem de palavras em um documento pode ser normalizada dividindo-os pelo total"
+"número de palavras no documento."
 
 #: databasic/templates/samediff/results.html:45
 #, python-format
 msgid ""
 "The documents are about the same length so you don't have to use "
 "%(normalized)s in order to compare them."
-msgstr ""
+msgstr "Os documentos são sobre o mesmo comprimento para que você não tem que usar"
+"%(normalized)s para compará-los."
 
 #: databasic/templates/samediff/results.html:68
 #: databasic/templates/samediff/results.html:79
-#, fuzzy
 msgid "words"
-msgstr "palavra"
+msgstr "palavras"
 
 #: databasic/templates/samediff/results.html:85
 #, python-format
 msgid "%(normalized)s "
-msgstr ""
+msgstr "%(normalized)s "
 
 #: databasic/templates/samediff/results.html:86
 msgid "Normalization"
-msgstr ""
+msgstr "Normalizacion"
 
 #: databasic/templates/samediff/results.html:89
 msgid "Toggle normlization"
-msgstr ""
+msgstr "Normalizacion"
 
 #: databasic/templates/samediff/results.html:98
 #: databasic/templates/samediff/results.html:144
@@ -611,7 +610,7 @@ msgid "Words that are in %(doc)s"
 msgstr "Palavras que estão em %(doc)s"
 
 #: databasic/templates/samediff/results.html:169
-#, fuzzy, python-format
+#, python-format
 msgid ""
 "Comparing text documents is a great way to find out what makes each one "
 "unique.  Is it meaningful that \"%(most_common_word)s\" and "
