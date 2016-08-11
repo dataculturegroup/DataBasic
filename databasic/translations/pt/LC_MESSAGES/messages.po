@@ -479,7 +479,7 @@ msgstr ""
 
 #: databasic/templates/home/index.html:104
 msgid "Designed and Developed by"
-msgstr ""
+msgstr "Concebido e Programado por"
 
 #: databasic/templates/home/index.html:105
 msgid ""
@@ -487,7 +487,10 @@ msgid ""
 " and Catherine D'Ignazio (Engagement Lab). Spanish translation by Alezsu "
 "Bajak. Portuguese translation by Daniel Paz de Araújo. Portuguese data "
 "contributed by Vivian Guilherme."
-msgstr ""
+msgstr "Databasic é um projeto liderado pelo Rahul Bhargava (MIT Center for Civic Media)"
+" e Catherine D'Ignazio (Engagement Lab). Tradução espanhol por Alezsu "
+"Bajak. Tradução em português por Daniel Paz de Araújo. Dados portugueses contribuíram pelo"
+"Vivian Guilherme."
 
 #: databasic/templates/samediff/results.html:8
 msgid "SameDiff results"
