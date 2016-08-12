@@ -1,11 +1,15 @@
 {% from "macros.html" import url_with_language %}
 <header>
-  
-  <div class="btn-group" id="language-selector" role="group">
+
+  <button class="btn btn-default pull-right" type="button" id="language-selector">
+    {{ _("Choose your language: ") }}<span class="badge"><a href="{{ url_with_language('en') }}" role="button" aria-label="{{ _('change language to english') }}">en</a></span> <span class="badge"><a href="{{ url_with_language('es') }}" role="button" aria-label="{{ _('change language to spanish') }}">es</a></span> <span class="badge"><a href="{{ url_with_language('pt') }}" role="button" aria-label="{{ _('change language to portuguese') }}">pt</a></span>
+  </button>
+  <!--
+  <div class="btn-group" id="language-selector" role="group"> 
     <a href="{{ url_with_language('en') }}" role="button" aria-label="{{ _('change language to english') }}" class="btn btn-default">en</a>
     <a href="{{ url_with_language('es') }}" role="button" aria-label="{{ _('change language to spanish') }}" class="btn btn-default">es</a> 
     <a href="{{ url_with_language('pt') }}" role="button" aria-label="{{ _('change language to portuguese') }}" class="btn btn-default">pt</a> 
-  </div>
+  </div>-->
 
   <div class="container-fluid" id="header-logo-container">
     <div class="row">
