@@ -145,12 +145,12 @@
 {%- endmacro %}
 
 {% macro shareable() -%}
-  <a href="#share-modal" data-toggle="modal" id="share-modal-btn" data-target="#share-modal" aria-expanded="false" {{ ga_event('share') }}><span class="glyphicon glyphicon-share" aria-hidden="true"></span></a>
-  <div id="share-modal" class="modal fade">
+  <a href="#share-modal" data-toggle="modal" id="share-modal-btn" data-target="#share-modal" aria-label="Share these results" aria-expanded="false" {{ ga_event('share') }}><span class="glyphicon glyphicon-share" aria-hidden="true"></span></a>
+  <div id="share-modal" class="modal fade" role="dialog">
     <div class="modal-dialog">
       <div class="modal-content">
         <div class="modal-header">
-          <button type="button" class="close" data-dismiss="modal" aria-hidden="true" aria-label="{{ _('close video window') }}">×</button>
+          <button type="button" class="close" data-dismiss="modal" aria-hidden="true" aria-label="{{ _('close window') }}">×</button>
           <h4 class="modal-title">Share your results</h4>
         </div>
         <div class="modal-body">

@@ -5,16 +5,35 @@
 @import "modules/input";
 
 body {
-  background-image: url("/static/img/backgrounds/tiled_background_red.png");
+  background-color: $c-theme-bg;
+}
+
+.btn-group {
+  > .btn:not(:last-child) {
+    margin-right: 4px;
+  }
+  > .btn-group-label {
+    position: relative;
+    display: inline-block;
+    float: left;
+    padding: 6px 12px;
+    margin: 0;
+    vertical-align: middle;
+  }
 }
 
 .ctd-container {
   position: relative;
-}
-
-.ctd-tooltip {
-  z-index: 1;
-  pointer-events: none;
+  margin-top: 30px;
+  &.affix {
+    @media (min-width: 992px) {
+      position: fixed;
+      margin-top: -250px;
+    }
+  }
+  > .row {
+    margin-top: 20px;
+  }
 }
 
 .ctd-progress {
@@ -23,13 +42,20 @@ body {
   background-color: $c-theme-dk;
 }
 
+.ctd-tooltip {
+  z-index: 1;
+  pointer-events: none;
+}
+
 .ctd-graph {
   .nodes > circle {
     fill: $c-theme-bg;
     stroke: $c-white;
-    transition: fill 150ms linear;
+    transition: fill 150ms linear,
+                opacity 150ms linear;
     &.hover {
       fill: $c-hover;
+      cursor: pointer;
     }
     &.active {
       fill: $c-selected;
@@ -38,12 +64,33 @@ body {
   .edges > line {
     stroke: $c-black;
     stroke-opacity: 0.25;
+    transition: opacity 150ms linear;
   }
 }
 
+.ctd-meta--name,
+.ctd-meta--name > a {
+  font-family: $font-lt;
+}
+
+.ctd-meta--value {
+  margin-top: 0;
+}
+
+.ctd-tables {
+  margin-top: 20px;
+}
+
 .ctd-table {
-  tbody > tr {
+  > thead > tr {
+    background-color: $c-theme-bg;
+  }
+  > tbody > tr {
+    &:nth-of-type(odd) {
+      background-color: $c-theme-lt;
+    }
     td {
+      font-family: $font-lt;
       transition: background 150ms linear;
     }
     &:hover {
@@ -58,8 +105,10 @@ body {
   }
 }
 
-footer {
-  nav {
-    background-color: $c-theme-bg;
-  }
+.tool > .container-fluid {
+  background-color: $c-white;
+}
+
+footer > nav {
+  background-color: $c-theme-bg;
 }
