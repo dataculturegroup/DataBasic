@@ -216,8 +216,12 @@
         tooltip.style('display', 'block');
       }
 
-      node.attr('cx', function(d) { return d.x; })
-          .attr('cy', function(d) { return d.y; });
+      node.attr('cx', function(d) {
+            return d.x = Math.max(NODE_RADIUS, Math.min(width - NODE_RADIUS, d.x));
+          })
+          .attr('cy', function(d) {
+            return d.y = Math.max(NODE_RADIUS, Math.min(height - NODE_RADIUS, d.y));
+          });
 
       edge.attr('x1', function(d) { return d.source.x; })
           .attr('y1', function(d) { return d.source.y; })

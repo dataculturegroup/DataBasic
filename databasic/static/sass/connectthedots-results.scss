@@ -8,6 +8,10 @@ body {
   background-color: $c-theme-bg;
 }
 
+#results-title {
+  margin-top: 0;
+}
+
 .btn-group {
   > .btn:not(:last-child) {
     margin-right: 4px;
