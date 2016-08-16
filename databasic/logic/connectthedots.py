@@ -1,4 +1,4 @@
-import codecs, json, logging, networkx as nx, operator, os, StringIO
+import codecs, json, logging, math, networkx as nx, operator, StringIO
 import filehandler
 from csvkit import table
 from networkx.readwrite import json_graph
@@ -39,16 +39,23 @@ class ConnectTheDots():
         results = {}
 
         if hasattr(self, 'graph'):
-            results['nodes'] = self.count_nodes()
+            n = self.count_nodes()
+            if (n > 1000):
+              k = int(math.log(n)) # TODO: determine best values for k/whether multiple trials are needed
+              logger.debug('[CTD] Using k = %s to approximate betweenness centrality' % k)
+            else:
+              k = None
+
+            results['nodes'] = n
             results['edges'] = self.count_edges()
 
             results['clustering'] = self.get_clustering_score()
             results['density'] = self.get_density_score()
 
-            results['centrality_scores'] = self.get_centrality_scores()
+            results['centrality_scores'] = self.get_centrality_scores(k=k)
             results['degree_scores'] = self.get_degree_scores()
             
-            results['json'] = self.as_json()
+            results['json'] = self.as_json(k=k)
             results['gexf'] = self.as_gexf()
 
         return results
@@ -77,11 +84,11 @@ class ConnectTheDots():
         """
         return nx.density(self.graph)
 
-    def get_centrality_scores(self, n=40):
+    def get_centrality_scores(self, k=None, n=40):
         """
         Return the n most central nodes in the graph as a list of tuples
         """
-        centrality_scores = sorted(nx.betweenness_centrality(self.graph).items(), key=operator.itemgetter(1), reverse=True)
+        centrality_scores = sorted(nx.betweenness_centrality(self.graph, k=k).items(), key=operator.itemgetter(1), reverse=True)
         return centrality_scores[0:n]
 
     def get_degree_scores(self, n=40):
@@ -89,7 +96,7 @@ class ConnectTheDots():
         Return the n most directly connected nodes in the graph as a list of tuples
         """
         degree_scores = sorted(self.graph.degree().items(), key=operator.itemgetter(1), reverse=True)
-        return degree_scores[0:n]
+        return centrality_scores[0:n]
 
     def as_graph(self):
         """
@@ -97,12 +104,12 @@ class ConnectTheDots():
         """
         return self.graph
 
-    def as_json(self):
+    def as_json(self, k=None):
         """
         Return the graph as JSON for D3 visualization
         """
         output = json_graph.node_link_data(self.graph)
-        bc = nx.betweenness_centrality(self.graph)
+        bc = nx.betweenness_centrality(self.graph, k=k)
         for node in output['nodes']:
             node['centrality'] = bc[node['id']]
             node['degree'] = self.graph.degree(node['id'])

@@ -1,6 +1,7 @@
-import json, networkx as nx, operator, os, unittest
+import codecs, json, networkx as nx, operator, os, unittest
 import databasic.logic.connectthedots as ctd
 import databasic.logic.filehandler as filehandler
+from csvkit import table
 
 class ConnectTheDotsTest(unittest.TestCase):
     """
@@ -184,10 +185,20 @@ class ConnectTheDotsTest(unittest.TestCase):
 
     def test_as_gexf(self):
         test_data_path = os.path.join(self._fixtures_dir, 'les-miserables.csv')
-        results = ctd.get_gexf(test_data_path)
+        results = ctd.get_summary(test_data_path)
 
         test_gexf_path = os.path.join(self._fixtures_dir, 'graph.gexf')
         with open(test_gexf_path, 'r') as gexf:
             contents = gexf.read()
 
-        self.assertEqual(contents, results)
+        self.assertEqual(contents, results['gexf'])
+
+    def test_large_file(self):
+        test_data_path = os.path.join(self._fixtures_dir, 'airline-routes.csv')
+        results = ctd.get_summary(test_data_path)
+
+        self.assertEqual(results['nodes'], 3425)
+        self.assertEqual(results['edges'], 19257)
+
+        # TODO: test approximation against table of actual centrality scores
+
