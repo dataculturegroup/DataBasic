@@ -96,7 +96,7 @@ class ConnectTheDots():
         Return the n most directly connected nodes in the graph as a list of tuples
         """
         degree_scores = sorted(self.graph.degree().items(), key=operator.itemgetter(1), reverse=True)
-        return centrality_scores[0:n]
+        return degree_scores[0:n]
 
     def as_graph(self):
         """
