@@ -48,7 +48,7 @@
     </div>
 
     <div class="row">
-      <div class="col-md-8">
+      <div class="col-md-7">
         <div class="ctd-container">
           <div class="ctd-progress" role="progressbar" aria-hidden="true"></div>
           <div class="ctd-tooltip tooltip top" role="tooltip" aria-hidden="true">
@@ -86,58 +86,27 @@
           {{ what_next_anchor() }}
         </div>
       </div>
-      <div class="ctd-tables col-md-4">
+      <div class="col-md-5">
         <table class="ctd-table table table-compact table-striped" aria-label="Top 40 nodes by degree">
           <thead>
             <tr>
-              <th>{{ _('%(node)s',
+              <th data-column="id">
+                {{ _('%(node)s',
                 node=hover_tooltip(_('Node'), 'node', _('Definition of node.'))
-                ) }}</th>
-              <th>{{ _('%(degree)s',
+                ) }}
+              </th>
+              <th class="ctd-sort--desc" data-column="degree">
+                {{ _('%(degree)s',
                 degree=hover_tooltip(_('Degree'), 'degree', _('Definition of degree.'))
-                ) }}</th>
-            </tr>
-          </thead>
-          <tbody>
-          {% for node in results['degree_scores'] %}
-            <tr>
-            {% if node[0] is number and node[0] is equalto node[0] | round %}
-              <td>{{ node[0] | int }}</td>
-            {% else %}
-              <td>{{ node[0] }}</td>
-            {% endif %}
-              <td>{{ node[1] | int }}</td>
-            </tr>
-          {% endfor %}
-          </tbody>
-        </table>
-        <table class="ctd-table table table-compact table-striped" aria-label="Top 40 nodes by centrality">
-          <thead>
-            <tr>
-              <th>{{ _('%(node)s',
-                node=hover_tooltip(_('Node'), 'node', _('Definition of node.'))
-                ) }}</th>
-              <th>{{ _('%(centrality)s',
+                ) }}
+              </th>
+              <th data-column="centrality">
+                {{ _('%(centrality)s',
                 centrality=hover_tooltip(_('Centrality'), 'centrality', _('Definition of centrality.'))
-                ) }}</th>
+                ) }}
+              </th>
             </tr>
           </thead>
-          <tbody>
-          {% for node in results['centrality_scores'] %}
-            <tr>
-            {% if node[0] is number and node[0] is equalto node[0] | round %}
-              <td>{{ node[0] | int }}</td>
-            {% else %}
-              <td>{{ node[0] }}</td>
-            {% endif %}
-            {% if node[1] | round(3) is equalto node[1] | round %}
-              <td>{{ node[1] | int }}</td>
-            {% else %}
-              <td>{{ node[1] | round(3) }}</td>
-            {% endif %}
-            </tr>
-          {% endfor %}
-          </tbody>
         </table>
       </div>
     </div>

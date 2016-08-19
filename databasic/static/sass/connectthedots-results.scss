@@ -12,18 +12,17 @@ body {
   margin-top: 0;
 }
 
-.btn-group {
-  > .btn:not(:last-child) {
-    margin-right: 4px;
-  }
-  > .btn-group-label {
-    position: relative;
-    display: inline-block;
-    float: left;
-    padding: 6px 12px;
-    margin: 0;
-    vertical-align: middle;
-  }
+.btn-group-label {
+  position: relative;
+  display: inline-block;
+  float: left;
+  padding: 6px 12px;
+  margin: 0;
+  vertical-align: middle;
+}
+
+.btn-group > .btn:not(:last-child) {
+  margin-right: 4px;
 }
 
 .ctd-container {
@@ -35,9 +34,10 @@ body {
       margin-top: -250px;
     }
   }
-  > .row {
-    margin-top: 20px;
-  }
+}
+
+.ctd-container > .row {
+  margin-top: 20px;
 }
 
 .ctd-progress {
@@ -51,25 +51,24 @@ body {
   pointer-events: none;
 }
 
-.ctd-graph {
-  .nodes > circle {
-    fill: $c-theme-bg;
-    stroke: $c-white;
-    transition: fill 150ms linear,
-                opacity 150ms linear;
-    &.hover {
-      fill: $c-hover;
-      cursor: pointer;
-    }
-    &.active {
-      fill: $c-selected;
-    }
+.nodes > circle {
+  fill: $c-theme-bg;
+  stroke: $c-white;
+  transition: fill 150ms linear,
+              opacity 150ms linear;
+  &.hover {
+    fill: $c-hover;
+    cursor: pointer;
   }
-  .edges > line {
-    stroke: $c-black;
-    stroke-opacity: 0.25;
-    transition: opacity 150ms linear;
+  &.active {
+    fill: $c-selected;
   }
+}
+
+.edges > line {
+  stroke: $c-black;
+  stroke-opacity: 0.25;
+  transition: opacity 150ms linear;
 }
 
 .ctd-meta--name,
@@ -81,31 +80,63 @@ body {
   margin-top: 0;
 }
 
-.ctd-tables {
+.ctd-table {
+  width: 100%;
   margin-top: 20px;
+  font-size: 16px;
+  table-layout: fixed;
 }
 
-.ctd-table {
-  > thead > tr {
-    background-color: $c-theme-bg;
+.ctd-table > thead > tr {
+  background-color: $c-theme-bg;
+  > th:nth-child(1) {
+    width: 35%;
   }
-  > tbody > tr {
-    &:nth-of-type(odd) {
-      background-color: $c-theme-lt;
-    }
-    td {
-      font-family: $font-lt;
-      transition: background 150ms linear;
-    }
-    &:hover {
-      cursor: pointer;
-    }
-    &.hover > td {
-      background-color: $c-hover;
-    }
-    &.active > td {
-      background-color: $c-selected;
-    }
+  > th:nth-child(2) {
+    width: 30%;
+  }
+  > th:nth-child(3) {
+    width: 35%;
+  }
+}
+
+.ctd-table > thead > tr > th {
+  &:before {
+    content: '\f0dc';
+    font-family: FontAwesome;
+  }
+  &:hover,
+  > a:hover {
+    cursor: s-resize;
+  }
+  &.ctd-sort--asc:before {
+    content: '\f0de';
+  }
+  &.ctd-sort--desc:before {
+    content: '\f0dd';
+  }
+  &.ctd-sort--desc:hover,
+  &.ctd-sort--desc > a:hover {
+    cursor: n-resize;
+  }
+}
+
+.ctd-table > tbody > tr {
+  &:nth-of-type(odd) {
+    background-color: $c-theme-lt;
+  }
+  > td {
+    font-family: $font-lt;
+    transition: background 150ms linear;
+  }
+  &:hover {
+    cursor: pointer;
+  }
+  &.hover > td {
+    background-color: $c-hover;
+  }
+  &.active > td {
+    background-color: $c-selected;
   }
 }
 
