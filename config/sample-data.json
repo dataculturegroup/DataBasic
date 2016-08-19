@@ -132,19 +132,19 @@
 		"lang" : "en"
 	},
 	{
-		"title" : "Letras do Anitta",
+		"title" : "Letra do Anitta",
 		"source":"sample-data/pt/lyrics-anitta.txt",
 		"modules": ["samediff", "wordcounter"],
 		"lang" : "pt"
 	},
 	{
-		"title" : "Marisa Monte",
+		"title" : "Letra do Marisa Monte",
 		"source":"sample-data/pt/lyrics-marisa-monte.txt",
 		"modules": ["samediff", "wordcounter"],
 		"lang" : "pt"
 	},
 	{
-		"title" : "Legião Urbana",
+		"title" : "Letras do Legião Urbana",
 		"source":"sample-data/pt/lyrics-legiao-urbana.txt",
 		"modules": ["samediff", "wordcounter"],
 		"lang" : "pt"
@@ -162,28 +162,52 @@
 		"lang" : "es"
 	},
 	{
-		"title" : "Maná",
+		"title" : "La Letra de Maná",
 		"source":"sample-data/es/lyrics-mana.txt",
 		"modules": ["samediff", "wordcounter"],
 		"lang" : "es"
 	},
 	{
-		"title" : "Paulina Rubio",
+		"title" : "La Letra de Paulina Rubio",
 		"source":"sample-data/es/lyrics-paulina-rubio.txt",
 		"modules": ["samediff", "wordcounter"],
 		"lang" : "es"
 	},
 	{
-		"title" : "Ricky Martin",
+		"title" : "La Letra de Ricky Martin",
 		"source":"sample-data/es/lyrics-ricky-martin.txt",
 		"modules": ["samediff", "wordcounter"],
 		"lang" : "es"
 	},
 	{
-		"title" : "Shakira",
+		"title" : "La Letra de Shakira",
 		"source":"sample-data/es/lyrics-shakira.txt",
 		"modules": ["samediff", "wordcounter"],
 		"lang" : "es"
+	},
+	{
+		"title" : "Futebol Brasileiro",
+		"source":"sample-data/pt/soccer.csv",
+		"modules": ["wtfcsv"],
+		"lang" : "pt"
+	},
+	{
+		"title" : "Locais turísticos em Rio de Janeiro",
+		"source":"sample-data/pt/turismo-e-cultura.csv",
+		"modules": ["wtfcsv"],
+		"lang" : "pt"
+	},
+	{
+		"title" : "Domínios de internet do governo no Brasil",
+		"source":"sample-data/pt/dominios-gov-br-basico.csv",
+		"modules": ["wtfcsv"],
+		"lang" : "pt"
+	},
+	{
+		"title" : "Letras do Chico Buarque",
+		"source":"sample-data/pt/lyrics-chico-buarque.txt",
+		"modules": ["samediff", "wordcounter"],
+		"lang" : "pt"
 	},
 	{
 		"title" : "Nomes próprios em Portugal (2014)",
