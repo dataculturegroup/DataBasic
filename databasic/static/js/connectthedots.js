@@ -80,7 +80,7 @@
   var headers = table.select('thead').selectAll('th');
   headers.on('click', function() {
     var column = this.getAttribute('data-column');
-    
+
     if (column === sort.column) {
       if (sort.order === 'asc') {
         sort.order = 'desc';
@@ -226,8 +226,6 @@
    * Sort table by column name and ascending/descending order
    */
   function sortTable(column, order) {
-    console.log('sortTable(\'' + column + '\', \'' + order + '\')');
-
     var subset = data.nodes.sort(function(a, b) {
                    if (order === 'asc') {
                      return d3.ascending(a[column], b[column]) || d3.ascending(a.id, b.id);
@@ -325,13 +323,18 @@
     simulation.restart();
   }, 250);
 
-  // toggle affix.js on graph
+  // sticky scrolling behavior on graph/table
   $('.ctd-container').affix({
     offset: {
       top: STICKY_OFFSET_TOP,
       bottom: document.querySelector('.tool > .container-fluid').getBoundingClientRect().height +
       document.querySelector('footer > nav').getBoundingClientRect().height + STICKY_OFFSET_BOTTOM
     }
+  });
+
+  $('.ctd-table').floatThead({
+    floatContainerClass: 'ctd-thwrap',
+    enableAria: true
   });
 
   // event handlers for export buttons

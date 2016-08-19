@@ -121,6 +121,10 @@ body {
   }
 }
 
+.ctd-thwrap {
+  overflow: visible !important;
+}
+
 .ctd-table > tbody > tr {
   &:nth-of-type(odd) {
     background-color: $c-theme-lt;

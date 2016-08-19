@@ -166,8 +166,8 @@
   </div>
 {%- endmacro %}
 
-{% macro hover_tooltip(term, event_name, tooltip, position='top') -%}
-  <a data-trigger="focus hover" data-placement="{{ position }}" data-toggle="tooltip" data-trigger="hover" href="#tooltip" data-original-title="{{ tooltip }}" aria-label="{{ term }}" role="definition" onmouseover="ga('send', 'event', '{{ tool_name }}', '{{ event_name }}', 'tooltip');">{{ term }}</a>
+{% macro hover_tooltip(term, event_name, tooltip, position='top', trigger='focus hover') -%}
+  <a data-trigger="{{ trigger }}" data-placement="{{ position }}" data-toggle="tooltip" data-trigger="hover" href="#tooltip" data-original-title="{{ tooltip }}" aria-label="{{ term }}" role="definition" onmouseover="ga('send', 'event', '{{ tool_name }}', '{{ event_name }}', 'tooltip');">{{ term }}</a>
 {%- endmacro %}
 
 {% macro download_url(tool_name, doc_id, ext, suffix) -%}

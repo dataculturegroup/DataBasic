@@ -9,7 +9,7 @@
 
 {% block results_scripts %}
   <script type="text/javascript">
-    var data = JSON.parse({{ results['json'] | tojson }});
+    var data = JSON.parse({{ results['json'] | tojson | safe }});
     var filename = '{{ results["filename"] }}';
   </script>
   {% assets "js_ctd" %}<script type="text/javascript" src="{{ ASSET_URL }}"></script>{% endassets %}
@@ -92,17 +92,17 @@
             <tr>
               <th data-column="id">
                 {{ _('%(node)s',
-                node=hover_tooltip(_('Node'), 'node', _('Definition of node.'))
+                node=hover_tooltip(_('Node'), 'node', _('Definition of node.'), 'bottom', 'hover')
                 ) }}
               </th>
               <th class="ctd-sort--desc" data-column="degree">
                 {{ _('%(degree)s',
-                degree=hover_tooltip(_('Degree'), 'degree', _('Definition of degree.'))
+                degree=hover_tooltip(_('Degree'), 'degree', _('Definition of degree.'), 'bottom', 'hover')
                 ) }}
               </th>
               <th data-column="centrality">
                 {{ _('%(centrality)s',
-                centrality=hover_tooltip(_('Centrality'), 'centrality', _('Definition of centrality.'))
+                centrality=hover_tooltip(_('Centrality'), 'centrality', _('Definition of centrality.'), 'bottom', 'hover')
                 ) }}
               </th>
             </tr>
