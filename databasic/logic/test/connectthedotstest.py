@@ -80,80 +80,6 @@ class ConnectTheDotsTest(unittest.TestCase):
         self.assertEqual(results['density'], 0.08680792891319207) # float(2 * self.count_edges()) /
                                                                   # (count_nodes() * (self.count_nodes() - 1))
 
-    def test_centrality_scores(self):
-        """
-        Test betweenness centrality with generalized formula
-
-        For a node v and every other node pair (s, t), we take the proportion of shortest paths s => t that include
-        v and then normalize the sum of all the proportions by dividing (N - 1)(N - 2) / 2, the number of node pairs
-        """
-        test_data_path = os.path.join(self._fixtures_dir, 'les-miserables.csv')
-        results = ctd.get_summary(test_data_path)
-        graph = ctd.get_graph(test_data_path)
-
-        self.assertEqual(len(results['centrality_scores']), 40)
-        self.assertEqual(results['centrality_scores'][0][0], u'Valjean')
-
-        nodes = graph.nodes()
-        nodes.remove(u'Valjean')
-
-        betweenness_centrality = 0
-        visited_paths = []
-
-        for u in nodes:
-            for v in nodes:
-                current_path = tuple(sorted((u, v)))
-                if u == v or current_path in visited_paths:
-                    continue
-                else:
-                    visited_paths.append(current_path)
-                    paths = list(nx.all_shortest_paths(graph, u, v))
-                    total_paths = len(paths)
-                    paths_with_valjean = reduce(lambda n, path: n + 1 if u'Valjean' in path else n, paths, 0)
-                    betweenness_centrality += paths_with_valjean / float(total_paths)
-
-        node_pairs = len(nodes) * (len(nodes) - 1) / float(2)
-        normalized_score = betweenness_centrality / node_pairs
-
-        self.assertAlmostEqual(results['centrality_scores'][0][1], normalized_score)
-
-    def test_centrality_scores_simple(self):
-        """
-        Test betweenness centrality for simple (independently verifiable) case
-
-        A       D
-          > C <      All shortest paths go through C, connector score = 1
-        B       E
-        """
-        test_data_path = os.path.join(self._fixtures_dir, 'simple-network.csv')
-        results = ctd.get_summary(test_data_path)
-        self.assertEqual(results['centrality_scores'][0][0], u'C')
-        self.assertEqual(results['centrality_scores'][0][1], 1)
-        for i in range(1, 5):
-            self.assertEqual(results['centrality_scores'][i][1], 0)
-
-    def test_degree_scores(self):
-        test_data_path = os.path.join(self._fixtures_dir, 'les-miserables.csv')
-        results = ctd.get_summary(test_data_path)
-        self.assertEqual(len(results['degree_scores']), 40)
-        self.assertEqual(results['degree_scores'][0][0], u'Valjean')
-        self.assertEqual(results['degree_scores'][0][1], 36) # counted manually
-
-    def test_degree_scores_simple(self):
-        """
-        Test degree scores for simple (independently verifiable) case
-
-        A       D
-          > C <      All nodes have degree 1 except for C, which has degree 4
-        B       E
-        """
-        test_data_path = os.path.join(self._fixtures_dir, 'simple-network.csv')
-        results = ctd.get_summary(test_data_path)
-        self.assertEqual(results['degree_scores'][0][0], u'C')
-        self.assertEqual(results['degree_scores'][0][1], 4)
-        for i in range(1, 5):
-            self.assertEqual(results['degree_scores'][i][1], 1)
-
     def test_as_json_nodes(self):
         test_data_path = os.path.join(self._fixtures_dir, 'simple-network.csv')
         results = ctd.get_summary(test_data_path)
@@ -201,4 +127,3 @@ class ConnectTheDotsTest(unittest.TestCase):
         self.assertEqual(results['edges'], 19257)
 
         # TODO: test approximation against table of actual centrality scores
-

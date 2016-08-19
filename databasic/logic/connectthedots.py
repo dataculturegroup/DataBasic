@@ -51,9 +51,6 @@ class ConnectTheDots():
 
             results['clustering'] = self.get_clustering_score()
             results['density'] = self.get_density_score()
-
-            results['centrality_scores'] = self.get_centrality_scores(k=k)
-            results['degree_scores'] = self.get_degree_scores()
             
             results['json'] = self.as_json(k=k)
             results['gexf'] = self.as_gexf()
@@ -83,20 +80,6 @@ class ConnectTheDots():
         Return the graph's global density/"connectedness" score
         """
         return nx.density(self.graph)
-
-    def get_centrality_scores(self, k=None, n=40):
-        """
-        Return the n most central nodes in the graph as a list of tuples
-        """
-        centrality_scores = sorted(nx.betweenness_centrality(self.graph, k=k).items(), key=operator.itemgetter(1), reverse=True)
-        return centrality_scores[0:n]
-
-    def get_degree_scores(self, n=40):
-        """
-        Return the n most directly connected nodes in the graph as a list of tuples
-        """
-        degree_scores = sorted(self.graph.degree().items(), key=operator.itemgetter(1), reverse=True)
-        return degree_scores[0:n]
 
     def as_graph(self):
         """
