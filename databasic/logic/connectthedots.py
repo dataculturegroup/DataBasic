@@ -39,20 +39,25 @@ class ConnectTheDots():
         results = {}
 
         if hasattr(self, 'graph'):
-            n = self.count_nodes()
-            if (n > 1000):
-              k = int(math.log(n)) # TODO: determine best values for k/whether multiple trials are needed
+            node_count = self.count_nodes()
+            if (node_count > 1000):
+              k = int(math.log(node_count)) # TODO: determine best values for k/whether multiple trials are needed
               logger.debug('[CTD] Using k = %s to approximate betweenness centrality' % k)
             else:
               k = None
 
-            results['nodes'] = n
+            nodes = nx.nodes_iter(self.graph)
+            bc = nx.betweenness_centrality(self.graph, k=k)
+            self.scores = [{'id': n, 'degree': self.graph.degree(n), 'centrality': bc[n]} for n in nodes]
+
+            results['nodes'] = node_count
             results['edges'] = self.count_edges()
 
             results['clustering'] = self.get_clustering_score()
             results['density'] = self.get_density_score()
-            
-            results['json'] = self.as_json(k=k)
+
+            results['table'] = self.as_table()
+            results['json'] = self.as_json()
             results['gexf'] = self.as_gexf()
 
         return results
@@ -87,15 +92,18 @@ class ConnectTheDots():
         """
         return self.graph
 
-    def as_json(self, k=None):
+    def as_table(self):
+        """
+        Return the table of degree/centrality scores
+        """
+        return sorted(self.scores, key=operator.itemgetter('centrality'), reverse=True)
+
+    def as_json(self):
         """
         Return the graph as JSON for D3 visualization
         """
         output = json_graph.node_link_data(self.graph)
-        bc = nx.betweenness_centrality(self.graph, k=k)
-        for node in output['nodes']:
-            node['centrality'] = bc[node['id']]
-            node['degree'] = self.graph.degree(node['id'])
+        output['nodes'] = self.scores
         return json.dumps(output)
 
     def as_gexf(self):

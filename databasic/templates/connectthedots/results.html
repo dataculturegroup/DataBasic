@@ -27,23 +27,20 @@
     {% endif %}
     <div class="row text-center">
       <div class="col-md-12">
-        <h2 id="results-title" role="banner">{{ results['filename'] }} {{ shareable() }}</h2>
+        <h2 id="results-title" role="banner">
+          ConnectTheDots: {{ results['filename'] }}
+          {{ shareable() }}
+        </h2>
       </div>
-      <div class="col-md-4 col-md-offset-2">
-        <p class="summary">{{ _('%(node_count)s %(nodes)s and %(edge_count)s %(edges)s',
+      <div class="col-md-8 col-md-offset-2">
+        <p class="summary">{{ _('This network graph contains %(node_count)s %(nodes)s and %(edge_count)s %(edges)s. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus.',
             node_count=results['nodes'],
             edge_count=results['edges'],
             nodes=hover_tooltip(_('nodes'), 'nodes', _('Definition of node.')),
             edges=hover_tooltip(_('edges'), 'edges', _('Definition of edge.'))
           ) }}</p>
-      </div>
-      <div class="col-md-4">
-        <div class="btn-group" role="group">
-          <label class="btn-group-label" aria-hidden="true">Export graph:</label>
-          <button class="btn btn-default btn-export--png" type="button" aria-label="Export graph as PNG">PNG</button>
-          <button class="btn btn-default btn-export--svg" type="button" aria-label="Export graph as SVG">SVG</button>
-          <button class="btn btn-default btn-export--gexf" type="button" aria-label="Export graph as GEXF">GEXF</button>
-        </div>
+
+        {{ what_next_anchor() }}
       </div>
     </div>
 
@@ -56,34 +53,38 @@
             <div class="tooltip-inner"></div>
           </div>
           <svg class="ctd-graph"></svg>
-          <div class="row text-center" role="list" aria-label="Graph metadata">
-            <div class="col-sm-4">
-              <h4 class="ctd-meta--name" role="listitem">{{ _('%(density_score)s',
-                density_score=hover_tooltip(_('density score'), 'density score', _('Definition of density score.'))
-                ) }}</h4>
-              <h3 class="ctd-meta--value" role="listitem">{{ results['density'] | round(3) }}</h3>
-            </div>
-            <div class="col-sm-4">
-              <h4 class="ctd-meta--name" role="listitem">{{ _('%(clustering_score)s',
-                clustering_score=hover_tooltip(_('clustering score'), 'clustering score', _('Definition of clustering score.'))
-                ) }}</h4>
-              <h3 class="ctd-meta--value" role="listitem">{{ results['clustering'] | round(3) }}</h3>
-            </div>
-            <div class="col-sm-4">
-              <h4 class="ctd-meta--name" role="listitem">{{ _('%(most_central_node)s',
-                most_central_node=hover_tooltip(_('most central node'), 'centrality', _('Definition of centrality.'))
-                ) }}</h4>
-              <h3 class="ctd-meta--value" role="listitem">
-                {% set kevin_bacon = results['centrality_scores'][0][0] %}
-                {% if kevin_bacon is number and kevin_bacon is equalto kevin_bacon | round %}
-                  {{ kevin_bacon | int }}
-                {% else %}
-                  {{ kevin_bacon }}
-                {% endif %}
-              </h3>
+          <div class="ctd-meta" role="list" aria-label="Graph metadata">
+            <div class="row text-center">
+              <div class="col-sm-4">
+                <h4 class="ctd-meta--name" role="listitem">{{ _('%(density_score)s',
+                  density_score=hover_tooltip(_('density score'), 'density score', _('Definition of density score.'))
+                  ) }}</h4>
+                <h3 class="ctd-meta--value" role="listitem">{{ results['density'] | round(3) }}</h3>
+                <p class="ctd-meta--summary">Etiam porta sem malesuada magna mollis euismod.</p>
+              </div>
+              <div class="col-sm-4">
+                <h4 class="ctd-meta--name" role="listitem">{{ _('%(clustering_score)s',
+                  clustering_score=hover_tooltip(_('clustering score'), 'clustering score', _('Definition of clustering score.'))
+                  ) }}</h4>
+                <h3 class="ctd-meta--value" role="listitem">{{ results['clustering'] | round(3) }}</h3>
+                <p class="ctd-meta--summary">Aenean eu leo quam, pellentesque ornare sem lacinia vestibulum.</p>
+              </div>
+              <div class="col-sm-4">
+                <h4 class="ctd-meta--name" role="listitem">{{ _('%(most_central_node)s',
+                  most_central_node=hover_tooltip(_('most central node'), 'centrality', _('Definition of centrality.'))
+                  ) }}</h4>
+                <h3 class="ctd-meta--value" role="listitem">
+                  {% set kevin_bacon = results['table'][0]['id'] %}
+                  {% if kevin_bacon is number and kevin_bacon is equalto kevin_bacon | round %}
+                    {{ kevin_bacon | int }}
+                  {% else %}
+                    {{ kevin_bacon }}
+                  {% endif %}
+                </h3>
+                <p class="ctd-meta--summary">Praesent commodo cursus magna, vel scelerisque et.</p>
+              </div>
             </div>
           </div>
-          {{ what_next_anchor() }}
         </div>
       </div>
       <div class="col-md-5">

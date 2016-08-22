@@ -129,30 +129,15 @@ def download_gexf(doc_id):
     doc = mongo.find_document('connectthedots', doc_id)
     return Response(doc.get('results')['gexf'], mimetype='application/xml')
 
-@mod.route('/results/<doc_id>/centrality.csv')
-def download_centrality(doc_id):
+@mod.route('/results/<doc_id>/table.csv')
+def download_table(doc_id):
     """
-    Download CSV of centrality scores
+    Download CSV of degree/centrality scores
     """
-    logger.info('[CTD] Requesting CSV of centrality scores for doc: %s', doc_id)
+    logger.info('[CTD] Requesting CSV of table for doc: %s', doc_id)
     doc = mongo.find_document('connectthedots', doc_id)
-    return download_csv(doc.get('results')['centrality_scores'], ['node', 'centrality'])
-
-@mod.route('/results/<doc_id>/degree.csv')
-def download_degree(doc_id):
-    """
-    Download CSV of degree scores
-    """
-    logger.info('[CTD] Requesting CSV of degree scores for doc: %s', doc_id)
-    doc = mongo.find_document('connectthedots', doc_id)
-    return download_csv(doc.get('results')['degree_scores'], ['node', 'degree'])
-
-def download_csv(rows, headers):
-    """
-    Return nested list as a CSV download
-    """
     def as_csv(rows, headers):
         yield ','.join(headers) + '\n'
-        for r in rows:
-            yield ','.join(map(str, r)) + '\n'
-    return Response(as_csv(rows, headers), mimetype='text/csv')
+        for r in sorted(rows, key=operator.itemgetter('degree'), reverse=True):
+            yield ','.join(str(v) for k,v in r.items()) + '\n'
+    return Response(as_csv(doc.get('results')['table'], ['node', 'degree', 'centrality']), mimetype='text/csv')

@@ -12,32 +12,15 @@ body {
   margin-top: 0;
 }
 
-.btn-group-label {
-  position: relative;
-  display: inline-block;
-  float: left;
-  padding: 6px 12px;
-  margin: 0;
-  vertical-align: middle;
-}
-
-.btn-group > .btn:not(:last-child) {
-  margin-right: 4px;
-}
-
 .ctd-container {
   position: relative;
   margin-top: 30px;
   &.affix {
     @media (min-width: 992px) {
       position: fixed;
-      margin-top: -250px;
+      margin-top: -300px;
     }
   }
-}
-
-.ctd-container > .row {
-  margin-top: 20px;
 }
 
 .ctd-progress {
@@ -71,6 +54,21 @@ body {
   transition: opacity 150ms linear;
 }
 
+.ctd-meta {
+  padding: 10px 0;
+  margin: 0;
+  > .row {
+    margin: 0;
+    &:first-child {
+      margin-top: -15px;
+      background-color: $c-theme-md;
+    }
+    &:last-child {
+      background-color: $c-selected;
+    }
+  }
+}
+
 .ctd-meta--name,
 .ctd-meta--name > a {
   font-family: $font-lt;
@@ -80,7 +78,12 @@ body {
   margin-top: 0;
 }
 
+.ctd-meta--summary {
+  font-size: 16px;
+}
+
 .ctd-table {
+  position: relative;
   width: 100%;
   margin-top: 20px;
   font-size: 16px;

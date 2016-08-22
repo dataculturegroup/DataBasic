@@ -2,7 +2,7 @@
  * ConnectTheDots front-end code
  * Graph drawing adapted from https://bl.ocks.org/mbostock/4062045
  */
-// (function() {
+(function() {
   var BACKGROUND_COLOR = '#fff',
       DISPLAY_RESOLUTION = 1.4,
       GRAPH_PADDING = .05,
@@ -11,7 +11,7 @@
       EDGE_WIDTH = 1,
       ROUNDING_PRECISION = 3,
       TABLE_ROWS = 40,
-      STICKY_OFFSET_TOP = 280,
+      STICKY_OFFSET_TOP = 300,
       STICKY_OFFSET_BOTTOM = 80;
 
   // map link data (indices) to node ids
@@ -321,6 +321,8 @@
           .y(height / 2);
 
     simulation.restart();
+
+    $('.ctd-meta').css('width', width);
   }, 250);
 
   // sticky scrolling behavior on graph/table
@@ -331,6 +333,8 @@
       document.querySelector('footer > nav').getBoundingClientRect().height + STICKY_OFFSET_BOTTOM
     }
   });
+
+  $('.ctd-meta').css('width', width);
 
   $('.ctd-table').floatThead({
     floatContainerClass: 'ctd-thwrap',
@@ -370,4 +374,4 @@
   function getFilename(name, extension) {
     return name.replace(/[^a-z0-9]/gi, '-').toLowerCase() + '-data.' + extension;
   }
-// })();
+})();
