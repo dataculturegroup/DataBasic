@@ -214,5 +214,17 @@
 		"source":"sample-data/pt/nomes-registados-2014.csv",
 		"modules": ["wtfcsv"],
 		"lang" : "pt"
+	},
+	{
+		"title": "La Letra de Jennifer Lopez",
+		"source": "sample-data/en/jennifer-lopez-lyrics.txt",
+		"modules": ["samediff", "wordcounter"],
+		"lang" : "es"
+	},
+	{
+		"title": "La Letra de The Beatles",
+		"source": "sample-data/en/beatles-lyrics.txt",
+		"modules": ["samediff", "wordcounter"],
+		"lang" : "es"
 	}
 ]
