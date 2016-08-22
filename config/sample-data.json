@@ -150,7 +150,7 @@
 		"lang" : "pt"
 	},
 	{
-		"title" : "Altura y Peso de Personas entre 6 - 16 años",
+		"title" : "Altura y Peso de Personas entre 6 - 16 años en los EEUU",
 		"source":"sample-data/es/csv-altura-y-peso.csv",
 		"modules": ["wtfcsv"],
 		"lang" : "es"
@@ -159,30 +159,6 @@
 		"title" : "El tiempo de San José, Costa Rica, en 2016",
 		"source":"sample-data/es/el-tiempo-de-san-jose-2016.csv",
 		"modules": ["wtfcsv"],
-		"lang" : "es"
-	},
-	{
-		"title" : "La Letra de Maná",
-		"source":"sample-data/es/lyrics-mana.txt",
-		"modules": ["samediff", "wordcounter"],
-		"lang" : "es"
-	},
-	{
-		"title" : "La Letra de Paulina Rubio",
-		"source":"sample-data/es/lyrics-paulina-rubio.txt",
-		"modules": ["samediff", "wordcounter"],
-		"lang" : "es"
-	},
-	{
-		"title" : "La Letra de Ricky Martin",
-		"source":"sample-data/es/lyrics-ricky-martin.txt",
-		"modules": ["samediff", "wordcounter"],
-		"lang" : "es"
-	},
-	{
-		"title" : "La Letra de Shakira",
-		"source":"sample-data/es/lyrics-shakira.txt",
-		"modules": ["samediff", "wordcounter"],
 		"lang" : "es"
 	},
 	{
@@ -224,6 +200,18 @@
 	{
 		"title": "La Letra de The Beatles",
 		"source": "sample-data/en/beatles-lyrics.txt",
+		"modules": ["samediff", "wordcounter"],
+		"lang" : "es"
+	},
+	{
+		"title": "La Letra de Metallica",
+		"source": "sample-data/en/metallica-lyrics.txt",
+		"modules": ["samediff", "wordcounter"],
+		"lang" : "es"
+	},
+	{
+		"title": "La Letra de Bob Marley",
+		"source": "sample-data/en/bob-marley-lyrics.txt",
 		"modules": ["samediff", "wordcounter"],
 		"lang" : "es"
 	}
