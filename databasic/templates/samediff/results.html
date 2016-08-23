@@ -27,6 +27,7 @@
         {% if remaining_days %}
           <p><span class="{{ 'expiring' if remaining_days <= 10 else '' }}">{{ _('These results will expire in %(day)s days', day=remaining_days) }}</span></p>
         {% endif %}
+
       </div>
     </div>
 
@@ -46,6 +47,7 @@
               _("A process to make data points comparable in a fair way. For example, word counts in a document can be normalized by dividing them by the total number of words in that document.") ) )}}
         {% endif %}
         </p>
+
       </div>
     </div>
         
@@ -90,6 +92,14 @@
           <button class="btn btn-sm btn-primary active">ON</button>
           <button class="btn btn-sm btn-default">OFF</button>
         </div>
+
+      </div>
+    </div>
+    <div class="row" style="margin-top:20px;margin-bottom:20px">
+      <div class="col-md-12 text-center">
+       <hr/>
+       {{ what_next_anchor() }}
+       <hr/>
       </div>
     </div>
 
