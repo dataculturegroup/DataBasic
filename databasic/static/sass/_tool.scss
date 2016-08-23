@@ -139,25 +139,33 @@ h3 a {
 	.nav-tabs.nav-justified > li {
 		text-transform: lowercase;
 		background-color: $c-theme-md;
+    vertical-align: middle;
+
+    &.active {
+      background-color: $c-theme-accent;
+    }
+
+    &:hover {
+      background-color: $c-theme-dk;
+    }
 
 		a {
 			margin-bottom: 0;
 
 			&:hover {
 				color: $c-white;
-				background-color: $c-theme-dk;
+        background-color: transparent;
 			}
 		}
 	}
 
 	.nav-tabs.nav-justified > li.active > a {
 		color: $c-white;
+    background-color: transparent;
 		text-transform: lowercase;
-		background-color: $c-theme-accent;
 
 		&:hover {
 			color: $c-white;
-			background-color: $c-theme-dk;
 			cursor: pointer;
 		}
 	}

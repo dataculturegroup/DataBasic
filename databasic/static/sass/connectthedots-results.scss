@@ -1,6 +1,6 @@
 @charset "UTF-8";
 
-@import "themes/red-theme";
+@import "themes/blue-theme";
 @import "tool";
 @import "modules/input";
 
@@ -23,10 +23,63 @@ body {
   }
 }
 
+.ctd-download {
+  position: relative;
+  background-color: $c-white;
+}
+
+.ctd-download > button {
+  position: absolute;
+  padding: 5px 12px 5px 15px;
+  border: 0;
+  font-family: 'HalisGR-Medium';
+  font-size: 20px;
+  text-transform: uppercase;
+  background-color: $c-theme-accent;
+  visibility: hidden;
+  opacity: 0;
+  transition: opacity 150ms linear;
+  &:focus {
+    background-color: $c-selected;
+    outline: none;
+  }
+  > .glyphicon {
+    top: 4px;
+    font-size: 24px;
+  }
+}
+
+.ctd-download > .dropdown-menu {
+  top: 40px;
+  border: 0;
+  border-radius: 0;
+  background-color: $c-theme-accent;
+  box-shadow: none;
+  > li > a {
+    color: $c-white;
+    &:hover {
+      background-color: $c-hover;
+      cursor: pointer;
+    }
+    &:focus,
+    &:active {
+      background-color: $c-hover;
+    }
+    > strong {
+      font-family: 'HalisGR-Medium';
+    }
+  }
+  > .divider {
+    height: 2px;
+    background-color: $c-white;
+  }
+}
+
 .ctd-progress {
   position: absolute;
   height: 5px;
   background-color: $c-theme-dk;
+  z-index: 2;
 }
 
 .ctd-tooltip {
@@ -58,14 +111,8 @@ body {
   padding: 10px 0;
   margin: 0;
   > .row {
-    margin: 0;
-    &:first-child {
-      margin-top: -15px;
-      background-color: $c-theme-md;
-    }
-    &:last-child {
-      background-color: $c-selected;
-    }
+    margin: -15px 0 0;
+    background-color: $c-theme-accent;
   }
 }
 
@@ -130,7 +177,7 @@ body {
 
 .ctd-table > tbody > tr {
   &:nth-of-type(odd) {
-    background-color: $c-theme-lt;
+    background-color: $c-theme-accent;
   }
   > td {
     font-family: $font-lt;

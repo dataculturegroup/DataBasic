@@ -26,7 +26,7 @@
       table = d3.select('.ctd-table');
 
   var padding = parseFloat(container.style('padding-left').slice(0, -2)),
-      width = container.node().offsetWidth - 2 * padding,
+      width = container.node().getBoundingClientRect().width - 2 * padding,
       height = width / DISPLAY_RESOLUTION,
       initWidth = width, initHeight = height,
       scale = {factor: 1, init: 1, dx: 0, dy: 0};
@@ -100,6 +100,7 @@
   });
 
   var progress = d3.select('.ctd-progress'),
+      download = d3.select('.ctd-download > button'),
       tooltip = d3.select('.ctd-tooltip').style('display', 'none');
 
   // start simulation
@@ -263,6 +264,8 @@
       progress.remove();
       node.style('opacity', 1);
       edge.style('opacity', 1);
+      download.style('visibility', 'visible')
+              .style('opacity', 1);
       tooltip.style('display', 'block');
     }
 
@@ -309,7 +312,7 @@
   // rescale graph on window resize
   window.onresize = _.debounce(function() {
     padding = parseFloat(container.style('padding-left').slice(0, -2)),
-    width = container.node().offsetWidth - 2 * padding,
+    width = container.node().getBoundingClientRect().width - 2 * padding,
     height = width / DISPLAY_RESOLUTION;
 
     svg.attr('width', width)
@@ -342,11 +345,11 @@
   });
 
   // event handlers for export buttons
-  document.querySelector('.btn-export--png').addEventListener('click', function() {
+  document.querySelector('.btn-download--png').addEventListener('click', function() {
     saveSvgAsPng(document.querySelector('svg'), getFilename(filename, 'png'), {scale: 2.0});
   });
 
-  document.querySelector('.btn-export--svg').addEventListener('click', function() {
+  document.querySelector('.btn-download--svg').addEventListener('click', function() {
     svgAsDataUri(document.querySelector('svg'), {}, function(uri) {
       var a = document.createElement('a');
       a.download = getFilename(filename, 'svg');
@@ -357,16 +360,27 @@
     });
   });
 
-  document.querySelector('.btn-export--gexf').addEventListener('click', function() {
-    var a = document.createElement('a');
-    a.download = getFilename(filename, 'gexf');
-    url = window.location.href.split('?')[0];
-    url += '/data.gexf';
-    a.href = url;
-    document.body.appendChild(a);
-    a.click();
-    a.parentNode.removeChild(a);
-  });
+  // document.querySelector('.btn-download--gexf').addEventListener('click', function() {
+  //   var a = document.createElement('a');
+  //   a.download = getFilename(filename, 'gexf');
+  //   url = window.location.href.split('?')[0];
+  //   url += '/graph.gexf';
+  //   a.href = url;
+  //   document.body.appendChild(a);
+  //   a.click();
+  //   a.parentNode.removeChild(a);
+  // });
+
+  // document.querySelector('.btn-download--table').addEventListener('click', function() {
+  //   var a = document.createElement('a');
+  //   a.download = getFilename(filename, 'csv');
+  //   url = window.location.href.split('?')[0];
+  //   url += '/table.csv';
+  //   a.href = url;
+  //   document.body.appendChild(a);
+  //   a.click();
+  //   a.parentNode.removeChild(a);
+  // });
 
   /**
    * Return a suggested filename for the exported graph
