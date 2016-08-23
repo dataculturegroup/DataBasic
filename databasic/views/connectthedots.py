@@ -1,4 +1,4 @@
-import logging, os
+import logging, operator, os
 from collections import OrderedDict
 from databasic import mongo
 from databasic.forms import ConnectTheDotsUpload, ConnectTheDotsSample

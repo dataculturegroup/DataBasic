@@ -360,32 +360,28 @@
     });
   });
 
-  // document.querySelector('.btn-download--gexf').addEventListener('click', function() {
-  //   var a = document.createElement('a');
-  //   a.download = getFilename(filename, 'gexf');
-  //   url = window.location.href.split('?')[0];
-  //   url += '/graph.gexf';
-  //   a.href = url;
-  //   document.body.appendChild(a);
-  //   a.click();
-  //   a.parentNode.removeChild(a);
-  // });
+  document.querySelector('.btn-download--gexf').addEventListener('click', function() {
+    var a = document.createElement('a');
+    a.download = getFilename(filename, 'gexf');
+    a.href = window.location.href.split(/[#?]/)[0] + '/graph.gexf';
+    document.body.appendChild(a);
+    a.click();
+    a.parentNode.removeChild(a);
+  });
 
-  // document.querySelector('.btn-download--table').addEventListener('click', function() {
-  //   var a = document.createElement('a');
-  //   a.download = getFilename(filename, 'csv');
-  //   url = window.location.href.split('?')[0];
-  //   url += '/table.csv';
-  //   a.href = url;
-  //   document.body.appendChild(a);
-  //   a.click();
-  //   a.parentNode.removeChild(a);
-  // });
+  document.querySelector('.btn-download--table').addEventListener('click', function() {
+    var a = document.createElement('a');
+    a.download = getFilename(filename, 'csv');
+    a.href = window.location.href.split(/[#?]/)[0] + '/table.csv';
+    document.body.appendChild(a);
+    a.click();
+    a.parentNode.removeChild(a);
+  });
 
   /**
    * Return a suggested filename for the exported graph
    */
   function getFilename(name, extension) {
-    return name.replace(/[^a-z0-9]/gi, '-').toLowerCase() + '-data.' + extension;
+    return name.replace(/[^a-z0-9]/gi, '-').toLowerCase() + '.' + extension;
   }
 })();
