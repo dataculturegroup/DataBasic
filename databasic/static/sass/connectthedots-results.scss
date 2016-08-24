@@ -36,8 +36,8 @@ body {
   font-size: 20px;
   text-transform: uppercase;
   background-color: $c-theme-accent;
-  // visibility: hidden;
-  // opacity: 0;
+  visibility: hidden;
+  opacity: 0;
   transition: opacity 150ms linear;
   &:focus {
     background-color: $c-selected;

@@ -1,7 +1,7 @@
 import logging, operator, os
 from collections import OrderedDict
 from databasic import mongo
-from databasic.forms import ConnectTheDotsUpload, ConnectTheDotsSample
+from databasic.forms import ConnectTheDotsUpload, ConnectTheDotsSample, ConnectTheDotsPaste
 from databasic.logic import connectthedots as ctd, filehandler
 from flask import Blueprint, g, redirect, render_template, request, Response
 
@@ -18,8 +18,9 @@ def index():
     """
     forms = OrderedDict()
     forms['sample'] = ConnectTheDotsSample(g.current_lang)
+    forms['paste'] = ConnectTheDotsPaste()
     forms['upload'] = ConnectTheDotsUpload()
-    upload_failed = False
+    input_error = None
 
     if request.method == 'POST':
         btn_value = request.form['btn']
@@ -38,6 +39,13 @@ def index():
                 logger.debug('[CTD] New doc from sample: %s', sample_name)
                 results = process_sample(sample_source)
 
+        # Paste table
+        elif btn_value == 'paste':
+            pasted_text = forms['paste'].data['area']
+            has_header_row = forms['paste'].data['has_header_row']
+            logger.debug('[CTD] New doc from paste')
+            results = process_paste(pasted_text, has_header_row)
+
         # File upload
         elif btn_value == 'upload':
             upload_file = forms['upload'].data['upload']
@@ -48,26 +56,51 @@ def index():
         if btn_value is not None and btn_value is not u'' and results:
             return redirect_to_results(results, btn_value, sample_id)
         else:
-            upload_failed = True
+            input_error = btn_value
 
     return render_template('connectthedots.html',
                            forms=forms.items(),
                            tool_name='connectthedots',
                            max_file_size_in_mb=g.max_file_size_mb,
-                           upload_failed=upload_failed)
+                           input_error=input_error)
 
 def process_sample(source):
     """
     Return results for a sample file
     """
-    sample_name = filehandler.get_sample_title(source)
     sample_path = filehandler.get_sample_path(source)
+    sample_name = filehandler.get_sample_title(source)
     logger.debug('[CTD] Loading from: %s', sample_path)
 
     results = ctd.get_summary(sample_path)
     results['has_multiple_sheets'] = False
     results['filename'] = sample_name
 
+    return results
+
+def process_paste(text, has_header_row=True):
+    """
+    Return results for a pasted table
+    """
+    rows = text.splitlines()
+    csv_rows = []
+
+    for r in rows:
+        if len(r.split('\t')) != 2: # TODO: allow for tabs within quotations
+            return None
+        else:
+            csv_rows.append((r.split('\t')[0], r.split('\t')[1]))
+
+    headers = csv_rows.pop(0) if has_header_row else ['source', 'target']
+    file_path = filehandler.write_to_csv(headers, csv_rows)
+    file_size = os.stat(file_path).st_size
+    logger.debug('[CTD] File size: %d bytes', file_size)
+
+    results = ctd.get_summary(file_path)
+    results['has_multiple_sheets'] = False
+    results['filename'] = 'Your Pasted Data'
+
+    filehandler.delete_files([file_path])
     return results
 
 def process_upload(file, has_header_row=True):

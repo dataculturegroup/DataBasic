@@ -184,3 +184,19 @@ class ConnectTheDotsUpload(UploadForm, Form):
 class ConnectTheDotsSample(SampleForm, Form):
     def __init__(self, lang):
         super(ConnectTheDotsSample, self).__init__('connectthedots', lang)
+
+class ConnectTheDotsPaste(Form):
+    label = _('Paste rows')
+
+    area = StringField(
+        _('Text'),
+        description={'placeholder': _('Paste rows from an Excel or Google spreadsheet...')},
+        widget=TextArea()) 
+
+    has_header_row = BooleanField(
+        _('Has header row'), 
+        widget=CheckboxInput(), 
+        default=True)
+
+    def __init__(self):
+        super(ConnectTheDotsPaste, self).__init__()

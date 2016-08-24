@@ -15,7 +15,9 @@
 {% block body %}
 <div class="tool" role="main">
   <div class="container">
-    {% if upload_failed %}
+    {% if input_error == 'paste' %}
+      <h4 class="text-center" role="alert">Error: Paste failed! Make sure your input has exactly two tab-separated columns and try again.</h4>
+    {% elif input_error == 'upload' %}
       <h4 class="text-center" role="alert">Error: Upload failed! Make sure your file has exactly two columns and try again.</h4>
     {% endif %}
     <div class="row">
