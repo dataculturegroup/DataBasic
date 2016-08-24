@@ -2,7 +2,7 @@
  * ConnectTheDots front-end code
  * Graph drawing adapted from https://bl.ocks.org/mbostock/4062045
  */
-(function() {
+// (function() {
   var BACKGROUND_COLOR = '#fff',
       DISPLAY_RESOLUTION = 1.4,
       GRAPH_PADDING = .05,
@@ -398,4 +398,4 @@
   function getFilename(name, extension) {
     return name.replace(/[^a-z0-9]/gi, '-').toLowerCase() + '.' + extension;
   }
-})();
+// })();
