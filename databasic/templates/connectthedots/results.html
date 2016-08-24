@@ -36,8 +36,8 @@
         <p class="summary">{{ _('This network graph contains %(node_count)s %(nodes)s and %(edge_count)s %(edges)s. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus.',
             node_count=results['nodes'],
             edge_count=results['edges'],
-            nodes=hover_tooltip(_('nodes'), 'nodes', _('Definition of node.')),
-            edges=hover_tooltip(_('edges'), 'edges', _('Definition of edge.'))
+            nodes=hover_tooltip(_('nodes'), 'nodes', _('The &quot;dots&quot; in the network - the central organizing thing that is connected to others.')),
+            edges=hover_tooltip(_('edges'), 'edges', _('A connection between one node and another node.'))
           ) }}</p>
 
         {{ what_next_anchor() }}
@@ -70,21 +70,21 @@
             <div class="row text-center">
               <div class="col-sm-4">
                 <h4 class="ctd-meta--name" role="listitem">{{ _('%(density_score)s',
-                  density_score=hover_tooltip(_('density score'), 'density score', _('Definition of density score.'))
+                  density_score=hover_tooltip(_('density score'), 'density score', _('Measures how interconnected the whole network is. If every node were connected to every other node, the density would be 1.'))
                   ) }}</h4>
                 <h3 class="ctd-meta--value" role="listitem">{{ results['density'] | round(3) }}</h3>
                 <p class="ctd-meta--summary">Etiam porta sem malesuada magna mollis euismod.</p>
               </div>
               <div class="col-sm-4">
                 <h4 class="ctd-meta--name" role="listitem">{{ _('%(clustering_score)s',
-                  clustering_score=hover_tooltip(_('clustering score'), 'clustering score', _('Definition of clustering score.'))
+                  clustering_score=hover_tooltip(_('clustering score'), 'clustering score', _('Summarizes how much the network diagram is broken into cliques.  A score close to 1 means it is like high school (i.e. lots of cliques).'))
                   ) }}</h4>
                 <h3 class="ctd-meta--value" role="listitem">{{ results['clustering'] | round(3) }}</h3>
                 <p class="ctd-meta--summary">Aenean eu leo quam, pellentesque ornare sem lacinia vestibulum.</p>
               </div>
               <div class="col-sm-4">
                 <h4 class="ctd-meta--name" role="listitem">{{ _('%(most_central_node)s',
-                  most_central_node=hover_tooltip(_('most central node'), 'centrality', _('Definition of centrality.'))
+                  most_central_node=hover_tooltip(_('most central node'), 'centrality', _('Scores how much of a &quot;connector&quot; each node is.  A high score means lots of nodes can go through one to quickly connect to other nodes.'))
                   ) }}</h4>
                 <h3 class="ctd-meta--value" role="listitem">
                   {% set kevin_bacon = results['table'][0]['id'] %}
@@ -106,17 +106,17 @@
             <tr>
               <th data-column="id">
                 {{ _('%(node)s',
-                node=hover_tooltip(_('Node'), 'node', _('Definition of node.'), 'bottom', 'hover')
+                node=hover_tooltip(_('Node'), 'node', _('The &quot;dots&quot; in the network - the central organizing thing that is connected to others.'), 'bottom', 'hover')
                 ) }}
               </th>
               <th class="ctd-sort--desc" data-column="degree">
                 {{ _('%(degree)s',
-                degree=hover_tooltip(_('Degree'), 'degree', _('Definition of degree.'), 'bottom', 'hover')
+                degree=hover_tooltip(_('Degree'), 'degree', _('The immediate number of connections a node has.'), 'bottom', 'hover')
                 ) }}
               </th>
               <th data-column="centrality">
                 {{ _('%(centrality)s',
-                centrality=hover_tooltip(_('Centrality'), 'centrality', _('Definition of centrality.'), 'bottom', 'hover')
+                centrality=hover_tooltip(_('Centrality'), 'centrality', _('Scores how much of a &quot;connector&quot; each node is.  A high score means lots of nodes can go through one to quickly connect to other nodes.'), 'bottom', 'hover')
                 ) }}
               </th>
             </tr>
