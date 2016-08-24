@@ -14,8 +14,15 @@
       STICKY_OFFSET_TOP = 300,
       STICKY_OFFSET_BOTTOM = 80;
 
-  // map link data (indices) to node ids
+  // map link data (indices) to node ids, populate node neighbors
+  data.nodes.forEach(function(n) {
+    n.neighbors = [];
+  });
+
   data.links.forEach(function(e) {
+    data.nodes[e.source].neighbors.push(data.nodes[e.target].id);
+    data.nodes[e.target].neighbors.push(data.nodes[e.source].id);
+
     e.source = data.nodes[e.source].id;
     e.target = data.nodes[e.target].id;
   });
@@ -127,6 +134,11 @@
 
     node.filter(function(n) { return n.id === d.id; }).classed('hover', true);
     row.filter(function(r) { return r.id === d.id; }).classed('hover', true);
+
+    node.filter(function(n) { return n.id !== d.id && d.neighbors.indexOf(n.id) < 0; })
+        .classed('blur', true);
+    edge.filter(function(e) { return e.source.id !== d.id && e.target.id !== d.id; })
+        .classed('blur', true);
   }
 
   /**
@@ -135,7 +147,9 @@
   function mouseoutNode(d) {
     if (!activeNode) tooltip.classed('in', false);
 
-    node.classed('hover', false);
+    node.classed('hover', false)
+        .classed('blur', false);
+    edge.classed('blur', false);
     row.classed('hover', false);
   }
 

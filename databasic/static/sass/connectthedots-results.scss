@@ -91,7 +91,8 @@ body {
   fill: $c-theme-bg;
   stroke: $c-white;
   transition: fill 150ms linear,
-              opacity 150ms linear;
+              opacity 150ms linear,
+              fill-opacity 150ms linear;
   &.hover {
     fill: $c-hover;
     cursor: pointer;
@@ -99,12 +100,19 @@ body {
   &.active {
     fill: $c-selected;
   }
+  &.blur {
+    fill-opacity: 0.2;
+  }
 }
 
 .edges > line {
   stroke: $c-black;
   stroke-opacity: 0.25;
-  transition: opacity 150ms linear;
+  transition: opacity 150ms linear,
+              stroke-opacity 150ms linear;
+  &.blur {
+    stroke-opacity: 0.05;
+  }
 }
 
 .ctd-meta {
