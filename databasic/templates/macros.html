@@ -96,7 +96,7 @@
     {# hack to show the stopwords tooltip #}
     {% if _('Ignore stopwords') in field.label.text %}
       {{ _('Ignore %(stopwords)s',
-      stopwords=hover_tooltip(_("stopwords"), 'stopwords', _('Stopwords are words in text analysis that are ignored such as "this", "that", "and" and "but."'))) }}
+      stopwords=hover_tooltip(_("stopwords"), 'stopwords', _('Stopwords are words in text analysis that are ignored such as &quot;this&quot;, &quot;that&quot;, &quot;and&quot; and &quot;but.&quot;'))) }}
     {% else %}
       {{ field.label }}
     {% endif %}

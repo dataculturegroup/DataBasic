@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2016-08-22 06:57-0400\n"
+"POT-Creation-Date: 2016-08-26 09:02-0400\n"
 "PO-Revision-Date: 2015-12-21 14:00-0600\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language: es\n"
@@ -220,11 +220,13 @@ msgid "stopwords"
 msgstr "Ignorar palabras de paro"
 
 #: databasic/templates/macros.html:99
-#: databasic/templates/wordcounter/results.html:39
+#, fuzzy
 msgid ""
-"Stopwords are words in text analysis that are ignored such as \"this\", "
-"\"that\", \"and\" and \"but.\""
-msgstr "Palabras de paro"
+"Stopwords are words in text analysis that are ignored such as "
+"&quot;this&quot;, &quot;that&quot;, &quot;and&quot; and &quot;but.&quot;"
+msgstr "Las palabras de paro son palabras que en el análisis de textos "
+"es útil ignorar, como &quot;esto&quot;, &quot;eso&quot;, &quot;y&quot; y "
+"&quot;pero&quot;."
 
 #: databasic/templates/macros.html:153
 msgid "close video window"
@@ -483,20 +485,33 @@ msgstr ""
 msgid "Designed and Developed by"
 msgstr "Diseñado y Desarrollado por"
 
-#: databasic/templates/home/index.html:105
-msgid ""
-"Databasic is a project led by Rahul Bhargava (MIT Center for Civic Media)"
-" and Catherine D'Ignazio (Engagement Lab). Spanish translation by Aleszu "
-"Bajak and Víctor Rogelio Hernández Marroquín. Portuguese translation by "
-"Daniel Paz de Araújo. Spanish data contributed by Miguel Paz. Portuguese "
-"data contributed by Vivian Guilherme and Daniel Paz de Araújo. Software "
-"development by Bhargava, D'Ignazio, the Engagement Lab and Stephen Suen."
-msgstr "Databasic es un proyecto liderado por Rahul Bhargava (MIT Center for"
-" Civic Media) y Catherine D'Ignazio (Engagement Lab). Traducción española "
-"por Aleszu Bajak y Víctor Rogelio Hernández Marroquín. Traducción al portugués por Daniel Paz de Araújo. "
-" Datos españoles aportado por Miguel Paz. Datos portugueses aportado por "
-"Vivian Guilherme y Daniel Paz de Araújo. Programmado por Bhargava, D'Ignazio, el Engagement "
-"Lab y Stephen Suen."
+#: databasic/templates/home/index.html:107
+msgid "Principal Investigators:"
+msgstr "Directores:"
+
+#: databasic/templates/home/index.html:118
+msgid "Software development:"
+msgstr "Programmación:"
+
+#: databasic/templates/home/index.html:130
+msgid "Spanish translation:"
+msgstr "Traducción al español:"
+
+#: databasic/templates/home/index.html:141
+msgid "Portuguese translation:"
+msgstr "Traducción al portugués:"
+
+#: databasic/templates/home/index.html:146
+msgid "with contributions from"
+msgstr "con la ayuda de"
+
+#: databasic/templates/home/index.html:153
+msgid "Spanish data sourcing:"
+msgstr "Datos en español collecionado por:"
+
+#: databasic/templates/home/index.html:164
+msgid "Portuguese data sourcing:"
+msgstr "Datos en portugués collecionado por:"
 
 #: databasic/templates/samediff/results.html:8
 msgid "SameDiff results"
@@ -517,22 +532,22 @@ msgstr "bajar"
 msgid "These results will expire in %(day)s days"
 msgstr "Estos resultados se vencerán en %(day)s días"
 
-#: databasic/templates/samediff/results.html:36
+#: databasic/templates/samediff/results.html:37
 #, python-format
 msgid "These two documents are %(description)s."
 msgstr "Estos dos documentos son %(description)s."
 
-#: databasic/templates/samediff/results.html:37
+#: databasic/templates/samediff/results.html:38
 #, python-format
 msgid "They have a %(cosine_sim)s score of %(score)s"
 msgstr "Tienen un índice de %(cosine_sim)s de %(score)s"
 
-#: databasic/templates/samediff/results.html:38
+#: databasic/templates/samediff/results.html:39
 #: databasic/templates/samediff/samediff.html:23
 msgid "cosine similarity"
 msgstr "similitud coseno"
 
-#: databasic/templates/samediff/results.html:38
+#: databasic/templates/samediff/results.html:39
 #: databasic/templates/samediff/samediff.html:23
 msgid ""
 "The Cosine Similarity score tries to tell you how similar two documents "
@@ -541,7 +556,7 @@ msgstr ""
 "El índice de similitud coseno te dice cuan parecidos son dos documentos. "
 "Está basado en la frecuencia de las palabras.`"
 
-#: databasic/templates/samediff/results.html:42
+#: databasic/templates/samediff/results.html:43
 #, python-format
 msgid ""
 "The documents are of different lengths so to compare them fairly you "
@@ -550,14 +565,14 @@ msgstr ""
 "Los documentos son de tamaño diferente entonces para compararlos de "
 "manera justo debe usar %(normalized)s"
 
-#: databasic/templates/samediff/results.html:42
-#: databasic/templates/samediff/results.html:45
+#: databasic/templates/samediff/results.html:43
+#: databasic/templates/samediff/results.html:46
 msgid "normalization"
 msgstr "normalización"
 
-#: databasic/templates/samediff/results.html:43
-#: databasic/templates/samediff/results.html:46
-#: databasic/templates/samediff/results.html:87
+#: databasic/templates/samediff/results.html:44
+#: databasic/templates/samediff/results.html:47
+#: databasic/templates/samediff/results.html:89
 msgid ""
 "A process to make data points comparable in a fair way. For example, word"
 " counts in a document can be normalized by dividing them by the total "
@@ -568,7 +583,7 @@ msgstr ""
 "pueden normalizar dividiendo por el número total de palabras en ese "
 "documento. "
 
-#: databasic/templates/samediff/results.html:45
+#: databasic/templates/samediff/results.html:46
 #, python-format
 msgid ""
 "The documents are about the same length so you don't have to use "
@@ -577,52 +592,52 @@ msgstr ""
 "Los documentos son de tamaño similar entonces no hay que usar "
 "%(normalized)s para compararlos."
 
-#: databasic/templates/samediff/results.html:68
-#: databasic/templates/samediff/results.html:79
+#: databasic/templates/samediff/results.html:70
+#: databasic/templates/samediff/results.html:81
 msgid "words"
 msgstr "palabras"
 
-#: databasic/templates/samediff/results.html:85
+#: databasic/templates/samediff/results.html:87
 #, python-format
 msgid "%(normalized)s "
 msgstr "%(normalized)s "
 
-#: databasic/templates/samediff/results.html:86
+#: databasic/templates/samediff/results.html:88
 msgid "Normalization"
 msgstr "Normalización"
 
-#: databasic/templates/samediff/results.html:89
+#: databasic/templates/samediff/results.html:91
 msgid "Toggle normlization"
 msgstr "Contralar normalización"
 
-#: databasic/templates/samediff/results.html:98
-#: databasic/templates/samediff/results.html:144
+#: databasic/templates/samediff/results.html:108
+#: databasic/templates/samediff/results.html:154
 #, python-format
 msgid "Words that are only in %(document)s"
 msgstr "Palabras que solo ocurren en %(document)s"
 
-#: databasic/templates/samediff/results.html:106
-#: databasic/templates/samediff/results.html:128
-#: databasic/templates/samediff/results.html:152
+#: databasic/templates/samediff/results.html:116
+#: databasic/templates/samediff/results.html:138
+#: databasic/templates/samediff/results.html:162
 #: databasic/templates/wordcounter/results.html:53
 msgid "Word"
 msgstr "Palabra"
 
-#: databasic/templates/samediff/results.html:107
-#: databasic/templates/samediff/results.html:129
-#: databasic/templates/samediff/results.html:153
+#: databasic/templates/samediff/results.html:117
+#: databasic/templates/samediff/results.html:139
+#: databasic/templates/samediff/results.html:163
 #: databasic/templates/wordcounter/results.html:54
 #: databasic/templates/wordcounter/results.html:74
 #: databasic/templates/wordcounter/results.html:95
 msgid "Frequency"
 msgstr "Frecuencia"
 
-#: databasic/templates/samediff/results.html:122
+#: databasic/templates/samediff/results.html:132
 #, python-format
 msgid "Words that are in %(doc)s"
 msgstr "Palabras en %(doc)s"
 
-#: databasic/templates/samediff/results.html:169
+#: databasic/templates/samediff/results.html:179
 #, python-format
 msgid ""
 "Comparing text documents is a great way to find out what makes each one "
@@ -654,12 +669,12 @@ msgstr ""
 "'samediff-dl');\">Baja todos los resultados como archivo .CSV </a> para "
 "compararlos más."
 
-#: databasic/templates/samediff/results.html:274
+#: databasic/templates/samediff/results.html:284
 #, python-format
 msgid " uses in %(doc)s"
 msgstr " usos en %(doc)s"
 
-#: databasic/templates/samediff/results.html:276
+#: databasic/templates/samediff/results.html:286
 msgid " uses"
 msgstr " usos"
 
@@ -735,6 +750,12 @@ msgid ""
 msgstr ""
 "Siento que no hay resultados. Tal vez su texto es demasiado corto... o "
 "quizás solo contiene palabras de paro."
+
+#: databasic/templates/wordcounter/results.html:39
+msgid ""
+"Stopwords are words in text analysis that are ignored such as \"this\", "
+"\"that\", \"and\" and \"but.\""
+msgstr "Palabras de paro"
 
 #: databasic/templates/wordcounter/results.html:48
 msgid "Top Words"

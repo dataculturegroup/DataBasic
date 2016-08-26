@@ -162,7 +162,7 @@
 		"lang" : "es"
 	},
 	{
-		"title" : "Futebol Brasileiro",
+		"title" : "Estatísticas dos Times Brasileiros da Serie A",
 		"source":"sample-data/pt/soccer.csv",
 		"modules": ["wtfcsv"],
 		"lang" : "pt"
@@ -192,26 +192,38 @@
 		"lang" : "pt"
 	},
 	{
-		"title": "La Letra de Jennifer Lopez",
-		"source": "sample-data/en/jennifer-lopez-lyrics.txt",
+		"title" : "La Letra de Maná",
+		"source":"sample-data/es/lyrics-mana.txt",
 		"modules": ["samediff", "wordcounter"],
 		"lang" : "es"
 	},
 	{
-		"title": "La Letra de The Beatles",
-		"source": "sample-data/en/beatles-lyrics.txt",
+		"title" : "La Letra de Paulina Rubio",
+		"source":"sample-data/es/lyrics-paulina-rubio.txt",
 		"modules": ["samediff", "wordcounter"],
 		"lang" : "es"
 	},
 	{
-		"title": "La Letra de Metallica",
-		"source": "sample-data/en/metallica-lyrics.txt",
+		"title" : "La Letra de Ricky Martin",
+		"source":"sample-data/es/lyrics-ricky-martin.txt",
 		"modules": ["samediff", "wordcounter"],
 		"lang" : "es"
 	},
 	{
-		"title": "La Letra de Bob Marley",
-		"source": "sample-data/en/bob-marley-lyrics.txt",
+		"title" : "La Letra de Shakira",
+		"source":"sample-data/es/lyrics-shakira.txt",
+		"modules": ["samediff", "wordcounter"],
+		"lang" : "es"
+	},
+	{
+		"title" : "Los Discursos de Fidel Castro 1959",
+		"source":"sample-data/es/castro-speech-1959.txt",
+		"modules": ["samediff", "wordcounter"],
+		"lang" : "es"
+	},
+	{
+		"title" : "Los Discursos de Fidel Castro 2000 - 2008",
+		"source":"sample-data/es/castro-speech-2000-2008.txt",
 		"modules": ["samediff", "wordcounter"],
 		"lang" : "es"
 	}
