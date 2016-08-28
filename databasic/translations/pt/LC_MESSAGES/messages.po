@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2016-08-26 09:02-0400\n"
+"POT-Creation-Date: 2016-08-28 16:57-0400\n"
 "PO-Revision-Date: 2016-01-26 15:13-0200\n"
 "Last-Translator: \n"
 "Language: pt\n"
@@ -508,6 +508,13 @@ msgstr "Dados em português contribuíram pelo:"
 #: databasic/templates/home/index.html:164
 msgid "Portuguese data sourcing:"
 msgstr "Dados em espanhol contribuíram pelo:"
+
+#: databasic/templates/home/index.html:188
+msgid ""
+"This free and open source project would not be possible without the "
+"generous support of:"
+msgstr "Este projeto es software livre y código aberto"
+" graças ao apoio generoso de:"
 
 #: databasic/templates/samediff/results.html:8
 msgid "SameDiff results"

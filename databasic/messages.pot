@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2016-08-26 09:02-0400\n"
+"POT-Creation-Date: 2016-08-28 16:57-0400\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -444,6 +444,12 @@ msgstr ""
 
 #: databasic/templates/home/index.html:164
 msgid "Portuguese data sourcing:"
+msgstr ""
+
+#: databasic/templates/home/index.html:188
+msgid ""
+"This free and open source project would not be possible without the "
+"generous support of:"
 msgstr ""
 
 #: databasic/templates/samediff/results.html:8

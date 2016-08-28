@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2016-08-26 09:02-0400\n"
+"POT-Creation-Date: 2016-08-28 16:57-0400\n"
 "PO-Revision-Date: 2015-12-21 14:00-0600\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language: es\n"
@@ -224,8 +224,9 @@ msgstr "Ignorar palabras de paro"
 msgid ""
 "Stopwords are words in text analysis that are ignored such as "
 "&quot;this&quot;, &quot;that&quot;, &quot;and&quot; and &quot;but.&quot;"
-msgstr "Las palabras de paro son palabras que en el análisis de textos "
-"es útil ignorar, como &quot;esto&quot;, &quot;eso&quot;, &quot;y&quot; y "
+msgstr ""
+"Las palabras de paro son palabras que en el análisis de textos es útil "
+"ignorar, como &quot;esto&quot;, &quot;eso&quot;, &quot;y&quot; y "
 "&quot;pero&quot;."
 
 #: databasic/templates/macros.html:153
@@ -512,6 +513,13 @@ msgstr "Datos en español collecionado por:"
 #: databasic/templates/home/index.html:164
 msgid "Portuguese data sourcing:"
 msgstr "Datos en portugués collecionado por:"
+
+#: databasic/templates/home/index.html:188
+msgid ""
+"This free and open source project would not be possible without the "
+"generous support of:"
+msgstr "Este proyecto es software libre y código abierto"
+" gracias al apoyo generoso de:"
 
 #: databasic/templates/samediff/results.html:8
 msgid "SameDiff results"
