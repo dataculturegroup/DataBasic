@@ -89,7 +89,7 @@ def process_paste(text, has_header_row=True):
         groups = re.findall(r'"(.*?)+"|\t', r)
         if len(groups) == 3:
             csv.rows.append((groups[0], groups[2]))
-        elif len(r.split('\t')) == 1:
+        elif len(groups) == 1:
             csv_rows.append((r.split('\t')[0], r.split('\t')[1]))
         else:
             return None
