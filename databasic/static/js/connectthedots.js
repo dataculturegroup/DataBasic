@@ -174,6 +174,7 @@
           .classed('blur', true);
 
       showTooltip(d);
+      tooltip.style('width', getTooltipSize().width + 'px');
     }
   }
 
@@ -186,7 +187,8 @@
         .classed('blur', false);
     edge.classed('blur', false);
     row.classed('active', false);
-    tooltip.classed('in', false);
+    tooltip.classed('in', false)
+           .style('width', 'auto');
   }
 
   /**
