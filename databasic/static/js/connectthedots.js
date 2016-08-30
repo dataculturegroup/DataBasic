@@ -369,10 +369,12 @@
 
   // event handlers for export buttons
   document.querySelector('.btn-download--png').addEventListener('click', function() {
+    clearActiveNode();
     saveSvgAsPng(document.querySelector('svg'), getFilename(filename, 'png'), {scale: 2.0});
   });
 
   document.querySelector('.btn-download--svg').addEventListener('click', function() {
+    clearActiveNode();
     svgAsDataUri(document.querySelector('svg'), {}, function(uri) {
       var a = document.createElement('a');
       a.download = getFilename(filename, 'svg');
