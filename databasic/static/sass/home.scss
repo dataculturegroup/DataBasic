@@ -11,6 +11,10 @@ body {
     text-align: center;
 }
 
+a {
+	color: $c-red;
+	font-weight:bold;
+}
 .col-centered {
     display: inline-block;
     float: none;

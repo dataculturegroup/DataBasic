@@ -150,7 +150,7 @@
 		"lang" : "pt"
 	},
 	{
-		"title" : "Altura y Peso de Personas entre 6 - 16 años",
+		"title" : "Altura y Peso de Personas entre 6 - 16 años en los EEUU",
 		"source":"sample-data/es/csv-altura-y-peso.csv",
 		"modules": ["wtfcsv"],
 		"lang" : "es"
@@ -162,31 +162,7 @@
 		"lang" : "es"
 	},
 	{
-		"title" : "La Letra de Maná",
-		"source":"sample-data/es/lyrics-mana.txt",
-		"modules": ["samediff", "wordcounter"],
-		"lang" : "es"
-	},
-	{
-		"title" : "La Letra de Paulina Rubio",
-		"source":"sample-data/es/lyrics-paulina-rubio.txt",
-		"modules": ["samediff", "wordcounter"],
-		"lang" : "es"
-	},
-	{
-		"title" : "La Letra de Ricky Martin",
-		"source":"sample-data/es/lyrics-ricky-martin.txt",
-		"modules": ["samediff", "wordcounter"],
-		"lang" : "es"
-	},
-	{
-		"title" : "La Letra de Shakira",
-		"source":"sample-data/es/lyrics-shakira.txt",
-		"modules": ["samediff", "wordcounter"],
-		"lang" : "es"
-	},
-	{
-		"title" : "Futebol Brasileiro",
+		"title" : "Estatísticas dos Times Brasileiros da Serie A",
 		"source":"sample-data/pt/soccer.csv",
 		"modules": ["wtfcsv"],
 		"lang" : "pt"

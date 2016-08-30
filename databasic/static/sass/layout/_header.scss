@@ -52,8 +52,13 @@ header {
 		float: right;
 		padding-top: 10px;
 		padding-right: 10px;
+		color: $c-black;
+		font-family: HalisGR-Book;
+	    font-weight: normal;
+	    font-style: normal;
 
 		a {
+			color: white;
 			&:after {
 				content: '';
 			}
