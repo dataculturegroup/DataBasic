@@ -1,4 +1,4 @@
-import logging, operator, os
+import logging, operator, os, re
 from collections import OrderedDict
 from databasic import mongo
 from databasic.forms import ConnectTheDotsUpload, ConnectTheDotsSample, ConnectTheDotsPaste
@@ -86,10 +86,13 @@ def process_paste(text, has_header_row=True):
     csv_rows = []
 
     for r in rows:
-        if len(r.split('\t')) != 2: # TODO: allow for tabs within quotations
-            return None
-        else:
+        groups = re.findall(r'"(.*?)+"|\t', r)
+        if len(groups) == 3:
+            csv.rows.append((groups[0], groups[2]))
+        elif len(r.split('\t')) == 1:
             csv_rows.append((r.split('\t')[0], r.split('\t')[1]))
+        else:
+            return None
 
     headers = csv_rows.pop(0) if has_header_row else ['source', 'target']
     file_path = filehandler.write_to_csv(headers, csv_rows)
