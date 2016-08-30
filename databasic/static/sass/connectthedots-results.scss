@@ -96,6 +96,9 @@ body {
   &.hover {
     fill: $c-hover;
     cursor: pointer;
+    &.blur {
+      fill-opacity: 1;
+    }
   }
   &.active {
     fill: $c-selected;

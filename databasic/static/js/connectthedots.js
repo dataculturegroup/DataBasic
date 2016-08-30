@@ -130,26 +130,30 @@
    * Highlight a node in the graph and table
    */
   function mouseoverNode(d) {
-    if (!activeNode) showTooltip(d);
+    if (!activeNode) {
+      showTooltip(d);
+
+      node.filter(function(n) { return n.id !== d.id && d.neighbors.indexOf(n.id) < 0; })
+          .classed('blur', true);
+      edge.filter(function(e) { return e.source.id !== d.id && e.target.id !== d.id; })
+          .classed('blur', true);
+    }
 
     node.filter(function(n) { return n.id === d.id; }).classed('hover', true);
     row.filter(function(r) { return r.id === d.id; }).classed('hover', true);
-
-    node.filter(function(n) { return n.id !== d.id && d.neighbors.indexOf(n.id) < 0; })
-        .classed('blur', true);
-    edge.filter(function(e) { return e.source.id !== d.id && e.target.id !== d.id; })
-        .classed('blur', true);
   }
 
   /**
    * De-highlight a node in the graph and table
    */
   function mouseoutNode(d) {
-    if (!activeNode) tooltip.classed('in', false);
+    if (!activeNode) {
+      tooltip.classed('in', false);
+      node.classed('blur', false);
+      edge.classed('blur', false);
+    }
 
     node.classed('hover', false)
-        .classed('blur', false);
-    edge.classed('blur', false);
     row.classed('hover', false);
   }
 
@@ -158,13 +162,16 @@
    */
   function setActiveNode(d) {
     if (activeNode !== d.id) {
+      clearActiveNode();
       activeNode = d.id;
-
-      node.classed('active', false);
-      row.classed('active', false);
 
       node.filter(function(d) { return d.id === activeNode; }).classed('active', true);
       row.filter(function(d) { return d.id === activeNode; }).classed('active', true);
+
+      node.filter(function(n) { return n.id !== d.id && d.neighbors.indexOf(n.id) < 0; })
+          .classed('blur', true);
+      edge.filter(function(e) { return e.source.id !== d.id && e.target.id !== d.id; })
+          .classed('blur', true);
 
       showTooltip(d);
     }
@@ -175,7 +182,9 @@
    */
   function clearActiveNode() {
     activeNode = null;
-    node.classed('active', false);
+    node.classed('active', false)
+        .classed('blur', false);
+    edge.classed('blur', false);
     row.classed('active', false);
     tooltip.classed('in', false);
   }
