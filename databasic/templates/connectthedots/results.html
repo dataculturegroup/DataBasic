@@ -34,7 +34,7 @@
         </h2>
       </div>
       <div class="col-md-8 col-md-offset-2">
-        <p class="summary">{{ _('This network graph contains %(node_count)s %(nodes)s and %(edge_count)s %(edges)s. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus.',
+        <p class="summary">{{ _('Here is a picture of how your data is connected.  Any nodes linked by an edge who up in a row together in your input data. Your network graph has %(node_count)s %(nodes)s and %(edge_count)s %(edges)s total. This diagram is automatically drawn by the computer, so it might look different each time you load this page.  The shape of the network graph tells you about the links in your data.',
             node_count=results['nodes'],
             edge_count=results['edges'],
             nodes=hover_tooltip(_('nodes'), 'nodes', _('The &quot;dots&quot; in the network - the central organizing thing that is connected to others.')),
@@ -74,14 +74,23 @@
                   density_score=hover_tooltip(_('density score'), 'density score', _('Measures how interconnected the whole network is. If every node were connected to every other node, the density would be 1.'))
                   ) }}</h4>
                 <h3 class="ctd-meta--value" role="listitem">{{ results['density'] | round(3) }}</h3>
-                <p class="ctd-meta--summary">Etiam porta sem malesuada magna mollis euismod.</p>
+                <p class="ctd-meta--summary">
+                  {% if results['density'] == 1 %}
+                      {{ _('This network is a "complete" network. Every node is connected to every other node. You win!') }}
+                  {% elif results['density'] == 0 %}
+                      {{ _('This network is not connected at all. Time for you to connect the dots!') }}
+                  {% else %}
+                      {{ _('%(density_pct)s of the potential connections in the network have been made.',
+                      density_pct='{0:.1f}%'.format(results['density'] * 100)) }}
+                  {% endif %}
+                </p>
               </div>
               <div class="col-sm-4">
                 <h4 class="ctd-meta--name" role="listitem">{{ _('%(clustering_score)s',
                   clustering_score=hover_tooltip(_('clustering score'), 'clustering score', _('Summarizes how much the network diagram is broken into cliques.  A score close to 1 means it is like high school (i.e. lots of cliques).'))
                   ) }}</h4>
                 <h3 class="ctd-meta--value" role="listitem">{{ results['clustering'] | round(3) }}</h3>
-                <p class="ctd-meta--summary">Aenean eu leo quam, pellentesque ornare sem lacinia vestibulum.</p>
+                <p class="ctd-meta--summary">{{ _('This score shows how much the nodes in your graph tend to cluster together. Most networks of real-world data tend to cluster more than a random graph would.') }}</p>
               </div>
               <div class="col-sm-4">
                 <h4 class="ctd-meta--name" role="listitem">{{ _('%(most_central_node)s',
@@ -95,7 +104,7 @@
                     {{ kevin_bacon }}
                   {% endif %}
                 </h3>
-                <p class="ctd-meta--summary">Praesent commodo cursus magna, vel scelerisque et.</p>
+                <p class="ctd-meta--summary">{{ _('This node has the highest betweenness centrality score. The most nodes can go through %(kevin_bacon)s to connect to others in the network.', kevin_bacon=kevin_bacon) }}</p>
               </div>
             </div>
           </div>

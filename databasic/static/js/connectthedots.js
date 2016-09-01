@@ -11,7 +11,7 @@
       EDGE_WIDTH = 1,
       ROUNDING_PRECISION = 3,
       TABLE_ROWS = 40,
-      STICKY_OFFSET_TOP = 300,
+      STICKY_OFFSET_TOP = 470,
       STICKY_OFFSET_BOTTOM = 80;
 
   // map link data (indices) to node ids, populate node neighbors

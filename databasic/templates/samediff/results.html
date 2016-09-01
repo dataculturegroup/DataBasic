@@ -21,7 +21,7 @@
     
     <div class="row" >
       <div class="col-md-12 text-center" id="title">
-        <h2 role="banner" id="results-title">Your {{ tool_logo() }} Report
+        <h2 role="banner" id="results-title">{{_('Your %(logo)s Report', logo=tool_logo()) }}
         <a href="{{ download }}" title="{{_('download')}}" aria-label="{{_('download')}}" {{ ga_event('samediff-dl') }}><span class="glyphicon glyphicon-download" aria-hidden="true"></span></a> {{ shareable() }}
         </h2>
         {% if remaining_days %}
