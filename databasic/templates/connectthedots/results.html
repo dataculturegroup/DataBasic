@@ -27,8 +27,9 @@
     {% endif %}
     <div class="row text-center">
       <div class="col-md-12">
+        {{ tool_logo() }}
         <h2 id="results-title" role="banner">
-          ConnectTheDots: {{ results['filename'] }}
+          {{ results['filename'] }}
           {{ shareable() }}
         </h2>
       </div>

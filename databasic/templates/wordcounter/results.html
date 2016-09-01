@@ -23,18 +23,24 @@
       <div class="col-xs-12">
         {% if has_results %}
         <div class="top-info">
+          {{ tool_logo() }}
           <h2 role="banner" id="results-title">Words used in {{ title }} {{ shareable() }}</h2>
-            <p>{{ _('Here is a picture of the words used most often in your document. Words used more often are bigger, and ones used less often are smaller. This picture, called a "word cloud", is helpful to get a sense of the most used words in a document.') }}</p>
-            {% if remaining_days %}
-              <p>{{ _('These results will expire in %(day)s days', day=remaining_days) }}</p>
-            {% endif %}
-            {{ what_next_anchor() }}
+          <div class="row">
+            <div class="col-md-8 col-md-offset-2">
+              <p>{{ _('Here is a picture of the words used most often in your document. Words used more often are bigger, and ones used less often are smaller. This picture, called a "word cloud", is helpful to get a sense of the most used words in a document.') }}</p>
+              {% if remaining_days %}
+                <p>{{ _('These results will expire in %(day)s days', day=remaining_days) }}</p>
+              {% endif %}
+              {{ what_next_anchor() }}
+            </div>
+          </div>
         </div>
         <div id="wc-container" aria-hidden="true" aria-label="visual picture showing words sized by ok how often they appear">
           <div id="word-cloud" role="presentation" aria-labelledby="wc-container"></div>
         </div>
         {% else %}
         <div class="top-info">
+          {{ tool_logo() }}
           <h2>No Results To Show</h2>
           <p>{{ _('Sorry, but we didn\'t find any results to show. Maybe your text is too short... or maybe it is all %(stopwords)s', stopwords=hover_tooltip( _('stopwords'), 'stopwords', _('Stopwords are words in text analysis that are ignored such as "this", "that", "and" and "but."') )) }}</p>
         </div>

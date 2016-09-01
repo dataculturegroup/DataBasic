@@ -17,7 +17,8 @@
   <div class="container">
     <div class="row">
       <div id="tool-description">
-        <h3 role="banner">{{ _('SameDiff compares two or more text files and tells you how similar or different they are.') }}</h3>
+        {{ tool_logo() }}
+        <h3 id="input-title" role="banner">{{ _('SameDiff compares two or more text files and tells you how similar or different they are.') }}</h3>
         <p>{{ _('SameDiff compares one %(corpus)s of text to another corpus of text to show you similarities and differences. It uses a %(cosine_similarity)s %(algorithm)s to rate whether the documents are really similar or totally different.',
         corpus=hover_tooltip(_('corpus'), 'corpus', _("A collection of written texts. For example, all of the lyrics in Katy Perry songs.") ),
         cosine_similarity=hover_tooltip(_('cosine similarity'), 'cosine similarity', _("The Cosine Similarity score tries to tell you how similar two documents are based on the number of times words are used in each.")),

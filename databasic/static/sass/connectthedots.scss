@@ -5,7 +5,11 @@
 @import "modules/input";
 
 body {
-  background-image: url("/static/img/backgrounds/tiled_background_red.png");
+  background-image: url("/static/img/backgrounds/tiled_background_blue.png");
+}
+
+.tool-logo {
+  margin-bottom: 30px;
 }
 
 textarea {

@@ -15,7 +15,7 @@
 	<div class="container-fluid">
 		<div class="row">
 			<div class="col-md-12 text-center no-results">
-				<br>
+        {{ tool_logo() }}
 				<h2 role="banner" id="results-title">{{ _('We couldn\'t find any results') }}</h2>
 				<p>{{ _('They might have expired. Why not try <a href="/%(lang)s/%(tool_name)s">analyzing some new data?</a>', lang=g['current_lang'], tool_name=tool_name) }}</p>
 			</div>

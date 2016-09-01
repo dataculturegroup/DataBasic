@@ -22,9 +22,11 @@
     {% endif %}
     <div class="row">
       <div id="tool-description">
-        <h2 role="banner">{{ _('ConnectTheDots tagline goes here.') }}</h2>
-        <p>{{ _('Description of ConnectTheDots tool with definitions of %(key_terms)s. Lorem ipsum sagittis lacus vel augue laoreet rutrum faucibus dolor auctor. Praesent commodo cursus magna, vel scelerisque nisl consectetur et. Nulla vitae elit libero, a pharetra augue.',
-        key_terms=hover_tooltip( _('key terms'), 'key terms', _("This is the definition of a key term.") )) }}</p>
+        {{ tool_logo() }}
+        <h3 id="input-title" role="banner">
+          {{ _('Connect the Dots shows you how your data is connected by analyzing it as a network.') }}
+        </h3>
+        <p>{{ _('Analyzing the connections between the "dots" in your data is a fundamentally different approach to understanding it. This tool shows you a network diagram to reveal those links, and gives you a high level report about what our network looks like.') }}</p>
       </div>
     </div>
     {{ render_forms(forms, action_url=tool_name, action_text=_('Graph')) }}
