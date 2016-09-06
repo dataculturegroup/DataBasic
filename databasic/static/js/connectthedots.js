@@ -357,7 +357,7 @@
   $('.ctd-container').affix({
     offset: {
       top: STICKY_OFFSET_TOP,
-      bottom: document.querySelector('.tool > .container-fluid').getBoundingClientRect().height +
+      bottom: document.querySelector('.tool > .bottom-section').getBoundingClientRect().height +
       document.querySelector('footer > nav').getBoundingClientRect().height + STICKY_OFFSET_BOTTOM
     }
   });

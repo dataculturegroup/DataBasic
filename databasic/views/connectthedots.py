@@ -4,6 +4,7 @@ from databasic import mongo
 from databasic.forms import ConnectTheDotsUpload, ConnectTheDotsSample, ConnectTheDotsPaste
 from databasic.logic import connectthedots as ctd, filehandler
 from flask import Blueprint, g, redirect, render_template, request, Response
+from natural.number import ordinal
 
 mod = Blueprint('connectthedots', __name__,
                 url_prefix='/<lang_code>/connectthedots',
@@ -150,11 +151,36 @@ def render_results(doc_id):
     doc = mongo.find_document('connectthedots', doc_id)
     results = doc.get('results')
 
+    first_mismatch = None # get first centrality/degree mismatch
+    degree_index = 0
+    centrality_index = 0
+    table_by_degree = sorted(results['table'], key=operator.itemgetter('degree'), reverse=True)
+    table_by_centrality = results['table']
+
+    for i, row in enumerate(table_by_degree):
+        if row['id'] != table_by_centrality[i]['id']:
+            first_mismatch = row['id']
+            degree_index = i
+            break
+
+    if first_mismatch is not None:
+        for i, row in enumerate(table_by_centrality[degree_index + 1:]): # start from where we left off
+            if row['id'] == first_mismatch:
+                centrality_index = i + degree_index + 1
+                break
+
+    whatnext = {}
+    whatnext['mismatch_id'] = first_mismatch
+    whatnext['mismatch_degree'] = ordinal(degree_index + 1)
+    whatnext['mismatch_centrality'] = ordinal(centrality_index + 1)
+    whatnext['lowest_degree'] = table_by_degree[-1]['id']
+
     return render_template('connectthedots/results.html', 
-        results=results,
-        tool_name='connectthedots',
-        source=doc['source'],
-        has_multiple_sheets=results['has_multiple_sheets'])
+                           results=results,
+                           whatnext=whatnext,
+                           tool_name='connectthedots',
+                           source=doc['source'],
+                           has_multiple_sheets=results['has_multiple_sheets'])
 
 @mod.route('/results/<doc_id>/graph.gexf')
 def download_gexf(doc_id):

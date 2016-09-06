@@ -37,6 +37,7 @@ kombu==3.0.29
 libsass==0.9.1
 lxml==3.4.4
 MarkupSafe==0.23
+natural==0.2.0
 networkx==1.11
 nltk==3.1
 numpy==1.9.2

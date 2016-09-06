@@ -32,7 +32,7 @@ body {
   position: absolute;
   padding: 5px 12px 5px 15px;
   border: 0;
-  font-family: 'HalisGR-Medium';
+  font-family: $font-md;
   font-size: 20px;
   text-transform: uppercase;
   background-color: $c-theme-accent;
@@ -66,7 +66,7 @@ body {
       background-color: $c-hover;
     }
     > strong {
-      font-family: 'HalisGR-Medium';
+      font-family: $font-md;
     }
   }
   > .divider {
@@ -124,6 +124,9 @@ body {
   > .row {
     margin: -15px 0 0;
     background-color: $c-theme-accent;
+    > div:last-child > .ctd-meta--name {
+      padding-top: 3px;
+    }
   }
 }
 
@@ -137,7 +140,10 @@ body {
 }
 
 .ctd-meta--summary {
-  font-size: 16px;
+  font-size: 15px;
+  > a {
+    font-size: 15px;
+  }
 }
 
 .ctd-table {
@@ -207,6 +213,18 @@ body {
 
 .tool > .container-fluid {
   background-color: $c-white;
+}
+
+#what-next > div > p {
+  > a[role=definition] {
+    display: inline-block;
+    color: $c-theme-md;
+    text-decoration: none;
+  }
+  > strong {
+    font-family: $font-md;
+    font-weight: 400;
+  }
 }
 
 footer > nav {
