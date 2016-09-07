@@ -192,6 +192,42 @@
 		"lang" : "pt"
 	},
   {
+    "title" : "La Letra de Maná",
+    "source":"sample-data/es/lyrics-mana.txt",
+    "modules": ["samediff", "wordcounter"],
+    "lang" : "es"
+  },
+  {
+    "title" : "La Letra de Paulina Rubio",
+    "source":"sample-data/es/lyrics-paulina-rubio.txt",
+    "modules": ["samediff", "wordcounter"],
+    "lang" : "es"
+  },
+  {
+    "title" : "La Letra de Ricky Martin",
+    "source":"sample-data/es/lyrics-ricky-martin.txt",
+    "modules": ["samediff", "wordcounter"],
+    "lang" : "es"
+  },
+  {
+    "title" : "La Letra de Shakira",
+    "source":"sample-data/es/lyrics-shakira.txt",
+    "modules": ["samediff", "wordcounter"],
+    "lang" : "es"
+  },
+  {
+    "title" : "Los Discursos de Fidel Castro 1959",
+    "source":"sample-data/es/castro-speech-1959.txt",
+    "modules": ["samediff", "wordcounter"],
+    "lang" : "es"
+  },
+  {
+    "title" : "Los Discursos de Fidel Castro 2000 - 2008",
+    "source":"sample-data/es/castro-speech-2000-2008.txt",
+    "modules": ["samediff", "wordcounter"],
+    "lang" : "es"
+  },
+  {
     "title": "Les Misérables Character Co-occurence",
     "source": "sample-data/en/les-miserables.csv",
     "modules": ["connectthedots"],

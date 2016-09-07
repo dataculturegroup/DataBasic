@@ -3,75 +3,166 @@
 @import "themes/home-theme";
 @import "base";
 
-body {
-	background-image: url("/static/img/background_tile_tiny.png");
+header {
+  box-shadow: none;
 }
 
-.row-centered {
-    text-align: center;
+.home-logo {
+  width: 440px;
+  margin: 40px auto 20px;
 }
 
-a {
-	color: $c-red;
-	font-weight:bold;
+.home-tagline {
+  margin-bottom: 80px;
+  line-height: 1.2em;
+  font-family: $font-lt;
+  color: $c-black;
+  text-align: center;
 }
-.col-centered {
-    display: inline-block;
-    float: none;
-    /* reset the text-align */
-    text-align: left;
-    /* inline-block space fix */
-    margin-right: -4px;
+
+.no-gutter > [class*='col-'] {
+  padding: 0;
 }
 
 .thumbnail {
-	@include no-border();
-
-	.thumbnail-img {
-		padding: 20px;
-
-		&#wordcounter {
-			background-color: $c-red;
-		}
-		&#wtfcsv {
-			background-color: $c-yellow;
-		}
-		&#samediff {
-			background-color: $c-green;
-		}
-	}
-
-	.caption {
-		padding: 20px 5px;
-
-		a {
-			color: $c-black;
-
-			&:hover, &:active, &:focus {
-				color: $c-black;
-				text-decoration: none;
-			}
-		}
-	}
+  padding: 0;
+  @media (min-width: 768px) { margin-bottom: 80px; }
+  @include no-border();
 }
 
-#intro {
-	color: $c-black;
-	text-align: center;
-	margin-bottom: 40px;
+.thumbnail-img {
+  height: 360px;
+  padding: 20px;
+  opacity: 1;
+  transition: opacity .15s ease-in;
+  &:hover,
+  &:focus {
+    opacity: .5;
+  }
+  &#wordcounter    { background-color: $c-red; }
+  &#wtfcsv         { background-color: $c-yellow; }
+  &#samediff       { background-color: $c-green; }
+  &#connectthedots { background-color: $c-blue; }
+  > a {
+    display: block;
+    height: 100%;
+    width: 100%;
+    > img {
+      @include vertical-center();
+    }
+  }
 }
 
-.tool-logo {
-	height: 70px;
-  margin-bottom: 20px;
+.thumbnail-caption {
+  margin-top: 20px;
+  padding: 10px;
+  > p > a {
+    color: $c-black;
+    &:hover {
+      text-decoration: none;
+    }
+  }
+}
+
+.home-video {
+  padding-top: 40px;
+  padding-bottom: 80px;
+  background-color: $c-pink;
+  h1 {
+    margin: 0 auto 40px;
+    font-family: $font-lt;
+  }
+}
+
+.home-about--header {
+  h1 {
+    margin: 40px auto;
+    font-family: $font-lt;
+    color: $c-black;
+    > strong {
+      font-family: $font-md;
+      font-weight: 400;
+    }
+  }
+}
+
+.home-about {
+  background-image: url('/static/img/background_tile_tiny.png');
+}
+
+.row-flex {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-wrap: wrap;
+  -ms-flex-wrap: wrap;
+  flex-wrap: wrap;
+}
+
+.row-flex > [class*='col-'] {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
+}
+
+@mixin feature-box--o($color) {
+  padding: 20px;
+  border: 20px solid $color !important;
+  color: $color;
 }
 
 .feature-box {
-	background: #ffffff;
-	color: #333333;
+  width: 100%;
+  @media (min-width: 768px) { width: 50%; margin-bottom: 80px; }
+  @media (min-width: 992px) { width: 37.5%; }
+  padding: 40px;
+  text-align: center;
+  background-color: $c-white;
+  &.feature-box--blue { background-color: $c-blue; }
+  &.feature-box--red { background-color: $c-red; }
+  &.feature-box--pink { background-color: $c-pink; }
+  &.feature-box--green-o { @include feature-box--o($c-green); }
+  &.feature-box--yellow-o { @include feature-box--o($c-yellow); }
+  &.feature-box--blue-o { @include feature-box--o($c-blue); }
+}
 
-	
-	p {
-		font-size: 14px;
-	}
+.home-news {
+  padding-top: 40px;
+  padding-bottom: 80px;
+  background-color: $c-yellow;
+  h1 {
+    margin: 0 auto 40px;
+    font-family: $font-lt;
+    > strong {
+      font-family: $font-md;
+      font-weight: 400;
+    }
+  }
+}
+
+.home-credits {
+  padding-top: 40px;
+  padding-bottom: 80px;
+  background-color: $c-blue;
+  h3 {
+    font-family: $font-lt;
+    margin-bottom: 40px;
+  }
+  p {
+    font-size: 15px;
+    margin-bottom: 20px;
+    > a {
+      border-bottom: 1px solid $c-white;
+    }
+    &:last-of-type {
+      margin: 40px auto;
+    }
+  }
 }
