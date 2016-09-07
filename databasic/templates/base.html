@@ -6,7 +6,8 @@
   <meta property="og:image" content="/static/img/logos/databasic.png" />
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>{% block title %}{% endblock %}</title>
-  <link rel="icon" type="image/ico" href="{{ url_for('static', filename='img/icons/favicon.ico') }}">
+  <link rel="apple-touch-icon" href="{{ url_for('static', filename='img/icons/favicon-152.png') }}">
+  <link rel="shortcut icon" href="{{ url_for('static', filename='img/icons/favicon.ico') }}">
   {% assets "css_base" %}<link rel="stylesheet" href="{{ ASSET_URL }}" />{% endassets %}
   <script type="text/javascript" src="{{ url_for('static', filename='fonts/MyFontsWebfontsKit.js') }}"></script>
   {% endblock %}

@@ -1,6 +1,6 @@
 import os, ConfigParser, logging, logging.handlers, sys, codecs, json
 import logging, os, sys, logging.handlers
-from flask import Flask, Blueprint, g, redirect, request, abort
+from flask import Flask, Blueprint, g, redirect, request, abort, send_from_directory
 from flask.ext.assets import Environment, Bundle
 from flask.ext.babel import Babel
 from flask_debugtoolbar import DebugToolbarExtension
@@ -167,6 +167,11 @@ def auth():
         print request.args['code']
         logic.oauth.authorize(request.args['code'])
     return redirect(logic.oauth.redirect_to())
+
+@app.route('/favicon.ico')
+def favicon():
+  return send_from_directory(os.path.join(app.root_path, 'static', 'img', 'icons'),
+                             'favicon.ico', mimetype='image/vnd.microsoft.icon')
 
 from databasic.views import home
 from databasic.views import samediff
