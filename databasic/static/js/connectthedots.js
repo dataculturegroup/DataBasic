@@ -48,7 +48,7 @@
   var simulation = d3.forceSimulation()
                      .force('charge', d3.forceManyBody())
                      .force('link', d3.forceLink().id(function(d) { return d.id; }))
-                     .force('center', center);
+                     .force('center', center); // TODO: adjust forces based on clustering score
 
   var ticksElapsed = 0,
       stableAt = Math.ceil(

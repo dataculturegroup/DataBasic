@@ -27,10 +27,12 @@ class ConnectTheDots():
         utf8_file_path = filehandler.convert_to_utf8(input_path)
         input_file = codecs.open(utf8_file_path, 'r', filehandler.ENCODING_UTF_8)
         try:
-            self.table = table.Table.from_csv(input_file, no_header_row=not has_header_row)
+            self.table = table.Table.from_csv(input_file,
+                                              no_header_row=not has_header_row,
+                                              snifflimit=0)
             self.graph = nx.from_edgelist(self.table.to_rows())
         except Exception as e:
-            logger.warning('[CTD] Unable to make table from csv')
+            logger.warning('[CTD] Unable to make table from csv') # TODO: delete doc, redirect to input
 
     def get_summary(self):
         """
