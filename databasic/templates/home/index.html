@@ -54,12 +54,14 @@
 </div>
 
 <div class="container-fluid home-video">
-  <div class="row text-center no-gutter">
-    <div class="col-md-8 col-md-offset-2">
-      <h1>{{ _('Why use DataBasic?') }}</h1>
-      <div class="js-video vimeo widescreen">
-        <div class="embed-responsive embed-responsive-16by9">
-          <iframe class="embed-responsive-item" src="https://player.vimeo.com/video/150218661?byline=0&portrait=0" width="640" height="360" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
+  <div class="container">
+    <div class="row text-center no-gutter">
+      <div class="col-md-8 col-md-offset-2">
+        <h1>{{ _('Why use DataBasic?') }}</h1>
+        <div class="js-video vimeo widescreen">
+          <div class="embed-responsive embed-responsive-16by9">
+            <iframe class="embed-responsive-item" src="https://player.vimeo.com/video/150218661?byline=0&portrait=0" width="640" height="360" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
+          </div>
         </div>
       </div>
     </div>
@@ -109,9 +111,29 @@
 </div>
 
 <div class="container-fluid home-news">
-  <div class="row text-center">
-    <div class="col-md-8 col-md-offset-2">
-      <h1>{{ _('<strong>DataBasic</strong> News') }}</h1>
+  <div class="container">
+    <div class="row text-center">
+      <div class="col-md-12">
+        <h1>{{ _('<strong>DataBasic</strong> News') }}</h1>
+        <div class="row row-flex">
+          {% for post in databasic_news %}
+            <div class="col-md-4">
+              <div class="blog-post">
+                <a href="{{ post['link'] }}">
+                  {% if post['image'] %}
+                    <img class="blog-image" src="{{ post['image'] }}">
+                  {% endif %}
+                  <h3>{{ post['title'] | safe }}</h3>
+                </a>
+                <p class="blog-meta">by {{ post['author'] }} on {{ post['published'] }}</p>
+                <p>
+                  {{ post['description'] | safe }}
+                </p>
+              </div>
+            </div>
+          {% endfor %}
+        </div>
+      </div>
     </div>
   </div>
 </div>

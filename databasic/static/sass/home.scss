@@ -15,7 +15,8 @@ header {
 }
 
 .home-tagline {
-  margin-bottom: 80px;
+  margin-bottom: 60px;
+  @media (min-width: 992px) { margin-bottom: 80px; }
   font-size: 18px;
   line-height: 1.4em;
   @media (min-width: 768px) { font-size: 24px; }
@@ -70,7 +71,8 @@ header {
 
 .home-video {
   padding-top: 40px;
-  padding-bottom: 80px;
+  padding-bottom: 60px;
+  @media (min-width: 992px) { padding-bottom: 80px; }
   background-color: $c-pink;
   h1 {
     margin: 0 auto 40px;
@@ -124,8 +126,8 @@ header {
 
 .feature-box {
   width: 100%;
-  @media (min-width: 768px) { width: 50%; margin-bottom: 80px; }
-  @media (min-width: 992px) { width: 37.5%; }
+  @media (min-width: 768px) { width: 50%; margin-bottom: 40px; }
+  @media (min-width: 992px) { width: 37.5%; margin-bottom: 80px; }
   padding: 40px;
   text-align: center;
   background-color: $c-white;
@@ -145,7 +147,8 @@ header {
 
 .home-news {
   padding-top: 40px;
-  padding-bottom: 80px;
+  padding-bottom: 40px;
+  @media (min-width: 992px) { padding-bottom: 80px; }
   background-color: $c-yellow;
   h1 {
     margin: 0 auto 40px;
@@ -157,9 +160,37 @@ header {
   }
 }
 
+.blog-post {
+  height: 100%;
+  padding: 20px;
+  margin-bottom: 20px;
+  @media (min-width: 992px) { margin-bottom: 0; }
+  text-align: left;
+  background-color: $c-white;
+  > .blog-meta {
+    margin-bottom: 10px;
+    text-transform: uppercase;
+    color: $c-darkgrey;
+  }
+  > a > .blog-image {
+    width: 100%;
+    margin-bottom: 20px;
+  }
+  > a > h3 {
+    margin-top: 0;
+    color: $c-black;
+  }
+  > p {
+    margin-bottom: 0;
+    font-size: 15px;
+    color: $c-black;
+  }
+}
+
 .home-credits {
   padding-top: 40px;
-  padding-bottom: 80px;
+  padding-bottom: 60px;
+  @media (min-width: 992px) { padding-bottom: 80px; }
   background-color: $c-blue;
   h3 {
     font-family: $font-lt;
