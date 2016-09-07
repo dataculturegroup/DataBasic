@@ -9,6 +9,19 @@ $(document).ready(function(){
     return this.optional(element) || (element.files[0].size / 1048576 <= filesize);
   });
 
+  $(".paste").validate({
+    rules: {
+      area: {
+        required: true
+      }
+    },
+    messages: {
+      area: {
+        required: _("This field is required")
+      }
+    }
+  });
+
   $(".upload").validate({
       rules: {
         upload: {

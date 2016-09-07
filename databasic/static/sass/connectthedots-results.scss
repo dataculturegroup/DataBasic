@@ -8,6 +8,10 @@ body {
   background-color: $c-theme-bg;
 }
 
+h4[role=alert] {
+  margin-bottom: 40px;
+}
+
 .tool-logo {
   margin-bottom: 30px;
 }

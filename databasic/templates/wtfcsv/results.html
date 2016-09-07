@@ -169,7 +169,7 @@
                 metadata=hover_tooltip( _('metadata'), 'metadata', _("Metadata summarizes basic information about your data.") ))}}
               {% if remaining_days %}
                 <br />
-                {{ _('These results will expire in %(day)s days', day=remaining_days) }}
+                {{ _('These results will expire in %(day)s days.', day=remaining_days) }}
               {% endif %}
               </p>
               {% if 'no_data' not in whatnext %}

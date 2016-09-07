@@ -151,6 +151,11 @@ def render_results(doc_id):
     doc = mongo.find_document('connectthedots', doc_id)
     results = doc.get('results')
 
+    if doc.get('source') != 'sample':
+        remaining_days = mongo.get_remaining_days('connectthedots', doc_id)
+    else:
+        remaining_days = None
+
     first_mismatch = None # get first centrality/degree mismatch
     degree_index = 0
     centrality_index = 0
@@ -180,7 +185,8 @@ def render_results(doc_id):
                            whatnext=whatnext,
                            tool_name='connectthedots',
                            source=doc['source'],
-                           has_multiple_sheets=results['has_multiple_sheets'])
+                           has_multiple_sheets=results['has_multiple_sheets'],
+                           remaining_days=remaining_days)
 
 @mod.route('/results/<doc_id>/graph.gexf')
 def download_gexf(doc_id):

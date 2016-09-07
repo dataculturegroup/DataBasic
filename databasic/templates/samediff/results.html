@@ -25,7 +25,7 @@
         <a href="{{ download }}" title="{{_('download')}}" aria-label="{{_('download')}}" {{ ga_event('samediff-dl') }}><span class="glyphicon glyphicon-download" aria-hidden="true"></span></a> {{ shareable() }}
         </h2>
         {% if remaining_days %}
-          <p><span class="{{ 'expiring' if remaining_days <= 10 else '' }}">{{ _('These results will expire in %(day)s days', day=remaining_days) }}</span></p>
+          <p><span class="{{ 'expiring' if remaining_days <= 10 else '' }}">{{ _('These results will expire in %(day)s days.', day=remaining_days) }}</span></p>
         {% endif %}
 
       </div>

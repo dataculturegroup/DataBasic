@@ -50,12 +50,20 @@
         </h2>
       </div>
       <div class="col-md-8 col-md-offset-2">
-        <p class="summary">{{ _('Here is a picture of how your data is connected. Any %(nodes)s linked by an %(edge)s show up in the same row in your input data. Your network graph has %(node_count)s nodes and %(edge_count)s edges.<br><br>This diagram is automatically drawn by the computer, so it might look different each time you load this page. The shape of the network graph tells you about the links in your data.',
+        <p class="summary">{{ _('Here is a picture of how your data is connected. Any %(nodes)s linked by an %(edge)s show up in the same row in your input data. Your network graph has %(node_count)s nodes and %(edge_count)s edges.</p>
+
+        <p class="summary">This diagram is automatically drawn by the computer, so it might look different each time you load this page. The shape of the network graph tells you about the links in your data.',
         node_count=results['nodes'],
         edge_count=results['edges'],
         nodes=hover_tooltip(_('nodes'), 'node', _('The &quot;dots&quot; in the network - the central organizing thing that is connected to others.')),
         edge=hover_tooltip(_('edge'), 'edge', _('A connection between one node and another node.'))
         ) }}</p>
+
+        {% if remaining_days %}
+          <p class="summary">
+            {{ _('These results will expire in %(day)s days.', day=remaining_days) }}
+          </p>
+        {% endif %}
 
         {{ what_next_anchor() }}
       </div>
