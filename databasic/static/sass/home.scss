@@ -175,6 +175,11 @@ header {
   > a > .blog-image {
     width: 100%;
     margin-bottom: 20px;
+    opacity: 1;
+    transition: opacity .15s ease-in;
+  }
+  > a:hover > .blog-image, > a:focus > .blog-image {
+    opacity: .5;
   }
   > a > h3 {
     margin-top: 0;
