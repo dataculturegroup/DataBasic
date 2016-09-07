@@ -9,12 +9,16 @@ header {
 
 .home-logo {
   width: 440px;
+  padding-left: 20px;
+  padding-right: 20px;
   margin: 40px auto 20px;
 }
 
 .home-tagline {
   margin-bottom: 80px;
-  line-height: 1.2em;
+  font-size: 18px;
+  line-height: 1.4em;
+  @media (min-width: 768px) { font-size: 24px; }
   font-family: $font-lt;
   color: $c-black;
   text-align: center;
@@ -126,10 +130,16 @@ header {
   text-align: center;
   background-color: $c-white;
   &.feature-box--blue { background-color: $c-blue; }
-  &.feature-box--red { background-color: $c-red; }
-  &.feature-box--pink { background-color: $c-pink; }
   &.feature-box--green-o { @include feature-box--o($c-green); }
-  &.feature-box--yellow-o { @include feature-box--o($c-yellow); }
+  &.feature-box--yellow-o {
+    @include feature-box--o($c-yellow);
+    @media (max-width: 767px) { order: 2; }
+  }
+  &.feature-box--red {
+    background-color: $c-red;
+    @media (max-width: 767px) { order: 1; }
+  }
+  &.feature-box--pink { background-color: $c-pink; }
   &.feature-box--blue-o { @include feature-box--o($c-blue); }
 }
 
