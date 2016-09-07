@@ -131,6 +131,7 @@
       {% if 'bad_formatting' in results %}
         <div class="row">
           <div class="col-md-12" id="intro">
+            {{ tool_logo() }}
             <h2 class="summary" role="banner" id="results-title">
               {{ _('We can\'t analyze that data because it\'s not in a standard form. Your first row should contain the names of your columns.') }}
             </h2>
@@ -152,11 +153,12 @@
         </div>
         {% endif %}
 
-        <div class="row">
+        <div class="row text-center">
           <div class="col-md-12" id="intro">
             <div class="intro-container">
+              {{ tool_logo() }}
               <h2 class="summary" role="banner" id="results-title">
-                {{_("WTFcsv: ")}} {{ results[index]['filename'] }} {{ shareable() }}
+                {{ results[index]['filename'] }} {{ shareable() }}
               </h2>
               <p class="summary">
                 {{ _("%(rows)s rows of data grouped into %(cols)s columns.",
@@ -167,7 +169,7 @@
                 metadata=hover_tooltip( _('metadata'), 'metadata', _("Metadata summarizes basic information about your data.") ))}}
               {% if remaining_days %}
                 <br />
-                {{ _('These results will expire in %(day)s days', day=remaining_days) }}
+                {{ _('These results will expire in %(day)s days.', day=remaining_days) }}
               {% endif %}
               </p>
               {% if 'no_data' not in whatnext %}

@@ -72,7 +72,8 @@ class MongoHandler:
     def remove_all_sample_data(self):
         self.remove_sample_data('wordcounter')        
         self.remove_sample_data('wtfcsv')        
-        self.remove_sample_data('samediff')        
+        self.remove_sample_data('samediff')
+        self.remove_sample_data('connectthedots')       
 
     def remove_sample_data(self, collection):
         self._db[collection].remove({'sample_id': {'$exists': True, '$ne': ''}})
@@ -89,4 +90,5 @@ class MongoHandler:
         self.remove_expired_results('wordcounter')
         self.remove_expired_results('wtfcsv')
         self.remove_expired_results('samediff')
+        self.remove_expired_results('connectthedots')
 

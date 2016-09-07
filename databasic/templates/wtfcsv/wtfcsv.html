@@ -17,7 +17,8 @@
   <div class="container">
     <div class="row">
       <div id="tool-description">
-        <h2 role="banner">{{ _('WTFcsv tells you WTF is going on with your .csv file.') }}</h2>
+        {{ tool_logo() }}
+        <h3 role="banner">{{ _('WTFcsv tells you WTF is going on with your .csv file.') }}</h3>
         <p>{{ _('Data arrives at your doorstep in the form of a spreadsheet but how do you find a story in rows and columns? WTFcsv provides the first step by characterizing each column\'s %(data_type)s and contents so that you can ask more questions.',
         data_type=hover_tooltip( _('data type'), 'data type', _("Data is often classified by type. Common types of data include numbers, dates and text.") )) }}</p>
       </div>

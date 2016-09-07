@@ -1,0 +1,27 @@
+@charset "UTF-8";
+
+@import "themes/blue-theme";
+@import "tool";
+@import "modules/input";
+
+body {
+  background-image: url("/static/img/backgrounds/tiled_background_blue.png");
+}
+
+h4[role=alert] {
+  margin-bottom: 40px;
+}
+
+.tool-logo {
+  margin-bottom: 30px;
+}
+
+textarea {
+  resize: vertical;
+}
+
+footer {
+  nav {
+    background-color: $c-theme-bg;
+  }
+}

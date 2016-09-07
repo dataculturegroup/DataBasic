@@ -159,8 +159,6 @@ class SameDiffSample(SampleForm, SameDiffForm, Form):
         firstItem = choices.pop(0)
         choices.insert(1, firstItem)
         self.sample2.choices = choices
-    
-        
 
 class SameDiffLink(LinkForm, SameDiffForm, Form):
     label = _('Paste links')
@@ -172,3 +170,33 @@ class SameDiffLink(LinkForm, SameDiffForm, Form):
 
     def __init__(self):
         super(SameDiffLink, self).__init__(_('Paste links'), _('https://en.wikipedia.org/wiki/Natural_language_processing'))
+
+
+'''
+ConnectTheDots forms
+'''
+class ConnectTheDotsUpload(UploadForm, Form):
+    has_header_row = BooleanField(
+        _('Has header row'), 
+        widget=CheckboxInput(), 
+        default=True)
+
+class ConnectTheDotsSample(SampleForm, Form):
+    def __init__(self, lang):
+        super(ConnectTheDotsSample, self).__init__('connectthedots', lang)
+
+class ConnectTheDotsPaste(Form):
+    label = _('Paste rows')
+
+    area = StringField(
+        _('Text'),
+        description={'placeholder': _('Paste rows from an Excel or Google spreadsheet...')},
+        widget=TextArea()) 
+
+    has_header_row = BooleanField(
+        _('Has header row'), 
+        widget=CheckboxInput(), 
+        default=True)
+
+    def __init__(self):
+        super(ConnectTheDotsPaste, self).__init__()

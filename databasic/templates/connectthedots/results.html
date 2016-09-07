@@ -1,0 +1,186 @@
+{% extends 'tool_base.html' %}
+{% from 'macros.html' import hover_tooltip, shareable with context %}
+
+{% macro whatnext_mismatch(id, degree, centrality) -%}
+  {% if id != None %}
+    {{ _('For example, is it significant that <strong>%(id)s</strong> has the %(degree)s highest number of connections but is ranked %(centrality)s for %(betweenness_centrality)s?',
+    id=id,
+    degree=degree,
+    centrality=centrality,
+    betweenness_centrality=hover_tooltip(_('betweenness centrality'), 'centrality', _('Scores how much of a &quot;connector&quot; each node is. A high score means lots of nodes can go through one to quickly connect to other nodes.'))
+    ) }}
+  {% else %}
+    {{ _('For example, why might <strong>%(id)s</strong> have the highest %(betweenness_centrality)s in the network?',
+    id=results['table'][0]['id'],
+    betweenness_centrality=hover_tooltip(_('betweenness centrality'), 'centrality', _('Scores how much of a &quot;connector&quot; each node is. A high score means lots of nodes can go through one to quickly connect to other nodes.'))
+    ) }}
+  {% endif %}
+{%- endmacro %}
+
+{% block title %}{{ _('ConnectTheDots: ') }}{{ results['filename'] }}{% endblock %}
+
+{% block custom_css %}
+  <link href="{{ url_for('static', filename='css/connectthedots-results.scss.css') }}" rel="stylesheet" type="text/css">
+{% endblock %}
+
+{% block results_scripts %}
+  <script type="text/javascript">
+    var data = JSON.parse({{ results['json'] | tojson | safe }});
+    var filename = '{{ results["filename"] }}';
+  </script>
+  {% assets "js_ctd" %}<script type="text/javascript" src="{{ ASSET_URL }}"></script>{% endassets %}
+{% endblock %}
+
+{% block nav %}
+  {% include 'tool_header.html' %}
+{% endblock %}
+
+{% block body %}
+<div class="tool" role="main">
+  <div class="container">
+    {% if has_multiple_sheets %}
+      <h4 class="text-center" role="alert">{{ _('Warning: The file you uploaded had multiple sheets, but we only used the first sheet.') }}</h4>
+    {% endif %}
+    <div class="row text-center">
+      <div class="col-md-12">
+        {{ tool_logo() }}
+        <h2 id="results-title" role="banner">
+          {{ results['filename'] }}
+          {{ shareable() }}
+        </h2>
+      </div>
+      <div class="col-md-8 col-md-offset-2">
+        <p class="summary">{{ _('Here is a picture of how your data is connected. Any %(nodes)s linked by an %(edge)s show up in the same row in your input data. Your network graph has %(node_count)s nodes and %(edge_count)s edges.</p>
+
+        <p class="summary">This diagram is automatically drawn by the computer, so it might look different each time you load this page. The shape of the network graph tells you about the links in your data.',
+        node_count=results['nodes'],
+        edge_count=results['edges'],
+        nodes=hover_tooltip(_('nodes'), 'node', _('The &quot;dots&quot; in the network - the central organizing thing that is connected to others.')),
+        edge=hover_tooltip(_('edge'), 'edge', _('A connection between one node and another node.'))
+        ) }}</p>
+
+        {% if remaining_days %}
+          <p class="summary">
+            {{ _('These results will expire in %(day)s days.', day=remaining_days) }}
+          </p>
+        {% endif %}
+
+        {{ what_next_anchor() }}
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-md-7">
+        <div class="ctd-container">
+          <div class="ctd-progress" role="progressbar" aria-hidden="true"></div>
+          <div class="ctd-download dropdown">
+            <button type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              Download
+              <span class="glyphicon glyphicon-download" aria-hidden="true"></span>
+            </button>
+            <ul class="dropdown-menu">
+              <li><a class="btn-download--png"><strong>PNG</strong> - {{ _('for the web') }}</a></li>
+              <li><a class="btn-download--svg"><strong>SVG</strong> - {{ _('for printing or editing') }}</a></li>
+              <li><a class="btn-download--gexf"><strong>GEXF</strong> - {{ _('for analysis') }}</a></li>
+              <li role="separator" class="divider" aria-hidden="true"></li>
+              <li><a class="btn-download--table">{{ _('Download the <strong>table</strong>') }}</a></li>
+            </ul>
+          </div>
+          <div class="ctd-tooltip tooltip top" role="tooltip" aria-hidden="true">
+            <div class="tooltip-arrow"></div>
+            <div class="tooltip-inner"></div>
+          </div>
+          <svg class="ctd-graph"></svg>
+          <div class="ctd-meta" role="list" aria-label="Graph metadata">
+            <div class="row text-center">
+              <div class="col-sm-4">
+                <h4 class="ctd-meta--name" role="listitem">{{ _('%(density_score)s',
+                  density_score=hover_tooltip(_('density score'), 'density score', _('Measures how interconnected the whole network is. If every node were connected to every other node, the density would be 1.'))
+                  ) }}</h4>
+                <h3 class="ctd-meta--value" role="listitem">{{ results['density'] | round(3) }}</h3>
+                <p class="ctd-meta--summary">
+                  {% if results['density'] == 1 %}
+                    {{ _('This network is a "complete" network. Every node is connected to every other node. You win!') }}
+                  {% elif results['density'] == 0 %}
+                    {{ _('This network is not connected at all. Time for you to connect the dots!') }}
+                  {% else %}
+                    {{ _('%(density_pct)s of the potential connections in the network have been made.',
+                    density_pct='{0:.1f}%'.format(results['density'] * 100)
+                    ) }}
+                    {% if results['density'] >= 0.5 %}
+                      {{ _('This network is pretty %(dense)s.',
+                      dense=hover_tooltip(_('dense'), 'dense', _('A network that has lots of edges between nodes can be called &quot;dense&quot;.'))
+                      ) }}
+                    {% elif results['density'] >= 0.35 %}
+                      {{ _('This network is somewhat %(dense)s.',
+                      dense=hover_tooltip(_('dense'), 'dense', _('A network that has lots of edges between nodes can be called &quot;dense&quot;.'))
+                      ) }}
+                    {% else %}
+                      {{ _('This network is %(sparse)s.',
+                      sparse=hover_tooltip(_('sparse'), 'sparse', _('A network that doesn\'t have many edges between nodes can be called &quot;sparse&quot;.'))
+                      ) }}
+                    {% endif %}
+                  {% endif %}
+                </p>
+              </div>
+              <div class="col-sm-4">
+                <h4 class="ctd-meta--name" role="listitem">{{ _('%(clustering_score)s', clustering_score=hover_tooltip(_('clustering score'), 'clustering score', _('Summarizes how much the network diagram is broken into cliques. A score close to 1 means it is like high school (i.e. lots of cliques).'))
+                ) }}</h4>
+                <h3 class="ctd-meta--value" role="listitem">{{ results['clustering'] | round(3) }}</h3>
+                <p class="ctd-meta--summary">{{ _('This score shows how much the nodes in your graph tend to cluster together. Most networks of real-world data tend to cluster more than a random graph would.') }}</p>
+              </div>
+              <div class="col-sm-4">
+                <h4 class="ctd-meta--name" role="listitem">{{ _('the connector') }}</h4>
+                <h3 class="ctd-meta--value" role="listitem">
+                  {% set kevin_bacon = results['table'][0]['id'] %}
+                  {% if kevin_bacon is number and kevin_bacon is equalto kevin_bacon | round %}
+                    {{ kevin_bacon | int }}
+                  {% else %}
+                    {{ kevin_bacon }}
+                  {% endif %}
+                </h3>
+                <p class="ctd-meta--summary">{{ _('This node has the highest %(betweenness_centrality)s score. The most nodes can go through %(kevin_bacon)s to connect to others in the network.',
+                kevin_bacon=kevin_bacon,
+                betweenness_centrality=hover_tooltip(_('betweenness centrality'), 'centrality', _('Scores how much of a &quot;connector&quot; each node is. A high score means lots of nodes can go through one to quickly connect to other nodes.'))
+                ) }}</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-5">
+        <table class="ctd-table table table-compact table-striped" aria-label="Top 40 nodes by degree">
+          <thead>
+            <tr>
+              <th data-column="id">
+                {{ _('%(node)s',
+                node=hover_tooltip(_('Node'), 'node', _('The &quot;dots&quot; in the network - the central organizing thing that is connected to others.'), 'bottom', 'hover')
+                ) }}
+              </th>
+              <th class="ctd-sort--desc" data-column="degree">
+                {{ _('%(degree)s',
+                degree=hover_tooltip(_('Degree'), 'degree', _('The immediate number of connections a node has.'), 'bottom', 'hover')
+                ) }}
+              </th>
+              <th data-column="centrality">
+                {{ _('%(centrality)s',
+                centrality=hover_tooltip(_('Centrality'), 'centrality', _('Scores how much of a &quot;connector&quot; each node is. A high score means lots of nodes can go through one to quickly connect to other nodes.'), 'bottom', 'hover')
+                ) }}
+              </th>
+            </tr>
+          </thead>
+        </table>
+      </div>
+    </div>
+  </div>
+  {{ what_next(_('Understanding relationships as nodes and edges in a network can lead to deeper insights about how information travels through the system. For example, from the %(density_score)s of %(density_value)s you can start to understand whether your network is %(dense)s or %(sparse)s. And the higher the %(clustering_score)s the more your nodes are grouped (like high school cliques).</p><p>You can start to look for patterns in the nodes that are the most and least connected. %(whatnext_mismatch)s Why does <strong>%(lowest_degree)s</strong> have the fewest connections?</p><p>Being curious about these measures and patterns is the first step in understanding network data. Check out our activity guide for more help on analyzing network data.',
+  density_score=hover_tooltip(_('density score'), 'density score', _('Measures how interconnected the whole network is. If every node were connected to every other node, the density would be 1.')),
+  dense=hover_tooltip(_('dense'), 'dense', _('A network that has lots of edges between nodes can be called &quot;dense&quot;.')),
+  density_value=results['density'] | round(3),
+  sparse=hover_tooltip(_('sparse'), 'sparse', _('A network that doesn\'t have many edges between nodes can be called &quot;sparse&quot;.')),
+  clustering_score=hover_tooltip(_('clustering score'), 'clustering score', _('Summarizes how much the network diagram is broken into cliques. A score close to 1 means it is like high school (i.e. lots of cliques).')),
+  whatnext_mismatch=whatnext_mismatch(whatnext['mismatch_id'], whatnext['mismatch_degree'], whatnext['mismatch_centrality']),
+  lowest_degree=whatnext['lowest_degree']
+  )) }}
+</div>
+{% endblock %}

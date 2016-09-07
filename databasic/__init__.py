@@ -90,6 +90,9 @@ assets.register('js_base', js_bundle)
 js_tool = Bundle('js/lib/d3.min.js', 'js/lib/d3.layout.cloud.js', 'js/lib/d3.tip.js', 'js/lib/underscore.min.js', 'js/lib/jquery.flip.min.js', 'js/lib/highcharts.src.js',
     filters='jsmin', output='gen/packed_tool.js')
 assets.register('js_tool', js_tool)
+js_ctd = Bundle('js/lib/d3.min.js', 'js/lib/saveSvgAsPng.js', 'js/lib/underscore.min.js', 'js/lib/jquery.floatThead-slim.min.js', 'js/connectthedots.js',
+    filters='jsmin', output='gen/packed_ctd.js')
+assets.register('js_ctd', js_ctd)
 css_bundle = Bundle('css/bootstrap.css', 'css/font-awesome.min.css',
     filters='cssmin', output='gen/packed.css')
 assets.register('css_base', css_bundle)
@@ -169,7 +172,9 @@ from databasic.views import home
 from databasic.views import samediff
 from databasic.views import wordcounter
 from databasic.views import wtfcsv
+from databasic.views import connectthedots
 app.register_blueprint(home.mod)
 app.register_blueprint(samediff.mod)
 app.register_blueprint(wordcounter.mod)
 app.register_blueprint(wtfcsv.mod)
+app.register_blueprint(connectthedots.mod)

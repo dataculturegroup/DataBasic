@@ -1,4 +1,15 @@
 {% extends "header_base.html" %}
-{% block header_container %}
-  <a href="../"><img src="/static/img/logos/databasic.png" id="tool-logo" alt="data basic logo"></a>
+
+{% block header_content %}
+  <div class="col-xs-12">
+    <a href="../"><img class="home-logo img-responsive" src="/static/img/data_basic_logo_512.png" alt="data basic logo"></a>
+    <div class="row">
+      <div class="col-sm-8 col-sm-offset-2">
+        <h3 class="home-tagline" role="banner">
+          {{ _('DataBasic is a suite of easy-to-use web tools for beginners that introduce concepts of working with data.') }}
+          {{ _('These simple tools make it easy to work with data in fun ways, so you can learn how to find great stories to tell.') }}
+        </h3>
+      </div>
+    </div>
+  </div>
 {% endblock %}

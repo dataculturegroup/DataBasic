@@ -1,7 +1,6 @@
 {% extends "header_base.html" %}
-{% block header_container %}
-  <a href="/{{ g['current_lang'] }}/{{ tool_name }}" role="button" aria-label="{{ _('go to %(tool)s', tool=tool_name) }}"><img src="/static/img/logos/{{ tool_name }}.png" class="tool-logo" id="tool-logo-{{tool_name}}"></a>
-{% endblock %}
-{% block header_logo %}
-  <a href="{{ url_for('index') }}{{ g['current_lang'] }}" class="pull-left" id="logo" role="button" aria-label="{{ _('go to data basic home page') }}"><img class="img-responsive" src="/static/img/logos/databasic.png"></a>
+{% block header_content %}
+  <div class="col-xs-2 logo-container">
+    <a href="{{ url_for('index') }}{{ g['current_lang'] }}" class="pull-left" id="logo" role="button" aria-label="{{ _('go to data basic home page') }}"><img class="img-responsive" src="/static/img/logos/databasic.png"></a>
+  </div>
 {% endblock %}

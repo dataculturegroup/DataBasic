@@ -1,0 +1,13 @@
+@charset "UTF-8";
+
+@import "settings/colors";
+
+$c-theme-accent: #0098e6;
+$c-theme-lt: #41c0f9;
+$c-theme-md: #10b0f7;
+$c-theme-dk: #0076b3;
+$c-theme-bg: #10b0f7;
+
+$c-selected: $c-theme-lt;
+$c-unselected: $c-theme-md;
+$c-hover: $c-theme-dk;

@@ -1,8 +1,6 @@
 @charset "UTF-8";
 
 header {
-	min-height: 140px;
-
 	background-color: $c-white;
 
 	.navbar-toggle {
@@ -31,16 +29,10 @@ header {
 		}
 	}
 
-
-	.tool-logo {
-		height: 64px;
-	}
-
 	#header-logo-container {
-		padding-top: 42px;
 		text-align: center;
 		.logo-container {
-			height: 98px;
+			height: 80px;
 			img {
 				position: absolute;
 				bottom: 10px;

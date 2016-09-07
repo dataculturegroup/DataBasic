@@ -1,0 +1,236 @@
+@charset "UTF-8";
+
+@import "themes/blue-theme";
+@import "tool";
+@import "modules/input";
+
+body {
+  background-color: $c-theme-bg;
+}
+
+h4[role=alert] {
+  margin-bottom: 40px;
+}
+
+.tool-logo {
+  margin-bottom: 30px;
+}
+
+.ctd-container {
+  position: relative;
+  margin-top: 30px;
+  &.affix {
+    @media (min-width: 992px) {
+      position: fixed;
+      margin-top: -442px;
+    }
+  }
+}
+
+.ctd-download {
+  position: relative;
+  background-color: $c-white;
+}
+
+.ctd-download > button {
+  position: absolute;
+  padding: 5px 12px 5px 15px;
+  border: 0;
+  font-family: $font-md;
+  font-size: 20px;
+  text-transform: uppercase;
+  background-color: $c-theme-accent;
+  visibility: hidden;
+  opacity: 0;
+  transition: opacity 150ms linear;
+  &:focus {
+    background-color: $c-selected;
+    outline: none;
+  }
+  > .glyphicon {
+    top: 4px;
+    font-size: 24px;
+  }
+}
+
+.ctd-download > .dropdown-menu {
+  top: 40px;
+  border: 0;
+  border-radius: 0;
+  background-color: $c-theme-accent;
+  box-shadow: none;
+  > li > a {
+    color: $c-white;
+    &:hover {
+      background-color: $c-hover;
+      cursor: pointer;
+    }
+    &:focus,
+    &:active {
+      background-color: $c-hover;
+    }
+    > strong {
+      font-family: $font-md;
+    }
+  }
+  > .divider {
+    height: 2px;
+    background-color: $c-white;
+  }
+}
+
+.ctd-progress {
+  position: absolute;
+  height: 5px;
+  background-color: $c-theme-dk;
+  z-index: 2;
+}
+
+.ctd-tooltip {
+  z-index: 1;
+  pointer-events: none;
+}
+
+.nodes > circle {
+  fill: $c-theme-bg;
+  stroke: $c-white;
+  transition: fill 150ms linear,
+              opacity 150ms linear,
+              fill-opacity 150ms linear;
+  &.hover {
+    fill: $c-hover;
+    cursor: pointer;
+    &.blur {
+      fill-opacity: 1;
+    }
+  }
+  &.active {
+    fill: $c-selected;
+  }
+  &.blur {
+    fill-opacity: 0.2;
+  }
+}
+
+.edges > line {
+  stroke: $c-black;
+  stroke-opacity: 0.25;
+  transition: opacity 150ms linear,
+              stroke-opacity 150ms linear;
+  &.blur {
+    stroke-opacity: 0.05;
+  }
+}
+
+.ctd-meta {
+  padding: 10px 0;
+  margin: 0;
+  > .row {
+    margin: -15px 0 0;
+    background-color: $c-theme-accent;
+    > div:last-child > .ctd-meta--name {
+      padding-top: 3px;
+    }
+  }
+}
+
+.ctd-meta--name,
+.ctd-meta--name > a {
+  font-family: $font-lt;
+}
+
+.ctd-meta--value {
+  margin-top: 0;
+}
+
+.ctd-meta--summary {
+  font-size: 15px;
+  > a {
+    font-size: 15px;
+  }
+}
+
+.ctd-table {
+  position: relative;
+  width: 100%;
+  margin-top: 20px;
+  font-size: 16px;
+  table-layout: fixed;
+}
+
+.ctd-table > thead > tr {
+  background-color: $c-theme-bg;
+  > th:nth-child(1) {
+    width: 35%;
+  }
+  > th:nth-child(2) {
+    width: 30%;
+  }
+  > th:nth-child(3) {
+    width: 35%;
+  }
+}
+
+.ctd-table > thead > tr > th {
+  &:before {
+    content: '\f0dc';
+    font-family: FontAwesome;
+  }
+  &:hover,
+  > a:hover {
+    cursor: s-resize;
+  }
+  &.ctd-sort--asc:before {
+    content: '\f0de';
+  }
+  &.ctd-sort--desc:before {
+    content: '\f0dd';
+  }
+  &.ctd-sort--desc:hover,
+  &.ctd-sort--desc > a:hover {
+    cursor: n-resize;
+  }
+}
+
+.ctd-thwrap {
+  overflow: visible !important;
+}
+
+.ctd-table > tbody > tr {
+  &:nth-of-type(odd) {
+    background-color: $c-theme-accent;
+  }
+  > td {
+    font-family: $font-lt;
+    transition: background 150ms linear;
+  }
+  &:hover {
+    cursor: pointer;
+  }
+  &.hover > td {
+    background-color: $c-hover;
+  }
+  &.active > td {
+    background-color: $c-selected;
+  }
+}
+
+.tool > .container-fluid {
+  background-color: $c-white;
+}
+
+#what-next > div > p {
+  > a[role=definition] {
+    display: inline-block;
+    color: $c-theme-md;
+    text-decoration: none;
+  }
+  > strong {
+    font-family: $font-md;
+    font-weight: 400;
+  }
+}
+
+footer > nav {
+  background-color: $c-theme-bg;
+}

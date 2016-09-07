@@ -18,6 +18,12 @@
 	border: 0px !important;
 }
 
+@mixin vertical-center() {
+  position: relative;
+  top: 50%;
+  transform: perspective(1px) translateY(-50%);
+}
+
 .btn, 
 th, td,
 .navbar-default, 
