@@ -115,9 +115,9 @@
     <div class="row text-center">
       <div class="col-md-12">
         <h1>{{ _('<strong>DataBasic</strong> News') }}</h1>
-        <div class="row">
+        <div class="row row-flex">
           {% for post in databasic_news %}
-            <div class="col-md-4">
+            <div class="col-md-4 blog-wrapper">
               <div class="blog-post">
                 <a href="{{ post['link'] }}">
                   {% if post['image'] %}

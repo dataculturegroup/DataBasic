@@ -160,7 +160,13 @@ header {
   }
 }
 
+.blog-wrapper {
+  display: flex;
+  flex: 1;
+}
+
 .blog-post {
+  flex: 1;
   padding: 20px;
   margin-bottom: 20px;
   @media (min-width: 992px) { margin-bottom: 0; }
