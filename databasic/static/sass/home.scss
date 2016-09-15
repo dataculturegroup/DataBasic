@@ -35,38 +35,29 @@ header {
   @include no-border();
 }
 
+.thumbnail > a {
+  text-decoration: none;
+}
+
 .thumbnail-img {
-  height: 360px;
-  padding: 20px;
+  height: 375px;
   opacity: 1;
   transition: opacity .15s ease-in;
-  &:hover,
-  &:focus {
-    opacity: .5;
-  }
-  &#wordcounter    { background-color: $c-red; }
-  &#wtfcsv         { background-color: $c-yellow; }
-  &#samediff       { background-color: $c-green; }
-  &#connectthedots { background-color: $c-blue; }
-  > a {
-    display: block;
-    height: 100%;
-    width: 100%;
-    > img {
-      @include vertical-center();
-    }
-  }
+  -webkit-backface-visibility: hidden;
 }
+
+
+.thumbnail > a:hover > .thumbnail-img,
+.thumbnail > a:focus > .thumbnail-img {
+  opacity: 0.5;
+} 
 
 .thumbnail-caption {
   margin-top: 20px;
-  padding: 10px;
-  > p > a {
-    color: $c-black;
-    &:hover {
-      text-decoration: none;
-    }
-  }
+  padding: 15px;
+  @media (min-width: 768px) { padding: 10px; }
+  color: $c-black;
+  text-decoration: none;
 }
 
 .home-video {
@@ -129,7 +120,6 @@ header {
   @media (min-width: 768px) { width: 50%; margin-bottom: 40px; }
   @media (min-width: 992px) { width: 37.5%; margin-bottom: 80px; }
   padding: 40px;
-  text-align: center;
   background-color: $c-white;
   &.feature-box--blue { background-color: $c-blue; }
   &.feature-box--green-o { @include feature-box--o($c-green); }
@@ -143,6 +133,12 @@ header {
   }
   &.feature-box--pink { background-color: $c-pink; }
   &.feature-box--blue-o { @include feature-box--o($c-blue); }
+  > img {
+    width: 100%;
+  }
+  > p {
+    margin-bottom: 0;
+  }
 }
 
 .home-news {
@@ -157,6 +153,9 @@ header {
       font-family: $font-md;
       font-weight: 400;
     }
+  }
+  .row-flex {
+    @media (max-width: 991px) { display: block; }
   }
 }
 
@@ -179,11 +178,18 @@ header {
   }
   > a > .blog-image {
     width: 100%;
-    margin-bottom: 20px;
+    @media (min-width: 480px) and (max-width: 991px) {
+      float: left;
+      width: 200px;
+      margin-right: 20px;
+    }
+    margin-bottom: 15px;
     opacity: 1;
     transition: opacity .15s ease-in;
+    -webkit-backface-visibility: hidden;
   }
-  > a:hover > .blog-image, > a:focus > .blog-image {
+  > a:hover > .blog-image,
+  > a:focus > .blog-image {
     opacity: .5;
   }
   > a > h3 {

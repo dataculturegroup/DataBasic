@@ -12,42 +12,35 @@
   <div class="row text-center no-gutter">
     <div class="col-sm-3">
       <div class="thumbnail">
-        <div class="thumbnail-img" id="wordcounter">
-          <a href="wordcounter" title="WordCounter" aria-hidden="true"><img src="{{ url_for('static', filename='img/logos/wordcounter_white.png') }}" alt="word counter logo"></a>
-        </div>
-        <div class="thumbnail-caption">
-          <p><a href="wordcounter" title="WordCounter">{{ _('WordCounter analyzes your text and tells you the most common words and phrases.') }}</a></p>
-        </div>
+        <a href="wordcounter" title="WordCounter" aria-hidden="true">
+          <img class="thumbnail-img" src="{{ url_for('static', filename='img/logos/wc@2x.png') }}" alt="word counter logo">
+          <p class="thumbnail-caption">{{ _('WordCounter analyzes your text and tells you the most common words and phrases.') }}</p>
+          </p>
+        </a>
       </div>
     </div>
     <div class="col-sm-3">
       <div class="thumbnail">
-        <div class="thumbnail-img" id="wtfcsv">
-          <a href="wtfcsv" title="WTFcsv" aria-hidden="true"><img src="{{ url_for('static', filename='img/logos/wtfcsv_white.png') }}" alt="wtfcsv logo"></a>
-        </div>
-        <div class="thumbnail-caption">
-          <p><a href="wtfcsv" title="WTFcsv">{{ _('WTFcsv tells you WTF is going on with your .csv file.') }}</a></p>
-        </div>
+        <a href="wtfcsv" title="WTFcsv" aria-hidden="true">
+          <img class="thumbnail-img" src="{{ url_for('static', filename='img/logos/wtf@2x.png') }}" alt="wtfcsv logo">
+          <p class="thumbnail-caption">{{ _('WTFcsv tells you WTF is going on with your .csv file.') }}</p>
+        </a>
       </div>
     </div>
     <div class="col-sm-3">
       <div class="thumbnail">
-        <div class="thumbnail-img" id="samediff">
-          <a href="samediff" title="SameDiff" aria-hidden="true"><img src="{{ url_for('static', filename='img/logos/samediff_white.png') }}" alt="same diff logo"></a>
-        </div>
-        <div class="thumbnail-caption">
-          <p><a href="samediff" title="SameDiff">{{ _('SameDiff compares two or more text files and tells you how similar or different they are.') }}</a></p>
-        </div>
+        <a href="samediff" title="SameDiff" aria-hidden="true">
+          <img class="thumbnail-img" src="{{ url_for('static', filename='img/logos/sd@2x.png') }}" alt="same diff logo">
+          <p class="thumbnail-caption">{{ _('SameDiff compares two or more text files and tells you how similar or different they are.') }}</p>
+        </a>
       </div>
     </div>
     <div class="col-sm-3">
       <div class="thumbnail">
-        <div class="thumbnail-img" id="connectthedots">
-          <a href="connectthedots" title="ConnectTheDots" aria-hidden="true"><img src="{{ url_for('static', filename='img/logos/connectthedots_white.png') }}" alt="connect the dots logo"></a>
-        </div>
-        <div class="thumbnail-caption">
-          <p><a href="connectthedots" title="ConnectTheDots">{{ _('Connect the Dots shows you how your data is connected by analyzing it as a network.') }}</a></p>
-        </div>
+        <a href="connectthedots" title="ConnectTheDots" aria-hidden="true">
+          <img class="thumbnail-img" src="{{ url_for('static', filename='img/logos/ctd@2x.png') }}" alt="connect the dots logo">
+          <p class="thumbnail-caption">{{ _('Connect the Dots shows you how your data is connected by analyzing it as a network.') }}</p>
+        </a>
       </div>
     </div>
   </div>
@@ -79,30 +72,36 @@
   <div class="container">
     <div class="row row-flex">
       <div class="col-md-4 col-md-offset-1 feature-box feature-box--blue">
+        <img src="{{ url_for('static', filename='img/photos/home1.jpg') }}" alt="DataBasic workshop at Salzburg Global Seminar 2016">
         <h3>{{ _("Accessible to All") }}</h3>
         <p>{{ _("Digital technologies have empowered those with disabilities in a variety of ways, and new web standards have made it easier than ever to build new tools that are accessible to all.  DataBasic implements those technologies to support screen readers so the visually impaired can start working with data in new and exciting ways.") }}</p>
       </div>
       <div class="col-md-4 col-md-offset-1 feature-box feature-box--green-o">
+        <img src="{{ url_for('static', filename='img/photos/home2.jpg') }}" alt="DataBasic workshop at Salzburg Global Seminar 2016">
         <h3>{{ _("Doing One Thing Well") }}</h3>
         <p>{{ _("There are tons of tools for working with data; many so complex they are intimidating to even start with.  We've built each DataBasic tool to focus on doing one thing well, so you know exactly what each can be used for.  This lets us concentrate on making that one thing both simple and powerful.") }}</p>
       </div>
     </div>
     <div class="row row-flex">
       <div class="col-md-4 col-md-offset-1 feature-box feature-box--yellow-o">
+        <img src="{{ url_for('static', filename='img/photos/home3.jpg') }}" alt="DataBasic workshop at Salzburg Global Seminar 2016">
         <h3>{{ _("Fitting in to Your Pipeline") }}</h3>
         <p>{{_("Working with data online always involves using a mishmash of tools. We're not going to solve that problem anytime soon.  So we've built DataBasic to take in a variety of types of data, and output results in the formats you're used to.  Read some content from website and download CSV files of your results. These are just two of the ways we try to introduce you to the way most folks work data online.")}}</p>
       </div>
       <div class="col-md-4 col-md-offset-1 feature-box feature-box--red">
+        <img src="{{ url_for('static', filename='img/photos/home4.jpg') }}" alt="DataBasic workshop at Salzburg Global Seminar 2016">
         <h3>{{ _("Focused on Learning ") }}</h3>
         <p>{{_("Sometimes faster isn't better.  If you really want to learn how to work with data to find stories to tell, you'll need to use tools that do more than just give you a chart as quickly as possible.  That's why we've built DataBasic with learners in mind.  Don't know what some technical word means? Hover over it to see a quick definition.  Not sure how to use a tool?  Try some of the fun sample data like music lyrics and UFO sightings we've included to get started.")}}</p>
       </div>
     </div>
     <div class="row row-flex">
       <div class="col-md-4 col-md-offset-1 feature-box feature-box--pink">
+        <img src="{{ url_for('static', filename='img/photos/home5.jpg') }}" alt="DataBasic workshop at Salzburg Global Seminar 2016">
         <h3>{{ _("Ensuring Your Privacy") }}</h3>
         <p>{{_("With more and more data-centric tools moving online, sometimes it can be hard to tell where your data is going and what will happen with it after you upload it.  We store information you upload for only the amount of time it takes us to analyze it, then we delete it.  The aggregate results we show you - metadata - are kept for 60 days, and then we delete them.  All communications are over https, so other folks can't eavesdrop on the data as you upload it.")}}</p>
       </div>
       <div class="col-md-4 col-md-offset-1 feature-box feature-box--blue-o">
+        <img src="{{ url_for('static', filename='img/photos/home6.jpg') }}" alt="DataBasic workshop at Salzburg Global Seminar 2016">
         <h3>{{ _("By Educators, for Educators") }}</h3>
         <p>{{_("Work with high-schoolers? Journalists? Community groups? Graduate students?  Us too!!!  That's why we designed and tested the DataBasic tools and activities in our classrooms and in workshops with those audiences.  These tools were born out of frustration with things we were trying to use in our undergraduate classes, so we feel your pain.")}}</p>
       </div>
@@ -121,7 +120,7 @@
               <div class="blog-post">
                 <a href="{{ post['link'] }}">
                   {% if post['image'] %}
-                    <img class="blog-image" src="{{ post['image'] }}">
+                    <img class="blog-image" src="{{ post['image'] }}" alt="{{ post['title'] | safe }}">
                   {% endif %}
                   <h3>{{ post['title'] | safe }}</h3>
                 </a>
