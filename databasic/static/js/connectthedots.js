@@ -353,16 +353,19 @@
     $('.ctd-meta').css('width', width);
   }, 250);
 
-  // sticky scrolling behavior on graph/table
-  $('.ctd-container').affix({
-    offset: {
-      top: STICKY_OFFSET_TOP,
-      bottom: document.querySelector('.tool > .bottom-section').getBoundingClientRect().height +
-      document.querySelector('footer > nav').getBoundingClientRect().height + STICKY_OFFSET_BOTTOM
-    }
-  });
-
   $('.ctd-meta').css('width', width);
+
+  // sticky scrolling behavior on graph/table
+  if (document.querySelector('.ctd-table').getBoundingClientRect().height >
+      document.querySelector('.ctd-container').getBoundingClientRect().height) {
+    $('.ctd-container').affix({
+      offset: {
+        top: STICKY_OFFSET_TOP,
+        bottom: document.querySelector('.tool > .bottom-section').getBoundingClientRect().height +
+        document.querySelector('footer > nav').getBoundingClientRect().height + STICKY_OFFSET_BOTTOM
+      }
+    });
+  }
 
   $('.ctd-table').floatThead({
     floatContainerClass: 'ctd-thwrap',

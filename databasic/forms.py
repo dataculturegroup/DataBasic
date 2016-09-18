@@ -190,8 +190,8 @@ class ConnectTheDotsPaste(Form):
 
     area = StringField(
         _('Text'),
-        description={'placeholder': _('Paste rows from an Excel or Google spreadsheet...')},
-        widget=TextArea()) 
+        description={'placeholder': _('Paste rows from an Excel or Google spreadsheet, with this format:\nsource\ttarget\nA\tB\nA\tC\nB\tC')},
+        widget=TextArea())
 
     has_header_row = BooleanField(
         _('Has header row'), 

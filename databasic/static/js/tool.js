@@ -31,10 +31,12 @@ $(document).ready(function() {
   // Focus the first field when a tab is selected
   $('a[data-toggle="tab"]').on('shown.bs.tab', function (e) {
     var tabId = $(this).attr('id').replace('tab-', '');
-    $('.tab-content')
-        .find('#' + tabId)
-        .find('.form-group:nth(1)')
-        .find('.form-control:nth(0)')[0].focus ();
+    if (!$('body').hasClass('connectthedots')) { // don't autofocus on ConnectTheDots
+      $('.tab-content')
+          .find('#' + tabId)
+          .find('.form-group:nth(1)')
+          .find('.form-control:nth(0)')[0].focus ();
+    }
   });
 
   // Remember last pressed tab when navigating site

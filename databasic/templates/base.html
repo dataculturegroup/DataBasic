@@ -13,7 +13,7 @@
   {% endblock %}
   {% block custom_css %}{% endblock %}
 </head>
-<body>
+<body{% if tool_name %} class="{{ tool_name }}"{% endif %}>
   {% block nav %}{% endblock %}
   {% block body %}{% endblock %}
   {% block footer %}{% endblock %}
