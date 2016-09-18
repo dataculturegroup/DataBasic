@@ -131,7 +131,7 @@
    */
   function mouseoverNode(d) {
     if (!activeNode) {
-      showTooltip(d);
+      if (d3.event.target.tagName === 'circle') showTooltip(d);
 
       node.filter(function(n) { return n.id !== d.id && d.neighbors.indexOf(n.id) < 0; })
           .classed('blur', true);
