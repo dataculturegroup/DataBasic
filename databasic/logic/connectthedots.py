@@ -30,9 +30,12 @@ class ConnectTheDots():
             self.table = table.Table.from_csv(input_file,
                                               no_header_row=not has_header_row,
                                               snifflimit=0)
-            self.graph = nx.from_edgelist(self.table.to_rows())
+            if (len(self.table) != 2):
+                raise ValueError('File has more than two columns')
+            else:
+                self.graph = nx.from_edgelist(self.table.to_rows())
         except Exception as e:
-            logger.warning('[CTD] Unable to make table from csv') # TODO: delete doc, redirect to input
+            logger.error('[CTD] Unable to make table from csv: %s' % e)
 
     def get_summary(self):
         """

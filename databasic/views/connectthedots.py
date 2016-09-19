@@ -54,7 +54,7 @@ def index():
             logger.debug('[CTD] New doc from upload: %s', upload_file.filename)
             results = process_upload(upload_file, has_header_row)
 
-        if btn_value is not None and btn_value is not u'' and results:
+        if btn_value is not None and btn_value is not u'' and 'json' in results:
             return redirect_to_results(results, btn_value, sample_id)
         else:
             input_error = btn_value
