@@ -180,12 +180,12 @@ class ConnectTheDotsTest(unittest.TestCase):
         edges = sorted(data['links'], key=lambda e: (nodes[e['source']]['id'], nodes[e['target']]['id']))
 
         self.assertEqual(len(edges), 4)
-        self.assertEqual(nodes[edges[0]['source']]['id'], 'A')
-        self.assertEqual(nodes[edges[0]['target']]['id'], 'C')
+        self.assertEqual(nodes[edges[0]['source']]['id'], u'A')
+        self.assertEqual(nodes[edges[0]['target']]['id'], u'C')
 
-        targets = ['B', 'D', 'E']
+        targets = [u'B', u'D', u'E']
         for n in range(1, 4):
-            self.assertEqual(nodes[edges[n]['source']]['id'], 'C')
+            self.assertEqual(nodes[edges[n]['source']]['id'], u'C')
             self.assertEqual(nodes[edges[n]['target']]['id'], targets[n - 1])
 
     def test_as_gexf(self):

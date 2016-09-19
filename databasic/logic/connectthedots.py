@@ -53,7 +53,7 @@ class ConnectTheDots():
 
             nodes = nx.nodes_iter(self.graph)
             bc = nx.betweenness_centrality(self.graph, k=k)
-            self.scores = [{'id': n, 'degree': self.graph.degree(n), 'centrality': bc[n]} for n in nodes]
+            self.nodes = [{'id': n, 'degree': self.graph.degree(n), 'centrality': bc[n]} for n in nodes]
 
             results['nodes'] = node_count
             results['edges'] = self.count_edges()
@@ -101,14 +101,14 @@ class ConnectTheDots():
         """
         Return the table of degree/centrality scores
         """
-        return sorted(self.scores, key=operator.itemgetter('centrality'), reverse=True)
+        return sorted(self.nodes, key=operator.itemgetter('centrality'), reverse=True)
 
     def as_json(self):
         """
         Return the graph as JSON for D3 visualization
         """
         output = json_graph.node_link_data(self.graph)
-        output['nodes'] = self.scores
+        output['nodes'] = self.nodes
         return json.dumps(output)
 
     def as_gexf(self):
