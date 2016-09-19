@@ -1,4 +1,4 @@
-import codecs, json, logging, math, networkx as nx, operator, StringIO
+import codecs, community, json, logging, math, networkx as nx, operator, StringIO
 import filehandler
 from csvkit import table
 from networkx.readwrite import json_graph
@@ -53,7 +53,8 @@ class ConnectTheDots():
 
             nodes = nx.nodes_iter(self.graph)
             bc = nx.betweenness_centrality(self.graph, k=k)
-            self.nodes = [{'id': n, 'degree': self.graph.degree(n), 'centrality': bc[n]} for n in nodes]
+            partition = community.best_partition(self.graph)
+            self.nodes = [{'id': n, 'degree': self.graph.degree(n), 'centrality': bc[n], 'community': partition[n]} for n in nodes]
 
             results['nodes'] = node_count
             results['edges'] = self.count_edges()

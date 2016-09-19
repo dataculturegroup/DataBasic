@@ -92,20 +92,15 @@ h4[role=alert] {
 }
 
 .nodes > circle {
-  fill: $c-theme-bg;
   stroke: $c-white;
   transition: fill 150ms linear,
               opacity 150ms linear,
               fill-opacity 150ms linear;
   &.hover {
-    fill: $c-hover;
     cursor: pointer;
     &.blur {
       fill-opacity: 1;
     }
-  }
-  &.active {
-    fill: $c-selected;
   }
   &.blur {
     fill-opacity: 0.2;

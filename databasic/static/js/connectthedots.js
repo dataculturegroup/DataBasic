@@ -56,6 +56,8 @@
                  ); // number of ticks before graph reaches equilibrium
 
   // setup graphical elements and bind data
+  var color = d3.scaleOrdinal(d3.schemeCategory10);
+
   var edge = svg.append('g')
                 .classed('edges', true)
                 .attr('aria-hidden', 'true')
@@ -73,6 +75,7 @@
                                     .style('opacity', 0)
                                     .attr('r', NODE_RADIUS)
                                     .attr('stroke-width', NODE_STROKE)
+                                    .attr('fill', function(d) { return color(d.community); })
                                     .attr('id', function(d) { return d.id; })
                                     .attr('role', 'img')
                                     .attr('aria-label', function(d) {
@@ -139,7 +142,8 @@
           .classed('blur', true);
     }
 
-    node.filter(function(n) { return n.id === d.id; }).classed('hover', true);
+    node.filter(function(n) { return n.id === d.id; }).classed('hover', true)
+        .attr('fill', function(d) { return d3.color(color(d.community)).darker() + ''; });
     row.filter(function(r) { return r.id === d.id; }).classed('hover', true);
   }
 
@@ -154,6 +158,7 @@
     }
 
     node.classed('hover', false)
+        .attr('fill', function(d) { return color(d.community); });
     row.classed('hover', false);
   }
 
@@ -165,7 +170,10 @@
       clearActiveNode();
       activeNode = d.id;
 
-      node.filter(function(d) { return d.id === activeNode; }).classed('active', true);
+      node.filter(function(d) {return d.id === activeNode; }).classed('active', true)
+                                                             .attr('fill', function(d) {
+                                                               return d3.color(color(d.community)).lighter() + '';
+                                                             });
       row.filter(function(d) { return d.id === activeNode; }).classed('active', true);
 
       node.filter(function(n) { return n.id !== d.id && d.neighbors.indexOf(n.id) < 0; })
@@ -184,7 +192,8 @@
   function clearActiveNode() {
     activeNode = null;
     node.classed('active', false)
-        .classed('blur', false);
+        .classed('blur', false)
+        .attr('fill', function(d) { return color(d.community); });
     edge.classed('blur', false);
     row.classed('active', false);
     tooltip.classed('in', false)
