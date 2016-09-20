@@ -46,7 +46,7 @@
   var center = d3.forceCenter(width / 2, height / 2);
 
   var simulation = d3.forceSimulation()
-                     .force('charge', d3.forceManyBody())
+                     .force('charge', d3.forceManyBody().distanceMax(50))
                      .force('link', d3.forceLink().id(function(d) { return d.id; }))
                      .force('center', center); // TODO: adjust forces based on clustering score
 
@@ -56,7 +56,7 @@
                  ); // number of ticks before graph reaches equilibrium
 
   // setup graphical elements and bind data
-  var color = d3.scaleOrdinal(d3.schemeCategory10);
+  var color = d3.scaleOrdinal(d3.schemeCategory20);
 
   var edge = svg.append('g')
                 .classed('edges', true)
@@ -172,7 +172,7 @@
 
       node.filter(function(d) {return d.id === activeNode; }).classed('active', true)
                                                              .attr('fill', function(d) {
-                                                               return d3.color(color(d.community)).lighter() + '';
+                                                               return d3.color(color(d.community)).brighter() + '';
                                                              });
       row.filter(function(d) { return d.id === activeNode; }).classed('active', true);
 
