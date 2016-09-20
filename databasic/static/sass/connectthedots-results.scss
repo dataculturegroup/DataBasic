@@ -16,24 +16,30 @@ h4[role=alert] {
   margin-bottom: 30px;
 }
 
+.summary {
+  margin-bottom: 20px;
+}
+
 .ctd-container {
   position: relative;
   margin-top: 30px;
   &.affix {
     @media (min-width: 992px) {
       position: fixed;
-      margin-top: -442px;
+      margin-top: -560px;
     }
   }
 }
 
-.ctd-download {
-  position: relative;
+.ctd-menu {
+  margin: 0;
   background-color: $c-white;
+  > [class*='col-'] {
+    padding: 0;
+  }
 }
 
 .ctd-download > button {
-  position: absolute;
   padding: 5px 12px 5px 15px;
   border: 0;
   font-family: $font-md;
@@ -79,6 +85,23 @@ h4[role=alert] {
   }
 }
 
+.ctd-colors {
+  padding: 5px 20px 5px 15px;
+  font-size: 20px;
+  text-align: right;
+  visibility: hidden;
+  opacity: 0;
+  transition: opacity 150ms linear;
+  > label {
+    font-size: 15px;
+    color: $c-black;
+  }
+  > .control-label {
+    margin-right: 10px;
+    font-family: $font-md;
+  }
+}
+
 .ctd-progress {
   position: absolute;
   height: 5px;
@@ -95,15 +118,18 @@ h4[role=alert] {
   stroke: $c-white;
   transition: fill 150ms linear,
               opacity 150ms linear,
-              fill-opacity 150ms linear;
+              fill-opacity 150ms linear,
+              stroke-opacity 150ms linear;
   &.hover {
     cursor: pointer;
     &.blur {
       fill-opacity: 1;
+      stroke-opacity: 1;
     }
   }
   &.blur {
     fill-opacity: 0.2;
+    stroke-opacity: 0.2;
   }
 }
 
@@ -119,12 +145,11 @@ h4[role=alert] {
 
 .ctd-meta {
   padding: 10px 0;
-  margin: 0;
+  margin: -5px 0 0;
+  background-color: $c-theme-accent;
   > .row {
-    margin: -15px 0 0;
-    background-color: $c-theme-accent;
-    > div:last-child > .ctd-meta--name {
-      padding-top: 3px;
+    @media (max-width: 767px) {
+      margin: 0;
     }
   }
 }
@@ -140,7 +165,8 @@ h4[role=alert] {
 
 .ctd-meta--summary {
   font-size: 15px;
-  > a {
+  > a[role=definition] {
+    display: inline-block;
     font-size: 15px;
   }
 }
@@ -197,6 +223,7 @@ h4[role=alert] {
   }
   > td {
     font-family: $font-lt;
+    word-wrap: break-word;
     transition: background 150ms linear;
   }
   &:hover {

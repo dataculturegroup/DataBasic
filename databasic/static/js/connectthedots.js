@@ -4,6 +4,8 @@
  */
 (function() {
   var BACKGROUND_COLOR = '#fff',
+      PRIMARY_COLORS = {default: '#10b0f7', hover: '#0076b3', active: '#41c0f9'},
+      ALTERNATE_COLORS = {default: '#f75710', hover: '#b33d00', active: '#f97a41'},
       DISPLAY_RESOLUTION = 1.4,
       GRAPH_PADDING = .05,
       NODE_RADIUS = 6,
@@ -11,7 +13,7 @@
       EDGE_WIDTH = 1,
       ROUNDING_PRECISION = 3,
       TABLE_ROWS = 40,
-      STICKY_OFFSET_TOP = 470,
+      STICKY_OFFSET_TOP = 590, // TODO: generalize this
       STICKY_OFFSET_BOTTOM = 80;
 
   // map link data (indices) to node ids, populate node neighbors
@@ -36,19 +38,24 @@
       width = container.node().getBoundingClientRect().width - 2 * padding,
       height = width / DISPLAY_RESOLUTION,
       initWidth = width, initHeight = height,
-      scale = {factor: 1, init: 1, dx: 0, dy: 0};
+      scale = {factor: 1, init: 1, dx: 0, dy: 0},
+      menuHeight = document.querySelector('.ctd-menu').getBoundingClientRect().height;
 
   svg.attr('width', width)
      .attr('height', height)
      .style('background-color', BACKGROUND_COLOR);
 
   // setup simulation
-  var center = d3.forceCenter(width / 2, height / 2);
+  var center = d3.forceCenter(width / 2, height / 2),
+      nodeDistance = d3.scaleLinear()
+                       .domain([0, 0.1])
+                       .range([25, 500])
+                       .clamp(true); // maps density score to maximum node distance
 
   var simulation = d3.forceSimulation()
-                     .force('charge', d3.forceManyBody().distanceMax(50))
+                     .force('charge', d3.forceManyBody().distanceMax(nodeDistance(density)))
                      .force('link', d3.forceLink().id(function(d) { return d.id; }))
-                     .force('center', center); // TODO: adjust forces based on clustering score
+                     .force('center', center);
 
   var ticksElapsed = 0,
       stableAt = Math.ceil(
@@ -56,7 +63,9 @@
                  ); // number of ticks before graph reaches equilibrium
 
   // setup graphical elements and bind data
-  var color = d3.scaleOrdinal(d3.schemeCategory20);
+  var colorBy = bipartite ? 'column': 'community',
+      communityColor = communities > 10 ? d3.scaleOrdinal(d3.schemeCategory20)
+                                        : d3.scaleOrdinal(d3.schemeCategory10);
 
   var edge = svg.append('g')
                 .classed('edges', true)
@@ -75,7 +84,7 @@
                                     .style('opacity', 0)
                                     .attr('r', NODE_RADIUS)
                                     .attr('stroke-width', NODE_STROKE)
-                                    .attr('fill', function(d) { return color(d.community); })
+                                    .attr('fill', function(d) { return fillColor(d); })
                                     .attr('id', function(d) { return d.id; })
                                     .attr('role', 'img')
                                     .attr('aria-label', function(d) {
@@ -111,6 +120,7 @@
 
   var progress = d3.select('.ctd-progress'),
       download = d3.select('.ctd-download > button'),
+      colors = d3.select('.ctd-colors'), 
       tooltip = d3.select('.ctd-tooltip').style('display', 'none');
 
   // start simulation
@@ -130,6 +140,27 @@
   svg.on('click', function() { if (d3.event.target.tagName !== 'circle') clearActiveNode(); });
 
   /**
+   * Return node fill color
+   */
+  function fillColor(d, state) {
+    var state = (typeof state !== 'undefined') ? state : 'default';
+
+    if (colorBy === 'column') {
+      return d.column === 0 ? PRIMARY_COLORS[state] : ALTERNATE_COLORS[state];
+    } else if (colorBy === 'community') {
+      if (state === 'hover') {
+        return d3.color(communityColor(d.community)).darker() + '';
+      } else if (state === 'active') {
+        return d3.color(communityColor(d.community)).brighter() + '';
+      } else {
+        return communityColor(d.community);
+      }
+    } else {
+      return PRIMARY_COLORS[state];
+    }
+  }
+
+  /**
    * Highlight a node in the graph and table
    */
   function mouseoverNode(d) {
@@ -142,9 +173,11 @@
           .classed('blur', true);
     }
 
-    node.filter(function(n) { return n.id === d.id; }).classed('hover', true)
-        .attr('fill', function(d) { return d3.color(color(d.community)).darker() + ''; });
-    row.filter(function(r) { return r.id === d.id; }).classed('hover', true);
+    node.filter(function(n) { return n.id === d.id; })
+        .classed('hover', true)
+        .attr('fill', function(d) { return fillColor(d, 'hover'); });
+    row.filter(function(r) { return r.id === d.id; })
+       .classed('hover', true);
   }
 
   /**
@@ -158,7 +191,9 @@
     }
 
     node.classed('hover', false)
-        .attr('fill', function(d) { return color(d.community); });
+        .attr('fill', function(d) {
+          return activeNode !== d.id ? fillColor(d) : fillColor(d, 'active');
+        });
     row.classed('hover', false);
   }
 
@@ -170,11 +205,11 @@
       clearActiveNode();
       activeNode = d.id;
 
-      node.filter(function(d) {return d.id === activeNode; }).classed('active', true)
-                                                             .attr('fill', function(d) {
-                                                               return d3.color(color(d.community)).brighter() + '';
-                                                             });
-      row.filter(function(d) { return d.id === activeNode; }).classed('active', true);
+      node.filter(function(d) {return d.id === activeNode; })
+          .classed('active', true)
+          .attr('fill', function(d) { return fillColor(d, 'active'); });
+      row.filter(function(d) { return d.id === activeNode; })
+         .classed('active', true);
 
       node.filter(function(n) { return n.id !== d.id && d.neighbors.indexOf(n.id) < 0; })
           .classed('blur', true);
@@ -193,7 +228,7 @@
     activeNode = null;
     node.classed('active', false)
         .classed('blur', false)
-        .attr('fill', function(d) { return color(d.community); });
+        .attr('fill', function(d) { return fillColor(d); });
     edge.classed('blur', false);
     row.classed('active', false);
     tooltip.classed('in', false)
@@ -245,7 +280,7 @@
              return d ? d.x * scale.factor + scale.dx - getTooltipSize().width / 2 + padding + 'px' : 0;
            })
            .style('top', function(d) {
-             return d ? d.y * scale.factor + scale.dy - getTooltipSize().height + 'px' : 0;
+             return d ? d.y * scale.factor + scale.dy - getTooltipSize().height + menuHeight + 'px' : 0;
            });
   }
 
@@ -300,6 +335,8 @@
       edge.style('opacity', 1);
       download.style('visibility', 'visible')
               .style('opacity', 1);
+      colors.style('visibility', 'visible')
+            .style('opacity', 1);
       tooltip.style('display', 'block');
     }
 
@@ -423,4 +460,16 @@
   function getFilename(name, extension) {
     return name.replace(/[^a-z0-9]/gi, '-').toLowerCase() + '.' + extension;
   }
+
+  // event handler for color switcher
+  document.querySelectorAll('input[name="node-color"]').forEach(function(radio) {
+    radio.addEventListener('click', function() {
+      if (colorBy !== this.value) {
+        colorBy = this.value;
+        node.attr('fill', function(d) {
+          return activeNode !== d.id ? fillColor(d) : fillColor(d, 'active');
+        });
+      }
+    });
+  })
 })();
