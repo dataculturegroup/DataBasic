@@ -26,7 +26,7 @@ h4[role=alert] {
   &.affix {
     @media (min-width: 992px) {
       position: fixed;
-      margin-top: -560px;
+      top: 10px;
     }
   }
 }
@@ -241,10 +241,15 @@ h4[role=alert] {
   background-color: $c-white;
 }
 
+#what-next > div > h1 {
+  color: $c-theme-accent;
+}
+
 #what-next > div > p {
+  color: $c-theme-accent;
   > a[role=definition] {
     display: inline-block;
-    color: $c-theme-md;
+    color: $c-theme-accent;
     text-decoration: none;
   }
   > strong {

@@ -13,7 +13,7 @@
       EDGE_WIDTH = 1,
       ROUNDING_PRECISION = 3,
       TABLE_ROWS = 40,
-      STICKY_OFFSET_TOP = 590, // TODO: generalize this
+      STICKY_OFFSET_TOP = -30,
       STICKY_OFFSET_BOTTOM = 80;
 
   // map link data (indices) to node ids, populate node neighbors
@@ -175,7 +175,9 @@
 
     node.filter(function(n) { return n.id === d.id; })
         .classed('hover', true)
-        .attr('fill', function(d) { return fillColor(d, 'hover'); });
+        .attr('fill', function(d) {
+          return activeNode !== d.id ? fillColor(d, 'hover') : fillColor(d, 'active')
+        });
     row.filter(function(r) { return r.id === d.id; })
        .classed('hover', true);
   }
@@ -406,7 +408,8 @@
       document.querySelector('.ctd-container').getBoundingClientRect().height) {
     $('.ctd-container').affix({
       offset: {
-        top: STICKY_OFFSET_TOP,
+        top: document.querySelector('.ctd-container').getBoundingClientRect().top +
+        window.pageYOffset + STICKY_OFFSET_TOP,
         bottom: document.querySelector('.tool > .bottom-section').getBoundingClientRect().height +
         document.querySelector('footer > nav').getBoundingClientRect().height + STICKY_OFFSET_BOTTOM
       }
