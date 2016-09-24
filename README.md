@@ -102,6 +102,6 @@ Help us translate Databasic into French!!
 -----------
 
 There are three files that we need help translating. Each is a Google Doc that you can type directly into for translation.
-1. [Databasic software interface](https://docs.google.com/document/d/1J1UCN-UlrydKebdd6TAvR8sIbsyxeVcDfpgYiW0Fq9E/edit)
-2. [Databasic activity guides](https://docs.google.com/document/d/1gy81vilACpDDqF2a6JEniQxB82mNMu-eWe8Za0sBoMQ/edit#) 
-3. [Databasic video subtitles](https://docs.google.com/document/d/1ctTQxhkHCtEnRVMHpSs455e1yVXy_p9NuWJ6S6JKFcc/edit)
+- [Databasic software interface](https://docs.google.com/document/d/1J1UCN-UlrydKebdd6TAvR8sIbsyxeVcDfpgYiW0Fq9E/edit)
+- [Databasic activity guides](https://docs.google.com/document/d/1gy81vilACpDDqF2a6JEniQxB82mNMu-eWe8Za0sBoMQ/edit#) 
+- [Databasic video subtitles](https://docs.google.com/document/d/1ctTQxhkHCtEnRVMHpSs455e1yVXy_p9NuWJ6S6JKFcc/edit)
