@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2016-08-28 16:57-0400\n"
+"POT-Creation-Date: 2016-09-24 11:12+0200\n"
 "PO-Revision-Date: 2015-12-21 14:00-0600\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language: es\n"
@@ -22,7 +22,7 @@ msgstr ""
 msgid "Paste text"
 msgstr "Pegar texto"
 
-#: databasic/forms.py:14
+#: databasic/forms.py:14 databasic/forms.py:192
 msgid "Text"
 msgstr "Texto"
 
@@ -80,7 +80,7 @@ msgstr "Ignorar palabras de paro"
 msgid "Paste a link"
 msgstr "Pegar una liga"
 
-#: databasic/forms.py:119 databasic/forms.py:170 databasic/forms.py:174
+#: databasic/forms.py:119 databasic/forms.py:168 databasic/forms.py:172
 msgid "https://en.wikipedia.org/wiki/Natural_language_processing"
 msgstr "https://en.wikipedia.org/wiki/Natural_language_processing"
 
@@ -96,19 +96,29 @@ msgstr "Explorar archivo 2"
 msgid "Browse file 1"
 msgstr "Explorar archivo 1"
 
-#: databasic/forms.py:166 databasic/forms.py:169 databasic/forms.py:174
+#: databasic/forms.py:164 databasic/forms.py:167 databasic/forms.py:172
 msgid "Paste links"
 msgstr "Pegar ligas"
 
-#: databasic/static/js/samediff-validate.js:12
-#: databasic/static/js/wordcounter-validate.js:12
-msgid "You must input a valid url"
-msgstr "Debes introducir una url válida"
+#: databasic/forms.py:180 databasic/forms.py:197
+msgid "Has header row"
+msgstr ""
 
-#: databasic/static/js/samediff-validate.js:20
-msgid "You must select two files"
-msgstr "Debes seleccionar dos archivos"
+#: databasic/forms.py:189
+msgid "Paste rows"
+msgstr ""
 
+#: databasic/forms.py:193
+msgid ""
+"Paste rows from an Excel or Google spreadsheet, with this format:\n"
+"source\ttarget\n"
+"A\tB\n"
+"A\tC\n"
+"B\tC"
+msgstr ""
+
+#: databasic/static/js/connectthedots-validate.js:20
+#: databasic/static/js/connectthedots-validate.js:35
 #: databasic/static/js/samediff-validate.js:45
 #: databasic/static/js/samediff-validate.js:48
 #: databasic/static/js/samediff-validate.js:51
@@ -123,6 +133,31 @@ msgstr "Debes seleccionar dos archivos"
 msgid "This field is required"
 msgstr "Se requiere este campo"
 
+#: databasic/static/js/connectthedots-validate.js:36
+#: databasic/static/js/wtfcsv-validate.js:33
+msgid "Only these file types are accepted: csv, xls, xlsx"
+msgstr "Sólo se aceptan estos tipos de archivos: csv, xls, xlsx"
+
+#: databasic/static/js/connectthedots-validate.js:37
+#: databasic/static/js/samediff-validate.js:77
+#: databasic/static/js/samediff-validate.js:82
+#: databasic/static/js/wordcounter-validate.js:46
+#: databasic/static/js/wordcounter-validate.js:62
+#: databasic/static/js/wtfcsv-validate.js:34
+#: databasic/static/js/wtfcsv-validate.js:51
+#, fuzzy
+msgid "Only files under MB are accepted"
+msgstr "Sólo se aceptan archivos menores a 10MB"
+
+#: databasic/static/js/samediff-validate.js:12
+#: databasic/static/js/wordcounter-validate.js:12
+msgid "You must input a valid url"
+msgstr "Debes introducir una url válida"
+
+#: databasic/static/js/samediff-validate.js:20
+msgid "You must select two files"
+msgstr "Debes seleccionar dos archivos"
+
 #: databasic/static/js/samediff-validate.js:52
 #: databasic/static/js/samediff-validate.js:86
 msgid "Please enter a valid email address"
@@ -134,16 +169,6 @@ msgstr "Por favor introduzca una dirección de correo electrónico válida"
 msgid "Only these file types are accepted: txt, docx, rtf"
 msgstr "Sólo se aceptan estos tipos de archivos: txt, docx, rtf"
 
-#: databasic/static/js/samediff-validate.js:77
-#: databasic/static/js/samediff-validate.js:82
-#: databasic/static/js/wordcounter-validate.js:46
-#: databasic/static/js/wordcounter-validate.js:62
-#: databasic/static/js/wtfcsv-validate.js:34
-#: databasic/static/js/wtfcsv-validate.js:51
-#, fuzzy
-msgid "Only files under MB are accepted"
-msgstr "Sólo se aceptan archivos menores a 10MB"
-
 #: databasic/static/js/wordcounter-validate.js:61
 #: databasic/static/js/wtfcsv-validate.js:50
 msgid "You must input a URL"
@@ -153,57 +178,72 @@ msgstr "Debes introducir una URL"
 msgid "Link must be a valid Google Spreadsheet"
 msgstr "La liga debe ser una Hoja de Cálculo de Google válida"
 
-#: databasic/static/js/wtfcsv-validate.js:33
-msgid "Only these file types are accepted: csv, xls, xlsx"
-msgstr "Sólo se aceptan estos tipos de archivos: csv, xls, xlsx"
-
 #: databasic/templates/footer.html:25
 #: databasic/templates/wordcounter/wordcounter.html:4
-#: databasic/templates/wordcounter/wordcounter.html:30
+#: databasic/templates/wordcounter/wordcounter.html:31
 msgid "WordCounter"
 msgstr "WordCounter"
 
 #: databasic/templates/footer.html:26 databasic/templates/wtfcsv/wtfcsv.html:4
-#: databasic/templates/wtfcsv/wtfcsv.html:27
+#: databasic/templates/wtfcsv/wtfcsv.html:28
 msgid "WTFcsv"
 msgstr "WTFcsv"
 
 #: databasic/templates/footer.html:27
 #: databasic/templates/samediff/samediff.html:4
-#: databasic/templates/samediff/samediff.html:29
+#: databasic/templates/samediff/samediff.html:30
 msgid "SameDiff"
 msgstr "SameDiff"
 
 #: databasic/templates/footer.html:28
+#: databasic/templates/connectthedots/connectthedots.html:4
+msgid "ConnectTheDots"
+msgstr ""
+
+#: databasic/templates/footer.html:29
 msgid "about"
 msgstr "acerca"
 
-#: databasic/templates/footer.html:29
+#: databasic/templates/footer.html:30
 msgid "blog"
 msgstr "blog"
 
-#: databasic/templates/footer.html:30
+#: databasic/templates/footer.html:31
 msgid "help"
 msgstr "ayuda"
 
-#: databasic/templates/header_base.html:5
+#: databasic/templates/header_base.html:4
 msgid "Choose your language: "
 msgstr "Selecciona su idioma: "
 
-#: databasic/templates/header_base.html:5
-#: databasic/templates/header_base.html:9
+#: databasic/templates/header_base.html:4
 msgid "change language to english"
 msgstr "cambiar lenguaje a inglés"
 
-#: databasic/templates/header_base.html:5
-#: databasic/templates/header_base.html:10
+#: databasic/templates/header_base.html:4
 msgid "change language to spanish"
 msgstr "cambiar lenguaje a español"
 
-#: databasic/templates/header_base.html:5
-#: databasic/templates/header_base.html:11
+#: databasic/templates/header_base.html:4
 msgid "change language to portuguese"
 msgstr "cambiar lenguaje a portugués"
+
+#: databasic/templates/home_header.html:9
+msgid ""
+"DataBasic is a suite of easy-to-use web tools for beginners that "
+"introduce concepts of working with data."
+msgstr ""
+"DataBasic es una suite de herramientas de uso fácil para principiantes "
+"que los introduce a conceptos del trabajo con datos."
+
+#: databasic/templates/home_header.html:10
+msgid ""
+"These simple tools make it easy to work with data in fun ways, so you can"
+" learn how to find great stories to tell."
+msgstr ""
+"Estas herramientas sencillas hacen que sea fácil trabajar con los datos "
+"de formas divertidas, para que puedas aprender cómo encontrar grandes "
+"historias que contar."
 
 #: databasic/templates/macros.html:6
 msgid "choose input type"
@@ -215,7 +255,7 @@ msgid "Ignore %(stopwords)s"
 msgstr "Ignorar %(stopwords)s"
 
 #: databasic/templates/macros.html:99
-#: databasic/templates/wordcounter/results.html:39
+#: databasic/templates/wordcounter/results.html:45
 msgid "stopwords"
 msgstr "Ignorar palabras de paro"
 
@@ -230,7 +270,8 @@ msgstr ""
 "&quot;pero&quot;."
 
 #: databasic/templates/macros.html:153
-msgid "close video window"
+#, fuzzy
+msgid "close window"
 msgstr "cerrar ventana de video"
 
 #: databasic/templates/macros.html:159
@@ -254,20 +295,25 @@ msgstr ""
 "Puede ser que el tiempo ha vencido. ¿Por qué no <a "
 "href=\"/%(lang)s/%(tool_name)s\">analiza algunos datos nuevos</a>?"
 
-#: databasic/templates/tool_base.html:5 databasic/templates/tool_base.html:13
+#: databasic/templates/tool_base.html:5
+#, python-format
+msgid "go to %(tool)s"
+msgstr "ir a %(tool)s"
+
+#: databasic/templates/tool_base.html:9 databasic/templates/tool_base.html:17
 msgid "What do I do next?"
 msgstr "¿Qué hago ahora?"
 
-#: databasic/templates/tool_base.html:26
+#: databasic/templates/tool_base.html:30
 #, python-format
 msgid "About %(tool_name)s"
 msgstr "Acerca de %(tool_name)s"
 
-#: databasic/templates/tool_base.html:33
+#: databasic/templates/tool_base.html:37
 msgid "Are you an Educator? Try our Activity Guide"
 msgstr "¿Ud. es maestro? Prueba nuestra guía de actividades"
 
-#: databasic/templates/tool_base.html:37
+#: databasic/templates/tool_base.html:41
 msgid ""
 "DataBasic activities are suitable for classes and workshops for "
 "participants from middle school through higher education. No prior data "
@@ -277,42 +323,305 @@ msgstr ""
 "participantes desde educación media básica hasta educación superior.  ¡No"
 " se necesita experiencia previa en datos!"
 
-#: databasic/templates/tool_base.html:40
+#: databasic/templates/tool_base.html:44
 msgid "activity sheet thumbnail"
 msgstr "guía de actividades"
 
-#: databasic/templates/tool_base.html:41
+#: databasic/templates/tool_base.html:45
 msgid "Download"
 msgstr "Bajar"
 
-#: databasic/templates/tool_header.html:3
-#, python-format
-msgid "go to %(tool)s"
-msgstr "ir a %(tool)s"
-
-#: databasic/templates/tool_header.html:6
+#: databasic/templates/tool_header.html:4
 msgid "go to data basic home page"
 msgstr "ir a página de inicio de data basic"
 
-#: databasic/templates/home/index.html:14
+#: databasic/templates/connectthedots/connectthedots.html:19
 msgid ""
-"DataBasic is a suite of easy-to-use web tools for beginners that "
-"introduce concepts of working with data."
+"Error: Paste failed! Make sure your input has exactly two tab-separated "
+"columns and try again."
 msgstr ""
-"DataBasic es una suite de herramientas de uso fácil para principiantes "
-"que los introduce a conceptos del trabajo con datos."
 
-#: databasic/templates/home/index.html:15
+#: databasic/templates/connectthedots/connectthedots.html:21
 msgid ""
-"These simple tools make it easy to work with data in fun ways, so you can"
-" learn how to find great stories to tell."
+"Error: Upload failed! Make sure your file has exactly two columns and try"
+" again."
 msgstr ""
-"Estas herramientas sencillas hacen que sea fácil trabajar con los datos "
-"de formas divertidas, para que puedas aprender cómo encontrar grandes "
-"historias que contar."
 
-#: databasic/templates/home/index.html:25
-#: databasic/templates/wordcounter/wordcounter.html:21
+#: databasic/templates/connectthedots/connectthedots.html:27
+#: databasic/templates/home/index.html:42
+msgid ""
+"ConnectTheDots shows you how your data is connected by analyzing it as a "
+"network."
+msgstr ""
+
+#: databasic/templates/connectthedots/connectthedots.html:29
+msgid ""
+"Analyzing the connections between the \"dots\" in your data is a "
+"fundamentally different approach to understanding it. This tool shows you"
+" a network diagram to reveal those links, and gives you a high level "
+"report about what your network looks like."
+msgstr ""
+
+#: databasic/templates/connectthedots/connectthedots.html:32
+msgid "Graph"
+msgstr ""
+
+#: databasic/templates/connectthedots/results.html:6
+#, python-format
+msgid ""
+"For example, is it significant that <strong>%(id)s</strong> has the "
+"%(degree)s highest number of connections but is ranked %(centrality)s for"
+" %(betweenness_centrality)s?"
+msgstr ""
+
+#: databasic/templates/connectthedots/results.html:10
+#: databasic/templates/connectthedots/results.html:15
+#: databasic/templates/connectthedots/results.html:144
+msgid "betweenness centrality"
+msgstr ""
+
+#: databasic/templates/connectthedots/results.html:10
+#: databasic/templates/connectthedots/results.html:15
+#: databasic/templates/connectthedots/results.html:144
+#: databasic/templates/connectthedots/results.html:167
+msgid ""
+"Scores how much of a &quot;connector&quot; each node is. A high score "
+"means lots of nodes can go through one to quickly connect to other nodes."
+msgstr ""
+
+#: databasic/templates/connectthedots/results.html:13
+#, python-format
+msgid ""
+"For example, why might <strong>%(id)s</strong> have the highest "
+"%(betweenness_centrality)s in the network?"
+msgstr ""
+
+#: databasic/templates/connectthedots/results.html:20
+msgid "ConnectTheDots: "
+msgstr ""
+
+#: databasic/templates/connectthedots/results.html:42
+msgid ""
+"Warning: The file you uploaded had multiple sheets, but we only used the "
+"first sheet."
+msgstr ""
+
+#: databasic/templates/connectthedots/results.html:53
+#, python-format
+msgid ""
+"Here is a picture of how your data is connected. Any %(nodes)s linked by "
+"an %(edge)s show up in the same row in your input data. Your network "
+"graph has %(node_count)s nodes and %(edge_count)s edges.</p>\n"
+"\n"
+"        <p class=\"summary\">This diagram is automatically drawn by the "
+"computer, so it might look different each time you load this page. The "
+"shape of the network graph tells you about the links in your data."
+msgstr ""
+
+#: databasic/templates/connectthedots/results.html:58
+#, fuzzy
+msgid "nodes"
+msgstr "palabras"
+
+#: databasic/templates/connectthedots/results.html:58
+#: databasic/templates/connectthedots/results.html:157
+msgid ""
+"The &quot;dots&quot; in the network - the central organizing thing that "
+"is connected to others."
+msgstr ""
+
+#: databasic/templates/connectthedots/results.html:59
+msgid "edge"
+msgstr ""
+
+#: databasic/templates/connectthedots/results.html:59
+msgid "A connection between one node and another node."
+msgstr ""
+
+#: databasic/templates/connectthedots/results.html:64
+#: databasic/templates/samediff/results.html:28
+#: databasic/templates/wordcounter/results.html:32
+#: databasic/templates/wtfcsv/results.html:172
+#, fuzzy, python-format
+msgid "These results will expire in %(day)s days."
+msgstr "Estos resultados se vencerán en %(day)s días"
+
+#: databasic/templates/connectthedots/results.html:82
+msgid "for the web"
+msgstr ""
+
+#: databasic/templates/connectthedots/results.html:83
+msgid "for printing or editing"
+msgstr ""
+
+#: databasic/templates/connectthedots/results.html:84
+msgid "for analysis"
+msgstr ""
+
+#: databasic/templates/connectthedots/results.html:86
+msgid "Download the <strong>table</strong>"
+msgstr ""
+
+#: databasic/templates/connectthedots/results.html:97
+#, python-format
+msgid "%(density_score)s"
+msgstr ""
+
+#: databasic/templates/connectthedots/results.html:98
+#: databasic/templates/connectthedots/results.html:177
+msgid "density score"
+msgstr ""
+
+#: databasic/templates/connectthedots/results.html:98
+#: databasic/templates/connectthedots/results.html:177
+msgid ""
+"Measures how interconnected the whole network is. If every node were "
+"connected to every other node, the density would be 1."
+msgstr ""
+
+#: databasic/templates/connectthedots/results.html:103
+msgid ""
+"This network is a \"complete\" network. Every node is connected to every "
+"other node. You win!"
+msgstr ""
+
+#: databasic/templates/connectthedots/results.html:105
+msgid "This network is not connected at all. Time for you to connect the dots!"
+msgstr ""
+
+#: databasic/templates/connectthedots/results.html:107
+#, python-format
+msgid ""
+"%(density_pct)s of the potential connections in the network have been "
+"made."
+msgstr ""
+
+#: databasic/templates/connectthedots/results.html:111
+#, python-format
+msgid "This network is pretty %(dense)s."
+msgstr ""
+
+#: databasic/templates/connectthedots/results.html:112
+#: databasic/templates/connectthedots/results.html:116
+#: databasic/templates/connectthedots/results.html:178
+msgid "dense"
+msgstr ""
+
+#: databasic/templates/connectthedots/results.html:112
+#: databasic/templates/connectthedots/results.html:116
+#: databasic/templates/connectthedots/results.html:178
+msgid ""
+"A network that has lots of edges between nodes can be called "
+"&quot;dense&quot;."
+msgstr ""
+
+#: databasic/templates/connectthedots/results.html:115
+#, python-format
+msgid "This network is somewhat %(dense)s."
+msgstr ""
+
+#: databasic/templates/connectthedots/results.html:119
+#, python-format
+msgid "This network is %(sparse)s."
+msgstr ""
+
+#: databasic/templates/connectthedots/results.html:120
+#: databasic/templates/connectthedots/results.html:180
+#, fuzzy
+msgid "sparse"
+msgstr "Comparar"
+
+#: databasic/templates/connectthedots/results.html:120
+#: databasic/templates/connectthedots/results.html:180
+msgid ""
+"A network that doesn't have many edges between nodes can be called "
+"&quot;sparse&quot;."
+msgstr ""
+
+#: databasic/templates/connectthedots/results.html:127
+#, python-format
+msgid "%(clustering_score)s"
+msgstr ""
+
+#: databasic/templates/connectthedots/results.html:127
+#: databasic/templates/connectthedots/results.html:181
+msgid "clustering score"
+msgstr ""
+
+#: databasic/templates/connectthedots/results.html:127
+#: databasic/templates/connectthedots/results.html:181
+msgid ""
+"Summarizes how much the network diagram is broken into cliques. A score "
+"close to 1 means it is like high school (i.e. lots of cliques)."
+msgstr ""
+
+#: databasic/templates/connectthedots/results.html:130
+msgid ""
+"This score shows how much the nodes in your graph tend to cluster "
+"together. Most networks of real-world data tend to cluster more than a "
+"random graph would."
+msgstr ""
+
+#: databasic/templates/connectthedots/results.html:133
+msgid "the connector"
+msgstr ""
+
+#: databasic/templates/connectthedots/results.html:142
+#, python-format
+msgid ""
+"This node has the highest %(betweenness_centrality)s score. The most "
+"nodes can go through %(kevin_bacon)s to connect to others in the network."
+msgstr ""
+
+#: databasic/templates/connectthedots/results.html:156
+#, fuzzy, python-format
+msgid "%(node)s"
+msgstr "%(normalized)s "
+
+#: databasic/templates/connectthedots/results.html:157
+msgid "Node"
+msgstr ""
+
+#: databasic/templates/connectthedots/results.html:161
+#, fuzzy, python-format
+msgid "%(degree)s"
+msgstr "%(bigram)s"
+
+#: databasic/templates/connectthedots/results.html:162
+msgid "Degree"
+msgstr ""
+
+#: databasic/templates/connectthedots/results.html:162
+msgid "The immediate number of connections a node has."
+msgstr ""
+
+#: databasic/templates/connectthedots/results.html:166
+#, fuzzy, python-format
+msgid "%(centrality)s"
+msgstr "%(normalized)s "
+
+#: databasic/templates/connectthedots/results.html:167
+msgid "Centrality"
+msgstr ""
+
+#: databasic/templates/connectthedots/results.html:176
+#, python-format
+msgid ""
+"Understanding relationships as nodes and edges in a network can lead to "
+"deeper insights about how information travels through the system. For "
+"example, from the %(density_score)s of %(density_value)s you can start to"
+" understand whether your network is %(dense)s or %(sparse)s. And the "
+"higher the %(clustering_score)s the more your nodes are grouped (like "
+"high school cliques).</p><p>You can start to look for patterns in the "
+"nodes that are the most and least connected. %(whatnext_mismatch)s Why "
+"does <strong>%(lowest_degree)s</strong> have the fewest "
+"connections?</p><p>Being curious about these measures and patterns is the"
+" first step in understanding network data. Check out our activity guide "
+"for more help on analyzing network data."
+msgstr ""
+
+#: databasic/templates/home/index.html:17
+#: databasic/templates/wordcounter/wordcounter.html:22
 msgid ""
 "WordCounter analyzes your text and tells you the most common words and "
 "phrases."
@@ -320,15 +629,16 @@ msgstr ""
 "WordCounter analiza tu texto y te muestra las palabras y frases más "
 "comunes."
 
-#: databasic/templates/home/index.html:35
-#: databasic/templates/wtfcsv/wtfcsv.html:20
+#: databasic/templates/home/index.html:26
+#: databasic/templates/wtfcsv/wtfcsv.html:21
 msgid "WTFcsv tells you WTF is going on with your .csv file."
 msgstr "WTFcsv te dice qué diablo está pasando con tu archivo .csv."
 
-#: databasic/templates/home/index.html:45
+#: databasic/templates/home/index.html:34
+#: databasic/templates/samediff/samediff.html:21
 msgid ""
 "SameDiff compares two or more text files and tells you how similar or "
-"different they are"
+"different they are."
 msgstr ""
 "SameDiff compara dos o más archivos de texto y te dice qué tan similares "
 "o diferentes son."
@@ -337,33 +647,35 @@ msgstr ""
 msgid "Why use DataBasic?"
 msgstr "¿Por qué DataBasic?"
 
-#: databasic/templates/home/index.html:61
-msgid "Making Data Fun"
-msgstr "Datos Divertidos"
+#: databasic/templates/home/index.html:67
+#, fuzzy
+msgid "About <strong>DataBasic</strong>"
+msgstr "Su Informe de <strong>SameDiff</strong>"
 
-#: databasic/templates/home/index.html:62
+#: databasic/templates/home/index.html:76
+msgid "Accessible to All"
+msgstr "Accesibles para todos"
+
+#: databasic/templates/home/index.html:77
 msgid ""
-"Spreadsheets and large Word documents can be boring and intimidating. We "
-"think working with data should be more fun! Take a look at our activity "
-"guides for hands-on approaches to analyzing your data using these tools."
-"  Activity guides combined with fun data sets like music lyrics can help "
-"you take a playful approach to finding stories in your data. Don't you "
-"want to know \"what the fudge\" is going on with your CSV file?"
+"Digital technologies have empowered those with disabilities in a variety "
+"of ways, and new web standards have made it easier than ever to build new"
+" tools that are accessible to all.  DataBasic implements those "
+"technologies to support screen readers so the visually impaired can start"
+" working with data in new and exciting ways."
 msgstr ""
-"Las hojas de cálculo y los documentos grandes de Word pueden ser "
-"aburridos e intimidantes. ¡Nosotros creemos que trabajar con datos "
-"debería ser divertido! Échale un vistazo a nuestras guías de actividades "
-"para encontrar acercamientos prácticos al análisis de tus datos usando "
-"estas herramientas. Las guías de actividades combinadas con datos "
-"divertidos, como letras musicales, pueden ayudarte a que abordes de "
-"manera entretenida la búsqueda de historias en tus datos. ¿No te gustaría"
-" saber \"qué diablos\" está pasando en tu archivo CSV?"
+"Las tecnologías digitales les han dado mucho poder a las personas con "
+"discapacidad en varias formas, y los nuevos estándares de la red han "
+"facilitado más que nunca la creación de herramientas accesibles para "
+"todos. DataBasic implementa esas tecnologías para soportar lectores de "
+"pantalla para que aquellos con deficiencias visuales puedan trabajar con "
+"los datos en formas nuevas y emocionantes."
 
-#: databasic/templates/home/index.html:70
+#: databasic/templates/home/index.html:81
 msgid "Doing One Thing Well"
 msgstr "Hacer una sola cosa bien"
 
-#: databasic/templates/home/index.html:71
+#: databasic/templates/home/index.html:82
 msgid ""
 "There are tons of tools for working with data; many so complex they are "
 "intimidating to even start with.  We've built each DataBasic tool to "
@@ -378,11 +690,32 @@ msgstr ""
 "nos permite concentrarnos en que esa cosa sea a la vez simple y poderosa."
 " "
 
-#: databasic/templates/home/index.html:74
+#: databasic/templates/home/index.html:88
+msgid "Fitting in to Your Pipeline"
+msgstr "Ajustándose a tu proyecto"
+
+#: databasic/templates/home/index.html:89
+msgid ""
+"Working with data online always involves using a mishmash of tools. We're"
+" not going to solve that problem anytime soon.  So we've built DataBasic "
+"to take in a variety of types of data, and output results in the formats "
+"you're used to.  Read some content from website and download CSV files of"
+" your results. These are just two of the ways we try to introduce you to "
+"the way most folks work data online."
+msgstr ""
+"Trabajar con datos en línea siempre implica una mescolanza de "
+"herramientas. Ese problema no se va a solucionar pronto. Por eso hicimos "
+"que DataBasic pueda manejar varios tipos de datos, y ofrezca resultados "
+"en los formatos acostumbrados. Lee contenido del sitio y descarga "
+"archivos CSV de tus resultados. Estos son sólo dos de los modos en que "
+"tratamos de introducirte a la forma en la que casi todos trabajan los "
+"datos en línea. "
+
+#: databasic/templates/home/index.html:93
 msgid "Focused on Learning "
 msgstr "Un enfoque en el aprendizaje"
 
-#: databasic/templates/home/index.html:75
+#: databasic/templates/home/index.html:94
 msgid ""
 "Sometimes faster isn't better.  If you really want to learn how to work "
 "with data to find stories to tell, you'll need to use tools that do more "
@@ -401,32 +734,11 @@ msgstr ""
 "algunos de los divertidos datos de muestra que hemos incluido para "
 "empezar, como letras musicales o avistamientos de OVNIS."
 
-#: databasic/templates/home/index.html:78
-msgid "Fitting in to Your Pipeline"
-msgstr "Ajustándose a tu proyecto"
-
-#: databasic/templates/home/index.html:79
-msgid ""
-"Working with data online always involves using a mishmash of tools. We're"
-" not going to solve that problem anytime soon.  So we've built DataBasic "
-"to take in a variety of types of data, and output results in the formats "
-"you're used to.  Read some content from website and download CSV files of"
-" your results. These are just two of the ways we try to introduce you to "
-"the way most folks work data online."
-msgstr ""
-"Trabajar con datos en línea siempre implica una mescolanza de "
-"herramientas. Ese problema no se va a solucionar pronto. Por eso hicimos "
-"que DataBasic pueda manejar varios tipos de datos, y ofrezca resultados "
-"en los formatos acostumbrados. Lee contenido del sitio y descarga "
-"archivos CSV de tus resultados. Estos son sólo dos de los modos en que "
-"tratamos de introducirte a la forma en la que casi todos trabajan los "
-"datos en línea. "
-
-#: databasic/templates/home/index.html:87
+#: databasic/templates/home/index.html:100
 msgid "Ensuring Your Privacy"
 msgstr "Tu privacidad asegurada"
 
-#: databasic/templates/home/index.html:88
+#: databasic/templates/home/index.html:101
 msgid ""
 "With more and more data-centric tools moving online, sometimes it can be "
 "hard to tell where your data is going and what will happen with it after "
@@ -444,11 +756,11 @@ msgstr ""
 " Toda la comunicación ocurre por https, así que nadie puede fisgonear en "
 "tus datos mientras los subes. "
 
-#: databasic/templates/home/index.html:91
+#: databasic/templates/home/index.html:105
 msgid "By Educators, for Educators"
 msgstr "Por educadores, para educadores"
 
-#: databasic/templates/home/index.html:92
+#: databasic/templates/home/index.html:106
 msgid ""
 "Work with high-schoolers? Journalists? Community groups? Graduate "
 "students?  Us too!!!  That's why we designed and tested the DataBasic "
@@ -463,50 +775,36 @@ msgstr ""
 "nacieron de la frustración que nos causaban las cosas que usábamos en "
 "nuestras clases universitarias, así que sentimos tu dolor."
 
-#: databasic/templates/home/index.html:96
-msgid "Accessible to All"
-msgstr "Accesibles para todos"
+#: databasic/templates/home/index.html:116
+#, fuzzy
+msgid "<strong>DataBasic</strong> News"
+msgstr "Su Informe de <strong>SameDiff</strong>"
 
-#: databasic/templates/home/index.html:97
-msgid ""
-"Digital technologies have empowered those with disabilities in a variety "
-"of ways, and new web standards have made it easier than ever to build new"
-" tools that are accessible to all.  DataBasic implements those "
-"technologies to support screen readers so the visually impaired can start"
-" working with data in new and exciting ways."
-msgstr ""
-"Las tecnologías digitales les han dado mucho poder a las personas con "
-"discapacidad en varias formas, y los nuevos estándares de la red han "
-"facilitado más que nunca la creación de herramientas accesibles para "
-"todos. DataBasic implementa esas tecnologías para soportar lectores de "
-"pantalla para que aquellos con deficiencias visuales puedan trabajar con "
-"los datos en formas nuevas y emocionantes."
-
-#: databasic/templates/home/index.html:104
+#: databasic/templates/home/index.html:143
 msgid "Designed and Developed by"
 msgstr "Diseñado y Desarrollado por"
 
-#: databasic/templates/home/index.html:107
+#: databasic/templates/home/index.html:144
 msgid "Principal Investigators:"
 msgstr "Directores:"
 
-#: databasic/templates/home/index.html:118
+#: databasic/templates/home/index.html:148
 msgid "Software development:"
 msgstr "Programmación:"
 
-#: databasic/templates/home/index.html:130
+#: databasic/templates/home/index.html:152
 msgid "Spanish translation:"
 msgstr "Traducción al español:"
 
-#: databasic/templates/home/index.html:141
+#: databasic/templates/home/index.html:156
 msgid "Portuguese translation:"
 msgstr "Traducción al portugués:"
 
-#: databasic/templates/home/index.html:146
+#: databasic/templates/home/index.html:158
 msgid "with contributions from"
 msgstr "con la ayuda de"
 
-#: databasic/templates/home/index.html:153
+#: databasic/templates/home/index.html:160
 msgid "Spanish data sourcing:"
 msgstr "Datos en español collecionado por:"
 
@@ -514,31 +812,18 @@ msgstr "Datos en español collecionado por:"
 msgid "Portuguese data sourcing:"
 msgstr "Datos en portugués collecionado por:"
 
-#: databasic/templates/home/index.html:188
-msgid ""
-"This free and open source project would not be possible without the "
-"generous support of:"
-msgstr "Este proyecto es software libre y código abierto"
-" gracias al apoyo generoso de:"
-
 #: databasic/templates/samediff/results.html:8
 msgid "SameDiff results"
 msgstr "Resultados de SameDiff"
 
 #: databasic/templates/samediff/results.html:24
-msgid "Your <strong>SameDiff</strong> Report"
-msgstr "Su Informe de <strong>SameDiff</strong>"
+#, python-format
+msgid "Your %(logo)s Report"
+msgstr ""
 
 #: databasic/templates/samediff/results.html:25
 msgid "download"
 msgstr "bajar"
-
-#: databasic/templates/samediff/results.html:28
-#: databasic/templates/wordcounter/results.html:29
-#: databasic/templates/wtfcsv/results.html:170
-#, python-format
-msgid "These results will expire in %(day)s days"
-msgstr "Estos resultados se vencerán en %(day)s días"
 
 #: databasic/templates/samediff/results.html:37
 #, python-format
@@ -551,12 +836,12 @@ msgid "They have a %(cosine_sim)s score of %(score)s"
 msgstr "Tienen un índice de %(cosine_sim)s de %(score)s"
 
 #: databasic/templates/samediff/results.html:39
-#: databasic/templates/samediff/samediff.html:23
+#: databasic/templates/samediff/samediff.html:24
 msgid "cosine similarity"
 msgstr "similitud coseno"
 
 #: databasic/templates/samediff/results.html:39
-#: databasic/templates/samediff/samediff.html:23
+#: databasic/templates/samediff/samediff.html:24
 msgid ""
 "The Cosine Similarity score tries to tell you how similar two documents "
 "are based on the number of times words are used in each."
@@ -627,16 +912,16 @@ msgstr "Palabras que solo ocurren en %(document)s"
 #: databasic/templates/samediff/results.html:116
 #: databasic/templates/samediff/results.html:138
 #: databasic/templates/samediff/results.html:162
-#: databasic/templates/wordcounter/results.html:53
+#: databasic/templates/wordcounter/results.html:59
 msgid "Word"
 msgstr "Palabra"
 
 #: databasic/templates/samediff/results.html:117
 #: databasic/templates/samediff/results.html:139
 #: databasic/templates/samediff/results.html:163
-#: databasic/templates/wordcounter/results.html:54
-#: databasic/templates/wordcounter/results.html:74
-#: databasic/templates/wordcounter/results.html:95
+#: databasic/templates/wordcounter/results.html:60
+#: databasic/templates/wordcounter/results.html:80
+#: databasic/templates/wordcounter/results.html:101
 msgid "Frequency"
 msgstr "Frecuencia"
 
@@ -686,15 +971,7 @@ msgstr " usos en %(doc)s"
 msgid " uses"
 msgstr " usos"
 
-#: databasic/templates/samediff/samediff.html:20
-msgid ""
-"SameDiff compares two or more text files and tells you how similar or "
-"different they are."
-msgstr ""
-"SameDiff compara dos o más archivos de texto y te dice qué tan similares "
-"o diferentes son."
-
-#: databasic/templates/samediff/samediff.html:21
+#: databasic/templates/samediff/samediff.html:22
 #, python-format
 msgid ""
 "SameDiff compares one %(corpus)s of text to another corpus of text to "
@@ -707,21 +984,21 @@ msgstr ""
 "%(cosine_similarity)s para evaluar si los documentos son realmente "
 "similares o totalmente diferentes."
 
-#: databasic/templates/samediff/samediff.html:22
+#: databasic/templates/samediff/samediff.html:23
 msgid "corpus"
 msgstr "corpus"
 
-#: databasic/templates/samediff/samediff.html:22
+#: databasic/templates/samediff/samediff.html:23
 msgid ""
 "A collection of written texts. For example, all of the lyrics in Katy "
 "Perry songs."
 msgstr "Una colleción de textos. Por ejemplo, todos los líricos de Katy Perry."
 
-#: databasic/templates/samediff/samediff.html:24
+#: databasic/templates/samediff/samediff.html:25
 msgid "algorithm"
 msgstr "algorithm"
 
-#: databasic/templates/samediff/samediff.html:24
+#: databasic/templates/samediff/samediff.html:25
 msgid ""
 "A set of steps you (or a computer) do in order to solve a problem. For "
 "example, when you type in a search term, Google runs an algorithm to "
@@ -730,7 +1007,7 @@ msgstr ""
 "Una collectión de pasos que hace una computadora o un ser humano para "
 "solucionar un problema."
 
-#: databasic/templates/samediff/samediff.html:27
+#: databasic/templates/samediff/samediff.html:28
 msgid "Compare"
 msgstr "Comparar"
 
@@ -738,7 +1015,7 @@ msgstr "Comparar"
 msgid "Word-Counter results"
 msgstr "resultados de Word-Counter"
 
-#: databasic/templates/wordcounter/results.html:27
+#: databasic/templates/wordcounter/results.html:30
 msgid ""
 "Here is a picture of the words used most often in your document. Words "
 "used more often are bigger, and ones used less often are smaller. This "
@@ -750,7 +1027,7 @@ msgstr ""
 "llamada una \"nube de palabras\", le ayuda a comprender cuales palabras "
 "aparezcan con más frecuencia en el documento."
 
-#: databasic/templates/wordcounter/results.html:39
+#: databasic/templates/wordcounter/results.html:45
 #, python-format
 msgid ""
 "Sorry, but we didn't find any results to show. Maybe your text is too "
@@ -759,65 +1036,65 @@ msgstr ""
 "Siento que no hay resultados. Tal vez su texto es demasiado corto... o "
 "quizás solo contiene palabras de paro."
 
-#: databasic/templates/wordcounter/results.html:39
+#: databasic/templates/wordcounter/results.html:45
 msgid ""
 "Stopwords are words in text analysis that are ignored such as \"this\", "
 "\"that\", \"and\" and \"but.\""
 msgstr "Palabras de paro"
 
-#: databasic/templates/wordcounter/results.html:48
+#: databasic/templates/wordcounter/results.html:54
 msgid "Top Words"
 msgstr "Palabras con más frecuencia"
 
-#: databasic/templates/wordcounter/results.html:49
+#: databasic/templates/wordcounter/results.html:55
 msgid "download csv of word frequencies"
 msgstr "bajar csv con frecuencias de palabras"
 
-#: databasic/templates/wordcounter/results.html:68
+#: databasic/templates/wordcounter/results.html:74
 msgid "Bigrams"
 msgstr "Bigramas"
 
-#: databasic/templates/wordcounter/results.html:69
+#: databasic/templates/wordcounter/results.html:75
 msgid "download csv of bigram frequencies"
 msgstr "bajar csv de frecuencias de bigramas"
 
-#: databasic/templates/wordcounter/results.html:73
+#: databasic/templates/wordcounter/results.html:79
 #, python-format
 msgid "%(bigram)s"
 msgstr "%(bigram)s"
 
-#: databasic/templates/wordcounter/results.html:73
+#: databasic/templates/wordcounter/results.html:79
 msgid "bigram"
 msgstr "bigrama"
 
-#: databasic/templates/wordcounter/results.html:73
-#: databasic/templates/wordcounter/wordcounter.html:24
+#: databasic/templates/wordcounter/results.html:79
+#: databasic/templates/wordcounter/wordcounter.html:25
 msgid "A bigram is a two word phrase"
 msgstr "Una bigrama es una frase con dos palabras"
 
-#: databasic/templates/wordcounter/results.html:89
+#: databasic/templates/wordcounter/results.html:95
 msgid "Trigrams"
 msgstr "Trigramas"
 
-#: databasic/templates/wordcounter/results.html:90
+#: databasic/templates/wordcounter/results.html:96
 msgid "download csv of trigram frequencies"
 msgstr "bajar csv de frecuencias de trigramas"
 
-#: databasic/templates/wordcounter/results.html:94
+#: databasic/templates/wordcounter/results.html:100
 #, python-format
 msgid "%(trigram)s"
 msgstr "%(trigram)s"
 
-#: databasic/templates/wordcounter/results.html:94
+#: databasic/templates/wordcounter/results.html:100
 msgid "trigram"
 msgstr "trigrama"
 
-#: databasic/templates/wordcounter/results.html:94
-#: databasic/templates/wordcounter/wordcounter.html:25
+#: databasic/templates/wordcounter/results.html:100
+#: databasic/templates/wordcounter/wordcounter.html:26
 msgid "A trigram is a three word phrase"
 msgstr "Una trigrama es una frase con tres palabras"
 
-#: databasic/templates/wordcounter/results.html:113
+#: databasic/templates/wordcounter/results.html:119
 #, python-format
 msgid ""
 "Examining text data in this quantitative way can help you find stories to"
@@ -828,25 +1105,25 @@ msgstr ""
 "encontrar historias a contar. El hecho que \"%(top_word)s\" es una "
 "palabra popular es bueno saber. Combínalo con "
 
-#: databasic/templates/wordcounter/results.html:115
+#: databasic/templates/wordcounter/results.html:121
 #, python-format
 msgid "the %(num)d use "
 msgid_plural "the %(num)d uses "
 msgstr[0] "el %(num)d uso"
 msgstr[1] "los %(num)d usos"
 
-#: databasic/templates/wordcounter/results.html:116
+#: databasic/templates/wordcounter/results.html:122
 msgid "in the top 40 bigrams, and "
 msgstr "en las 40 bigramas con más frecuencia, y"
 
-#: databasic/templates/wordcounter/results.html:117
+#: databasic/templates/wordcounter/results.html:123
 #, python-format
 msgid "the %(num)s use "
 msgid_plural "the %(num)s uses "
 msgstr[0] "el %(num)s uso"
 msgstr[1] "los %(num)s usos"
 
-#: databasic/templates/wordcounter/results.html:118
+#: databasic/templates/wordcounter/results.html:124
 #, python-format
 msgid ""
 "in the top 40 trigrams, to understand the context of how it is used.  "
@@ -881,7 +1158,7 @@ msgstr ""
 "\"%(random_unpopular_word)s\" está usado %(random_unpopular_word_count)s "
 "veces!"
 
-#: databasic/templates/wordcounter/wordcounter.html:23
+#: databasic/templates/wordcounter/wordcounter.html:24
 #, python-format
 msgid ""
 "This tool helps you count words, %(bigrams)s, and %(trigrams)s in plain "
@@ -891,15 +1168,15 @@ msgstr ""
 "en el texto plano. A menudo este es el primer paso en el análisis "
 "cuantitativo de texto."
 
-#: databasic/templates/wordcounter/wordcounter.html:24
+#: databasic/templates/wordcounter/wordcounter.html:25
 msgid "bigrams"
 msgstr "bigramas"
 
-#: databasic/templates/wordcounter/wordcounter.html:25
+#: databasic/templates/wordcounter/wordcounter.html:26
 msgid "trigrams"
 msgstr "trigramas"
 
-#: databasic/templates/wordcounter/wordcounter.html:28
+#: databasic/templates/wordcounter/wordcounter.html:29
 msgid "Count"
 msgstr "Contar"
 
@@ -982,11 +1259,10 @@ msgid "Click to see the chart"
 msgstr "Haga clic para ver la gráfica"
 
 #: databasic/templates/wtfcsv/results.html:117
-#: databasic/templates/wtfcsv/results.html:159
 msgid "WTFcsv: "
 msgstr "WTFcsv: "
 
-#: databasic/templates/wtfcsv/results.html:135
+#: databasic/templates/wtfcsv/results.html:136
 msgid ""
 "We can't analyze that data because it's not in a standard form. Your "
 "first row should contain the names of your columns."
@@ -994,37 +1270,37 @@ msgstr ""
 "No podemos analizar estos datos porque no están en una forma estándar. La"
 " primera fila debe contener los nombres de las columnas."
 
-#: databasic/templates/wtfcsv/results.html:162
+#: databasic/templates/wtfcsv/results.html:164
 #, python-format
 msgid "%(rows)s rows of data grouped into %(cols)s columns."
 msgstr "%(rows)s filas de datos agrupados en %(cols)s columnas."
 
-#: databasic/templates/wtfcsv/results.html:166
+#: databasic/templates/wtfcsv/results.html:168
 #, python-format
 msgid "Here's some %(metadata)s about each column."
 msgstr "Aqui hay %(metadata)s sobre cada columna"
 
-#: databasic/templates/wtfcsv/results.html:167
+#: databasic/templates/wtfcsv/results.html:169
 msgid "metadata"
 msgstr "metadata"
 
-#: databasic/templates/wtfcsv/results.html:167
+#: databasic/templates/wtfcsv/results.html:169
 msgid "Metadata summarizes basic information about your data."
 msgstr "Metadata "
 
-#: databasic/templates/wtfcsv/results.html:209
+#: databasic/templates/wtfcsv/results.html:211
 msgid "value"
 msgstr "valor"
 
-#: databasic/templates/wtfcsv/results.html:210
+#: databasic/templates/wtfcsv/results.html:212
 msgid "frequency"
 msgstr "frecuencia"
 
-#: databasic/templates/wtfcsv/results.html:221
+#: databasic/templates/wtfcsv/results.html:223
 msgid "No data to display."
 msgstr "No hay información que mostrar."
 
-#: databasic/templates/wtfcsv/results.html:248
+#: databasic/templates/wtfcsv/results.html:250
 #, python-format
 msgid ""
 "Understanding the data in your csv file is the first step in analyzing it"
@@ -1054,39 +1330,39 @@ msgstr ""
 " onclick=\"ga('send', 'event', 'wtfcsv', 'activity-guide');\">guías de "
 "activdades </a> para más ayuda en hacer preguntas buenas de sus datos."
 
-#: databasic/templates/wtfcsv/results.html:394
+#: databasic/templates/wtfcsv/results.html:396
 msgid "Categories"
 msgstr "Categorías"
 
-#: databasic/templates/wtfcsv/results.html:396
+#: databasic/templates/wtfcsv/results.html:398
 msgid "Counts"
 msgstr "Totales"
 
-#: databasic/templates/wtfcsv/results.html:398
+#: databasic/templates/wtfcsv/results.html:400
 msgid "Dates"
 msgstr "Fechas"
 
-#: databasic/templates/wtfcsv/results.html:400
+#: databasic/templates/wtfcsv/results.html:402
 msgid "Times"
 msgstr "Veces"
 
-#: databasic/templates/wtfcsv/results.html:402
+#: databasic/templates/wtfcsv/results.html:404
 msgid "Dates and times"
 msgstr "Fechas y horas"
 
-#: databasic/templates/wtfcsv/results.html:404
+#: databasic/templates/wtfcsv/results.html:406
 msgid "Booleans"
 msgstr "Booleanos"
 
-#: databasic/templates/wtfcsv/results.html:406
+#: databasic/templates/wtfcsv/results.html:408
 msgid "Undefined"
 msgstr "Indefinido"
 
-#: databasic/templates/wtfcsv/results.html:416
+#: databasic/templates/wtfcsv/results.html:418
 msgid "# of rows"
 msgstr "# de filas"
 
-#: databasic/templates/wtfcsv/wtfcsv.html:21
+#: databasic/templates/wtfcsv/wtfcsv.html:22
 #, python-format
 msgid ""
 "Data arrives at your doorstep in the form of a spreadsheet but how do you"
@@ -1099,11 +1375,11 @@ msgstr ""
 "proporciona el primer paso para caracterizar cada columna de cada "
 "%(data_type)s y contenidos para que puedas hacer más preguntas."
 
-#: databasic/templates/wtfcsv/wtfcsv.html:22
+#: databasic/templates/wtfcsv/wtfcsv.html:23
 msgid "data type"
 msgstr "tipo de datos"
 
-#: databasic/templates/wtfcsv/wtfcsv.html:22
+#: databasic/templates/wtfcsv/wtfcsv.html:23
 msgid ""
 "Data is often classified by type. Common types of data include numbers, "
 "dates and text."
@@ -1111,7 +1387,7 @@ msgstr ""
 "Se classifican los datos por su típo. Típos de datos incluyen números, "
 "fechas y texto."
 
-#: databasic/templates/wtfcsv/wtfcsv.html:25
+#: databasic/templates/wtfcsv/wtfcsv.html:26
 msgid "Analyze"
 msgstr "Analizar"
 
@@ -1360,4 +1636,56 @@ msgstr "Otro"
 
 #~ msgid "Diseñado y Desarrollado por"
 #~ msgstr ""
+
+#~ msgid ""
+#~ "SameDiff compares two or more text "
+#~ "files and tells you how similar or"
+#~ " different they are"
+#~ msgstr ""
+#~ "SameDiff compara dos o más archivos "
+#~ "de texto y te dice qué tan "
+#~ "similares o diferentes son."
+
+#~ msgid "Making Data Fun"
+#~ msgstr "Datos Divertidos"
+
+#~ msgid ""
+#~ "Spreadsheets and large Word documents "
+#~ "can be boring and intimidating. We "
+#~ "think working with data should be "
+#~ "more fun! Take a look at our "
+#~ "activity guides for hands-on approaches"
+#~ " to analyzing your data using these"
+#~ " tools.  Activity guides combined with "
+#~ "fun data sets like music lyrics "
+#~ "can help you take a playful "
+#~ "approach to finding stories in your "
+#~ "data. Don't you want to know "
+#~ "\"what the fudge\" is going on "
+#~ "with your CSV file?"
+#~ msgstr ""
+#~ "Las hojas de cálculo y los "
+#~ "documentos grandes de Word pueden ser"
+#~ " aburridos e intimidantes. ¡Nosotros "
+#~ "creemos que trabajar con datos debería"
+#~ " ser divertido! Échale un vistazo a"
+#~ " nuestras guías de actividades para "
+#~ "encontrar acercamientos prácticos al análisis"
+#~ " de tus datos usando estas "
+#~ "herramientas. Las guías de actividades "
+#~ "combinadas con datos divertidos, como "
+#~ "letras musicales, pueden ayudarte a que"
+#~ " abordes de manera entretenida la "
+#~ "búsqueda de historias en tus datos. "
+#~ "¿No te gustaría saber \"qué diablos\""
+#~ " está pasando en tu archivo CSV?"
+
+#~ msgid ""
+#~ "This free and open source project "
+#~ "would not be possible without the "
+#~ "generous support of:"
+#~ msgstr ""
+#~ "Este proyecto es software libre y "
+#~ "código abierto gracias al apoyo generoso"
+#~ " de:"
 
