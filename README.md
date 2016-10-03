@@ -8,6 +8,7 @@ The suite include:
 * **WTFcsv**: A web application that takes as input a CSV file and returns a summary of the fields, their data type, their range, and basic descriptive statistics. This is a prettier version of R’s “summary” command and aids at the outset of the data analysis process.
 * **WordCounter**: A basic word counting tool that takes unstructured text as input and returns word frequency, bigrams (two-word phrases) and trigrams (three-word phrases)
 * **SameDiff**: A tool that compares two text files to show words in common, and words that make each unique.
+* **ConnectTheDots**: A network analysis tool that takes an edgelist and turns it into a graph/table of nodes.
 
 Installation
 ------------
