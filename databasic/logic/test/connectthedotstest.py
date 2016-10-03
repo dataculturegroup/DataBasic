@@ -183,7 +183,7 @@ class ConnectTheDotsTest(unittest.TestCase):
         self.assertEqual(nodes[edges[0]['source']]['id'], u'A')
         self.assertEqual(nodes[edges[0]['target']]['id'], u'C')
 
-        targets = [u'B', u'D', u'E']
+        targets = ['B', 'D', 'E']
         for n in range(1, 4):
             self.assertEqual(nodes[edges[n]['source']]['id'], u'C')
             self.assertEqual(nodes[edges[n]['target']]['id'], targets[n - 1])
@@ -197,6 +197,31 @@ class ConnectTheDotsTest(unittest.TestCase):
             contents = gexf.read()
 
         self.assertEqual(contents, results['gexf'])
+
+    def test_is_bipartite_candidate(self):
+        test_data_path = os.path.join(self._fixtures_dir, 'southern-women.csv')
+        results = ctd.get_summary(test_data_path)
+        data = json.loads(results['json'])
+        nodes = data['nodes']
+        cols = {u'BRENDA': 0, u'CHARLOTTE': 0, u'DOROTHY': 0, u'ELEANOR': 0, u'EVELYN': 0, u'FLORA': 0,
+                u'FRANCES': 0, u'HELEN': 0, u'KATHERINE': 0, u'LAURA': 0, u'MYRNA': 0, u'NORA': 0,
+                u'OLIVIA': 0, u'PEARL': 0, u'RUTH': 0, u'SYLVIA': 0, u'THERESA': 0, u'VERNE': 0,
+                u'E1': 1, u'E10': 1, u'E11': 1, u'E12': 1, u'E13': 1, u'E14': 1, u'E2': 1, u'E3': 1,
+                u'E4': 1, u'E5': 1, u'E6': 1, u'E7': 1, u'E8': 1, u'E9': 1}
+
+        self.assertTrue(results['bipartite'])
+        for n in nodes:
+            self.assertEqual(n['column'], cols[n['id']])
+
+    def test_is_not_bipartite_candidate(self):
+        test_data_path = os.path.join(self._fixtures_dir, 'simple-network.csv')
+        results = ctd.get_summary(test_data_path)
+        data = json.loads(results['json'])
+        nodes = data['nodes']
+        
+        self.assertFalse(results['bipartite'])
+        for n in nodes:
+            self.assertNotIn('column', n)
 
     def test_large_file(self):
         test_data_path = os.path.join(self._fixtures_dir, 'airline-routes.csv')

@@ -1,4 +1,4 @@
-import codecs, json, logging, math, networkx as nx, operator, StringIO
+import codecs, community, json, logging, math, networkx as nx, operator, StringIO
 import filehandler
 from csvkit import table
 from networkx.readwrite import json_graph
@@ -53,7 +53,14 @@ class ConnectTheDots():
 
             nodes = nx.nodes_iter(self.graph)
             bc = nx.betweenness_centrality(self.graph, k=k)
-            self.nodes = [{'id': n, 'degree': self.graph.degree(n), 'centrality': bc[n]} for n in nodes]
+            partition = community.best_partition(self.graph)
+            results['bipartite'] = self.is_bipartite_candidate()
+            results['communities'] = len(set(partition.values()))
+
+            if results['bipartite']:
+                self.nodes = [{'id': n, 'degree': self.graph.degree(n), 'centrality': bc[n], 'community': partition[n], 'column': 0 if n in self.col0 else 1} for n in nodes]
+            else:
+                self.nodes = [{'id': n, 'degree': self.graph.degree(n), 'centrality': bc[n], 'community': partition[n]} for n in nodes]
 
             results['nodes'] = node_count
             results['edges'] = self.count_edges()
@@ -118,3 +125,15 @@ class ConnectTheDots():
         sio = StringIO.StringIO()
         nx.write_gexf(self.graph, sio)
         return sio.getvalue()
+
+    def is_bipartite_candidate(self):
+        """
+        Return true if network might be bipartite (unique values per column)
+        """
+        self.col0 = {}
+        for val in list(set(self.table[0])):
+            self.col0[val] = True
+        for val in list(set(self.table[1])):
+            if val in self.col0:
+                return False
+        return True
