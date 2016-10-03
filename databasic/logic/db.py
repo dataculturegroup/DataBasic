@@ -1,4 +1,7 @@
-import datetime, json, logging, time, codecs, pytz
+import datetime
+import logging
+import time
+import pytz
 from pymongo import MongoClient
 from bson.objectid import ObjectId
 
@@ -10,7 +13,7 @@ class MongoHandler:
     def __init__(self, uri, db_name):
         self._client = MongoClient(uri, connect=False)
         self._db = self._client[db_name]
-    
+
     def save_words(self, collection, counts, ignore_case, ignore_stopwords, title, sample_id, source):
         return str(self._db[collection].save({
             'counts': counts,
@@ -22,8 +25,8 @@ class MongoHandler:
             'created_at': time.time()
             }))
 
-    def results_for_sample(self,collection,sample_id):
-        logger.debug("checking for sample %s",sample_id)
+    def results_for_sample(self, collection, sample_id):
+        logger.debug("checking for sample %s", sample_id)
         sample = self._db[collection].find_one({'sample_id': str(sample_id)})
 
         if sample is not None:
@@ -70,10 +73,10 @@ class MongoHandler:
         return remaining.days+1
 
     def remove_all_sample_data(self):
-        self.remove_sample_data('wordcounter')        
-        self.remove_sample_data('wtfcsv')        
+        self.remove_sample_data('wordcounter')
+        self.remove_sample_data('wtfcsv')
         self.remove_sample_data('samediff')
-        self.remove_sample_data('connectthedots')       
+        self.remove_sample_data('connectthedots')
 
     def remove_sample_data(self, collection):
         self._db[collection].remove({'sample_id': {'$exists': True, '$ne': ''}})
@@ -83,7 +86,10 @@ class MongoHandler:
         _id = ObjectId.from_datetime(limit)
         docs = self._db[collection].find({'_id': {'$lt': _id}, 'sample_id': ''})
         for d in docs:
-            print collection + ': removing ' + d['title']
+            if 'title' in d:
+                print collection + ': removing ' + d['title']
+            else:
+                print collection + ': removing (no name)'
         self._db[collection].remove({'_id': {'$lt': _id}, 'sample_id': ''})
 
     def remove_all_expired_results(self):
