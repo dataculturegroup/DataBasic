@@ -64,8 +64,6 @@
         edge=hover_tooltip(_('edge'), 'edge', _('A connection between one node and another node.'))
         ) }}</p>
 
-        <p class="summary">{{ _('This diagram is automatically drawn by the computer, so it might look different each time you load this page. The shape of the network graph tells you about the links in your data.') }}</p>
-
         {% if results['bipartite'] %}
           <p class="summary">{{ _('It looks like your two columns have two totally different types of nodes. We think this is a %(bipartite_graph)s. We’ve gone ahead and colored each node based on what column it&#39;s in.',
           bipartite_graph=hover_tooltip(_('bipartite graph'), 'bipartite', _('Glossary definition for bipartite graph.'))
