@@ -58,9 +58,9 @@
                      .force('center', center);
 
   var ticksElapsed = 0,
-      stableAt = Math.ceil(
-                   Math.log(simulation.alphaMin()) / Math.log(1 - simulation.alphaDecay())
-                 ); // number of ticks before graph reaches equilibrium
+      stableAt = 100;
+      // stableAt = Math.ceil(Math.log(simulation.alphaMin()) / Math.log(1 - simulation.alphaDecay()));
+      // number of ticks before graph reaches equilibrium
 
   // setup graphical elements and bind data
   var colorBy = bipartite ? 'column': 'community',
