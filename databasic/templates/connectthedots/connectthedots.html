@@ -9,6 +9,8 @@
 {% endblock %}
 
 {% block custom_scripts %}
+  <script type="text/javascript" src="/static/js/{{ tool_name }}-validate.js"></script>
+  <script src="/static/js/tool.js"></script>
   <script type="text/javascript">
     var $area = $('#area'),
         text = 'Paste rows from an Excel or Google spreadsheet, with this format:\nsource\ttarget\nA\tB\nA\tC\nB\tC';
@@ -28,7 +30,7 @@
         $area.addClass('placeholder');
         $area.val(text);
       }
-    })
+    });
   </script>
 {% endblock %}
 

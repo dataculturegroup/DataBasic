@@ -190,7 +190,6 @@ class ConnectTheDotsPaste(Form):
 
     area = StringField(
         _('Text'),
-        description={'placeholder': _('lol')},
         widget=TextArea())
 
     has_header_row = BooleanField(

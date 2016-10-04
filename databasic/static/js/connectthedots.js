@@ -2,7 +2,7 @@
  * ConnectTheDots front-end code
  * Graph drawing adapted from https://bl.ocks.org/mbostock/4062045
  */
-// (function() {
+(function() {
   var BACKGROUND_COLOR = '#fff',
       PRIMARY_COLORS = {default: '#10b0f7', hover: '#0076b3', active: '#41c0f9'},
       ALTERNATE_COLORS = {default: '#f75710', hover: '#b33d00', active: '#f97a41'},
@@ -395,6 +395,7 @@
     padding = parseFloat(container.style('padding-left').slice(0, -2)),
     width = container.node().getBoundingClientRect().width - 2 * padding,
     height = width / DISPLAY_RESOLUTION;
+    menuHeight = document.querySelector('.ctd-menu').getBoundingClientRect().height;
 
     svg.attr('width', width)
        .attr('height', height);
@@ -483,4 +484,4 @@
       }
     });
   });
-// })();
+})();
