@@ -19,6 +19,10 @@ h4[role=alert] {
 .inputs .form-group #area {
   height: 140px;
   resize: vertical;
+  &.placeholder {
+    color: $c-theme-lt; 
+    text-align: center;
+  }
 }
 
 footer {
