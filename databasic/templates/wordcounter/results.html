@@ -6,7 +6,7 @@
 {% set download_trigrams="/" + g['current_lang'] + "/wordcounter/results/" + doc_id + "/download/trigrams.csv" %}
 {% set has_results=whatnext['top_word'] != '' %}
 
-{% block title %}{{ _('Word-Counter results') }}{% endblock %}
+{% block title %}{{ _('WordCounter results') }}{% endblock %}
 
 {% block custom_css %}
   <link href="{{ url_for('static', filename='css/wordcounter-results.scss.css') }}" rel="stylesheet" type="text/css">
