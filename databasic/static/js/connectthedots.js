@@ -473,7 +473,7 @@
   }
 
   // event handler for color switcher
-  document.querySelectorAll('input[name="node-color"]').forEach(function(radio) {
+  Array.prototype.forEach.call(document.querySelectorAll('input[name="node-color"]'), function(radio) {
     radio.addEventListener('click', function() {
       if (colorBy !== this.value) {
         colorBy = this.value;
@@ -482,5 +482,5 @@
         });
       }
     });
-  })
+  });
 // })();
