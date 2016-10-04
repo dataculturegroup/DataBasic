@@ -160,7 +160,11 @@ h4[role=alert] {
 }
 
 .ctd-meta--value {
+  display: inline-block;
   margin-top: 0;
+  &:hover {
+    cursor: pointer;
+  }
 }
 
 .ctd-meta--summary {

@@ -2,7 +2,7 @@
  * ConnectTheDots front-end code
  * Graph drawing adapted from https://bl.ocks.org/mbostock/4062045
  */
-(function() {
+// (function() {
   var BACKGROUND_COLOR = '#fff',
       PRIMARY_COLORS = {default: '#10b0f7', hover: '#0076b3', active: '#41c0f9'},
       ALTERNATE_COLORS = {default: '#f75710', hover: '#b33d00', active: '#f97a41'},
@@ -122,6 +122,9 @@
       download = d3.select('.ctd-download > button'),
       colors = d3.select('.ctd-colors'), 
       tooltip = d3.select('.ctd-tooltip').style('display', 'none');
+
+  var connector = d3.select('.ctd-meta--value');
+  connector.datum(data.nodes.filter(function(d) { return d.id === connector.text().trim(); })[0]);
 
   // start simulation
   simulation.nodes(data.nodes)
@@ -332,6 +335,7 @@
       progress.style('width', width * ticksElapsed / stableAt + 'px');
     } else if (ticksElapsed === stableAt) {
       rescaleGraph();
+
       progress.remove();
       node.style('opacity', 1);
       edge.style('opacity', 1);
@@ -340,6 +344,10 @@
       colors.style('visibility', 'visible')
             .style('opacity', 1);
       tooltip.style('display', 'block');
+
+      connector.on('mouseover', mouseoverNode)
+               .on('mouseout', mouseoutNode)
+               .on('click', setActiveNode);
     }
 
     // set node positions, bounded within graph area
@@ -475,4 +483,4 @@
       }
     });
   })
-})();
+// })();
