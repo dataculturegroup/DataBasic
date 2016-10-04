@@ -1012,8 +1012,8 @@ msgid "Compare"
 msgstr "Comparar"
 
 #: databasic/templates/wordcounter/results.html:9
-msgid "Word-Counter results"
-msgstr "resultados de Word-Counter"
+msgid "WordCounter results"
+msgstr "resultados de WordCounter"
 
 #: databasic/templates/wordcounter/results.html:30
 msgid ""
