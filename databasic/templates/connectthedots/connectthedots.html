@@ -8,6 +8,32 @@
   <meta id="max-file-size-in-mb" data-value="{{ max_file_size_in_mb }}">
 {% endblock %}
 
+{% block custom_scripts %}
+  <script type="text/javascript" src="/static/js/{{ tool_name }}-validate.js"></script>
+  <script src="/static/js/tool.js"></script>
+  <script type="text/javascript">
+    var $area = $('#area'),
+        text = 'Paste rows from an Excel or Google spreadsheet, with this format:\nsource\ttarget\nA\tB\nA\tC\nB\tC';
+
+    $area.addClass('placeholder');
+    $area.val(text);
+
+    $area.on('focus', function() {
+      if ($area.hasClass('placeholder')) {
+        $area.removeClass('placeholder');
+        $area.val('');
+      }
+    });
+
+    $area.on('blur', function() {
+      if ($area.val() === '') {
+        $area.addClass('placeholder');
+        $area.val(text);
+      }
+    });
+  </script>
+{% endblock %}
+
 {% block nav %}
   {% include 'tool_header.html' %}
 {% endblock %}

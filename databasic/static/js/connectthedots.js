@@ -58,9 +58,9 @@
                      .force('center', center);
 
   var ticksElapsed = 0,
-      stableAt = Math.ceil(
-                   Math.log(simulation.alphaMin()) / Math.log(1 - simulation.alphaDecay())
-                 ); // number of ticks before graph reaches equilibrium
+      stableAt = 100;
+      // stableAt = Math.ceil(Math.log(simulation.alphaMin()) / Math.log(1 - simulation.alphaDecay()));
+      // number of ticks before graph reaches equilibrium
 
   // setup graphical elements and bind data
   var colorBy = bipartite ? 'column': 'community',
@@ -122,6 +122,9 @@
       download = d3.select('.ctd-download > button'),
       colors = d3.select('.ctd-colors'), 
       tooltip = d3.select('.ctd-tooltip').style('display', 'none');
+
+  var connector = d3.select('.ctd-meta--value');
+  connector.datum(data.nodes.filter(function(d) { return d.id === connector.text().trim(); })[0]);
 
   // start simulation
   simulation.nodes(data.nodes)
@@ -332,6 +335,7 @@
       progress.style('width', width * ticksElapsed / stableAt + 'px');
     } else if (ticksElapsed === stableAt) {
       rescaleGraph();
+
       progress.remove();
       node.style('opacity', 1);
       edge.style('opacity', 1);
@@ -340,6 +344,10 @@
       colors.style('visibility', 'visible')
             .style('opacity', 1);
       tooltip.style('display', 'block');
+
+      connector.on('mouseover', mouseoverNode)
+               .on('mouseout', mouseoutNode)
+               .on('click', setActiveNode);
     }
 
     // set node positions, bounded within graph area
@@ -387,6 +395,7 @@
     padding = parseFloat(container.style('padding-left').slice(0, -2)),
     width = container.node().getBoundingClientRect().width - 2 * padding,
     height = width / DISPLAY_RESOLUTION;
+    menuHeight = document.querySelector('.ctd-menu').getBoundingClientRect().height;
 
     svg.attr('width', width)
        .attr('height', height);
@@ -465,7 +474,7 @@
   }
 
   // event handler for color switcher
-  document.querySelectorAll('input[name="node-color"]').forEach(function(radio) {
+  Array.prototype.forEach.call(document.querySelectorAll('input[name="node-color"]'), function(radio) {
     radio.addEventListener('click', function() {
       if (colorBy !== this.value) {
         colorBy = this.value;
@@ -474,5 +483,5 @@
         });
       }
     });
-  })
+  });
 })();
