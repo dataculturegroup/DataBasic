@@ -57,6 +57,9 @@ h4[role=alert] {
     top: 4px;
     font-size: 24px;
   }
+  @media (max-width: 767px) {
+    width: 100%;
+  }
 }
 
 .ctd-download > .dropdown-menu {
@@ -83,6 +86,9 @@ h4[role=alert] {
     height: 2px;
     background-color: $c-white;
   }
+  @media (max-width: 767px) {
+    width: 100%;
+  }
 }
 
 .ctd-colors {
@@ -99,6 +105,9 @@ h4[role=alert] {
   > .control-label {
     margin-right: 10px;
     font-family: $font-md;
+  }
+  @media (max-width: 767px) {
+    text-align: center;
   }
 }
 
