@@ -206,6 +206,8 @@ def download_table(doc_id):
     doc = mongo.find_document('connectthedots', doc_id)
     def as_csv(rows, headers):
         yield ','.join(headers) + '\n'
-        for r in sorted(rows, key=operator.itemgetter('degree'), reverse=True):
-            yield ','.join(str(v) for k,v in r.items()) + '\n'
-    return Response(as_csv(doc.get('results')['table'], ['node', 'degree', 'centrality']), mimetype='text/csv')
+        for r in rows:
+            yield ','.join(map(str, [r['id'], r['degree'], r['centrality'], r['community']])) + '\n'
+    return Response(
+        as_csv(doc.get('results')['table'], ['node', 'degree', 'betweenness centrality', 'community']),
+        mimetype='text/csv')
