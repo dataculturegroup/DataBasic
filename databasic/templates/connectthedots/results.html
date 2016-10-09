@@ -83,7 +83,7 @@
         <div class="ctd-container">
           <div class="ctd-progress" role="progressbar" aria-hidden="true"></div>
           <div class="ctd-menu row">
-            <div class="col-xs-4">
+            <div class="col-xs-12 col-sm-4">
               <div class="ctd-download dropdown">
                 <button type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                   Download
@@ -98,7 +98,7 @@
                 </ul>
               </div>
             </div>
-            <div class="col-xs-8">
+            <div class="col-xs-12 col-sm-8">
               <div class="ctd-colors form-inline" role="radiogroup">
                 <label class="control-label" aria-label="{{ _('node colors') }}">{{ _('color by') }}</label>
                 {% if results['bipartite'] %}
@@ -133,15 +133,14 @@
               <div class="col-sm-8 col-sm-offset-2">
                 <h4 class="ctd-meta--name" role="listitem">{{ _('the connector') }}</h4>
                 <h3 class="ctd-meta--value" role="listitem">
-                  {% set kevin_bacon = results['table'][0]['id'] %}
-                  {% if kevin_bacon is number and kevin_bacon is equalto kevin_bacon | round %}
-                    {{ kevin_bacon | int }}
+                  {% if results['connector'] is number and results['connector'] is equalto results['connector'] | round %}
+                    {{ results['connector'] | int }}
                   {% else %}
-                    {{ kevin_bacon }}
+                    {{ results['connector'] }}
                   {% endif %}
                 </h3>
                 <p class="ctd-meta--summary">{{ _('This node has the highest %(betweenness_centrality)s score. The most nodes can go through %(kevin_bacon)s to connect to others in the network.',
-                kevin_bacon=kevin_bacon,
+                kevin_bacon=results['connector'],
                 betweenness_centrality=hover_tooltip(_('betweenness centrality'), 'centrality', _('Scores how much of a &quot;connector&quot; each node is. A high score means lots of nodes can go through one to quickly connect to other nodes.'))
                 ) }}</p>
               </div>

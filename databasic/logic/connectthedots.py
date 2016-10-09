@@ -51,22 +51,38 @@ class ConnectTheDots():
             else:
               k = None
 
-            nodes = nx.nodes_iter(self.graph)
+            nodes = nx.nodes(self.graph)
+            degree = {n: self.graph.degree(n) for n in nodes}
             bc = nx.betweenness_centrality(self.graph, k=k)
             partition = community.best_partition(self.graph)
             results['bipartite'] = self.is_bipartite_candidate()
             results['communities'] = len(set(partition.values()))
 
             if results['bipartite']:
-                self.nodes = [{'id': n, 'degree': self.graph.degree(n), 'centrality': bc[n], 'community': partition[n], 'column': 0 if n in self.col0 else 1} for n in nodes]
+                self.nodes = [{'id': n, 'degree': degree[n], 'centrality': bc[n], 'community': partition[n], 'column': 0 if n in self.col0 else 1} for n in nodes]
             else:
-                self.nodes = [{'id': n, 'degree': self.graph.degree(n), 'centrality': bc[n], 'community': partition[n]} for n in nodes]
+                self.nodes = [{'id': n, 'degree': degree[n], 'centrality': bc[n], 'community': partition[n]} for n in nodes]
+
+            self.graph_with_metadata = self.graph.copy()
+            nx.set_node_attributes(self.graph_with_metadata, 'degree', degree)
+            nx.set_node_attributes(self.graph_with_metadata, 'betweenness centrality', bc)
+
+            colors = ['blue', 'orange', 'green', 'red', 'purple', 'brown', 'pink', 'grey', 'olive', 'turquoise']
+            if results['communities'] > 20:
+                self.community_color = {n: ('dark' if partition[n] % 2 == 0 else 'light') + colors[partition[n] % 20 / 2] + str(partition[n] / 20) for n in nodes}
+            elif results['communities'] > 10:
+                self.community_color = {n: ('dark' if partition[n] % 2 == 0 else 'light') + colors[partition[n] / 2] for n in nodes}
+            else:
+                self.community_color = {n: colors[partition[n]] for n in nodes}
+
+            nx.set_node_attributes(self.graph_with_metadata, 'community', self.community_color)
 
             results['nodes'] = node_count
             results['edges'] = self.count_edges()
 
             results['clustering'] = self.get_clustering_score()
             results['density'] = self.get_density_score()
+            results['connector'] = max(self.nodes, key=lambda x:x['centrality'])['id']
 
             results['table'] = self.as_table()
             results['json'] = self.as_json()
@@ -106,9 +122,13 @@ class ConnectTheDots():
 
     def as_table(self):
         """
-        Return the table of degree/centrality scores
+        Return the table of nodes with degree/centrality/community color
         """
-        return sorted(self.nodes, key=operator.itemgetter('centrality'), reverse=True)
+        rows = [{'id': n['id'],
+                 'degree': n['degree'],
+                 'centrality': n['centrality'],
+                 'community': self.community_color[n['id']]} for n in self.nodes]
+        return sorted(rows, key=operator.itemgetter('centrality'), reverse=True)
 
     def as_json(self):
         """
@@ -123,7 +143,7 @@ class ConnectTheDots():
         Return the graph as GEXF for download
         """
         sio = StringIO.StringIO()
-        nx.write_gexf(self.graph, sio)
+        nx.write_gexf(self.graph_with_metadata, sio)
         return sio.getvalue()
 
     def is_bipartite_candidate(self):
