@@ -1,4 +1,5 @@
 import os, random, logging
+import json
 from collections import OrderedDict
 from databasic import app, mongo, get_base_dir
 from databasic.forms import WordCounterPaste, WordCounterUpload, WordCounterSample, WordCounterLink
@@ -203,24 +204,24 @@ def process_words(words, ignore_case, ignore_stopwords, is_sample):
         stopwords_language)
     return counts
 
-def create_csv_file(counts,analysis_type):
+def create_csv_file(counts, analysis_type):
     if analysis_type == 'words':
-        return filehandler.write_to_csv(['word', 'frequency'], counts[0], '-word-counts.csv')
+        return filehandler.write_to_csv(['word', 'frequency'], counts['unique_words'], '-word-counts.csv')
     elif analysis_type == 'bigrams':
         bigrams = []
-        for w in counts[1]:
+        for w in counts['bigrams']:
             freq = w[1]
             phrase = " ".join(w[0])
             bigrams.append([phrase, freq])
         return filehandler.write_to_csv(['bigram phrase', 'frequency'], bigrams, '-bigram-counts.csv')
     elif analysis_type == 'trigrams':
         trigrams = []
-        for w in counts[2]:
+        for w in counts['trigrams']:
             freq = w[1]
             phrase = " ".join(w[0])
             trigrams.append([phrase, freq])
         return filehandler.write_to_csv(['trigram phrase', 'frequency'], trigrams, '-trigram-counts.csv')
-    logger.error("Requested unknown csv type: %s",analysis_type)
+    logger.error("Requested unknown csv type: %s", analysis_type)
     return None # if was an invalid analysis_type
 
 def _clamp(n, minn, maxn):
