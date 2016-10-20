@@ -173,14 +173,16 @@
       </div>
     </div>
   </div>
-  {{ what_next(_('Understanding relationships as nodes and edges in a network can lead to deeper insights about how information travels through the system. For example, from the %(density_score)s of %(density_value)s you can start to understand whether your network is %(dense)s or %(sparse)s. And the higher the %(clustering_score)s the more your nodes are grouped (like high school cliques).</p><p>You can start to look for patterns in the nodes that are the most and least connected. %(whatnext_mismatch)s Why does <strong>%(lowest_degree)s</strong> have the fewest connections?</p><p>Being curious about these measures and patterns is the first step in understanding network data. Check out our activity guide for more help on analyzing network data.',
+
+  {{ what_next(_('Understanding relationships as nodes and edges in a network can lead to deeper insights about how information travels through the system. For example, what role does %(connector)s, the Connector, play in the network?</p><p>You can start to look for patterns in the nodes that are the most and least connected. %(whatnext_mismatch)s Why does <strong>%(lowest_degree)s</strong> have the fewest connections?</p><p>Being curious about these measures and patterns is the first step in understanding network data. Check out our activity guide for more help on analyzing network data.',
   density_score=hover_tooltip(_('density score'), 'density score', _('Measures how interconnected the whole network is. If every node were connected to every other node, the density would be 1.')),
   dense=hover_tooltip(_('dense'), 'dense', _('A network that has lots of edges between nodes can be called &quot;dense&quot;.')),
   density_value=results['density'] | round(3),
   sparse=hover_tooltip(_('sparse'), 'sparse', _('A network that doesn\'t have many edges between nodes can be called &quot;sparse&quot;.')),
   clustering_score=hover_tooltip(_('clustering score'), 'clustering score', _('Summarizes how much the network diagram is broken into cliques. A score close to 1 means it is like high school (i.e. lots of cliques).')),
   whatnext_mismatch=whatnext_mismatch(whatnext['mismatch_id'], whatnext['mismatch_degree'], whatnext['mismatch_centrality']),
-  lowest_degree=whatnext['lowest_degree']
+  lowest_degree=whatnext['lowest_degree'],
+  connector=results['connector']
   )) }}
 </div>
 {% endblock %}

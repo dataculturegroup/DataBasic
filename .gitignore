@@ -21,3 +21,5 @@ certs/
 logs/*.log.*
 
 HANDY_SNIPPETS
+
+databasic/static/gen/packed_tool.js
