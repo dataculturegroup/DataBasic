@@ -102,6 +102,16 @@ h4[role=alert] {
     font-size: 15px;
     color: $c-black;
   }
+  > label > a {
+    position: relative;
+    top: -2px;
+    font-size: 15px;
+    color: $c-black;
+    &:hover,
+    &:focus {
+      color: $c-black;
+    }
+  }
   > .control-label {
     margin-right: 10px;
     font-family: $font-md;

@@ -66,7 +66,7 @@
 
         {% if results['bipartite'] %}
           <p class="summary">{{ _('It looks like your two columns have two totally different types of nodes. We think this is a %(bipartite_graph)s. We’ve gone ahead and colored each node based on what column it&#39;s in.',
-          bipartite_graph=hover_tooltip(_('bipartite graph'), 'bipartite', _('Glossary definition for bipartite graph.'))
+          bipartite_graph=hover_tooltip(_('bipartite graph'), 'bipartite', _('A network graph with two types of nodes. For instance, people connected to restaurants they love but not to other people.'))
           ) }}</p>
         {% endif %}
 
@@ -108,12 +108,16 @@
                   </label>
                   <label class="radio-inline">
                     <input type="radio" name="node-color" value="community" role="radio" aria-label="{{ _('color by community') }}" aria-checked="false" tabindex="-1">
-                    <span aria-hidden="true">{{ _('community') }}</span>
+                    {{ _('%(community)s',
+                    community=hover_tooltip(_('community'), 'community', _('A group of nodes in a network graph that have more connections to each other than to other nodes outside the community.'))
+                    ) }}
                   </label>
                 {% else %}
                   <label class="radio-inline">
                     <input type="radio" name="node-color" value="community" checked="checked" role="radio" aria-label="{{ _('color by community') }}" aria-checked="true" tabindex="0">
-                    <span aria-hidden="true">{{ _('community') }}</span>
+                    {{ _('%(community)s',
+                    community=hover_tooltip(_('community'), 'community', _('A group of nodes in a network graph that have more connections to each other than to other nodes outside the community.'))
+                    ) }}
                   </label>
                 {% endif %}
                 <label class="radio-inline">
