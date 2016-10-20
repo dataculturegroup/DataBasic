@@ -100,12 +100,14 @@ def download_activity_guide():
 
 @mod.route('/titanic.csv')
 def download_titanic_data():
-    return _download_sample_data("sample-data/titanic.csv",'titanic.csv')
+    dir_path = os.path.join("sample-data", g.current_lang, "titanic.csv")
+    return _download_sample_data(dir_path,'titanic.csv')
 
 @mod.route('/ufo.csv')
 def download_ufo_data():
     # referenced in the activity guide, so don't remove this!
-    return _download_sample_data("sample-data/UFOMA.csv",'ufo.csv')
+    dir_path = os.path.join("sample-data", g.current_lang, "UFOMA.csv")
+    return _download_sample_data(dir_path,'ufo.csv')
 
 @mod.route('/handout.pdf')
 def download_handout():
@@ -116,6 +118,7 @@ def _download_sample_data(source,filename_to_send):
     sample_path = filehandler.get_sample_path(source)
     dirname = os.path.dirname(sample_path)
     filename = os.path.basename(sample_path)
+    logger.debug("download sample data from%s/%s", dirname, filename)
     return send_from_directory(directory=dirname, filename=filename)
 
 def render_results(doc_id, sheet_idx):
