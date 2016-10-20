@@ -129,7 +129,7 @@ def before():
 
 @babel.localeselector
 def get_locale():
-    return g.get('current_lang', 'en')
+    return g.get('current_lang', request.accept_languages.best_match(VALID_LANGUAGES, 'en'))
 
 @app.route('/')
 def index():
