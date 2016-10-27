@@ -140,8 +140,9 @@ def results(doc_id):
         results = mongo.find_document('connectthedots', doc_id).get('results')
         logger.info('[CTD] Showing results for doc: %s', doc_id)
         return render_results(doc_id)
-    except:
+    except Exception as e:
         logger.warning('[CTD] Unable to find doc: %s', doc_id)
+        logger.warning('[CTD] Error: %s', str(e))
         return render_template('no_results.html', tool_name='connectthedots')
 
 def render_results(doc_id):
