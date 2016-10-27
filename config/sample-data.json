@@ -232,5 +232,11 @@
     "source": "sample-data/en/les-miserables.csv",
     "modules": ["connectthedots"],
     "lang": "en"
+  },
+  {
+    "title": "Zachary's Karate Club",
+    "source": "sample-data/en/zachary-karate-club.csv",
+    "modules": ["connectthedots"],
+    "lang": "en"
   }
 ]
