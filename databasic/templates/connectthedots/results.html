@@ -66,15 +66,13 @@
 
         {% if results['bipartite'] %}
           <p class="summary">{{ _('It looks like your two columns have two totally different types of nodes. We think this is a %(bipartite_graph)s. We’ve gone ahead and colored each node based on what column it&#39;s in.',
-          bipartite_graph=hover_tooltip(_('bipartite graph'), 'bipartite', _('A network graph with two types of nodes. For instance, people connected to restaurants they love but not to other people.'))
+          bipartite_graph=hover_tooltip(_('bipartite graph'), 'bipartite', _('Glossary definition for bipartite graph.'))
           ) }}</p>
         {% endif %}
 
         {% if remaining_days %}
           <p class="summary">{{ _('These results will expire in %(day)s days.', day=remaining_days) }}</p>
         {% endif %}
-
-        {{ what_next_anchor() }}
       </div>
     </div>
 
@@ -108,16 +106,12 @@
                   </label>
                   <label class="radio-inline">
                     <input type="radio" name="node-color" value="community" role="radio" aria-label="{{ _('color by community') }}" aria-checked="false" tabindex="-1">
-                    {{ _('%(community)s',
-                    community=hover_tooltip(_('community'), 'community', _('A group of nodes in a network graph that have more connections to each other than to other nodes outside the community.'))
-                    ) }}
+                    <span aria-hidden="true">{{ _('community') }}</span>
                   </label>
                 {% else %}
                   <label class="radio-inline">
                     <input type="radio" name="node-color" value="community" checked="checked" role="radio" aria-label="{{ _('color by community') }}" aria-checked="true" tabindex="0">
-                    {{ _('%(community)s',
-                    community=hover_tooltip(_('community'), 'community', _('A group of nodes in a network graph that have more connections to each other than to other nodes outside the community.'))
-                    ) }}
+                    <span aria-hidden="true">{{ _('community') }}</span>
                   </label>
                 {% endif %}
                 <label class="radio-inline">
@@ -179,11 +173,6 @@
   </div>
 
   {{ what_next(_('Understanding relationships as nodes and edges in a network can lead to deeper insights about how information travels through the system. For example, what role does %(connector)s, the Connector, play in the network?</p><p>You can start to look for patterns in the nodes that are the most and least connected. %(whatnext_mismatch)s Why does <strong>%(lowest_degree)s</strong> have the fewest connections?</p><p>Being curious about these measures and patterns is the first step in understanding network data. Check out our activity guide for more help on analyzing network data.',
-  density_score=hover_tooltip(_('density score'), 'density score', _('Measures how interconnected the whole network is. If every node were connected to every other node, the density would be 1.')),
-  dense=hover_tooltip(_('dense'), 'dense', _('A network that has lots of edges between nodes can be called &quot;dense&quot;.')),
-  density_value=results['density'] | round(3),
-  sparse=hover_tooltip(_('sparse'), 'sparse', _('A network that doesn\'t have many edges between nodes can be called &quot;sparse&quot;.')),
-  clustering_score=hover_tooltip(_('clustering score'), 'clustering score', _('Summarizes how much the network diagram is broken into cliques. A score close to 1 means it is like high school (i.e. lots of cliques).')),
   whatnext_mismatch=whatnext_mismatch(whatnext['mismatch_id'], whatnext['mismatch_degree'], whatnext['mismatch_centrality']),
   lowest_degree=whatnext['lowest_degree'],
   connector=results['connector']
