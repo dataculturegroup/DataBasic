@@ -5,14 +5,16 @@ from databasic.logic.test.wordhandlertest import *
 from databasic.logic.test.filehandlertest import *
 from databasic.logic.test.wtfcsvstattest import *
 from databasic.logic.test.connectthedotstest import *
+from databasic.logic.test.connectthedotsbigdatatest import *
 from databasic.logic.test.dbtest import *
 
 test_classes = [
-    # WordHandlerTest,
-    # FileHandlerTest, 
- 	  # MongoHandlerTest, 
-    # WTFCSVStatTest,
-    ConnectTheDotsTest
+    WordHandlerTest,
+    FileHandlerTest, 
+ 	  MongoHandlerTest, 
+    WTFCSVStatTest,
+    ConnectTheDotsTest,
+    # ConnectTheDotsBigDataTest
 ]
 
 # set up all logging to DEBUG (cause we're running tests here!)

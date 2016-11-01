@@ -41,15 +41,25 @@ class ConnectTheDots():
         """
         Return a summary of the network data
         """
+        MAX_NODES = 3000
+        MAX_V_X_E = 90000000
+
         results = {}
 
         if hasattr(self, 'graph'):
             node_count = self.count_nodes()
-            if (node_count > 1000):
-              k = int(math.log(node_count)) # TODO: determine best values for k/whether multiple trials are needed
+            edge_count = self.count_edges()
+
+            results['large_dataset'] = True
+            if node_count * edge_count > MAX_V_X_E:
+              k = min(MAX_NODES * MAX_NODES / node_count, MAX_V_X_E / edge_count)
+              logger.debug('[CTD] Using k = %s to approximate betweenness centrality' % k)
+            elif (node_count > MAX_NODES):
+              k = MAX_NODES
               logger.debug('[CTD] Using k = %s to approximate betweenness centrality' % k)
             else:
               k = None
+              results['large_dataset'] = False
 
             nodes = nx.nodes(self.graph)
             degree = {n: self.graph.degree(n) for n in nodes}
@@ -78,7 +88,7 @@ class ConnectTheDots():
             nx.set_node_attributes(self.graph_with_metadata, 'community', self.community_color)
 
             results['nodes'] = node_count
-            results['edges'] = self.count_edges()
+            results['edges'] = edge_count
 
             results['clustering'] = self.get_clustering_score()
             results['density'] = self.get_density_score()

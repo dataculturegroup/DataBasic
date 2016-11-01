@@ -26,14 +26,20 @@
 {% block results_scripts %}
   <script type="text/javascript">
     var data = JSON.parse({{ results['json'] | tojson | safe }});
-    var filename = '{{ results["filename"] }}';
-    var density = {{ results['density'] }};
-    {% if results['bipartite'] %}
-      var bipartite = true;
+
+    var filename = '{{ results["filename"] }}',
+        density = {{ results['density'] }},
+    {% if results['large_dataset'] %}
+        largeDataset = true,
     {% else %}
-      var bipartite = false;
+        largeDataset = false,
     {% endif %}
-    var communities = {{ results['communities'] }};
+    {% if results['bipartite'] %}
+        bipartite = true,
+    {% else %}
+        bipartite = false,
+    {% endif %}
+        communities = {{ results['communities'] }};
   </script>
   {% assets "js_ctd" %}<script type="text/javascript" src="{{ ASSET_URL }}"></script>{% endassets %}
 {% endblock %}

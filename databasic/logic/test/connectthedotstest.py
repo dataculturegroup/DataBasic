@@ -229,5 +229,17 @@ class ConnectTheDotsTest(unittest.TestCase):
 
         self.assertEqual(results['nodes'], 3425)
         self.assertEqual(results['edges'], 19257)
+        self.assertTrue(results['large_dataset'])
 
-        # TODO: test approximation against table of actual centrality scores
+        table_path = os.path.join(self._fixtures_dir, 'airline-routes-centralities.csv')
+        table_file = codecs.open(table_path, 'r')
+        bc_table = table.Table.from_csv(table_file, no_header_row=False, snifflimit=0)
+        bc_rows = bc_table.to_rows()
+
+        bc_estimates = {}
+        for row in results['table'][:40]:
+            bc_estimates[row['id']] = row['centrality']
+            
+        for row in bc_rows:
+            if row[0] in bc_estimates:
+                self.assertAlmostEqual(bc_estimates[row[0]], row[1], places=2) # accurate to two decimal places
