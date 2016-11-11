@@ -1,10 +1,11 @@
 import logging, operator, os, re
 from collections import OrderedDict
-from databasic import mongo
+from databasic import mongo, get_base_dir
 from databasic.forms import ConnectTheDotsUpload, ConnectTheDotsSample, ConnectTheDotsPaste
 from databasic.logic import connectthedots as ctd, filehandler
-from flask import Blueprint, g, redirect, render_template, request, Response
+from flask import Blueprint, g, redirect, render_template, request, Response, send_from_directory
 from natural.number import ordinal
+
 
 mod = Blueprint('connectthedots', __name__,
                 url_prefix='/<lang_code>/connectthedots',
@@ -212,3 +213,10 @@ def download_table(doc_id):
     return Response(
         as_csv(doc.get('results')['table'], ['node', 'degree', 'betweenness centrality', 'community']),
         mimetype='text/csv')
+
+@mod.route('/ctd-template.csv')
+def download_user_template():
+    filename = "ctd-template.csv"
+    dir_path = os.path.join(get_base_dir(),'databasic','static','files','user-templates',g.current_lang)
+    logger.debug("download user template from %s/%s", dir_path, filename)
+    return send_from_directory(directory=dir_path, filename=filename)

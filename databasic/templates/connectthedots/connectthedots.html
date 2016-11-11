@@ -31,6 +31,16 @@
         $area.val(text);
       }
     });
+
+  var templateText = "{{ _('Not sure how to format your file? Download our template.') }}";
+  var templateLink = "ctd-template.csv";
+  templateDiv =   "<div class='templateText' style='padding:10px'><a href='"+templateLink+"'>"+templateText+"</a></div>";
+  $('#tab-upload').on('click', function() {
+     $('button[type="submit"]').before(templateDiv);
+  });
+  $('#tab-paste,#tab-sample').on('click', function() {
+    $('.templateText').remove();
+  });
   </script>
 {% endblock %}
 
