@@ -29,11 +29,6 @@
 
     var filename = '{{ results["filename"] }}',
         density = {{ results['density'] }},
-    {% if results['large_dataset'] %}
-        largeDataset = true,
-    {% else %}
-        largeDataset = false,
-    {% endif %}
     {% if results['bipartite'] %}
         bipartite = true,
     {% else %}

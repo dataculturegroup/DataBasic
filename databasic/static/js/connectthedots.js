@@ -137,11 +137,9 @@
       .on('mouseout', mouseoutNode)
       .on('click', setActiveNode)
   
-  if (!largeDataset) {
-    node.call(d3.drag().on('start', dragStart)
-                       .on('drag', dragUpdate)
-                       .on('end', dragEnd));
-  }
+  node.call(d3.drag().on('start', dragStart)
+                     .on('drag', dragUpdate)
+                     .on('end', dragEnd));
 
   svg.on('click', function() { if (d3.event.target.tagName !== 'circle') clearActiveNode(); });
 
@@ -351,10 +349,6 @@
       connector.on('mouseover', mouseoverNode)
                .on('mouseout', mouseoutNode)
                .on('click', setActiveNode);
-
-      if (largeDataset) {
-        simulation.stop();
-      }
     }
 
     // set node positions, bounded within graph area

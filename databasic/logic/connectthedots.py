@@ -42,7 +42,6 @@ class ConnectTheDots():
         Return a summary of the network data
         """
         MAX_NODES = 3000
-        MAX_V_X_E = 90000000
 
         results = {}
 
@@ -50,16 +49,11 @@ class ConnectTheDots():
             node_count = self.count_nodes()
             edge_count = self.count_edges()
 
-            results['large_dataset'] = True
-            if node_count * edge_count > MAX_V_X_E:
-              k = min(MAX_NODES * MAX_NODES / node_count, MAX_V_X_E / edge_count)
-              logger.debug('[CTD] Using k = %s to approximate betweenness centrality' % k)
-            elif (node_count > MAX_NODES):
-              k = MAX_NODES
+            if node_count > MAX_NODES:
+              k = 1000
               logger.debug('[CTD] Using k = %s to approximate betweenness centrality' % k)
             else:
               k = None
-              results['large_dataset'] = False
 
             nodes = nx.nodes(self.graph)
             degree = {n: self.graph.degree(n) for n in nodes}
