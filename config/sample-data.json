@@ -238,5 +238,11 @@
     "source": "sample-data/en/zachary-karate-club.csv",
     "modules": ["connectthedots"],
     "lang": "en"
+  },
+  {
+    "title": "Genealogia de Jiu Jitsu (Gracie)",
+    "source": "sample-data/pt/gracie-jiu-jitsu.csv",
+    "modules": ["connectthedots"],
+    "lang": "pt"
   }
 ]
