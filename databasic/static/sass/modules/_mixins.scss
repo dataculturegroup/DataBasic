@@ -31,7 +31,7 @@
 	&[role="definition"] {
 		color: $color;
 		&:hover, &:focus {
-			text-decoration: none;
+			text-decoration: underline;
 			color: $color;
 		}
 		&:after {
