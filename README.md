@@ -99,10 +99,7 @@ $ bash translations-compile.sh [LANGUAGE ARGUMENT]
 ```
 This command compiles the translations from the .po files into binary form. You need to run this every time you update a .po file. Then restart the app.
 
-Help us translate Databasic into French!!
+Seeking Databasic Translators
 -----------
 
-There are three files that we need help translating. Each is a Google Doc that you can type directly into for translation.
-- [Databasic software interface](https://docs.google.com/document/d/1J1UCN-UlrydKebdd6TAvR8sIbsyxeVcDfpgYiW0Fq9E/edit)
-- [Databasic activity guides](https://docs.google.com/document/d/1gy81vilACpDDqF2a6JEniQxB82mNMu-eWe8Za0sBoMQ/edit#) 
-- [Databasic video subtitles](https://docs.google.com/document/d/1ctTQxhkHCtEnRVMHpSs455e1yVXy_p9NuWJ6S6JKFcc/edit)
+Want to see Databasic in another language? We would love your help in making that happen. Languages of interest include French and Arabic. 

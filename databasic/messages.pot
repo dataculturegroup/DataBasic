@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2016-09-24 11:12+0200\n"
+"POT-Creation-Date: 2016-11-29 09:17-0500\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -21,7 +21,7 @@ msgstr ""
 msgid "Paste text"
 msgstr ""
 
-#: databasic/forms.py:14 databasic/forms.py:192
+#: databasic/forms.py:14 databasic/forms.py:198
 msgid "Text"
 msgstr ""
 
@@ -99,21 +99,12 @@ msgstr ""
 msgid "Paste links"
 msgstr ""
 
-#: databasic/forms.py:180 databasic/forms.py:197
+#: databasic/forms.py:185 databasic/forms.py:202
 msgid "Has header row"
 msgstr ""
 
-#: databasic/forms.py:189
+#: databasic/forms.py:195
 msgid "Paste rows"
-msgstr ""
-
-#: databasic/forms.py:193
-msgid ""
-"Paste rows from an Excel or Google spreadsheet, with this format:\n"
-"source\ttarget\n"
-"A\tB\n"
-"A\tC\n"
-"B\tC"
 msgstr ""
 
 #: databasic/static/js/connectthedots-validate.js:20
@@ -286,31 +277,31 @@ msgstr ""
 msgid "go to %(tool)s"
 msgstr ""
 
-#: databasic/templates/tool_base.html:9 databasic/templates/tool_base.html:17
+#: databasic/templates/tool_base.html:13
 msgid "What do I do next?"
 msgstr ""
 
-#: databasic/templates/tool_base.html:30
+#: databasic/templates/tool_base.html:26
 #, python-format
 msgid "About %(tool_name)s"
 msgstr ""
 
-#: databasic/templates/tool_base.html:37
+#: databasic/templates/tool_base.html:33
 msgid "Are you an Educator? Try our Activity Guide"
 msgstr ""
 
-#: databasic/templates/tool_base.html:41
+#: databasic/templates/tool_base.html:37
 msgid ""
 "DataBasic activities are suitable for classes and workshops for "
 "participants from middle school through higher education. No prior data "
 "experience necessary!"
 msgstr ""
 
-#: databasic/templates/tool_base.html:44
+#: databasic/templates/tool_base.html:40
 msgid "activity sheet thumbnail"
 msgstr ""
 
-#: databasic/templates/tool_base.html:45
+#: databasic/templates/tool_base.html:41
 msgid "Download"
 msgstr ""
 
@@ -318,26 +309,30 @@ msgstr ""
 msgid "go to data basic home page"
 msgstr ""
 
-#: databasic/templates/connectthedots/connectthedots.html:19
+#: databasic/templates/connectthedots/connectthedots.html:35
+msgid "Not sure how to format your file? Download our template."
+msgstr ""
+
+#: databasic/templates/connectthedots/connectthedots.html:55
 msgid ""
 "Error: Paste failed! Make sure your input has exactly two tab-separated "
 "columns and try again."
 msgstr ""
 
-#: databasic/templates/connectthedots/connectthedots.html:21
+#: databasic/templates/connectthedots/connectthedots.html:57
 msgid ""
 "Error: Upload failed! Make sure your file has exactly two columns and try"
 " again."
 msgstr ""
 
-#: databasic/templates/connectthedots/connectthedots.html:27
+#: databasic/templates/connectthedots/connectthedots.html:63
 #: databasic/templates/home/index.html:42
 msgid ""
 "ConnectTheDots shows you how your data is connected by analyzing it as a "
 "network."
 msgstr ""
 
-#: databasic/templates/connectthedots/connectthedots.html:29
+#: databasic/templates/connectthedots/connectthedots.html:65
 msgid ""
 "Analyzing the connections between the \"dots\" in your data is a "
 "fundamentally different approach to understanding it. This tool shows you"
@@ -345,7 +340,7 @@ msgid ""
 "report about what your network looks like."
 msgstr ""
 
-#: databasic/templates/connectthedots/connectthedots.html:32
+#: databasic/templates/connectthedots/connectthedots.html:68
 msgid "Graph"
 msgstr ""
 
@@ -359,14 +354,14 @@ msgstr ""
 
 #: databasic/templates/connectthedots/results.html:10
 #: databasic/templates/connectthedots/results.html:15
-#: databasic/templates/connectthedots/results.html:144
+#: databasic/templates/connectthedots/results.html:143
 msgid "betweenness centrality"
 msgstr ""
 
 #: databasic/templates/connectthedots/results.html:10
 #: databasic/templates/connectthedots/results.html:15
-#: databasic/templates/connectthedots/results.html:144
-#: databasic/templates/connectthedots/results.html:167
+#: databasic/templates/connectthedots/results.html:143
+#: databasic/templates/connectthedots/results.html:166
 msgid ""
 "Scores how much of a &quot;connector&quot; each node is. A high score "
 "means lots of nodes can go through one to quickly connect to other nodes."
@@ -383,44 +378,56 @@ msgstr ""
 msgid "ConnectTheDots: "
 msgstr ""
 
-#: databasic/templates/connectthedots/results.html:42
+#: databasic/templates/connectthedots/results.html:50
 msgid ""
 "Warning: The file you uploaded had multiple sheets, but we only used the "
 "first sheet."
 msgstr ""
 
-#: databasic/templates/connectthedots/results.html:53
+#: databasic/templates/connectthedots/results.html:61
 #, python-format
 msgid ""
-"Here is a picture of how your data is connected. Any %(nodes)s linked by "
-"an %(edge)s show up in the same row in your input data. Your network "
-"graph has %(node_count)s nodes and %(edge_count)s edges.</p>\n"
-"\n"
-"        <p class=\"summary\">This diagram is automatically drawn by the "
-"computer, so it might look different each time you load this page. The "
-"shape of the network graph tells you about the links in your data."
+"Here is a graph of how your data is connected. Any %(nodes)s linked by an"
+" %(edge)s show up in the same row in your input data. Your network graph "
+"has %(node_count)s nodes and %(edge_count)s edges."
 msgstr ""
 
-#: databasic/templates/connectthedots/results.html:58
+#: databasic/templates/connectthedots/results.html:64
 msgid "nodes"
 msgstr ""
 
-#: databasic/templates/connectthedots/results.html:58
-#: databasic/templates/connectthedots/results.html:157
+#: databasic/templates/connectthedots/results.html:64
+#: databasic/templates/connectthedots/results.html:156
 msgid ""
 "The &quot;dots&quot; in the network - the central organizing thing that "
 "is connected to others."
 msgstr ""
 
-#: databasic/templates/connectthedots/results.html:59
+#: databasic/templates/connectthedots/results.html:65
 msgid "edge"
 msgstr ""
 
-#: databasic/templates/connectthedots/results.html:59
+#: databasic/templates/connectthedots/results.html:65
 msgid "A connection between one node and another node."
 msgstr ""
 
-#: databasic/templates/connectthedots/results.html:64
+#: databasic/templates/connectthedots/results.html:69
+#, python-format
+msgid ""
+"It looks like your two columns have two totally different types of nodes."
+" We think this is a %(bipartite_graph)s. We’ve gone ahead and colored "
+"each node based on what column it&#39;s in."
+msgstr ""
+
+#: databasic/templates/connectthedots/results.html:70
+msgid "bipartite graph"
+msgstr ""
+
+#: databasic/templates/connectthedots/results.html:70
+msgid "Glossary definition for bipartite graph."
+msgstr ""
+
+#: databasic/templates/connectthedots/results.html:75
 #: databasic/templates/samediff/results.html:28
 #: databasic/templates/wordcounter/results.html:32
 #: databasic/templates/wtfcsv/results.html:172
@@ -428,160 +435,91 @@ msgstr ""
 msgid "These results will expire in %(day)s days."
 msgstr ""
 
-#: databasic/templates/connectthedots/results.html:82
+#: databasic/templates/connectthedots/results.html:92
 msgid "for the web"
 msgstr ""
 
-#: databasic/templates/connectthedots/results.html:83
+#: databasic/templates/connectthedots/results.html:93
 msgid "for printing or editing"
 msgstr ""
 
-#: databasic/templates/connectthedots/results.html:84
+#: databasic/templates/connectthedots/results.html:94
 msgid "for analysis"
 msgstr ""
 
-#: databasic/templates/connectthedots/results.html:86
+#: databasic/templates/connectthedots/results.html:96
 msgid "Download the <strong>table</strong>"
 msgstr ""
 
-#: databasic/templates/connectthedots/results.html:97
-#, python-format
-msgid "%(density_score)s"
+#: databasic/templates/connectthedots/results.html:102
+msgid "node colors"
 msgstr ""
 
-#: databasic/templates/connectthedots/results.html:98
-#: databasic/templates/connectthedots/results.html:177
-msgid "density score"
-msgstr ""
-
-#: databasic/templates/connectthedots/results.html:98
-#: databasic/templates/connectthedots/results.html:177
-msgid ""
-"Measures how interconnected the whole network is. If every node were "
-"connected to every other node, the density would be 1."
-msgstr ""
-
-#: databasic/templates/connectthedots/results.html:103
-msgid ""
-"This network is a \"complete\" network. Every node is connected to every "
-"other node. You win!"
+#: databasic/templates/connectthedots/results.html:102
+msgid "color by"
 msgstr ""
 
 #: databasic/templates/connectthedots/results.html:105
-msgid "This network is not connected at all. Time for you to connect the dots!"
+msgid "color by column"
 msgstr ""
 
-#: databasic/templates/connectthedots/results.html:107
-#, python-format
-msgid ""
-"%(density_pct)s of the potential connections in the network have been "
-"made."
+#: databasic/templates/connectthedots/results.html:106
+msgid "column"
 msgstr ""
 
-#: databasic/templates/connectthedots/results.html:111
-#, python-format
-msgid "This network is pretty %(dense)s."
+#: databasic/templates/connectthedots/results.html:109
+#: databasic/templates/connectthedots/results.html:114
+msgid "color by community"
 msgstr ""
 
-#: databasic/templates/connectthedots/results.html:112
-#: databasic/templates/connectthedots/results.html:116
-#: databasic/templates/connectthedots/results.html:178
-msgid "dense"
-msgstr ""
-
-#: databasic/templates/connectthedots/results.html:112
-#: databasic/templates/connectthedots/results.html:116
-#: databasic/templates/connectthedots/results.html:178
-msgid ""
-"A network that has lots of edges between nodes can be called "
-"&quot;dense&quot;."
-msgstr ""
-
+#: databasic/templates/connectthedots/results.html:110
 #: databasic/templates/connectthedots/results.html:115
-#, python-format
-msgid "This network is somewhat %(dense)s."
+msgid "community"
 msgstr ""
 
 #: databasic/templates/connectthedots/results.html:119
-#, python-format
-msgid "This network is %(sparse)s."
-msgstr ""
-
-#: databasic/templates/connectthedots/results.html:120
-#: databasic/templates/connectthedots/results.html:180
-msgid "sparse"
-msgstr ""
-
-#: databasic/templates/connectthedots/results.html:120
-#: databasic/templates/connectthedots/results.html:180
-msgid ""
-"A network that doesn't have many edges between nodes can be called "
-"&quot;sparse&quot;."
-msgstr ""
-
-#: databasic/templates/connectthedots/results.html:127
-#, python-format
-msgid "%(clustering_score)s"
-msgstr ""
-
-#: databasic/templates/connectthedots/results.html:127
-#: databasic/templates/connectthedots/results.html:181
-msgid "clustering score"
-msgstr ""
-
-#: databasic/templates/connectthedots/results.html:127
-#: databasic/templates/connectthedots/results.html:181
-msgid ""
-"Summarizes how much the network diagram is broken into cliques. A score "
-"close to 1 means it is like high school (i.e. lots of cliques)."
-msgstr ""
-
-#: databasic/templates/connectthedots/results.html:130
-msgid ""
-"This score shows how much the nodes in your graph tend to cluster "
-"together. Most networks of real-world data tend to cluster more than a "
-"random graph would."
+msgid "no colors"
 msgstr ""
 
 #: databasic/templates/connectthedots/results.html:133
 msgid "the connector"
 msgstr ""
 
-#: databasic/templates/connectthedots/results.html:142
+#: databasic/templates/connectthedots/results.html:141
 #, python-format
 msgid ""
 "This node has the highest %(betweenness_centrality)s score. The most "
 "nodes can go through %(kevin_bacon)s to connect to others in the network."
 msgstr ""
 
-#: databasic/templates/connectthedots/results.html:156
+#: databasic/templates/connectthedots/results.html:155
 #, python-format
 msgid "%(node)s"
 msgstr ""
 
-#: databasic/templates/connectthedots/results.html:157
+#: databasic/templates/connectthedots/results.html:156
 msgid "Node"
 msgstr ""
 
-#: databasic/templates/connectthedots/results.html:161
+#: databasic/templates/connectthedots/results.html:160
 #, python-format
 msgid "%(degree)s"
 msgstr ""
 
-#: databasic/templates/connectthedots/results.html:162
+#: databasic/templates/connectthedots/results.html:161
 msgid "Degree"
 msgstr ""
 
-#: databasic/templates/connectthedots/results.html:162
+#: databasic/templates/connectthedots/results.html:161
 msgid "The immediate number of connections a node has."
 msgstr ""
 
-#: databasic/templates/connectthedots/results.html:166
+#: databasic/templates/connectthedots/results.html:165
 #, python-format
 msgid "%(centrality)s"
 msgstr ""
 
-#: databasic/templates/connectthedots/results.html:167
+#: databasic/templates/connectthedots/results.html:166
 msgid "Centrality"
 msgstr ""
 
@@ -590,12 +528,10 @@ msgstr ""
 msgid ""
 "Understanding relationships as nodes and edges in a network can lead to "
 "deeper insights about how information travels through the system. For "
-"example, from the %(density_score)s of %(density_value)s you can start to"
-" understand whether your network is %(dense)s or %(sparse)s. And the "
-"higher the %(clustering_score)s the more your nodes are grouped (like "
-"high school cliques).</p><p>You can start to look for patterns in the "
-"nodes that are the most and least connected. %(whatnext_mismatch)s Why "
-"does <strong>%(lowest_degree)s</strong> have the fewest "
+"example, what role does %(connector)s, the Connector, play in the "
+"network?</p><p>You can start to look for patterns in the nodes that are "
+"the most and least connected. %(whatnext_mismatch)s Why does "
+"<strong>%(lowest_degree)s</strong> have the fewest "
 "connections?</p><p>Being curious about these measures and patterns is the"
 " first step in understanding network data. Check out our activity guide "
 "for more help on analyzing network data."
@@ -828,34 +764,34 @@ msgstr ""
 msgid "Toggle normlization"
 msgstr ""
 
-#: databasic/templates/samediff/results.html:108
-#: databasic/templates/samediff/results.html:154
+#: databasic/templates/samediff/results.html:102
+#: databasic/templates/samediff/results.html:148
 #, python-format
 msgid "Words that are only in %(document)s"
 msgstr ""
 
-#: databasic/templates/samediff/results.html:116
-#: databasic/templates/samediff/results.html:138
-#: databasic/templates/samediff/results.html:162
+#: databasic/templates/samediff/results.html:110
+#: databasic/templates/samediff/results.html:132
+#: databasic/templates/samediff/results.html:156
 #: databasic/templates/wordcounter/results.html:59
 msgid "Word"
 msgstr ""
 
-#: databasic/templates/samediff/results.html:117
-#: databasic/templates/samediff/results.html:139
-#: databasic/templates/samediff/results.html:163
+#: databasic/templates/samediff/results.html:111
+#: databasic/templates/samediff/results.html:133
+#: databasic/templates/samediff/results.html:157
 #: databasic/templates/wordcounter/results.html:60
 #: databasic/templates/wordcounter/results.html:80
 #: databasic/templates/wordcounter/results.html:101
 msgid "Frequency"
 msgstr ""
 
-#: databasic/templates/samediff/results.html:132
+#: databasic/templates/samediff/results.html:126
 #, python-format
 msgid "Words that are in %(doc)s"
 msgstr ""
 
-#: databasic/templates/samediff/results.html:179
+#: databasic/templates/samediff/results.html:173
 #, python-format
 msgid ""
 "Comparing text documents is a great way to find out what makes each one "
@@ -873,12 +809,12 @@ msgid ""
 "the files even further."
 msgstr ""
 
-#: databasic/templates/samediff/results.html:284
+#: databasic/templates/samediff/results.html:278
 #, python-format
 msgid " uses in %(doc)s"
 msgstr ""
 
-#: databasic/templates/samediff/results.html:286
+#: databasic/templates/samediff/results.html:280
 msgid " uses"
 msgstr ""
 
@@ -1164,19 +1100,19 @@ msgstr ""
 msgid "Metadata summarizes basic information about your data."
 msgstr ""
 
-#: databasic/templates/wtfcsv/results.html:211
+#: databasic/templates/wtfcsv/results.html:209
 msgid "value"
 msgstr ""
 
-#: databasic/templates/wtfcsv/results.html:212
+#: databasic/templates/wtfcsv/results.html:210
 msgid "frequency"
 msgstr ""
 
-#: databasic/templates/wtfcsv/results.html:223
+#: databasic/templates/wtfcsv/results.html:221
 msgid "No data to display."
 msgstr ""
 
-#: databasic/templates/wtfcsv/results.html:250
+#: databasic/templates/wtfcsv/results.html:248
 #, python-format
 msgid ""
 "Understanding the data in your csv file is the first step in analyzing it"
@@ -1194,35 +1130,35 @@ msgid ""
 " of data sets."
 msgstr ""
 
-#: databasic/templates/wtfcsv/results.html:396
+#: databasic/templates/wtfcsv/results.html:394
 msgid "Categories"
 msgstr ""
 
-#: databasic/templates/wtfcsv/results.html:398
+#: databasic/templates/wtfcsv/results.html:396
 msgid "Counts"
 msgstr ""
 
-#: databasic/templates/wtfcsv/results.html:400
+#: databasic/templates/wtfcsv/results.html:398
 msgid "Dates"
 msgstr ""
 
-#: databasic/templates/wtfcsv/results.html:402
+#: databasic/templates/wtfcsv/results.html:400
 msgid "Times"
 msgstr ""
 
-#: databasic/templates/wtfcsv/results.html:404
+#: databasic/templates/wtfcsv/results.html:402
 msgid "Dates and times"
 msgstr ""
 
-#: databasic/templates/wtfcsv/results.html:406
+#: databasic/templates/wtfcsv/results.html:404
 msgid "Booleans"
 msgstr ""
 
-#: databasic/templates/wtfcsv/results.html:408
+#: databasic/templates/wtfcsv/results.html:406
 msgid "Undefined"
 msgstr ""
 
-#: databasic/templates/wtfcsv/results.html:418
+#: databasic/templates/wtfcsv/results.html:416
 msgid "# of rows"
 msgstr ""
 
@@ -1294,15 +1230,15 @@ msgstr ""
 msgid "completely different"
 msgstr ""
 
-#: databasic/views/wordcounter.py:38
+#: databasic/views/wordcounter.py:39
 msgid "your text"
 msgstr ""
 
-#: databasic/views/wordcounter.py:73
+#: databasic/views/wordcounter.py:74
 msgid "title"
 msgstr ""
 
-#: databasic/views/wtfcsv.py:191
+#: databasic/views/wtfcsv.py:194
 msgid "Other"
 msgstr ""
 
