@@ -8,42 +8,25 @@
   {% include 'home_header.html' %}
 {% endblock %}
 {% block body %}
-<div class="container" role="main">
-  <div class="row text-center no-gutter">
-    <div class="col-sm-3">
-      <div class="thumbnail">
-        <a href="wordcounter" title="WordCounter" aria-hidden="true">
-          <img class="thumbnail-img" src="{{ url_for('static', filename='img/logos/wc@2x.png') }}" alt="word counter logo">
-          <p class="thumbnail-caption">{{ _('WordCounter analyzes your text and tells you the most common words and phrases.') }}</p>
-          </p>
-        </a>
-      </div>
-    </div>
-    <div class="col-sm-3">
-      <div class="thumbnail">
-        <a href="wtfcsv" title="WTFcsv" aria-hidden="true">
-          <img class="thumbnail-img" src="{{ url_for('static', filename='img/logos/wtf@2x.png') }}" alt="wtfcsv logo">
-          <p class="thumbnail-caption">{{ _('WTFcsv tells you WTF is going on with your .csv file.') }}</p>
-        </a>
-      </div>
-    </div>
-    <div class="col-sm-3">
-      <div class="thumbnail">
-        <a href="samediff" title="SameDiff" aria-hidden="true">
-          <img class="thumbnail-img" src="{{ url_for('static', filename='img/logos/sd@2x.png') }}" alt="same diff logo">
-          <p class="thumbnail-caption">{{ _('SameDiff compares two or more text files and tells you how similar or different they are.') }}</p>
-        </a>
-      </div>
-    </div>
-    <div class="col-sm-3">
-      <div class="thumbnail">
-        <a href="connectthedots" title="ConnectTheDots" aria-hidden="true">
-          <img class="thumbnail-img" src="{{ url_for('static', filename='img/logos/ctd@2x.png') }}" alt="connect the dots logo">
-          <p class="thumbnail-caption">{{ _('ConnectTheDots shows you how your data is connected by analyzing it as a network.') }}</p>
-        </a>
-      </div>
-    </div>
-  </div>
+<div class="container">
+  <nav class="row text-center no-gutter">
+    <a class="thumbnail col-sm-3" href="wordcounter" title="WordCounter">
+      <img class="thumbnail-img" src="{{ url_for('static', filename='img/logos/wc@2x.png') }}" alt="">
+      <p class="thumbnail-caption">{{ _('WordCounter analyzes your text and tells you the most common words and phrases.') }}</p>
+    </a>
+    <a class="thumbnail col-sm-3" href="wtfcsv" title="WTFcsv">
+      <img class="thumbnail-img" src="{{ url_for('static', filename='img/logos/wtf@2x.png') }}" alt="">
+      <p class="thumbnail-caption">{{ _('WTFcsv tells you WTF is going on with your .csv file.') }}</p>
+    </a>
+    <a class="thumbnail col-sm-3" href="samediff" title="SameDiff">
+      <img class="thumbnail-img" src="{{ url_for('static', filename='img/logos/sd@2x.png') }}" alt="">
+      <p class="thumbnail-caption">{{ _('SameDiff compares two or more text files and tells you how similar or different they are.') }}</p>
+    </a>
+    <a class="thumbnail col-sm-3" href="connectthedots" title="ConnectTheDots">
+      <img class="thumbnail-img" src="{{ url_for('static', filename='img/logos/ctd@2x.png') }}" alt="">
+      <p class="thumbnail-caption">{{ _('ConnectTheDots shows you how your data is connected by analyzing it as a network.') }}</p>
+    </a>
+  </nav>
 </div>
 
 <div class="container-fluid home-video">

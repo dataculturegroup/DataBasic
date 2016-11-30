@@ -30,13 +30,15 @@ header {
 }
 
 .thumbnail {
-  padding: 0;
   @media (min-width: 768px) { margin-bottom: 80px; }
   @include no-border();
-}
-
-.thumbnail > a {
-  text-decoration: none;
+  &:hover,
+  &:focus {
+    text-decoration: none;
+    > .thumbnail-img {
+      opacity: 0.5;
+    }
+  }
 }
 
 .thumbnail-img {
@@ -46,18 +48,11 @@ header {
   -webkit-backface-visibility: hidden;
 }
 
-
-.thumbnail > a:hover > .thumbnail-img,
-.thumbnail > a:focus > .thumbnail-img {
-  opacity: 0.5;
-} 
-
 .thumbnail-caption {
   margin-top: 20px;
   padding: 15px;
   @media (min-width: 768px) { padding: 10px; }
   color: $c-black;
-  text-decoration: none;
 }
 
 .home-video {
