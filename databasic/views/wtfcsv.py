@@ -181,8 +181,8 @@ def render_results(doc_id, sheet_idx):
         elif 'most_freq_values' in col:
             data_to_use = col['most_freq_values']
         elif 'word_counts' in col:
-            for word in col['word_counts']['unique_words'][:20]:
-                print str(word[0]) + " is " + str(word[1])
+            #for word in col['word_counts']['unique_words'][:20]:
+            #    print str(word[0]) + " is " + str(word[1])
             data_to_use = [ {'value':word[0], 'count':word[1]} for word in col['word_counts']['unique_words'][:20] ]
         # stitch together the overview
         overview_data = {'categories':[],'values':[]}

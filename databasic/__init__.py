@@ -162,9 +162,9 @@ def wtfcsv_with_stuff(stuff):
 @app.route('/auth')
 def auth():
     if 'code' not in request.args:
-        print 'permission was not granted'
+        logger.debug('permission was not granted')
     else:
-        print request.args['code']
+        logger.debug(request.args['code'])
         logic.oauth.authorize(request.args['code'])
     return redirect(logic.oauth.redirect_to())
 
