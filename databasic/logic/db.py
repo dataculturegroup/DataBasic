@@ -14,16 +14,18 @@ class MongoHandler:
         self._client = MongoClient(uri, connect=False)
         self._db = self._client[db_name]
 
-    def save_words(self, collection, counts, ignore_case, ignore_stopwords, title, sample_id, source):
-        return str(self._db[collection].save({
+    def save_words(self, collection, counts, ignore_case, ignore_stopwords, title, sample_id, source, extras=None):
+        data_to_save = extras if extras is not None else {}
+        data_to_save.update({
             'counts': counts,
             'ignore_case': ignore_case,
             'ignore_stopwords': ignore_stopwords,
             'title': unicode(title),
             'sample_id': str(sample_id),
             'source': source,
-            'created_at': time.time()
-            }))
+            'created_at': time.time(),
+            })
+        return str(self._db[collection].save(data_to_save))
 
     def results_for_sample(self, collection, sample_id):
         logger.debug("checking for sample %s", sample_id)

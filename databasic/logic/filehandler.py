@@ -210,17 +210,19 @@ def get_samples(tool_id, lang):
     choices = texts
     return choices
 
-def get_sample_title(source):
+def get_sample(source):
     for text in samples:
         if source in text['source']:
-            return text['title']
-    return source
+            return text
+    return None
+
+def get_sample_title(source):
+    sample = get_sample(source)
+    return source if sample is None else sample['title']
 
 def get_sample_path(source):
-    for text in samples:
-        if source in text['source']:
-            return text['path']
-    return source
+    sample = get_sample(source)
+    return source if sample is None else sample['path']
 
 def get_file_names(file_paths):
     file_names = []

@@ -70,13 +70,15 @@ def process_sample(source):
     """
     Return results for a sample file
     """
-    sample_path = filehandler.get_sample_path(source)
-    sample_name = filehandler.get_sample_title(source)
+    sample_file = filehandler.get_sample(source)
+    sample_path = sample_file['path']
+    sample_name = sample_file['title']
     logger.debug('[CTD] Loading from: %s', sample_path)
 
     results = ctd.get_summary(sample_path)
     results['has_multiple_sheets'] = False
     results['filename'] = sample_name
+    results['biography'] = sample_file['biography']
 
     return results
 
@@ -182,13 +184,16 @@ def render_results(doc_id):
     whatnext['mismatch_centrality'] = ordinal(centrality_index + 1)
     whatnext['lowest_degree'] = table_by_degree[-1]['id']
 
+    biography = results['biography'] if 'biography' in results else None
+
     return render_template('connectthedots/results.html', 
                            results=results,
                            whatnext=whatnext,
                            tool_name='connectthedots',
                            source=doc['source'],
                            has_multiple_sheets=results['has_multiple_sheets'],
-                           remaining_days=remaining_days)
+                           remaining_days=remaining_days,
+                           biography=biography)
 
 @mod.route('/results/<doc_id>/graph.gexf')
 def download_gexf(doc_id):

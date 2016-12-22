@@ -34,7 +34,6 @@ def index():
         if btn_value == 'upload':
             upload_file = forms['upload'].data['upload']
             logger.debug("New from upload: %s", upload_file.filename)
-
             results = process_upload(upload_file)
         elif btn_value == 'link':
             doc_url = forms['link'].data['link']
@@ -46,18 +45,20 @@ def index():
                 results = process_link(doc['doc'])
         elif btn_value == 'sample':
             sample_source = forms['sample'].data['sample']
-            samplename = filehandler.get_sample_title(sample_source)
+            sample = filehandler.get_sample(sample_source)
+            samplename = sample['title']
             sample_id = sample_source
             existing_doc_id = mongo.results_for_sample('wtfcsv',sample_id)
             if existing_doc_id is not None:
                 logger.debug("Existing from sample: %s", sample_source)
                 return redirect(request.url + 'results/' + existing_doc_id)
             logger.debug("New from sample: %s", samplename)
-            sample_path = filehandler.get_sample_path(sample_source)
+            sample_path = sample['path']
             logger.debug("  loading from %s", sample_path)
             results = []
             results.append(wtfcsvstat.get_summary(sample_path))
             results[0]['filename'] = samplename + '.csv'
+            results[0]['biography'] = sample['biography']
 
         if btn_value is not None and btn_value is not u'':
             return redirect_to_results(results, btn_value, sample_id)

@@ -3,246 +3,287 @@
 		"title": "Hillary Clinton's Speeches",
 		"source": "sample-data/en/hillary-clinton-speech.txt",
 		"modules": ["samediff", "wordcounter"],
-		"lang" : "en"
+		"lang": "en",
+		"biography": "A collection of speeches made by Hillary Clinton during the 2016 US presidential election campaign.  This isn't a comprehensive set, but does contain many of her speeches.  It was created manually from their website, closed captions from YouTube videos, and other sources by Catherine D'Ignazio in early 2016."
 	},
 	{
 		"title": "Donald Trump's Speeches",
 		"source": "sample-data/en/donald-trump-speech.txt",
 		"modules": ["samediff", "wordcounter"],
-		"lang" : "en"
+		"lang": "en",
+		"biography": "A collection of speeches made by Donald Trump during the 2016 US presidential election campaign.  This isn't a comprehensive set, but does contain many of his speeches.  It was created manually from their website, closed captions from YouTube videos, and other sources by Catherine D'Ignazio in early 2016."
 	},
 	{
 		"title": "Ted Cruz's Speeches",
 		"source": "sample-data/en/ted-cruz-speech.txt",
 		"modules": ["samediff", "wordcounter"],
-		"lang" : "en"
+		"lang": "en",
+		"biography": "A collection of speeches made by Ted Cruz during the 2016 US presidential election campaign.  This isn't a comprehensive set, but does contain many of his speeches.  It was created manually from their website, closed captions from YouTube videos, and other sources by Catherine D'Ignazio in early 2016."
 	},
 	{
 		"title": "Bernie Sanders' Speeches",
 		"source": "sample-data/en/bernie-sanders-speech.txt",
 		"modules": ["samediff", "wordcounter"],
-		"lang" : "en"
+		"lang": "en",
+		"biography": "A collection of speeches made by Bernie Sanders during the 2016 US presidential election campaign.  This isn't a comprehensive set, but does contain many of his speeches.  It was created manually from their website, closed captions from YouTube videos, and other sources by Catherine D'Ignazio in early 2016."
 	},
 	{
 		"title": "Beyonce's lyrics",
 		"source": "sample-data/en/beyonce-knowles-lyrics.txt",
 		"modules": ["samediff", "wordcounter"],
-		"lang" : "en"
+		"lang": "en",
+		"biography": "These are lyrics from many or Beyonce's songs.  They were scraped from <a href=\"lyrics123.net\">lyrics123.net</a> by Rahul Bhargava in 2014."
 	},
 	{
 		"title": "Aretha Franklin's lyrics",
 		"source": "sample-data/en/aretha-franklin-lyrics.txt",
 		"modules": ["samediff", "wordcounter"],
-		"lang" : "en"
+		"lang": "en",
+		"biography": "These are lyrics from many or Aretha Franklin's songs.  They were scraped from <a href=\"lyrics123.net\">lyrics123.net</a> by Rahul Bhargava in 2014."
 	},
 	{
 		"title": "Metallica's lyrics",
 		"source": "sample-data/en/metallica-lyrics.txt",
 		"modules": ["samediff", "wordcounter"],
-		"lang" : "en"
+		"lang": "en",
+		"biography": "These are lyrics from many or Metallica's songs.  They were scraped from <a href=\"lyrics123.net\">lyrics123.net</a> by Rahul Bhargava in 2014."
 	},
 	{
 		"title": "The Beatles' lyrics",
 		"source": "sample-data/en/beatles-lyrics.txt",
 		"modules": ["samediff", "wordcounter"],
-		"lang" : "en"
+		"lang": "en",
+		"biography": "These are lyrics from many or The Beatles' songs.  They were scraped from <a href=\"lyrics123.net\">lyrics123.net</a> by Rahul Bhargava in 2014."
 	},
 	{
 		"title": "Jennifer Lopez's lyrics",
 		"source": "sample-data/en/jennifer-lopez-lyrics.txt",
 		"modules": ["samediff", "wordcounter"],
-		"lang" : "en"
+		"lang": "en",
+		"biography": "These are lyrics from many or Jennifer Lopez's songs.  They were scraped from <a href=\"lyrics123.net\">lyrics123.net</a> by Rahul Bhargava in 2014."
 	},
 	{
 		"title": "Iron Maiden's lyrics",
 		"source": "sample-data/en/iron-maiden-lyrics.txt",
 		"modules": ["samediff", "wordcounter"],
-		"lang" : "en"
+		"lang": "en",
+		"biography": "These are lyrics from many or Iron Maiden's songs.  They were scraped from <a href=\"lyrics123.net\">lyrics123.net</a> by Rahul Bhargava in 2014."
 	},
 	{
 		"title": "Bob Dylan's lyrics",
 		"source": "sample-data/en/bob-dylan-lyrics.txt",
 		"modules": ["samediff", "wordcounter"],
-		"lang" : "en"
+		"lang": "en",
+		"biography": "These are lyrics from many or Bob Dylans's songs.  They were scraped from <a href=\"lyrics123.net\">lyrics123.net</a> by Rahul Bhargava in 2014."
 	},
 	{
 		"title": "Elvis Presley's lyrics",
 		"source": "sample-data/en/elvis-presley-lyrics.txt",
 		"modules": ["samediff", "wordcounter"],
-		"lang" : "en"
+		"lang": "en",
+		"biography": "These are lyrics from many or Elvis Presley's songs.  They were scraped from <a href=\"lyrics123.net\">lyrics123.net</a> by Rahul Bhargava in 2014."
 	},
 	{
 		"title": "Jimi Hendrix's lyrics",
 		"source": "sample-data/en/jimi-hendrix-lyrics.txt",
 		"modules": ["samediff", "wordcounter"],
-		"lang" : "en"
+		"lang": "en",
+		"biography": "These are lyrics from many or Jimi Hendrix's songs.  They were scraped from <a href=\"lyrics123.net\">lyrics123.net</a> by Rahul Bhargava in 2014."
 	},
 	{
 		"title": "Stevie Wonder's lyrics",
 		"source": "sample-data/en/stevie-wonder-lyrics.txt",
 		"modules": ["samediff", "wordcounter"],
-		"lang" : "en"
+		"lang": "en",
+		"biography": "These are lyrics from many or Stevie Wonder's songs.  They were scraped from <a href=\"lyrics123.net\">lyrics123.net</a> by Rahul Bhargava in 2014."
 	},
 	{
 		"title": "Katy Perry's lyrics",
 		"source": "sample-data/en/katy-perry-lyrics.txt",
 		"modules": ["samediff", "wordcounter"],
-		"lang" : "en"
+		"lang": "en",
+		"biography": "These are lyrics from many or Katy Perry's songs.  They were scraped from <a href=\"lyrics123.net\">lyrics123.net</a> by Rahul Bhargava in 2014."
 	},
 	{
 		"title": "Lady Gaga's lyrics",
 		"source": "sample-data/en/lady-gaga-lyrics.txt",
 		"modules": ["samediff", "wordcounter"],
-		"lang" : "en"
+		"lang": "en",
+		"biography": "These are lyrics from many or Lady Gaga's songs.  They were scraped from <a href=\"lyrics123.net\">lyrics123.net</a> by Rahul Bhargava in 2014."
 	},
 	{
 		"title": "Madonna's lyrics",
 		"source": "sample-data/en/madonna-lyrics.txt",
 		"modules": ["samediff", "wordcounter"],
-		"lang" : "en"
+		"lang": "en",
+		"biography": "These are lyrics from many or Madonna's songs.  They were scraped from <a href=\"lyrics123.net\">lyrics123.net</a> by Rahul Bhargava in 2014."
 	},
 	{
 		"title": "Prince's lyrics",
 		"source": "sample-data/en/prince-lyrics.txt",
 		"modules": ["samediff", "wordcounter"],
-		"lang" : "en"
+		"lang": "en",
+		"biography": "These are lyrics from many or Prince's songs.  They were scraped from <a href=\"lyrics123.net\">lyrics123.net</a> by Rahul Bhargava in 2014."
 	},
 	{
 		"title": "Bob Marley's lyrics",
 		"source": "sample-data/en/bob-marley-lyrics.txt",
 		"modules": ["samediff", "wordcounter"],
-		"lang" : "en"
+		"lang": "en",
+		"biography": "These are lyrics from many or Bob Marley's songs.  They were scraped from <a href=\"lyrics123.net\">lyrics123.net</a> by Rahul Bhargava in 2014."
 	},
 	{
 		"title": "Taylor Swift's lyrics",
 		"source": "sample-data/en/taylor-swift-lyrics.txt",
 		"modules": ["samediff", "wordcounter"],
-		"lang" : "en"
+		"lang": "en",
+		"biography": "These are lyrics from many or Taylor Swift's songs.  They were scraped from <a href=\"lyrics123.net\">lyrics123.net</a> by Rahul Bhargava in 2014."
 	},
 	{
-		"title" : "Titanic Passengers",
+		"title": "Titanic Passengers",
 		"source":"sample-data/en/titanic.csv",
 		"modules": ["wtfcsv"],
-		"lang" : "en"
+		"lang": "en",
+		"biography": "This is a manifest of passengers from on the doomed Titanic cruise. It was downloaded from the <a href=\"https://www.kaggle.com/c/titanic/data\">Kaggle Machine Learning Challenge</a> in 2014 by Catherine D'Ignazio."
 	},
 	{
-		"title" : "UFO Sightings in Massachusetts",
+		"title": "UFO Sightings in Massachusetts",
 		"source":"sample-data/en/UFOMA.csv",
 		"modules": ["wtfcsv"],
-		"lang" : "en"
+		"lang": "en",
+		"biography": "This is a list of UFO sightings in Massachusetts, as reported by individuals to the <a href=\"http://www.nuforc.org/webreports/ndxlma.html\">National UFO Reporting Center</a>. They were downloaded in 2014 by Catherine D'Ignazio."
 	},
 	{
-		"title" : "Letra do Anitta",
+		"title": "Letra do Anitta",
 		"source":"sample-data/pt/lyrics-anitta.txt",
 		"modules": ["samediff", "wordcounter"],
-		"lang" : "pt"
+		"lang": "pt",
+		"biography": "Essas são letras de músicas do Anitta.  Foram tiradas do site <a href=\"lyrics123.net\">lyrics123.net</a> por Rahul Bhargava em 2014."
 	},
 	{
-		"title" : "Letra do Marisa Monte",
+		"title": "Letra da Marisa Monte",
 		"source":"sample-data/pt/lyrics-marisa-monte.txt",
 		"modules": ["samediff", "wordcounter"],
-		"lang" : "pt"
+		"lang": "pt",
+		"biography": "Essas são letras de músicas da Marisa Monte.  Foram tiradas do site <a href=\"lyrics123.net\">lyrics123.net</a> por Rahul Bhargava em 2014."
 	},
 	{
-		"title" : "Letras do Legião Urbana",
+		"title": "Letras da Legião Urbana",
 		"source":"sample-data/pt/lyrics-legiao-urbana.txt",
 		"modules": ["samediff", "wordcounter"],
-		"lang" : "pt"
+		"lang": "pt",
+		"biography": "Essas são letras de músicas da Legião Urbana.  Foram tiradas do site <a href=\"lyrics123.net\">lyrics123.net</a> por Rahul Bhargava em 2014."
 	},
 	{
-		"title" : "Altura y Peso de Personas entre 6 - 16 años en los EEUU",
+		"title": "Altura y Peso de Personas entre 6 - 16 años en los EEUU",
 		"source":"sample-data/es/csv-altura-y-peso.csv",
 		"modules": ["wtfcsv"],
-		"lang" : "es"
+		"lang": "es",
+    "biography": "Eso es una lista de información de salúd de un variedad de personas in los EEUU."
 	},
 	{
-		"title" : "El tiempo de San José, Costa Rica, en 2016",
+		"title": "El tiempo de San José, Costa Rica, en 2016",
 		"source":"sample-data/es/el-tiempo-de-san-jose-2016.csv",
 		"modules": ["wtfcsv"],
-		"lang" : "es"
+		"lang": "es",
+    "biography": "Esta contiene una historia del tiempo in San José, Costa Rica en el año 2016."
 	},
 	{
-		"title" : "Estatísticas dos Times Brasileiros da Serie A",
+		"title": "Estatísticas dos Times Brasileiros da Serie A",
 		"source":"sample-data/pt/soccer.csv",
 		"modules": ["wtfcsv"],
-		"lang" : "pt"
+		"lang": "pt",
+    "biography": ""
 	},
 	{
-		"title" : "Locais turísticos em Rio de Janeiro",
+		"title": "Locais turísticos em Rio de Janeiro",
 		"source":"sample-data/pt/turismo-e-cultura.csv",
 		"modules": ["wtfcsv"],
-		"lang" : "pt"
+		"lang": "pt",
+    "biography": ""
 	},
 	{
-		"title" : "Domínios de internet do governo no Brasil",
+		"title": "Domínios de internet do governo no Brasil",
 		"source":"sample-data/pt/dominios-gov-br-basico.csv",
 		"modules": ["wtfcsv"],
-		"lang" : "pt"
+		"lang": "pt",
+    "biography": ""
 	},
+  {
+    "title": "Nomes próprios em Portugal (2014)",
+    "source":"sample-data/pt/nomes-registados-2014.csv",
+    "modules": ["wtfcsv"],
+    "lang": "pt",
+    "biography": ""
+  },
 	{
-		"title" : "Letras do Chico Buarque",
+		"title": "Letras do Chico Buarque",
 		"source":"sample-data/pt/lyrics-chico-buarque.txt",
 		"modules": ["samediff", "wordcounter"],
-		"lang" : "pt"
-	},
-	{
-		"title" : "Nomes próprios em Portugal (2014)",
-		"source":"sample-data/pt/nomes-registados-2014.csv",
-		"modules": ["wtfcsv"],
-		"lang" : "pt"
+		"lang": "pt",
+    "biography": "Essas são letras de músicas da Chico Buarque.  Foram tiradas do site <a href=\"lyrics123.net\">lyrics123.net</a> por Rahul Bhargava em 2014."
 	},
   {
-    "title" : "La Letra de Maná",
+    "title": "La Letra de Maná",
     "source":"sample-data/es/lyrics-mana.txt",
     "modules": ["samediff", "wordcounter"],
-    "lang" : "es"
+    "lang": "es",
+		"biography": "Essas son letras de caniones de Maná. Fueron copiado de sitio <a href=\"lyrics123.net\">lyrics123.net</a> por Rahul Bhargava en 2014."
   },
   {
-    "title" : "La Letra de Paulina Rubio",
+    "title": "La Letra de Paulina Rubio",
     "source":"sample-data/es/lyrics-paulina-rubio.txt",
     "modules": ["samediff", "wordcounter"],
-    "lang" : "es"
+    "lang": "es",
+    "biography": "Essas son letras de caniones de Paulina Rubio. Fueron copiado de sitio <a href=\"lyrics123.net\">lyrics123.net</a> por Rahul Bhargava en 2014."
   },
   {
-    "title" : "La Letra de Ricky Martin",
+    "title": "La Letra de Ricky Martin",
     "source":"sample-data/es/lyrics-ricky-martin.txt",
     "modules": ["samediff", "wordcounter"],
-    "lang" : "es"
+    "lang": "es",
+    "biography": "Essas son letras de caniones de Ricky Martin. Fueron copiado de sitio <a href=\"lyrics123.net\">lyrics123.net</a> por Rahul Bhargava en 2014."
   },
   {
-    "title" : "La Letra de Shakira",
+    "title": "La Letra de Shakira",
     "source":"sample-data/es/lyrics-shakira.txt",
     "modules": ["samediff", "wordcounter"],
-    "lang" : "es"
+    "lang": "es",
+    "biography": "Essas son letras de caniones de Shakira. Fueron copiado de sitio <a href=\"lyrics123.net\">lyrics123.net</a> por Rahul Bhargava en 2014."
   },
   {
-    "title" : "Los Discursos de Fidel Castro 1959",
+    "title": "Los Discursos de Fidel Castro 1959",
     "source":"sample-data/es/castro-speech-1959.txt",
     "modules": ["samediff", "wordcounter"],
-    "lang" : "es"
+    "lang": "es",
+    "biography": "Essas son discursos de Fidel Castro en 1959. Fueron copiado de sitio <a href=\"http://lanic.utexas.edu/la/cb/cuba/castro.html\">LANIC</a> por Catherine D'Ignazio en 2015."
   },
   {
-    "title" : "Los Discursos de Fidel Castro 2000 - 2008",
+    "title": "Los Discursos de Fidel Castro 2000 - 2008",
     "source":"sample-data/es/castro-speech-2000-2008.txt",
     "modules": ["samediff", "wordcounter"],
-    "lang" : "es"
+    "lang": "es",
+    "biography": "Essas son discursos de Fidel Castro entre 2000 - 2008. Fueron copiado de sitio <a href=\"http://lanic.utexas.edu/la/cb/cuba/castro.html\">LANIC</a> por Catherine D'Ignazio en 2015."
   },
   {
     "title": "Les Misérables Character Co-occurence",
     "source": "sample-data/en/les-miserables.csv",
     "modules": ["connectthedots"],
-    "lang": "en"
+    "lang": "en",
+    "biography": "This is chart where each node is a character in Les Misérables, and each link indicates that they appear in a scene together.  This is called character co-occurrence.  This data was downloaded by Stephen Suen in 2016 from <a href=\"http://www-cs-staff.stanford.edu/~uno/sgb.html\">The Stanford GraphBase</a>."
   },
   {
     "title": "Zachary's Karate Club",
     "source": "sample-data/en/zachary-karate-club.csv",
     "modules": ["connectthedots"],
-    "lang": "en"
+    "lang": "en",
+    "biography": "This is chart shows a social network within a university karate club.  This is a classic example in network science, used in academic papers since the mid 1970s.  This version of the dataset was created by Rahul Bhargava based on the network listed on <a href=\"https://en.wikipedia.org/wiki/Zachary's_karate_club\">the Wikipedia entry</a> in 2016."
   },
   {
     "title": "Genealogia de Jiu Jitsu (Gracie)",
     "source": "sample-data/pt/gracie-jiu-jitsu.csv",
     "modules": ["connectthedots"],
-    "lang": "pt"
+    "lang": "pt",
+    "biography": "Este gráfico mostra quem formou quem dentro da família Gracie. Foi a família Gracie que fundou a prática de Jiu Jitsu no Brasil. O gráfico foi criado por Catherine D'Ignazio em 2016."
   }
 ]

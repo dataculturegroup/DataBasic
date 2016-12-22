@@ -30,6 +30,7 @@ def index():
         
         btn_value = request.form['btn']
         sample_id = ''
+        extras_to_save = {}
 
         if btn_value == 'paste':
             words = forms['paste'].data['area']
@@ -59,6 +60,7 @@ def index():
             sample_path = filehandler.get_sample_path(sample_source)
             logger.debug("  loading from %s", sample_path)
             words = filehandler.convert_to_txt(sample_path)
+            extras_to_save = filehandler.get_sample(sample_source)
         elif btn_value == 'link':
             url = forms['link'].data['link']
             # TODO: should actually accept https
@@ -77,7 +79,7 @@ def index():
             logger.debug("  about to process words")
             counts = process_words(words, ignore_case, ignore_stopwords, btn_value=='sample')
             logger.debug("  finished counts, about to save")
-            doc_id = mongo.save_words('wordcounter', counts, ignore_case, ignore_stopwords, title, sample_id, btn_value)
+            doc_id = mongo.save_words('wordcounter', counts, ignore_case, ignore_stopwords, title, sample_id, btn_value, extras_to_save)
             logger.debug("  saved")
             return redirect(request.url + 'results/' + doc_id + '?submit=true')
 
@@ -144,6 +146,7 @@ def results(doc_id):
     whatnext['word_in_trigrams_count'] = word_in_trigrams_count
     whatnext['random_unpopular_word'] = random_unpopular_word[0]
     whatnext['random_unpopular_word_count'] = random_unpopular_word[1]
+    biography = doc['biography'] if 'biography' in doc else None
 
     return render_template('wordcounter/results.html', 
         results=results, 
@@ -153,7 +156,8 @@ def results(doc_id):
         doc_id=doc_id, 
         source=doc['source'], 
         remaining_days=remaining_days, 
-        total_words=counts['total_word_count'])
+        total_words=counts['total_word_count'],
+        biography=biography)
 
 @mod.route('/results/<doc_id>/download/<analysis_type>.csv')
 def download_csv(doc_id, analysis_type):

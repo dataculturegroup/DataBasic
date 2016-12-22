@@ -160,6 +160,9 @@
               <h2 class="summary" role="banner" id="results-title">
                 {{ results[index]['filename'] }} {{ shareable() }}
               </h2>
+              {% if results[index]['biography'] %}
+                <p class="summary">{{ results[index]['biography'] | safe }}</p>
+              {% endif %}
               <p class="summary">
                 {{ _("%(rows)s rows of data grouped into %(cols)s columns.",
                 rows=results[index]['row_count'],
