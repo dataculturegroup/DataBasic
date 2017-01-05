@@ -285,5 +285,20 @@
     "modules": ["connectthedots"],
     "lang": "pt",
     "biography": "Este gráfico mostra quem formou quem dentro da família Gracie. Foi a família Gracie que fundou a prática de Jiu Jitsu no Brasil. O gráfico foi criado por Catherine D'Ignazio em 2016."
+  },
+  {
+    "title": "Brazilian World Cup Player Club Teams",
+    "source": "sample-data/pt/brazil-2014-player-clubs.csv",
+    "modules": ["connectthedots"],
+    "lang": "pt",
+    "biography": "This network shows what soccer club teams the national team players have played for.  The nodes are both players (from the 2014 Brazil World Cup team), and the club teams they have played for. A link between nodes means that the player has played for that club team. This data was manually scraped from Wikipedia by Mariel García."
+  },
+  {
+    "title": "Los Clubes del Jugadores Argentinianos del Mundial",
+    "source": "sample-data/es/argentina-2014-player-clubs.csv",
+    "modules": ["connectthedots"],
+    "lang": "es",
+    "biography": "Esta red muestra para cuales equipos de club de fútbol los jugadores del equipo nacional han jugado. Los nodos son los jugadores (del equipo de la Copa Mundial de Argentina 2014) y sus clubes. Un enlace entre los nodos significa que el jugador ha jugado para que el club. Estos datos son captuados manualmente de Wikipedia por Mariel García."
   }
+
 ]
