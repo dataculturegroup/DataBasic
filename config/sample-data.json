@@ -287,14 +287,14 @@
     "biography": "Este gráfico mostra quem formou quem dentro da família Gracie. Foi a família Gracie que fundou a prática de Jiu Jitsu no Brasil. O gráfico foi criado por Catherine D'Ignazio em 2016."
   },
   {
-    "title": "Brazilian World Cup Player Club Teams",
+    "title": "Times do membros da Seleção Brasileira da Copa ",
     "source": "sample-data/pt/brazil-2014-player-clubs.csv",
     "modules": ["connectthedots"],
     "lang": "pt",
-    "biography": "This network shows what soccer club teams the national team players have played for.  The nodes are both players (from the 2014 Brazil World Cup team), and the club teams they have played for. A link between nodes means that the player has played for that club team. This data was manually scraped from Wikipedia by Mariel García."
+    "biography": "Esse gráfico de rede mostra os times com os quais os membros da Seleção Brasileira tem jogado. Os pontos são os jogadores (da Seleção Brasileira da Copa do Mundo de 2014) e os times com os quais tem jogado. A linha entre os pontos quer dizer que o jogador tem jogado com esse time. Esses dados foram coletados do Wikipedia por Mariel García."
   },
   {
-    "title": "Los Clubes del Jugadores Argentinianos del Mundial",
+    "title": "Los Clubes del Jugadores Argentinianos de la Mundial",
     "source": "sample-data/es/argentina-2014-player-clubs.csv",
     "modules": ["connectthedots"],
     "lang": "es",
