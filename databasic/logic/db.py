@@ -65,6 +65,7 @@ class MongoHandler:
         self._db[collection].save(job_info)
 
     def find_document(self, collection, doc_id):
+        logger.debug("trying to find one doc with ID %s", doc_id)
         return self._db[collection].find_one({'_id': ObjectId(doc_id)})
 
     def get_remaining_days(self, collection, doc_id):

@@ -1,4 +1,4 @@
-import logging, operator, os, re
+import logging, operator, os, re, sys
 from collections import OrderedDict
 from databasic import mongo, get_base_dir
 from databasic.forms import ConnectTheDotsUpload, ConnectTheDotsSample, ConnectTheDotsPaste
@@ -31,9 +31,12 @@ def index():
         # Sample file
         if btn_value == 'sample':
             sample_source = forms['sample'].data['sample']
+
+            #check to see if file exists in cache already
             existing_doc_id = mongo.results_for_sample('connectthedots', sample_source)
             if existing_doc_id is not None:
-                logger.debug('[CTD] Sample already in database: %s', sample_source)
+                sample_name = filehandler.get_sample_title(sample_source)
+                logger.debug('[CTD] Doc exists in database, redirecting to cached version: %s', sample_name)
                 return redirect(request.url + 'results/' + existing_doc_id)
             else:
                 sample_name = filehandler.get_sample_title(sample_source)
@@ -56,6 +59,7 @@ def index():
             results = process_upload(upload_file, has_header_row)
 
         if (results is not None) and (btn_value is not None) and (btn_value is not u'') and ('json' in results):
+            logger.debug('[CTD] Redirecting to render new doc from %s', btn_value)
             return redirect_to_results(results, btn_value, sample_id)
         else:
             input_error = btn_value
@@ -131,7 +135,9 @@ def redirect_to_results(results, source, sample_id=''):
     """
     Redirect to results page
     """
+    logger.debug('[CTD] Saving CSV and redirecting to result')
     doc_id = mongo.save_csv('connectthedots', results, sample_id, source)
+    logger.debug('[CTD] Saved CSV and doc_id is %s', doc_id)
     return redirect(g.current_lang + '/connectthedots/results/' + doc_id + '?submit=true')
 
 @mod.route('/results/<doc_id>')
@@ -140,12 +146,13 @@ def results(doc_id):
     Lookup results for a given document
     """
     try:
-        results = mongo.find_document('connectthedots', doc_id).get('results')
+        #results = mongo.find_document('connectthedots', doc_id).get('results')
         logger.info('[CTD] Showing results for doc: %s', doc_id)
         return render_results(doc_id)
     except Exception as e:
         logger.warning('[CTD] Unable to find doc: %s', doc_id)
         logger.warning('[CTD] Error: %s', str(e))
+        logger.warning('[CTD] Error: %s', sys.exc_info()[0])
         return render_template('no_results.html', tool_name='connectthedots')
 
 def render_results(doc_id):
