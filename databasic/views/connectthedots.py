@@ -232,3 +232,11 @@ def download_user_template():
     dir_path = os.path.join(get_base_dir(),'databasic','static','files','user-templates',g.current_lang)
     logger.debug("download user template from %s/%s", dir_path, filename)
     return send_from_directory(directory=dir_path, filename=filename)
+
+
+@mod.route('/connect-the-dots-activity-guide.pdf')
+def download_activity_guide():
+    filename = "Connect the Dots Activity Guide.pdf"
+    dir_path = os.path.join(get_base_dir(),'databasic','static','files','activity-guides',g.current_lang)
+    logger.debug("download activity guide from %s/%s", dir_path, filename)
+    return send_from_directory(directory=dir_path, filename=filename)
