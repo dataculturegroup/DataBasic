@@ -67,5 +67,9 @@
     </div>
     {{ render_forms(forms, action_url=tool_name, action_text=_('Graph')) }}
   </div>
+  {{ about_section(_('ConnectTheDots'), '191074419',
+        url_for('static', filename='img/ctd-sheet-thumbnail.png'), 
+        "/"+g['current_lang']+"/connectthedots/connect-the-dots-activity-guide.pdf"
+  ) }}
 </div>
 {% endblock %}
