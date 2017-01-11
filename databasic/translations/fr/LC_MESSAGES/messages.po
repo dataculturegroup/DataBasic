@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2017-01-08 06:38-0500\n"
+"POT-Creation-Date: 2017-01-11 06:47-0500\n"
 "PO-Revision-Date: 2016-09-24 11:12+0200\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language: fr\n"
@@ -188,6 +188,7 @@ msgstr ""
 
 #: databasic/templates/footer.html:28
 #: databasic/templates/connectthedots/connectthedots.html:4
+#: databasic/templates/connectthedots/connectthedots.html:72
 msgid "ConnectTheDots"
 msgstr ""
 
@@ -307,30 +308,38 @@ msgstr ""
 msgid "go to data basic home page"
 msgstr ""
 
-#: databasic/templates/connectthedots/connectthedots.html:35
+#: databasic/templates/connectthedots/connectthedots.html:15
+msgid "Paste rows from an Excel or Google spreadsheet, with this format:"
+msgstr ""
+
+#: databasic/templates/connectthedots/connectthedots.html:16
+msgid "source target"
+msgstr ""
+
+#: databasic/templates/connectthedots/connectthedots.html:37
 msgid "Not sure how to format your file? Download our template."
 msgstr ""
 
-#: databasic/templates/connectthedots/connectthedots.html:55
+#: databasic/templates/connectthedots/connectthedots.html:57
 msgid ""
 "Error: Paste failed! Make sure your input has exactly two tab-separated "
 "columns and try again."
 msgstr ""
 
-#: databasic/templates/connectthedots/connectthedots.html:57
+#: databasic/templates/connectthedots/connectthedots.html:59
 msgid ""
 "Error: Upload failed! Make sure your file has exactly two columns and try"
 " again."
 msgstr ""
 
-#: databasic/templates/connectthedots/connectthedots.html:63
+#: databasic/templates/connectthedots/connectthedots.html:65
 #: databasic/templates/home/index.html:28
 msgid ""
 "ConnectTheDots shows you how your data is connected by analyzing it as a "
 "network."
 msgstr ""
 
-#: databasic/templates/connectthedots/connectthedots.html:65
+#: databasic/templates/connectthedots/connectthedots.html:67
 msgid ""
 "Analyzing the connections between the \"dots\" in your data is a "
 "fundamentally different approach to understanding it. This tool shows you"
@@ -338,7 +347,7 @@ msgid ""
 "report about what your network looks like."
 msgstr ""
 
-#: databasic/templates/connectthedots/connectthedots.html:68
+#: databasic/templates/connectthedots/connectthedots.html:70
 msgid "Graph"
 msgstr ""
 
@@ -1286,5 +1295,11 @@ msgstr ""
 #~ msgstr ""
 
 #~ msgid "activity sheet thumbnail"
+#~ msgstr ""
+
+#~ msgid ""
+#~ "Paste rows from an Excel or Google"
+#~ " spreadsheet, with this format:&#13;&#10;source"
+#~ " target&#13;&#10;A B&#13;&#10;A C&#13;&#10;B C"
 #~ msgstr ""
 
