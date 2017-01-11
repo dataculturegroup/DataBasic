@@ -154,7 +154,7 @@
 		"biography": "This is a list of UFO sightings in Massachusetts, as reported by individuals to the <a href=\"http://www.nuforc.org/webreports/ndxlma.html\">National UFO Reporting Center</a>. They were downloaded in 2014 by Catherine D'Ignazio."
 	},
 	{
-		"title": "Letra do Anitta",
+		"title": "Letra da Anitta",
 		"source":"sample-data/pt/lyrics-anitta.txt",
 		"modules": ["samediff", "wordcounter"],
 		"lang": "pt",
