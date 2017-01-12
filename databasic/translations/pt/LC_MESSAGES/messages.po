@@ -32,7 +32,7 @@ msgstr "Colar texto..."
 
 #: databasic/forms.py:23 databasic/forms.py:30
 msgid "Upload a file"
-msgstr "Enviar um arquivo"
+msgstr "Seleccionar um arquivo"
 
 #: databasic/forms.py:27
 msgid "Upload file"
@@ -363,9 +363,9 @@ msgid ""
 " a network diagram to reveal those links, and gives you a high level "
 "report about what your network looks like."
 msgstr ""
-"Analisando as conexões entre os \"pontos\" nos seus dados e uma abordagem"
-" fundamentalmente diferente para entende-los. Esta ferramenta mostra um "
-"diagrama de redes para revelar suas conexões, e mostra um relatório alto "
+"Analisando as conexões entre os \"pontos\" nos seus dados é uma abordagem"
+" fundamentalmente diferente para entendê-los. Esta ferramenta mostra um "
+"gráfico de redes para revelar suas conexões, e mostra um relatório alto "
 "nível sobre como a rede se parece."
 
 #: databasic/templates/connectthedots/connectthedots.html:70
