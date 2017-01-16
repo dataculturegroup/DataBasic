@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2017-01-11 06:47-0500\n"
+"POT-Creation-Date: 2017-01-16 12:00-0500\n"
 "PO-Revision-Date: 2015-12-21 14:00-0600\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language: es\n"
@@ -589,16 +589,22 @@ msgstr ""
 msgid "Why use DataBasic?"
 msgstr "¿Por qué DataBasic?"
 
-#: databasic/templates/home/index.html:51
+#: databasic/templates/home/index.html:43
+msgid ""
+"Rahul Bhargava and Catherine D'Ignazio, creators of Databasic, describe "
+"how everyone can tell stories with data."
+msgstr ""
+
+#: databasic/templates/home/index.html:52
 #, fuzzy
 msgid "About <strong>DataBasic</strong>"
 msgstr "Su Informe de <strong>SameDiff</strong>"
 
-#: databasic/templates/home/index.html:60
+#: databasic/templates/home/index.html:61
 msgid "Accessible to All"
 msgstr "Accesibles para todos"
 
-#: databasic/templates/home/index.html:61
+#: databasic/templates/home/index.html:62
 msgid ""
 "Digital technologies have empowered those with disabilities in a variety "
 "of ways, and new web standards have made it easier than ever to build new"
@@ -613,11 +619,11 @@ msgstr ""
 "pantalla para que aquellos con deficiencias visuales puedan trabajar con "
 "los datos en formas nuevas y emocionantes."
 
-#: databasic/templates/home/index.html:65
+#: databasic/templates/home/index.html:66
 msgid "Doing One Thing Well"
 msgstr "Hacer una sola cosa bien"
 
-#: databasic/templates/home/index.html:66
+#: databasic/templates/home/index.html:67
 msgid ""
 "There are tons of tools for working with data; many so complex they are "
 "intimidating to even start with.  We've built each DataBasic tool to "
@@ -632,11 +638,11 @@ msgstr ""
 "nos permite concentrarnos en que esa cosa sea a la vez simple y poderosa."
 " "
 
-#: databasic/templates/home/index.html:72
+#: databasic/templates/home/index.html:73
 msgid "Fitting in to Your Pipeline"
 msgstr "Ajustándose a tu proyecto"
 
-#: databasic/templates/home/index.html:73
+#: databasic/templates/home/index.html:74
 msgid ""
 "Working with data online always involves using a mishmash of tools. We're"
 " not going to solve that problem anytime soon.  So we've built DataBasic "
@@ -653,11 +659,11 @@ msgstr ""
 "tratamos de introducirte a la forma en la que casi todos trabajan los "
 "datos en línea. "
 
-#: databasic/templates/home/index.html:77
+#: databasic/templates/home/index.html:78
 msgid "Focused on Learning "
 msgstr "Un enfoque en el aprendizaje"
 
-#: databasic/templates/home/index.html:78
+#: databasic/templates/home/index.html:79
 msgid ""
 "Sometimes faster isn't better.  If you really want to learn how to work "
 "with data to find stories to tell, you'll need to use tools that do more "
@@ -676,11 +682,11 @@ msgstr ""
 "algunos de los divertidos datos de muestra que hemos incluido para "
 "empezar, como letras musicales o avistamientos de OVNIS."
 
-#: databasic/templates/home/index.html:84
+#: databasic/templates/home/index.html:85
 msgid "Ensuring Your Privacy"
 msgstr "Tu privacidad asegurada"
 
-#: databasic/templates/home/index.html:85
+#: databasic/templates/home/index.html:86
 msgid ""
 "With more and more data-centric tools moving online, sometimes it can be "
 "hard to tell where your data is going and what will happen with it after "
@@ -698,11 +704,11 @@ msgstr ""
 " Toda la comunicación ocurre por https, así que nadie puede fisgonear en "
 "tus datos mientras los subes. "
 
-#: databasic/templates/home/index.html:89
+#: databasic/templates/home/index.html:90
 msgid "By Educators, for Educators"
 msgstr "Por educadores, para educadores"
 
-#: databasic/templates/home/index.html:90
+#: databasic/templates/home/index.html:91
 msgid ""
 "Work with high-schoolers? Journalists? Community groups? Graduate "
 "students?  Us too!!!  That's why we designed and tested the DataBasic "
@@ -717,40 +723,40 @@ msgstr ""
 "nacieron de la frustración que nos causaban las cosas que usábamos en "
 "nuestras clases universitarias, así que sentimos tu dolor."
 
-#: databasic/templates/home/index.html:100
+#: databasic/templates/home/index.html:101
 #, fuzzy
 msgid "<strong>DataBasic</strong> News"
 msgstr "Su Informe de <strong>SameDiff</strong>"
 
-#: databasic/templates/home/index.html:127
+#: databasic/templates/home/index.html:128
 msgid "Designed and Developed by"
 msgstr "Diseñado y Desarrollado por"
 
-#: databasic/templates/home/index.html:128
+#: databasic/templates/home/index.html:129
 msgid "Principal Investigators:"
 msgstr "Directores:"
 
-#: databasic/templates/home/index.html:132
+#: databasic/templates/home/index.html:133
 msgid "Software development:"
 msgstr "Programmación:"
 
-#: databasic/templates/home/index.html:136
+#: databasic/templates/home/index.html:137
 msgid "Spanish translation:"
 msgstr "Traducción al español:"
 
-#: databasic/templates/home/index.html:140
+#: databasic/templates/home/index.html:141
 msgid "Portuguese translation:"
 msgstr "Traducción al portugués:"
 
-#: databasic/templates/home/index.html:142
+#: databasic/templates/home/index.html:143
 msgid "with contributions from"
 msgstr "con la ayuda de"
 
-#: databasic/templates/home/index.html:144
+#: databasic/templates/home/index.html:145
 msgid "Spanish data sourcing:"
 msgstr "Datos en español collecionado por:"
 
-#: databasic/templates/home/index.html:148
+#: databasic/templates/home/index.html:149
 msgid "Portuguese data sourcing:"
 msgstr "Datos en portugués collecionado por:"
 
@@ -1614,10 +1620,4 @@ msgstr "Otro"
 
 #~ msgid "activity sheet thumbnail"
 #~ msgstr "guía de actividades"
-
-#~ msgid ""
-#~ "Paste rows from an Excel or Google"
-#~ " spreadsheet, with this format:&#13;&#10;source"
-#~ " target&#13;&#10;A B&#13;&#10;A C&#13;&#10;B C"
-#~ msgstr ""
 
