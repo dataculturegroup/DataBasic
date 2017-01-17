@@ -624,7 +624,7 @@ msgstr "Por que usar DataBasic?"
 msgid ""
 "Rahul Bhargava and Catherine D'Ignazio, creators of Databasic, describe "
 "how everyone can tell stories with data."
-msgstr ""
+msgstr "Rahul Bhargava e Catherine D'Ignazio, criadores do Databasic, descrevem como todos podem contar histórias através de dados."
 
 #: databasic/templates/home/index.html:52
 msgid "About <strong>DataBasic</strong>"
