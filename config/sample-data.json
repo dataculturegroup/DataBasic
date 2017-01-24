@@ -299,5 +299,12 @@
     "modules": ["connectthedots"],
     "lang": "es",
     "biography": "Esta red muestra para cuales equipos de club de fútbol los jugadores del equipo nacional han jugado. Los nodos son los jugadores (del equipo de la Copa Mundial de Argentina 2014) y sus clubes. Un enlace entre los nodos significa que el jugador ha jugado para que el club. Estos datos son captuados manualmente de Wikipedia por Mariel García."
+  },
+  {
+    "title": "People in \"Trump World\"",
+    "source": "sample-data/en/trump-world-people.csv",
+    "modules": ["connectthedots"],
+    "lang": "en",
+    "biography": "This is a dataset of people in President Donald Trump's world.  This data was collected, and crowdsourced, by <a href=\"https://www.buzzfeed.com/johntemplon/help-us-map-trumpworld\">BuzzFeed</a>. These person-to-person links are based on research from a variety of sources.  Sometimes the link indicates the person is an advisor to someone, sometimes they are business partners, etc."
   }
 ]
