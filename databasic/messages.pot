@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2017-01-16 12:00-0500\n"
+"POT-Creation-Date: 2017-01-24 13:46-0500\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -429,7 +429,9 @@ msgid "bipartite graph"
 msgstr ""
 
 #: databasic/templates/connectthedots/results.html:73
-msgid "Glossary definition for bipartite graph."
+msgid ""
+"A network graph with two types of nodes.  For instance, people connected "
+"to restaurants they love but not to other people."
 msgstr ""
 
 #: databasic/templates/connectthedots/results.html:78

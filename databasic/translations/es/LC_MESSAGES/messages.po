@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2017-01-16 12:00-0500\n"
+"POT-Creation-Date: 2017-01-24 13:46-0500\n"
 "PO-Revision-Date: 2015-12-21 14:00-0600\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language: es\n"
@@ -102,11 +102,11 @@ msgstr "Pegar ligas"
 
 #: databasic/forms.py:185 databasic/forms.py:202
 msgid "Has header row"
-msgstr ""
+msgstr "Tiene una fila de encabezado"
 
 #: databasic/forms.py:195
 msgid "Paste rows"
-msgstr ""
+msgstr "Pegar filas"
 
 #: databasic/static/js/connectthedots-validate.js:20
 #: databasic/static/js/connectthedots-validate.js:35
@@ -138,7 +138,7 @@ msgstr "Sólo se aceptan estos tipos de archivos: csv, xls, xlsx"
 #: databasic/static/js/wtfcsv-validate.js:51
 #, fuzzy
 msgid "Only files under MB are accepted"
-msgstr "Sólo se aceptan archivos menores a 10MB"
+msgstr "Sólo se aceptan archivos menores a MB"
 
 #: databasic/static/js/samediff-validate.js:12
 #: databasic/static/js/wordcounter-validate.js:12
@@ -190,7 +190,7 @@ msgstr "SameDiff"
 #: databasic/templates/connectthedots/connectthedots.html:4
 #: databasic/templates/connectthedots/connectthedots.html:72
 msgid "ConnectTheDots"
-msgstr ""
+msgstr "ConnectTheDots"
 
 #: databasic/templates/footer.html:29
 msgid "about"
@@ -264,7 +264,7 @@ msgstr ""
 #: databasic/templates/macros.html:153
 #, fuzzy
 msgid "close window"
-msgstr "cerrar ventana de video"
+msgstr "cerrar ventana"
 
 #: databasic/templates/macros.html:159
 msgid "You can share these results by emailing this url:"
@@ -303,7 +303,7 @@ msgstr "Acerca de %(tool_name)s"
 
 #: databasic/templates/tool_base.html:33
 msgid "Are you an Educator? Try our Activity Guide"
-msgstr "¿Ud. es maestro? Prueba nuestra guía de actividades"
+msgstr "¿Das clases? Prueba nuestra guía de actividades"
 
 #: databasic/templates/tool_base.html:37
 msgid ""
@@ -334,19 +334,23 @@ msgstr "tu texto"
 
 #: databasic/templates/connectthedots/connectthedots.html:37
 msgid "Not sure how to format your file? Download our template."
-msgstr ""
+msgstr "¿No sabes bien cómo dar formato a tu archivo? Descarga una muestra."
 
 #: databasic/templates/connectthedots/connectthedots.html:57
 msgid ""
 "Error: Paste failed! Make sure your input has exactly two tab-separated "
 "columns and try again."
 msgstr ""
+"Error: ¡Falló el pegado! Asegúrate de que tu contenido tiene exactamente "
+"dos columnas separadas e intenta de nuevo."
 
 #: databasic/templates/connectthedots/connectthedots.html:59
 msgid ""
 "Error: Upload failed! Make sure your file has exactly two columns and try"
 " again."
 msgstr ""
+"Error: ¡Falló el archivo! Asegúrate de que tu archivo tiene exactamente "
+"dos columnas separadas e intenta de nuevo."
 
 #: databasic/templates/connectthedots/connectthedots.html:65
 #: databasic/templates/home/index.html:28
@@ -354,6 +358,8 @@ msgid ""
 "ConnectTheDots shows you how your data is connected by analyzing it as a "
 "network."
 msgstr ""
+"ConnectTheDots te muestra cómo están conectados tus datos al analizarlos "
+"como una red."
 
 #: databasic/templates/connectthedots/connectthedots.html:67
 msgid ""
@@ -362,10 +368,14 @@ msgid ""
 " a network diagram to reveal those links, and gives you a high level "
 "report about what your network looks like."
 msgstr ""
+"Analizar las conexiones entre los \"puntos\" en tus datos es una manera "
+"fundamentalmente distinta de comprenderlos. Esta herramienta te muestra "
+"un diagrama de red para revelar esos enlaces, y te da un reporte general "
+"sobre cómo es tu red."
 
 #: databasic/templates/connectthedots/connectthedots.html:70
 msgid "Graph"
-msgstr ""
+msgstr "Gráfico"
 
 #: databasic/templates/connectthedots/results.html:6
 #, python-format
@@ -374,12 +384,15 @@ msgid ""
 "%(degree)s highest number of connections but is ranked %(centrality)s for"
 " %(betweenness_centrality)s?"
 msgstr ""
+"Por ejemplo, ¿es significativo que <strong>%(id)s</strong> tenga el "
+"%(degree)s número más alto de conexiones pero esté puntuado "
+"%(centrality)s por %(betweenness_centrality)s?"
 
 #: databasic/templates/connectthedots/results.html:10
 #: databasic/templates/connectthedots/results.html:15
 #: databasic/templates/connectthedots/results.html:146
 msgid "betweenness centrality"
-msgstr ""
+msgstr "interconexión"
 
 #: databasic/templates/connectthedots/results.html:10
 #: databasic/templates/connectthedots/results.html:15
@@ -389,6 +402,9 @@ msgid ""
 "Scores how much of a &quot;connector&quot; each node is. A high score "
 "means lots of nodes can go through one to quickly connect to other nodes."
 msgstr ""
+"Puntúa qué tanto cada nodo funciona como &quot;conector&quot;. Una "
+"puntuación alta significa que muchos nodos pueden pasar por uno para "
+"conectarse a otros."
 
 #: databasic/templates/connectthedots/results.html:13
 #, python-format
@@ -396,16 +412,20 @@ msgid ""
 "For example, why might <strong>%(id)s</strong> have the highest "
 "%(betweenness_centrality)s in the network?"
 msgstr ""
+"Por ejemplo, ¿por qué <strong>%(id)s</strong> tendría la más alta "
+"%(betweenness_centrality)s en la red?"
 
 #: databasic/templates/connectthedots/results.html:20
 msgid "ConnectTheDots: "
-msgstr ""
+msgstr "ConnectTheDots: "
 
 #: databasic/templates/connectthedots/results.html:50
 msgid ""
 "Warning: The file you uploaded had multiple sheets, but we only used the "
 "first sheet."
 msgstr ""
+"Alerta: El archivo que subiste tenía varias hojas, pero sólo utilizamos "
+"la primera hoja."
 
 #: databasic/templates/connectthedots/results.html:64
 #, python-format
@@ -414,11 +434,14 @@ msgid ""
 " %(edge)s show up in the same row in your input data. Your network graph "
 "has %(node_count)s nodes and %(edge_count)s edges."
 msgstr ""
+"Aquí está un gráfico de cómo tus datos están conectados. Cada &(node)s "
+"conectado por un %(edge)s aparece en la misma fila en tus datos. Tu "
+"gráfico de red tiene nodos %(node_count)s y bordes %(edge_count)s."
 
 #: databasic/templates/connectthedots/results.html:67
 #, fuzzy
 msgid "nodes"
-msgstr "palabras"
+msgstr "nodos"
 
 #: databasic/templates/connectthedots/results.html:67
 #: databasic/templates/connectthedots/results.html:159
@@ -426,14 +449,16 @@ msgid ""
 "The &quot;dots&quot; in the network - the central organizing thing that "
 "is connected to others."
 msgstr ""
+"Los &quot;puntos&quot; en la red - la cosa central que organiza los datos"
+" mediante sus conexiones con otros."
 
 #: databasic/templates/connectthedots/results.html:68
 msgid "edge"
-msgstr ""
+msgstr "borde"
 
 #: databasic/templates/connectthedots/results.html:68
 msgid "A connection between one node and another node."
-msgstr ""
+msgstr "Una conexión entre un nodo y otro nodo."
 
 #: databasic/templates/connectthedots/results.html:72
 #, python-format
@@ -442,14 +467,19 @@ msgid ""
 " We think this is a %(bipartite_graph)s. We’ve gone ahead and colored "
 "each node based on what column it&#39;s in."
 msgstr ""
+"Parece que tus dos columnas tienen dos tipos de nodos totalmente "
+"distintos. Pensamos que es una %(bipartite_graph)s. Marcamos cada nodo en"
+" color con base en la columna en la que está."
 
 #: databasic/templates/connectthedots/results.html:73
 msgid "bipartite graph"
-msgstr ""
+msgstr "gráfico bipartito"
 
 #: databasic/templates/connectthedots/results.html:73
-msgid "Glossary definition for bipartite graph."
-msgstr ""
+msgid ""
+"A network graph with two types of nodes.  For instance, people connected "
+"to restaurants they love but not to other people."
+msgstr "Una gráfica de red con dos tipos de nodos. Por ejemplo, dos personas connectadas a resturantes que les gustan pero no connectadas a otras personas."
 
 #: databasic/templates/connectthedots/results.html:78
 #: databasic/templates/samediff/results.html:28
@@ -461,54 +491,54 @@ msgstr "Estos resultados se vencerán en %(day)s días"
 
 #: databasic/templates/connectthedots/results.html:95
 msgid "for the web"
-msgstr ""
+msgstr "para la web"
 
 #: databasic/templates/connectthedots/results.html:96
 msgid "for printing or editing"
-msgstr ""
+msgstr "para imprimir o editar"
 
 #: databasic/templates/connectthedots/results.html:97
 msgid "for analysis"
-msgstr ""
+msgstr "para analizar"
 
 #: databasic/templates/connectthedots/results.html:99
 msgid "Download the <strong>table</strong>"
-msgstr ""
+msgstr "Descarga la <strong>tabla</strong>"
 
 #: databasic/templates/connectthedots/results.html:105
 #, fuzzy
 msgid "node colors"
-msgstr "palabras"
+msgstr "colores de nodos"
 
 #: databasic/templates/connectthedots/results.html:105
 msgid "color by"
-msgstr ""
+msgstr "colorear por"
 
 #: databasic/templates/connectthedots/results.html:108
 msgid "color by column"
-msgstr ""
+msgstr "colorear por columna"
 
 #: databasic/templates/connectthedots/results.html:109
 msgid "column"
-msgstr ""
+msgstr "columna"
 
 #: databasic/templates/connectthedots/results.html:112
 #: databasic/templates/connectthedots/results.html:117
 msgid "color by community"
-msgstr ""
+msgstr "colorear por comunidad"
 
 #: databasic/templates/connectthedots/results.html:113
 #: databasic/templates/connectthedots/results.html:118
 msgid "community"
-msgstr ""
+msgstr "comunidad"
 
 #: databasic/templates/connectthedots/results.html:122
 msgid "no colors"
-msgstr ""
+msgstr "sin color"
 
 #: databasic/templates/connectthedots/results.html:136
 msgid "the connector"
-msgstr ""
+msgstr "el conector"
 
 #: databasic/templates/connectthedots/results.html:144
 #, python-format
@@ -516,37 +546,40 @@ msgid ""
 "This node has the highest %(betweenness_centrality)s score. The most "
 "nodes can go through %(kevin_bacon)s to connect to others in the network."
 msgstr ""
+"Este nodo tiene la puntuación más alta de %(betweenness_centrality)s. La "
+"mayoría de nodos pueden pasar por %(kevin_bacon)s para conectarse con "
+"otros en la red."
 
 #: databasic/templates/connectthedots/results.html:158
 #, fuzzy, python-format
 msgid "%(node)s"
-msgstr "%(normalized)s "
+msgstr "%(node)s"
 
 #: databasic/templates/connectthedots/results.html:159
 msgid "Node"
-msgstr ""
+msgstr "Nodo"
 
 #: databasic/templates/connectthedots/results.html:163
 #, fuzzy, python-format
 msgid "%(degree)s"
-msgstr "%(bigram)s"
+msgstr "%(degree)s"
 
 #: databasic/templates/connectthedots/results.html:164
 msgid "Degree"
-msgstr ""
+msgstr "Grado"
 
 #: databasic/templates/connectthedots/results.html:164
 msgid "The immediate number of connections a node has."
-msgstr ""
+msgstr "El número inmediato de conexiones que tiene un nodo."
 
 #: databasic/templates/connectthedots/results.html:168
 #, fuzzy, python-format
 msgid "%(centrality)s"
-msgstr "%(normalized)s "
+msgstr "%(centrality)s"
 
 #: databasic/templates/connectthedots/results.html:169
 msgid "Centrality"
-msgstr ""
+msgstr "Centralidad"
 
 #: databasic/templates/connectthedots/results.html:179
 #, python-format
@@ -598,7 +631,7 @@ msgstr ""
 #: databasic/templates/home/index.html:52
 #, fuzzy
 msgid "About <strong>DataBasic</strong>"
-msgstr "Su Informe de <strong>SameDiff</strong>"
+msgstr "Acerca de <strong>DataBasic</strong>"
 
 #: databasic/templates/home/index.html:61
 msgid "Accessible to All"
@@ -726,7 +759,7 @@ msgstr ""
 #: databasic/templates/home/index.html:101
 #, fuzzy
 msgid "<strong>DataBasic</strong> News"
-msgstr "Su Informe de <strong>SameDiff</strong>"
+msgstr "Noticias de <strong>DataBasic</strong>"
 
 #: databasic/templates/home/index.html:128
 msgid "Designed and Developed by"
@@ -738,7 +771,7 @@ msgstr "Directores:"
 
 #: databasic/templates/home/index.html:133
 msgid "Software development:"
-msgstr "Programmación:"
+msgstr "Programación:"
 
 #: databasic/templates/home/index.html:137
 msgid "Spanish translation:"
@@ -754,11 +787,11 @@ msgstr "con la ayuda de"
 
 #: databasic/templates/home/index.html:145
 msgid "Spanish data sourcing:"
-msgstr "Datos en español collecionado por:"
+msgstr "Datos en español recolectados por:"
 
 #: databasic/templates/home/index.html:149
 msgid "Portuguese data sourcing:"
-msgstr "Datos en portugués collecionado por:"
+msgstr "Datos en portugués recolectados por:"
 
 #: databasic/templates/samediff/results.html:8
 msgid "SameDiff results"
@@ -771,7 +804,7 @@ msgstr ""
 
 #: databasic/templates/samediff/results.html:25
 msgid "download"
-msgstr "bajar"
+msgstr "descargar"
 
 #: databasic/templates/samediff/results.html:37
 #, python-format
@@ -849,7 +882,7 @@ msgstr "Normalización"
 
 #: databasic/templates/samediff/results.html:91
 msgid "Toggle normlization"
-msgstr "Contralar normalización"
+msgstr "Controlar normalización"
 
 #: databasic/templates/samediff/results.html:102
 #: databasic/templates/samediff/results.html:148
@@ -940,7 +973,7 @@ msgstr "corpus"
 msgid ""
 "A collection of written texts. For example, all of the lyrics in Katy "
 "Perry songs."
-msgstr "Una colleción de textos. Por ejemplo, todos los líricos de Katy Perry."
+msgstr "Una colección de textos. Por ejemplo, todas las letras de Katy Perry."
 
 #: databasic/templates/samediff/samediff.html:25
 msgid "algorithm"
@@ -1433,121 +1466,121 @@ msgstr "Otro"
 #~ msgstr "similitud cosine"
 
 #~ msgid "Words that are only in %(document)s"
-#~ msgstr ""
+#~ msgstr "Palabras que están sólo en %(document)s"
 
 #~ msgid "Words that are in %(doc)s"
-#~ msgstr ""
+#~ msgstr "Palabras que están sólo en %(doc)s"
 
 #~ msgid " uses in %(doc)s"
-#~ msgstr ""
+#~ msgstr " usos en %(doc)s"
 
 #~ msgid " uses"
-#~ msgstr ""
+#~ msgstr " usos"
 
 #~ msgid "Words in common"
-#~ msgstr ""
+#~ msgstr "Palabras en común"
 
 #~ msgid "Words in Common"
-#~ msgstr ""
+#~ msgstr "Palabras en común"
 
 #~ msgid "Word"
-#~ msgstr ""
+#~ msgstr "Palabra"
 
 #~ msgid "Total Uses"
-#~ msgstr ""
+#~ msgstr "Usos totales"
 
 #~ msgid "Uses in"
-#~ msgstr ""
+#~ msgstr "Usos en"
 
 #~ msgid "Sorry, your results are still being processed."
-#~ msgstr ""
+#~ msgstr "Lo sentimos; tus resultados siguen siendo procesados"
 
 #~ msgid "Word-Counter results"
-#~ msgstr ""
+#~ msgstr "Resultados de WordCounter"
 
 #~ msgid "Top Words"
-#~ msgstr ""
+#~ msgstr "Palabras principales"
 
 #~ msgid "download csv of word frequencies"
-#~ msgstr ""
+#~ msgstr "Descargar csv de frecuencias de palabras"
 
 #~ msgid "Frequency"
-#~ msgstr ""
+#~ msgstr "Frecuencia"
 
 #~ msgid "Bigrams"
-#~ msgstr ""
+#~ msgstr "Bigramas"
 
 #~ msgid "%(bigram)s"
-#~ msgstr ""
+#~ msgstr "%(bigram)s"
 
 #~ msgid "Bigram"
-#~ msgstr ""
+#~ msgstr "Bigrama"
 
 #~ msgid "Trigrams"
-#~ msgstr ""
+#~ msgstr "Trigramas"
 
 #~ msgid "%(trigram)s"
-#~ msgstr ""
+#~ msgstr "%(trigram)s"
 
 #~ msgid "Trigram"
-#~ msgstr ""
+#~ msgstr "Trigrama"
 
 #~ msgid "WTFcsv: "
-#~ msgstr ""
+#~ msgstr "WTFcsv: "
 
 #~ msgid "%(rows)s rows of data grouped into %(cols)s columns."
-#~ msgstr ""
+#~ msgstr "filas de datos %(rows)s agrupados en columnas %(cols)s."
 
 #~ msgid "Here's some %(metadata)s about each column."
-#~ msgstr ""
+#~ msgstr "Aquí hay algunos %(metadata)s sobre cada columna."
 
 #~ msgid "metadata"
 #~ msgstr "metadata"
 
 #~ msgid "This column is full of"
-#~ msgstr ""
+#~ msgstr "Esta columna está llena de"
 
 #~ msgid "The unique values in this column are:"
-#~ msgstr ""
+#~ msgstr "Los valores únicos en esta columna son:"
 
 #~ msgid "The most frequent values in this column are:"
-#~ msgstr ""
+#~ msgstr "Los valores más frecuentes en esta columna son:"
 
 #~ msgid "occurs %(frequency)s times"
-#~ msgstr ""
+#~ msgstr "ocurre %(frequency)s veces"
 
 #~ msgid "The earliest date is"
-#~ msgstr ""
+#~ msgstr "La fecha más temprana es"
 
 #~ msgid "The earliest time is"
-#~ msgstr ""
+#~ msgstr "La hora más temprana es"
 
 #~ msgid "The smallest number is"
-#~ msgstr ""
+#~ msgstr "El número más pequeño es"
 
 #~ msgid "The latest date is"
-#~ msgstr ""
+#~ msgstr "La última fecha es"
 
 #~ msgid "The latest time is"
-#~ msgstr ""
+#~ msgstr "La última hora es"
 
 #~ msgid "The biggest number is"
-#~ msgstr ""
+#~ msgstr "El número más grande es"
 
 #~ msgid "The total is"
-#~ msgstr ""
+#~ msgstr "El total es"
 
 #~ msgid "The average is"
-#~ msgstr ""
+#~ msgstr "El promedio es"
 
 #~ msgid "The median is"
-#~ msgstr ""
+#~ msgstr "La mediana es"
 
 #~ msgid "The standard deviation is"
-#~ msgstr ""
+#~ msgstr "La desviación estándar es"
 
 #~ msgid "There is missing data in this column"
-#~ msgstr ""
+#~ msgstr "Faltan datos en esta columna"
 
 #~ msgid "Finding Stories in Data"
 #~ msgstr "Encontrando historias en los datos"
@@ -1582,42 +1615,45 @@ msgstr "Otro"
 #~ msgid "Download (Español)"
 #~ msgstr "Bajar (Español)"
 
-#~ msgid "Diseñado y Desarrollado por"
-#~ msgstr ""
+#~ msgid "Designed and Developed by"
+#~ msgstr "Diseñado y desarrollado por"
 
 #~ msgid "Making Data Fun"
-#~ msgstr "Datos Divertidos"
+#~ msgstr "Datos divertidos"
 
 #~ msgid "%(density_score)s"
-#~ msgstr ""
+#~ msgstr "%(density_score)s"
 
 #~ msgid "density score"
-#~ msgstr ""
+#~ msgstr "puntuación de densidad"
 
 #~ msgid "This network is not connected at all. Time for you to connect the dots!"
-#~ msgstr ""
+#~ msgstr "Esta red no tiene conexiones. ¡Es hora de que conectes los puntos!"
 
 #~ msgid "This network is pretty %(dense)s."
-#~ msgstr ""
+#~ msgstr "Esta red es muy %(dense)s."
 
 #~ msgid "dense"
-#~ msgstr ""
+#~ msgstr "densa"
 
 #~ msgid "This network is somewhat %(dense)s."
-#~ msgstr ""
+#~ msgstr "Esta red es un tanto %(dense)s"
 
 #~ msgid "This network is %(sparse)s."
-#~ msgstr ""
+#~ msgstr "Esta red está %(sparse)s."
 
 #~ msgid "sparse"
-#~ msgstr "Comparar"
+#~ msgstr "esparcida"
 
 #~ msgid "%(clustering_score)s"
-#~ msgstr ""
+#~ msgstr "%(clustering_score)s"
 
 #~ msgid "clustering score"
-#~ msgstr ""
+#~ msgstr "puntuación de clustering"
 
 #~ msgid "activity sheet thumbnail"
 #~ msgstr "guía de actividades"
+
+#~ msgid "Glossary definition for bipartite graph."
+#~ msgstr "Definición de glosario para bigrama."
 

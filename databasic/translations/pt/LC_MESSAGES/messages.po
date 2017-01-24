@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2017-01-16 12:00-0500\n"
+"POT-Creation-Date: 2017-01-24 13:46-0500\n"
 "PO-Revision-Date: 2016-12-29 12:33-0200\n"
 "Last-Translator: \n"
 "Language: pt\n"
@@ -469,8 +469,10 @@ msgid "bipartite graph"
 msgstr "gráfico bipartido"
 
 #: databasic/templates/connectthedots/results.html:73
-msgid "Glossary definition for bipartite graph."
-msgstr "Glossário de definição de gráfico bipartido"
+msgid ""
+"A network graph with two types of nodes.  For instance, people connected "
+"to restaurants they love but not to other people."
+msgstr ""
 
 #: databasic/templates/connectthedots/results.html:78
 #: databasic/templates/samediff/results.html:28
@@ -624,7 +626,9 @@ msgstr "Por que usar DataBasic?"
 msgid ""
 "Rahul Bhargava and Catherine D'Ignazio, creators of Databasic, describe "
 "how everyone can tell stories with data."
-msgstr "Rahul Bhargava e Catherine D'Ignazio, criadores do Databasic, descrevem como todos podem contar histórias através de dados."
+msgstr ""
+"Rahul Bhargava e Catherine D'Ignazio, criadores do Databasic, descrevem "
+"como todos podem contar histórias através de dados."
 
 #: databasic/templates/home/index.html:52
 msgid "About <strong>DataBasic</strong>"
@@ -1471,4 +1475,7 @@ msgstr "Outro"
 
 #~ msgid "activity sheet thumbnail"
 #~ msgstr "miniatura da planilha de atividades"
+
+#~ msgid "Glossary definition for bipartite graph."
+#~ msgstr "Glossário de definição de gráfico bipartido"
 
