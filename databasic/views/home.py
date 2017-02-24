@@ -16,10 +16,14 @@ def index():
     for post in blog_posts:
         regex = re.match('(<img .*? />)?(.*?&#8230;)', post['description'])
 
-        if regex.group(1) is not None:
-            image = re.search('(?<=src=").*?(?=")', regex.group(1)).group(0)
-        else:
-            image = None
+        image = None
+        description = None
+        if regex is not None:
+            if regex.group(1) is not None:
+                image = re.search('(?<=src=").*?(?=")', regex.group(1)).group(0)
+            if regex.group(2) is not None:
+                description = regex.group(2)
+
 
         logger.info('"%s" (%s)', post['title'], post['link'])
 
@@ -28,7 +32,7 @@ def index():
             'author': post['author'],
             'link': post['link'],
             'published': time.strftime('%B %d, %Y', post['published_parsed']),
-            'description': regex.group(2),
+            'description': description,
             'image': image
         })
 
