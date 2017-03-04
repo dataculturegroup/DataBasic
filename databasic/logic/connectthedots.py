@@ -29,7 +29,8 @@ class ConnectTheDots():
         try:
             self.table = table.Table.from_csv(input_file,
                                               no_header_row=not has_header_row,
-                                              snifflimit=0)
+                                              snifflimit=0,
+                                              blanks_as_nulls=False)
             if (len(self.table) != 2):
                 raise ValueError('File has more than two columns')
             else:
