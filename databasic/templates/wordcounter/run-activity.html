@@ -1,0 +1,35 @@
+{% extends "tool_base.html" %}
+
+{% block title %}{{ _('Run the Activity') }}{% endblock %}
+
+{% block custom_css %}
+  <link href="{{ url_for('static', filename='css/wordcounter.scss.css') }}" rel="stylesheet" type="text/css">
+{% endblock %}
+
+{% block nav %}
+  {% include 'tool_header.html' %}
+{% endblock %}
+
+{% block body %}
+<div class="tool" role="main">
+  <div class="container">
+    <div class="row">
+      <div class="facilitated-activity">
+
+        <h1>{{ _('Sketch a Story') }}</h1>
+        <p>{{ _('Welcome to the WordCounter Sketch a Story activity! These videos will help you run the activity.')}}</p>
+
+        <h2>{{ _('We\'re ready to start') }}</h2>
+        <iframe src="https://player.vimeo.com/video/216850790" width="640" height="360" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
+
+        <h2>{{ _('Done with our stories! Time to share-back!') }}</h2>
+        <iframe src="https://player.vimeo.com/video/217013027" width="640" height="360" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
+
+        <h2>{{ _('All done. What next?') }}</h2>
+        <iframe src="https://player.vimeo.com/video/217824679" width="640" height="360" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
+      
+      </div>
+    </div>
+  </div>
+<div>
+{% endblock %}

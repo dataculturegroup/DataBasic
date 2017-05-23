@@ -183,6 +183,10 @@ def download_activity_guide():
     logger.debug("download activity guide from %s/%s", dir_path, filename)
     return send_from_directory(directory=dir_path, filename=filename)
 
+@mod.route('/run-activity')
+def run_activity():
+    return render_template('wordcounter/run-activity.html')
+
 def process_upload(doc):
     file_path = filehandler.open_doc(doc)
     file_size = os.stat(file_path).st_size # because browser might not have sent content_length
