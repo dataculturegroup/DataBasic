@@ -306,5 +306,26 @@
     "modules": ["connectthedots"],
     "lang": "en",
     "biography": "This is a dataset of people in President Donald Trump's world.  This data was collected, and crowdsourced, by <a href=\"https://www.buzzfeed.com/johntemplon/help-us-map-trumpworld\">BuzzFeed</a>. These person-to-person links are based on research from a variety of sources.  Sometimes the link indicates the person is an advisor to someone, sometimes they are business partners, etc."
+  },
+  {
+    "title": "Boston Cares Volunteer Survey",
+    "source":"sample-data/en/boston-cares-why-volunteer.txt",
+    "modules": ["samediff", "wordcounter"],
+    "lang": "en",
+    "biography": "<a href=\"https://www.bostoncares.org\">Boston Cares</a> is the largest volunteer agency in New England (USA). In 2016 they ran a survey of volunteers in their network to understand what motivates them.  This data is made up of 100 responses to the question \"Is there anything about your personal life, your community, or in the world that motivates you to volunteer?  Is there anything about your personal life, your community, or in the world that motivates you to volunteer?  Is there anything about your personal life, your community, or in the world that motivates you to volunteer?\"  These results were generously shared with us by Boston Cares."
+  },
+  {
+    "title": "United Way: Individual Challenges to Homelessness Prevention",
+    "source":"sample-data/en/united-way-homelessness-individual.txt",
+    "modules": ["samediff", "wordcounter"],
+    "lang": "en",
+    "biography": "The <a href=\"http://unitedwaymassbay.org\">United Way of Massachusetts Bay and Merrimack Valley</a> surveys their agencies about a variety of challenges they face.  This dataset is the response from various agencies about individual-level challenges to preventing homelesness.  Agency names have been replaced with \"AGENCY NAME\" and other indentifying details have been removed before they shared this data set with us."
+  },
+  {
+    "title": "United Way: Environmental Challenges to Homelessness Prevention",
+    "source":"sample-data/en/united-way-homelessness-environmental.txt",
+    "modules": ["samediff", "wordcounter"],
+    "lang": "en",
+    "biography": "The <a href=\"http://unitedwaymassbay.org\">United Way of Massachusetts Bay and Merrimack Valley</a> surveys their agencies about a variety of challenges they face.  This dataset is the response from various agencies about enfironmental challenges to preventing homelesness.  Agency names have been replaced with \"AGENCY NAME\" and other indentifying details have been removed before they shared this data set with us."
   }
 ]
