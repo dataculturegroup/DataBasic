@@ -1,6 +1,5 @@
-import os, json
 from logic import filehandler
-from werkzeug import secure_filename
+import copy
 from flask.ext.babel import lazy_gettext as _
 from flask_wtf import Form
 from flask_wtf.file import FileField
@@ -156,8 +155,8 @@ class SameDiffSample(SampleForm, SameDiffForm, Form):
         choices = filehandler.get_samples('samediff', lang)
         # This is a little clunky because self.sample2.default doesn't get processed in the init function
         # so just reordering the list so that default option shows properly
-        firstItem = choices.pop(0)
-        choices.insert(1, firstItem)
+        first_item = copy.copy(choices).pop(0)
+        choices.insert(1, first_item)
         self.sample2.choices = choices
 
 class SameDiffLink(LinkForm, SameDiffForm, Form):
