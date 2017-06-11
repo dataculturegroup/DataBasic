@@ -1,13 +1,10 @@
-import datetime, logging, json, os
-from operator import itemgetter
+import logging, os
 from collections import OrderedDict
-from databasic import mongo, app, get_base_dir
-#form databasic import mail
-from databasic.forms import SameDiffUpload, SameDiffSample, SameDiffLink
+from databasic import mongo, get_base_dir
+from databasic.forms import SameDiffUpload, SameDiffSample
 from databasic.logic import filehandler
-import databasic.tasks
-from databasic.logic import tfidfanalysis, textanalysis
-from flask import Blueprint, render_template, request, redirect, url_for, g, abort, Response, send_from_directory
+from databasic.logic import textanalysis
+from flask import Blueprint, render_template, request, redirect, g, abort, send_from_directory
 from flask.ext.babel import lazy_gettext as _
 
 mod = Blueprint('samediff', __name__, url_prefix='/<lang_code>/samediff', template_folder='../templates/samediff')
