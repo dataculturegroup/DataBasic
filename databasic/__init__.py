@@ -1,13 +1,10 @@
-import os, ConfigParser, logging, logging.handlers, sys, codecs, json
-import logging, os, sys, logging.handlers
-from flask import Flask, Blueprint, g, redirect, request, abort, send_from_directory
+import codecs, json
+import os, sys, logging.handlers
+from flask import Flask, g, redirect, request, abort, send_from_directory
 from flask.ext.assets import Environment, Bundle
 from flask.ext.babel import Babel
-from flask_debugtoolbar import DebugToolbarExtension
 from flask_sslify import SSLify
-#from flask.ext.mail import Mail
 from sassutils.wsgi import SassMiddleware
-from babel.support import LazyProxy
 import nltk
 
 import logic.filehandler, logic.db, logic.oauth
@@ -29,7 +26,7 @@ reload(sys)
 sys.setdefaultencoding('utf-8')
 
 if(app_mode is None):
-    logging.error("missing necessary environment variable %s (%s,%s)" % 
+    logging.error("missing necessary environment variable %s (%s,%s)" %
         (ENV_APP_MODE,APP_MODE_DEV,APP_MODE_PRODUCTION) )
     sys.exit()
 
