@@ -156,6 +156,11 @@ def wtfcsv():
 def wtfcsv_with_stuff(stuff):
     return redirect('/' + get_locale() + '/wtfcsv/'+stuff)
 
+# Route for data culture home
+@app.route('/culture')
+def culture():
+    return redirect('/' + get_locale() + '/culture')
+
 @app.route('/auth')
 def auth():
     if 'code' not in request.args:
@@ -175,8 +180,10 @@ from databasic.views import samediff
 from databasic.views import wordcounter
 from databasic.views import wtfcsv
 from databasic.views import connectthedots
+from databasic.views import culture
 app.register_blueprint(home.mod)
 app.register_blueprint(samediff.mod)
 app.register_blueprint(wordcounter.mod)
 app.register_blueprint(wtfcsv.mod)
 app.register_blueprint(connectthedots.mod)
+app.register_blueprint(culture.mod)
