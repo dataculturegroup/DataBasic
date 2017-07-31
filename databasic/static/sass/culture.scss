@@ -147,16 +147,15 @@ header {
   padding: 40px;
   background-color: $c-white;
   &.feature-box--blue { background-color: $c-blue; }
-  &.feature-box--green-o { @include feature-box--culture($c-green); }
   &.feature-box--yellow-o {
     @include feature-box--culture($c-marigold);
   }
-  &.feature-box--red {
-    background-color: $c-red;
-    @media (max-width: 767px) { order: 1; }
+  &.feature-box--pink-o {    
+    @include feature-box--culture($c-soft-pink);
   }
-  &.feature-box--pink { background-color: $c-pink; }
-  &.feature-box--blue-o { @include feature-box--culture($c-blue); }
+  &.feature-box--green-o {    
+    @include feature-box--culture($c-green-blue);
+  }
   > img {
     width: 100%;
   }
