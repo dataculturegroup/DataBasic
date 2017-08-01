@@ -3,29 +3,49 @@
 @import "themes/home-theme";
 @import "base";
 
+body { 
+  &.culture {
+    margin: 0!important;
+  }
+}
 header {
   box-shadow: none;
 }
 
 .culture-wrapper {
   background-image: url('/static/img/background_tile_tiny.png');
-  font-family: $font-avenir-bold;
+  font-family: $font-avenir;
   color: $c-charcoal-grey;
   padding-top: 2%;
 
-  button {
+  h1, h2 {    
+    font-family: $font-avenir-bold;
+  }
+  p {
+    font-family: $font-avenir;
+  }
+
+  a {
     width: 300px;
     height: 53px;
+    font-family: $font-avenir-bold;
     border-radius: 10px;
     border-width: 0;
-    background-color: $c-pinkish-orange;
+    background-color: $c-pinkish-orange;    
+    background-image: url('/static/img/culture/arrow.png');
+    background-repeat: no-repeat;
+    background-position-x: 94%;
+    background-position-y: center;
     color: white;
     text-align: left;
-    padding: 5%;
+    font-size: 18px;
+    padding: 4%;
+    margin-top: 10px!important;
+
     &:hover {
       border-radius: 10px!important;
     }
-    &:before {
+    /* &:before {
       content: "";
       position: absolute;
       z-index: 10;
@@ -37,8 +57,26 @@ header {
       border-left: 10px solid white;
       border-top: 7px solid transparent;
       border-bottom: 7px solid transparent;
-    }
+    } */
   }
+
+  .row {
+    padding-top: 2%;
+    padding-bottom: 2%;
+  }
+}
+
+.navbar.culture {
+  margin: 0;
+  min-height: 223px;
+  padding-top: 4%;
+}
+
+.fixed-footer {
+  position: fixed;
+  right: 0;
+  left: 0;
+  z-index: 1030;
 }
 
 .home-logo {
@@ -162,4 +200,5 @@ header {
   > p {
     margin-bottom: 0;
   }
+
 }

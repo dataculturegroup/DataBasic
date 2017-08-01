@@ -8,4 +8,4 @@ logger = logging.getLogger(__name__)
 @mod.route('/', methods=('GET', 'POST'))
 def index():
 
-    return render_template('culture/culture.html')
+    return render_template('culture/culture.html', tool_name='culture')

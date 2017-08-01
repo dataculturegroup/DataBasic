@@ -10,7 +10,7 @@ export APP_MODE=development
 # set APP_CONFIG_FILE=..\config\development.py
 
 alias activate=". venv/bin/activate"
-gunicorn databasic:app --timeout 120 --reload
+gunicorn -b 10.25.69.236 -b [::1]:8000 databasic:app --timeout 120 --reload
 # wait
 # redis-server & celery -A databasic worker --app=databasic.celeryapp --loglevel=debug & python run.py & apid=$!;
 # wait;
