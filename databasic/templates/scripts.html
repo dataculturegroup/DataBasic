@@ -1,6 +1,30 @@
 {% assets "js_base" %}<script type="text/javascript" src="{{ ASSET_URL }}"></script>{% endassets %}
 
 <script type="text/javascript">
+  $SCRIPT_ROOT = {{ request.script_root|tojson|safe }};
+</script>
+
+<script type="text/javascript">
+$(function() {
+  $('button#culture-feedback').bind('click', function() {
+		$.getJSON('feedback', {
+		  input: $('.form textarea').val(),
+		  email: $('.form input').val()
+		}, function(data) {
+		  $("#result").text(data.response);
+		}) 
+		.beforeSend(function() { setHeader() })
+		.fail(function() { alert('boo!'); } );
+		return false;
+  });
+});
+
+function setHeader() {
+  xhr.setRequestHeader("X-CSRFToken", "{{ form.csrf_token._value() }}")
+}
+</script>
+
+<script type="text/javascript">
 	
 // Loads the translations for the js implementation of gettext
 {% if 'messages' in g %}

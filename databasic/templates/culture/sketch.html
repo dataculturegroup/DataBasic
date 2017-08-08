@@ -1,0 +1,118 @@
+{% extends "base.html" %}
+{% from 'macros.html' import render_form_feedback with context %}
+
+{% block title %}Sketch A Story{% endblock %}
+{% block custom_css %}
+  <link href="{{ url_for('static', filename='css/culture.scss.css') }}" rel="stylesheet" type="text/css">
+{% endblock %}
+{% block body %}
+
+  <div role="main" class="container-fluid culture-wrapper sketch-wrapper">
+
+    <div class="sketch-story">
+        <div class="row row-flex header">
+          <div class="col-md-12 col-sm-12 col-xs-12">
+            <img class="logo" src="{{ url_for('static', filename='img/culture/data-culture-project-logo.png') }}" alt="Data Culture Project" width="236" height="auto"> 
+          </div>
+          <div class="col-md-8 col-sm-8 col-xs-8 col-md-offset-2 col-sm-offset-2 col-xs-offset-2">
+            <h1>{{ _("Sketch A Story")}}</h1>
+            <h2>{{ _("Use WordCounter to analyze a musician’s lyrics and sketch a story with their words") }}</h2>
+          </div>
+        </div>
+
+        {# Set Up #}
+        <div class="row row-flex">
+          <div class="col-md-8 col-sm-8 col-xs-8 col-md-offset-2 col-xs-offset-2">
+            <h2>Set Up</h2>
+            <p>{{ _("This activity will take 30 to 45 minutes. You should have these materials on hand:") }}</p>
+            <ul>
+              <li>{{ _("A projector to show these videos")}}</li>
+              <li>{{ _("Large pieces of paper to draw on (2 feet by 3 feet is best)")}}</li>
+              <li>{{ _("Thick crayons or markers of different colors")}}</li>
+              <li>{{ _("A phone, tablet, or computer connected to the internet for each small 
+              group of 3 people")}}</li>
+            </ul>
+          </div>
+        </div>
+
+        {# Asking Questions #}
+        <div class="row row-flex">
+          <div class="num odd">1</div>      
+          <div class="col-md-8 col-sm-8 col-xs-8 col-md-offset-2 col-sm-offset-2 col-xs-offset-2">
+            <h2>Kick-Off The Activity</h2>
+            <p>{{ _("In this activity, you will work with colleagues to analyze text as data and sketch a story based on the patterns you see. You will learn some basic terminology for quantitative text analysis, get acquainted with Databasic.io's WordCounter tool, and start to consider places in your organization where you work with text as data.  You'll pair up with your colleagues to search for stories in some fun sample data and then draw a sketch to tell the story you find to your colleagues. Start the activity by playing the kickoff video below for your group.") }}</p>
+          </div>
+          <div class="col-md-8 col-sm-8 col-xs-8 col-md-offset-2 col-sm-offset-2 col-xs-offset-2">
+            <iframe src="https://player.vimeo.com/video/157471897" height="auto" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
+          </div>
+        </div>
+
+        {# Gathering Data #}
+        <div class="row row-flex">
+          <div class="num even">2</div>
+          <div class="col-md-8 col-sm-8 col-xs-8 col-md-offset-2 col-sm-offset-2 col-xs-offset-2">
+            <h2>Have Everyone Share Back</h2>
+            <p>{{ _("Play this video after each small group has sketched their story on a large sheet of paper. Here we outline some questions to discuss as each group describes the story that they found. For example, you'll want to take note of stories based on comparing two things versus those those based on a single, interesting data point. And you can start a conversation about how groups used visual parameters – like color, size and position – to communicate their story. ") }}</p>
+          </div>
+          <div class="col-md-8 col-sm-8 col-xs-8 col-md-offset-2 col-sm-offset-2 col-xs-offset-2">
+            <iframe src="https://player.vimeo.com/video/157471897" height="auto" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
+          </div>
+        </div>
+
+        {# Analyzing Data #}
+        <div class="row row-flex">
+          <div class="num odd">3</div> 
+          <div class="col-md-8 col-sm-8 col-xs-8 col-md-offset-2 col-sm-offset-2 col-xs-offset-2">
+            <h2>Wrap-Up and Talk Next Steps</h2>
+            <p>{{ _("Now that you've analyzed text and sketched a story, this video will help you think about where to go from here. For example, what are some text datasets that your organization already has on hand?  We discuss some more sophisticated methods of quantitative text analysis as well as point out some common pitfalls to try to avoid.") }}</p>   
+          </div>
+          <div class="col-md-8 col-sm-8 col-xs-8 col-md-offset-2 col-sm-offset-2 col-xs-offset-2">
+            <iframe src="https://player.vimeo.com/video/157471897" height="auto" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
+          </div>
+        </div>
+
+        {# Form #}
+        <div class="row row-flex">
+          <div class="num even">4</div>
+          <div class="col-md-8 col-sm-8 col-xs-8 col-md-offset-2 col-sm-offset-2 col-xs-offset-2">
+            <h2>Tell Us How It Went</h2>
+            <p>{{ _("People are the world are using and adapting these activities in their organizations. Many of the points we make in the videos above are based on things we have heard from the pilot partners who we worked with to design these activities for you! So please write a little bit about how the activity went for you in the space below. Send your images to feedback@databasic.io too!") }}</p>
+          </div>
+          <div class="col-md-8 col-sm-8 col-xs-8 col-md-offset-2 col-sm-offset-2 col-xs-offset-2 form">
+
+            {{ render_form_feedback(form, action_url='/feedback', action_text=_('Submit Feedback')) }}
+            
+            <div id="result"></div>
+          </div>
+        </div>
+    </div>
+
+  </div>
+
+{% endblock %}
+
+  {% block footer %}
+    <footer>
+    <nav class="navbar culture">
+      <div class="container-fluid">
+        <div class="col-md-8 col-md-offset-1">
+          <div class="row">
+            <div class="col-xs-4 col-sm-3 col-sm-offset-2-5 col-md-offset-3">
+              <a href="http://elab.emerson.edu"><img src="/static/img/logos/el.png" alt="Engagement Lab at Emerson College" class="img-responsive"></a>
+            </div>
+            <div class="col-xs-4 col-sm-3">
+              <a href="https://databasic.io/"><img src="/static/img/logos/databasic_white.png" alt="DataBasic" class="img-responsive"></a>
+            </div>
+            <div class="col-xs-4 col-sm-3">
+              <a href="https://civic.mit.edu/"><img src="/static/img/logos/mit.png" alt="MIT Center for Civic Media" class="img-responsive"></a>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </nav>
+    </footer>
+
+  {% endblock %}
+
+</div>
