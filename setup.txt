@@ -1,0 +1,13 @@
+cp config/development.py.template config/development.py
+
+pip install virtualenv
+
+conda create -n databasic anaconda
+
+conda create -n databasic python=2.7.10 anaconda
+source activate databasic
+
+pip install -r requirements.txt
+easy_install --upgrade numpy
+
+./start.sh
