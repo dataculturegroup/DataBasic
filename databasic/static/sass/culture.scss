@@ -292,6 +292,24 @@ body {
       font-family: $font-avenir;
     }
 
+    &.blue {
+      h1 {
+        color: $c-blue;
+      }
+    }
+
+    &.orange {
+      h1 {
+        color: #ff9800;
+      }
+    }
+
+    &.red {
+      h1 {
+        color: $c-pinkish-orange;
+      }
+    }
+
 
   }
 
@@ -328,30 +346,79 @@ body {
 
     &.even {
       color: white;
-      background-color: $c-pinkish-orange;
       line-height: 60px;
 
       &:hover, &:focus {
         color: white;
-        background-color: $c-pinkish-orange !important;
         border-radius: 30px !important;
+
+        &.blue {
+          background-color: $c-blue !important;
+        }
+
+        &.orange {
+          background-color: #ff9800 !important;
+        }
+
+        &.red {
+          background-color: $c-pinkish-orange !important;
+        }
+      }
+
+      &.blue {
+        background-color: $c-blue;
+      }
+
+      &.orange {
+        background-color: #ff9800;
+      }
+
+      &.red {
+        background-color: $c-pinkish-orange;
       }
     }
 
     &.odd {
-      color: $c-pinkish-orange;
       background-color: white;
-      border: solid 8px $c-pinkish-orange;
       line-height: 44px;
 
       &:hover, &:focus {
-        color: $c-pinkish-orange;
         background-color: white;
-        border: solid 8px $c-pinkish-orange !important;
         border-radius: 30px !important;
         line-height: 44px !important;
+
+        &.blue {
+          color: $c-blue;
+          border: solid 8px $c-blue !important;
+        }
+
+        &.orange {
+          color: #ff9800;
+          border: solid 8px #ff9800 !important;
+        }
+
+        &.red {
+          color: $c-pinkish-orange;
+          border: solid 8px $c-pinkish-orange !important;
+        }
+      }
+
+      &.blue {
+        color: $c-blue;
+        border: solid 8px $c-blue;
+      }
+
+      &.orange {
+        color: #ff9800;
+        border: solid 8px #ff9800;
+      }
+
+      &.red {
+        color: $c-pinkish-orange;
+        border: solid 8px $c-pinkish-orange;
       }
     }
+
 
     @media (max-width: 860px) {
       left: 80px;
