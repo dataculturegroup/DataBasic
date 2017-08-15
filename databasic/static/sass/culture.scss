@@ -21,6 +21,13 @@ body {
   // Background for sketch page
   &.sketch-wrapper {
     background: white;
+    background-image: url('/static/img/culture/databasic-right-decoration.png');
+    background-position: 100% 20%;
+    background-repeat: no-repeat;
+
+    @media(max-width: 1023px) {
+      background-image: none;
+    }
   }
 
   header {
@@ -75,6 +82,7 @@ body {
     height: 300px;
     width: 300px;  
     margin-top: 20px;
+    max-width: 100%;
   }
 
   .img_big {
@@ -228,6 +236,7 @@ body {
   max-width: 920px;
   margin: 0 auto;
   font-family: $font-avenir;
+
 
   .form {
 
@@ -441,9 +450,15 @@ body {
       left: 75px;
       top: 0px;
     }
+
     .col-xs-offset-2 {
       margin-left: 6.66666%
     }
+
+    .col-xs-offset-1 {
+      margin-left: 7.33333% !important;
+    }
+
     .col-xs-8 {
       width: 88.666666%;
     }
@@ -483,6 +498,10 @@ body {
 @media(min-width: 768px) and (max-width: 992px) {
   .col-sm-offset-0 {
     margin-left: 4.333333%;
+  }
+
+  .col-sm-offset-1 {
+    margin-left: 8.333333%;
   }
 
   .col-sm-offset-2-5 {
@@ -528,7 +547,6 @@ body {
       float:left;
     }
     a {
-      margin-left: 5%;
       display: inline-block;
       float:left;
 
