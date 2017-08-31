@@ -327,5 +327,12 @@
     "modules": ["samediff", "wordcounter"],
     "lang": "en",
     "biography": "The <a href=\"http://unitedwaymassbay.org\">United Way of Massachusetts Bay and Merrimack Valley</a> surveys their agencies about a variety of challenges they face.  This dataset is the response from various agencies about enfironmental challenges to preventing homelesness.  Agency names have been replaced with \"AGENCY NAME\" and other indentifying details have been removed before they shared this data set with us."
+  },
+  {
+    "title": "Trees in Somerville, MA, USA",
+    "source":"sample-data/en/somerville-tree-details.csv",
+    "modules": ["wtfcsv"],
+    "lang": "en",
+    "biography": "A list of all the tress in the town of Somerville, MA, USA as of Spring 2009. The city hired an arborist to visit each tree and record things like its size, health, species, location, etc. This data was scraped by a script created in 2010 by Rahul Bhargava."
   }
 ]
