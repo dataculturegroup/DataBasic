@@ -33,6 +33,5 @@ def questions():
 
 @mod.route('/feedback', methods=['POST', 'GET'])
 def feedback():
-    logger.info('what did we get')
-    logger.info(request)
+    
     return 'Nice'

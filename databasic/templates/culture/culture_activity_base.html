@@ -30,8 +30,13 @@
 
 {% block custom_scripts %}
 <script type="text/javascript">
+function setFormState(disabled) {
+  $(".form :input").prop("disabled", disabled);
+  $(".form button").prop("disabled", disabled);
+}
 $(function() {
   $('button#culture-feedback').bind('click', function() {
+    setFormState(true);
     $.ajax({
       method: "POST",
       beforeSend: function(request) {
@@ -44,9 +49,11 @@ $(function() {
       }
     })
     .done(function(data) {
+      setFormState(false);
       $("#result").text('{{ _("Thanks for the feedback!")}}');
     }) 
     .fail(function(data) {
+      setFormState(false);
       $("#result").text('{{ _("Sorry, something went wrong.  Please try again.")}}');
     });
     return false;
