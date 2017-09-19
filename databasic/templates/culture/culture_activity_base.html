@@ -3,6 +3,7 @@
 
 {% block custom_css %}
   <link href="{{ url_for('static', filename='css/culture.scss.css') }}" rel="stylesheet" type="text/css">
+  https://cdn.jsdelivr.net/jquery.validation/1.15.1/jquery.validate.min.js
 {% endblock %}
 
 {% block footer %}
@@ -30,33 +31,53 @@
 
 {% block custom_scripts %}
 <script type="text/javascript">
-function setFormState(disabled) {
-  $(".form :input").prop("disabled", disabled);
-  $(".form button").prop("disabled", disabled);
+function setFeedbackFormState(disabled) {
+  $("#feedbackForm :input").prop("disabled", disabled);
+  $("#feedbackForm button").prop("disabled", disabled);
+}
+function onSubmitFeedback(form){
+  setFeedbackFormState(true);
+  $.ajax({
+    method: "POST",
+    beforeSend: function(request) {
+      request.setRequestHeader("X-CSRFToken", "{{ form.csrf_token._value() }}");
+    },
+    url: 'feedback',
+    data: {
+      input: $('#feedbackForm textarea').val(),
+      email: $('#feedbackForm input').val()
+    }
+  })
+  .done(function(data) {
+    setFeedbackFormState(false);
+    $("#result").text('{{ _("Thanks for the feedback!")}}');
+  }) 
+  .fail(function(data) {
+    setFeedbackFormState(false);
+    $("#result").text('{{ _("Sorry, something went wrong.  Please try again.")}}');
+  });
+  return false;
 }
 $(function() {
-  $('button#culture-feedback').bind('click', function() {
-    setFormState(true);
-    $.ajax({
-      method: "POST",
-      beforeSend: function(request) {
-        request.setRequestHeader("X-CSRFToken", "{{ form.csrf_token._value() }}");
+  // setup feedback form validation and submission handler
+  $("#feedbackForm").validate({
+    rules: {
+      email: {
+        required: true,
+        email: true
       },
-      url: 'feedback',
-      data: {
-        input: $('.form textarea').val(),
-        email: $('.form input').val()
+      feedback: {
+        required: true,
+        minlength: 10
       }
-    })
-    .done(function(data) {
-      setFormState(false);
-      $("#result").text('{{ _("Thanks for the feedback!")}}');
-    }) 
-    .fail(function(data) {
-      setFormState(false);
-      $("#result").text('{{ _("Sorry, something went wrong.  Please try again.")}}');
-    });
-    return false;
+    },
+    messages: {
+      link: {
+        required: "{{_('This field is required')}}",
+        email: "{{_('Give us your email so we can respond')}}",
+      }
+    },
+    submitHandler: onSubmitFeedback,
   });
 });
 </script>
