@@ -1,0 +1,80 @@
+{% extends "culture_activity_base.html" %}
+
+{% block title %}Build a Data Sculpture{% endblock %}
+
+{% block body %}
+
+<div role="main" class="container-fluid culture-wrapper activity-wrapper">
+
+  <div class="activity-content">
+      <div class="row row-flex header red">
+        <div class="col-md-12 col-sm-12 col-xs-12">
+          <img class="logo" src="{{ url_for('static', filename='img/culture/data-culture-project-logo@2x.png') }}" alt="Data Culture Project" width="236" height="auto"> 
+        </div>
+        <div class="col-md-8 col-sm-8 col-xs-8 col-md-offset-2 col-sm-offset-2 col-xs-offset-2">
+          <h1>{{ _("Build a Data Sculpture")}}</h1>
+          <h2>{{ _("Use physical craft materials to tell a data story in 3D") }}</h2>
+        </div>
+      </div>
+
+      <div class="row row-flex">
+        <div class="col-md-8 col-sm-8 col-xs-8 col-md-offset-2 col-xs-offset-2">
+          <h2>{{ _("Set Up") }}</h2>
+          <p>{{ _("This activity will take 20 to 30 minutes. You should have these materials on hand:") }}</p>
+          <ul>
+            <li>{{ _("Local craft materials (plastic bottle tops, wire, fuzzy balls, colored paper, wood blocks, construction paper)")}}</li>
+            <li>{{ _("Tape, glue, scissors")}}</li>
+            <li>{{ _("DO NOT include pens, crayons, or anything else to write with (otherwise people just draw instead of building)")}}</li>
+            <li>{{ _("DO NOT include LEGO bricks!!! (otherwise people just build bar charts)")}}</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="row row-flex">
+        <div class="num odd red">1</div>      
+        <div class="col-md-8 col-sm-8 col-xs-8 col-md-offset-2 col-sm-offset-2 col-xs-offset-2">
+          <h2>{{ _("Background") }}</h2>
+          <p>{{ _("The idea of playing with data is new to most people. This activity lets people quickly build sculptures that tell a simple data story with craft materials. The playful approach to the data helps engage the participants in thinking about how stories can be found and presented quickly, and helps people feel more freedom and flexibility about data presentations. It builds a notion of \"presentation\" instead of \"visualization\". The activity also builds the ability to translate words and numbers into structural forms. In addition, playing with these materials at the start of a workshop can break down power dynamics that might exist within the group.") }}</p>
+          <p>{{ _("This activity builds on the pedagogy and workshop style of the MIT Media Lab’s <a href='http://llk.media.mit.edu/'>Lifelong Kindergarten Group</a> (where Rahul got his Master’s degree).  It also has connections to the <a href='http://www.placeit.org/bio.html'>participatory urban planning work of James Rojas</a>.") | safe }}<p>
+        </div>
+      </div>
+
+      <div class="row row-flex">
+        <div class="num even red">2</div>      
+        <div class="col-md-8 col-sm-8 col-xs-8 col-md-offset-2 col-sm-offset-2 col-xs-offset-2">
+          <h2>{{ _("Kick off the Activity") }}</h2>
+          <p>{{ _("Introduce the group to two related “normal” charts of data.  One can be a single fact, and the other a medium-sized set of information.  We often use some fun data from the Somerville Wellbeing Survey about how happy people are:") }}</p>
+          <img src="https://datatherapy.files.wordpress.com/2014/05/happiness-data.png" />
+          <p>{{ _("Ask the group to pair up, preferably with someone they don’t know.  Show participants a large central table full of the materials you have gathered.  Give them 6 minutes to quickly build a physical representation of the data you presented earlier.  Remind them they are creative, and that pipe cleaner bar charts are NOT allowed!") }}</p>
+          <p>
+          <img src="https://datatherapy.files.wordpress.com/2014/05/img_7443.jpg?w=450&h=600"/>
+        </div>
+      </div>}
+
+      <div class="row row-flex">
+        <div class="num odd red">3</div>
+        <div class="col-md-8 col-sm-8 col-xs-8 col-md-offset-2 col-sm-offset-2 col-xs-offset-2">
+          <h2>{{ _("Have Everyone Share Back") }}</h2>
+          <p>{{ _("Stop everyone when the time is up. Give each group 1 minute to share what they made.Summarize by pointing out similarities and differences in the pieces folks made. Often you’ll see some people focusing on one data point, while others look at a broader picture.  With the happiness data, some people try to merge to two datasets, while others just focus on one.  Point out any physical versions of traditional charts to point out how entrenched our current visual presentation techniques are! ") }}</p>
+        </div>
+      </div>
+
+      {# Form #}
+      <div class="row row-flex">
+        <div class="num even red">4</div>
+        <div class="col-md-8 col-sm-8 col-xs-8 col-md-offset-2 col-sm-offset-2 col-xs-offset-2">
+          <h2>{{ _("Tell Us How It Went") }}</h2>
+          <p>{{ _("People are the world are using and adapting these activities in their organizations. Many of the points we make in the videos above are based on things we have heard from the pilot partners who we worked with to design these activities for you! So please write a little bit about how the activity went for you in the space below. Send your images to feedback@databasic.io too!") }}</p>
+        </div>
+        <div class="col-md-8 col-sm-8 col-xs-8 col-md-offset-2 col-sm-offset-2 col-xs-offset-2 form">
+
+          {{ render_form_feedback(form, action_url='/feedback', action_text=_('Submit Feedback')) }}
+          
+          <div id="result"></div>
+        </div>
+      </div>
+  </div>
+
+</div>
+
+{% endblock %}

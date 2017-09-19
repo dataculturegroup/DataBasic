@@ -1,7 +1,7 @@
 import logging
 from flask import Blueprint, render_template, request, jsonify
 
-from databasic.forms import CultureSketchAStory, CultureAskQuestions, CultureConvinceMe
+from databasic.forms import CultureFeedbackForm, CultureSketchAStory, CultureAskQuestions, CultureConvinceMe
 from databasic.mail import send_email, DEFAULT_SENDER
 
 mod = Blueprint('culture', __name__, url_prefix='/<lang_code>/culture', template_folder='../templates/culture')
@@ -30,6 +30,12 @@ def convince():
 def questions():
     form = CultureAskQuestions()
     return render_template('questions.html', form=form, tool_name='questions')
+
+
+@mod.route('/build-a-sculpture')
+def sculpture():
+    form = CultureFeedbackForm()
+    return render_template('sculpture.html', form=form, tool_name='sculpture')
 
 
 @mod.route('/feedback', methods=['POST', 'GET'])

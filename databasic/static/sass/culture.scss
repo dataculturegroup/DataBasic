@@ -19,7 +19,7 @@ body {
   padding-top: 2%;
 
   // Background for sketch page
-  &.sketch-wrapper {
+  &.activity-wrapper {
     background: white;
     background-image: url('/static/img/culture/databasic-right-decoration.png');
     background-position: 100% 20%;
@@ -237,7 +237,7 @@ body {
 }
 
 // Sketch Page
-.sketch-story {
+.activity-content {
 
   max-width: 920px;
   margin: 0 auto;
@@ -295,7 +295,6 @@ body {
 
     .logo {
       width: 225px;
-      height: 137px;
     }
     h1 {
       color: $c-pinkish-orange;
