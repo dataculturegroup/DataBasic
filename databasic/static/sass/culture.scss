@@ -41,7 +41,7 @@ body {
     font-family: $font-avenir;
   }
 
-  a {
+  a.process {
     width: 300px;
     height: 53px;
     max-width: 100%;
@@ -76,6 +76,12 @@ body {
       border-top: 7px solid transparent;
       border-bottom: 7px solid transparent;
     } */
+  }
+  a {
+    
+    color:$c-charcoal-grey;
+    font-family: $font-avenir;
+    font-weight: 600;
   }
 
   .img_sml {
