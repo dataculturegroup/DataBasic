@@ -44,9 +44,11 @@ $(function() {
       }
     })
     .done(function(data) {
-      $("#result").text(data.response);
+      $("#result").text('{{ _("Thanks for the feedback!")}}');
     }) 
-    .fail(function() { alert('boo!'); } );
+    .fail(function(data) {
+      $("#result").text('{{ _("Sorry, something went wrong.  Please try again.")}}');
+    });
     return false;
   });
 });
