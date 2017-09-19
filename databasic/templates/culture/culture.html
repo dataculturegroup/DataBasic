@@ -47,7 +47,7 @@
           </div>
           <div class="col-md-4 col-sm-5 col-xs-12 col-md-offset-0">
             <img class="img_sml" src="{{ url_for('static', filename='img/culture/img-1102.jpg') }}" alt="Warm Ups" width="236">
-            <a href="data-sculpture">
+            <a href="data-sculpture" class="process">
               Build a Data Sculpture
             </a>
           </div>
@@ -57,7 +57,7 @@
         <div class="row row-flex feature-box feature-box--yellow-o">
           <div class="col-md-4 col-sm-6 col-xs-12 col-md-offset-1-5 col-sm-offset-0">
             <img class="img_sml" src="{{ url_for('static', filename='img/culture/asking-questions-1.jpg') }}" alt="Asking Questions" width="236">
-            <a href="ask-questions">
+            <a href="ask-questions" class="process">
               Ask Questions with WTFcsv
             </a>        
           </div>
@@ -75,10 +75,10 @@
           </div>
           <div class="col-md-4 col-sm-5 col-xs-12 ">
             <img class="img_sml" src="{{ url_for('static', filename='img/culture/gathering-data-1.jpg') }}" alt="Gathering Data" width="236">
-            <a href="/en/connectthedots/">
+            <a href="/en/connectthedots/" class="process">
               Use Connect the Dots
             </a>
-            <a href="/en/wtfcsv/">
+            <a href="/en/wtfcsv/" class="process">
               Use WTFcsv
             </a>     
           </div>
@@ -88,13 +88,13 @@
         <div class="row row-flex feature-box feature-box--pink-o">
           <div class="col-md-4 col-md-5 col-sm-6 col-xs-12 col-md-offset-1-5 col-sm-offset-0">
             <img class="img_sml" src="{{ url_for('static', filename='img/culture/analyzing-data-1.jpg') }}" alt="Analyzing Data" width="236">
-            <a href="/en/wordcounter/">
+            <a href="/en/wordcounter/" class="process">
               Use WordCounter
             </a>     
-            <a href="/en/connectthedots/">
+            <a href="/en/connectthedots/" class="process">
               Use Connect the Dots
             </a>
-            <a href="/en/samediff/">
+            <a href="/en/samediff/" class="process">
               Use SameDiff
             </a>     
           </div>
@@ -112,7 +112,7 @@
           </div>
           <div class="col-md-4 col-sm-5 col-xs-12 ">
             <img class="img_sml" src="{{ url_for('static', filename='img/culture/gathering-data-1.jpg') }}" alt="Gathering Data" width="236">
-            <a href="sketch-a-story">
+            <a href="sketch-a-story" class="process">
               Sketch a Story
             </a>
                 
@@ -123,7 +123,7 @@
         <div class="row row-flex feature-box feature-box--green-o">
           <div class="col-md-4 col-sm-6 col-xs-12 col-md-offset-1-5 col-sm-offset-0">
             <img class="img_sml" src="{{ url_for('static', filename='img/culture/analyzing-data-1.jpg') }}" alt="Try It Out" width="236">
-            <a href="convince-me">
+            <a href="convince-me" class="process">
               Try to ConvinceMe
             </a>     
           </div>
@@ -136,11 +136,11 @@
         <div class="row row-flex">
           <div class="col-md-4 col-sm-5 col-centered col-md-offset-2 col-sm-offset-1">
             <h2>Connect with Others</h2>
-            <p>{{ _("Trying to build a data culture can be a lonely effort in organizations that haven’t recognized the importance of data.  Join our mailing list to connect with others and reflect on how these activities are working, or not working, for your organization.") }}</p>
+            <p>{{ _("Trying to build a data culture can be a lonely effort in organizations that haven't recognized the importance of data. <a href='https://groups.io/g/datacultureproject'> Join our mailing list </a> to connect with others and reflect on how these activities are working, or not working, for your organization.") | safe }}</p>
           </div>
           <div class="col-md-4 col-sm-5 col-centered">
             <h2>About Us</h2>
-            <p>{{ _("The Data Culture Project is an initiative of DataBasic.io.  We’ve pulled together the years of work with nonprofits into one place to help you build a data culture.  DataBasic.io is the brainchild of Catherine D’Ignazio and Rahul Bhargava.") }}</p>
+            <p>{{ _("The Data Culture Project is an initiative of  <a href='http://databasic.io'>DataBasic.io</a>.  We’ve pulled together the years of work with nonprofits into one place to help you build a data culture. DataBasic.io is the brainchild of <a href='http://kanarinka.com'>Catherine D’Ignazio</a> and <a href='http://datatherapy.org'>Rahul Bhargava</a>.") }}</p>
           </div>
         </div>
 
