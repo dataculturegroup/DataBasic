@@ -44,8 +44,8 @@ function onSubmitFeedback(form){
     },
     url: 'feedback',
     data: {
-      input: $('#feedbackForm textarea').val(),
-      email: $('#feedbackForm input').val()
+      feedback: $('#feedbackForm textarea#feedback').val(),
+      email: $('#feedbackForm input#email').val()
     }
   })
   .done(function(data) {

@@ -1,7 +1,8 @@
-import feedparser, logging, re, time
-from collections import OrderedDict
-from databasic.forms import CultureForm, CultureSketchAStory, CultureAskQuestions, CultureConvinceMe
-from flask import Blueprint, render_template, request
+import logging
+from flask import Blueprint, render_template, request, jsonify
+
+from databasic.forms import CultureSketchAStory, CultureAskQuestions, CultureConvinceMe
+from databasic.mail import send_email, DEFAULT_SENDER
 
 mod = Blueprint('culture', __name__, url_prefix='/<lang_code>/culture', template_folder='../templates/culture')
 
@@ -33,5 +34,22 @@ def questions():
 
 @mod.route('/feedback', methods=['POST', 'GET'])
 def feedback():
+    try:
+        feedback = request.form['feedback']
+        from_email = request.form['email']
+        # now send an email
+        content = """
+    Hi,
     
-    return 'Nice'
+    Thanks for your feedback!  We'll try to get back to you soon.
+    
+    Feedback:
+    """
+        content += feedback
+        send_email(DEFAULT_SENDER, [from_email, 'feedback@batabasic.io'],
+                             "Data Culture Project: Feedback Received", content)
+    except Exception as e:
+        logger.error("email failed to send")
+        logger.exception(e)
+        return jsonify({'success': False})
+    return jsonify({'success': True})
