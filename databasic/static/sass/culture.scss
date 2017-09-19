@@ -18,6 +18,7 @@ body {
   padding: 0px;
   padding-top: 2%;
 
+
   // Background for sketch page
   &.activity-wrapper {
     background: white;
@@ -30,6 +31,7 @@ body {
     }
   }
 
+  
   header {
     box-shadow: none;
   }
@@ -39,6 +41,12 @@ body {
   }
   p {
     font-family: $font-avenir;
+    line-height: 30px;
+    
+  }
+  .toptext {
+    font-size: 28px;
+    line-height: 40px;
   }
 
   a.process {
