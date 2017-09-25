@@ -1,3 +1,5 @@
+{% from "culture_macros.html" import render_feedback_form %}
+
 {% extends "culture_activity_base.html" %}
 
 {% block title %}{{ _("Ask Questions")}}{% endblock %}
@@ -68,20 +70,9 @@
         </div>
       </div>
 
-      {# Form #}
-      <div class="row row-flex">
-        <div class="num even orange">4</div>
-        <div class="col-md-8 col-sm-8 col-xs-8 col-md-offset-2 col-sm-offset-2 col-xs-offset-2">
-          <h2>Tell Us How It Went</h2>
-          <p>{{ _("People are the world are using and adapting these activities in their organizations. Many of the points we make in the videos above are based on things we have heard from the pilot partners who we worked with to design these activities for you! So please write a little bit about how the activity went for you in the space below. Send your images to feedback@databasic.io too!") }}</p>
-        </div>
-        <div class="col-md-8 col-sm-8 col-xs-8 col-md-offset-2 col-sm-offset-2 col-xs-offset-2 form">
+      
+      {{ render_feedback_form(render_form_feedback) }}
 
-          {{ render_form_feedback(form, action_url='/feedback', action_text=_('Submit Feedback')) }}
-          
-          <div id="result"></div>
-        </div>
-      </div>
   </div>
 
 </div>
