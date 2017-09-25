@@ -52,7 +52,7 @@ def feedback():
     Feedback:
     """
         content += feedback
-        send_email(DEFAULT_SENDER, [from_email, 'feedback@batabasic.io'],
+        send_email(DEFAULT_SENDER, [from_email, 'feedback@databasic.io'],
                              "Data Culture Project: Feedback Received", content)
     except Exception as e:
         logger.error("email failed to send")
