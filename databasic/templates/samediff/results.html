@@ -177,7 +177,14 @@
   doc2_most_common_word=whatnext['doc2_most_common_word'],
   doc1=results['titles'][0],
   download=download,
-  activity_guide_url='/'+g['current_lang']+'/samediff/samediff-activity-guide.pdf')) }}
+  activity_guide_url='/'+g['current_lang']+'/samediff/samediff-activity-guide.pdf'),
+  [
+    { 'url': 'https://www.overviewdocs.com/', 'name': 'Overview' },
+    { 'url': 'https://www.documentcloud.org/', 'name': 'Document Cloud' },
+    { 'url': 'http://usenineteen.com/', 'name': 'Nineteen' },
+    { 'url': 'http://khc.sourceforge.net/en/', 'name': 'KH Coder' },
+  ]
+  ) }}
 </div>
 {% endblock %}
 

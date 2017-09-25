@@ -5,13 +5,18 @@
   <a href="/{{ g['current_lang'] }}/{{ tool_name }}" role="button" aria-label="{{ _('go to %(tool)s', tool=tool_name) }}"><img src="/static/img/logos/{{ tool_name }}_white.png" class="tool-logo" id="tool-logo-{{tool_name}}"></a>
 {%- endmacro %}
 
-{% macro what_next(text) -%}
+{% macro what_next(text, tools=[]) -%}
   <div class="bottom-section">
     <div class="container-fluid">
       <div class="row" id="what-next">
-        <div class="col-md-6 col-md-offset-3">
-          <h1>{{ _('What do I do next?') }}</h1>
+        <div class="col-md-8 col-md-offset-2">
+          <h2>{{ _('What do I do next?') }}</h2>
           <p>{{ text }}</p>
+          <p>{{ _("Try these other tools to do more full-fledged analysis:") }}</p>
+          <ul>
+          {% for tool in tools %}
+            <li><a href="{{tool['url']}}">{{tool['name']}}</a></li>
+          {% endfor %}
         </div>
       </div>
     </div>
