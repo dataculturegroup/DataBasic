@@ -327,5 +327,19 @@
     "modules": ["samediff", "wordcounter"],
     "lang": "en",
     "biography": "The <a href=\"http://unitedwaymassbay.org\">United Way of Massachusetts Bay and Merrimack Valley</a> surveys their agencies about a variety of challenges they face.  This dataset is the response from various agencies about enfironmental challenges to preventing homelesness.  Agency names have been replaced with \"AGENCY NAME\" and other indentifying details have been removed before they shared this data set with us."
+  },
+  {
+    "title": "The Dogs of NYC",
+    "source":"sample-data/en/dog-names.csv",
+    "modules": ["wtfcsv"],
+    "lang": "en",
+    "biography": "This is a database of all the dogs registeredin NYC as of 2016.  It includes animal's name, gender, age, breed, and which burough of New York City it lives in."
+  },
+  {
+    "title": "Satellites Orbitting Earth",
+    "source":"sample-data/en/ucs-satellite-database.csv",
+    "modules": ["wtfcsv"],
+    "lang": "en",
+    "biography": "This is a database of satellites in orbit around earth as of 2017, compiled by the The Union of Concerned Scientists'.  Rahul downloaded this from <a href=\"http://www.ucsusa.org/nuclear-weapons/space-weapons/satellite-database\">their website</a> in mid 2017."
   }
 ]
