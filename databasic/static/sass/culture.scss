@@ -107,8 +107,8 @@ body {
   .row {
     margin:0px;
 
-    padding-top: 2%;
-    padding-bottom: 2%;
+    padding-top: 5%;
+    padding-bottom: 5%;
   }
 }
 
@@ -193,6 +193,8 @@ body {
 
 .row-flex {
   padding: 20px;
+  padding-top:50px;
+  padding-bottom:50px;
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -220,6 +222,7 @@ body {
 }
 
 .feature-box {
+  
   width: 100%;
   // @media (min-width: 768px) { width: 50%; margin-bottom: 40px; }
   // @media (min-width: 992px) { width: 37.5%; margin-bottom: 80px; }
