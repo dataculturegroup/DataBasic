@@ -304,6 +304,8 @@ body {
 
   .header {
 
+    padding-bottom:0 !important;
+
     .logo {
       width: 225px;
     }
@@ -311,10 +313,14 @@ body {
       color: $c-pinkish-orange;
       font-size: 48px;
       font-family: $font-avenir;
+      margin-top: 36px;
+      font-weight: bold;
+      text-align: left;
     }
     h2 {
       font-size: 24px;
       font-family: $font-avenir;
+      line-height: 34px;
     }
 
     &.blue {
@@ -340,7 +346,7 @@ body {
 
   ul {
     padding-left: 16px;
-
+    font-size: 18px;
   }
 
   h2 {
