@@ -268,6 +268,7 @@ body {
       height: 156px;
       padding: 9px 22px;
       display: inline-block;
+      font-size: 16px;
     }
 
     input {
@@ -280,16 +281,18 @@ body {
       width: 100%;
       display: inline-block;
       padding: 9px 22px;
+      font-size: 16px;
     }
 
     button {
       border-radius: 6px;
       background-image: linear-gradient(to bottom, #d8d8d8, #b3b3b3);
-      box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.2), inset 0 2px 0 0 #ffffff;
+      /*box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.2), inset 0 2px 0 0 #ffffff;*/
       border: solid 1px #979797;
-      width: 145px;
       height: 36px;
       float: right;
+      font-size: 18px;
+      width: 185px;
 
       &:hover, &:focus {
         border-radius: 6px !important;
