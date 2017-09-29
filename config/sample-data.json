@@ -341,5 +341,12 @@
     "modules": ["wtfcsv"],
     "lang": "en",
     "biography": "This is a database of satellites in orbit around earth as of 2017, compiled by the The Union of Concerned Scientists'.  Rahul downloaded this from <a href=\"http://www.ucsusa.org/nuclear-weapons/space-weapons/satellite-database\">their website</a> in mid 2017."
+  },
+  {
+    "title": "Trees in Somerville, MA, USA",
+    "source":"sample-data/en/somerville-tree-details.csv",
+    "modules": ["wtfcsv"],
+    "lang": "en",
+    "biography": "A list of all the tress in the town of Somerville, MA, USA as of Spring 2009. The city hired an arborist to visit each tree and record things like its size, health, species, location, etc. This data was scraped by a script created in 2010 by Rahul Bhargava."
   }
 ]
