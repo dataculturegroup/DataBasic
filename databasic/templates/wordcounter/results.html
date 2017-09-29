@@ -132,7 +132,14 @@
   title=title,
   random_unpopular_word=whatnext['random_unpopular_word'],
   random_unpopular_word_count=whatnext['random_unpopular_word_count'],
-  activity_guide_url="/"+g['current_lang']+"/wordcounter/wordcounter-activity-guide.pdf")) }}
+  activity_guide_url="/"+g['current_lang']+"/wordcounter/wordcounter-activity-guide.pdf"),
+  [
+    { 'url': 'https://www.overviewdocs.com/', 'name': 'Overview' },
+    { 'url': 'https://www.documentcloud.org/', 'name': 'Document Cloud' },
+    { 'url': 'http://usenineteen.com/', 'name': 'Nineteen' },
+    { 'url': 'http://khc.sourceforge.net/en/', 'name': 'KH Coder' },
+  ]
+  ) }}
   {% endif %}
 </div>
 {% endblock %}

@@ -1,5 +1,7 @@
 $font-lt: HalisGR-Book;
 $font-md: HalisGR-Medium;
+$font-avenir: Avenir;
+$font-avenir-bold: AvenirBold;
 
 p, a, option, .btn, input, label {
 	font-family: $font-lt;
@@ -35,6 +37,18 @@ a {
 	font-weight: normal;
 	font-style: normal;
 }
+
+@font-face {
+	font-family: 'AvenirBold';
+	src:url('/static/fonts/avenir/AvenirNext-Bold.eot');
+	src:url('/static/fonts/avenir/AvenirNext-Bold.eot') format('embedded-opentype'),
+		url('/static/fonts/avenir/AvenirNext-Bold.ttf') format('truetype'),
+		url('/static/fonts/avenir/AvenirNext-Bold.woff') format('woff'),
+		url('/static/fonts/avenir/AvenirNext-Bold.woff2') format('woff2');
+	font-weight: normal;
+	font-style: normal;
+}
+
 
 .fa.noun_134105:before {
 	font-family: 'fontawesome-webfont';

@@ -6,9 +6,7 @@
 @import "modules/input";
 
 .summary {
-	text-align: center;
 	color: $c-theme-dk;
-
 	a { @include tooltip($c-white); }
 }
 

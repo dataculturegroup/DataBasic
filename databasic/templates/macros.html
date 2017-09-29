@@ -186,3 +186,30 @@
   {% set url_without_language = '/'.join(request.path.split('/')[2:]) %}
   /{{language}}/{{url_without_language}}
 {%- endmacro %}
+
+{% macro render_form_feedback(forms, action_url='', action_text='Submit') -%}
+
+<form class="{{ class_ }}" id="feedbackForm" enctype="multipart/form-data" role="form">
+  {{ form.hidden_tag() if form.hidden_tag }}
+  {% if caller %}
+    {{ caller() }}
+  {% else %}
+    {% for f in form %}
+      {% if f.type == 'BooleanField' %}
+        {{ render_checkbox_field(f) }}
+      {% elif f.type == 'RadioField' %}
+        {{ render_radio_field(f) }}
+      {% elif f.type == 'FileField' %}
+        {{ render_upload_field(f, form.multiple) }}
+      {% else %}
+        {{ render_field(f, false, f.description['placeholder']) }}
+      {% endif %}
+      {% if f.errors %}
+        <ul class="errors">{% for error in f.errors %}<li>{{ error }}</li>{% endfor %}</ul>
+      {% endif %}
+    {% endfor %}
+  {% endif %}
+  <button id="culture-feedback" type="submit" name="btn" class="{{ btn_class }}" value="{{ class_ }}">{{ action_text }}</button>
+</form>
+
+{%- endmacro %}

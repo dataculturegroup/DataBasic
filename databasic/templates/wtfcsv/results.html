@@ -253,7 +253,14 @@
         random_column_name=whatnext['random_column_name'],
         random_column_name2=whatnext['random_column_name2'],
         random_column_name3=whatnext['random_column_name3'],
-        activity_guide_url="/"+g['current_lang']+"/wtfcsv/wtfcsv-activity-guide.pdf")) }}
+        activity_guide_url="/"+g['current_lang']+"/wtfcsv/wtfcsv-activity-guide.pdf"),
+        [
+          { 'url': 'https://public.tableau.com/en-us/s/', 'name': 'Tableau Public' },
+          { 'url': 'https://www.trifacta.com/products/wrangler/', 'name': 'Trifacta Wrangler' },
+          { 'url': 'https://www.google.com/sheets/about/', 'name': 'Google Sheets' },
+          { 'url': 'https://products.office.com/en-us/excel', 'name': 'Excel' },
+        ]
+        ) }}
       {% endif %}
 
     {% endif %}

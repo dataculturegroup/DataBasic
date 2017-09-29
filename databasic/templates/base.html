@@ -1,5 +1,7 @@
 <!DOCTYPE html>
+
 <html lang="en">
+
 <head>
   {% block head %}
   <meta charset="utf-8">
@@ -13,6 +15,7 @@
   {% endblock %}
   {% block custom_css %}{% endblock %}
 </head>
+
 <body{% if tool_name %} class="{{ tool_name }}"{% endif %}>
   {% block nav %}{% endblock %}
   {% block body %}{% endblock %}
@@ -20,3 +23,5 @@
   {% include 'scripts.html' %}
   {% block custom_scripts %}{% endblock %}
 </body>
+
+</html>

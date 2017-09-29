@@ -205,3 +205,56 @@ class ConnectTheDotsPaste(Form):
 
     def __init__(self):
         super(ConnectTheDotsPaste, self).__init__()
+
+class CultureForm(object):
+    pass
+
+
+class CultureFeedbackForm(CultureForm, Form):
+    feedback = StringField(
+            description={'placeholder': _('What worked? What didn\'t? How could we improve this activity guide or our videos? Did anyone make something amazing? How is this fitting into your other efforts to build a data culture?')},
+            widget=TextArea())
+
+    email = StringField("Your Email",
+            description={'placeholder': _('Your Email')},
+            widget=TextInput())
+
+    def __init__(self):
+        super(CultureFeedbackForm, self).__init__()
+
+
+class CultureSketchAStory(CultureForm, Form):
+    feedback = StringField(
+            description={'placeholder': _('What worked? What didn\'t? How could we improve this activity guide or our videos? Did anyone make something amazing? How is this fitting into your other efforts to build a data culture?')},
+            widget=TextArea())
+
+    email = StringField("Your Email", 
+            description={'placeholder': _('Your Email')},
+            widget=TextInput())
+
+    def __init__(self):
+        super(CultureSketchAStory, self).__init__()
+
+class CultureAskQuestions(CultureForm, Form):
+    feedback = StringField(
+            description={'placeholder': _('What worked? What didn\'t? How could we improve this activity guide or our videos? Did anyone make something amazing? How is this fitting into your other efforts to build a data culture?')},
+            widget=TextArea())
+
+    email = StringField("Your Email", 
+            description={'placeholder': _('Your Email')},
+            widget=TextInput())
+
+    def __init__(self):
+        super(CultureAskQuestions, self).__init__()
+
+class CultureConvinceMe(CultureForm, Form):
+    feedback = StringField(
+            description={'placeholder': _('What worked? What didn\'t? How could we improve this activity guide or our videos? Did anyone make something amazing? How is this fitting into your other efforts to build a data culture?')},
+            widget=TextArea())
+
+    email = StringField("Your Email", 
+            description={'placeholder': _('Your Email')},
+            widget=TextInput())
+
+    def __init__(self):
+        super(CultureConvinceMe, self).__init__()

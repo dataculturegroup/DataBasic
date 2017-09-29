@@ -1,5 +1,9 @@
-import codecs, json
-import os, sys, logging.handlers
+import codecs
+import json
+import os
+import sys
+import logging.handlers
+from flask_mail import Mail
 from flask import Flask, g, redirect, request, abort, send_from_directory
 from flask.ext.assets import Environment, Bundle
 from flask.ext.babel import Babel
@@ -25,13 +29,16 @@ app_mode = os.environ.get(ENV_APP_MODE, None)
 reload(sys)
 sys.setdefaultencoding('utf-8')
 
+
 if(app_mode is None):
     logging.error("missing necessary environment variable %s (%s,%s)" %
         (ENV_APP_MODE,APP_MODE_DEV,APP_MODE_PRODUCTION) )
     sys.exit()
 
+
 def get_base_dir():
     return os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+
 
 def get_config_dir():
     return os.path.join(get_base_dir(),CONFIG_DIR_NAME)
@@ -53,7 +60,8 @@ logger.info("Starting DataBasic in %s mode" % app_mode)
 app = Flask(__name__, instance_relative_config=False)
 app.config[ENV_APP_MODE] = app_mode
 config_var_names = ['SECRET_KEY','MONGODB_URL','MONGODB_NAME', 'SAMPLE_DATA_SERVER', 'GOOGLE_ANALYTICS_ID',
-                    'GOOGLE_CLIENT_ID','GOOGLE_CLIENT_SECRET', 'OAUTH_REDIRECT_URI', 'MAX_CONTENT_LENGTH']
+                    'GOOGLE_CLIENT_ID','GOOGLE_CLIENT_SECRET', 'OAUTH_REDIRECT_URI', 'MAX_CONTENT_LENGTH',
+                    'MAIL_SERVER', 'MAIL_USERNAME', 'MAIL_PASSWORD']
 if app_mode == APP_MODE_DEV:
     import config.development
     logger.info('Loading config from %s:' % (APP_MODE_DEV))
@@ -104,9 +112,24 @@ local_nltk_path = os.path.join(get_base_dir(),'nltk_data')
 logger.info("Adding nltk path %s",local_nltk_path)
 nltk.data.path.append(local_nltk_path)
 
-#mail = Mail(app)
+try:
+    mail = Mail()
+    mail_config = {  # @see https://pythonhosted.org/Flask-Mail/
+        'MAIL_SERVER': app.config.get('MAIL_SERVER'),
+        'MAIL_USERNAME': app.config.get('MAIL_USERNAME'),
+        'MAIL_PASSWORD': app.config.get('MAIL_PASSWORD'),
+        'MAIL_PORT': 465,
+        'MAIL_USE_SSL': 1,
+    }
+    app.config.update(mail_config)
+    mail.init_app(app)
+    logger.info('Mail configured, from {}'.format(app.config.get('MAIL_USERNAME')))
+except Exception as e:
+    logger.info("No mail configured")
+
 # uncomment to use toolbar (this slows the app down quite a bit)
 # toolbar = DebugToolbarExtension(app)
+
 
 @app.before_request
 def before():
@@ -124,37 +147,46 @@ def before():
 
         request.view_args.pop('lang_code')
 
+
 @babel.localeselector
 def get_locale():
     return g.get('current_lang', request.accept_languages.best_match(VALID_LANGUAGES, 'en'))
+
 
 @app.route('/')
 def index():
     return redirect('/' + get_locale())
 
+
 @app.route('/wordcounter')
 def wordcounter():
     return redirect('/' + get_locale() + '/wordcounter')
+
 
 @app.route('/wordcounter/<stuff>')
 def wordcounter_with_stuff(stuff):
     return redirect('/' + get_locale() + '/wordcounter/'+stuff)
 
+
 @app.route('/samediff')
 def samediff():
     return redirect('/' + get_locale() + '/samediff')
+
 
 @app.route('/samediff/<stuff>')
 def samediff_with_stuff(stuff):
     return redirect('/' + get_locale() + '/samediff/'+stuff)
 
+
 @app.route('/wtfcsv')
 def wtfcsv():
     return redirect('/' + get_locale() + '/wtfcsv')
 
+
 @app.route('/wtfcsv/<stuff>')
 def wtfcsv_with_stuff(stuff):
     return redirect('/' + get_locale() + '/wtfcsv/'+stuff)
+
 
 @app.route('/auth')
 def auth():
@@ -165,18 +197,23 @@ def auth():
         logic.oauth.authorize(request.args['code'])
     return redirect(logic.oauth.redirect_to())
 
+
 @app.route('/favicon.ico')
 def favicon():
-  return send_from_directory(os.path.join(app.root_path, 'static', 'img', 'icons'),
+    return send_from_directory(os.path.join(app.root_path, 'static', 'img', 'icons'),
                              'favicon.ico', mimetype='image/vnd.microsoft.icon')
+
 
 from databasic.views import home
 from databasic.views import samediff
 from databasic.views import wordcounter
 from databasic.views import wtfcsv
 from databasic.views import connectthedots
+from databasic.views import culture
+
 app.register_blueprint(home.mod)
 app.register_blueprint(samediff.mod)
 app.register_blueprint(wordcounter.mod)
 app.register_blueprint(wtfcsv.mod)
 app.register_blueprint(connectthedots.mod)
+app.register_blueprint(culture.mod)

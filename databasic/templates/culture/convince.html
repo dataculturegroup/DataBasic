@@ -1,0 +1,77 @@
+{% from "culture_macros.html" import render_feedback_form %}
+
+{% extends "culture_activity_base.html" %}
+
+{% block title %}{{ _("Convince Me") }}{% endblock %}
+
+{% block body %}
+
+<div role="main" class="container-fluid culture-wrapper activity-wrapper">
+
+  <div class="activity-content">
+      <div class="row row-flex header red">
+        <div class="col-md-12 col-sm-12 col-xs-12">
+          <a href="/{{g['current_lang']}}/culture" alt="{{_('Data Culture Project')}}"><img class="logo" src="{{ url_for('static', filename='img/culture/data-culture-project-logo@2x.png') }}" alt="Data Culture Project" width="236" height="auto"></a>
+        </div>
+        <div class="col-md-8 col-sm-8 col-xs-8 col-md-offset-2 col-sm-offset-2 col-xs-offset-2">
+          <h1>{{ _("Convince Me")}}</h1>
+          <h2>{{ _("Practice making data-driven arguments that they to get difference audiences to change their behavior") }}</h2>
+        </div>
+      </div>
+
+      {# Set Up #}
+      <div class="row row-flex">
+        <div class="col-md-8 col-sm-8 col-xs-8 col-md-offset-2 col-xs-offset-2">
+          <h2>{{ _("Set Up") }}</h2>
+          <p>{{ _("This activity will take 30 to 45 minutes. You should have these materials on hand:") }}</p>
+          <ul>
+            <li>{{ _("Printouts of the <a href=\"https://www.good.is/infographics/transparency-how-much-water-do-you-use\">Walk this Way infographic from Good Magazine</a>")}}</li>
+            <li>{{ _("A room with space at the front")}}</li>
+            <li>{{ _("At least 10 people")}}</li>
+          </ul>
+        </div>
+      </div>
+
+      {# Kick Off #}
+      <div class="row row-flex">
+        <div class="num odd red">1</div>      
+        <div class="col-md-8 col-sm-8 col-xs-8 col-md-offset-2 col-sm-offset-2 col-xs-offset-2">
+          <h2>{{ _("Kick-Off The Activity") }}</h2>
+          <p>{{ _(" In this activity you will work practice using data to make arguments that try to convince different people. You will learn how to use data to tailor an argument for a specific audience. We'll look at an sample visualization about an issue, identify stakeholders who are trying to swayed by the story it tells, and try to make arguments that convince them to take action. Start the activity by playing the kickoff video below for your group.") }}</p>
+        </div>
+        <div class="col-md-8 col-sm-8 col-xs-8 col-md-offset-2 col-sm-offset-2 col-xs-offset-2">
+          <img src="{{ url_for('static', filename='img/culture/coming-soon.png') }}" alt="Coming Soon" height="auto">
+        </div>
+      </div>
+
+      {# Share Back #}
+      <div class="row row-flex">
+        <div class="num even red">2</div>
+        <div class="col-md-8 col-sm-8 col-xs-8 col-md-offset-2 col-sm-offset-2 col-xs-offset-2">
+          <h2>{{ _("Have Everyone Share Back") }}</h2>
+          <p>{{ _("Play this video after you've finished making arguments to convince your volunteer stakeholders to move forward.  Ask different people to explain why they made the arguments they did, and ask the stakeholders why something convinced them or not. Highlight similarities in the arguments people made, or arguemnts that worked for one audience but might not for another.  Point out particularly stong uses of data in support of arguments to start a conversation about how to use data in appropriate ways to convince people.") }}</p>
+        </div>
+        <div class="col-md-8 col-sm-8 col-xs-8 col-md-offset-2 col-sm-offset-2 col-xs-offset-2">
+          <img src="{{ url_for('static', filename='img/culture/coming-soon.png') }}" alt="Coming Soon" height="auto">
+        </div>
+      </div>
+
+      {# Wrap-Up #}
+      <div class="row row-flex">
+        <div class="num odd red">3</div> 
+        <div class="col-md-8 col-sm-8 col-xs-8 col-md-offset-2 col-sm-offset-2 col-xs-offset-2">
+          <h2>{{ _("Wrap-Up and Talk Next Steps") }}</h2>
+          <p>{{ _("Now that you've practice this with some example data, this video will help you think about where to go next. For example, who are some of the main audiences your organization tries to convice? What are some pitfalls to be aware of when crafting arguments for specific audiences?") }}</p>   
+        </div>
+        <div class="col-md-8 col-sm-8 col-xs-8 col-md-offset-2 col-sm-offset-2 col-xs-offset-2">
+          <img src="{{ url_for('static', filename='img/culture/coming-soon.png') }}" alt="Coming Soon" height="auto">
+        </div>
+      </div>
+
+      {{ render_feedback_form(render_form_feedback) }}
+
+  </div>
+
+</div>
+
+{% endblock %}

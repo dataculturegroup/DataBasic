@@ -1,0 +1,16 @@
+
+{% macro render_feedback_form(render_form_feedback) -%}
+  <div class="row row-flex">
+    <div class="num even red">4</div>
+    <div class="col-md-8 col-sm-8 col-xs-8 col-md-offset-2 col-sm-offset-2 col-xs-offset-2">
+      <h2>{{ _("Tell Us How It Went") }}</h2>
+      <p>{{ _("People are the world are using and adapting these activities in their organizations. Many of the points we make in the videos above are based on things we have heard from the pilot partners who we worked with to design these activities for you. Please write a little bit about how the activity went for you in the space below. Send your images to <a href='mailto:feedback@databasic.io'>feedback@databasic.io</a>, too!") }}</p>
+    </div>
+    <div class="col-md-8 col-sm-8 col-xs-8 col-md-offset-2 col-sm-offset-2 col-xs-offset-2 form">
+
+      {{ render_form_feedback(form, action_url='/feedback', action_text=_('Submit Feedback')) }}
+      
+      <div id="result"></div>
+    </div>
+  </div>
+{%- endmacro %}
