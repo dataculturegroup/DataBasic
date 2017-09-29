@@ -8,143 +8,144 @@
   <div role="main" class="container-fluid culture-wrapper">
 
     <div class="home-about">
-        <div class="row row-flex"  style="padding-top: 2%;padding-bottom: 2%;">
-          <div class="col-md-2 col-md-offset-2 col-sm-offset-0">
-            <img class="img_big" src="{{ url_for('static', filename='img/culture/data-culture-project-logo@2x.png') }}" alt="Data Culture Project" width="236" height="auto">
-          </div>
-          <div class="col-md-5 col-md-offset-1">
-            <h2>{{ _("Struggling to build your nonprofit’s ability to work with data? Use our hands-on learning program to kickstart your data culture.") }}</h2>
-          </div>
-        </div>
-   
-        <div class="row row-flex" style="padding-top: 2%;padding-bottom: 2%;">
-          <div class="col-md-5 col-sm-5 col-md-offset-2 col-sm-offset-0">
-            <img src="{{ url_for('static', filename='img/culture/coming-soon.png') }}" alt="Coming Soon" height="auto">
-          </div>
-          <div class="col-md-3 col-sm-6">
-            <p class="toptext">{{ _("Data is everywhere right now. But many people like you in the civil sector are struggling to figure out how to build capacity to work with data in their organization. They are trying to build a <strong>data culture</strong>.") }}</p>
-          </div>
-        </div>
-   
-        <div class="row row-flex" style="padding-top: 2%;padding-bottom: 2%;">
-          <div class="col-md-8 col-sm-12 col-md-offset-2">
-            <p>{{ _("Use our self-service learning program to facilitate fun, creative introductions for the non-technical folks in your organization. These are not boring spreadsheet trainings. The activites below are hands-on and designed to meet people where they are across your organization and build their capacity to work with data. We suggest that in order to kickstart your data culture, you run one activity per month as a brown bag lunch at your organization. The videos and facilitation guides below will guide you through running them yourself.") }}</p>
-            <h2>{{ _("How do you build a data culture?  Use our videos and guides to run one activity a month at brown bag lunches in your org.") }}</h2>
-          </div>
-        </div>
-   
-        <div class="row row-flex feature-box feature-box--blue">
-          <div class="col-md-8 col-sm-12 col-md-offset-2" >
-          <h1 style="color:white">{{ _("The Data Process") }}</h1>
-          <img src="{{ url_for('static', filename='img/culture/data-process.png') }}" alt="Data Process Diagram" style="width:100%">
-           &nbsp;
-          </div>
-        </div>
 
-        {# Warm Ups #}
-        <div class="row row-flex">
-          <div class="col-md-5 col-sm-6 col-xs-12 col-md-offset-1-5 col-sm-offset-0">
-            <h1>{{ _("Warm Ups") }} </h1>
-            <p>{{ _("Before jumping into finding data or telling stories, it's important to do some warm ups to activate your organization's data mindset. Warm ups are quick, fun, hands-on activities designed to activate conversation, catalyze creative ideas and build confidence to take the next step. For example, lead colleagues to <strong>Build Data Sculptures</strong> with craft materials to explore different ways to communicate the same simple data set.  Working with pompons, pipe cleaners, and construction paper changes how you approach data, letting you focus on quick ways to look for stories in  a playful way.") }}</p>
-          </div>
-          <div class="col-md-4 col-sm-5 col-xs-12 col-md-offset-0">
-            <img class="img_sml" src="{{ url_for('static', filename='img/culture/img-1102.jpg') }}" alt="Warm Ups" width="236">
-            <a href="build-a-sculpture" class="process">
-              {{ _("Build a Data Sculpture") }}
-            </a>
-          </div>
+      <div class="row row-flex"  style="padding-top: 2%;padding-bottom: 2%;">
+        <div class="col-md-2 col-md-offset-2 col-sm-offset-0">
+          <img class="img_big" src="{{ url_for('static', filename='img/culture/data-culture-project-logo@2x.png') }}" alt="Data Culture Project" width="236" height="auto">
         </div>
+        <div class="col-md-5 col-md-offset-1">
+          <h2>{{ _("Struggling to build your nonprofit’s ability to work with data? Use our hands-on learning program to kickstart your data culture.") }}</h2>
+        </div>
+      </div>
+ 
+      <div class="row row-flex" style="padding-top: 2%;padding-bottom: 2%;">
+        <div class="col-md-5 col-sm-5 col-md-offset-2 col-sm-offset-0">
+          <iframe src="https://player.vimeo.com/video/236094844" width="100%" height="355" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
+        </div>
+        <div class="col-md-3 col-sm-6">
+          <p class="toptext">{{ _("Data is everywhere right now. But many people like you in the civil sector are struggling to figure out how to build capacity to work with data in their organization. They are trying to build a <strong>data culture</strong>.") }}</p>
+        </div>
+      </div>
+ 
+      <div class="row row-flex" style="padding-top: 2%;padding-bottom: 2%;">
+        <div class="col-md-8 col-sm-12 col-md-offset-2">
+          <p>{{ _("Use our self-service learning program to facilitate fun, creative introductions for the non-technical folks in your organization. These are not boring spreadsheet trainings. The activites below are hands-on and designed to meet people where they are across your organization and build their capacity to work with data. We suggest that in order to kickstart your data culture, you run one activity per month as a brown bag lunch at your organization. The videos and facilitation guides below will guide you through running them yourself.") }}</p>
+          <h2>{{ _("How do you build a data culture?  Use our videos and guides to run one activity a month at brown bag lunches in your org.") }}</h2>
+        </div>
+      </div>
+ 
+      <div class="row row-flex feature-box feature-box--blue">
+        <div class="col-md-8 col-sm-12 col-md-offset-2" >
+        <h1 style="color:white">{{ _("The Data Process") }}</h1>
+        <img src="{{ url_for('static', filename='img/culture/data-process.png') }}" alt="Data Process Diagram" style="width:100%">
+         &nbsp;
+        </div>
+      </div>
 
-        {# Asking Questions #}
-        <div class="row row-flex feature-box feature-box--yellow-o">
-          <div class="col-md-3 col-sm-6 col-xs-12 col-md-offset-1-5 col-sm-offset-0">
-            <img class="img_sml" src="{{ url_for('static', filename='img/culture/asking-questions-2.jpg') }}" alt="Asking Questions" width="236">
-            <a href="ask-questions" class="process">
-              {{ _("Ask Questions with WTFcsv") }}
-            </a>        
-          </div>
-          <div class="col-md-5 col-sm-5">
-            <h1>{{ _("Asking Questions") }}</h1>
-            <p>{{ _("What questions can (and cannot) be answered with data? And once you are staring at some rows and columns, how do you start to make sense of the data in front of you? In this stage, you learn to take the first step in the data analysis process by asking good questions. <strong>Use WTFcsv</strong> to quickly summarize spreadsheet data, letting you brainstorm questions about it, and potential connections to other data sets. Remember – the data never speaks for itself – you help it speak by asking better and better questions. ") }}</p>
-          </div>
+      {# Warm Ups #}
+      <div class="row row-flex">
+        <div class="col-md-5 col-sm-6 col-xs-12 col-md-offset-1-5 col-sm-offset-0">
+          <h1>{{ _("Warm Ups") }} </h1>
+          <p>{{ _("Before jumping into finding data or telling stories, it's important to do some warm ups to activate your organization's data mindset. Warm ups are quick, fun, hands-on activities designed to activate conversation, catalyze creative ideas and build confidence to take the next step. For example, lead colleagues to <strong>Build Data Sculptures</strong> with craft materials to explore different ways to communicate the same simple data set.  Working with pompons, pipe cleaners, and construction paper changes how you approach data, letting you focus on quick ways to look for stories in  a playful way.") }}</p>
         </div>
+        <div class="col-md-4 col-sm-5 col-xs-12 col-md-offset-0">
+          <img class="img_sml" src="{{ url_for('static', filename='img/culture/img-1102.jpg') }}" alt="Warm Ups" width="236">
+          <a href="build-a-sculpture" class="process">
+            {{ _("Build a Data Sculpture") }}
+          </a>
+        </div>
+      </div>
 
-        {# Gathering Data #}
-        <div class="row row-flex">
-          <div class="col-md-5 col-sm-6 col-md-offset-1-5 col-sm-offset-0">
-            <h1>{{ _("Gathering Data") }}</h1>
-            <p>{{ _("Often you don’t recognize the data you already have! Data is all around, but can be difficult to identify and describe.  You need the right data to tell a strong story. As they say, “garbage in, garbage out.”  You also need to remember that a single data set may not be able to answer your questions. Combining datasets is often the best way to create a more fleshed out story. <strong>Use Connect the Dots</strong> to explore crowd-sourcing data from your audience to analyze together.  Or <strong>Use WTFcsv</strong> to think about how to gather the data you need to answer a question.") }}</p>
-          </div>
-          <div class="col-md-4 col-sm-5 col-xs-12 ">
-            <img class="img_sml" src="{{ url_for('static', filename='img/culture/gathering-data-1.jpg') }}" alt="Gathering Data" width="236">
-            <a href="/{{g['current_lang']}}/connectthedots/" class="process">
-              {{ _("Use Connect the Dots") }}
-            </a>
-            <a href="ask-questions" class="process">
-              {{ _("Ask Questions with WTFcsv") }}
-            </a>     
-          </div>
+      {# Asking Questions #}
+      <div class="row row-flex feature-box feature-box--yellow-o">
+        <div class="col-md-3 col-sm-6 col-xs-12 col-md-offset-1-5 col-sm-offset-0">
+          <img class="img_sml" src="{{ url_for('static', filename='img/culture/asking-questions-2.jpg') }}" alt="Asking Questions" width="236">
+          <a href="ask-questions" class="process">
+            {{ _("Ask Questions with WTFcsv") }}
+          </a>        
         </div>
+        <div class="col-md-5 col-sm-5">
+          <h1>{{ _("Asking Questions") }}</h1>
+          <p>{{ _("What questions can (and cannot) be answered with data? And once you are staring at some rows and columns, how do you start to make sense of the data in front of you? In this stage, you learn to take the first step in the data analysis process by asking good questions. <strong>Use WTFcsv</strong> to quickly summarize spreadsheet data, letting you brainstorm questions about it, and potential connections to other data sets. Remember – the data never speaks for itself – you help it speak by asking better and better questions. ") }}</p>
+        </div>
+      </div>
 
-        {# Analyzing Data #}
-        <div class="row row-flex feature-box feature-box--pink-o">
-          <div class="col-md-3 col-md-5 col-sm-6 col-xs-12 col-md-offset-1-5 col-sm-offset-0">
-            <img class="img_sml" src="{{ url_for('static', filename='img/culture/analyzing-data-2.jpg') }}" alt="Analyzing Data" width="236">
-            <a href="sketch-a-story" class="process">
-              {{ _("Sketch a Story") }}
-            </a>     
-            <a href="/{{g['current_lang']}}/connectthedots/" class="process">
-              {{ _("Use Connect the Dots") }}
-            </a>
-            <a href="/{{g['current_lang']}}/samediff/" class="process">
-              {{ _("Use SameDiff") }}
-            </a>     
-          </div>
-          <div class="col-md-5 col-sm-5 col-xs-12">
-            <h1>{{ _("Analyzing Data") }}</h1>
-            <p>{{ _("Data can be intimidating, especially when it comes to analyzing it.  But remember, most of statistics is just special ways of counting.  We’re all pretty good at counting! Establishing a data culture doesn't mean that we will all be statistical wizards but it does mean learning enough about analysis to understand its creative potential. The data analysis process is an opportunity to bring people together. There are many ways to do this to find a story.  <strong>Use WordCounter</strong> to learn about analyzing text data to find stories. <strong>Use Connect the Dots</strong> to collaboratively analyze a network graph.  <strong>Use SameDiff</strong> to learn about how algorithms can help you analyze data in more abstract ways.") }}</p>
-          </div>
+      {# Gathering Data #}
+      <div class="row row-flex">
+        <div class="col-md-5 col-sm-6 col-md-offset-1-5 col-sm-offset-0">
+          <h1>{{ _("Gathering Data") }}</h1>
+          <p>{{ _("Often you don’t recognize the data you already have! Data is all around, but can be difficult to identify and describe.  You need the right data to tell a strong story. As they say, “garbage in, garbage out.”  You also need to remember that a single data set may not be able to answer your questions. Combining datasets is often the best way to create a more fleshed out story. <strong>Use Connect the Dots</strong> to explore crowd-sourcing data from your audience to analyze together.  Or <strong>Use WTFcsv</strong> to think about how to gather the data you need to answer a question.") }}</p>
         </div>
+        <div class="col-md-4 col-sm-5 col-xs-12 ">
+          <img class="img_sml" src="{{ url_for('static', filename='img/culture/gathering-data-1.jpg') }}" alt="Gathering Data" width="236">
+          <a href="/{{g['current_lang']}}/connectthedots/" class="process">
+            {{ _("Use Connect the Dots") }}
+          </a>
+          <a href="ask-questions" class="process">
+            {{ _("Ask Questions with WTFcsv") }}
+          </a>     
+        </div>
+      </div>
 
-        {# Telling Your Story #}
-        <div class="row row-flex">
-          <div class="col-md-5 col-sm-6 col-md-offset-1-5 col-sm-offset-0">
-            <h1>{{ _("Telling Your Story") }}</h1>
-            <p>{{ _("Telling your story is where the rubber hits the road. Numbers alone are not enough to make your case or move people to action. You have to give your data some context, and stitch it together into a narrative so that people can understand it.  <strong>Sketch a story with WordCounter</strong> to practice communicating a data-driven story visually.") }}</p>
-          </div>
-          <div class="col-md-4 col-sm-5 col-xs-12 ">
-            <img class="img_sml" src="{{ url_for('static', filename='img/culture/sketch-1.jpg') }}" alt="Gathering Data" width="236">
-            <a href="sketch-a-story" class="process">
-              {{ _("Sketch a Story") }}
-            </a>
-                
-          </div>
+      {# Analyzing Data #}
+      <div class="row row-flex feature-box feature-box--pink-o">
+        <div class="col-md-3 col-md-5 col-sm-6 col-xs-12 col-md-offset-1-5 col-sm-offset-0">
+          <img class="img_sml" src="{{ url_for('static', filename='img/culture/analyzing-data-2.jpg') }}" alt="Analyzing Data" width="236">
+          <a href="sketch-a-story" class="process">
+            {{ _("Sketch a Story") }}
+          </a>     
+          <a href="/{{g['current_lang']}}/connectthedots/" class="process">
+            {{ _("Use Connect the Dots") }}
+          </a>
+          <a href="/{{g['current_lang']}}/samediff/" class="process">
+            {{ _("Use SameDiff") }}
+          </a>     
         </div>
+        <div class="col-md-5 col-sm-5 col-xs-12">
+          <h1>{{ _("Analyzing Data") }}</h1>
+          <p>{{ _("Data can be intimidating, especially when it comes to analyzing it.  But remember, most of statistics is just special ways of counting.  We’re all pretty good at counting! Establishing a data culture doesn't mean that we will all be statistical wizards but it does mean learning enough about analysis to understand its creative potential. The data analysis process is an opportunity to bring people together. There are many ways to do this to find a story.  <strong>Use WordCounter</strong> to learn about analyzing text data to find stories. <strong>Use Connect the Dots</strong> to collaboratively analyze a network graph.  <strong>Use SameDiff</strong> to learn about how algorithms can help you analyze data in more abstract ways.") }}</p>
+        </div>
+      </div>
 
-        {# Try It Out #}
-        <div class="row row-flex feature-box feature-box--green-o">
-          <div class="col-md-3 col-sm-6 col-xs-12 col-md-offset-1-5 col-sm-offset-0">
-            <img class="img_sml" src="{{ url_for('static', filename='img/culture/convince-me-1.jpg') }}" alt="Try It Out" width="236">
-            <a href="convince-me" class="process">
-              {{ _("Try to ConvinceMe") }}
-            </a>     
-          </div>
-          <div class="col-md-5 col-sm-5">
-            <h1>{{ _("Try It Out") }}</h1>
-            <p>{{ _("How do you know if your story is working?  Does the data you included support the narrative you are telling?  It can be very difficult to put yourself in the shoes of your audience and try to understand what kind of story will change their worldview or move them to action.  And you might have multiple audiences. Each potential audience brings different beliefs and experiences to understanding your message. <strong>Try out ConvinceMe</strong> to practice telling different stories to different audiences.") }}</p>
-          </div>
+      {# Telling Your Story #}
+      <div class="row row-flex">
+        <div class="col-md-5 col-sm-6 col-md-offset-1-5 col-sm-offset-0">
+          <h1>{{ _("Telling Your Story") }}</h1>
+          <p>{{ _("Telling your story is where the rubber hits the road. Numbers alone are not enough to make your case or move people to action. You have to give your data some context, and stitch it together into a narrative so that people can understand it.  <strong>Sketch a story with WordCounter</strong> to practice communicating a data-driven story visually.") }}</p>
         </div>
+        <div class="col-md-4 col-sm-5 col-xs-12 ">
+          <img class="img_sml" src="{{ url_for('static', filename='img/culture/sketch-1.jpg') }}" alt="Gathering Data" width="236">
+          <a href="sketch-a-story" class="process">
+            {{ _("Sketch a Story") }}
+          </a>
+              
+        </div>
+      </div>
 
-        <div class="row row-flex">
-          <div class="col-md-4 col-sm-5 col-centered col-md-offset-2 col-sm-offset-1">
-            <h2>{{ _("Connect with Others") }}</h2>
-            <p>{{ _("Trying to build a data culture can be a lonely effort in organizations that haven't recognized the importance of data. <a href='https://groups.io/g/datacultureproject'> Join our mailing list </a> to connect with others and reflect on how these activities are working, or not working, for your organization.") | safe }}</p>
-          </div>
-          <div class="col-md-4 col-sm-5 col-centered">
-            <h2>{{ _("About Us") }}</h2>
-            <p>{{ _("The Data Culture Project is an initiative of  <a href='http://databasic.io'>DataBasic.io</a>.  We’ve pulled together the years of work with nonprofits into one place to help you build a data culture. DataBasic.io is the brainchild of <a href='http://kanarinka.com'>Catherine D’Ignazio</a> and <a href='http://datatherapy.org'>Rahul Bhargava</a>.") }}</p>
-          </div>
+      {# Try It Out #}
+      <div class="row row-flex feature-box feature-box--green-o">
+        <div class="col-md-3 col-sm-6 col-xs-12 col-md-offset-1-5 col-sm-offset-0">
+          <img class="img_sml" src="{{ url_for('static', filename='img/culture/convince-me-1.jpg') }}" alt="Try It Out" width="236">
+          <a href="convince-me" class="process">
+            {{ _("Try to ConvinceMe") }}
+          </a>     
         </div>
+        <div class="col-md-5 col-sm-5">
+          <h1>{{ _("Try It Out") }}</h1>
+          <p>{{ _("How do you know if your story is working?  Does the data you included support the narrative you are telling?  It can be very difficult to put yourself in the shoes of your audience and try to understand what kind of story will change their worldview or move them to action.  And you might have multiple audiences. Each potential audience brings different beliefs and experiences to understanding your message. <strong>Try out ConvinceMe</strong> to practice telling different stories to different audiences.") }}</p>
+        </div>
+      </div>
+
+      <div class="row row-flex">
+        <div class="col-md-4 col-sm-5 col-centered col-md-offset-2 col-sm-offset-1">
+          <h2>{{ _("Connect with Others") }}</h2>
+          <p>{{ _("Trying to build a data culture can be a lonely effort in organizations that haven't recognized the importance of data. <a href='https://groups.io/g/datacultureproject'> Join our mailing list </a> to connect with others and reflect on how these activities are working, or not working, for your organization.") | safe }}</p>
+        </div>
+        <div class="col-md-4 col-sm-5 col-centered">
+          <h2>{{ _("About Us") }}</h2>
+          <p>{{ _("The Data Culture Project is an initiative of  <a href='http://databasic.io'>DataBasic.io</a>.  We’ve pulled together the years of work with nonprofits into one place to help you build a data culture. DataBasic.io is the brainchild of <a href='http://kanarinka.com'>Catherine D’Ignazio</a> and <a href='http://datatherapy.org'>Rahul Bhargava</a>.") }}</p>
+        </div>
+      </div>
 
     </div>
 
