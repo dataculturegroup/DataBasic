@@ -3,7 +3,7 @@ DataBasic
 
 DataBasic is a suite of web-based data literacy tools and accompanying hands-on activities for journalists, data journalism classrooms and community advocacy groups.
 
-The suite include:
+The suite includes:
 
 * **WTFcsv**: A web application that takes as input a CSV file and returns a summary of the fields, their data type, their range, and basic descriptive statistics. This is a prettier version of R’s “summary” command and aids at the outset of the data analysis process.
 * **WordCounter**: A basic word counting tool that takes unstructured text as input and returns word frequency, bigrams (two-word phrases) and trigrams (three-word phrases)
