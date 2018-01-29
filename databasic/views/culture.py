@@ -37,6 +37,10 @@ def sculpture():
     form = CultureFeedbackForm()
     return render_template('sculpture.html', form=form, tool_name='sculpture')
 
+@mod.route('/connections')
+def connections():
+    form = CultureFeedbackForm()
+    return render_template('connections.html', form=form, tool_name='connectthedots')    
 
 @mod.route('/feedback', methods=['POST', 'GET'])
 def feedback():

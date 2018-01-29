@@ -1,0 +1,76 @@
+{% from "culture_macros.html" import render_feedback_form %}
+
+{% extends "culture_activity_base.html" %}
+
+{% block title %}{{ _("Build and Analyze a Network")}}{% endblock %}
+
+{% block body %}
+
+<div role="main" class="container-fluid culture-wrapper activity-wrapper">
+
+  <div class="activity-content blue">
+      <div class="row row-flex header">
+        <div class="col-md-12 col-sm-12 col-xs-12">
+          <a href="/{{g['current_lang']}}/culture" alt="{{_('Data Culture Project')}}"><img class="logo" src="{{ url_for('static', filename='img/culture/data-culture-project-logo@2x.png') }}" alt="Data Culture Project" width="236" height="auto"></a>
+        </div>
+        <div class="col-md-8 col-sm-8 col-xs-8 col-md-offset-2 col-sm-offset-2 col-xs-offset-2">
+          <h1>{{ _("Build and Analyze a Network")}}</h1>
+          <h2>{{ _("Learn how to ask different types of quetsions based on a network of data") }}</h2>
+        </div>
+      </div>
+
+      {# Set Up #}
+      <div class="row row-flex">
+        <div class="col-md-8 col-sm-8 col-xs-8 col-md-offset-2 col-xs-offset-2">
+          <h2>Set Up</h2>
+          <p>{{ _("This activity will take 30 to 45 minutes. You should have these materials on hand:") }}</p>
+          <ul>
+            <li>{{ _("A basic Internet connection")}}</li>
+            <li>{{ _("A phone, tablet, or computer for each small group of 3 people")}}</li>
+            <!-- TODO - make this language specific "/"+g['current_lang']+"/wtfcsv/wtfcsv-activity-guide.pdf"-->
+            <li>{{ _("A projector connected to a computer")}}</li>
+          </ul>
+          <p><a class="activity-guide" href='https://databasic.io/en/connectthedots/connect-the-dots-activity-guide.pdf'>Download and print the activity guide</a></p>
+        </div>
+      </div>
+
+      {# Kick Off #}
+      <div class="row row-flex">
+        <div class="num odd orange">1</div>      
+        <div class="col-md-8 col-sm-8 col-xs-8 col-md-offset-2 col-sm-offset-2 col-xs-offset-2">
+          <h2>Kick-Off The Activity</h2>
+          <p>{{ _("Network graphs are very trendy right now, but few know how to read them, nor why they they might be useful. In this activity you'll create a dataset about local restaurants people recommend, build a network graph out of that data, and then think about questions you can ask it. You will use <a href='https://connectthedots.databasic.io/'>Databasic.io's Connect the Dots tool</a> to do this.
+          </p>
+          <p>Participants will understand build familiarity with some standard terms and approaches to working with network graphs. Begin by sharing some inspirational examples, then fill in a spreasheet together of restaurants and who recommends them.  This should have two columns - 'Person' and 'Restaurant'. Then paste this data into Connect the Dots to analyze it. Share the URL and have people poke at it, or other sample data, to look for insights and prompt questions.") }}</p>
+        </div>
+        <div class="col-md-8 col-sm-8 col-xs-8 col-md-offset-2 col-sm-offset-2 col-xs-offset-2">
+          <iframe src="https://player.vimeo.com/video/191074419" width="100%" height="355" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
+        </div>
+      </div>
+
+      {# Share Back #}
+      <div class="row row-flex">
+        <div class="num even orange">2</div>
+        <div class="col-md-8 col-sm-8 col-xs-8 col-md-offset-2 col-sm-offset-2 col-xs-offset-2">
+          <h2>Have Everyone Share Back</h2>
+          <p>{{ _("After 10 minutes bring everyone back together to share any insights they found.  Were there any obvious benefits they ran into by analyzing this data as a network (instead of a table)? Were there any questions that here harder to dig into? Were any of the algorithms mentioned useful?") }}</p>
+        </div>
+      </div>
+
+      {# Next Steps #}
+      <div class="row row-flex">
+        <div class="num odd orange">3</div> 
+        <div class="col-md-8 col-sm-8 col-xs-8 col-md-offset-2 col-sm-offset-2 col-xs-offset-2">
+          <h2>Wrap-Up and Talk Next Steps</h2>
+          <p>{{ _("Now that you've done some basic network graph analysis, help the participants think about any network data your organization has on hand.  Are there any questions that came up, or ideas, about steps people should take with your in-house data?") }}</p>   
+        </div>
+      </div>
+
+      
+      {{ render_feedback_form(render_form_feedback) }}
+
+  </div>
+
+</div>
+
+{% endblock %}
