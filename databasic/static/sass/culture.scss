@@ -254,7 +254,6 @@ body {
   margin: 0 auto;
   font-family: $font-avenir;
 
-
   .form {
 
     textarea {
@@ -603,4 +602,27 @@ body {
 
   }
 
+}
+
+a.activity-guide {
+  display: block;
+  color: $c-white;
+  text-align: center;
+  padding: 20px;
+  margin-top: 15px;
+}
+.red {
+  a.activity-guide {
+    background-color: $c-pinkish-orange;
+  }
+}
+.blue {
+  a.activity-guide {
+    background-color: $c-blue;
+  }
+}
+.orange {
+  a.activity-guide {
+    background-color: #ff9800;
+  }
 }
