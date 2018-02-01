@@ -89,7 +89,7 @@ class OAuthHandler:
             logger.debug("OAuthHandler.open_url")
             return self._client.open_by_url(url)
         except gspread.SpreadsheetNotFound:
-            logger.error("open_url: spreasheet not found %s", url)
+            logger.error("open_url: spreadsheet not found %s", url)
             self.authorized = False
             return None
         except gspread.NoValidUrlKeyFound:
