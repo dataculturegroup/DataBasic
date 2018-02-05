@@ -39,8 +39,8 @@
       <div class="row row-flex feature-box feature-box--blue">
         <div class="col-md-8 col-sm-12 col-md-offset-2" >
         <h1 style="color:white">{{ _("The Data Process") }}</h1>
-        <p>{{ _("Here's a process we introduce to get you from data to impactful story.  Keep scrolling down to learn about the activities we offer for you to run at each step along the way.")}}
-        <img src="{{ url_for('static', filename='img/culture/data-process.png') }}" alt="Data Process Diagram" style="width:100%">
+        <p style="color:white;font-size: 22px">{{ _("Here's a process we introduce to get you from data to impactful story.  Keep scrolling down to learn about the activities we offer for you to run at each step along the way.")}}
+        <img src="{{ url_for('static', filename='img/culture/data-process.png') }}" alt="Data Process Diagram" style="width:100%;margin-top:20px">
          &nbsp;
         </div>
       </div>
@@ -142,7 +142,10 @@
       <div class="row row-flex">
         <div class="col-md-4 col-sm-5 col-centered col-md-offset-2 col-sm-offset-1">
           <h2>{{ _("Connect with Others") }}</h2>
-          <p>{{ _("Trying to build a data culture can be a lonely effort in organizations that haven't recognized the importance of data. Join our <a href='https://groups.io/g/dataculture'>mailing list</a> to connect with others and reflect on how these activities are working, or not working, for your organization.") | safe }}</p>
+          <p>{{ _("Trying to build a data culture can be a lonely effort in organizations that haven't recognized the importance of data. Join the Data Culture <a href='https://groups.io/g/dataculture'>discussion group</a> to connect with others and reflect on how these activities are working, or not working, for your organization.") | safe }}</p>
+          <a href="https://groups.io/g/dataculture" class="process">
+            {{ _("Join the discussion group") }}
+          </a>
         </div>
         <div class="col-md-4 col-sm-5 col-centered">
           <h2>{{ _("About Us") }}</h2>
