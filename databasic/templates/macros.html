@@ -58,7 +58,7 @@
       name="btn"
       class="{{ btn_class }}"
       value="{{ class_ }}"
-      onClick="ga('send', 'event', '{{tool_name}}', $(this).parent().attr('class'), 'input-tab-2');return false;"
+      onClick="ga('send', 'event', '{{tool_name}}', $(this).parent().attr('class'), 'input-tab-2');"
     >{{ action_text }}</button>
   </form>
 {%- endmacro %}
