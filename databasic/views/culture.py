@@ -37,10 +37,12 @@ def sculpture():
     form = CultureFeedbackForm()
     return render_template('sculpture.html', form=form, tool_name='sculpture')
 
+
 @mod.route('/connections')
 def connections():
     form = CultureFeedbackForm()
     return render_template('connections.html', form=form, tool_name='connectthedots')    
+
 
 @mod.route('/feedback', methods=['POST', 'GET'])
 def feedback():
@@ -57,7 +59,7 @@ def feedback():
     """
         content += feedback
         send_email(DEFAULT_SENDER, [from_email, 'feedback@databasic.io'],
-                             "Data Culture Project: Feedback Received", content)
+                   "Data Culture Project: Feedback Received", content)
     except Exception as e:
         logger.error("email failed to send")
         logger.exception(e)
