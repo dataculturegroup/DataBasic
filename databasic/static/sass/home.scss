@@ -55,6 +55,17 @@ header {
   color: $c-black;
 }
 
+.home-newsflash {
+  padding-top: 40px;
+  padding-bottom: 60px;
+  @media (min-width: 992px) { padding-bottom: 80px; }
+  background-color: $c-blue;
+  h1 {
+    margin: 0 auto 40px;
+    font-family: $font-lt;
+  }
+}
+
 .home-video {
   padding-top: 40px;
   padding-bottom: 60px;
@@ -109,6 +120,8 @@ header {
   border: 20px solid $color !important;
   color: $color;
 }
+
+.feature-box--green-o { @include feature-box--o($c-green); }
 
 .feature-box {
   width: 100%;
@@ -217,4 +230,15 @@ header {
       margin: 40px auto;
     }
   }
+}
+
+#newsflash {
+  margin-bottom: 50px;
+  text-align: left;
+  .logo {
+    display: inline-block;
+    float: left;
+    padding: 10px 30px 10px 10px;
+  }
+  color: #000000;
 }
