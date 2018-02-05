@@ -25,6 +25,8 @@
 
 {% block results_scripts %}
   <script type="text/javascript">
+    send_submit_event('{{ tool_name }}', '{{ source }}');
+
     var data = JSON.parse({{ results['json'] | tojson | safe }});
 
     var filename = '{{ results["filename"] }}',
