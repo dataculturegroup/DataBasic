@@ -10,6 +10,9 @@ body {
 
 h4[role=alert] {
   margin-bottom: 40px;
+  background-color:$c-red;
+  color:$c-white;
+  padding:20px;
 }
 
 .tool-logo {

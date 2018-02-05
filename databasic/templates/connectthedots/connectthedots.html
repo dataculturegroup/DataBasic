@@ -53,11 +53,7 @@
 {% block body %}
 <div class="tool" role="main">
   <div class="container">
-    {% if input_error == 'paste' %}
-      <h4 class="text-center" role="alert">{{ _('Error: Paste failed! Make sure your input has exactly two tab-separated columns and try again.') }}</h4>
-    {% elif input_error == 'upload' %}
-      <h4 class="text-center" role="alert">{{ _('Error: Upload failed! Make sure your file has exactly two columns and try again.') }}</h4>
-    {% endif %}
+    
     <div class="row">
       <div id="tool-description">
         {{ tool_logo() }}
@@ -66,6 +62,13 @@
         </h3>
         <p>{{ _('Analyzing the connections between the "dots" in your data is a fundamentally different approach to understanding it. This tool shows you a network diagram to reveal those links, and gives you a high level report about what your network looks like.') }}</p>
       </div>
+    </div>
+    <div style="margin:0 20%;">
+    {% if input_error == 'paste' %}
+      <h4 class="text-center" role="alert">{{ _('Error: Paste failed! Make sure your input has exactly two tab-separated columns and try again.') }}</h4>
+    {% elif input_error == 'upload' %}
+      <h4 class="text-center" role="alert">{{ _('Error: Upload failed! Make sure your file has exactly two columns and try again.') }}</h4>
+    {% endif %}
     </div>
     {{ render_forms(forms, action_url=tool_name, action_text=_('Graph')) }}
   </div>
