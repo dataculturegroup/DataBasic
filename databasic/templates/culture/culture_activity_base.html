@@ -30,54 +30,11 @@
 
 {% block custom_scripts %}
 <script type="text/javascript">
-function setFeedbackFormState(disabled) {
-  $("#feedbackForm :input").prop("disabled", disabled);
-  $("#feedbackForm button").prop("disabled", disabled);
-}
-function onSubmitFeedback(form){
-  setFeedbackFormState(true);
-  $.ajax({
-    method: "POST",
-    beforeSend: function(request) {
-      request.setRequestHeader("X-CSRFToken", "{{ form.csrf_token._value() }}");
-    },
-    url: 'feedback',
-    data: {
-      feedback: $('#feedbackForm textarea#feedback').val(),
-      email: $('#feedbackForm input#email').val()
-    }
-  })
-  .done(function(data) {
-    setFeedbackFormState(false);
-    $("#result").text('{{ _("Thanks for the feedback!")}}');
-  }) 
-  .fail(function(data) {
-    setFeedbackFormState(false);
-    $("#result").text('{{ _("Sorry, something went wrong.  Please try again.")}}');
-  });
-  return false;
-}
-$(function() {
-  // setup feedback form validation and submission handler
-  $("#feedbackForm").validate({
-    rules: {
-      email: {
-        required: true,
-        email: true
-      },
-      feedback: {
-        required: true,
-        minlength: 10
-      }
-    },
-    messages: {
-      link: {
-        required: "{{_('This field is required')}}",
-        email: "{{_('Give us your email so we can respond')}}",
-      }
-    },
-    submitHandler: onSubmitFeedback,
-  });
-});
+(function() { // DON'T EDIT BELOW THIS LINE
+var d = document, s = d.createElement('script');
+s.src = 'https://databasic.disqus.com/embed.js';
+s.setAttribute('data-timestamp', +new Date());
+(d.head || d.body).appendChild(s);
+})();
 </script>
 {% endblock %}

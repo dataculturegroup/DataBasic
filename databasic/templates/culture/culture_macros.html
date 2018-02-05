@@ -1,16 +1,18 @@
 
-{% macro render_feedback_form(render_form_feedback) -%}
+{% macro render_feedback_form(activity_name) -%}
   <div class="row row-flex">
     <div class="num even red">4</div>
     <div class="col-md-8 col-sm-8 col-xs-8 col-md-offset-2 col-sm-offset-2 col-xs-offset-2">
-      <h2>{{ _("Tell Us How It Went") }}</h2>
-      <p>{{ _("People are the world are using and adapting these activities in their organizations. Many of the points we make in the videos above are based on things we have heard from the pilot partners who we worked with to design these activities for you. Please write a little bit about how the activity went for you in the space below. Send your images to <a href='mailto:feedback@databasic.io'>feedback@databasic.io</a>, too!") }}</p>
-    </div>
-    <div class="col-md-8 col-sm-8 col-xs-8 col-md-offset-2 col-sm-offset-2 col-xs-offset-2 form">
-
-      {{ render_form_feedback(form, action_url='/feedback', action_text=_('Submit Feedback')) }}
-      
-      <div id="result"></div>
+      <h2>{{ _("Learn With Others") }}</h2>
+      <p>{{ _("People around the world are using this activity. Learn from their comments below, and please share your experience with others by submitting it! Comments you leave here will be moderated. Once approved, they will be shared on this page and are public.") }}</p>
+      <div id="disqus_thread"></div>
+      <script>
+        var disqus_config = function () {
+          this.page.url = "https://databasic.io"+"{{request.path}}";
+          this.page.identifier = "{{activity_name}}";
+        }
+      </script>
+      <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
     </div>
   </div>
 {%- endmacro %}
