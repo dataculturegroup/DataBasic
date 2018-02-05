@@ -97,3 +97,10 @@ $(document).ready(function() {
     });
   }
 });
+
+var trackOutboundLink = function(toolName, url, category) {
+   ga('send', 'event', toolName, url, category, {
+     'transport': 'beacon',
+     'hitCallback': function(){document.location = url;}
+   });
+}

@@ -15,7 +15,7 @@
           <p>{{ _("Try these other tools to do more full-fledged analysis:") }}</p>
           <ul>
           {% for tool in tools %}
-            <li><a href="{{tool['url']}}">{{tool['name']}}</a></li>
+            <li><a href="{{tool['url']}}" onClick="trackOutboundLink('{{ tool_name }}', '{{ tool['url'] }}', 'whatnext');return false;">{{tool['name']}}</a></li>
           {% endfor %}
         </div>
       </div>
