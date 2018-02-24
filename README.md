@@ -1,7 +1,8 @@
 DataBasic
 =========
 
-DataBasic is a suite of web-based data literacy tools and accompanying hands-on activities for journalists, data journalism classrooms and community advocacy groups.
+DataBasic is a suite of web-based data literacy tools and accompanying hands-on activities for journalists, data
+journalism classrooms and community advocacy groups.
 
 The suite includes:
 
@@ -93,13 +94,17 @@ Run the above bash command for each language you want the app to support (such a
 ```
 $ bash translations-update.sh
 ```
-This command extracts all items for translation from the app. Each time you add a new bit of text you need to run this comment. Then translate the .po file. If any translations in the .po are marked fuzzy, check them to for accuracy and then remove 'fuzzy.'
+This command extracts all items for translation from the app. Each time you add a new bit of text you need to run this
+command. Then translate the .po file. If any translations in the .po are marked fuzzy, check them to for accuracy and
+then remove 'fuzzy.'
 ```
 $ bash translations-compile.sh [LANGUAGE ARGUMENT]
 ```
-This command compiles the translations from the .po files into binary form. You need to run this every time you update a .po file. Then restart the app.
+This command compiles the translations from the .po files into binary form. You need to run this every time you
+update a .po file. Then restart the app.
 
 Seeking Databasic Translators
 -----------
 
-Want to see Databasic in another language? We would love your help in making that happen. Languages of interest include French and Arabic. 
+Want to see Databasic in another language? We would love your help in making that happen. Languages of interest
+include French and Arabic.
