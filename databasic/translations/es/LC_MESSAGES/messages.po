@@ -764,6 +764,7 @@ msgid ""
 "Struggling to build your organization's ability to work with data? Use "
 "our hands-on learning program to kickstart your data culture."
 msgstr ""
+"¿Se esfuerza usted por desarrollar la capacidad de su organización para trabajar con datos?  Use nuestro programa de aprendizaje práctico para iniciar su cultura de datos."
 
 #: databasic/templates/culture/culture.html:28
 msgid ""
@@ -771,6 +772,7 @@ msgid ""
 "struggling to figure out how to build capacity to work with data. You "
 "don't need a data scientist; you need a <strong>data culture</strong>."
 msgstr ""
+"En la actualidad, los datos están por todas partes.  Pero muchas organizaciones como la suya están luchando por encontrar la manera de desarrollar la capacidad para trabajar con datos.  Usted no necesita un científico de datos; usted necesita una cultura de datos."
 
 #: databasic/templates/culture/culture.html:34
 msgid ""
@@ -784,16 +786,18 @@ msgid ""
 "running them yourself. People at more than 30 organizations have done so "
 "already - from a local public library, to the World Food Progam."
 msgstr ""
+"Utilice nuestro programa de aprendizaje autodidacta para facilitar presentaciones divertidas y creativas para las personas sin base técnica de su organización.  Éstos no son entrenamientos aburridos sobre hojas de cálculo.  Las herramientas y actividades gratuitas que se muestran a continuación son prácticas y están diseñadas para encontrar a qué nivel se encuentran las personas en su organización y desarrollar su capacidad para trabajar con datos.  Trate de iniciar su cultura de datos ejecutando una actividad por mes como si fuera un almuerzo cotidiano.  Los vídeos y las guías de facilitación incluidos más abajo le guiarán durante la ejecución.  Hay gente en más de 30 organizaciones que ya lo ha hecho - desde una biblioteca pública local hasta el 'World Food Program' (Programa Mundial de Alimentos)."
 
 #: databasic/templates/culture/culture.html:35
 msgid ""
 "How do you build a data culture?  Use our videos and guides to run one "
 "activity a month at brown bag lunches in your org."
 msgstr ""
+"¿Cómo se construye una cultura de datos?  Utilice nuestros vídeos y guías para realizar una actividad mensual, como si fuera un almuerzo cotidiano, en su organización."
 
 #: databasic/templates/culture/culture.html:41
 msgid "The Data Process"
-msgstr ""
+msgstr "El proceso de datos"
 
 #: databasic/templates/culture/culture.html:42
 msgid ""
@@ -801,10 +805,11 @@ msgid ""
 "Keep scrolling down to learn about the activities we offer for you to run"
 " at each step along the way."
 msgstr ""
+"He aquí un proceso que le presentamos para pasar de los datos a una historia impactante.  Continúe leyendo para conocer las actividades que le ofrecemos para que las utilice en cada paso de avance."
 
 #: databasic/templates/culture/culture.html:51
 msgid "Warm Ups"
-msgstr ""
+msgstr "Calentamientos"
 
 #: databasic/templates/culture/culture.html:52
 msgid ""
@@ -818,20 +823,21 @@ msgid ""
 "changes how you approach data, letting you focus on playfully quick ways "
 "to look for stories."
 msgstr ""
+"Antes de precipitarse a la búsqueda de datos o a contar historias, es importante hacer algunos ejercicios de calentamiento para activar la mentalidad de datos de su organización.  Los ejercicios de calentamiento son actividades rápidas, divertidas y prácticas diseñadas para activar la conversación, catalizar las ideas creativas y generar confianza para dar el siguiente paso.  Por ejemplo, dirija a sus colegas a Construir Esculturas de Datos con materiales artesanales para explorar diferentes formas de comunicar el mismo conjunto de datos simples.  Trabajar con pompones, limpiadores de pipas u otros materiales locales cambia la forma en que se abordan los datos, lo que le permite centrarse en formas divertidas y rápidas de buscar las historias."
 
 #: databasic/templates/culture/culture.html:57
 #: databasic/templates/culture/sculpture.html:17
 msgid "Build a Data Sculpture"
-msgstr ""
+msgstr "Construye una escultura de datos"
 
 #: databasic/templates/culture/culture.html:67
 #: databasic/templates/culture/culture.html:88
 msgid "Ask Good Questions"
-msgstr ""
+msgstr "Hacer preguntas"
 
 #: databasic/templates/culture/culture.html:71
 msgid "Asking Questions"
-msgstr ""
+msgstr "Hacer preguntas"
 
 #: databasic/templates/culture/culture.html:72
 msgid ""
@@ -844,10 +850,11 @@ msgid ""
 "potential biases you might bring to it. Remember – the data never speaks "
 "for itself – you help it speak by asking better and better questions. "
 msgstr ""
+"¿Qué preguntas se pueden (y no se pueden) responder con datos?  Y una vez que usted mire con detenimiento a algunas filas y columnas, ¿cómo comienza a entender los datos que tiene frente a usted?  En esta etapa, usted aprende a dar el primer paso en el proceso de análisis de datos haciendo buenas preguntas.  Use WTFcsv para resumir rápidamente los datos de la hoja de cálculo, analizar intensamente las ideas sobre el tema, las posibles conexiones a otros conjuntos de datos y las posibles distorsiones que usted pueda incluir.  Recuerde – los datos nunca hablan por sí mismos – usted los ayuda a hablar formulando mejores y mejores preguntas."
 
 #: databasic/templates/culture/culture.html:79
 msgid "Gathering Data"
-msgstr ""
+msgstr "Reuniendo datos"
 
 #: databasic/templates/culture/culture.html:80
 msgid ""
@@ -861,12 +868,12 @@ msgid ""
 "  Or <strong>Use WTFcsv</strong> to think about how to gather the data "
 "you need to answer a question."
 msgstr ""
+"¡A menudo no reconocemos los datos que ya tenemos!  Los datos están por todas partes, pero pueden ser difíciles de identificar y describir.  Se necesitan datos correctos para contar una historia interesante.  Como se dice comúnmente, 'si entra basura, sale basura'.  También se debe recordar que un solo conjunto de datos pudiera no responder sus preguntas.  Una combinación de conjuntos de datos es a menudo la mejor manera de crear una historia más concreta.  Use 'Connect the Dots' (Conecte los puntos) para explorar los datos generados por el grupo en la audiencia para analizarlos juntos como una red.  O use WTFcsv para pensar cómo reunir los datos que necesita para responder una pregunta."
 
 #: databasic/templates/culture/culture.html:85
 #: databasic/templates/culture/culture.html:101
-#, fuzzy
 msgid "Use Connect the Dots"
-msgstr "ConnectTheDots"
+msgstr "Usa ConnectTheDots"
 
 #: databasic/templates/culture/culture.html:98
 #: databasic/templates/culture/culture.html:122
@@ -874,16 +881,16 @@ msgstr "ConnectTheDots"
 #: databasic/templates/culture/sketch.html:17
 #: databasic/templates/wordcounter/run-activity.html:19
 msgid "Sketch a Story"
-msgstr ""
+msgstr "Dibuja una Historia"
 
 #: databasic/templates/culture/culture.html:104
 #, fuzzy
 msgid "Use SameDiff"
-msgstr "Usar muestras"
+msgstr "Usa SameDiff"
 
 #: databasic/templates/culture/culture.html:108
 msgid "Analyzing Data"
-msgstr ""
+msgstr "Analizar los Datos"
 
 #: databasic/templates/culture/culture.html:109
 msgid ""
@@ -899,10 +906,11 @@ msgid ""
 "SameDiff</strong> to learn about how algorithms can help you analyze data"
 " in more abstract ways."
 msgstr ""
+"Los datos pueden ser intimidatorios, especialmente cuando se trata de analizarlos.  Pero recuerde, la mayoría de las estadísticas son sólo formas especiales de contar.  ¡Todos somos muy buenos contando!  Establecer una cultura de datos no significa que todos seremos expertos estadísticos, pero sí significa aprender lo suficiente sobre el análisis para comprender su potencial creativo.  El proceso de análisis de datos es una oportunidad para unir a las personas.  Hay muchas maneras de hacer esto para encontrar una historia.  Use WordCounter para aprender a analizar datos de texto para encontrar historias.  Use Connect the Dots para analizar colaborativamente el gráfico de una red.  Use SameDiff (Da igual) para aprender cómo los algoritmos pueden ayudarle a analizar datos de maneras más abstractas."
 
 #: databasic/templates/culture/culture.html:116
 msgid "Telling Your Story"
-msgstr ""
+msgstr "Contar su Historia"
 
 #: databasic/templates/culture/culture.html:117
 msgid ""
@@ -913,14 +921,15 @@ msgid ""
 "WordCounter</strong> to practice communicating a data-driven story "
 "visually."
 msgstr ""
+"Contar su historia es donde la teoría se pone a prueba.  Los números por sí solos no son suficientes para demostrar su caso o mover a las personas a la acción.  Usted tiene que dar a sus datos algún contexto, y unirlos en una narrativa para que la gente pueda entenderlos.  Bosqueje una historia con WordCounter para practicar la comunicación visual de una historia basada en datos."
 
 #: databasic/templates/culture/culture.html:133
 msgid "Try to ConvinceMe"
-msgstr ""
+msgstr "Usa ConvinceMe"
 
 #: databasic/templates/culture/culture.html:137
 msgid "Try It Out"
-msgstr ""
+msgstr "Pruébelo"
 
 #: databasic/templates/culture/culture.html:138
 msgid ""
@@ -933,10 +942,11 @@ msgid ""
 "ConvinceMe</strong> to practice telling different stories to different "
 "audiences."
 msgstr ""
+"¿Cómo sabe usted si su historia está funcionando?  ¿Respaldan los datos que usted incluyó la narración que está contando?  Puede ser muy difícil ponerse en el lugar del público y tratar de comprender qué tipo de historia cambiará su perspectiva mundial o lo moverá a la acción.  Y usted pudiera tener múltiples audiencias.  Cada posible audiencia aporta diferentes creencias y experiencias para comprender su mensaje.  <strong>Pruebe ConvinceMe (Convénceme)</strong> para practicar contando historias diferentes a diferentes audiencias."
 
 #: databasic/templates/culture/culture.html:144
 msgid "Connect with Others"
-msgstr ""
+msgstr "Conéctese con los Demás"
 
 #: databasic/templates/culture/culture.html:145
 msgid ""
@@ -946,15 +956,15 @@ msgid ""
 "with others and reflect on how these activities are working, or not "
 "working, for your organization."
 msgstr ""
+"Tratar de construir una cultura de datos puede convertirse en un esfuerzo solitario en organizaciones que no han reconocido la importancia de los datos.  Únase a <a href='https://groups.io/g/dataculture'>nuestra lista de correo</a> para conectarse con los demás y reflexionar sobre cómo funcionan o no funcionan estas actividades para su organización."
 
 #: databasic/templates/culture/culture.html:147
 msgid "Join the discussion group"
-msgstr ""
+msgstr "Únase a nuestra lista de correo"
 
 #: databasic/templates/culture/culture.html:151
-#, fuzzy
 msgid "About Us"
-msgstr "acerca"
+msgstr "Quiénes Somos"
 
 #: databasic/templates/culture/culture.html:152
 msgid ""
@@ -965,6 +975,7 @@ msgid ""
 "href='http://kanarinka.com'>Catherine D’Ignazio</a> and <a "
 "href='http://datatherapy.org'>Rahul Bhargava</a>."
 msgstr ""
+"El Proyecto Cultura de Datos es una iniciativa de <a href='http://databasic.io'>DataBasic.io</a>.  Hemos reunido años de trabajo con organizaciones sin fines de lucro en un solo lugar para ayudarle a construir una cultura de datos.  DataBasic.io es una idea original de <a href='http://kanarinka.com'>Catherine D'Ignazio</a> y <a href='http://datatherapy.org'>Rahul Bhargava</a>."
 
 #: databasic/templates/culture/culture_macros.html:6
 msgid "Learn With Others"
