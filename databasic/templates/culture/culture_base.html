@@ -1,0 +1,39 @@
+{% extends "base.html" %}
+
+{% from "macros.html" import url_with_language %}
+
+{% block custom_css %}
+  <link href="{{ url_for('static', filename='css/culture.scss.css') }}" rel="stylesheet" type="text/css">
+{% endblock %}
+
+{% block body %}
+  <header>
+    <div class="pull-right" id="language-selector">
+      {{ _("Choose your language: ") }}<span class="badge"><a href="{{ url_with_language('en') }}" role="button" aria-label="{{ _('change language to english') }}">en</a></span> <span class="badge"><a href="{{ url_with_language('es') }}" role="button" aria-label="{{ _('change language to spanish') }}">es</a></span> <span class="badge"><a href="{{ url_with_language('pt') }}" role="button" aria-label="{{ _('change language to portuguese') }}">pt</a></span>
+    </div>
+  </header>
+  {% block culture_body %}{% endblock %}
+{% endblock %}
+
+{% block footer %}
+  <footer>
+    <nav class="navbar culture">
+      <div class="container-fluid">
+        <div class="col-md-8 col-md-offset-1">
+          <div class="row">
+            <div class="col-xs-4 col-sm-3 col-sm-offset-2-5 col-md-offset-3">
+              <a href="http://elab.emerson.edu"><img src="/static/img/logos/el.png" alt="Engagement Lab at Emerson College" class="img-responsive"></a>
+            </div>
+            <div class="col-xs-4 col-sm-3">
+              <a href="https://databasic.io/"><img src="/static/img/logos/databasic_white.png" alt="DataBasic" class="img-responsive"></a>
+            </div>
+            <div class="col-xs-4 col-sm-3">
+              <a href="https://civic.mit.edu/"><img src="/static/img/logos/mit.png" alt="MIT Center for Civic Media" class="img-responsive"></a>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </nav>
+  </footer>
+{% endblock %}

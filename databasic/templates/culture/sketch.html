@@ -4,7 +4,7 @@
 
 {% block title %}{{ _("Sketch a Story")}}{% endblock %}
 
-{% block body %}
+{% block culture_body %}
 
 <div role="main" class="container-fluid culture-wrapper activity-wrapper">
 
@@ -22,7 +22,7 @@
       {# Set Up #}
       <div class="row row-flex">
         <div class="col-md-8 col-sm-8 col-xs-8 col-md-offset-2 col-xs-offset-2">
-          <h2>Set Up</h2>
+          <h2>{{ _("Set Up") }}</h2>
           <p>{{ _("This activity will take 30 to 45 minutes. You should have these materials on hand:") }}</p>
           <ul>
             <li>{{ _("A projector to show these videos")}}</li>
@@ -40,7 +40,7 @@
       <div class="row row-flex">
         <div class="num odd red">1</div>      
         <div class="col-md-8 col-sm-8 col-xs-8 col-md-offset-2 col-sm-offset-2 col-xs-offset-2">
-          <h2>Kick-Off The Activity</h2>
+          <h2>{{ _("Kick-Off The Activity") }}</h2>
           <p>{{ _("It is hard to go from data to story.  This activity lets you quickly do that by analyzing datasets to find patterns in text, and then sketching out some story you find.  It introduces basic terminology for quantitative text analysis, helps you get acquainted with <a href='https://wordcounter.databasic.io/'>Databasic.io's WordCounter tool</a>a>, and prompts you to consider places in your organization where you work with text as data.  Participants will pair up with colleagues to search for stories in some fun sample data and then draw a sketch to share that story. Start the activity by playing the kickoff video below for your group.") }}</p>
           <p>Introduce the activity and then give folks about 15 minutes to sketch.  With 10 minutes left let them know that they should have chosen a dataset to work with. When they have 5 minutes left make sure they have a story and are sketching on paper, otherwise they'll be scrambling to get a drawing done.</p>
         </div>
@@ -53,7 +53,7 @@
       <div class="row row-flex">
         <div class="num even red">2</div>
         <div class="col-md-8 col-sm-8 col-xs-8 col-md-offset-2 col-sm-offset-2 col-xs-offset-2">
-          <h2>Have Everyone Share Back</h2>
+          <h2>{{ _("Have Everyone Share Back") }}</h2>
           <p>{{ _("Play this video after each small group has sketched their story on a large sheet of paper. Here we outline some questions to discuss as each group describes the story that they found. For example, you'll want to take note of stories based on comparing two things versus those those based on a single, interesting data point. And you can start a conversation about how groups used visual parameters – like color, size and position – to communicate their story.") }}</p>
         </div>
         <div class="col-md-8 col-sm-8 col-xs-8 col-md-offset-2 col-sm-offset-2 col-xs-offset-2">

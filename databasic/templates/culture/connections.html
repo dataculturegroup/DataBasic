@@ -4,7 +4,7 @@
 
 {% block title %}{{ _("Build and Analyze a Network")}}{% endblock %}
 
-{% block body %}
+{% block culture_body %}
 
 <div role="main" class="container-fluid culture-wrapper activity-wrapper">
 
@@ -22,7 +22,7 @@
       {# Set Up #}
       <div class="row row-flex">
         <div class="col-md-8 col-sm-8 col-xs-8 col-md-offset-2 col-xs-offset-2">
-          <h2>Set Up</h2>
+          <h2>{{ _("Set Up") }}</h2>
           <p>{{ _("This activity will take 30 to 45 minutes. You should have these materials on hand:") }}</p>
           <ul>
             <li>{{ _("A basic Internet connection")}}</li>
@@ -38,7 +38,7 @@
       <div class="row row-flex">
         <div class="num odd orange">1</div>      
         <div class="col-md-8 col-sm-8 col-xs-8 col-md-offset-2 col-sm-offset-2 col-xs-offset-2">
-          <h2>Kick-Off The Activity</h2>
+          <h2>{{ _("Kick-Off The Activity") }}</h2>
           <p>{{ _("Network graphs are very trendy right now, but few know how to read them, nor why they they might be useful. In this activity you'll create a dataset about local restaurants people recommend, build a network graph out of that data, and then think about questions you can ask it. You will use <a href='https://connectthedots.databasic.io/'>Databasic.io's Connect the Dots tool</a> to do this.
           </p>
           <p>Participants will understand build familiarity with some standard terms and approaches to working with network graphs. Begin by sharing some inspirational examples, then fill in a spreadsheet together of restaurants and who recommends them.  This should have two columns - 'Person' and 'Restaurant'. Then paste this data into Connect the Dots to analyze it. Share the URL and have people poke at it, or other sample data, to look for insights and prompt questions.") }}</p>
@@ -52,7 +52,7 @@
       <div class="row row-flex">
         <div class="num even orange">2</div>
         <div class="col-md-8 col-sm-8 col-xs-8 col-md-offset-2 col-sm-offset-2 col-xs-offset-2">
-          <h2>Have Everyone Share Back</h2>
+          <h2>{{ _("Have Everyone Share Back") }}</h2>
           <p>{{ _("After 10 minutes bring everyone back together to share any insights they found.  Were there any obvious benefits they ran into by analyzing this data as a network (instead of a table)? Were there any questions that here harder to dig into? Were any of the algorithms mentioned useful?") }}</p>
         </div>
       </div>
