@@ -748,28 +748,29 @@ msgstr ""
 #: databasic/templates/culture/convince.html:5
 #: databasic/templates/culture/convince.html:17
 msgid "Convince Me"
-msgstr ""
+msgstr "Me Convença"
 
 #: databasic/templates/culture/convince.html:18
 msgid ""
 "Practice making data-driven arguments that they to get difference "
 "audiences to change their behavior"
-msgstr ""
+msgstr "Pratique a elaboração de argumentos baseados em dados para que eles consigam conduzir o público para uma mudança de comportamento"
 
 #: databasic/templates/culture/convince.html:28
 msgid ""
 "Printouts of the <a href=\"https://www.good.is/infographics/transparency-"
 "how-much-water-do-you-use\">Walk this Way infographic from Good "
 "Magazine</a>"
-msgstr ""
+msgstr "Impressões do folheto <a href=\"https://www.good.is/infographics/transparency-"
+"how-much-water-do-you-use\">Walk this Way</a> da Good Magazine"
 
 #: databasic/templates/culture/convince.html:29
 msgid "A room with space at the front"
-msgstr ""
+msgstr "Uma sala com espaço na frente"
 
 #: databasic/templates/culture/convince.html:30
 msgid "At least 10 people"
-msgstr ""
+msgstr "Pelo menos 10 pessoas"
 
 #: databasic/templates/culture/convince.html:31
 msgid ""
@@ -788,6 +789,7 @@ msgid ""
 "them to take action. Start the activity by playing the kickoff video "
 "below for your group."
 msgstr ""
+"Nesta atividade você trabalhará na prática usando dados para fazer argumentos que convençam pessoas diferentes. Você aprenderá como usar dados para adaptar um argumento para um público específico. Analisaremos uma amostra sobre um problema, identificaremos as partes interessadas que tentam influenciar a história que se conta e tentaremos criar argumentos que os convençam a agir. Inicie a atividade passando o vídeo inicial abaixo para o seu grupo."
 
 #: databasic/templates/culture/convince.html:56
 msgid ""
@@ -800,6 +802,7 @@ msgid ""
 "arguments to start a conversation about how to use data in appropriate "
 "ways to convince people."
 msgstr ""
+"Passe este vídeo depois de criar os argumentos para convencer seus interessados ​​voluntários a seguir em frente. Peça a diferentes pessoas para explicar por que eles usaram os argumentos que eles fizeram, e pergunte às partes interessadas por que algo os convenceu ou não. Destaque semelhanças nos argumentos feitos pelas pessoas, ou argumentos que funcionaram para uma audiência, mas não para outra. Destaque usos particularmente fortes de dados em apoio aos argumentos para iniciar uma conversa sobre como usar os dados de maneira apropriada para convencer as pessoas."
 
 #: databasic/templates/culture/convince.html:68
 msgid ""
@@ -808,6 +811,7 @@ msgid ""
 "main audiences your organization tries to convince? What are some "
 "pitfalls to be aware of when crafting arguments for specific audiences?"
 msgstr ""
+"Agora que você praticou isso com alguns dados de exemplo, esse vídeo irá ajudá-lo a pensar sobre onde ir adiante. Por exemplo, quais são alguns dos principais públicos que sua organização tenta convencer? Quais são algumas armadilhas para se conscientizar ao elaborar argumentos para públicos específicos?"
 
 #: databasic/templates/culture/culture.html:18
 msgid ""
