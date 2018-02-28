@@ -1066,37 +1066,37 @@ msgstr ""
 
 #: databasic/templates/culture/sculpture.html:18
 msgid "Use physical craft materials to tell a data story in 3D"
-msgstr ""
+msgstr "Use materiais físicos de artesanato para contar uma história de dados em 3D"
 
 #: databasic/templates/culture/sculpture.html:25
 msgid ""
 "This activity will take 20 to 30 minutes. You should have these materials"
 " on hand:"
-msgstr ""
+msgstr "Esta atividade levará cerca de 20 a 30 minutos. Você deve ter os seguintes materiais à mão"
 
 #: databasic/templates/culture/sculpture.html:27
 msgid ""
 "Local craft materials (plastic bottle tops, wire, fuzzy balls, colored "
 "paper, wood blocks, construction paper)"
-msgstr ""
+msgstr "Materiais para fazer artesanato (garrafas de plástico, fios, bolas, papel colorido, blocos de madeira, papel)"
 
 #: databasic/templates/culture/sculpture.html:28
 msgid "Tape, glue, scissors"
-msgstr ""
+msgstr "Fita, cola, tesoura"
 
 #: databasic/templates/culture/sculpture.html:29
 msgid ""
 "DO NOT include pens, crayons, or anything else to write with (otherwise "
 "people just draw instead of building)"
-msgstr ""
+msgstr "NÃO inclua canetas, lápis de cor ou qualquer outra coisa para escrever (senão as pessoas simplesmente desenham, ao invés de construir)"
 
 #: databasic/templates/culture/sculpture.html:30
 msgid "DO NOT include LEGO bricks (otherwise people just build bar charts)"
-msgstr ""
+msgstr "NÃO inclua peças de LEGO (caso contrário, as pessoas apenas criam gráficos de barras)"
 
 #: databasic/templates/culture/sculpture.html:38
 msgid "Background"
-msgstr ""
+msgstr "Contexto"
 
 #: databasic/templates/culture/sculpture.html:39
 msgid ""
@@ -1111,6 +1111,8 @@ msgid ""
 "of a workshop can break down power dynamics that might exist within the "
 "group."
 msgstr ""
+"A idéia de brincar com os dados é nova para a maioria das pessoas. Esta atividade permite que as pessoas construam rapidamente esculturas que contam uma história de dados simples com materiais de artesanato. A abordagem divertida com os dados ajuda os participantes a pensar sobre como as histórias podem ser encontradas e apresentadas rapidamente, e as ajuda a sentir mais liberdade e flexibilidade sobre as apresentações. Isso promove uma noção de 'apresentação' em vez de 'visualização'. A atividade também promove a capacidade de traduzir palavras e números em formas estruturais. Além disso, usar esses materiais logo no início de um worshop pode provocar dinâmicas poderosas que possam existir dentro do grupo.
+"
 
 #: databasic/templates/culture/sculpture.html:45
 msgid ""
@@ -1120,10 +1122,11 @@ msgid ""
 "<a href='http://www.placeit.org/bio.html'>participatory urban planning "
 "work of James Rojas</a>."
 msgstr ""
+"Esta atividade baseia-se no estilo de pedagogia e workshop do <a href='https://llk.media.mit.edu'>Grupo Lifelong Kindergarten do MIT Media Lab<a> (onde Rahul obteve seu mestrado). Também possui influências do <a href='http://www.placeit.org/bio.html'>trabalho participativo de planejamento urbano de James Rojas</a>."
 
 #: databasic/templates/culture/sculpture.html:52
 msgid "Kick off the Activity"
-msgstr ""
+msgstr "Início da Atividade"
 
 #: databasic/templates/culture/sculpture.html:53
 msgid ""
@@ -1134,18 +1137,19 @@ msgid ""
 "details. We suggest using more generic or high-level data.  Here are a "
 "few handouts you are welcome to download, print, and use:"
 msgstr ""
+"Apresente o grupo a dois gráficos de dados 'normais'. Um pode ser um fato único, e o outro um conjunto de informações de tamanho médio. Se você fizer o seu próprio gráfico, certifique-se de evitar o uso de dados que o público conheça bem - entendemos que isso leva as pessoas a se perderem nas nuances e detalhes pessoais. Sugerimos usar dados mais genéricos. Aqui estão alguns folhetos que você poderá baixar, imprimir e usar:"
 
 #: databasic/templates/culture/sculpture.html:55
 msgid "US Ice Cream Consumption"
-msgstr ""
+msgstr "Consumo de Sorvete nos EUA"
 
 #: databasic/templates/culture/sculpture.html:56
 msgid "Happiness in the Town of Somerville, MA, USA"
-msgstr ""
+msgstr "Felicidade na cidade de Somerville, MA, EUA"
 
 #: databasic/templates/culture/sculpture.html:57
 msgid "The Cost of an MIT Education"
-msgstr ""
+msgstr "O custo de uma educação do MIT"
 
 #: databasic/templates/culture/sculpture.html:59
 msgid ""
@@ -1157,6 +1161,8 @@ msgid ""
 "juices flowing. Remind them they are creative, and that pipe cleaner bar "
 "charts are NOT allowed!"
 msgstr ""
+"Peça ao grupo para trabalharem em duplas, de preferência com alguém que não conheçam. Mostre aos participantes uma grande mesa central cheia dos materiais que você reuniu. Dê-lhes 6 minutos para construir rapidamente uma representação física dos dados que você apresentou anteriormente. Não lhes dê muito tempo, caso contrário, eles ficarão presos em detalhes ao invés de apenas deixarem a criatividade fluir. Lembre-os de serem criativos, e de que gráficos de barras de limpeza de canos NÃO são permitidos! Depois de 3 minutos, diga-lhes que deveriam estar construindo já; esta é uma 'atividade de pensar com as mãos'. Quando faltar um minuto para a conclusão, avise-os.
+"
 
 #: databasic/templates/culture/sculpture.html:70
 msgid ""
@@ -1170,6 +1176,7 @@ msgid ""
 "techniques are! Try to identify patterns in how the numbers were mapped "
 "onto physical objects."
 msgstr ""
+"Peça que todos parem quando chegar a hora. Dê a cada grupo 1 minuto para compartilhar o que eles fizeram. Você pode resumir, apontando semelhanças e diferenças nas peças feitas pelas pessoas. Muitas vezes você verá algumas pessoas concentrando-se em um ponto de dados, enquanto outros olham para uma imagem mais ampla. Com os dados de felicidade, algumas pessoas tentam se fundir em dois conjuntos de dados, enquanto outros apenas se concentram em um. Destaque quaisquer versões físicas das tabelas tradicionais para apontar quão arraigadas as nossas atuais técnicas de apresentação visual são! Tente identificar padrões de como os números foram mapeados em objetos físicos."
 
 #: databasic/templates/culture/sketch.html:18
 msgid ""
