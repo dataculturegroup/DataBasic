@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2018-02-28 16:26-0500\n"
+"POT-Creation-Date: 2018-02-28 16:36-0500\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -597,18 +597,24 @@ msgstr ""
 msgid "A phone, tablet, or computer for each small group of 3 people"
 msgstr ""
 
-#: databasic/templates/culture/connections.html:31
+#: databasic/templates/culture/connections.html:30
 msgid "A projector connected to a computer"
 msgstr ""
 
-#: databasic/templates/culture/connections.html:41
+#: databasic/templates/culture/connections.html:32
+#: databasic/templates/culture/questions.html:35
+#: databasic/templates/culture/sketch.html:35
+msgid "Download and print the activity guide"
+msgstr ""
+
+#: databasic/templates/culture/connections.html:40
 #: databasic/templates/culture/convince.html:40
-#: databasic/templates/culture/questions.html:44
+#: databasic/templates/culture/questions.html:43
 #: databasic/templates/culture/sketch.html:43
 msgid "Kick-Off The Activity"
 msgstr ""
 
-#: databasic/templates/culture/connections.html:42
+#: databasic/templates/culture/connections.html:41
 msgid ""
 "Network graphs are very trendy right now, but few know how to read them, "
 "nor why they they might be useful. In this activity you'll create a "
@@ -618,7 +624,7 @@ msgid ""
 "Connect the Dots tool</a> to do this."
 msgstr ""
 
-#: databasic/templates/culture/connections.html:43
+#: databasic/templates/culture/connections.html:42
 msgid ""
 "Participants will understand build familiarity with some standard terms "
 "and approaches to working with network graphs. Begin by sharing some "
@@ -629,15 +635,15 @@ msgid ""
 "data, to look for insights and prompt questions."
 msgstr ""
 
-#: databasic/templates/culture/connections.html:54
+#: databasic/templates/culture/connections.html:53
 #: databasic/templates/culture/convince.html:55
-#: databasic/templates/culture/questions.html:58
+#: databasic/templates/culture/questions.html:57
 #: databasic/templates/culture/sculpture.html:69
 #: databasic/templates/culture/sketch.html:56
 msgid "Have Everyone Share Back"
 msgstr ""
 
-#: databasic/templates/culture/connections.html:55
+#: databasic/templates/culture/connections.html:54
 msgid ""
 "After 10 minutes bring everyone back together to share any insights they "
 "found.  Were there any obvious benefits they ran into by analyzing this "
@@ -645,14 +651,14 @@ msgid ""
 "here harder to dig into? Were any of the algorithms mentioned useful?"
 msgstr ""
 
-#: databasic/templates/culture/connections.html:63
+#: databasic/templates/culture/connections.html:62
 #: databasic/templates/culture/convince.html:67
-#: databasic/templates/culture/questions.html:70
+#: databasic/templates/culture/questions.html:69
 #: databasic/templates/culture/sketch.html:68
 msgid "Wrap-Up and Talk Next Steps"
 msgstr ""
 
-#: databasic/templates/culture/connections.html:64
+#: databasic/templates/culture/connections.html:63
 msgid ""
 "Now that you've done some basic network graph analysis, help the "
 "participants think about any network data your organization has on hand."
@@ -956,24 +962,24 @@ msgid ""
 "            group of 3 people"
 msgstr ""
 
-#: databasic/templates/culture/questions.html:32
+#: databasic/templates/culture/questions.html:31
 msgid ""
 "1 printed copy of the <a href='https://databasic.io/en/wtfcsv/wtfcsv-"
 "activity-guide.pdf'>WTFcsv handout</a> per group"
 msgstr ""
 
-#: databasic/templates/culture/questions.html:33
+#: databasic/templates/culture/questions.html:32
 msgid "Paper &amp; pens"
 msgstr ""
 
-#: databasic/templates/culture/questions.html:34
+#: databasic/templates/culture/questions.html:33
 msgid ""
 "Planning to show the videos offline? <a "
 "href=\"https://www.dropbox.com/s/t7mai3ecrcayvei/AskingGoodQuestionsAllThreeFacilitationVideos.zip?dl=0\">Click"
 " here</a> to download them in advance."
 msgstr ""
 
-#: databasic/templates/culture/questions.html:45
+#: databasic/templates/culture/questions.html:44
 msgid ""
 "Increasingly, data arrives on our doorstep in the form of a spreadsheet. "
 "Somebody sends you an excel file or you download something from the web. "
@@ -986,7 +992,7 @@ msgid ""
 "the question you ask when someone sends you an inscrutable csv file."
 msgstr ""
 
-#: databasic/templates/culture/questions.html:47
+#: databasic/templates/culture/questions.html:46
 msgid ""
 "In this activity participants will brainstorm questions to ask sample "
 "datasets based on summaries of the columnar data.  Work in groups of 2-3 "
@@ -997,7 +1003,7 @@ msgid ""
 "video below for your group, which explains all this."
 msgstr ""
 
-#: databasic/templates/culture/questions.html:59
+#: databasic/templates/culture/questions.html:58
 msgid ""
 "Play this video after each small group has written their questions on the"
 " WTFcsv handout. Here we outline some things to discuss as each group "
@@ -1010,7 +1016,7 @@ msgid ""
 "they need to answer their questions? Who collects that data?"
 msgstr ""
 
-#: databasic/templates/culture/questions.html:71
+#: databasic/templates/culture/questions.html:70
 msgid ""
 "Now that you've done some basic spreadsheet analysis, this video will "
 "help you think about where to go from here. For example, what information"

@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2018-02-28 16:26-0500\n"
+"POT-Creation-Date: 2018-02-28 16:36-0500\n"
 "PO-Revision-Date: 2016-12-29 12:33-0200\n"
 "Last-Translator: \n"
 "Language: pt\n"
@@ -652,18 +652,24 @@ msgstr "Uma conexão básica à Internet"
 msgid "A phone, tablet, or computer for each small group of 3 people"
 msgstr "Um telefone, tablet ou computador para cada grupo pequeno de 3 pessoas"
 
-#: databasic/templates/culture/connections.html:31
+#: databasic/templates/culture/connections.html:30
 msgid "A projector connected to a computer"
 msgstr "Um projetor conectado a um computador"
 
-#: databasic/templates/culture/connections.html:41
+#: databasic/templates/culture/connections.html:32
+#: databasic/templates/culture/questions.html:35
+#: databasic/templates/culture/sketch.html:35
+msgid "Download and print the activity guide"
+msgstr "Baixe e imprima o guia de atividades"
+
+#: databasic/templates/culture/connections.html:40
 #: databasic/templates/culture/convince.html:40
-#: databasic/templates/culture/questions.html:44
+#: databasic/templates/culture/questions.html:43
 #: databasic/templates/culture/sketch.html:43
 msgid "Kick-Off The Activity"
 msgstr "Início da Atividade"
 
-#: databasic/templates/culture/connections.html:42
+#: databasic/templates/culture/connections.html:41
 msgid ""
 "Network graphs are very trendy right now, but few know how to read them, "
 "nor why they they might be useful. In this activity you'll create a "
@@ -680,7 +686,7 @@ msgstr ""
 "href='https://connectthedots.databasic.io/'>Databasic.io Connect the "
 "Dots</a> para fazer isso."
 
-#: databasic/templates/culture/connections.html:43
+#: databasic/templates/culture/connections.html:42
 msgid ""
 "Participants will understand build familiarity with some standard terms "
 "and approaches to working with network graphs. Begin by sharing some "
@@ -699,15 +705,15 @@ msgstr ""
 "mesmo outros exemplos de dados, para que busquem ideias e façam perguntas"
 " rápidas."
 
-#: databasic/templates/culture/connections.html:54
+#: databasic/templates/culture/connections.html:53
 #: databasic/templates/culture/convince.html:55
-#: databasic/templates/culture/questions.html:58
+#: databasic/templates/culture/questions.html:57
 #: databasic/templates/culture/sculpture.html:69
 #: databasic/templates/culture/sketch.html:56
 msgid "Have Everyone Share Back"
 msgstr "Faça com que Todos Compartilhem"
 
-#: databasic/templates/culture/connections.html:55
+#: databasic/templates/culture/connections.html:54
 msgid ""
 "After 10 minutes bring everyone back together to share any insights they "
 "found.  Were there any obvious benefits they ran into by analyzing this "
@@ -720,14 +726,14 @@ msgstr ""
 "dúvida que aqui fosse mais difícil de encontrar? Algum dos algoritmos "
 "mencionados foi útil?"
 
-#: databasic/templates/culture/connections.html:63
+#: databasic/templates/culture/connections.html:62
 #: databasic/templates/culture/convince.html:67
-#: databasic/templates/culture/questions.html:70
+#: databasic/templates/culture/questions.html:69
 #: databasic/templates/culture/sketch.html:68
 msgid "Wrap-Up and Talk Next Steps"
 msgstr "Faça com que Todos Compartilhem"
 
-#: databasic/templates/culture/connections.html:64
+#: databasic/templates/culture/connections.html:63
 msgid ""
 "Now that you've done some basic network graph analysis, help the "
 "participants think about any network data your organization has on hand."
@@ -1128,7 +1134,7 @@ msgid ""
 "            group of 3 people"
 msgstr "Um telefone, tablet ou computador para cada grupo pequeno de 3 pessoas"
 
-#: databasic/templates/culture/questions.html:32
+#: databasic/templates/culture/questions.html:31
 msgid ""
 "1 printed copy of the <a href='https://databasic.io/en/wtfcsv/wtfcsv-"
 "activity-guide.pdf'>WTFcsv handout</a> per group"
@@ -1136,18 +1142,18 @@ msgstr ""
 "1 cópia impressa do <a href='https://databasic.io/pt/wtfcsv/wtfcsv-"
 "activity-guide.pdf'>folheto WTFcsv</a> por grupo"
 
-#: databasic/templates/culture/questions.html:33
+#: databasic/templates/culture/questions.html:32
 msgid "Paper &amp; pens"
 msgstr "Papel e canetas"
 
-#: databasic/templates/culture/questions.html:34
+#: databasic/templates/culture/questions.html:33
 msgid ""
 "Planning to show the videos offline? <a "
 "href=\"https://www.dropbox.com/s/t7mai3ecrcayvei/AskingGoodQuestionsAllThreeFacilitationVideos.zip?dl=0\">Click"
 " here</a> to download them in advance."
 msgstr ""
 
-#: databasic/templates/culture/questions.html:45
+#: databasic/templates/culture/questions.html:44
 msgid ""
 "Increasingly, data arrives on our doorstep in the form of a spreadsheet. "
 "Somebody sends you an excel file or you download something from the web. "
@@ -1169,7 +1175,7 @@ msgstr ""
 "planilha comum na web. WTF significa ...bem...aquela pergunta que você "
 "faz sempre que alguém lhe envia um arquivo csv indecifrável."
 
-#: databasic/templates/culture/questions.html:47
+#: databasic/templates/culture/questions.html:46
 msgid ""
 "In this activity participants will brainstorm questions to ask sample "
 "datasets based on summaries of the columnar data.  Work in groups of 2-3 "
@@ -1188,7 +1194,7 @@ msgstr ""
 "atividade por passar o vídeo inicial abaixo para o seu grupo, onde se "
 "explicará tudo isso."
 
-#: databasic/templates/culture/questions.html:59
+#: databasic/templates/culture/questions.html:58
 msgid ""
 "Play this video after each small group has written their questions on the"
 " WTFcsv handout. Here we outline some things to discuss as each group "
@@ -1211,7 +1217,7 @@ msgstr ""
 "frente para respondê-los. Que outros dados eles precisariam para "
 "responder suas perguntas? Quem coleta esses dados?"
 
-#: databasic/templates/culture/questions.html:71
+#: databasic/templates/culture/questions.html:70
 msgid ""
 "Now that you've done some basic spreadsheet analysis, this video will "
 "help you think about where to go from here. For example, what information"
@@ -1402,7 +1408,9 @@ msgstr ""
 msgid ""
 "Use WordCounter to analyze a musician’s lyrics and sketch a story with "
 "their words"
-msgstr "Use o WordCounter para analisar as letras de um músico e preparar uma história com suas palavras"
+msgstr ""
+"Use o WordCounter para analisar as letras de um músico e preparar uma "
+"história com suas palavras"
 
 #: databasic/templates/culture/sketch.html:28
 msgid "A projector to show these videos"
@@ -1410,7 +1418,9 @@ msgstr "Um projetor para mostrar esses vídeos"
 
 #: databasic/templates/culture/sketch.html:29
 msgid "Large pieces of paper to draw on (2 feet by 3 feet is best)"
-msgstr "Grandes pedaços de papel para desenhar (60 cm por 1 metro é o recomendável)"
+msgstr ""
+"Grandes pedaços de papel para desenhar (60 cm por 1 metro é o "
+"recomendável)"
 
 #: databasic/templates/culture/sketch.html:30
 msgid "Thick crayons or markers of different colors"
@@ -1420,7 +1430,9 @@ msgstr "Marcadores ou pincéis grossos de cores diferentes"
 msgid ""
 "A phone, tablet, or computer connected to the internet for each small \n"
 "            group of 3 people"
-msgstr "Um telefone, um tablet ou um computador conectado à Internet para cada pequeno grupo de 3 pessoas"
+msgstr ""
+"Um telefone, um tablet ou um computador conectado à Internet para cada "
+"pequeno grupo de 3 pessoas"
 
 #: databasic/templates/culture/sketch.html:33
 msgid ""
@@ -1442,7 +1454,16 @@ msgid ""
 "share that story. Start the activity by playing the kickoff video below "
 "for your group."
 msgstr ""
-"É difícil transformar os dados em histórias. Esta atividade permite que você faça isso rapidamente ao analisar conjuntos de dados para encontrar padrões no texto e, em seguida, desenhar uma história que você encontrar. Ela apresenta a terminologia básica para análise de texto quantitativo, ajuda você a se familiarizar com a ferramenta WordCounter do Databasic.io e orienta que você considere lugares em sua organização onde você trabalha com texto como dados. Os participantes se juntarão com colegas para procurar histórias em alguns dados de amostra e, em seguida, desenharão um esboço para compartilhar essa história. Inicie a atividade passando o vídeo inicial abaixo para o seu grupo."
+"É difícil transformar os dados em histórias. Esta atividade permite que "
+"você faça isso rapidamente ao analisar conjuntos de dados para encontrar "
+"padrões no texto e, em seguida, desenhar uma história que você encontrar."
+" Ela apresenta a terminologia básica para análise de texto quantitativo, "
+"ajuda você a se familiarizar com a ferramenta WordCounter do Databasic.io"
+" e orienta que você considere lugares em sua organização onde você "
+"trabalha com texto como dados. Os participantes se juntarão com colegas "
+"para procurar histórias em alguns dados de amostra e, em seguida, "
+"desenharão um esboço para compartilhar essa história. Inicie a atividade "
+"passando o vídeo inicial abaixo para o seu grupo."
 
 #: databasic/templates/culture/sketch.html:45
 msgid ""
@@ -1452,7 +1473,12 @@ msgid ""
 "and are sketching on paper, otherwise they'll be scrambling to get a "
 "drawing done."
 msgstr ""
-"Apresente a atividade e, em seguida, dê às pessoas cerca de 15 minutos para fazer o esboço. Com 10 minutos de antecedência, os avise que eles já deveriam ter escolhido um conjunto de dados para trabalhar. Quando eles tiverem 5 minutos faltantes, certifique-se de que eles já têm uma história e que a estejam esboçando no papel, caso contrário, eles estarão desperdiçando esforço para fazer um desenho."
+"Apresente a atividade e, em seguida, dê às pessoas cerca de 15 minutos "
+"para fazer o esboço. Com 10 minutos de antecedência, os avise que eles já"
+" deveriam ter escolhido um conjunto de dados para trabalhar. Quando eles "
+"tiverem 5 minutos faltantes, certifique-se de que eles já têm uma "
+"história e que a estejam esboçando no papel, caso contrário, eles estarão"
+" desperdiçando esforço para fazer um desenho."
 
 #: databasic/templates/culture/sketch.html:57
 msgid ""
@@ -1464,7 +1490,14 @@ msgid ""
 "conversation about how groups used visual parameters – like color, size "
 "and position – to communicate their story."
 msgstr ""
-"Passe este vídeo depois que cada grupo pequeno esboçou sua história em uma grande folha de papel. Aqui descreveremos algumas questões para discussão, conforme cada grupo descrever a história que eles encontraram. Por exemplo, você desejará destacar histórias com base em comparação de duas coisas versus aquelas baseadas em um único ponto de dados de interesse. E você pode iniciar uma conversa sobre como os grupos usaram parâmetros visuais - como cor, tamanho e posição - para passar sua história."
+"Passe este vídeo depois que cada grupo pequeno esboçou sua história em "
+"uma grande folha de papel. Aqui descreveremos algumas questões para "
+"discussão, conforme cada grupo descrever a história que eles encontraram."
+" Por exemplo, você desejará destacar histórias com base em comparação de "
+"duas coisas versus aquelas baseadas em um único ponto de dados de "
+"interesse. E você pode iniciar uma conversa sobre como os grupos usaram "
+"parâmetros visuais - como cor, tamanho e posição - para passar sua "
+"história."
 
 #: databasic/templates/culture/sketch.html:69
 msgid ""
@@ -1474,7 +1507,12 @@ msgid ""
 "discuss some more sophisticated methods of quantitative text analysis as "
 "well as point out some common pitfalls to try to avoid."
 msgstr ""
-"Agora que todos analisaram o texto e desenharam uma história, esse vídeo ajudará as pessoas a pensar sobre onde ir daqui à frente. Por exemplo, quais são alguns conjuntos de dados de texto que a sua organização já possui? Discutiremos alguns métodos mais sofisticados de análise quantitativa de texto, além de apontar algumas armadilhas comuns para se evitar."
+"Agora que todos analisaram o texto e desenharam uma história, esse vídeo "
+"ajudará as pessoas a pensar sobre onde ir daqui à frente. Por exemplo, "
+"quais são alguns conjuntos de dados de texto que a sua organização já "
+"possui? Discutiremos alguns métodos mais sofisticados de análise "
+"quantitativa de texto, além de apontar algumas armadilhas comuns para se "
+"evitar."
 
 #: databasic/templates/home/index.html:16
 #: databasic/templates/wordcounter/wordcounter.html:22
