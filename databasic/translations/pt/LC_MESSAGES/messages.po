@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2018-02-28 16:13-0500\n"
+"POT-Creation-Date: 2018-02-28 16:16-0500\n"
 "PO-Revision-Date: 2016-12-29 12:33-0200\n"
 "Last-Translator: \n"
 "Language: pt\n"
@@ -616,11 +616,11 @@ msgstr ""
 #: databasic/templates/culture/connections.html:5
 #: databasic/templates/culture/connections.html:17
 msgid "Build and Analyze a Network"
-msgstr ""
+msgstr "Construa e Analise uma Rede"
 
 #: databasic/templates/culture/connections.html:18
 msgid "Learn how to ask different types of questions based on a network of data"
-msgstr ""
+msgstr "Saiba como fazer diferentes tipos de perguntas com base em uma rede de dados"
 
 #: databasic/templates/culture/connections.html:25
 #: databasic/templates/culture/convince.html:25
@@ -652,14 +652,14 @@ msgstr "Um telefone, tablet ou computador para cada grupo pequeno de 3 pessoas"
 
 #: databasic/templates/culture/connections.html:31
 msgid "A projector connected to a computer"
-msgstr ""
+msgstr "Um projetor conectado a um computador"
 
 #: databasic/templates/culture/connections.html:41
 #: databasic/templates/culture/convince.html:40
 #: databasic/templates/culture/questions.html:44
 #: databasic/templates/culture/sketch.html:43
 msgid "Kick-Off The Activity"
-msgstr ""
+msgstr "Início da Atividade"
 
 #: databasic/templates/culture/connections.html:42
 msgid ""
@@ -668,18 +668,23 @@ msgid ""
 "dataset about local restaurants people recommend, build a network graph "
 "out of that data, and then think about questions you can ask it. You will"
 " use <a href='https://connectthedots.databasic.io/'>Databasic.io's "
-"Connect the Dots tool</a> to do this.\n"
-"          </p>\n"
-"          <p>Participants will understand build familiarity with some "
-"standard terms and approaches to working with network graphs. Begin by "
-"sharing some inspirational examples, then fill in a spreadsheet together "
-"of restaurants and who recommends them.  This should have two columns - "
+"Connect the Dots tool</a> to do this."
+msgstr ""
+"Gráficos de rede são muito usados no momento, mas poucos sabem como lê-los, ou mesmo sabem por que eles podem ser úteis. Nesta atividade, você criará um conjunto de dados sobre restaurantes locais que as pessoas recomendam, criará um gráfico de rede fora desses dados e depois pensará em perguntas que você pode fazer. Você usará a ferramenta <a href='https://connectthedots.databasic.io/'>Databasic.io Connect the Dots</a> para fazer isso."
+
+#: databasic/templates/culture/connections.html:43
+msgid ""
+"Participants will understand build familiarity with some standard terms "
+"and approaches to working with network graphs. Begin by sharing some "
+"inspirational examples, then fill in a spreadsheet together of "
+"restaurants and who recommends them.  This should have two columns - "
 "'Person' and 'Restaurant'. Then paste this data into Connect the Dots to "
 "analyze it. Share the URL and have people poke at it, or other sample "
 "data, to look for insights and prompt questions."
 msgstr ""
+"Os participantes aprenderão como se familiarizar com alguns termos e abordagens padrão para trabalhar com gráficos de rede. Comece compartilhando alguns exemplos inspiradores, então preencha uma planilha de restaurantes e de quem os recomendou. Isso deve ser em duas colunas - 'Pessoa' e 'Restaurante'. Em seguida, coloque esses dados em Connect the Dots para analisá-lo. Compartilhe o URL e peça que o grupo o acesse, ou mesmo outros exemplos de dados, para que busquem ideias e façam perguntas rápidas."
 
-#: databasic/templates/culture/connections.html:55
+#: databasic/templates/culture/connections.html:54
 #: databasic/templates/culture/convince.html:55
 #: databasic/templates/culture/questions.html:58
 #: databasic/templates/culture/sculpture.html:69
@@ -687,28 +692,30 @@ msgstr ""
 msgid "Have Everyone Share Back"
 msgstr "Faça com que Todos Compartilhem"
 
-#: databasic/templates/culture/connections.html:56
+#: databasic/templates/culture/connections.html:55
 msgid ""
 "After 10 minutes bring everyone back together to share any insights they "
 "found.  Were there any obvious benefits they ran into by analyzing this "
 "data as a network (instead of a table)? Were there any questions that "
 "here harder to dig into? Were any of the algorithms mentioned useful?"
 msgstr ""
+"Depois de 10 minutos, junte todos para que compartilhem as informações que eles encontraram. Houve algum benefício óbvio que eles encontraram ao analisar esses dados como uma rede (em vez de uma tabela)? Houve alguma dúvida que aqui fosse mais difícil de encontrar? Algum dos algoritmos mencionados foi útil?"
 
-#: databasic/templates/culture/connections.html:64
+#: databasic/templates/culture/connections.html:63
 #: databasic/templates/culture/convince.html:67
 #: databasic/templates/culture/questions.html:70
 #: databasic/templates/culture/sketch.html:68
 msgid "Wrap-Up and Talk Next Steps"
 msgstr "Faça com que Todos Compartilhem"
 
-#: databasic/templates/culture/connections.html:65
+#: databasic/templates/culture/connections.html:64
 msgid ""
 "Now that you've done some basic network graph analysis, help the "
 "participants think about any network data your organization has on hand."
 "  Are there any questions that came up, or ideas, about steps people "
 "should take with your in-house data?"
 msgstr ""
+"Agora que você fez algumas análises básicas de gráficos de rede, ajude os participantes a pensar sobre quaisquer dados de rede que a sua organização tenha em mãos. Há alguma pergunta que surgiu, ou idéias, sobre as etapas que as pessoas devam tomar com seus dados internos?"
 
 #: databasic/templates/culture/convince.html:5
 #: databasic/templates/culture/convince.html:17
@@ -2358,4 +2365,34 @@ msgstr "Outro"
 
 #~ msgid "Your Email"
 #~ msgstr "seu texto"
+
+#~ msgid ""
+#~ "Network graphs are very trendy right "
+#~ "now, but few know how to read "
+#~ "them, nor why they they might be"
+#~ " useful. In this activity you'll "
+#~ "create a dataset about local restaurants"
+#~ " people recommend, build a network "
+#~ "graph out of that data, and then"
+#~ " think about questions you can ask"
+#~ " it. You will use <a "
+#~ "href='https://connectthedots.databasic.io/'>Databasic.io's "
+#~ "Connect the Dots tool</a> to do "
+#~ "this.\n"
+#~ "          </p>\n"
+#~ "          <p>Participants will understand "
+#~ "build familiarity with some standard "
+#~ "terms and approaches to working with "
+#~ "network graphs. Begin by sharing some"
+#~ " inspirational examples, then fill in "
+#~ "a spreadsheet together of restaurants "
+#~ "and who recommends them.  This should"
+#~ " have two columns - 'Person' and "
+#~ "'Restaurant'. Then paste this data into"
+#~ " Connect the Dots to analyze it. "
+#~ "Share the URL and have people poke"
+#~ " at it, or other sample data, "
+#~ "to look for insights and prompt "
+#~ "questions."
+#~ msgstr ""
 
