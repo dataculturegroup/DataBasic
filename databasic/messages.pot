@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2018-02-28 15:44-0500\n"
+"POT-Creation-Date: 2018-02-28 16:13-0500\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -642,6 +642,13 @@ msgid ""
 "here harder to dig into? Were any of the algorithms mentioned useful?"
 msgstr ""
 
+#: databasic/templates/culture/connections.html:64
+#: databasic/templates/culture/convince.html:67
+#: databasic/templates/culture/questions.html:70
+#: databasic/templates/culture/sketch.html:68
+msgid "Wrap-Up and Talk Next Steps"
+msgstr ""
+
 #: databasic/templates/culture/connections.html:65
 msgid ""
 "Now that you've done some basic network graph analysis, help the "
@@ -704,10 +711,6 @@ msgid ""
 "another.  Point out particularly strong uses of data in support of "
 "arguments to start a conversation about how to use data in appropriate "
 "ways to convince people."
-msgstr ""
-
-#: databasic/templates/culture/convince.html:67
-msgid "Wrap-Up and Talk Next Steps"
 msgstr ""
 
 #: databasic/templates/culture/convince.html:68
@@ -977,15 +980,18 @@ msgid ""
 "tool</a>, get acquainted data types, and do some basic spreadsheet "
 "analysis.  '<em>csv</em>' stands for <em>comma separated values</em>, a "
 "common spreadsheet format on the web. <em>WTF</em> stands for... well... "
-"the question you ask when someone sends you an inscrutable csv file.\n"
-"          </p>\n"
-"          <p>In this activity participants will brainstorm questions to "
-"ask sample datasets based on summaries of the columnar data.  Work in "
-"groups of 2-3 colleagues for about 10 minutes with the data. At the end "
-"give them a minute to pick the best question and write it down on the "
-"handout, indicating the question, any other data they might need to "
-"answer it, and how they would get that data. Start the activity by "
-"playing the kickoff video below for your group, which explains all this."
+"the question you ask when someone sends you an inscrutable csv file."
+msgstr ""
+
+#: databasic/templates/culture/questions.html:47
+msgid ""
+"In this activity participants will brainstorm questions to ask sample "
+"datasets based on summaries of the columnar data.  Work in groups of 2-3 "
+"colleagues for about 10 minutes with the data. At the end give them a "
+"minute to pick the best question and write it down on the handout, "
+"indicating the question, any other data they might need to answer it, and"
+" how they would get that data. Start the activity by playing the kickoff "
+"video below for your group, which explains all this."
 msgstr ""
 
 #: databasic/templates/culture/questions.html:59
@@ -1105,6 +1111,12 @@ msgid ""
 "they will get stuck on nuances instead of just getting their creative "
 "juices flowing. Remind them they are creative, and that pipe cleaner bar "
 "charts are NOT allowed!"
+msgstr ""
+
+#: databasic/templates/culture/sculpture.html:60
+msgid ""
+"After 3 minutes tell them they should be building now; this is a 'think "
+"with your hands activity'.  When they have one minute left let them know."
 msgstr ""
 
 #: databasic/templates/culture/sculpture.html:70

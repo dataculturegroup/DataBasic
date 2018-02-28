@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2018-02-28 15:44-0500\n"
+"POT-Creation-Date: 2018-02-28 16:13-0500\n"
 "PO-Revision-Date: 2015-12-21 14:00-0600\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language: es\n"
@@ -631,7 +631,7 @@ msgstr ""
 #: databasic/templates/culture/sculpture.html:24
 #: databasic/templates/culture/sketch.html:25
 msgid "Set Up"
-msgstr ""
+msgstr "Preparación"
 
 #: databasic/templates/culture/connections.html:26
 #: databasic/templates/culture/convince.html:26
@@ -641,15 +641,19 @@ msgid ""
 "This activity will take 30 to 45 minutes. You should have these materials"
 " on hand:"
 msgstr ""
+"Esta actividad tomará de 30 a 45 minutos.  Debe tener a mano estos "
+"materiales:"
 
 #: databasic/templates/culture/connections.html:28
 #: databasic/templates/culture/questions.html:28
 msgid "A basic Internet connection"
-msgstr ""
+msgstr "Una conexión básica a la Internet"
 
 #: databasic/templates/culture/connections.html:29
 msgid "A phone, tablet, or computer for each small group of 3 people"
 msgstr ""
+"Un teléfono, una tableta o computadora para cada pequeño grupo de 3 "
+"personas"
 
 #: databasic/templates/culture/connections.html:31
 msgid "A projector connected to a computer"
@@ -660,7 +664,7 @@ msgstr ""
 #: databasic/templates/culture/questions.html:44
 #: databasic/templates/culture/sketch.html:43
 msgid "Kick-Off The Activity"
-msgstr ""
+msgstr "Inicie la Actividad"
 
 #: databasic/templates/culture/connections.html:42
 msgid ""
@@ -686,7 +690,7 @@ msgstr ""
 #: databasic/templates/culture/sculpture.html:69
 #: databasic/templates/culture/sketch.html:56
 msgid "Have Everyone Share Back"
-msgstr ""
+msgstr "Haga que Todos Compartan"
 
 #: databasic/templates/culture/connections.html:56
 msgid ""
@@ -695,6 +699,13 @@ msgid ""
 "data as a network (instead of a table)? Were there any questions that "
 "here harder to dig into? Were any of the algorithms mentioned useful?"
 msgstr ""
+
+#: databasic/templates/culture/connections.html:64
+#: databasic/templates/culture/convince.html:67
+#: databasic/templates/culture/questions.html:70
+#: databasic/templates/culture/sketch.html:68
+msgid "Wrap-Up and Talk Next Steps"
+msgstr "Conclusión y conversación sobre los pasos siguientes"
 
 #: databasic/templates/culture/connections.html:65
 msgid ""
@@ -758,10 +769,6 @@ msgid ""
 "another.  Point out particularly strong uses of data in support of "
 "arguments to start a conversation about how to use data in appropriate "
 "ways to convince people."
-msgstr ""
-
-#: databasic/templates/culture/convince.html:67
-msgid "Wrap-Up and Talk Next Steps"
 msgstr ""
 
 #: databasic/templates/culture/convince.html:68
@@ -877,11 +884,11 @@ msgstr "Construye una Escultura de Datos"
 #: databasic/templates/culture/culture.html:66
 #: databasic/templates/culture/culture.html:87
 msgid "Ask Good Questions"
-msgstr "Hacer preguntas"
+msgstr "Hacer Buenas Preguntas"
 
 #: databasic/templates/culture/culture.html:70
 msgid "Asking Questions"
-msgstr "Hacer preguntas"
+msgstr "Hacer Preguntas"
 
 #: databasic/templates/culture/culture.html:71
 msgid ""
@@ -1089,27 +1096,31 @@ msgstr ""
 #: databasic/templates/culture/questions.html:5
 #: databasic/templates/culture/questions.html:17
 msgid "Asking Good Questions"
-msgstr ""
+msgstr "Hacer Buenas Preguntas"
 
 #: databasic/templates/culture/questions.html:18
 msgid "Learn how to move from spreadsheet to story with WTFcsv"
-msgstr ""
+msgstr "Aprender cómo pasar de la hoja de cálculo a la historia con WTFcsv"
 
 #: databasic/templates/culture/questions.html:29
 msgid ""
 "A phone, tablet, or computer for each small \n"
 "            group of 3 people"
 msgstr ""
+"Un teléfono, una tableta o computadora para cada pequeño grupo de 3 "
+"personas"
 
 #: databasic/templates/culture/questions.html:32
 msgid ""
 "1 printed copy of the <a href='https://databasic.io/en/wtfcsv/wtfcsv-"
 "activity-guide.pdf'>WTFcsv handout</a> per group"
 msgstr ""
+"1 copia impresa del <a href='https://databasic.io/es/wtfcsv/wtfcsv-"
+"activity-guide.pdf'>folleto de WTFcsv</a> para cada grupo"
 
 #: databasic/templates/culture/questions.html:33
 msgid "Paper &amp; pens"
-msgstr ""
+msgstr "Papel y bolígrafos"
 
 #: databasic/templates/culture/questions.html:34
 msgid ""
@@ -1128,16 +1139,37 @@ msgid ""
 "tool</a>, get acquainted data types, and do some basic spreadsheet "
 "analysis.  '<em>csv</em>' stands for <em>comma separated values</em>, a "
 "common spreadsheet format on the web. <em>WTF</em> stands for... well... "
-"the question you ask when someone sends you an inscrutable csv file.\n"
-"          </p>\n"
-"          <p>In this activity participants will brainstorm questions to "
-"ask sample datasets based on summaries of the columnar data.  Work in "
-"groups of 2-3 colleagues for about 10 minutes with the data. At the end "
-"give them a minute to pick the best question and write it down on the "
-"handout, indicating the question, any other data they might need to "
-"answer it, and how they would get that data. Start the activity by "
-"playing the kickoff video below for your group, which explains all this."
+"the question you ask when someone sends you an inscrutable csv file."
 msgstr ""
+"Cada vez más, los datos llegan a nuestro poder en forma de una hoja de "
+"cálculo.  Alguien le envía un documento Excel o usted descarga algo de la"
+" web.  En esta actividad, usted trabajará con colegas para formular "
+"buenas preguntas sobre una hoja de cálculo, de modo que pueda llevarlo de"
+" los datos a la historia de datos.  Usted utilizará la herramienta "
+"'WTFcsv' de Databasic.io, se familiarizará con tipos de datos y realizará"
+" un análisis básico de la hoja de cálculo.  Las siglas 'csv' significan "
+"valores separados por comas, un formato de hoja de cálculo muy común en "
+"la web.  'WTF' significa... bueno... la pregunta que usted se hace cuando"
+" alguien le envía un archivo 'csv' inescrutable."
+
+#: databasic/templates/culture/questions.html:47
+msgid ""
+"In this activity participants will brainstorm questions to ask sample "
+"datasets based on summaries of the columnar data.  Work in groups of 2-3 "
+"colleagues for about 10 minutes with the data. At the end give them a "
+"minute to pick the best question and write it down on the handout, "
+"indicating the question, any other data they might need to answer it, and"
+" how they would get that data. Start the activity by playing the kickoff "
+"video below for your group, which explains all this."
+msgstr ""
+"En esta actividad, los participantes propondrán ideas y harán preguntas "
+"sobre una muestra de conjuntos de datos basados en resúmenes de datos en "
+"columnas.  Utilice los datos para trabajar en grupos de 2 ó 3 colegas "
+"durante aproximadamente 10 minutos.  Al final, deles un minuto para "
+"elegir la mejor pregunta y anotarla en el cuaderno; indicando la "
+"pregunta, cualesquier otros datos que necesiten para responderla y cómo "
+"obtendrían esos datos.  Comience la actividad viendo el vídeo de inicio "
+"para su grupo (más abajo), el cual explica todo esto."
 
 #: databasic/templates/culture/questions.html:59
 msgid ""
@@ -1151,6 +1183,16 @@ msgid ""
 "ask them to take a step towards answering them. What other data would "
 "they need to answer their questions? Who collects that data?"
 msgstr ""
+"Toque este vídeo después que cada grupo pequeño haya escrito sus "
+"preguntas en el folleto de 'WTFcsv'.  Aquí resumimos algunas cosas para "
+"discutir a medida que cada grupo formula sus preguntas y el proceso que "
+"podrían seguir para comenzar a responderlas.  Por ejemplo, usted desea "
+"validar los grupos que realizaron 'metapreguntas', como '¿de dónde "
+"provienen estos datos?' o '¿Podemos confiar en estos datos?' así como "
+"grupos que comenzaron a hacer preguntas sobre patrones que vieron en los "
+"datos mismos.  Si los grupos hacen preguntas sobre los patrones en los "
+"datos, pídales que den un paso para responderlos.  ¿Qué otros datos "
+"necesitarían para responder a sus preguntas?  ¿Quién recopila esos datos?"
 
 #: databasic/templates/culture/questions.html:71
 msgid ""
@@ -1163,6 +1205,16 @@ msgid ""
 "discuss some common pitfalls to try to avoid, like remembering to "
 "consider outliers and keeping in mind that correlation is not causation."
 msgstr ""
+"Ahora que usted ha realizado algunos análisis básicos de hojas de "
+"cálculo, este vídeo le ayudará a tomar los siguientes pasos.  Por "
+"ejemplo, ¿qué información en su organización se captura en forma de hojas"
+" de cálculo?  ¿Podría usted usar este mismo enfoque con los datos de "
+"resultados de una encuesta?  ¿Con datos financieros?  ¿Con listas de "
+"donantes o análisis de la web?  ¿De qué manera hacer que los grupos hagan"
+" preguntas le ayudará a dar el siguiente paso con los datos de su "
+"organización?  También discutimos algunos obstáculos comunes que debemos "
+"evitar, como recordar que debemos considerar los casos atípicos y tener "
+"en cuenta que la correlación no es causalidad."
 
 #: databasic/templates/culture/sculpture.html:18
 msgid "Use physical craft materials to tell a data story in 3D"
@@ -1298,9 +1350,16 @@ msgstr ""
 "  No les dé demasiado tiempo, de lo contrario se detendrán en matices en "
 "lugar de simplemente hacer fluir sus jugos creativos.  ¡Recuérdeles que "
 "son creativos y que los gráficos de barras con limpiadores de pipas NO "
-"están permitidos! Después de 3 minutos, dígales que deberían estar "
-"construyendo ahora; ésta es una actividad de 'pensar con las manos'.  "
-"Cuando les quede un minuto, avíseles."
+"están permitidos!"
+
+#: databasic/templates/culture/sculpture.html:60
+msgid ""
+"After 3 minutes tell them they should be building now; this is a 'think "
+"with your hands activity'.  When they have one minute left let them know."
+msgstr ""
+"Después de 3 minutos, dígales que deberían estar construyendo ahora; ésta"
+" es una actividad de 'pensar con las manos'.  Cuando les quede un minuto,"
+" avíseles."
 
 #: databasic/templates/culture/sculpture.html:70
 msgid ""
@@ -1314,17 +1373,16 @@ msgid ""
 "techniques are! Try to identify patterns in how the numbers were mapped "
 "onto physical objects."
 msgstr ""
-"Haga que todos compartan lo construido. Deténgalos a todos cuando se "
-"acabe el tiempo.  Dé a cada grupo 1 minuto para compartir lo que "
-"hicieron.  Puede hacer un resumen señalando las similitudes y diferencias"
-" en las piezas hechas por ellos.  Usted verá a menudo que algunas "
-"personas se enfocan en un punto de los datos, mientras que otras miran a "
-"una imagen más amplia.  Con los datos de felicidad, algunas personas "
-"intentan fusionar dos conjuntos de datos, mientras que otras sólo se "
-"enfocan en uno.  ¡Destaque cualquier versión física de los gráficos "
-"tradicionales para señalar lo enraizadas que están nuestras técnicas "
-"actuales de presentación visual!  Trate de identificar los patrones de "
-"cómo los números fueron incorporados a objetos físicos."
+"Deténgalos a todos cuando se acabe el tiempo.  Dé a cada grupo 1 minuto "
+"para compartir lo que hicieron.  Puede hacer un resumen señalando las "
+"similitudes y diferencias en las piezas hechas por ellos.  Usted verá a "
+"menudo que algunas personas se enfocan en un punto de los datos, mientras"
+" que otras miran a una imagen más amplia.  Con los datos de felicidad, "
+"algunas personas intentan fusionar dos conjuntos de datos, mientras que "
+"otras sólo se enfocan en uno.  ¡Destaque cualquier versión física de los "
+"gráficos tradicionales para señalar lo enraizadas que están nuestras "
+"técnicas actuales de presentación visual!  Trate de identificar los "
+"patrones de cómo los números fueron incorporados a objetos físicos."
 
 #: databasic/templates/culture/sketch.html:18
 msgid ""
