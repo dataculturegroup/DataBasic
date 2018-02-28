@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2018-02-28 16:16-0500\n"
+"POT-Creation-Date: 2018-02-28 16:26-0500\n"
 "PO-Revision-Date: 2016-12-29 12:33-0200\n"
 "Last-Translator: \n"
 "Language: pt\n"
@@ -620,7 +620,9 @@ msgstr "Construa e Analise uma Rede"
 
 #: databasic/templates/culture/connections.html:18
 msgid "Learn how to ask different types of questions based on a network of data"
-msgstr "Saiba como fazer diferentes tipos de perguntas com base em uma rede de dados"
+msgstr ""
+"Saiba como fazer diferentes tipos de perguntas com base em uma rede de "
+"dados"
 
 #: databasic/templates/culture/connections.html:25
 #: databasic/templates/culture/convince.html:25
@@ -670,7 +672,13 @@ msgid ""
 " use <a href='https://connectthedots.databasic.io/'>Databasic.io's "
 "Connect the Dots tool</a> to do this."
 msgstr ""
-"Gráficos de rede são muito usados no momento, mas poucos sabem como lê-los, ou mesmo sabem por que eles podem ser úteis. Nesta atividade, você criará um conjunto de dados sobre restaurantes locais que as pessoas recomendam, criará um gráfico de rede fora desses dados e depois pensará em perguntas que você pode fazer. Você usará a ferramenta <a href='https://connectthedots.databasic.io/'>Databasic.io Connect the Dots</a> para fazer isso."
+"Gráficos de rede são muito usados no momento, mas poucos sabem como "
+"lê-los, ou mesmo sabem por que eles podem ser úteis. Nesta atividade, "
+"você criará um conjunto de dados sobre restaurantes locais que as pessoas"
+" recomendam, criará um gráfico de rede fora desses dados e depois pensará"
+" em perguntas que você pode fazer. Você usará a ferramenta <a "
+"href='https://connectthedots.databasic.io/'>Databasic.io Connect the "
+"Dots</a> para fazer isso."
 
 #: databasic/templates/culture/connections.html:43
 msgid ""
@@ -682,7 +690,14 @@ msgid ""
 "analyze it. Share the URL and have people poke at it, or other sample "
 "data, to look for insights and prompt questions."
 msgstr ""
-"Os participantes aprenderão como se familiarizar com alguns termos e abordagens padrão para trabalhar com gráficos de rede. Comece compartilhando alguns exemplos inspiradores, então preencha uma planilha de restaurantes e de quem os recomendou. Isso deve ser em duas colunas - 'Pessoa' e 'Restaurante'. Em seguida, coloque esses dados em Connect the Dots para analisá-lo. Compartilhe o URL e peça que o grupo o acesse, ou mesmo outros exemplos de dados, para que busquem ideias e façam perguntas rápidas."
+"Os participantes aprenderão como se familiarizar com alguns termos e "
+"abordagens padrão para trabalhar com gráficos de rede. Comece "
+"compartilhando alguns exemplos inspiradores, então preencha uma planilha "
+"de restaurantes e de quem os recomendou. Isso deve ser em duas colunas - "
+"'Pessoa' e 'Restaurante'. Em seguida, coloque esses dados em Connect the "
+"Dots para analisá-lo. Compartilhe o URL e peça que o grupo o acesse, ou "
+"mesmo outros exemplos de dados, para que busquem ideias e façam perguntas"
+" rápidas."
 
 #: databasic/templates/culture/connections.html:54
 #: databasic/templates/culture/convince.html:55
@@ -699,7 +714,11 @@ msgid ""
 "data as a network (instead of a table)? Were there any questions that "
 "here harder to dig into? Were any of the algorithms mentioned useful?"
 msgstr ""
-"Depois de 10 minutos, junte todos para que compartilhem as informações que eles encontraram. Houve algum benefício óbvio que eles encontraram ao analisar esses dados como uma rede (em vez de uma tabela)? Houve alguma dúvida que aqui fosse mais difícil de encontrar? Algum dos algoritmos mencionados foi útil?"
+"Depois de 10 minutos, junte todos para que compartilhem as informações "
+"que eles encontraram. Houve algum benefício óbvio que eles encontraram ao"
+" analisar esses dados como uma rede (em vez de uma tabela)? Houve alguma "
+"dúvida que aqui fosse mais difícil de encontrar? Algum dos algoritmos "
+"mencionados foi útil?"
 
 #: databasic/templates/culture/connections.html:63
 #: databasic/templates/culture/convince.html:67
@@ -715,7 +734,10 @@ msgid ""
 "  Are there any questions that came up, or ideas, about steps people "
 "should take with your in-house data?"
 msgstr ""
-"Agora que você fez algumas análises básicas de gráficos de rede, ajude os participantes a pensar sobre quaisquer dados de rede que a sua organização tenha em mãos. Há alguma pergunta que surgiu, ou idéias, sobre as etapas que as pessoas devam tomar com seus dados internos?"
+"Agora que você fez algumas análises básicas de gráficos de rede, ajude os"
+" participantes a pensar sobre quaisquer dados de rede que a sua "
+"organização tenha em mãos. Há alguma pergunta que surgiu, ou idéias, "
+"sobre as etapas que as pessoas devam tomar com seus dados internos?"
 
 #: databasic/templates/culture/convince.html:5
 #: databasic/templates/culture/convince.html:17
@@ -1380,25 +1402,25 @@ msgstr ""
 msgid ""
 "Use WordCounter to analyze a musician’s lyrics and sketch a story with "
 "their words"
-msgstr ""
+msgstr "Use o WordCounter para analisar as letras de um músico e preparar uma história com suas palavras"
 
 #: databasic/templates/culture/sketch.html:28
 msgid "A projector to show these videos"
-msgstr ""
+msgstr "Um projetor para mostrar esses vídeos"
 
 #: databasic/templates/culture/sketch.html:29
 msgid "Large pieces of paper to draw on (2 feet by 3 feet is best)"
-msgstr ""
+msgstr "Grandes pedaços de papel para desenhar (60 cm por 1 metro é o recomendável)"
 
 #: databasic/templates/culture/sketch.html:30
 msgid "Thick crayons or markers of different colors"
-msgstr ""
+msgstr "Marcadores ou pincéis grossos de cores diferentes"
 
 #: databasic/templates/culture/sketch.html:31
 msgid ""
 "A phone, tablet, or computer connected to the internet for each small \n"
 "            group of 3 people"
-msgstr ""
+msgstr "Um telefone, um tablet ou um computador conectado à Internet para cada pequeno grupo de 3 pessoas"
 
 #: databasic/templates/culture/sketch.html:33
 msgid ""
@@ -1420,6 +1442,17 @@ msgid ""
 "share that story. Start the activity by playing the kickoff video below "
 "for your group."
 msgstr ""
+"É difícil transformar os dados em histórias. Esta atividade permite que você faça isso rapidamente ao analisar conjuntos de dados para encontrar padrões no texto e, em seguida, desenhar uma história que você encontrar. Ela apresenta a terminologia básica para análise de texto quantitativo, ajuda você a se familiarizar com a ferramenta WordCounter do Databasic.io e orienta que você considere lugares em sua organização onde você trabalha com texto como dados. Os participantes se juntarão com colegas para procurar histórias em alguns dados de amostra e, em seguida, desenharão um esboço para compartilhar essa história. Inicie a atividade passando o vídeo inicial abaixo para o seu grupo."
+
+#: databasic/templates/culture/sketch.html:45
+msgid ""
+"Introduce the activity and then give folks about 15 minutes to sketch.  "
+"With 10 minutes left let them know that they should have chosen a dataset"
+" to work with. When they have 5 minutes left make sure they have a story "
+"and are sketching on paper, otherwise they'll be scrambling to get a "
+"drawing done."
+msgstr ""
+"Apresente a atividade e, em seguida, dê às pessoas cerca de 15 minutos para fazer o esboço. Com 10 minutos de antecedência, os avise que eles já deveriam ter escolhido um conjunto de dados para trabalhar. Quando eles tiverem 5 minutos faltantes, certifique-se de que eles já têm uma história e que a estejam esboçando no papel, caso contrário, eles estarão desperdiçando esforço para fazer um desenho."
 
 #: databasic/templates/culture/sketch.html:57
 msgid ""
@@ -1431,6 +1464,7 @@ msgid ""
 "conversation about how groups used visual parameters – like color, size "
 "and position – to communicate their story."
 msgstr ""
+"Passe este vídeo depois que cada grupo pequeno esboçou sua história em uma grande folha de papel. Aqui descreveremos algumas questões para discussão, conforme cada grupo descrever a história que eles encontraram. Por exemplo, você desejará destacar histórias com base em comparação de duas coisas versus aquelas baseadas em um único ponto de dados de interesse. E você pode iniciar uma conversa sobre como os grupos usaram parâmetros visuais - como cor, tamanho e posição - para passar sua história."
 
 #: databasic/templates/culture/sketch.html:69
 msgid ""
@@ -1440,6 +1474,7 @@ msgid ""
 "discuss some more sophisticated methods of quantitative text analysis as "
 "well as point out some common pitfalls to try to avoid."
 msgstr ""
+"Agora que todos analisaram o texto e desenharam uma história, esse vídeo ajudará as pessoas a pensar sobre onde ir daqui à frente. Por exemplo, quais são alguns conjuntos de dados de texto que a sua organização já possui? Discutiremos alguns métodos mais sofisticados de análise quantitativa de texto, além de apontar algumas armadilhas comuns para se evitar."
 
 #: databasic/templates/home/index.html:16
 #: databasic/templates/wordcounter/wordcounter.html:22
@@ -2365,34 +2400,4 @@ msgstr "Outro"
 
 #~ msgid "Your Email"
 #~ msgstr "seu texto"
-
-#~ msgid ""
-#~ "Network graphs are very trendy right "
-#~ "now, but few know how to read "
-#~ "them, nor why they they might be"
-#~ " useful. In this activity you'll "
-#~ "create a dataset about local restaurants"
-#~ " people recommend, build a network "
-#~ "graph out of that data, and then"
-#~ " think about questions you can ask"
-#~ " it. You will use <a "
-#~ "href='https://connectthedots.databasic.io/'>Databasic.io's "
-#~ "Connect the Dots tool</a> to do "
-#~ "this.\n"
-#~ "          </p>\n"
-#~ "          <p>Participants will understand "
-#~ "build familiarity with some standard "
-#~ "terms and approaches to working with "
-#~ "network graphs. Begin by sharing some"
-#~ " inspirational examples, then fill in "
-#~ "a spreadsheet together of restaurants "
-#~ "and who recommends them.  This should"
-#~ " have two columns - 'Person' and "
-#~ "'Restaurant'. Then paste this data into"
-#~ " Connect the Dots to analyze it. "
-#~ "Share the URL and have people poke"
-#~ " at it, or other sample data, "
-#~ "to look for insights and prompt "
-#~ "questions."
-#~ msgstr ""
 
