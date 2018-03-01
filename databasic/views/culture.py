@@ -33,4 +33,9 @@ def sculpture():
 
 @mod.route('/connections')
 def connections():
-    return render_template('connections.html')    
+    return render_template('connections.html')
+
+
+@mod.route('/testimonials')
+def testimonials():
+    return render_template('testimonials.html')

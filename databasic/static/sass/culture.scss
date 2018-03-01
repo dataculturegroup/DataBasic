@@ -648,3 +648,37 @@ footer {
   padding-top: 50px;
   padding-bottom: 50px;
 }
+
+p.testimonial {
+  background-color: white;
+  margin-top: 30px;
+  padding: 30px;
+  font-style: italic;
+  .attribution {
+    display: block;
+    font-style: normal;
+    font-variant: small-caps;
+    font-size: 18px;
+    margin-top: 10px;
+    text-align: right;
+  }
+  border-radius: 10px;
+  &.red-border { 
+    border: 5px solid $c-pinkish-orange;
+    b {
+      color: $c-pinkish-orange;
+    }
+  }
+  &.blue-border {
+    border: 5px solid $c-blue;
+    b {
+      color: $c-blue;
+    }
+  }
+  &.orange-border { 
+    border: 5px solid #ff9800;
+    b {
+      color: #ff9800;
+    }
+  }
+}

@@ -30,8 +30,7 @@ th, td,
 .navbar-default, 
 .form-control, 
 .nav-tabs.nav-justified > li > a, 
-.active a, 
-:hover {
+.active a {
 	@include no-border();
 }
 
