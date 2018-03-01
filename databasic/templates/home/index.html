@@ -10,7 +10,7 @@
 {% block body %}
 <div role="main">
   <div class="container">
-    <nav class="row text-center no-gutter">
+    <div class="row text-center no-gutter">
       <a class="thumbnail col-sm-3" href="wordcounter" title="WordCounter">
         <img class="thumbnail-img" src="{{ url_for('static', filename='img/logos/wc@2x.png') }}" alt="">
         <p class="thumbnail-caption">{{ _('WordCounter analyzes your text and tells you the most common words and phrases.') }}</p>
@@ -27,7 +27,7 @@
         <img class="thumbnail-img" src="{{ url_for('static', filename='img/logos/ctd@2x.png') }}" alt="">
         <p class="thumbnail-caption">{{ _('ConnectTheDots shows you how your data is connected by analyzing it as a network.') }}</p>
       </a>
-    </nav>
+    </div>
   </div>
 
   <div class="container-fluid home-newsflash">
@@ -41,7 +41,10 @@
             </div>
           </div>
           <p style="margin-top:20px">
-            {{ _("Struggling to build your organization's ability to work with data? Use our hands-on learning program to kickstart your data culture. We provide facilitation videos to help you run creative introductions for the non-technical folks in your organization. These are not boring spreadsheet trainings! We suggest that in order to kickstart your data culture, you run one activity per month as a brown bag lunch at your organization. Learn more at <a href='https://datacultureproject.org'>https://datacultureproject.org</a>") }}
+            {{ _("Struggling to build your organization's ability to work with data? Use our hands-on learning program to kickstart your data culture. We provide facilitation videos to help you run creative introductions for the non-technical folks in your organization. These are not boring spreadsheet trainings! We suggest that in order to kickstart your data culture, you run one activity per month as a brown bag lunch at your organization. Learn more at <a href='https://datacultureproject.org'>https://datacultureproject.org</a>") }}.
+          </p>
+          <p>
+            <a class="invitation red" href="/{{g['current_lang']}}/culture/">{{ _("Join the Data Culture Project Now!") }}</a>
           </p>
         </div>
       </div>

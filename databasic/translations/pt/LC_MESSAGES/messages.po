@@ -910,7 +910,7 @@ msgstr ""
 #: databasic/templates/culture/sculpture.html:5
 #: databasic/templates/culture/sculpture.html:17
 msgid "Build a Data Sculpture"
-msgstr "Construa uma Escultura de Dados"
+msgstr "Esculturas de Dados"
 
 #: databasic/templates/culture/culture.html:66
 #: databasic/templates/culture/culture.html:87
@@ -1086,7 +1086,7 @@ msgstr ""
 
 #: databasic/templates/culture/culture.html:146
 msgid "Join the discussion group"
-msgstr "Junte-se a nossa lista de discussão"
+msgstr "Junte-se a nossa lista"
 
 #: databasic/templates/culture/culture.html:150
 msgid "About Us"
@@ -1105,8 +1105,8 @@ msgstr ""
 "href='http://databasic.io'>DataBasic.io</a>. Nós reunimos em um só lugar "
 "os anos de trabalho com organizações sem fins lucrativos para ajudá-lo a "
 "construir uma cultura de dados. DataBasic.io é uma criação de <a "
-"href='http://kanarinka.com'>Catherine D'Ignazio/a> e <a "
-"href='http://datatherapy.org'>Rahul Bhargava/a>."
+"href='http://kanarinka.com'>Catherine D'Ignazio</a> e <a "
+"href='http://datatherapy.org'>Rahul Bhargava</a>."
 
 #: databasic/templates/culture/culture_macros.html:6
 msgid "Learn With Others"
@@ -1321,7 +1321,7 @@ msgid ""
 msgstr ""
 "Esta atividade baseia-se no estilo de pedagogia e workshop do <a "
 "href='https://llk.media.mit.edu'>Grupo Lifelong Kindergarten do MIT Media"
-" Lab<a> (onde Rahul obteve seu mestrado). Também possui influências do <a"
+" Lab</a> (onde Rahul obteve seu mestrado). Também possui influências do <a"
 " href='http://www.placeit.org/bio.html'>trabalho participativo de "
 "planejamento urbano de James Rojas</a>."
 

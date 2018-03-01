@@ -918,7 +918,7 @@ msgstr ""
 #: databasic/templates/culture/sculpture.html:5
 #: databasic/templates/culture/sculpture.html:17
 msgid "Build a Data Sculpture"
-msgstr "Construye una Escultura de Datos"
+msgstr "Esculturas de Datos"
 
 #: databasic/templates/culture/culture.html:66
 #: databasic/templates/culture/culture.html:87
@@ -1095,7 +1095,7 @@ msgstr ""
 
 #: databasic/templates/culture/culture.html:146
 msgid "Join the discussion group"
-msgstr "Únase a nuestra lista de correo"
+msgstr "Únase a nuestra lista"
 
 #: databasic/templates/culture/culture.html:150
 msgid "About Us"

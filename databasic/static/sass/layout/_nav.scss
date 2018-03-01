@@ -1,0 +1,23 @@
+nav {
+
+    a {
+        color: white;
+    }
+
+    background-color: #666666;
+
+    .navbar-logo {
+        padding: 12px;
+        img { height: 26px; }
+    }
+
+    .navbar-toggle {
+        .icon-bar {
+            background-color: #ffffff;
+        }
+    }
+
+    li {
+        border-right: 1px solid #333333;
+    }
+}

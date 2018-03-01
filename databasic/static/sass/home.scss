@@ -243,3 +243,18 @@ header {
   }
   color: #000000;
 }
+
+a.invitation {
+  display: block;
+  color: $c-white;
+  text-align: center;
+  padding: 20px;
+  margin-top: 15px;
+  font-weight: bold;
+  font-size: 24px;
+
+  &.red { background-color: $c-pinkish-orange; }
+  &.blue { background-color: $c-blue; }
+  &.organge { background-color: #ff9800; }
+
+}

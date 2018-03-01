@@ -115,19 +115,6 @@ body {
   }
 }
 
-.navbar.culture {
-  margin: 0;
-  padding-top: 4%;
-  padding-bottom: 4%;
-}
-
-.fixed-footer {
-  position: fixed;
-  right: 0;
-  left: 0;
-  z-index: 1030;
-}
-
 .home-logo {
   width: 440px;
   padding-left: 20px;
@@ -628,4 +615,36 @@ a.activity-guide {
   a.activity-guide {
     background-color: #ff9800;
   }
+}
+
+#language-selector {
+  padding: 15px !important;
+}
+#language-selector:hover{
+  background-color: inherit !important;
+}
+
+.navbar {
+  border-radius: 0px !important;  
+  border: 0px !important;
+  margin-bottom: 0px !important;
+
+  .navbar-header {
+    label {
+      display: inline-block;
+      padding: 0px;
+      margin: 0px;
+      margin-right: 10px;
+    }
+    .menu-icon {
+      display: inline-block;
+      padding: 0px;
+      margin: 0px;
+    }
+  }
+}
+
+footer {
+  padding-top: 50px;
+  padding-bottom: 50px;
 }
