@@ -682,3 +682,16 @@ p.testimonial {
     }
   }
 }
+
+.featured-quote {
+  blockquote {
+    font-style: italic;
+    border: 0px;
+    font-size: 24px;
+    margin: 0px;
+  }
+  p {
+    text-align: right;
+    font-size: 12px;
+  }
+}
