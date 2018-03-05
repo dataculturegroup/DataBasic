@@ -17,20 +17,24 @@ def index():
             'author': u"Andrés Felipe Vera Ramírez, El Mundo/Radio Clarin"
         },
         {
-            'text': u"The DCP program helped us look at data in a different way",
+            'text': u"The DCP program helped us <b>look at data in a different way</b>",
             'author': u"Jennifer Connolly, Junior Achievement of Western Massachusetts"
         },
         {
-            'text': u"This program was accessible to people of all levels",
+            'text': u"This program was <b>accessible</b> to people of all levels",
             'author': u"Jennifer Connolly, Junior Achievement of Western Massachusetts"
         },
         {
-            'text': u"The tools were accessible and the pacing of the workshops was great",
+            'text': u"The tools were <b>accessible</b> and the pacing of the workshops was great",
             'author': u"Michael Morisy, MuckRock"
         },
         {
-            'text': u"Folks who don’t typically use data in their day-to-day roles engaged in the sessions",
+            'text': u"Folks who don’t typically use data in their day-to-day <b>roles engaged in the sessions</b>",
             'author': u"Michael Smith Foundation for Health Research"
+        },
+        {
+            'text': u"I saw a <b>big change</b> in how our partners treated data",
+            'author': u"Erika Lapsys, Telluride Foundation"
         },
     ]
     return render_template('culture.html', featured_quote=random.choice(quotes))
