@@ -36,6 +36,14 @@ def index():
             'text': u"I saw a <b>big change</b> in how our partners treated data",
             'author': u"Erika Lapsys, Telluride Foundation"
         },
+        {
+            'text': u"For the first time, the numbers [from our grantees] were <b>consistent</b>",
+            'author': u"Erika Lapsys, Telluride Foundation"
+        },
+        {
+            'text': u"Participants started looking at ... which piece of data is <b>more relevant</b> for which type of stakeholder",
+            'author': u"Maryna Taran, World Food Programme"
+    }
     ]
     return render_template('culture.html', featured_quote=random.choice(quotes))
 
