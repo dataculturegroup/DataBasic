@@ -1,0 +1,77 @@
+{% from "culture_macros.html" import render_feedback_form %}
+
+{% extends "culture_activity_base.html" %}
+
+{% block title %}{{ _("Deconstruct a DataViz")}}{% endblock %}
+
+{% block culture_body %}
+
+<div role="main" class="container-fluid culture-wrapper activity-wrapper">
+
+  <div class="activity-content blue">
+      <div class="row row-flex header">
+        <div class="col-md-12 col-sm-12 col-xs-12">
+          <a href="/{{g['current_lang']}}/culture" alt="{{_('Data Culture Project')}}"><img class="logo" src="{{ url_for('static', filename='img/culture/data-culture-project-logo@2x.png') }}" alt="Data Culture Project" width="236" height="auto"></a>
+        </div>
+        <div class="col-md-8 col-sm-8 col-xs-8 col-md-offset-2 col-sm-offset-2 col-xs-offset-2">
+          <h1>{{ _("Deconstruct a DataViz")}}</h1>
+          <h2>{{ _("Build your visual skills by taking apart an example visualization") }}</h2>
+        </div>
+      </div>
+
+      <div class="row row-flex">
+        <div class="col-md-8 col-sm-8 col-xs-8 col-md-offset-2 col-xs-offset-2">
+          <h2>{{ _("Set Up") }}</h2>
+          <p>{{ _("This activity will take 15 to 20 minutes. You should have these materials on hand:") }}</p>
+          <ul>
+            <li>{{ _("Printouts of a visualization (we often use <a href=\"https://foodtechconnect.com/2012/01/10/usaid-infographics-on-agriculture-simplify-reality-infographic/\">this one from USAID</a> or <a href=\"http://owni.fr/files/2010/11/12-e1288712778782.jpg\">this one about the Iraq war</a>); print out 1 paper for every two or three participants)")}}</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="row row-flex">
+        <div class="num odd blue">1</div>      
+        <div class="col-md-8 col-sm-8 col-xs-8 col-md-offset-2 col-sm-offset-2 col-xs-offset-2">
+          <h2>{{ _("Background") }}</h2>
+          <p>{{ _("Telling stories with data is hard to do. It relies on a diverse set of  skills - data processing, graphic design, storytelling, and more. This activity helps you build those skills by taking apart work that others have done (the good and the bad) to build your critical eye. You'll help participants break down and discuss a four things about a visualization - (1) the data it uses, (2) the ways it shows that data, (3) the narrative it is trying to tell, and (4) evaluating whether it combines those to tell the data story well.") }}</p>
+        </div>
+      </div>
+
+      <div class="row row-flex">
+        <div class="num even blue">2</div>      
+        <div class="col-md-8 col-sm-8 col-xs-8 col-md-offset-2 col-sm-offset-2 col-xs-offset-2">
+          <h2>{{ _("Kick off the Activity") }}</h2>
+          <p>{{ _("Begin by handing out printouts of the graphic you've selected and giving a little backstory about its context. <i>For example, the USAID graphic was commissioned as part of a series for their 50th anniversary celebration, focused on highlighting success but also the challenges ahead. we've been told it was published online but also displayed in their entrance as a large banner. It was created for the USAID by an independent design firm named <a href=\"https://lemonly.com\">Lemonly</a>.</i>") }}</p>
+          <img src="{{ url_for('static', filename='img/culture/deconstruct-samples.png') }}" width="500" height="auto"/>
+          <p>{{ _("Give participants just a minute or two to review the handout together. Don't give them too long - you want their first reactions to come out.") }}</p> 
+          <p>
+        </div>
+      </div>
+
+      <div class="row row-flex">
+        <div class="num odd blue">3</div>
+        <div class="col-md-8 col-sm-8 col-xs-8 col-md-offset-2 col-sm-offset-2 col-xs-offset-2">
+          <h2>{{ _("Lead a Conversation ") }}</h2>
+          <p>{{ _("After participants have looked over the visualization, ask them a series of questions. Try to keep the discussion focused on these exploratory questions rather than whether the visualization is \"good\" or \"bad\" (evaluation comes after exploration). First ask them to identify some of the datasets used. Collect four or five answers from participant. <i>For the USAID graphic, these often include answers like \"population data over time\", \"crop yield pblueictions\", and \"animal ownership in Ecuador\".</i> Then talk about how telling these stories requires you to pull from multiple datasets; you can seldom put together a strong story with just one spreadsheet.") }}</p>
+          <p>{{ _("Next, ask participants to identify how this data is represented. Collect a few answers. <i>For example, in the USAID graphic population size is represented by a globe increasing in size and percentages are represented as donut charts</i>. Briefly share how this sets up a consistent set of charts and symbols and ways to use them. We call this the \"visual vocabulary\" of the story.") }}
+          </p>
+          <p>{{ _("Thirdly, ask participants to identify the short story they think this graphic is trying to tell. What are the data and visual representation trying to say? Ask folks to summarize it in just one sentence, like you would in a tweet. <i>In the USAID example most people think the story is something like \"food needs are rising, and if we can help female farmers we'd be better prepablue to produce enough food.\"</i> Try to keep participants focused on the story, rather than what they think about it (that comes next).") }}
+        </div>
+      </div>
+
+      <div class="row row-flex">
+        <div class="num odd blue">4</div>
+        <div class="col-md-8 col-sm-8 col-xs-8 col-md-offset-2 col-sm-offset-2 col-xs-offset-2">
+          <h2>{{ _("Pull it All Together") }}</h2>
+          <p>{{ _("To finish, ask folks if they think the story is well told. What elements best support the story? Are there extraneous pieces that don't help the story along? Are there pieces that actively distract from the main point or contradict it? <i>In the USAID example focus on the takeaway message - what is it? Is it emphasized enough? Does it solve the problem?</i> Emphasize that telling these stories has to focus on a main point, and everything needs to support it. Even if there is some cool data that you want to include, you need to make sure it supports the main story, otherwise it will just distract. <i>Are there examples of data that could be removed from the USAID story to make it more effective?</i>") }}</p>
+        </div>
+      </div>
+
+
+      {{ render_feedback_form("deconstruct-dataviz", 5) }}
+
+  </div>
+
+</div>
+
+{% endblock %}

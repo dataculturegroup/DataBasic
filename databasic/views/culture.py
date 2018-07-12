@@ -68,6 +68,11 @@ def sculpture():
     return render_template('sculpture.html')
 
 
+@mod.route('/deconstruct-a-dataviz')
+def deconstruct():
+    return render_template('deconstruct.html')
+
+
 @mod.route('/connections')
 def connections():
     return render_template('connections.html')
