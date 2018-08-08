@@ -73,6 +73,11 @@ def deconstruct():
     return render_template('deconstruct.html')
 
 
+@mod.route('/make-word-webs')
+def word_webs():
+    return render_template('word_webs.html')
+
+
 @mod.route('/connections')
 def connections():
     return render_template('connections.html')

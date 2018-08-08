@@ -1,0 +1,70 @@
+{% from "culture_macros.html" import render_feedback_form %}
+
+{% extends "culture_activity_base.html" %}
+
+{% block title %}{{ _("Make a Word Web")}}{% endblock %}
+
+{% block culture_body %}
+
+<div role="main" class="container-fluid culture-wrapper activity-wrapper">
+
+  <div class="activity-content blue">
+      <div class="row row-flex header">
+        <div class="col-md-12 col-sm-12 col-xs-12">
+          <a href="/{{g['current_lang']}}/culture" alt="{{_('Data Culture Project')}}"><img class="logo" src="{{ url_for('static', filename='img/culture/data-culture-project-logo@2x.png') }}" alt="Data Culture Project" width="236" height="auto"></a>
+        </div>
+        <div class="col-md-8 col-sm-8 col-xs-8 col-md-offset-2 col-sm-offset-2 col-xs-offset-2">
+          <h1>{{ _("Make a Word Web")}}</h1>
+          <h2>{{ _("Practice translating abstract ideas into concrete images") }}</h2>
+        </div>
+      </div>
+
+      <div class="row row-flex">
+        <div class="col-md-8 col-sm-8 col-xs-8 col-md-offset-2 col-xs-offset-2">
+          <h2>{{ _("Set Up") }}</h2>
+          <p>{{ _("This activity will take 15 to 20 minutes. You should have these materials on hand:") }}</p>
+          <ul>
+            <li>{{ _("Big sheets of paper")}}</li>
+            <li>{{ _("Lots of pens of different colors ")}}</li>
+            <li>{{ _("Sticky notes")}}</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="row row-flex">
+        <div class="num odd blue">1</div>      
+        <div class="col-md-8 col-sm-8 col-xs-8 col-md-offset-2 col-sm-offset-2 col-xs-offset-2">
+          <h2>{{ _("Background") }}</h2>
+          <p>{{ _("Sometimes your data story is centered around an abstract idea, such as \"climate\", \"injustice\", or \"rights\". Abstract ideas are hard to picture, and even harder to draw. This activity helps you  brainstorm more concrete ideas that are related to the abstract concepts. It also helps you come up with visual symbols you could later incorporate into a visual design that tells your data story. Making word webs encourages collaborative teamwork and collective brainstorming.") }}</p>
+        </div>
+      </div>
+
+      <div class="row row-flex">
+        <div class="num even blue">2</div>      
+        <div class="col-md-8 col-sm-8 col-xs-8 col-md-offset-2 col-sm-offset-2 col-xs-offset-2">
+          <h2>{{ _("Kick off the Activity") }}</h2>
+          <p>{{ _("Begin by spreading out large pieces of paper, each with an abstract concept written in the middle.  The concepts should be from a data-driven story you are working with. Words like \"poverty\", \"injustice\", and \"happiness\" are all good examples of abstract concepts that come from data-driven stories.") }}</p>
+          <p>{{ _("Give each participant a pen and break them up into groups of 5 or 6, with each group assigned to one of the pieces of paper you just showed. Tell the participants they should start by drawing a line from the central word and writing another word that they associate with the first one. Keep adding words connected to the first word or to the ones that other people add. Give the groups 6 minutes to brainstorm and write words.  Each paper should end up looking like a web of words, connected by lines.") }}</p>
+          <img src="{{ url_for('static', filename='img/culture/word-web-drawing.png') }}" width="550" height="auto"/>
+          <p>{{ _("Once the time is up, hand out the sticky notes.  Give folks another five minutes to identify any words that can easily be sketched out, and then have them draw those on a note and stick it next to the word. ") }}</p>
+        </div>
+      </div>
+
+      <div class="row row-flex">
+        <div class="num odd blue">3</div>
+        <div class="col-md-8 col-sm-8 col-xs-8 col-md-offset-2 col-sm-offset-2 col-xs-offset-2">
+          <h2>{{ _("Have Everyone Share Back") }}</h2>
+          <p>{{ _("Bring everyone back together, and have each group hang the sheets of paper on the wall. Give participants a few minutes to walk around looking at what other groups created.") }}</p>
+          <img src="{{ url_for('static', filename='img/culture/word-web-social-exclusion-pt.png') }}" width="550" height="auto"/>
+          <p>{{ _("Ask the full group about the connections they saw, the unique or unconventional ideas conveyed, and the pictures that stood out to them as iconic or effective. Highlight any drawings that carry a particular tone, or ones that may only make sense in certain contexts or cultures. Discuss which pictures are most effective for conveying the concept of the data-driven story you started with.") }}</p>
+          <p>{{ _("Note that there are online sources which can help you brainstorm, such as the <a href=\"https://thenounproject.com\">Noun Project</a>.") }}</p>
+        </div>
+      </div>
+
+      {{ render_feedback_form("deconstruct-dataviz", 5) }}
+
+  </div>
+
+</div>
+
+{% endblock %}

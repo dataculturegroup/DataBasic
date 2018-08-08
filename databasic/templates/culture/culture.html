@@ -127,14 +127,18 @@
       <div class="row row-flex">
         <div class="col-md-5 col-sm-6 col-md-offset-2 col-sm-offset-0">
           <h1>{{ _("Telling Your Story") }}</h1>
-          <p>{{ _("Telling your story is where the rubber hits the road. Numbers alone are not enough to make your case or move people to action. You have to give your data some context, and stitch it together into a narrative so that people can understand it.  <strong>Sketch a story with WordCounter</strong> to practice communicating a data-driven story visually.") }}</p>
+          <p>{{ _("Telling your story is where the rubber hits the road. Numbers alone are not enough to make your case or move people to action. You have to give your data some context, and stitch it together into a narrative so that people can understand it.  <strong>Sketch a story with WordCounter</strong> to practice communicating a data-driven story visually.") }}
+          {{ _("<strong>Make a Word Web</strong> to move from abstract ideas and numbers into concrete visual symbols.") }}
+          </p>
         </div>
         <div class="col-md-4 col-sm-5 col-xs-12 ">
           <img class="img_sml" src="{{ url_for('static', filename='img/culture/sketch-1.jpg') }}" alt="Gathering Data" width="236">
           <a href="sketch-a-story" class="process">
             {{ _("Sketch a Story") }}
           </a>
-              
+          <a href="make-word-webs" class="process">
+            {{ _("Make a Word Web") }}
+          </a>
         </div>
       </div>
 
