@@ -43,7 +43,7 @@ networkx==1.11
 nltk==3.1
 numpy==1.9.2
 oauth2client==1.5.1
-openpyxl==2.2.0b1
+openpyxl==2.2.6
 pdfminer==20140328
 Pillow==3.0.0
 pojson==0.6
