@@ -60,7 +60,7 @@ python-louvain==0.5
 python-pptx==0.5.8
 pytz==2015.7
 redis==2.10.5
-requests==2.8.1
+requests==2.19.1
 rsa==3.2.3
 scipy==0.15.1
 simplejson==3.8.1

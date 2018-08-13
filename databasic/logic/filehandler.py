@@ -1,11 +1,10 @@
-import tempfile
-from urllib2 import urlopen
+import requests
 from goose import Goose
 import os, datetime, time, tempfile, codecs, unicodecsv, json, xlrd, logging
 from pyth.plugins.rtf15.reader import Rtf15Reader
 from pyth.plugins.plaintext.writer import PlaintextWriter
 from flask import Response, abort
-from flask.ext.uploads import UploadSet, configure_uploads, TEXT, patch_request_class, UploadNotAllowed
+from flask.ext.uploads import UploadSet, configure_uploads, UploadNotAllowed
 import textract
 import databasic
 
@@ -33,7 +32,7 @@ def init_samples():
     samples_config_file_path = os.path.join(databasic.get_config_dir(),'sample-data.json')
     samples = json.load(open(samples_config_file_path))
     if databasic.app.config.get(databasic.ENV_APP_MODE) == databasic.APP_MODE_DEV:
-        # change the paths to absolute ones
+        # change the paths to absolute onesls
         for sample in samples:
             sample['path'] = os.path.join(databasic.get_base_dir(),sample['source'])
         logger.info("Updated sample data with base dir: %s" % databasic.get_base_dir())
@@ -43,7 +42,7 @@ def init_samples():
         for sample in samples:
             url = url_base+sample['source']
             logger.info("Loading sample data file: %s" % url)
-            text = urlopen(url).read()
+            text = requests.get(url).text
             f = tempfile.NamedTemporaryFile(delete=False)
             f.write(text)
             f.close()
