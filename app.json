@@ -1,0 +1,9 @@
+{
+  "name": "DataBasic",
+  "description": "Build your Data Culture",
+  "scripts": {
+    "dokku": {
+      "predeploy": "./release-tasks.sh"
+    }
+  }
+}
