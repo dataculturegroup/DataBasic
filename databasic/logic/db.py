@@ -5,12 +5,14 @@ import pytz
 from pymongo import MongoClient
 from bson.objectid import ObjectId
 
-EXPIRE_AFTER = 60 # time in days
+EXPIRE_AFTER = 60  # time in days
 logger = logging.getLogger(__name__)
+
 
 class MongoHandler:
 
     def __init__(self, uri, db_name):
+        logger.info("Connected to '{}' Mongo collection at {}".format(db_name, uri))
         self._client = MongoClient(uri, connect=False)
         self._db = self._client[db_name]
 
