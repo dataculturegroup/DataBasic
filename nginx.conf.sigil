@@ -113,19 +113,19 @@ server {
 
   set $full_url $http_host$request_uri;
   if ($full_url ~ ^wordcounter\.databasic\.io/) {
-    return 301 https://databasic.io/wordcounter;
+    return 301 https://databasic.io/en/wordcounter;
   }
   if ($full_url ~ ^connectthedots\.databasic\.io/) {
-    return 301 https://databasic.io/connectthedots;
+    return 301 https://databasic.io/en/connectthedots;
   }
   if ($full_url ~ ^culture\.databasic\.io/) {
-    return 301 https://databasic.io/culture;
+    return 301 https://databasic.io/en/culture;
   }
   if ($full_url ~ ^samediff\.databasic\.io/) {
-    return 301 https://databasic.io/samediff;
+    return 301 https://databasic.io/en/samediff;
   }
   if ($full_url ~ ^wtfcsv\.databasic\.io/) {
-    return 301 https://databasic.io/wtfcsv;
+    return 301 https://databasic.io/en/wtfcsv;
   }
 
 }
