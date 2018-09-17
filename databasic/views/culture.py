@@ -96,3 +96,7 @@ def paper_spreadsheet():
 @mod.route('/storybook')
 def storybook():
     return render_template('storybook.html')
+
+@mod.route('/remix')
+def remix():
+    return render_template('remix.html')

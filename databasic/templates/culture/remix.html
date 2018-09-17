@@ -1,0 +1,82 @@
+{% from "culture_macros.html" import render_feedback_form %}
+
+{% extends "culture_activity_base.html" %}
+
+{% block title %}{{ _("Remix an Infographic")}}{% endblock %}
+
+{% block culture_body %}
+
+<div role="main" class="container-fluid culture-wrapper activity-wrapper">
+
+  <div class="activity-content blue">
+      <div class="row row-flex header">
+        <div class="col-md-12 col-sm-12 col-xs-12">
+          <a href="/{{g['current_lang']}}/culture" alt="{{_('Data Culture Project')}}"><img class="logo" src="{{ url_for('static', filename='img/culture/data-culture-project-logo@2x.png') }}" alt="Data Culture Project" width="236" height="auto"></a>
+        </div>
+        <div class="col-md-8 col-sm-8 col-xs-8 col-md-offset-2 col-sm-offset-2 col-xs-offset-2">
+          <h1>{{ _("Remix an Infographic")}}</h1>
+          <h2>{{ _("Practice telling a data story in different ways") }}</h2>
+        </div>
+      </div>
+
+      <div class="row row-flex">
+        <div class="col-md-8 col-sm-8 col-xs-8 col-md-offset-2 col-xs-offset-2">
+          <h2>{{ _("Set Up") }}</h2>
+          <p>{{ _("This activity will take 30 to 40 minutes. You should have these materials on hand:") }}</p>
+          <ul>
+            <li>
+              {{ _("Printed copies of an example visualization for remixing. We often use <a href='https://www.good.is/infographics/transparency-how-much-water-do-you-use'>this infographic on daily water usage from GOOD.is</a>. 1-2 printed copies for each group.")}}
+                <br /><a href="https://www.good.is/infographics/transparency-how-much-water-do-you-use"><img src="{{ url_for('static', filename='img/culture/remix-water-thumbnail.png') }}" width="250" height="auto"/></a>
+            </li>
+            <li>{{ _("Large paper, markers, and craft materials (the materials from <a href='build-a-sculpture'>our Build a Data Sculpture activity</a> can be used for this activity too)")}}</li>
+            <li>{{ _("Copies of <a href='/static/files/activity-guides/en/Picking a Technique.pdf'>our handout about different data presentation techniques</a> (1 for each participant)")}}
+              <br /><a href="{{ url_for('static', filename='files/activity-guides/en/Picking a Technique.pdf') }}"><img src="{{ url_for('static', filename='img/culture/remix-handout-thumbnail.png') }}" width="250" height="auto"/></a>
+            </li>
+            <li>{{ _("<a href='/static/files/activity-guides/en/Infographic Remix Cards.pdf'>Our visualization technique cards</a> (one card for each 3-4 person group); print them double-sided on a single sheet of paper and cut them out ahead of time") }}
+                <br /><a href="{{ url_for('static', filename='files/activity-guides/en/Infographic Remix Cards.pdf') }}"><img src="{{ url_for('static', filename='img/culture/remix-cards-thumbnail.png') }}" width="250" height="auto"/></a>
+            </li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="row row-flex">
+        <div class="num odd blue">1</div>      
+        <div class="col-md-8 col-sm-8 col-xs-8 col-md-offset-2 col-sm-offset-2 col-xs-offset-2">
+          <h2>{{ _("Background") }}</h2>
+          <p>{{ _("In order to tell your data story well, you need a good “toolbelt” of presentation techniques to pull from. However, we often only consider of a small set of techniques — primarily traditional charts and maps — when we display data. This activity introduces participants to data presentation techniques that are creative, fun, and better suited for certain audiences than traditional charts and maps. It lets participants practice using these techniques, and helps them build confidence in their ability to present data appropriately.") }}</p>
+        </div>
+      </div>
+
+      <div class="row row-flex">
+        <div class="num even blue">2</div>      
+        <div class="col-md-8 col-sm-8 col-xs-8 col-md-offset-2 col-sm-offset-2 col-xs-offset-2">
+          <h2>{{ _("Kick off the Activity") }}</h2>
+          <p>{{ _("<b>Present slideshow about creative techniques</b>.<br/>Give participants copies of the visualization techniques handout, and walk them through the descriptions and examples of each technique provided in the slides (spend about 2 minutes on each technique). These concrete examples help people expand their toolbelt.") }}</p>
+          <p>{{ _("<b>Discuss the example visualization</b>.<br /> Introduce the sample visualization you have chosen and discuss its audience, goals, and content. We like to use <a href='https://www.good.is/infographics/transparency-how-much-water-do-you-use'>this infographic on water usage from GOOD.is</a>. It is quite opinionated, so its message and goal are clear. Direct participants to compare beef with all other water usage - it far exceeds everything else on the page!") }}</p>
+        </div>
+      </div>
+
+      <div class="row row-flex">
+        <div class="num odd blue">3</div>
+        <div class="col-md-8 col-sm-8 col-xs-8 col-md-offset-2 col-sm-offset-2 col-xs-offset-2">
+          <h2>{{ _("Start Remixing") }}</h2>
+          <p>{{ _("Bring everyone back together and go around the room letting each group share their favorite idea. Have groups talk about different editorial decisions that were made in narrowing down their ideas. Ask the groups for their thoughts about the relative strengths and weaknesses of each technique as well as which audiences might be particularly well served by different presentation techniques. ") }}</p>
+          <img src="{{ url_for('static', filename='img/culture/remix-1.png') }}" width="500" height="auto"/>
+        </div>
+      </div>
+
+      <div class="row row-flex">
+        <div class="num even blue">4</div>
+        <div class="col-md-8 col-sm-8 col-xs-8 col-md-offset-2 col-sm-offset-2 col-xs-offset-2">
+          <h2>{{ _("Have Everyone Share Back") }}</h2>
+          <p>{{ _("Review the key points in the conversation that you just had. Remind the participants that data are systematic observations of the world, and a dataset is the collection of those observations. Data are a helpful reduction of the world, but it’s important to keep in mind that they do not capture everything. Data can capture different types of information (quantitative, qualitative, temporal, geographic, etc.), and the type of the data affects the kinds of exploration and pattern seeking that you can do. Data often needs to be cleaned and standardized. Data storytelling and analysis involves looking for patterns, making comparisons, finding outliers, and then testing that knowledge in dialogue with others. Finally, the way data are collected and used can raise questions of privacy, consent, and ethics, which must be taken into account when analyzing and presenting them") }}</p>
+        </div>
+      </div>
+
+      {{ render_feedback_form("remix", 5) }}
+
+  </div>
+
+</div>
+
+{% endblock %}
