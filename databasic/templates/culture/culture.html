@@ -133,8 +133,9 @@
       <div class="row row-flex">
         <div class="col-md-5 col-sm-6 col-md-offset-2 col-sm-offset-0">
           <h1>{{ _("Telling Your Story") }}</h1>
-          <p>{{ _("Telling your story is where the rubber hits the road. Numbers alone are not enough to make your case or move people to action. You have to give your data some context, and stitch it together into a narrative so that people can understand it.  <strong>Sketch a story with WordCounter</strong> to practice communicating a data-driven story visually.") }}
-          {{ _("<strong>Make a Word Web</strong> to move from abstract ideas and numbers into concrete visual symbols.") }}
+          <p>
+            {{ _("Telling your story is where the rubber hits the road. Numbers alone are not enough to make your case or move people to action. You have to give your data some context, and stitch it together into a narrative so that people can understand it.  <strong>Sketch a story with WordCounter</strong> to practice communicating a data-driven story visually.") }}
+            {{ _("<strong>Make a Word Web</strong> to move from abstract ideas and numbers into concrete visual symbols.") }}
           </p>
         </div>
         <div class="col-md-4 col-sm-5 col-xs-12 ">
@@ -154,11 +155,17 @@
           <img class="img_sml" src="{{ url_for('static', filename='img/culture/convince-me-1.jpg') }}" alt="Try It Out" width="236">
           <a href="convince-me" class="process">
             {{ _("Try to ConvinceMe") }}
-          </a>     
+          </a>
+          <a href="storybook" class="process">
+            {{ _("Write a Data Storybook") }}
+          </a>
         </div>
         <div class="col-md-5 col-sm-5">
           <h1>{{ _("Try It Out") }}</h1>
-          <p>{{ _("How do you know if your story is working?  Does the data you included support the narrative you are telling?  It can be very difficult to put yourself in the shoes of your audience and try to understand what kind of story will change their worldview or move them to action.  And you might have multiple audiences. Each potential audience brings different beliefs and experiences to understanding your message. <strong>Try out ConvinceMe</strong> to practice telling different stories to different audiences.") }}</p>
+          <p>
+            {{ _("How do you know if your story is working?  Does the data you included support the narrative you are telling?  It can be very difficult to put yourself in the shoes of your audience and try to understand what kind of story will change their worldview or move them to action.  And you might have multiple audiences. Each potential audience brings different beliefs and experiences to understanding your message. <strong>Try out ConvinceMe</strong> to practice telling different stories to different audiences.") }}
+            {{ _("<strong>Write a Data Storybook</strong> to practice writing compelling narrative arcs that are supported by the data you are working with.") }}
+          </p>
         </div>
       </div>
 

@@ -1,0 +1,70 @@
+{% from "culture_macros.html" import render_feedback_form %}
+
+{% extends "culture_activity_base.html" %}
+
+{% block title %}{{ _("Write a Data Storybook")}}{% endblock %}
+
+{% block culture_body %}
+
+<div role="main" class="container-fluid culture-wrapper activity-wrapper">
+
+  <div class="activity-content red">
+      <div class="row row-flex header">
+        <div class="col-md-12 col-sm-12 col-xs-12">
+          <a href="/{{g['current_lang']}}/culture" alt="{{_('Data Culture Project')}}"><img class="logo" src="{{ url_for('static', filename='img/culture/data-culture-project-logo@2x.png') }}" alt="Data Culture Project" width="236" height="auto"></a>
+        </div>
+        <div class="col-md-8 col-sm-8 col-xs-8 col-md-offset-2 col-sm-offset-2 col-xs-offset-2">
+          <h1>{{ _("Write a Data Storybook")}}</h1>
+          <h2>{{ _("Tell data stories using creative narratives and visual storybooks") }}</h2>
+        </div>
+      </div>
+
+      <div class="row row-flex">
+        <div class="col-md-8 col-sm-8 col-xs-8 col-md-offset-2 col-xs-offset-2">
+          <h2>{{ _("Set Up") }}</h2>
+          <p>{{ _("This activity will take 35 to 40 minutes. You should have these materials on hand:") }}</p>
+          <ul>
+            <li>{{ _("Large pieces of paper (butcher paper works great)")}}</li>
+            <li>{{ _("Crayons or markers in lots of colors")}}</li>
+            <li>{{ _("An example data set to work with (this can be quite small if it resonates well with the participants). A fun dataset like the <a href='http://a816-dohbesp.nyc.gov/IndicatorPublic/dognames/'>dog registrations of New York City</a> lends itself to this activity well. This should be in a format that lends itself to your participants playing with it.  We often explore CSV-formatted files with <a href='https://public.tableau.com'>Tableau Public</a> or <a href='https://databasic.io/en/wtfcsv/'>our DataBasic.io’s WTFCSV tool</a>.")}}</li>
+            <li>{{ _("An inspirational example storybook you’ve made about a different dataset")}}</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="row row-flex">
+        <div class="num odd red">1</div>      
+        <div class="col-md-8 col-sm-8 col-xs-8 col-md-offset-2 col-sm-offset-2 col-xs-offset-2">
+          <h2>{{ _("Background") }}</h2>
+          <p>{{ _("Storytelling is an art form, and we don’t get to practice it very much. This activity lets participants practice putting a data story together into a creative narrative. Data stories built on top of a strong narrative arc are more compelling and more memorable. Participants spend time poking at an actual dataset to find a simple story, then sketch their story and play with different ways of telling it in a fun, visual storybook form. This process creates a cohesive narrative that can tell their stories in a convincing way. The “dry” information is transformed into a simple children's book-style of story.  It also reinforces the link between data presentation and storytelling. If you can't tell your data story in this simple form, there's no way you'll be able to help your audiences understand something more complicated.") }}</p>
+        </div>
+      </div>
+
+      <div class="row row-flex">
+        <div class="num even red">2</div>      
+        <div class="col-md-8 col-sm-8 col-xs-8 col-md-offset-2 col-sm-offset-2 col-xs-offset-2">
+          <h2>{{ _("Kick off the Activity") }}</h2>
+          <p>{{ _("Introduce the example data set. Talk about how important it is to tease apart a strong narrative in order to create a compelling data story. If you've already run <a href='deconstruct-a-dataviz'>the Deconstruct a DataViz activity</a>, refer to the elements that made the infographic you discussed there work well or not. Break the participants into groups of 3 or 4 people, and give them 15 minutes to scan the data. Instruct them to look for both interesting data stories and, more importantly for this activity, seeds for a strong narrative.") }}</p>
+          <p>{{ _("Then, let everyone know that it is time to make storybooks. Read them your example story. Give each group a large piece of paper and some crayons or markers with different colors.  Demonstrate how to fold a big piece of paper into a ‘zine (share <a href='http://experimentwithnature.com/02-found/experiment-with-paper-how-to-make-a-one-page-zine/#.Uvp3dnl2DS4'>these instructions</a> or show the video below). Tell them the first page must include the phrase “Once Upon a Time”, and the last page must include “The End”.") }}</p>
+          <iframe width="100%" height="315" src="https://www.youtube-nocookie.com/embed/kM5-gaO69ao?rel=0" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
+          <br />
+          <p>{{ _("Give them 15 minutes to sketch out a story on the paper. These books should be very visual, like a kid’s picture book or a graphic novel. Encourage them to use drawings, words, charts, shapes, and color creatively. The story should be centered on the data; with representations of it woven throughout.") }}</p>
+        </div>
+      </div>
+
+      <div class="row row-flex">
+        <div class="num odd red">3</div>
+        <div class="col-md-8 col-sm-8 col-xs-8 col-md-offset-2 col-sm-offset-2 col-xs-offset-2">
+          <h2>{{ _("Have Everyone Share Back") }}</h2>
+          <p>{{ _("To wrap it up, have each small group read their stories to the entire group. These always turn out to be really fun; the groups love to share them with each other!") }}</p>
+        </div>
+      </div>
+
+
+      {{ render_feedback_form("storybook") }}
+
+  </div>
+
+</div>
+
+{% endblock %}

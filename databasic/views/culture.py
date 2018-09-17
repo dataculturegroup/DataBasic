@@ -91,3 +91,8 @@ def testimonials():
 @mod.route('/paper-spreadsheet')
 def paper_spreadsheet():
     return render_template('paper_spreadsheet.html')
+
+
+@mod.route('/storybook')
+def storybook():
+    return render_template('storybook.html')
