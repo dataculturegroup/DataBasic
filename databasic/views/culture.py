@@ -86,3 +86,8 @@ def connections():
 @mod.route('/testimonials')
 def testimonials():
     return render_template('testimonials.html')
+
+
+@mod.route('/paper-spreadsheet')
+def paper_spreadsheet():
+    return render_template('paper_spreadsheet.html')

@@ -1,0 +1,85 @@
+{% from "culture_macros.html" import render_feedback_form %}
+
+{% extends "culture_activity_base.html" %}
+
+{% block title %}{{ _("Paper Spreadsheet")}}{% endblock %}
+
+{% block culture_body %}
+
+<div role="main" class="container-fluid culture-wrapper activity-wrapper">
+
+  <div class="activity-content blue">
+      <div class="row row-flex header">
+        <div class="col-md-12 col-sm-12 col-xs-12">
+          <a href="/{{g['current_lang']}}/culture" alt="{{_('Data Culture Project')}}"><img class="logo" src="{{ url_for('static', filename='img/culture/data-culture-project-logo@2x.png') }}" alt="Data Culture Project" width="236" height="auto"></a>
+        </div>
+        <div class="col-md-8 col-sm-8 col-xs-8 col-md-offset-2 col-sm-offset-2 col-xs-offset-2">
+          <h1>{{ _("Fill in a Paper Spreadsheet")}}</h1>
+          <h2>{{ _("Introduce people to data, and to each other") }}</h2>
+        </div>
+      </div>
+
+      <div class="row row-flex">
+        <div class="col-md-8 col-sm-8 col-xs-8 col-md-offset-2 col-xs-offset-2">
+          <h2>{{ _("Set Up") }}</h2>
+          <p>{{ _("This activity will take 20 minutes. You should have these materials on hand:") }}</p>
+          <ul>
+            <li>{{ _("Giant gridded piece of paper. The bigger and more colorful, the better! <A href='https://www.amazon.com/gp/product/B0062TMTMK/ref=oh_aui_search_detailpage?ie=UTF8&psc=1'>You can order cheap rolls of colored bulletin board paper on Amazon.</a>")}}</li>
+            <li>{{ _("Large, thick markers")}}</li>
+            <li>{{ _("Tape and a flat wall to hang your Paper Spreadsheet")}}</li>
+          </ul>
+          <img src="{{ url_for('static', filename='img/culture/paper-spreadsheet-0.jpg') }}" width="550" height="auto"/>
+        </div>
+      </div>
+
+      <div class="row row-flex">
+        <div class="num odd blue">1</div>      
+        <div class="col-md-8 col-sm-8 col-xs-8 col-md-offset-2 col-sm-offset-2 col-xs-offset-2">
+          <h2>{{ _("Background") }}</h2>
+          <p>{{ _("Before beginning to analyze and tell stories with data, you have  to understand what data is and how to clean it before it can be used. Build a paper spreadsheet together to introduce non-technical newcomers to concepts like “data”, “datasets”, “data types” and “clean data.” This activity also introduces participants to ethics and privacy concerns in data. It serves as an icebreaker at the beginning of a session to introduce participants to one another.") }}</p>
+        </div>
+      </div>
+
+      <div class="row row-flex">
+        <div class="num even blue">2</div>      
+        <div class="col-md-8 col-sm-8 col-xs-8 col-md-offset-2 col-sm-offset-2 col-xs-offset-2">
+          <h2>{{ _("Kick off the Activity") }}</h2>
+          <p>{{ _("Prior to the activity, create your paper spreadsheet on a large piece of gridded paper. Create at least five columns to capture different forms of personal information. It’s best to include columns for each major data type, for example:") }}</p>
+          <p>{{ _("<ul><li>‘First name’ for <b>qualitative data</b></li><li>‘Hometown’ for <b>geographic data</b></li><li>‘Color of Your Shirt’ for <b>categorical data</b></li><li>‘# Siblings you Have’ for <b>quantitative data</b></li><li>‘Day & Month of your Birthday’ for <b>temporal data</b></li><li>‘Describe any experience you have with data’ for <b>open text as data</b></li></ul>") }}</p>
+          <p>{{ _("You should choose other questions that are more relevant for your audience, but make sure that you are not collecting sensitive personal information or anything that could be embarrassing. No really, we mean it!  It is very easy to accidentally ask a question that is revealing in an inappropriate way.") }}</p>
+          <p>{{ _("Post the spreadsheet up on the wall before the beginning of the session. As participants arrive, ask them to fill out a row about themselves, but don't force them to if they opt out.") }}</p>
+          <img src="{{ url_for('static', filename='img/culture/paper-spreadsheet-1.jpg') }}" width="550" height="auto"/>
+          <p>{{ _("Allow enough time for all participants to fill-in the spreadsheet. When you're ready to start, invite a couple volunteers to introduce themselves using the information they wrote down.  These should be short intros that give a little more back-story to what they wrote down; just 1 or 2 minutes.") }}</p>
+        </div>
+      </div>
+
+      <div class="row row-flex">
+        <div class="num odd blue">3</div>
+        <div class="col-md-8 col-sm-8 col-xs-8 col-md-offset-2 col-sm-offset-2 col-xs-offset-2">
+          <h2>{{ _("Lead a Conversation") }}</h2>
+          <p>{{ _("Lead your group in a conversation about the “dataset” they have created. Highlight that data are systematically collected observations about the world. At the same time, collecting data requires some kind of helpful reduction of the world, so they are not the final word and may not be everything you need to know in order to answer any questions. You can get at this by asking your group a couple questions related to the Paper Spreadsheet:") }}</p>
+          <p>{{ _("<ul><li>Do the colors people wrote down accurately capture all the texture and nuance of their fabric? For example, if anyone wore a striped shirt, what did they write in the 'shirt color' column?</li><li>Do these questions capture <em>enough</em> of who each person is to analyze?</li><li>What is missing that might help use this dataset?</li></ul>") }}</p>
+          <p>{{ _("Also highlight the different types of data that the Paper Spreadsheet captures. You can ask things like:") }}</p>
+          <p>{{ _("<ul><li>People often think of data as just numbers, but what other kinds of data have we captured here? Is there temporal data? Geographic data?</li><li>Numbers are easy to add up, sum, and average; how else could we organize data that isn't numbers?  For instance, we could plot dates on a timeline, or locations on a map.</li></ul>") }}</p>
+          <p>{{ _("Next, introduce what needs to be done to clean and tell stories with this data. Ask participants questions like:") }}</p>
+          <p>{{ _("<ul><li>If you wanted to map out people's hometowns, how could we do that? For example, are there inconsistencies in how people wrote down their hometown? And did everyone interpret what 'hometown' meant in the same way?</li><li>What kind of patterns do you see in the consistencies or inconsistencies in the data collected? Did everyone fill in every column? Did anyone *not* put themselves on the paper spreadsheet?</li></ul>") }}</p>
+          <p>{{ _("Finally, discuss issues around data privacy, consent, and ethics. Ask participants things like:") }}</p>
+          <p>{{ _("<ul><li>Were there any questions that you felt uncomfortable writing down information for?</li><li>Who usually has the power to determine what is captured in data?</li><li>Who decides how those questions are asked and how the answers are interpreted? </li></ul>") }}</p>
+        </div>
+      </div>
+
+      <div class="row row-flex">
+        <div class="num even blue">4</div>
+        <div class="col-md-8 col-sm-8 col-xs-8 col-md-offset-2 col-sm-offset-2 col-xs-offset-2">
+          <h2>{{ _("Review What You Have Learned") }}</h2>
+          <p>{{ _("Review the key points in the conversation that you just had. Remind the participants that data are systematic observations of the world, and a dataset is the collection of those observations. Data are a helpful reduction of the world, but it’s important to keep in mind that they do not capture everything. Data can capture different types of information (quantitative, qualitative, temporal, geographic, etc.), and the type of the data affects the kinds of exploration and pattern seeking that you can do. Data often needs to be cleaned and standardized. Data storytelling and analysis involves looking for patterns, making comparisons, finding outliers, and then testing that knowledge in dialogue with others. Finally, the way data are collected and used can raise questions of privacy, consent, and ethics, which must be taken into account when analyzing and presenting them") }}</p>
+        </div>
+      </div>
+
+      {{ render_feedback_form("paper-spreadsheet", 5) }}
+
+  </div>
+
+</div>
+
+{% endblock %}
