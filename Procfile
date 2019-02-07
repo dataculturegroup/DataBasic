@@ -1,1 +1,1 @@
-web: gunicorn databasic:app --timeout 120 --log-file=-
+web: gunicorn databasic:app --workers $WORKERS --timeout 120 --log-file=-

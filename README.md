@@ -43,6 +43,9 @@ gunicorn databasic:app
 Deploying
 ---------
 
+This is built to deploy in a container (we use Dokku).  Set the `WORKERS` environment variable to set how many
+workers gunicorn starts with.
+
 ### Heroku
 
 For deploying to Heroku, install and use the [scipy buildpack](https://github.com/thenovices/heroku-buildpack-scipy).
