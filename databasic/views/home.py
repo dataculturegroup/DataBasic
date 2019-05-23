@@ -5,6 +5,7 @@ mod = Blueprint('home', __name__, url_prefix='/<lang_code>', template_folder='..
 
 logger = logging.getLogger(__name__)
 
+
 @mod.route('/')
 def index():
     logger.info('Fetching blog posts...')
@@ -23,7 +24,6 @@ def index():
                 image = re.search('(?<=src=").*?(?=")', regex.group(1)).group(0)
             if regex.group(2) is not None:
                 description = regex.group(2)
-
 
         logger.info('"%s" (%s)', post['title'], post['link'])
 

@@ -1,4 +1,6 @@
-{% assets "js_base" %}<script type="text/javascript" src="{{ ASSET_URL }}"></script>{% endassets %}
+{% assets "js_base" %}
+    <script type="text/javascript" src="{{ ASSET_URL }}"></script>
+{% endassets %}
 
 <script type="text/javascript">
   $SCRIPT_ROOT = {{ request.script_root|tojson|safe }};

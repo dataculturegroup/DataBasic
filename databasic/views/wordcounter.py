@@ -5,7 +5,7 @@ from databasic import app, mongo, get_base_dir
 from databasic.forms import WordCounterPaste, WordCounterUpload, WordCounterSample, WordCounterLink
 from databasic.logic import wordhandler, filehandler, oauth
 from flask import Blueprint, render_template, request, redirect, g, abort, send_from_directory
-from flask.ext.babel import lazy_gettext as _
+from flask_babel import lazy_gettext as _
 
 mod = Blueprint('wordcounter', __name__, url_prefix='/<lang_code>/wordcounter', template_folder='../templates/wordcounter')
 

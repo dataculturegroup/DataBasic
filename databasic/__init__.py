@@ -5,8 +5,8 @@ import sys
 import logging.handlers
 from flask_mail import Mail
 from flask import Flask, g, redirect, request, abort, send_from_directory
-from flask.ext.assets import Environment, Bundle
-from flask.ext.babel import Babel
+from flask_assets import Environment, Bundle
+from flask_babel import Babel
 from flask_sslify import SSLify
 from sassutils.wsgi import SassMiddleware
 import nltk
@@ -30,9 +30,9 @@ reload(sys)
 sys.setdefaultencoding('utf-8')
 
 
-if(app_mode is None):
-    logging.error("missing necessary environment variable %s (%s,%s)" %
-        (ENV_APP_MODE,APP_MODE_DEV,APP_MODE_PRODUCTION) )
+if app_mode is None:
+    logging.error("missing necessary environment variable %s (%s,%s)" % (ENV_APP_MODE, APP_MODE_DEV,
+                                                                         APP_MODE_PRODUCTION))
     sys.exit()
 
 
@@ -41,13 +41,14 @@ def get_base_dir():
 
 
 def get_config_dir():
-    return os.path.join(get_base_dir(),CONFIG_DIR_NAME)
+    return os.path.join(get_base_dir(), CONFIG_DIR_NAME)
+
 
 # init the logging config
 root_logger = logging.getLogger('')
 root_logger.setLevel(logging.DEBUG)
 if app_mode == APP_MODE_DEV:
-    log_file_path = os.path.join(get_base_dir(),'logs', app_mode+'.log')
+    log_file_path = os.path.join(get_base_dir(), 'logs', app_mode+'.log')
     handler = logging.handlers.RotatingFileHandler(log_file_path, maxBytes=5242880, backupCount=10)
     formatter = logging.Formatter('%(asctime)s - %(name)s - %(levelname)s - %(message)s')
     handler.setFormatter(formatter)
@@ -59,15 +60,15 @@ logger.info("Starting DataBasic in %s mode" % app_mode)
 # Initialize the app
 app = Flask(__name__, instance_relative_config=False)
 app.config[ENV_APP_MODE] = app_mode
-config_var_names = ['SECRET_KEY','MONGODB_URL','MONGODB_NAME', 'SAMPLE_DATA_SERVER', 'GOOGLE_ANALYTICS_ID',
-                    'GOOGLE_CLIENT_ID','GOOGLE_CLIENT_SECRET', 'OAUTH_REDIRECT_URI', 'MAX_CONTENT_LENGTH',
+config_var_names = ['SECRET_KEY', 'MONGODB_URL', 'MONGODB_NAME', 'SAMPLE_DATA_SERVER', 'GOOGLE_ANALYTICS_ID',
+                    'GOOGLE_CLIENT_ID', 'GOOGLE_CLIENT_SECRET', 'OAUTH_REDIRECT_URI', 'MAX_CONTENT_LENGTH',
                     'MAIL_SERVER', 'MAIL_USERNAME', 'MAIL_PASSWORD']
 if app_mode == APP_MODE_DEV:
     import config.development
-    logger.info('Loading config from %s:' % (APP_MODE_DEV))
+    logger.info('Loading config from %s:' % APP_MODE_DEV)
     app.config.from_object(config.development)
     for var_name in config_var_names:
-        logger.info('  %s=%s' % (var_name,app.config.get(var_name)))
+        logger.info('  %s=%s' % (var_name, app.config.get(var_name)))
 elif app_mode == APP_MODE_PRODUCTION:
     logger.info('Loading config from environment variables')
     for var_name in config_var_names:
@@ -89,27 +90,31 @@ app.wsgi_app = SassMiddleware(app.wsgi_app, {
 
 # Set up bundles
 assets = Environment(app)
-js_bundle = Bundle('js/lib/jquery.js', 'js/lib/jquery.validate.min.js', 'js/lib/additional-methods.min.js', 'js/lib/bootstrap.min.js', 'js/lib/Gettext.js',
-    filters='jsmin', output='gen/packed.js')
+js_bundle = Bundle('js/lib/jquery.js', 'js/lib/jquery.validate.min.js', 'js/lib/additional-methods.min.js',
+                   'js/lib/bootstrap.min.js', 'js/lib/Gettext.js',
+                   filters='jsmin', output='gen/packed.js')
 assets.register('js_base', js_bundle)
-js_tool = Bundle('js/lib/d3.min.js', 'js/lib/d3.layout.cloud.js', 'js/lib/d3.tip.js', 'js/lib/underscore.min.js', 'js/lib/jquery.flip.min.js', 'js/lib/highcharts.src.js',
-    filters='jsmin', output='gen/packed_tool.js')
+js_tool = Bundle('js/lib/d3.min.js', 'js/lib/d3.layout.cloud.js', 'js/lib/d3.tip.js', 'js/lib/underscore.min.js',
+                 'js/lib/jquery.flip.min.js', 'js/lib/highcharts.src.js',
+                 filters='jsmin', output='gen/packed_tool.js')
 assets.register('js_tool', js_tool)
-js_ctd = Bundle('js/lib/d3.min.js', 'js/lib/saveSvgAsPng.js', 'js/lib/underscore.min.js', 'js/lib/jquery.floatThead-slim.min.js', 'js/connectthedots.js',
-    filters='jsmin', output='gen/packed_ctd.js')
+js_ctd = Bundle('js/lib/d3.min.js', 'js/lib/saveSvgAsPng.js', 'js/lib/underscore.min.js',
+                'js/lib/jquery.floatThead-slim.min.js', 'js/connectthedots.js',
+                filters='jsmin', output='gen/packed_ctd.js')
 assets.register('js_ctd', js_ctd)
 css_bundle = Bundle('css/bootstrap.css', 'css/font-awesome.min.css',
-    filters='cssmin', output='gen/packed.css')
+                    filters='cssmin', output='gen/packed.css')
 assets.register('css_base', css_bundle)
 
 # initialize helper components
 babel = Babel(app)
-mongo = logic.db.MongoHandler(app.config.get('MONGODB_URL'),app.config.get('MONGODB_NAME'))
-logic.oauth.init(app.config.get('GOOGLE_CLIENT_ID'),app.config.get('GOOGLE_CLIENT_SECRET'),app.config.get('OAUTH_REDIRECT_URI'))
+mongo = logic.db.MongoHandler(app.config.get('MONGODB_URL'), app.config.get('MONGODB_NAME'))
+logic.oauth.init(app.config.get('GOOGLE_CLIENT_ID'), app.config.get('GOOGLE_CLIENT_SECRET'),
+                 app.config.get('OAUTH_REDIRECT_URI'))
 logic.filehandler.init_uploads()
 logic.filehandler.init_samples()
-local_nltk_path = os.path.join(get_base_dir(),'nltk_data')
-logger.info("Adding nltk path %s",local_nltk_path)
+local_nltk_path = os.path.join(get_base_dir(), 'nltk_data')
+logger.info("Adding nltk path %s", local_nltk_path)
 nltk.data.path.append(local_nltk_path)
 
 try:
@@ -135,14 +140,15 @@ except Exception as e:
 def before():
     if request.view_args and 'lang_code' in request.view_args:
         if request.view_args['lang_code'] not in VALID_LANGUAGES:
-            return abort(404) # bail on invalid language
+            return abort(404)  # bail on invalid language
         g.current_lang = request.view_args['lang_code']
         g.max_file_size_bytes = int(app.config.get('MAX_CONTENT_LENGTH'))
         g.max_file_size_mb = (g.max_file_size_bytes / 1024 / 1024)
 
         # loads the translation files to be used for client-side validation
         if 'en' not in g.current_lang:
-            with codecs.open(os.path.join(get_base_dir(), 'databasic/translations', g.current_lang, 'LC_MESSAGES/messages.json'), 'r', 'utf-8') as f:
+            with codecs.open(os.path.join(get_base_dir(), 'databasic/translations', g.current_lang,
+                                          'LC_MESSAGES/messages.json'), 'r', 'utf-8') as f:
                 g.messages = json.dumps(f.read())
 
         request.view_args.pop('lang_code')
@@ -201,9 +207,10 @@ def auth():
 @app.route('/favicon.ico')
 def favicon():
     return send_from_directory(os.path.join(app.root_path, 'static', 'img', 'icons'),
-                             'favicon.ico', mimetype='image/vnd.microsoft.icon')
+                               'favicon.ico', mimetype='image/vnd.microsoft.icon')
 
-logger.debug("Importing views")
+
+logger.debug("Importing views...")
 from databasic.views import home
 from databasic.views import samediff
 from databasic.views import wordcounter
@@ -212,7 +219,8 @@ from databasic.views import connectthedots
 from databasic.views import culture
 logger.debug("  done")
 
-logger.debug("Registering blueprints")
+
+logger.debug("Registering blueprints...")
 app.register_blueprint(home.mod)
 app.register_blueprint(samediff.mod)
 app.register_blueprint(wordcounter.mod)

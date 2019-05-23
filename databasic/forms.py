@@ -1,11 +1,10 @@
-import os, json
 from logic import filehandler
-from werkzeug import secure_filename
-from flask.ext.babel import lazy_gettext as _
+from flask_babel import lazy_gettext as _
 from flask_wtf import Form
 from flask_wtf.file import FileField
 from wtforms import StringField, BooleanField, RadioField, SelectField, SelectMultipleField
 from wtforms.widgets import TextArea, TextInput, CheckboxInput
+
 
 class PasteForm(object):
     label = _('Paste text')
@@ -19,6 +18,7 @@ class PasteForm(object):
         super(PasteForm, self).__init__()
         self.area.default = default_text # not working rn
 
+
 class UploadForm(object):
     label = _('Upload a file')
     glyphicon = 'glyphicon-upload'
@@ -31,6 +31,7 @@ class UploadForm(object):
         super(UploadForm, self).__init__()
         self.upload.label = upload_label
 
+
 class SampleForm(object):
     label = _('Use a sample')
     glyphicon = 'glyphicon-file'
@@ -42,15 +43,6 @@ class SampleForm(object):
         self.sample.choices = filehandler.get_samples(tool_id, lang)
         self.lang = lang
 
-class MultipleSampleForm(object):
-    label = _('Use samples')
-    glyphicon = 'glyphicon-file'
-    samples = SelectMultipleField(
-        _('Samples'))
-
-    def __init__(self, tool_id):
-        super(MultipleSampleForm, self, lang).__init__()
-        self.samples.choices = filehandler.get_samples(tool_id, lang)
 
 class LinkForm(object):
     label = _('Link to a spreadsheet')
@@ -66,11 +58,13 @@ class LinkForm(object):
         self.label = label_text
         self.link.description={'placeholder': placeholder_text}
 
+
 '''
 Word-Counter forms
 '''
 class WordCounterForm(object):
     pass
+
 
 class WordCounterPaste(PasteForm, WordCounterForm, Form):
     ignore_case_paste = BooleanField(
@@ -81,8 +75,10 @@ class WordCounterPaste(PasteForm, WordCounterForm, Form):
         _('Ignore stopwords'),
         widget=CheckboxInput(), 
         default=True)
+
     def __init__(self, default_text=''):
         super(WordCounterPaste, self).__init__(default_text)
+
 
 class WordCounterUpload(UploadForm, WordCounterForm, Form):
     ignore_case_upload = BooleanField(
@@ -94,6 +90,7 @@ class WordCounterUpload(UploadForm, WordCounterForm, Form):
         widget=CheckboxInput(), 
         default=True)
 
+
 class WordCounterSample(SampleForm, WordCounterForm, Form):
     ignore_case_sample = BooleanField(
         _('Ignore case'), 
@@ -103,8 +100,10 @@ class WordCounterSample(SampleForm, WordCounterForm, Form):
         _('Ignore stopwords'),
         widget=CheckboxInput(), 
         default=True)
+
     def __init__(self, lang):
         super(WordCounterSample, self).__init__('wordcounter', lang)
+
 
 class WordCounterLink(LinkForm, WordCounterForm, Form):
     ignore_case_link = BooleanField(
@@ -115,8 +114,10 @@ class WordCounterLink(LinkForm, WordCounterForm, Form):
         _('Ignore stopwords'),
         widget=CheckboxInput(), 
         default=True)
+
     def __init__(self):
         super(WordCounterLink, self).__init__(_('Paste a link'), _('https://en.wikipedia.org/wiki/Natural_language_processing'))
+
 
 '''
 WTFcsv forms
@@ -124,19 +125,23 @@ WTFcsv forms
 class WTFCSVUpload(UploadForm, Form):
     pass
 
+
 class WTFCSVLink(LinkForm, Form):
     def __init__(self):
         super(WTFCSVLink, self).__init__(_('Paste a link'), 'https://docs.google.com/spreadsheets/')
 
+
 class WTFCSVSample(SampleForm, Form):
     def __init__(self, lang):
         super(WTFCSVSample, self).__init__('wtfcsv', lang)
+
 
 '''
 SameDiff forms
 '''
 class SameDiffForm(object):
     pass
+
 
 class SameDiffUpload(UploadForm, SameDiffForm, Form):
     label = _('Upload files')
@@ -147,10 +152,12 @@ class SameDiffUpload(UploadForm, SameDiffForm, Form):
     def __init__(self):
         super(SameDiffUpload, self).__init__(_('Browse file 1'))
 
+
 class SameDiffSample(SampleForm, SameDiffForm, Form):
     label = _('Use samples')
     sample2 = SelectField(
         _('Sample'))
+
     def __init__(self, lang):
         super(SameDiffSample, self).__init__('samediff', lang)
         choices = filehandler.get_samples('samediff', lang)
@@ -159,6 +166,7 @@ class SameDiffSample(SampleForm, SameDiffForm, Form):
         firstItem = choices.pop(0)
         choices.insert(1, firstItem)
         self.sample2.choices = choices
+
 
 class SameDiffLink(LinkForm, SameDiffForm, Form):
     label = _('Paste links')
@@ -172,10 +180,10 @@ class SameDiffLink(LinkForm, SameDiffForm, Form):
         super(SameDiffLink, self).__init__(_('Paste links'), _('https://en.wikipedia.org/wiki/Natural_language_processing'))
 
 
+
 '''
 ConnectTheDots forms
 '''
-
 class ConnectTheDotsUpload(UploadForm, Form):
   #  download_template = BooleanField(
   #      _('<a href="http://www.google.com">Download our simple template</a>'), 
@@ -190,6 +198,7 @@ class ConnectTheDotsUpload(UploadForm, Form):
 class ConnectTheDotsSample(SampleForm, Form):
     def __init__(self, lang):
         super(ConnectTheDotsSample, self).__init__('connectthedots', lang)
+
 
 class ConnectTheDotsPaste(Form):
     label = _('Paste rows')

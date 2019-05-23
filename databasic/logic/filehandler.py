@@ -4,7 +4,7 @@ import os, datetime, time, tempfile, codecs, unicodecsv, json, xlrd, logging
 from pyth.plugins.rtf15.reader import Rtf15Reader
 from pyth.plugins.plaintext.writer import PlaintextWriter
 from flask import Response, abort
-from flask.ext.uploads import UploadSet, configure_uploads, UploadNotAllowed
+from flask_uploads import UploadSet, configure_uploads, UploadNotAllowed
 import textract
 import databasic
 

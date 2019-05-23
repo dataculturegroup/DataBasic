@@ -5,7 +5,7 @@ from databasic.forms import SameDiffUpload, SameDiffSample
 from databasic.logic import filehandler
 from databasic.logic import textanalysis
 from flask import Blueprint, render_template, request, redirect, g, abort, send_from_directory
-from flask.ext.babel import lazy_gettext as _
+from flask_babel import lazy_gettext as _
 
 mod = Blueprint('samediff', __name__, url_prefix='/<lang_code>/samediff', template_folder='../templates/samediff')
 

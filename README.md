@@ -107,7 +107,7 @@ This command compiles the translations from the .po files into binary form. You 
 update a .po file. Then restart the app.
 
 Seeking Databasic Translators
------------
+-----------------------------
 
 Want to see Databasic in another language? We would love your help in making that happen. Languages of interest
 include French and Arabic.

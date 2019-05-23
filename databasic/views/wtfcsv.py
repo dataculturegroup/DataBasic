@@ -4,7 +4,7 @@ from databasic import mongo, get_base_dir
 from databasic.forms import WTFCSVUpload, WTFCSVLink, WTFCSVSample
 from databasic.logic import wtfcsvstat, filehandler, oauth
 from flask import Blueprint, render_template, request, redirect, g, send_from_directory
-from flask.ext.babel import gettext, ngettext
+from flask_babel import gettext, ngettext
 import os, logging, random, sys, traceback
 
 mod = Blueprint('wtfcsv', __name__, url_prefix='/<lang_code>/wtfcsv', template_folder='../templates/wtfcsv')
