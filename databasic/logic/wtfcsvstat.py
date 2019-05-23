@@ -1,21 +1,18 @@
-# -*- coding: utf-8 -*-
-#!/usr/bin/env python
-import datetime, os, sys, json, tempfile, re, csv, time, collections
-import gzip
-import bz2
-from heapq import nlargest
+import datetime
+import os
+import sys
+import re
+import csv
+import time
+import collections
 from operator import itemgetter
 import math
 import logging
 import six
 import codecs
 import wordhandler
-import pytz
-import calendar
 import numpy.random
-
 from csvkit import CSVKitReader, table
-from lazyfile import LazyFile
 from dateutil.parser import parse
 import filehandler
 
