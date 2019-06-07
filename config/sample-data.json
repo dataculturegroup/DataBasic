@@ -1,5 +1,20 @@
 [
-  
+   {
+    "title": "Barack Obama State of the Union Addresses 2013-2016",
+    "source": "sample-data/en/barack-obama-sotu-speeches-2013-2016.txt",
+    "modules": ["samediff", "wordcounter"],
+    "lang": "en",
+    "domains": ["civicidea.databasic.io"],
+    "biography": "Annual State of the Union addresses made by Barack Obama 2013-2016."
+  },
+  {
+    "title": "George H.W. Bush State of the Union Addresses 2005-2008",
+    "source": "sample-data/en/george-bush-sotu-2005-2008.txt",
+    "modules": ["samediff", "wordcounter"],
+    "lang": "en",
+    "domains": ["civicidea.databasic.io"],
+    "biography": "Annual State of the Union addresses made by George Bush 2005-2008."
+  },
   {
     "title": "Beyonce's lyrics",
     "source": "sample-data/en/beyonce-knowles-lyrics.txt",
