@@ -1,9 +1,8 @@
 from logic import filehandler
-from flask import request
 from flask_babel import lazy_gettext as _
 from flask_wtf import Form
 from flask_wtf.file import FileField
-from wtforms import StringField, BooleanField, SelectField
+from wtforms import StringField, BooleanField, RadioField, SelectField, SelectMultipleField
 from wtforms.widgets import TextArea, TextInput, CheckboxInput
 
 
@@ -41,7 +40,7 @@ class SampleForm(object):
 
     def __init__(self, tool_id, lang):
         super(SampleForm, self).__init__()
-        self.sample.choices = filehandler.get_samples(tool_id, lang, request.headers['Host'])
+        self.sample.choices = filehandler.get_samples(tool_id, lang)
         self.lang = lang
 
 
@@ -161,11 +160,11 @@ class SameDiffSample(SampleForm, SameDiffForm, Form):
 
     def __init__(self, lang):
         super(SameDiffSample, self).__init__('samediff', lang)
-        choices = filehandler.get_samples('samediff', lang, request.headers['Host'])
+        choices = filehandler.get_samples('samediff', lang)
         # This is a little clunky because self.sample2.default doesn't get processed in the init function
         # so just reordering the list so that default option shows properly
-        first_item = choices.pop(0)
-        choices.insert(1, first_item)
+        firstItem = choices.pop(0)
+        choices.insert(1, firstItem)
         self.sample2.choices = choices
 
 
