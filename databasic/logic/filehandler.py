@@ -5,7 +5,8 @@ from pyth.plugins.rtf15.reader import Rtf15Reader
 from pyth.plugins.plaintext.writer import PlaintextWriter
 from flask import Response, abort
 from flask_uploads import UploadSet, configure_uploads, UploadNotAllowed
-import textract
+import docx2txt
+
 import databasic
 
 logger = logging.getLogger(__name__)
@@ -296,4 +297,4 @@ def _get_extension(file_path):
 
 
 def _docx_to_txt(file_path):
-    return textract.process(file_path).decode('utf-8')
+    return docx2txt.process(file_path).decode('utf-8')

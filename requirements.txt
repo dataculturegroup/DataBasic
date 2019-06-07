@@ -34,7 +34,7 @@ scipy==0.15.1
 six==1.10.0
 SQLAlchemy>=1.3.0
 textmining==1.0
-textract==1.6.1
+docx2txt==0.7
 unicodecsv==0.14.1
 WTForms==2.2.1
 xlrd==1.0.0
