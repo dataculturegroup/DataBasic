@@ -4,26 +4,23 @@
     <div class="col-md-12">
       <div class="inputs">
         <ul class="nav nav-tabs nav-justified" aria-label="{{ _('choose input type') }}">
-        {% set first=True %}
+        
         {% for name, form in forms %}
-          {% if first %}
+          {% if loop.index == 1 %}
             <li role="presentation" class="active">
           {% else %}
             <li role="presentation">
           {% endif %}
-            <a id="tab-{{ name }}" href="#{{ name }}" data-toggle="tab" aria-expanded="{% if first %}true{% else %}false{% endif %}" role="button">{{ form.label }}</a>
+            <a id="tab-{{ name }}" href="#{{ name }}" data-toggle="tab" aria-expanded="{% if loop.index==1 %}true{% else %}false{% endif %}" role="button">{{ form.label }}</a>
           </li>
-          {% set first=False %}
+          
         {% endfor %}
         </ul>
       
-        {% set first=True %}
+        
         <div class="tab-content">
         {% for name, form in forms %}
-          <div id="{{ name }}" class="tab-pane fade {% if first %}in active{% endif %}">
-          {% if first %}
-            {% set first=False %}
-          {% endif %}
+          <div id="{{ name }}" class="tab-pane fade {% if loop.index == 1 %}in active{% endif %}">
           {{ render_form(form, class_=name, action_url=action_url, action_text=action_text) }}
           </div>
         {% endfor %}
