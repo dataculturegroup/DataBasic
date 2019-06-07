@@ -18,29 +18,31 @@ TEMP_DIR = tempfile.gettempdir()
 samples = []
 docs = None
 
+
 def init_uploads():
     global docs
     global TEMP_DIR
     logger.info("Uploads will be written to %s", TEMP_DIR)
     databasic.app.config['UPLOADED_DOCS_DEST'] = TEMP_DIR
     docs = UploadSet(name='docs', extensions=('txt', 'docx', 'rtf', 'csv', 'xlsx', 'xls'))
-    configure_uploads(databasic.app, (docs))
-    #patch_request_class(databasic.app, 10 * 1024 * 1024) # 100MB
+    configure_uploads(databasic.app, docs)
+    # patch_request_class(databasic.app, 10 * 1024 * 1024) # 100MB
+
 
 def init_samples():
     global samples
-    samples_config_file_path = os.path.join(databasic.get_config_dir(),'sample-data.json')
+    samples_config_file_path = os.path.join(databasic.get_config_dir(), 'sample-data.json')
     samples = json.load(open(samples_config_file_path))
     if databasic.app.config.get(databasic.ENV_APP_MODE) == databasic.APP_MODE_DEV:
         # change the paths to absolute onesls
         for sample in samples:
-            sample['path'] = os.path.join(databasic.get_base_dir(),sample['source'])
+            sample['path'] = os.path.join(databasic.get_base_dir(), sample['source'])
         logger.info("Updated sample data with base dir: %s" % databasic.get_base_dir())
     else:
         # copy from server to local temp dir and change to abs paths (to temp dir files)
         url_base = databasic.app.config.get('SAMPLE_DATA_SERVER')
         for sample in samples:
-            url = url_base+sample['source']
+            url = url_base + sample['source']
             logger.info("Loading sample data file: %s" % url)
             text = requests.get(url).text
             f = tempfile.NamedTemporaryFile(delete=False)
@@ -52,13 +54,15 @@ def init_samples():
         file_size = os.stat(sample['path']).st_size
         logger.debug("  Cached %d bytes of %s to %s", file_size, sample['source'], sample['path'])
 
+
 def write_to_temp_file(text):
     file_path = _get_temp_file()
-    logger.debug("writing %d chars to %s" % (len(text),file_path))
-    file = codecs.open(file_path, 'w', ENCODING_UTF_8)
-    file.write(text)
-    file.close()
+    logger.debug("writing %d chars to %s" % (len(text), file_path))
+    tmp_file = codecs.open(file_path, 'w', ENCODING_UTF_8)
+    tmp_file.write(text)
+    tmp_file.close()
     return file_path
+
 
 def write_to_csv(headers, rows, file_name_suffix=None, timestamp=True):
     file_path = _get_temp_file(file_name_suffix, timestamp)
@@ -69,31 +73,33 @@ def write_to_csv(headers, rows, file_name_suffix=None, timestamp=True):
             writer.writerow(row)
     return file_path
 
+
 def generate_csv(file_path):
     file_name = _get_file_name(file_path)
     if not os.path.isfile(file_path):
         return abort(400)
+
     def generate():
         with open(file_path, 'r') as f:
             reader = unicodecsv.reader(f, encoding=ENCODING_UTF_8)
             for row in reader:
                 yield ','.join(row) + '\n'
-    return Response(generate(), headers={'Content-Disposition':'attachment;filename='+file_name},mimetype='text/csv')
+
+    return Response(generate(), headers={'Content-Disposition': 'attachment;filename='+file_name}, mimetype='text/csv')
+
 
 def convert_to_txt(file_path):
     logger.debug("convert_to_txt: %s" % file_path)
-    words = None
     if not os.path.exists(file_path):
         logger.error("missing file %s", file_path)
     file_size = os.stat(file_path).st_size
-    logger.debug("convert_to_txt: %d bytes at %s",file_size, file_path)
+    logger.debug("convert_to_txt: %d bytes at %s", file_size, file_path)
     ext = _get_extension(file_path)
     if ext == '.txt':
         logger.debug("loading txt file")
-        worked = False
         try:
             encoding, file_handle, words = open_with_correct_encoding(file_path)
-        except Exception as e:
+        except Exception:
             logger.error("Wasn't able to read the words from the file %s" % file_path)
             words = ""
     elif ext == '.docx':
@@ -110,6 +116,7 @@ def convert_to_txt(file_path):
     logger.debug("loaded %d chars" % len(words))
     return words
 
+
 def convert_to_utf8(file_path):
     encoding, file_handle, content = open_with_correct_encoding(file_path)
     if encoding is ENCODING_UTF_8:
@@ -117,15 +124,17 @@ def convert_to_utf8(file_path):
     # now we have to save it as utf8
     return write_to_temp_file(content)
 
+
 def open_with_correct_encoding(file_path):
-    '''
+    """
     Since you can't actually detect the encoding of a file perfectly, default to utf-8
     and fallback to any others we want.  This returns the file handle, and the content, since 
     you have to try to read the file for it to fail on a content encoding error.
-    '''
+    """
     file_handle = None
     content = ""
     worked = False
+    encoding = ENCODING_UTF_8
     if not worked:
         try:    # try UTF8
             logger.debug("trying to convert_to_txt with %s" % ENCODING_UTF_8)
@@ -135,8 +144,8 @@ def open_with_correct_encoding(file_path):
             file_handle = myfile
             worked = True
             logger.debug("file is utf8")
-        except Exception as e: 
-            logger.warning("convert_to_txt with %s failed on %s" % (ENCODING_UTF_8,file_path))
+        except Exception:
+            logger.warning("convert_to_txt with %s failed on %s" % (ENCODING_UTF_8, file_path))
     if not worked:
         logger.debug("trying to convert_to_txt with %s" % ENCODING_LATIN_1)
         try:    # try latin-1
@@ -146,12 +155,13 @@ def open_with_correct_encoding(file_path):
             file_handle = myfile
             worked = True
             logger.debug("file is latin1")
-        except Exception as e: 
-            logger.warning("convert_to_txt with %s failed on %s" % (ENCODING_LATIN_1,file_path))
+        except Exception:
+            logger.warning("convert_to_txt with %s failed on %s" % (ENCODING_LATIN_1, file_path))
     if not worked:
         logger.error("Couldn't read txt file in either codec :-(")
     file_handle.seek(0)
     return [encoding, file_handle, content]
+
 
 def convert_to_csv(file_path):
     ext = _get_extension(file_path)
@@ -166,6 +176,7 @@ def convert_to_csv(file_path):
     logger.error(ext + ' could not be converted to csv')
     return [file_path]
 
+
 def open_doc(doc):
     try:
         file_name = docs.save(doc)
@@ -174,18 +185,22 @@ def open_doc(doc):
     except UploadNotAllowed:
         logger.error("supported filetypes: txt, docx, rtf, csv, xlsx, xls, love")
 
-def open_docs(docs):
+
+def open_docs(doc_list):
     file_paths = []
-    for doc in docs:
+    for doc in doc_list:
         file_paths.append(open_doc(doc))
     return file_paths
+
 
 def delete_files(file_paths):
     for f in file_paths:
         delete_file(f)
 
+
 def delete_file(file_path):
     os.remove(file_path)
+
 
 def open_workbook(book):
     file_paths = []
@@ -197,17 +212,19 @@ def open_workbook(book):
         file_paths.append(file_path)
     return file_paths
 
-def get_samples(tool_id, lang):
-    choices = []
-    texts = []
-    for text in samples:
-        if tool_id in text['modules'] and text['lang'] == lang:
-            if(os.path.exists(text['path'])):
-                texts.append((text['source'], text['title']))
-            else:
-                logger.error("%s: file for %s doesn't exist at %s",tool_id, text['source'], text['path'])
-    choices = texts
-    return choices
+
+def get_samples(tool_id, lang, domain=None):
+    matching_samples = []
+    for sample in samples:
+        if tool_id in sample['modules'] and sample['lang'] == lang:  # filter samples by language and tool
+            if (domain is None) or ('domains' not in sample) or (domain in sample['domains']): # filter by domain (if specified)
+                if os.path.exists(sample['path']):
+                    # only include samples we have been able to download from the static sample server URL
+                    matching_samples.append((sample['source'], sample['title']))
+                else:
+                    logger.error("%s: file for %s doesn't exist at %s", tool_id, sample['source'], sample['path'])
+    return matching_samples
+
 
 def get_sample(source):
     for text in samples:
@@ -215,19 +232,23 @@ def get_sample(source):
             return text
     return None
 
+
 def get_sample_title(source):
     sample = get_sample(source)
     return source if sample is None else sample['title']
 
+
 def get_sample_path(source):
     sample = get_sample(source)
     return source if sample is None else sample['path']
+
 
 def get_file_names(file_paths):
     file_names = []
     for f in file_paths:
         file_names.append(_get_file_name(f))
     return file_names
+
 
 def generate_filename(ext, suffix, *args):
     files = '-'.join(args) + '-' if len(args) > 0 else ''
@@ -236,10 +257,12 @@ def generate_filename(ext, suffix, *args):
     ext = ext[1:] if '.' in ext[0] else ext
     return files + suffix + datetime.datetime.now().strftime("%Y%m%d-%H%M%S") + '.' + ext
 
+
 def download_webpage(url):
     g = Goose()
     article = g.extract(url=url)
     return {'title': article.title, 'text': article.cleaned_text}
+
 
 def _open_sheet(workbook, index):
     sh = workbook.sheet_by_index(index)
@@ -251,8 +274,10 @@ def _open_sheet(workbook, index):
             writer.writerow(sh.row_values(row))
     return new_file
 
+
 def _get_file_name(file_path):
     return os.path.split(file_path)[1]
+
 
 def _get_temp_file(file_name_suffix=None, timestamp=True):
     file_name = ''
@@ -264,8 +289,10 @@ def _get_temp_file(file_name_suffix=None, timestamp=True):
     logger.debug("new tempfile at %s", file_path)
     return file_path
 
+
 def _get_extension(file_path):
     return os.path.splitext(file_path)[1]
+
 
 def _docx_to_txt(file_path):
     return textract.process(file_path).decode('utf-8')
