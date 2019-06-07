@@ -1,32 +1,5 @@
 [
-  {
-    "title": "Hillary Clinton's Speeches",
-    "source": "sample-data/en/hillary-clinton-speech.txt",
-    "modules": ["samediff", "wordcounter"],
-    "lang": "en",
-    "biography": "A collection of speeches made by Hillary Clinton during the 2016 US presidential election campaign.  This isn't a comprehensive set, but does contain many of her speeches.  It was created manually from their website, closed captions from YouTube videos, and other sources by Catherine D'Ignazio in early 2016."
-  },
-  {
-    "title": "Donald Trump's Speeches",
-    "source": "sample-data/en/donald-trump-speech.txt",
-    "modules": ["samediff", "wordcounter"],
-    "lang": "en",
-    "biography": "A collection of speeches made by Donald Trump during the 2016 US presidential election campaign.  This isn't a comprehensive set, but does contain many of his speeches.  It was created manually from their website, closed captions from YouTube videos, and other sources by Catherine D'Ignazio in early 2016."
-  },
-  {
-    "title": "Ted Cruz's Speeches",
-    "source": "sample-data/en/ted-cruz-speech.txt",
-    "modules": ["samediff", "wordcounter"],
-    "lang": "en",
-    "biography": "A collection of speeches made by Ted Cruz during the 2016 US presidential election campaign.  This isn't a comprehensive set, but does contain many of his speeches.  It was created manually from their website, closed captions from YouTube videos, and other sources by Catherine D'Ignazio in early 2016."
-  },
-  {
-    "title": "Bernie Sanders' Speeches",
-    "source": "sample-data/en/bernie-sanders-speech.txt",
-    "modules": ["samediff", "wordcounter"],
-    "lang": "en",
-    "biography": "A collection of speeches made by Bernie Sanders during the 2016 US presidential election campaign.  This isn't a comprehensive set, but does contain many of his speeches.  It was created manually from their website, closed captions from YouTube videos, and other sources by Catherine D'Ignazio in early 2016."
-  },
+  
   {
     "title": "Beyonce's lyrics",
     "source": "sample-data/en/beyonce-knowles-lyrics.txt",
