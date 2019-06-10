@@ -14,7 +14,7 @@ The suite includes:
 Installation
 ------------
 
-DataBasic is a Python 2.7.10 [Flask](https://github.com/mitsuhiko/flask) app.
+DataBasic is a Python 2.7 [Flask](https://github.com/mitsuhiko/flask) app.
 
 **1.** Clone this repository and cd into it.
 ```
