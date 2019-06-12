@@ -4,7 +4,7 @@
     "source": "sample-data/en/barack-obama-sotu-speeches-2010-2016.txt",
     "modules": ["samediff", "wordcounter"],
     "lang": "en",
-    "domains": ["civicidea.databasic.io"],
+    "domains": ["civicidea.databasic.io", "localhost:8000"],
     "biography": "Annual State of the Union addresses made by Barack Obama 2010-2016. This data was compiled by Giles Bullen from <a href=\"https://obamawhitehouse.archives.gov/\">Barack Obama's web archives</a>."
   },
   {
@@ -12,7 +12,7 @@
     "source": "sample-data/en/george-bush-sotu-2002-2008.txt",
     "modules": ["samediff", "wordcounter"],
     "lang": "en",
-    "domains": ["civicidea.databasic.io"],
+    "domains": ["civicidea.databasic.io", "localhost:8000"],
     "biography": "Annual State of the Union addresses made by George W. Bush 2002-2008. This data was compiled by Giles Bullen from <a href=\"https://georgewbush-whitehouse.archives.gov\">George W. Bush's web archives</a>."
   },
   {

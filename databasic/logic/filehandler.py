@@ -46,6 +46,9 @@ def init_samples():
             url = url_base + sample['source']
             logger.info("Loading sample data file: %s" % url)
             text = requests.get(url).text
+
+            # Catherine added this line to try to fix encoding weirdness for new files
+            r.encoding = 'utf-8'
             f = tempfile.NamedTemporaryFile(delete=False)
             f.write(text)
             f.close()
