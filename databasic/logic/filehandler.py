@@ -48,8 +48,8 @@ def init_samples():
             text = requests.get(url).text
 
             # Catherine added this line to try to fix encoding weirdness for new files
-            r.encoding = 'utf-8'
             f = tempfile.NamedTemporaryFile(delete=False)
+            f.encoding = 'utf-8'
             f.write(text)
             f.close()
             sample['path'] = f.name
