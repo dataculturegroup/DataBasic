@@ -137,7 +137,7 @@
               <div class="col-sm-8 col-sm-offset-2">
                 <h4 class="ctd-meta--name" role="listitem">{{ _('the connector') }}</h4>
                 <h3 class="ctd-meta--value" role="listitem">
-                  {% if results['connector'] is number and results['connector'] is equalto results['connector'] | round %}
+                  {% if ((results['connector'] is number) and (results['connector'] == (results['connector'] | round)))  %}
                     {{ results['connector'] | int }}
                   {% else %}
                     {{ results['connector'] }}
@@ -178,15 +178,16 @@
     </div>
   </div>
 
-  {{ what_next(_('Understanding relationships as nodes and edges in a network can lead to deeper insights about how information travels through the system. For example, what role does %(connector)s, the Connector, play in the network?</p><p>You can start to look for patterns in the nodes that are the most and least connected. %(whatnext_mismatch)s Why does <strong>%(lowest_degree)s</strong> have the fewest connections?</p><p>Being curious about these measures and patterns is the first step in understanding network data. Check out our activity guide for more help on analyzing network data.',
-  whatnext_mismatch=whatnext_mismatch(whatnext['mismatch_id'], whatnext['mismatch_degree'], whatnext['mismatch_centrality']),
-  lowest_degree=whatnext['lowest_degree'],
-  connector=results['connector']
-  ),
-  [
-    { 'url': 'https://graphcommons.com/', 'name': 'GraphCommons' },
-    { 'url': 'https://gephi.org/', 'name': 'Gephi' },
-  ]
+  {{ what_next(
+    _('Understanding relationships as nodes and edges in a network can lead to deeper insights about how information travels through the system. For example, what role does %(connector)s, the Connector, play in the network?</p><p>You can start to look for patterns in the nodes that are the most and least connected. %(whatnext_mismatch)s Why does <strong>%(lowest_degree)s</strong> have the fewest connections?</p><p>Being curious about these measures and patterns is the first step in understanding network data. Check out our activity guide for more help on analyzing network data.',
+        whatnext_mismatch=whatnext_mismatch(whatnext['mismatch_id'], whatnext['mismatch_degree'], whatnext['mismatch_centrality']),
+        lowest_degree=whatnext['lowest_degree'],
+        connector=results['connector']
+    ),
+    [
+        { 'url': 'https://graphcommons.com/', 'name': 'GraphCommons' },
+        { 'url': 'https://gephi.org/', 'name': 'Gephi' },
+    ]
   ) }}
 </div>
 {% endblock %}
