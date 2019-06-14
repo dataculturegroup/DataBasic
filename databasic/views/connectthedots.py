@@ -148,7 +148,7 @@ def redirect_to_results(results, source, sample_id=''):
     logger.debug('[CTD] Saving CSV and redirecting to result')
     doc_id = mongo.save_csv('connectthedots', results, sample_id, source)
     logger.debug('[CTD] Saved CSV and doc_id is %s', doc_id)
-    return redirect(g.current_lang + '/connectthedots/results/' + doc_id + '?submit=true')
+    return redirect(request.url + 'results/' + doc_id + '?submit=true')
 
 
 @mod.route('/results/<doc_id>')
@@ -157,7 +157,6 @@ def results_by_id(doc_id):
     Lookup results for a given document
     """
     try:
-        # results = mongo.find_document('connectthedots', doc_id).get('results')
         logger.info('[CTD] Showing results for doc: %s', doc_id)
         return render_results(doc_id)
     except Exception as e:
