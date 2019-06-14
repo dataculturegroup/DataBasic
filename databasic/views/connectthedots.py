@@ -1,4 +1,8 @@
-import logging, operator, os, re, sys
+import logging
+import operator
+import os
+import re
+import sys
 from collections import OrderedDict
 from databasic import mongo, get_base_dir
 from databasic.forms import ConnectTheDotsUpload, ConnectTheDotsSample, ConnectTheDotsPaste
@@ -12,6 +16,7 @@ mod = Blueprint('connectthedots', __name__,
                 template_folder='../templates/connectthedots')
 
 logger = logging.getLogger(__name__)
+
 
 @mod.route('/', methods=('GET', 'POST'))
 def index():
@@ -27,12 +32,13 @@ def index():
     if request.method == 'POST':
         btn_value = request.form['btn']
         sample_id = ''
+        results = None
 
         # Sample file
         if btn_value == 'sample':
             sample_source = forms['sample'].data['sample']
 
-            #check to see if file exists in cache already
+            # check to see if file exists in cache already
             existing_doc_id = mongo.results_for_sample('connectthedots', sample_source)
             if existing_doc_id is not None:
                 sample_name = filehandler.get_sample_title(sample_source)
@@ -70,6 +76,7 @@ def index():
                            max_file_size_in_mb=g.max_file_size_mb,
                            input_error=input_error)
 
+
 def process_sample(source):
     """
     Return results for a sample file
@@ -86,6 +93,7 @@ def process_sample(source):
 
     return results
 
+
 def process_paste(text, has_header_row=True):
     """
     Return results for a pasted table
@@ -96,7 +104,7 @@ def process_paste(text, has_header_row=True):
     for r in rows:
         groups = re.findall(r'"(.*?)+"|\t', r)
         if len(groups) == 3:
-            csv.rows.append((groups[0], groups[2]))
+            csv_rows.append((groups[0], groups[2]))
         elif len(groups) == 1:
             csv_rows.append((r.split('\t')[0], r.split('\t')[1]))
         else:
@@ -107,29 +115,31 @@ def process_paste(text, has_header_row=True):
     file_size = os.stat(file_path).st_size
     logger.debug('[CTD] File size: %d bytes', file_size)
 
-    results = ctd.get_summary(file_path)
-    results['has_multiple_sheets'] = False
-    results['filename'] = 'Your Pasted Data'
+    data = ctd.get_summary(file_path)
+    data['has_multiple_sheets'] = False
+    data['filename'] = 'Your Pasted Data'
 
     filehandler.delete_files([file_path])
-    return results
+    return data
 
-def process_upload(file, has_header_row=True):
+
+def process_upload(file_object, has_header_row=True):
     """
     Return results for an uploaded file
     """
-    file_path = filehandler.open_doc(file)
-    file_name = file.filename
+    file_path = filehandler.open_doc(file_object)
+    file_name = file_object.filename
     file_size = os.stat(file_path).st_size
     logger.debug('[CTD] File size: %d bytes', file_size)
 
     csv_paths = filehandler.convert_to_csv(file_path)
-    results = ctd.get_summary(csv_paths[0], has_header_row) # only use first sheet
+    results = ctd.get_summary(csv_paths[0], has_header_row)  # only use first sheet
     results['has_multiple_sheets'] = True if len(csv_paths) > 1 else False
     results['filename'] = file_name
 
     filehandler.delete_files(csv_paths)
     return results
+
 
 def redirect_to_results(results, source, sample_id=''):
     """
@@ -140,13 +150,14 @@ def redirect_to_results(results, source, sample_id=''):
     logger.debug('[CTD] Saved CSV and doc_id is %s', doc_id)
     return redirect(g.current_lang + '/connectthedots/results/' + doc_id + '?submit=true')
 
+
 @mod.route('/results/<doc_id>')
-def results(doc_id):
+def results_by_id(doc_id):
     """
     Lookup results for a given document
     """
     try:
-        #results = mongo.find_document('connectthedots', doc_id).get('results')
+        # results = mongo.find_document('connectthedots', doc_id).get('results')
         logger.info('[CTD] Showing results for doc: %s', doc_id)
         return render_results(doc_id)
     except Exception as e:
@@ -154,6 +165,7 @@ def results(doc_id):
         logger.warning('[CTD] Error: %s', str(e))
         logger.warning('[CTD] Error: %s', sys.exc_info()[0])
         return render_template('no_results.html', tool_name='connectthedots')
+
 
 def render_results(doc_id):
     """
@@ -167,7 +179,7 @@ def render_results(doc_id):
     else:
         remaining_days = None
 
-    first_mismatch = None # get first centrality/degree mismatch
+    first_mismatch = None  # get first centrality/degree mismatch
     degree_index = 0
     centrality_index = 0
     table_by_degree = sorted(results['table'], key=operator.itemgetter('degree'), reverse=True)
@@ -180,27 +192,29 @@ def render_results(doc_id):
             break
 
     if first_mismatch is not None:
-        for i, row in enumerate(table_by_centrality[degree_index + 1:]): # start from where we left off
+        for i, row in enumerate(table_by_centrality[degree_index + 1:]):  # start from where we left off
             if row['id'] == first_mismatch:
                 centrality_index = i + degree_index + 1
                 break
 
-    whatnext = {}
-    whatnext['mismatch_id'] = first_mismatch
-    whatnext['mismatch_degree'] = ordinal(degree_index + 1)
-    whatnext['mismatch_centrality'] = ordinal(centrality_index + 1)
-    whatnext['lowest_degree'] = table_by_degree[-1]['id']
+    what_next = {
+        'mismatch_id': first_mismatch,
+        'mismatch_degree': ordinal(degree_index + 1),
+        'mismatch_centrality': ordinal(centrality_index + 1),
+        'lowest_degree': table_by_degree[-1]['id']
+    }
 
     biography = results['biography'] if 'biography' in results else None
 
     return render_template('connectthedots/results.html', 
                            results=results,
-                           whatnext=whatnext,
+                           whatnext=what_next,
                            tool_name='connectthedots',
                            source=doc['source'],
                            has_multiple_sheets=results['has_multiple_sheets'],
                            remaining_days=remaining_days,
                            biography=biography)
+
 
 @mod.route('/results/<doc_id>/graph.gexf')
 def download_gexf(doc_id):
@@ -211,6 +225,7 @@ def download_gexf(doc_id):
     doc = mongo.find_document('connectthedots', doc_id)
     return Response(doc.get('results')['gexf'], mimetype='application/xml')
 
+
 @mod.route('/results/<doc_id>/table.csv')
 def download_table(doc_id):
     """
@@ -218,18 +233,21 @@ def download_table(doc_id):
     """
     logger.info('[CTD] Requesting CSV of table for doc: %s', doc_id)
     doc = mongo.find_document('connectthedots', doc_id)
+
     def as_csv(rows, headers):
         yield ','.join(headers) + '\n'
         for r in rows:
             yield ','.join(map(str, [r['id'], r['degree'], r['centrality'], r['community']])) + '\n'
+
     return Response(
         as_csv(doc.get('results')['table'], ['node', 'degree', 'betweenness centrality', 'community']),
         mimetype='text/csv')
 
+
 @mod.route('/ctd-template.csv')
 def download_user_template():
     filename = "ctd-template.csv"
-    dir_path = os.path.join(get_base_dir(),'databasic','static','files','user-templates',g.current_lang)
+    dir_path = os.path.join(get_base_dir(), 'databasic', 'static', 'files', 'user-templates', g.current_lang)
     logger.debug("download user template from %s/%s", dir_path, filename)
     return send_from_directory(directory=dir_path, filename=filename)
 
@@ -237,6 +255,6 @@ def download_user_template():
 @mod.route('/connect-the-dots-activity-guide.pdf')
 def download_activity_guide():
     filename = "Connect the Dots Activity Guide.pdf"
-    dir_path = os.path.join(get_base_dir(),'databasic','static','files','activity-guides',g.current_lang)
+    dir_path = os.path.join(get_base_dir(), 'databasic', 'static', 'files', 'activity-guides', g.current_lang)
     logger.debug("download activity guide from %s/%s", dir_path, filename)
     return send_from_directory(directory=dir_path, filename=filename)
