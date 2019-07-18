@@ -14,7 +14,7 @@ import nltk
 import logic.filehandler, logic.db, logic.oauth
 
 
-VALID_LANGUAGES = ('es', 'en', 'pt', 'da')
+VALID_LANGUAGES = ('es', 'en', 'pt')
 
 CONFIG_DIR_NAME = 'config'
 

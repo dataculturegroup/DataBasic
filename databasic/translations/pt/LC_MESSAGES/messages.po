@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2019-03-13 15:25-0400\n"
+"POT-Creation-Date: 2018-02-28 16:36-0500\n"
 "PO-Revision-Date: 2016-12-29 12:33-0200\n"
 "Last-Translator: \n"
 "Language: pt\n"
@@ -16,7 +16,2387 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Generated-By: Babel 2.5.1\n"
+"Generated-By: Babel 2.1.1\n"
+
+#: databasic/forms.py:11
+msgid "Paste text"
+msgstr "Colar texto"
+
+#: databasic/forms.py:14 databasic/forms.py:198
+msgid "Text"
+msgstr "Texto"
+
+#: databasic/forms.py:15
+msgid "Paste text..."
+msgstr "Colar texto..."
+
+#: databasic/forms.py:23 databasic/forms.py:30
+msgid "Upload a file"
+msgstr "Seleccionar um arquivo"
+
+#: databasic/forms.py:27
+msgid "Upload file"
+msgstr "Enviar arquivo"
+
+#: databasic/forms.py:28 databasic/forms.py:145
+msgid "Upload..."
+msgstr "Enviar..."
+
+#: databasic/forms.py:35
+msgid "Use a sample"
+msgstr "Usar uma amostra"
+
+#: databasic/forms.py:38 databasic/forms.py:153
+msgid "Sample"
+msgstr "Amostra"
+
+#: databasic/forms.py:46 databasic/forms.py:151
+msgid "Use samples"
+msgstr "Usar amostras"
+
+#: databasic/forms.py:49
+msgid "Samples"
+msgstr "Amostras"
+
+#: databasic/forms.py:56
+msgid "Link to a spreadsheet"
+msgstr "Link para uma planilha"
+
+#: databasic/forms.py:60
+msgid "Link to spreadsheet"
+msgstr "Link para planilha"
+
+#: databasic/forms.py:77 databasic/forms.py:89 databasic/forms.py:99
+#: databasic/forms.py:111
+msgid "Ignore case"
+msgstr "Ignorar situação"
+
+#: databasic/forms.py:81 databasic/forms.py:93 databasic/forms.py:103
+#: databasic/forms.py:115 databasic/templates/macros.html:103
+msgid "Ignore stopwords"
+msgstr "Ignorar stopwords"
+
+#: databasic/forms.py:119 databasic/forms.py:129
+msgid "Paste a link"
+msgstr "Colar um link"
+
+#: databasic/forms.py:119 databasic/forms.py:168 databasic/forms.py:172
+msgid "https://en.wikipedia.org/wiki/Natural_language_processing"
+msgstr "https://pt.wikipedia.org/wiki/Processamento_de_linguagem_natural"
+
+#: databasic/forms.py:142
+msgid "Upload files"
+msgstr "Enviar arquivos"
+
+#: databasic/forms.py:144
+msgid "Browse file 2"
+msgstr "Escolher arquivo 2"
+
+#: databasic/forms.py:148
+msgid "Browse file 1"
+msgstr "Escolher arquivo 1"
+
+#: databasic/forms.py:164 databasic/forms.py:167 databasic/forms.py:172
+msgid "Paste links"
+msgstr "Colar links"
+
+#: databasic/forms.py:185 databasic/forms.py:202
+msgid "Has header row"
+msgstr "Possui linha de cabeçalho"
+
+#: databasic/forms.py:195
+msgid "Paste rows"
+msgstr "Colar linhas"
+
+#: databasic/static/js/connectthedots-validate.js:20
+#: databasic/static/js/connectthedots-validate.js:35
+#: databasic/static/js/samediff-validate.js:45
+#: databasic/static/js/samediff-validate.js:48
+#: databasic/static/js/samediff-validate.js:51
+#: databasic/static/js/samediff-validate.js:75
+#: databasic/static/js/samediff-validate.js:80
+#: databasic/static/js/samediff-validate.js:85
+#: databasic/static/js/wordcounter-validate.js:30
+#: databasic/static/js/wordcounter-validate.js:44
+#: databasic/static/js/wordcounter-validate.js:60
+#: databasic/static/js/wtfcsv-validate.js:32
+#: databasic/static/js/wtfcsv-validate.js:49
+msgid "This field is required"
+msgstr "Este campo é obrigatório"
+
+#: databasic/static/js/connectthedots-validate.js:36
+#: databasic/static/js/wtfcsv-validate.js:33
+msgid "Only these file types are accepted: csv, xls, xlsx"
+msgstr "Apenas estes tipos de arquivos são aceitos: csv, xls, xlsx"
+
+#: databasic/static/js/connectthedots-validate.js:37
+#: databasic/static/js/samediff-validate.js:77
+#: databasic/static/js/samediff-validate.js:82
+#: databasic/static/js/wordcounter-validate.js:46
+#: databasic/static/js/wordcounter-validate.js:62
+#: databasic/static/js/wtfcsv-validate.js:34
+#: databasic/static/js/wtfcsv-validate.js:51
+msgid "Only files under MB are accepted"
+msgstr "Apenas arquivos com menos de 10MB são aceitos"
+
+#: databasic/static/js/samediff-validate.js:12
+#: databasic/static/js/wordcounter-validate.js:12
+msgid "You must input a valid url"
+msgstr "Você deve inserir uma url válida"
+
+#: databasic/static/js/samediff-validate.js:20
+msgid "You must select two files"
+msgstr "Você deve selecionar dois arquivos"
+
+#: databasic/static/js/samediff-validate.js:52
+#: databasic/static/js/samediff-validate.js:86
+msgid "Please enter a valid email address"
+msgstr "Por favor informe um endereço de email válido"
+
+#: databasic/static/js/samediff-validate.js:76
+#: databasic/static/js/samediff-validate.js:81
+#: databasic/static/js/wordcounter-validate.js:45
+msgid "Only these file types are accepted: txt, docx, rtf"
+msgstr "Apenas estes tipos de arquivos são aceitos: txt, docx, rtf"
+
+#: databasic/static/js/wordcounter-validate.js:61
+#: databasic/static/js/wtfcsv-validate.js:50
+msgid "You must input a URL"
+msgstr "Você deve informar uma URL"
+
+#: databasic/static/js/wtfcsv-validate.js:12
+msgid "Link must be a valid Google Spreadsheet"
+msgstr "O link deve ser de uma Planilha Google válida"
+
+#: databasic/templates/footer.html:25
+#: databasic/templates/wordcounter/wordcounter.html:4
+#: databasic/templates/wordcounter/wordcounter.html:31
+msgid "WordCounter"
+msgstr "WordCounter"
+
+#: databasic/templates/footer.html:26 databasic/templates/wtfcsv/wtfcsv.html:4
+#: databasic/templates/wtfcsv/wtfcsv.html:28
+msgid "WTFcsv"
+msgstr "WTFcsv"
+
+#: databasic/templates/footer.html:27
+#: databasic/templates/samediff/samediff.html:4
+#: databasic/templates/samediff/samediff.html:30
+msgid "SameDiff"
+msgstr "SameDiff"
+
+#: databasic/templates/footer.html:28
+#: databasic/templates/connectthedots/connectthedots.html:4
+#: databasic/templates/connectthedots/connectthedots.html:75
+msgid "ConnectTheDots"
+msgstr "ConnectTheDots"
+
+#: databasic/templates/footer.html:30
+#: databasic/templates/culture/connections.html:14
+#: databasic/templates/culture/convince.html:14
+#: databasic/templates/culture/culture.html:13
+#: databasic/templates/culture/questions.html:14
+#: databasic/templates/culture/sculpture.html:14
+#: databasic/templates/culture/sketch.html:14
+msgid "Data Culture Project"
+msgstr ""
+
+#: databasic/templates/footer.html:32
+msgid "about"
+msgstr "sobre"
+
+#: databasic/templates/footer.html:33
+msgid "blog"
+msgstr "blog"
+
+#: databasic/templates/footer.html:34
+msgid "help"
+msgstr "ajuda"
+
+#: databasic/templates/header_base.html:4
+#: databasic/templates/culture/culture_base.html:12
+msgid "Choose your language: "
+msgstr "Selecione sua língua: "
+
+#: databasic/templates/header_base.html:4
+#: databasic/templates/culture/culture_base.html:12
+msgid "change language to english"
+msgstr "mudar idioma para inglês"
+
+#: databasic/templates/header_base.html:4
+#: databasic/templates/culture/culture_base.html:12
+msgid "change language to spanish"
+msgstr "mudar idioma para espanhol"
+
+#: databasic/templates/header_base.html:4
+#: databasic/templates/culture/culture_base.html:12
+msgid "change language to portuguese"
+msgstr "mudar idioma para inglês"
+
+#: databasic/templates/home_header.html:9
+msgid ""
+"DataBasic is a suite of easy-to-use web tools for beginners that "
+"introduce concepts of working with data."
+msgstr ""
+"DataBasic é um conjunto de ferramentas web fáceis de usar por iniciantes,"
+" que introduzem conceitos de trabalho com dados."
+
+#: databasic/templates/home_header.html:10
+msgid ""
+"These simple tools make it easy to work with data in fun ways, so you can"
+" learn how to find great stories to tell."
+msgstr ""
+"Estas ferramentas simples fazem com que seja fácil trabalhar dados de "
+"maneira divertida, então você pode aprender como encontrar ótimas "
+"histórias para contar."
+
+#: databasic/templates/macros.html:6
+msgid "choose input type"
+msgstr "escolha o tipo de entrada"
+
+#: databasic/templates/macros.html:104
+#, python-format
+msgid "Ignore %(stopwords)s"
+msgstr "Ignorar %(stopwords)s"
+
+#: databasic/templates/macros.html:105
+#: databasic/templates/wordcounter/results.html:48
+msgid "stopwords"
+msgstr "stopwords"
+
+#: databasic/templates/macros.html:105
+msgid ""
+"Stopwords are words in text analysis that are ignored such as "
+"&quot;this&quot;, &quot;that&quot;, &quot;and&quot; and &quot;but.&quot;"
+msgstr ""
+"Stopwords são palavras que são ignoradas na análise textual, como "
+"&quot;este&quot;, &quot;aquele&quot;, &quot;e&quot; e &quot;mas&quot;"
+
+#: databasic/templates/macros.html:159
+msgid "close window"
+msgstr "fechar janela de vídeo"
+
+#: databasic/templates/macros.html:165
+msgid "You can share these results by emailing this url:"
+msgstr "Você pode compartilhar estes resultados enviando por email esta url:"
+
+#: databasic/templates/no_results.html:3
+msgid "No results"
+msgstr "Sem Resultados"
+
+#: databasic/templates/no_results.html:19
+msgid "We couldn't find any results"
+msgstr "Não encontramos nenhum resultado"
+
+#: databasic/templates/no_results.html:20
+#, python-format
+msgid ""
+"They might have expired. Why not try <a "
+"href=\"/%(lang)s/%(tool_name)s\">analyzing some new data?</a>"
+msgstr ""
+"Eles devem ter expirado. Por que não tenta <a "
+"href=\"/%(lang)s/%(tool_name)s\">analisar algum dado novo?</a>"
+
+#: databasic/templates/tool_base.html:5
+#, python-format
+msgid "go to %(tool)s"
+msgstr "ir para %(tool)s"
+
+#: databasic/templates/tool_base.html:13
+msgid "What do I do next?"
+msgstr "O que eu faço em seguida?"
+
+#: databasic/templates/tool_base.html:15
+msgid "Try these other tools to do more full-fledged analysis:"
+msgstr ""
+
+#: databasic/templates/tool_base.html:31
+#, python-format
+msgid "About %(tool_name)s"
+msgstr "Sobre %(tool_name)s"
+
+#: databasic/templates/tool_base.html:38
+msgid "Are you an Educator? Try our Activity Guide"
+msgstr "Você é um Educador? Tente nosso Guia de Atividades"
+
+#: databasic/templates/tool_base.html:42
+msgid ""
+"DataBasic activities are suitable for classes and workshops for "
+"participants from middle school through higher education. No prior data "
+"experience necessary!"
+msgstr ""
+"As atividades do DataBasic são adequadas para aulas e oficinas com "
+"participantes desde o ensino médio até a educação superior. Nenhuma "
+"experiência prévia com dados é necessária!"
+
+#: databasic/templates/tool_base.html:47
+msgid "Download"
+msgstr "Baixar"
+
+#: databasic/templates/tool_header.html:4
+msgid "go to data basic home page"
+msgstr "ir para a home do DataBasic"
+
+#: databasic/templates/connectthedots/connectthedots.html:15
+msgid "Paste rows from an Excel or Google spreadsheet, with this format:"
+msgstr "Colar linhas de uma planilha de Google ou Excel no seguinte formato:"
+
+#: databasic/templates/connectthedots/connectthedots.html:16
+msgid "source target"
+msgstr "origem destino"
+
+#: databasic/templates/connectthedots/connectthedots.html:37
+msgid "Not sure how to format your file? Download our template."
+msgstr "Não tem certeza sobre como formatar seu arquivo? Baixe nosso modelo."
+
+#: databasic/templates/connectthedots/connectthedots.html:61
+#: databasic/templates/home/index.html:28
+msgid ""
+"ConnectTheDots shows you how your data is connected by analyzing it as a "
+"network."
+msgstr ""
+"ConnectTheDots mostra como seus dados estão conectados analisando-os como"
+" uma rede."
+
+#: databasic/templates/connectthedots/connectthedots.html:63
+msgid ""
+"Analyzing the connections between the \"dots\" in your data is a "
+"fundamentally different approach to understanding it. This tool shows you"
+" a network diagram to reveal those links, and gives you a high level "
+"report about what your network looks like."
+msgstr ""
+"Analisando as conexões entre os \"pontos\" nos seus dados é uma abordagem"
+" fundamentalmente diferente para entendê-los. Esta ferramenta mostra um "
+"gráfico de redes para revelar suas conexões, e mostra um relatório alto "
+"nível sobre como a rede se parece."
+
+#: databasic/templates/connectthedots/connectthedots.html:68
+msgid ""
+"Error: Paste failed! Make sure your input has exactly two tab-separated "
+"columns and try again."
+msgstr ""
+"Erro: Falha ao colar! Certifique que sua entrada tem exatamente duas "
+"colunas separadas por tabulação e tente novamente."
+
+#: databasic/templates/connectthedots/connectthedots.html:70
+msgid ""
+"Error: Upload failed! Make sure your file has exactly two columns and try"
+" again."
+msgstr ""
+"Erro: Falha ao carregar! Certifique que seu arquivo possui exatamente "
+"duas colunas e tente novamente."
+
+#: databasic/templates/connectthedots/connectthedots.html:73
+msgid "Graph"
+msgstr "Criar Gráfico"
+
+#: databasic/templates/connectthedots/results.html:6
+#, python-format
+msgid ""
+"For example, is it significant that <strong>%(id)s</strong> has the "
+"%(degree)s highest number of connections but is ranked %(centrality)s for"
+" %(betweenness_centrality)s?"
+msgstr ""
+"Por exemplo, isto significa que <strong>%(id)s</strong> tem %(degree)s "
+"maior número de conexões mas é raqueado %(centrality)s para "
+"%(betweenness_centrality)s?"
+
+#: databasic/templates/connectthedots/results.html:10
+#: databasic/templates/connectthedots/results.html:15
+#: databasic/templates/connectthedots/results.html:148
+msgid "betweenness centrality"
+msgstr "centralidade entre pontos"
+
+#: databasic/templates/connectthedots/results.html:10
+#: databasic/templates/connectthedots/results.html:15
+#: databasic/templates/connectthedots/results.html:148
+#: databasic/templates/connectthedots/results.html:171
+msgid ""
+"Scores how much of a &quot;connector&quot; each node is. A high score "
+"means lots of nodes can go through one to quickly connect to other nodes."
+msgstr ""
+"Pontua quanto &quot;conector&quot; é cada ponto. Uma pontuação alta "
+"significa que muitos nós podem passar por um mesmo nó para se conectar "
+"rapidamente a outros nós."
+
+#: databasic/templates/connectthedots/results.html:13
+#, python-format
+msgid ""
+"For example, why might <strong>%(id)s</strong> have the highest "
+"%(betweenness_centrality)s in the network?"
+msgstr ""
+"Por exemplo, por que <strong>%(id)s</strong> tem o maior "
+"%(betweenness_centrality)s na rede?"
+
+#: databasic/templates/connectthedots/results.html:20
+msgid "ConnectTheDots: "
+msgstr "ConnectTheDots: "
+
+#: databasic/templates/connectthedots/results.html:52
+msgid ""
+"Warning: The file you uploaded had multiple sheets, but we only used the "
+"first sheet."
+msgstr "Alerta: O arquivo tem múltiplas planilhas, mas só usamos a primeira."
+
+#: databasic/templates/connectthedots/results.html:66
+#, python-format
+msgid ""
+"Here is a graph of how your data is connected. Any %(nodes)s linked by an"
+" %(edge)s show up in the same row in your input data. Your network graph "
+"has %(node_count)s nodes and %(edge_count)s edges."
+msgstr ""
+"Aqui tem um gráfico sobre como seus dados estão conectados. Qualquer "
+"%(nodes)s conectados por um %(edge)s são mostrados na mesma linha em seus"
+" dados de entrada. Seu gráfico de rede tem %(node_count)s nós e "
+"%(edge_count)s arestas."
+
+#: databasic/templates/connectthedots/results.html:69
+msgid "nodes"
+msgstr "nós"
+
+#: databasic/templates/connectthedots/results.html:69
+#: databasic/templates/connectthedots/results.html:161
+msgid ""
+"The &quot;dots&quot; in the network - the central organizing thing that "
+"is connected to others."
+msgstr ""
+"Os &quot;pontos&quot; na rede - a organização central que está conectada "
+"com os outros pontos."
+
+#: databasic/templates/connectthedots/results.html:70
+msgid "edge"
+msgstr "arestas"
+
+#: databasic/templates/connectthedots/results.html:70
+msgid "A connection between one node and another node."
+msgstr "Uma conexão entre um nó e outro nó."
+
+#: databasic/templates/connectthedots/results.html:74
+#, python-format
+msgid ""
+"It looks like your two columns have two totally different types of nodes."
+" We think this is a %(bipartite_graph)s. We’ve gone ahead and colored "
+"each node based on what column it&#39;s in."
+msgstr ""
+"Parece que suas duas colunas tem um total diferente para os tipos de nós."
+" Acreditamos que est é um %(bipartite_graph)s. Vamos seguir e colorir "
+"cada nó baseado em qual coluna ele está."
+
+#: databasic/templates/connectthedots/results.html:75
+msgid "bipartite graph"
+msgstr "gráfico bipartido"
+
+#: databasic/templates/connectthedots/results.html:75
+msgid ""
+"A network graph with two types of nodes.  For instance, people connected "
+"to restaurants they love but not to other people."
+msgstr ""
+
+#: databasic/templates/connectthedots/results.html:80
+#: databasic/templates/samediff/results.html:28
+#: databasic/templates/wordcounter/results.html:35
+#: databasic/templates/wtfcsv/results.html:175
+#, python-format
+msgid "These results will expire in %(day)s days."
+msgstr "Estes resultados irão expirar em %(day)s dias"
+
+#: databasic/templates/connectthedots/results.html:97
+msgid "for the web"
+msgstr "para a web"
+
+#: databasic/templates/connectthedots/results.html:98
+msgid "for printing or editing"
+msgstr "para impressão ou edição"
+
+#: databasic/templates/connectthedots/results.html:99
+msgid "for analysis"
+msgstr "para análise"
+
+#: databasic/templates/connectthedots/results.html:101
+msgid "Download the <strong>table</strong>"
+msgstr "Baixe a <strong>tabela</strong>"
+
+#: databasic/templates/connectthedots/results.html:107
+msgid "node colors"
+msgstr "cores do nó"
+
+#: databasic/templates/connectthedots/results.html:107
+msgid "color by"
+msgstr "colorir por"
+
+#: databasic/templates/connectthedots/results.html:110
+msgid "color by column"
+msgstr "colorir por coluna"
+
+#: databasic/templates/connectthedots/results.html:111
+msgid "column"
+msgstr "coluna"
+
+#: databasic/templates/connectthedots/results.html:114
+#: databasic/templates/connectthedots/results.html:119
+msgid "color by community"
+msgstr "colorir por comunidade"
+
+#: databasic/templates/connectthedots/results.html:115
+#: databasic/templates/connectthedots/results.html:120
+msgid "community"
+msgstr "comunidade"
+
+#: databasic/templates/connectthedots/results.html:124
+msgid "no colors"
+msgstr "sem cores"
+
+#: databasic/templates/connectthedots/results.html:138
+msgid "the connector"
+msgstr "o conector"
+
+#: databasic/templates/connectthedots/results.html:146
+#, python-format
+msgid ""
+"This node has the highest %(betweenness_centrality)s score. The most "
+"nodes can go through %(kevin_bacon)s to connect to others in the network."
+msgstr ""
+"Este nó tem a maior pontuação %(betweenness_centrality)s. A maioria dos "
+"nós pode ir pelo %(kevin_bacon)s para se conectar aos outros nós na rede."
+
+#: databasic/templates/connectthedots/results.html:160
+#, fuzzy, python-format
+msgid "%(node)s"
+msgstr "nós"
+
+#: databasic/templates/connectthedots/results.html:161
+msgid "Node"
+msgstr "Nó"
+
+#: databasic/templates/connectthedots/results.html:165
+#, python-format
+msgid "%(degree)s"
+msgstr "%(degree)s"
+
+#: databasic/templates/connectthedots/results.html:166
+msgid "Degree"
+msgstr "Grau"
+
+#: databasic/templates/connectthedots/results.html:166
+msgid "The immediate number of connections a node has."
+msgstr "O número imediato de conexões que um nó possui."
+
+#: databasic/templates/connectthedots/results.html:170
+#, python-format
+msgid "%(centrality)s"
+msgstr "%(centrality)s"
+
+#: databasic/templates/connectthedots/results.html:171
+msgid "Centrality"
+msgstr "Centralidade"
+
+#: databasic/templates/connectthedots/results.html:181
+#, python-format
+msgid ""
+"Understanding relationships as nodes and edges in a network can lead to "
+"deeper insights about how information travels through the system. For "
+"example, what role does %(connector)s, the Connector, play in the "
+"network?</p><p>You can start to look for patterns in the nodes that are "
+"the most and least connected. %(whatnext_mismatch)s Why does "
+"<strong>%(lowest_degree)s</strong> have the fewest "
+"connections?</p><p>Being curious about these measures and patterns is the"
+" first step in understanding network data. Check out our activity guide "
+"for more help on analyzing network data."
+msgstr ""
+"Entender as relações entre nós e arestas em uma rede pode te guiar para "
+"visões profundas sobre como a informação flui pelo sistema. Por exemplo, "
+"qual a regra do %(connector)s, o Conector, usa nesta rede?</p><p>Você "
+"pode começar a procurar por padrões nos nós que possuem mais e menos "
+"conexões. %(whatnext_mismatch)s Por que "
+"<strong>%(lowest_degree)s</strong> tem menos conexões?</p><p>Ser curioso "
+"sobre essas medidas e padrões é o primeiro passo na compreensão dos dados"
+" da rede. Confira nosso guia de atividades para obter mais ajuda na "
+"análise de dados da rede."
+
+#: databasic/templates/culture/connections.html:5
+#: databasic/templates/culture/connections.html:17
+msgid "Build and Analyze a Network"
+msgstr "Construa e Analise uma Rede"
+
+#: databasic/templates/culture/connections.html:18
+msgid "Learn how to ask different types of questions based on a network of data"
+msgstr ""
+"Saiba como fazer diferentes tipos de perguntas com base em uma rede de "
+"dados"
+
+#: databasic/templates/culture/connections.html:25
+#: databasic/templates/culture/convince.html:25
+#: databasic/templates/culture/questions.html:25
+#: databasic/templates/culture/sculpture.html:24
+#: databasic/templates/culture/sketch.html:25
+msgid "Set Up"
+msgstr "Preparação"
+
+#: databasic/templates/culture/connections.html:26
+#: databasic/templates/culture/convince.html:26
+#: databasic/templates/culture/questions.html:26
+#: databasic/templates/culture/sketch.html:26
+msgid ""
+"This activity will take 30 to 45 minutes. You should have these materials"
+" on hand:"
+msgstr ""
+"Esta atividade levará de 30 a 45 minutos. Você deve ter os seguintes "
+"materiais à mão:"
+
+#: databasic/templates/culture/connections.html:28
+#: databasic/templates/culture/questions.html:28
+msgid "A basic Internet connection"
+msgstr "Uma conexão básica à Internet"
+
+#: databasic/templates/culture/connections.html:29
+msgid "A phone, tablet, or computer for each small group of 3 people"
+msgstr "Um telefone, tablet ou computador para cada grupo pequeno de 3 pessoas"
+
+#: databasic/templates/culture/connections.html:30
+msgid "A projector connected to a computer"
+msgstr "Um projetor conectado a um computador"
+
+#: databasic/templates/culture/connections.html:32
+#: databasic/templates/culture/questions.html:35
+#: databasic/templates/culture/sketch.html:35
+msgid "Download and print the activity guide"
+msgstr "Baixe e imprima o guia de atividades"
+
+#: databasic/templates/culture/connections.html:40
+#: databasic/templates/culture/convince.html:40
+#: databasic/templates/culture/questions.html:43
+#: databasic/templates/culture/sketch.html:43
+msgid "Kick-Off The Activity"
+msgstr "Início da Atividade"
+
+#: databasic/templates/culture/connections.html:41
+msgid ""
+"Network graphs are very trendy right now, but few know how to read them, "
+"nor why they they might be useful. In this activity you'll create a "
+"dataset about local restaurants people recommend, build a network graph "
+"out of that data, and then think about questions you can ask it. You will"
+" use <a href='https://connectthedots.databasic.io/'>Databasic.io's "
+"Connect the Dots tool</a> to do this."
+msgstr ""
+"Gráficos de rede são muito usados no momento, mas poucos sabem como "
+"lê-los, ou mesmo sabem por que eles podem ser úteis. Nesta atividade, "
+"você criará um conjunto de dados sobre restaurantes locais que as pessoas"
+" recomendam, criará um gráfico de rede fora desses dados e depois pensará"
+" em perguntas que você pode fazer. Você usará a ferramenta <a "
+"href='https://connectthedots.databasic.io/'>Databasic.io Connect the "
+"Dots</a> para fazer isso."
+
+#: databasic/templates/culture/connections.html:42
+msgid ""
+"Participants will understand build familiarity with some standard terms "
+"and approaches to working with network graphs. Begin by sharing some "
+"inspirational examples, then fill in a spreadsheet together of "
+"restaurants and who recommends them.  This should have two columns - "
+"'Person' and 'Restaurant'. Then paste this data into Connect the Dots to "
+"analyze it. Share the URL and have people poke at it, or other sample "
+"data, to look for insights and prompt questions."
+msgstr ""
+"Os participantes aprenderão como se familiarizar com alguns termos e "
+"abordagens padrão para trabalhar com gráficos de rede. Comece "
+"compartilhando alguns exemplos inspiradores, então preencha uma planilha "
+"de restaurantes e de quem os recomendou. Isso deve ser em duas colunas - "
+"'Pessoa' e 'Restaurante'. Em seguida, coloque esses dados em Connect the "
+"Dots para analisá-lo. Compartilhe o URL e peça que o grupo o acesse, ou "
+"mesmo outros exemplos de dados, para que busquem ideias e façam perguntas"
+" rápidas."
+
+#: databasic/templates/culture/connections.html:53
+#: databasic/templates/culture/convince.html:55
+#: databasic/templates/culture/questions.html:57
+#: databasic/templates/culture/sculpture.html:69
+#: databasic/templates/culture/sketch.html:56
+msgid "Have Everyone Share Back"
+msgstr "Faça com que Todos Compartilhem"
+
+#: databasic/templates/culture/connections.html:54
+msgid ""
+"After 10 minutes bring everyone back together to share any insights they "
+"found.  Were there any obvious benefits they ran into by analyzing this "
+"data as a network (instead of a table)? Were there any questions that "
+"here harder to dig into? Were any of the algorithms mentioned useful?"
+msgstr ""
+"Depois de 10 minutos, junte todos para que compartilhem as informações "
+"que eles encontraram. Houve algum benefício óbvio que eles encontraram ao"
+" analisar esses dados como uma rede (em vez de uma tabela)? Houve alguma "
+"dúvida que aqui fosse mais difícil de encontrar? Algum dos algoritmos "
+"mencionados foi útil?"
+
+#: databasic/templates/culture/connections.html:62
+#: databasic/templates/culture/convince.html:67
+#: databasic/templates/culture/questions.html:69
+#: databasic/templates/culture/sketch.html:68
+msgid "Wrap-Up and Talk Next Steps"
+msgstr "Faça com que Todos Compartilhem"
+
+#: databasic/templates/culture/connections.html:63
+msgid ""
+"Now that you've done some basic network graph analysis, help the "
+"participants think about any network data your organization has on hand."
+"  Are there any questions that came up, or ideas, about steps people "
+"should take with your in-house data?"
+msgstr ""
+"Agora que você fez algumas análises básicas de gráficos de rede, ajude os"
+" participantes a pensar sobre quaisquer dados de rede que a sua "
+"organização tenha em mãos. Há alguma pergunta que surgiu, ou idéias, "
+"sobre as etapas que as pessoas devam tomar com seus dados internos?"
+
+#: databasic/templates/culture/convince.html:5
+#: databasic/templates/culture/convince.html:17
+msgid "Convince Me"
+msgstr "Me Convença"
+
+#: databasic/templates/culture/convince.html:18
+msgid ""
+"Practice making data-driven arguments that they to get difference "
+"audiences to change their behavior"
+msgstr "Pratique a elaboração de argumentos baseados em dados para que eles consigam conduzir o público para uma mudança de comportamento"
+
+#: databasic/templates/culture/convince.html:28
+msgid ""
+"Printouts of the <a href=\"https://www.good.is/infographics/transparency-"
+"how-much-water-do-you-use\">Walk this Way infographic from Good "
+"Magazine</a>"
+msgstr "Impressões do folheto <a href=\"https://www.good.is/infographics/transparency-"
+"how-much-water-do-you-use\">Walk this Way</a> da Good Magazine"
+
+#: databasic/templates/culture/convince.html:29
+msgid "A room with space at the front"
+msgstr "Uma sala com espaço na frente"
+
+#: databasic/templates/culture/convince.html:30
+msgid "At least 10 people"
+msgstr "Pelo menos 10 pessoas"
+
+#: databasic/templates/culture/convince.html:31
+msgid ""
+"Planning to show the videos offline? <a "
+"href=\"https://www.dropbox.com/s/5zbvtal9ch8alez/ConvinceMeAllThreeFacilitationVideos.zip?dl=0\">Click"
+" here</a> to download them in advance."
+msgstr ""
+
+#: databasic/templates/culture/convince.html:41
+msgid ""
+" In this activity you will work practice using data to make arguments "
+"that try to convince different people. You will learn how to use data to "
+"tailor an argument for a specific audience. We'll look at a sample "
+"visualization about an issue, identify stakeholders who are trying to "
+"swayed by the story it tells, and try to make arguments that convince "
+"them to take action. Start the activity by playing the kickoff video "
+"below for your group."
+msgstr ""
+"Nesta atividade você trabalhará na prática usando dados para fazer argumentos que convençam pessoas diferentes. Você aprenderá como usar dados para adaptar um argumento para um público específico. Analisaremos uma amostra sobre um problema, identificaremos as partes interessadas que tentam influenciar a história que se conta e tentaremos criar argumentos que os convençam a agir. Inicie a atividade passando o vídeo inicial abaixo para o seu grupo."
+
+#: databasic/templates/culture/convince.html:56
+msgid ""
+"Play this video after you've finished making arguments to convince your "
+"volunteer stakeholders to move forward.  Ask different people to explain "
+"why they made the arguments they did, and ask the stakeholders why "
+"something convinced them or not. Highlight similarities in the arguments "
+"people made, or arguments that worked for one audience but might not for "
+"another.  Point out particularly strong uses of data in support of "
+"arguments to start a conversation about how to use data in appropriate "
+"ways to convince people."
+msgstr ""
+"Passe este vídeo depois de criar os argumentos para convencer seus interessados ​​voluntários a seguir em frente. Peça a diferentes pessoas para explicar por que eles usaram os argumentos que eles fizeram, e pergunte às partes interessadas por que algo os convenceu ou não. Destaque semelhanças nos argumentos feitos pelas pessoas, ou argumentos que funcionaram para uma audiência, mas não para outra. Destaque usos particularmente fortes de dados em apoio aos argumentos para iniciar uma conversa sobre como usar os dados de maneira apropriada para convencer as pessoas."
+
+#: databasic/templates/culture/convince.html:68
+msgid ""
+"Now that you've practice this with some example data, this video will "
+"help you think about where to go next. For example, who are some of the "
+"main audiences your organization tries to convince? What are some "
+"pitfalls to be aware of when crafting arguments for specific audiences?"
+msgstr ""
+"Agora que você praticou isso com alguns dados de exemplo, esse vídeo irá ajudá-lo a pensar sobre onde ir adiante. Por exemplo, quais são alguns dos principais públicos que sua organização tenta convencer? Quais são algumas armadilhas para se conscientizar ao elaborar argumentos para públicos específicos?"
+
+#: databasic/templates/culture/culture.html:18
+msgid ""
+"Struggling to build your organization's ability to work with data? Use "
+"our hands-on learning program to kickstart your data culture."
+msgstr ""
+"Está lutando para aumentar a capacidade da sua empresa em trabalhar com "
+"dados? Use o nosso programa prático de aprendizagem para iniciar a "
+"cultura de dados."
+
+#: databasic/templates/culture/culture.html:27
+msgid ""
+"Data is everywhere right now. But many organizations like your's are "
+"struggling to figure out how to build capacity to work with data. You "
+"don't need a data scientist; you need a <strong>data culture</strong>."
+msgstr ""
+"Os dados estão em todos os lugares agora mesmo. Mas muitas empresas, "
+"assim como a sua, estão lutando para descobrir como aumentar a sua "
+"capacidade para trabalhar com eles. Você não precisa de um cientista de "
+"dados; o que você precisa é de uma cultura de dados."
+
+#: databasic/templates/culture/culture.html:33
+msgid ""
+"Use our self-service learning program to facilitate fun, creative "
+"introductions for the non-technical folks in your organization. These are"
+" not boring spreadsheet trainings. The free tools and activites below are "
+"hands-on and designed to meet people where they are across your "
+"organization and build their capacity to work with data. Try to kickstart"
+" your data culture by running one activity per month as a brown bag "
+"lunch. The videos and facilitation guides below will lead you through "
+"running them yourself. People at more than 30 organizations have done so "
+"already - from a local public library, to the World Food Progam."
+msgstr ""
+"Use nosso programa de autoaprendizagem para facilitar a introdução "
+"informal e criativa para pessoas que não são técnicas em sua empresa. Não"
+" estamos falando de treinamentos chatos de planilhas eletrônicas. As "
+"ferramentas e atividades gratuitas abaixo são práticas e projetadas para "
+"atender a pessoas onde quer que estiverem na sua empresa e desenvolver a "
+"capacidade deles em trabalhar com dados. Tente iniciar sua cultura de "
+"dados executando uma atividade por mês como uma oportunidade informal de "
+"aprendizado no trabalho. Os vídeos e os guias práticos abaixo o ajudarão "
+"a executá-los você mesmo. Pessoas de mais de 30 empresas já fizeram esse "
+"programa – desde uma biblioteca pública local, até o World Food Program."
+
+#: databasic/templates/culture/culture.html:34
+msgid ""
+"How do you build a data culture?  Use our videos and guides to run one "
+"activity a month at brown bag lunches in your org."
+msgstr ""
+"Como se cria uma cultura de dados? Use nossos vídeos e guias para "
+"executar uma atividade por mês como eventos informais de aprendizado na "
+"sua empresa."
+
+#: databasic/templates/culture/culture.html:40
+msgid "The Data Process"
+msgstr "O Processo de Dados"
+
+#: databasic/templates/culture/culture.html:41
+msgid ""
+"Here's a process we introduce to get you from data to impactful story.  "
+"Keep scrolling down to learn about the activities we offer for you to run"
+" at each step along the way."
+msgstr ""
+"Este um processo que apresentamos para levá-lo a transformar simples "
+"dados para uma impactante história. Continue lendo para aprender sobre as"
+" atividades que oferecemos para que você execute a cada passo adiante."
+
+#: databasic/templates/culture/culture.html:50
+msgid "Warm Ups"
+msgstr "Aquecimentos"
+
+#: databasic/templates/culture/culture.html:51
+msgid ""
+"Before jumping into finding data or telling stories, it's important to do"
+" some warm ups to activate your organization's data mindset. Warm ups are"
+" quick, fun, hands-on activities designed to activate conversation, "
+"catalyze creative ideas and build confidence to take the next step. For "
+"example, lead colleagues to <strong>Build Data Sculptures</strong> with "
+"craft materials to explore different ways to communicate the same simple "
+"data set.  Working with pompons, pipe cleaners, or other local materials "
+"changes how you approach data, letting you focus on playfully quick ways "
+"to look for stories."
+msgstr ""
+"Antes de passar à procura dos dados ou a contar as histórias, é "
+"importante fazer aquecimentos para ativar a mentalidade de dados da sua "
+"organização. Os aquecimentos são atividades rápidas, divertidas e "
+"práticas, projetadas para ativar a conversação, obter idéias criativas e "
+"criar confiança para dar o próximo passo. Por exemplo, liderar pessoas "
+"para construir culturas de dados com materiais artesanais no objetivo de "
+"explorar diferentes formas de comunicar o mesmo conjunto de dados "
+"simples. Trabalhar com pompons, limpadores de canos ou outros materiais "
+"domésticos altera a forma como você aborda os dados, permitindo que você "
+"se concentre em maneiras divertidas e rápidas de procurar histórias."
+
+#: databasic/templates/culture/culture.html:56
+#: databasic/templates/culture/sculpture.html:5
+#: databasic/templates/culture/sculpture.html:17
+msgid "Build a Data Sculpture"
+msgstr "Esculturas de Dados"
+
+#: databasic/templates/culture/culture.html:66
+#: databasic/templates/culture/culture.html:87
+msgid "Ask Good Questions"
+msgstr "Faça Perguntas"
+
+#: databasic/templates/culture/culture.html:70
+msgid "Asking Questions"
+msgstr "Faça Perguntas"
+
+#: databasic/templates/culture/culture.html:71
+msgid ""
+"What questions can (and cannot) be answered with data? And once you are "
+"staring at some rows and columns, how do you start to make sense of the "
+"data in front of you? In this stage, you learn to take the first step in "
+"the data analysis process by asking good questions. <strong>Use "
+"WTFcsv</strong> to quickly summarize spreadsheet data, brainstorm "
+"questions about it, potential connections to other data sets, and "
+"potential biases you might bring to it. Remember – the data never speaks "
+"for itself – you help it speak by asking better and better questions. "
+msgstr ""
+"Quais perguntas podem (e não podem) ser respondidas com dados? E quando "
+"você estiver olhando para algumas linhas e colunas, como você começa a "
+"dar sentido aos dados na sua frente? Nesta fase, você aprende a dar o "
+"primeiro passo no processo de análise de dados, fazendo boas perguntas. "
+"Use o WTFcsv para resumir rapidamente os dados da planilha eletrônica, "
+"reunir perguntas sobre esses dados, potenciais conexões com outros "
+"conjuntos de dados e possíveis considerações que você possa ter para "
+"eles. Lembre-se - os dados nunca falam por si mesmos - você os ajuda a "
+"falar fazendo mais e melhores perguntas."
+
+#: databasic/templates/culture/culture.html:78
+msgid "Gathering Data"
+msgstr "Junte a Informação"
+
+#: databasic/templates/culture/culture.html:79
+msgid ""
+"Often you don’t recognize the data you already have! Data is all around, "
+"but can be difficult to identify and describe.  You need the right data "
+"to tell a strong story. As they say, “garbage in, garbage out.”  You also"
+" need to remember that a single data set may not be able to answer your "
+"questions. Combining datasets is often the best way to create a more "
+"fleshed out story. <strong>Use Connect the Dots</strong> to explore "
+"crowd-sourcing data from your audience to analyze together as a network."
+"  Or <strong>Use WTFcsv</strong> to think about how to gather the data "
+"you need to answer a question."
+msgstr ""
+"Muitas vezes você pode não reconhecer os dados que você já possui! Os "
+"dados estão ao redor, mas podem ser difíceis de identificar e descrever. "
+"Você precisa dos dados certos para contar uma história forte. É como se "
+"diz, 'se entra lixo, sai lixo'. Você também precisa lembrar que um único "
+"conjunto de dados pode não ser capaz de responder suas perguntas. A "
+"combinação de conjuntos de dados geralmente é a melhor maneira de criar "
+"uma história mais detalhada. Use o Connect the Dots para explorar os "
+"dados de crowd-sourcing do seu público para analisar juntos como uma "
+"rede. Ou use WTFcsv para pensar sobre como reunir os dados que você "
+"precisa para responder a uma pergunta."
+
+#: databasic/templates/culture/culture.html:84
+#: databasic/templates/culture/culture.html:100
+msgid "Use Connect the Dots"
+msgstr "Usa ConnectTheDots"
+
+#: databasic/templates/culture/culture.html:97
+#: databasic/templates/culture/culture.html:121
+#: databasic/templates/culture/sketch.html:5
+#: databasic/templates/culture/sketch.html:17
+#: databasic/templates/wordcounter/run-activity.html:19
+msgid "Sketch a Story"
+msgstr "Esboce uma História"
+
+#: databasic/templates/culture/culture.html:103
+#, fuzzy
+msgid "Use SameDiff"
+msgstr "Usa SameDiff"
+
+#: databasic/templates/culture/culture.html:107
+msgid "Analyzing Data"
+msgstr "Analise os Dados"
+
+#: databasic/templates/culture/culture.html:108
+msgid ""
+"Data can be intimidating, especially when it comes to analyzing it.  But "
+"remember, most of statistics is just special ways of counting.  We’re all"
+" pretty good at counting! Establishing a data culture doesn't mean that "
+"we will all be statistical wizards but it does mean learning enough about"
+" analysis to understand its creative potential. The data analysis process"
+" is an opportunity to bring people together. There are many ways to do "
+"this to find a story.  <strong>Use WordCounter</strong> to learn about "
+"analyzing text data to find stories. <strong>Use Connect the "
+"Dots</strong> to collaboratively analyze a network graph.  <strong>Use "
+"SameDiff</strong> to learn about how algorithms can help you analyze data"
+" in more abstract ways."
+msgstr ""
+"Os dados podem ser intimidadores, especialmente quando se trata de "
+"analisá-los. Mas lembre-se, a maioria das estatísticas são apenas formas "
+"específicas de contagem. E nós somos muito bons em fazer contas! "
+"Estabelecer uma cultura de dados não significa que todos nós seremos "
+"mestres estatísticos, mas significa aprender o suficiente sobre análise "
+"para entender todo seu potencial criativo. O processo de análise de dados"
+" é uma oportunidade para reunir as pessoas. Há muitas maneiras de fazer "
+"isso para encontrar uma história. Use o WordCounter para aprender sobre "
+"como analisar dados de texto para encontrar histórias. Use o Connect the "
+"Dots para analisar um gráfico de rede de forma colaborativa. Use o "
+"SameDiff para saber como os algoritmos podem ajudá-lo a analisar os dados"
+" de maneiras mais abstratas."
+
+#: databasic/templates/culture/culture.html:115
+msgid "Telling Your Story"
+msgstr "Conte a sua História"
+
+#: databasic/templates/culture/culture.html:116
+msgid ""
+"Telling your story is where the rubber hits the road. Numbers alone are "
+"not enough to make your case or move people to action. You have to give "
+"your data some context, and stitch it together into a narrative so that "
+"people can understand it.  <strong>Sketch a story with "
+"WordCounter</strong> to practice communicating a data-driven story "
+"visually."
+msgstr ""
+"Contar sua história é onde a viagem começa. Os números de forma isolada "
+"não são suficientes para convencer ou mover as pessoas à ação. Você deve "
+"dar aos seus dados um pouco de contexto e juntá-los em uma narrativa de "
+"forma que as pessoas possam entendê-los. Crie uma história com o "
+"WordCounter para praticar a comunicação visual de uma história baseada em"
+" dados."
+
+#: databasic/templates/culture/culture.html:132
+msgid "Try to ConvinceMe"
+msgstr "Usa ConvinceMe"
+
+#: databasic/templates/culture/culture.html:136
+msgid "Try It Out"
+msgstr "Experimente"
+
+#: databasic/templates/culture/culture.html:137
+msgid ""
+"How do you know if your story is working?  Does the data you included "
+"support the narrative you are telling?  It can be very difficult to put "
+"yourself in the shoes of your audience and try to understand what kind of"
+" story will change their worldview or move them to action.  And you might"
+" have multiple audiences. Each potential audience brings different "
+"beliefs and experiences to understanding your message. <strong>Try out "
+"ConvinceMe</strong> to practice telling different stories to different "
+"audiences."
+msgstr ""
+"Como saber se sua história está funcionando mesmo? Os dados que você "
+"incluiu condizem com a narrativa que você está contando? Pode ser muito "
+"difícil colocar-se no lugar do seu público alvo e tentar entender que "
+"tipo de história vai mudar visão de mundo deles ou movê-los à ação. E "
+"talvez você possa ter vários públicos alvo. Cada público traz consigo "
+"diferentes crenças e experiências ao receber sua mensagem. "
+"<strong>Experimente o ConvinceMe</strong> para praticar como contar "
+"histórias diferentes para diferentes públicos."
+
+#: databasic/templates/culture/culture.html:143
+msgid "Connect with Others"
+msgstr "Conecte-se com outros"
+
+#: databasic/templates/culture/culture.html:144
+msgid ""
+"Trying to build a data culture can be a lonely effort in organizations "
+"that haven't recognized the importance of data. Join the Data Culture <a "
+"href='https://groups.io/g/dataculture'>discussion group</a> to connect "
+"with others and reflect on how these activities are working, or not "
+"working, for your organization."
+msgstr ""
+"Tentar construir uma cultura de dados pode ser um esforço isolado em "
+"organizações que ainda não reconheceram a importância dos dados. Junte-se"
+" a <a href='https://groups.io/g/dataculture'>nossa lista de discussão</a>"
+" para se conectar com outras pessoas e reflita sobre como essas "
+"atividades funcionam ou não para sua organização."
+
+#: databasic/templates/culture/culture.html:146
+msgid "Join the discussion group"
+msgstr "Junte-se a nossa lista"
+
+#: databasic/templates/culture/culture.html:150
+msgid "About Us"
+msgstr "Sobre Nós"
+
+#: databasic/templates/culture/culture.html:151
+msgid ""
+"The Data Culture Project is an initiative of  <a "
+"href='http://databasic.io'>DataBasic.io</a>.  We’ve pulled together the "
+"years of work with nonprofits into one place to help you build a data "
+"culture. DataBasic.io is the brainchild of <a "
+"href='http://kanarinka.com'>Catherine D’Ignazio</a> and <a "
+"href='http://datatherapy.org'>Rahul Bhargava</a>."
+msgstr ""
+"O Projeto Data Culture é uma iniciativa do <a "
+"href='http://databasic.io'>DataBasic.io</a>. Nós reunimos em um só lugar "
+"os anos de trabalho com organizações sem fins lucrativos para ajudá-lo a "
+"construir uma cultura de dados. DataBasic.io é uma criação de <a "
+"href='http://kanarinka.com'>Catherine D'Ignazio</a> e <a "
+"href='http://datatherapy.org'>Rahul Bhargava</a>."
+
+#: databasic/templates/culture/culture_macros.html:6
+msgid "Learn With Others"
+msgstr "Conte-nos como foi"
+
+#: databasic/templates/culture/culture_macros.html:7
+msgid ""
+"People around the world are using this activity. Learn from their "
+"comments below, and please share your experience with others by "
+"submitting it! Comments you leave here will be moderated. Once approved, "
+"they will be shared on this page and are public."
+msgstr ""
+"Pessoas ao redor do mundo estão usando e adaptando essas atividades em "
+"suas empresas. Escreva no espaço abaixo um pouco sobre como as atividades"
+" foram para você."
+
+#: databasic/templates/culture/questions.html:5
+#: databasic/templates/culture/questions.html:17
+msgid "Asking Good Questions"
+msgstr "Faça Boas Perguntas"
+
+#: databasic/templates/culture/questions.html:18
+msgid "Learn how to move from spreadsheet to story with WTFcsv"
+msgstr "Saiba como passar da planilha para a história com o WTFcsv"
+
+#: databasic/templates/culture/questions.html:29
+msgid ""
+"A phone, tablet, or computer for each small \n"
+"            group of 3 people"
+msgstr "Um telefone, tablet ou computador para cada grupo pequeno de 3 pessoas"
+
+#: databasic/templates/culture/questions.html:31
+msgid ""
+"1 printed copy of the <a href='https://databasic.io/en/wtfcsv/wtfcsv-"
+"activity-guide.pdf'>WTFcsv handout</a> per group"
+msgstr ""
+"1 cópia impressa do <a href='https://databasic.io/pt/wtfcsv/wtfcsv-"
+"activity-guide.pdf'>folheto WTFcsv</a> por grupo"
+
+#: databasic/templates/culture/questions.html:32
+msgid "Paper &amp; pens"
+msgstr "Papel e canetas"
+
+#: databasic/templates/culture/questions.html:33
+msgid ""
+"Planning to show the videos offline? <a "
+"href=\"https://www.dropbox.com/s/t7mai3ecrcayvei/AskingGoodQuestionsAllThreeFacilitationVideos.zip?dl=0\">Click"
+" here</a> to download them in advance."
+msgstr ""
+
+#: databasic/templates/culture/questions.html:44
+msgid ""
+"Increasingly, data arrives on our doorstep in the form of a spreadsheet. "
+"Somebody sends you an excel file or you download something from the web. "
+"In this activity, you will work with colleagues to ask good questions of "
+"a spreadsheet so that you can take it from data points to data story. You"
+" will use <a href='https://wtfcsv.databasic.io/'>Databasic.io's WTFcsv "
+"tool</a>, get acquainted data types, and do some basic spreadsheet "
+"analysis.  '<em>csv</em>' stands for <em>comma separated values</em>, a "
+"common spreadsheet format on the web. <em>WTF</em> stands for... well... "
+"the question you ask when someone sends you an inscrutable csv file."
+msgstr ""
+"Cada vez mais, os dados chegam a nós na forma de uma planilha. Alguém lhe"
+" envia um arquivo em Excel ou você baixa algo da web. Nesta atividade, "
+"você trabalhará com colegas para fazer boas perguntas a respeito de uma "
+"planilha para que você possa transformar os pontos de dados para a "
+"história de dados. Você usará a ferramenta WTFcsv da Databasic.io, se "
+"familiarizará com os tipos de dados e fará algumas análises básicas de "
+"planilhas. 'csv' significa valores separados por vírgulas, um formato de "
+"planilha comum na web. WTF significa ...bem...aquela pergunta que você "
+"faz sempre que alguém lhe envia um arquivo csv indecifrável."
+
+#: databasic/templates/culture/questions.html:46
+msgid ""
+"In this activity participants will brainstorm questions to ask sample "
+"datasets based on summaries of the columnar data.  Work in groups of 2-3 "
+"colleagues for about 10 minutes with the data. At the end give them a "
+"minute to pick the best question and write it down on the handout, "
+"indicating the question, any other data they might need to answer it, and"
+" how they would get that data. Start the activity by playing the kickoff "
+"video below for your group, which explains all this."
+msgstr ""
+"Nesta atividade, os participantes irão fazer uma discussão de perguntas "
+"de amostras de conjuntos de dados baseados em resumos dos dados em "
+"coluna. Trabalhe em grupos de 2-3 pessoas por cerca de 10 minutos com os "
+"dados. No final, dê-lhes um minuto para escolher a melhor pergunta e "
+"anotá-la no folheto, indicando a pergunta, quaisquer outros dados que "
+"possam precisar para respondê-la e como obterão esses dados. Comece a "
+"atividade por passar o vídeo inicial abaixo para o seu grupo, onde se "
+"explicará tudo isso."
+
+#: databasic/templates/culture/questions.html:58
+msgid ""
+"Play this video after each small group has written their questions on the"
+" WTFcsv handout. Here we outline some things to discuss as each group "
+"enumerates their questions and the process they might take to start "
+"answering them. For example, you want to validate groups that asked 'meta"
+" questions', like 'where is this data from?' or 'Can we trust this data?'"
+" as well as groups that started to ask questions about patterns that they"
+" saw in the data itself. If groups ask questions about patterns in data, "
+"ask them to take a step towards answering them. What other data would "
+"they need to answer their questions? Who collects that data?"
+msgstr ""
+"Passe este vídeo depois que cada grupo pequeno escrever suas perguntas no"
+" folheto WTFcsv. Aqui descrevemos algumas coisas para discutir como cada "
+"grupo enumera suas perguntas e o processo que eles podem tomar para "
+"começar a respondê-las. Por exemplo, você deseja validar grupos que "
+"fizeram 'meta-perguntas', do tipo 'de onde são esses dados?' ou 'podemos "
+"confiar nestes dados?' bem como grupos que começaram a fazer perguntas "
+"sobre os padrões que eles viram nos próprios dados. Se os grupos fizerem "
+"perguntas sobre os padrões dos dados, peça-lhes que deem um passo à "
+"frente para respondê-los. Que outros dados eles precisariam para "
+"responder suas perguntas? Quem coleta esses dados?"
+
+#: databasic/templates/culture/questions.html:70
+msgid ""
+"Now that you've done some basic spreadsheet analysis, this video will "
+"help you think about where to go from here. For example, what information"
+" in your organization is captured in spreadsheet form? Could you use this"
+" same approach with survey result data? With financial data? With lists "
+"of donors or web analytics? How can having groups come up with questions "
+"help you take the next step with your organization's data? We also "
+"discuss some common pitfalls to try to avoid, like remembering to "
+"consider outliers and keeping in mind that correlation is not causation."
+msgstr ""
+"Agora que você fez algumas análises básicas de planilhas, esse vídeo irá "
+"ajudá-lo a pensar sobre onde ir daqui em diante. Por exemplo, quais "
+"informações em sua organização são obtidas em forma de planilha? Você "
+"poderia usar essa mesma abordagem com os dados do resultado da pesquisa? "
+"Com dados financeiros? Com listas de doadores ou análise web? Como o fato"
+" dos grupos terem apresentado perguntas poderá ajuda-lo a dar o próximo "
+"passo com os dados da sua organização? Nós também discutimos algumas "
+"armadilhas comuns a serem evitadas, como lembrar-se de considerar fatores"
+" atípicos e ter em mente que a correlação não é causalidade."
+
+#: databasic/templates/culture/sculpture.html:18
+msgid "Use physical craft materials to tell a data story in 3D"
+msgstr ""
+"Use materiais físicos de artesanato para contar uma história de dados em "
+"3D"
+
+#: databasic/templates/culture/sculpture.html:25
+msgid ""
+"This activity will take 20 to 30 minutes. You should have these materials"
+" on hand:"
+msgstr ""
+"Esta atividade levará cerca de 20 a 30 minutos. Você deve ter os "
+"seguintes materiais à mão"
+
+#: databasic/templates/culture/sculpture.html:27
+msgid ""
+"Local craft materials (plastic bottle tops, wire, fuzzy balls, colored "
+"paper, wood blocks, construction paper)"
+msgstr ""
+"Materiais para fazer artesanato (garrafas de plástico, fios, bolas, papel"
+" colorido, blocos de madeira, papel)"
+
+#: databasic/templates/culture/sculpture.html:28
+msgid "Tape, glue, scissors"
+msgstr "Fita, cola, tesoura"
+
+#: databasic/templates/culture/sculpture.html:29
+msgid ""
+"DO NOT include pens, crayons, or anything else to write with (otherwise "
+"people just draw instead of building)"
+msgstr ""
+"NÃO inclua canetas, lápis de cor ou qualquer outra coisa para escrever "
+"(senão as pessoas simplesmente desenham, ao invés de construir)"
+
+#: databasic/templates/culture/sculpture.html:30
+msgid "DO NOT include LEGO bricks (otherwise people just build bar charts)"
+msgstr ""
+"NÃO inclua peças de LEGO (caso contrário, as pessoas apenas criam "
+"gráficos de barras)"
+
+#: databasic/templates/culture/sculpture.html:38
+msgid "Background"
+msgstr "Contexto"
+
+#: databasic/templates/culture/sculpture.html:39
+msgid ""
+"The idea of playing with data is new to most folks. This activity lets "
+"people quickly build sculptures that tell a simple data story with craft "
+"materials. The playful approach to the data helps engage the participants"
+" in thinking about how stories can be found and presented quickly, and "
+"helps people feel more freedom and flexibility about data presentations. "
+"It builds a notion of \"presentation\" instead of \"visualization\". The "
+"activity also builds the ability to translate words and numbers into "
+"structural forms. In addition, playing with these materials at the start "
+"of a workshop can break down power dynamics that might exist within the "
+"group."
+msgstr ""
+"A idéia de brincar com os dados é nova para a maioria das pessoas. Esta "
+"atividade permite que as pessoas construam rapidamente esculturas que "
+"contam uma história de dados simples com materiais de artesanato. A "
+"abordagem divertida com os dados ajuda os participantes a pensar sobre "
+"como as histórias podem ser encontradas e apresentadas rapidamente, e as "
+"ajuda a sentir mais liberdade e flexibilidade sobre as apresentações. "
+"Isso promove uma noção de 'apresentação' em vez de 'visualização'. A "
+"atividade também promove a capacidade de traduzir palavras e números em "
+"formas estruturais. Além disso, usar esses materiais logo no início de um"
+" worshop pode provocar dinâmicas poderosas que possam existir dentro do "
+"grupo"
+
+#: databasic/templates/culture/sculpture.html:45
+msgid ""
+"This activity builds on the pedagogy and workshop style of the MIT Media "
+"Lab’s <a href='http://llk.media.mit.edu/'>Lifelong Kindergarten Group</a>"
+" (where Rahul got his Master’s degree).  It also has connections to the "
+"<a href='http://www.placeit.org/bio.html'>participatory urban planning "
+"work of James Rojas</a>."
+msgstr ""
+"Esta atividade baseia-se no estilo de pedagogia e workshop do <a "
+"href='https://llk.media.mit.edu'>Grupo Lifelong Kindergarten do MIT Media"
+" Lab</a> (onde Rahul obteve seu mestrado). Também possui influências do <a"
+" href='http://www.placeit.org/bio.html'>trabalho participativo de "
+"planejamento urbano de James Rojas</a>."
+
+#: databasic/templates/culture/sculpture.html:52
+msgid "Kick off the Activity"
+msgstr "Início da Atividade"
+
+#: databasic/templates/culture/sculpture.html:53
+msgid ""
+"Introduce the group to two related “normal” charts of data.  One can be a"
+" single fact, and the other a medium-sized set of information. If you "
+"make your own, be sure to avoid data that the audience knows too well - "
+"we find that leads people to get lost in the nuances and intimate "
+"details. We suggest using more generic or high-level data.  Here are a "
+"few handouts you are welcome to download, print, and use:"
+msgstr ""
+"Apresente o grupo a dois gráficos de dados 'normais'. Um pode ser um fato"
+" único, e o outro um conjunto de informações de tamanho médio. Se você "
+"fizer o seu próprio gráfico, certifique-se de evitar o uso de dados que o"
+" público conheça bem - entendemos que isso leva as pessoas a se perderem "
+"nas nuances e detalhes pessoais. Sugerimos usar dados mais genéricos. "
+"Aqui estão alguns folhetos que você poderá baixar, imprimir e usar:"
+
+#: databasic/templates/culture/sculpture.html:55
+msgid "US Ice Cream Consumption"
+msgstr "Consumo de Sorvete nos EUA"
+
+#: databasic/templates/culture/sculpture.html:56
+msgid "Happiness in the Town of Somerville, MA, USA"
+msgstr "Felicidade na cidade de Somerville, MA, EUA"
+
+#: databasic/templates/culture/sculpture.html:57
+msgid "The Cost of an MIT Education"
+msgstr "O custo de uma educação do MIT"
+
+#: databasic/templates/culture/sculpture.html:59
+msgid ""
+"Ask the group to pair up, preferably with someone they don’t know.  Show "
+"participants a large central table full of the materials you have "
+"gathered.  Give them 6 minutes to quickly build a physical representation"
+" of the data you presented earlier.  Don't give them too long, otherwise "
+"they will get stuck on nuances instead of just getting their creative "
+"juices flowing. Remind them they are creative, and that pipe cleaner bar "
+"charts are NOT allowed!"
+msgstr ""
+"Peça ao grupo para trabalharem em duplas, de preferência com alguém que "
+"não conheçam. Mostre aos participantes uma grande mesa central cheia dos "
+"materiais que você reuniu. Dê-lhes 6 minutos para construir rapidamente "
+"uma representação física dos dados que você apresentou anteriormente. Não"
+" lhes dê muito tempo, caso contrário, eles ficarão presos em detalhes ao "
+"invés de apenas deixarem a criatividade fluir. Lembre-os de serem "
+"criativos, e de que gráficos de barras de limpeza de canos NÃO são "
+"permitidos!"
+
+#: databasic/templates/culture/sculpture.html:60
+msgid ""
+"After 3 minutes tell them they should be building now; this is a 'think "
+"with your hands activity'.  When they have one minute left let them know."
+msgstr ""
+"Depois de 3 minutos, diga-lhes que deveriam estar construindo já; esta é "
+"uma 'atividade de pensar com as mãos'. Quando faltar um minuto para a "
+"conclusão, avise-os"
+
+#: databasic/templates/culture/sculpture.html:70
+msgid ""
+"Stop everyone when the time is up. Give each group 1 minute to share what"
+" they made. You can summarize by pointing out similarities and "
+"differences in the pieces folks made. Often you’ll see some people "
+"focusing on one data point, while others look at a broader picture.  With"
+" the happiness data, some people try to merge to two datasets, while "
+"others just focus on one.  Point out any physical versions of traditional"
+" charts to point out how entrenched our current visual presentation "
+"techniques are! Try to identify patterns in how the numbers were mapped "
+"onto physical objects."
+msgstr ""
+"Peça que todos parem quando chegar a hora. Dê a cada grupo 1 minuto para "
+"compartilhar o que eles fizeram. Você pode resumir, apontando semelhanças"
+" e diferenças nas peças feitas pelas pessoas. Muitas vezes você verá "
+"algumas pessoas concentrando-se em um ponto de dados, enquanto outros "
+"olham para uma imagem mais ampla. Com os dados de felicidade, algumas "
+"pessoas tentam se fundir em dois conjuntos de dados, enquanto outros "
+"apenas se concentram em um. Destaque quaisquer versões físicas das "
+"tabelas tradicionais para apontar quão arraigadas as nossas atuais "
+"técnicas de apresentação visual são! Tente identificar padrões de como os"
+" números foram mapeados em objetos físicos."
+
+#: databasic/templates/culture/sketch.html:18
+msgid ""
+"Use WordCounter to analyze a musician’s lyrics and sketch a story with "
+"their words"
+msgstr ""
+"Use o WordCounter para analisar as letras de um músico e preparar uma "
+"história com suas palavras"
+
+#: databasic/templates/culture/sketch.html:28
+msgid "A projector to show these videos"
+msgstr "Um projetor para mostrar esses vídeos"
+
+#: databasic/templates/culture/sketch.html:29
+msgid "Large pieces of paper to draw on (2 feet by 3 feet is best)"
+msgstr ""
+"Grandes pedaços de papel para desenhar (60 cm por 1 metro é o "
+"recomendável)"
+
+#: databasic/templates/culture/sketch.html:30
+msgid "Thick crayons or markers of different colors"
+msgstr "Marcadores ou pincéis grossos de cores diferentes"
+
+#: databasic/templates/culture/sketch.html:31
+msgid ""
+"A phone, tablet, or computer connected to the internet for each small \n"
+"            group of 3 people"
+msgstr ""
+"Um telefone, um tablet ou um computador conectado à Internet para cada "
+"pequeno grupo de 3 pessoas"
+
+#: databasic/templates/culture/sketch.html:33
+msgid ""
+"Planning to show the videos offline? <a "
+"href=\"https://www.dropbox.com/s/alwonz81zjhmsri/SketchAStoryAllThreeFacilitationVideos.zip?dl=0\">Click"
+" here</a> to download them in advance."
+msgstr ""
+
+#: databasic/templates/culture/sketch.html:44
+msgid ""
+"It is hard to go from data to story.  This activity lets you quickly do "
+"that by analyzing datasets to find patterns in text, and then sketching "
+"out some story you find.  It introduces basic terminology for "
+"quantitative text analysis, helps you get acquainted with <a "
+"href='https://wordcounter.databasic.io/'>Databasic.io's WordCounter "
+"tool</a>a>, and prompts you to consider places in your organization where"
+" you work with text as data.  Participants will pair up with colleagues "
+"to search for stories in some fun sample data and then draw a sketch to "
+"share that story. Start the activity by playing the kickoff video below "
+"for your group."
+msgstr ""
+"É difícil transformar os dados em histórias. Esta atividade permite que "
+"você faça isso rapidamente ao analisar conjuntos de dados para encontrar "
+"padrões no texto e, em seguida, desenhar uma história que você encontrar."
+" Ela apresenta a terminologia básica para análise de texto quantitativo, "
+"ajuda você a se familiarizar com a ferramenta WordCounter do Databasic.io"
+" e orienta que você considere lugares em sua organização onde você "
+"trabalha com texto como dados. Os participantes se juntarão com colegas "
+"para procurar histórias em alguns dados de amostra e, em seguida, "
+"desenharão um esboço para compartilhar essa história. Inicie a atividade "
+"passando o vídeo inicial abaixo para o seu grupo."
+
+#: databasic/templates/culture/sketch.html:45
+msgid ""
+"Introduce the activity and then give folks about 15 minutes to sketch.  "
+"With 10 minutes left let them know that they should have chosen a dataset"
+" to work with. When they have 5 minutes left make sure they have a story "
+"and are sketching on paper, otherwise they'll be scrambling to get a "
+"drawing done."
+msgstr ""
+"Apresente a atividade e, em seguida, dê às pessoas cerca de 15 minutos "
+"para fazer o esboço. Com 10 minutos de antecedência, os avise que eles já"
+" deveriam ter escolhido um conjunto de dados para trabalhar. Quando eles "
+"tiverem 5 minutos faltantes, certifique-se de que eles já têm uma "
+"história e que a estejam esboçando no papel, caso contrário, eles estarão"
+" desperdiçando esforço para fazer um desenho."
+
+#: databasic/templates/culture/sketch.html:57
+msgid ""
+"Play this video after each small group has sketched their story on a "
+"large sheet of paper. Here we outline some questions to discuss as each "
+"group describes the story that they found. For example, you'll want to "
+"take note of stories based on comparing two things versus those those "
+"based on a single, interesting data point. And you can start a "
+"conversation about how groups used visual parameters – like color, size "
+"and position – to communicate their story."
+msgstr ""
+"Passe este vídeo depois que cada grupo pequeno esboçou sua história em "
+"uma grande folha de papel. Aqui descreveremos algumas questões para "
+"discussão, conforme cada grupo descrever a história que eles encontraram."
+" Por exemplo, você desejará destacar histórias com base em comparação de "
+"duas coisas versus aquelas baseadas em um único ponto de dados de "
+"interesse. E você pode iniciar uma conversa sobre como os grupos usaram "
+"parâmetros visuais - como cor, tamanho e posição - para passar sua "
+"história."
+
+#: databasic/templates/culture/sketch.html:69
+msgid ""
+"Now that everyone has analyzed text and sketched a story, this video will"
+" help people think about where to go from here. For example, what are "
+"some text datasets that your organization already has on hand?  We "
+"discuss some more sophisticated methods of quantitative text analysis as "
+"well as point out some common pitfalls to try to avoid."
+msgstr ""
+"Agora que todos analisaram o texto e desenharam uma história, esse vídeo "
+"ajudará as pessoas a pensar sobre onde ir daqui à frente. Por exemplo, "
+"quais são alguns conjuntos de dados de texto que a sua organização já "
+"possui? Discutiremos alguns métodos mais sofisticados de análise "
+"quantitativa de texto, além de apontar algumas armadilhas comuns para se "
+"evitar."
+
+#: databasic/templates/home/index.html:16
+#: databasic/templates/wordcounter/wordcounter.html:22
+msgid ""
+"WordCounter analyzes your text and tells you the most common words and "
+"phrases."
+msgstr ""
+"WordConter analisa seu texto e informa quais são as palavras e frases "
+"mais comuns."
+
+#: databasic/templates/home/index.html:20
+#: databasic/templates/wtfcsv/wtfcsv.html:21
+msgid "WTFcsv tells you WTF is going on with your .csv file."
+msgstr "WTFcsv informa que merda está acontecendo com seu arquivo .csv."
+
+#: databasic/templates/home/index.html:24
+#: databasic/templates/samediff/samediff.html:21
+msgid ""
+"SameDiff compares two or more text files and tells you how similar or "
+"different they are."
+msgstr ""
+"SameDiff compara dois ou mais arquivos de textos e informa o quanto "
+"similares ou diferentes eles são."
+
+#: databasic/templates/home/index.html:37
+msgid "Trying to Build a <b>Data Culture</b> in Your Organization?"
+msgstr ""
+
+#: databasic/templates/home/index.html:44
+msgid ""
+"Struggling to build your organization's ability to work with data? Use "
+"our hands-on learning program to kickstart your data culture. We provide "
+"facilitation videos to help you run creative introductions for the non-"
+"technical folks in your organization. These are not boring spreadsheet "
+"trainings! We suggest that in order to kickstart your data culture, you "
+"run one activity per month as a brown bag lunch at your organization. "
+"Learn more at <a "
+"href='https://datacultureproject.org'>https://datacultureproject.org</a>"
+msgstr ""
+
+#: databasic/templates/home/index.html:55
+msgid "Why use DataBasic?"
+msgstr "Por que usar DataBasic?"
+
+#: databasic/templates/home/index.html:61
+msgid ""
+"Rahul Bhargava and Catherine D'Ignazio, creators of Databasic, describe "
+"how everyone can tell stories with data."
+msgstr ""
+"Rahul Bhargava e Catherine D'Ignazio, criadores do Databasic, descrevem "
+"como todos podem contar histórias através de dados."
+
+#: databasic/templates/home/index.html:70
+msgid "About <strong>DataBasic</strong>"
+msgstr "Sobre <strong>DataBasic</strong>"
+
+#: databasic/templates/home/index.html:79
+msgid "Accessible to All"
+msgstr "Acessível para Todos"
+
+#: databasic/templates/home/index.html:80
+msgid ""
+"Digital technologies have empowered those with disabilities in a variety "
+"of ways, and new web standards have made it easier than ever to build new"
+" tools that are accessible to all.  DataBasic implements those "
+"technologies to support screen readers so the visually impaired can start"
+" working with data in new and exciting ways."
+msgstr ""
+"As tecnologias digitais têm dado poderes àqueles que possuem deficiência "
+"em uma variedade de maneiras, e novos padrões web tornaram mais fácil do "
+"que nunca construir novas ferramentas acessíveis a todos.  DataBasic "
+"aplica essas tecnologias para oferecer suporte aos leitores de tela para "
+"que os deficientes visuais possam começar a trabalhar com dados em novas "
+"e excitantes maneiras."
+
+#: databasic/templates/home/index.html:84
+msgid "Doing One Thing Well"
+msgstr "Fazendo Uma Coisa Bem Feita"
+
+#: databasic/templates/home/index.html:85
+msgid ""
+"There are tons of tools for working with data; many so complex they are "
+"intimidating to even start with.  We've built each DataBasic tool to "
+"focus on doing one thing well, so you know exactly what each can be used "
+"for.  This lets us concentrate on making that one thing both simple and "
+"powerful."
+msgstr ""
+"Existem toneladas de ferramentas para se trabalhar com dados; muitas são "
+"tão complexas que intimidam até para começar.  Nós construímos cada "
+"ferramenta DataBasic concentrando em fazer uma coisa bem feita, então "
+"você sabe exatamente para que cada pode usada.  Isto nos permite "
+"concentrar em fazer esta coisa de maneira simples e poderosa."
+
+#: databasic/templates/home/index.html:91
+msgid "Fitting in to Your Pipeline"
+msgstr "Ajustando na Sua "
+
+#: databasic/templates/home/index.html:92
+msgid ""
+"Working with data online always involves using a mishmash of tools. We're"
+" not going to solve that problem anytime soon.  So we've built DataBasic "
+"to take in a variety of types of data, and output results in the formats "
+"you're used to.  Read some content from website and download CSV files of"
+" your results. These are just two of the ways we try to introduce you to "
+"the way most folks work data online."
+msgstr ""
+"Trabalhar com dados online sempre envolve o uso de uma mistura de "
+"ferramentas. Nós não vamos resolver esse problema tão cedo.  Então nós "
+"construímos DataBasic tratar uma variedade de tipos de dados e extrair "
+"seus resultados nos formatos que você está acostumado.  Leia alguns "
+"conteúdos do site e baixe arquivos CSV dos resultados. Estas são apenas "
+"duas das formas que tentamos lhe apresentar sobre como a maioria das "
+"pessoas trabalha dados online."
+
+#: databasic/templates/home/index.html:96
+msgid "Focused on Learning "
+msgstr "Focado em Aprendizado"
+
+#: databasic/templates/home/index.html:97
+msgid ""
+"Sometimes faster isn't better.  If you really want to learn how to work "
+"with data to find stories to tell, you'll need to use tools that do more "
+"than just give you a chart as quickly as possible.  That's why we've "
+"built DataBasic with learners in mind.  Don't know what some technical "
+"word means? Hover over it to see a quick definition.  Not sure how to use"
+" a tool?  Try some of the fun sample data like music lyrics and UFO "
+"sightings we've included to get started."
+msgstr ""
+"Às vezes ser mais rápido não é ser melhor.  Se você realmente quer "
+"aprender como trabalhar com dados para encontrar histórias para contar, "
+"você precisará usar as ferramentas que fazem mais do que apenas dar-lhe "
+"um gráfico o mais rápido possível.  É por isso que construímos DataBasic "
+"com os alunos em mente.  Não sabe o que significa alguma palavra técnica?"
+" Passe o mouse sobre ela para ver uma definição rápida.  Não sabe como "
+"usar uma ferramenta?  Tente alguma das divertidas amostras de dados como "
+"letras de música e avistamentos de OVNIs que incluímos para começar."
+
+#: databasic/templates/home/index.html:103
+msgid "Ensuring Your Privacy"
+msgstr "Assegurando Sua Pricacidade"
+
+#: databasic/templates/home/index.html:104
+msgid ""
+"With more and more data-centric tools moving online, sometimes it can be "
+"hard to tell where your data is going and what will happen with it after "
+"you upload it.  We store information you upload for only the amount of "
+"time it takes us to analyze it, then we delete it.  The aggregate results"
+" we show you - metadata - are kept for 60 days, and then we delete them."
+"  All communications are over https, so other folks can't eavesdrop on "
+"the data as you upload it."
+msgstr ""
+"Com cada vez mais ferramentas centradas em dados migrando para o ambiente"
+" online, às vezes pode ser difícil dizer para onde irão seus dados e o "
+"que vai acontecer com eles depois de enviados.  Armazenamos as "
+"informações que você carregar somente pelo tempo necessário para analisar"
+" e, em seguida, excluímos.  Os resultados agregados que nós mostramos - "
+"metadados - são mantidos por 60 dias, e depois apagamos. Todas as "
+"comunicações são via https, para que outras pessoas não possam espionar "
+"os dados enquanto são carregados."
+
+#: databasic/templates/home/index.html:108
+msgid "By Educators, for Educators"
+msgstr "De Educadores, para Educadores"
+
+#: databasic/templates/home/index.html:109
+msgid ""
+"Work with high-schoolers? Journalists? Community groups? Graduate "
+"students?  Us too!!!  That's why we designed and tested the DataBasic "
+"tools and activities in our classrooms and in workshops with those "
+"audiences.  These tools were born out of frustration with things we were "
+"trying to use in our undergraduate classes, so we feel your pain."
+msgstr ""
+"Trabalha com estudantes do ensino médio? Jornalistas? Grupos "
+"comunitários? Estudantes de pós-graduação?  Nós também!!!  É por isso que"
+" projetamos e testamos DataBasic com suas ferramentas e atividades em "
+"nossas salas de aula e nas oficinas para esse tipo de público. Estas "
+"ferramentas nasceram sem a frustração de coisas que estávamos tentando "
+"usar em nossas aulas de graduação, então sentimos sua dor."
+
+#: databasic/templates/home/index.html:119
+msgid "<strong>DataBasic</strong> News"
+msgstr "<strong>DataBasic</strong> News"
+
+#: databasic/templates/home/index.html:146
+msgid "Designed and Developed by"
+msgstr "Concebido e Programado por"
+
+#: databasic/templates/home/index.html:147
+msgid "Principal Investigators:"
+msgstr "Diretores:"
+
+#: databasic/templates/home/index.html:151
+msgid "Software development:"
+msgstr "Desenvolvimento de software:"
+
+#: databasic/templates/home/index.html:155
+msgid "Spanish translation:"
+msgstr "Tradução em espanhol:"
+
+#: databasic/templates/home/index.html:159
+msgid "Portuguese translation:"
+msgstr "Tradução em português:"
+
+#: databasic/templates/home/index.html:161
+msgid "with contributions from"
+msgstr "com a ajuda de"
+
+#: databasic/templates/home/index.html:163
+msgid "Spanish data sourcing:"
+msgstr "Dados em português contribuíram pelo:"
+
+#: databasic/templates/home/index.html:167
+msgid "Portuguese data sourcing:"
+msgstr "Dados em espanhol contribuíram pelo:"
+
+#: databasic/templates/samediff/results.html:8
+msgid "SameDiff results"
+msgstr "Resultados SameDiff"
+
+#: databasic/templates/samediff/results.html:24
+#, python-format
+msgid "Your %(logo)s Report"
+msgstr "Seu Relatório %(logo)s"
+
+#: databasic/templates/samediff/results.html:25
+msgid "download"
+msgstr "baixar"
+
+#: databasic/templates/samediff/results.html:37
+#, python-format
+msgid "These two documents are %(description)s."
+msgstr "Estes dois documentos são %(description)s."
+
+#: databasic/templates/samediff/results.html:38
+#, python-format
+msgid "They have a %(cosine_sim)s score of %(score)s"
+msgstr "Eles têm %(cosine_sim)s de pontos de %(score)s"
+
+#: databasic/templates/samediff/results.html:39
+#: databasic/templates/samediff/samediff.html:24
+msgid "cosine similarity"
+msgstr "similaridade de cosseno"
+
+#: databasic/templates/samediff/results.html:39
+#: databasic/templates/samediff/samediff.html:24
+msgid ""
+"The Cosine Similarity score tries to tell you how similar two documents "
+"are based on the number of times words are used in each."
+msgstr ""
+"A pontuação da Similaridade de Cosseno busca informar a similaridade "
+"entre dois documentos baseada no número de vezes que uma palavra é usada "
+"em cada um."
+
+#: databasic/templates/samediff/results.html:43
+#, python-format
+msgid ""
+"The documents are of different lengths so to compare them fairly you "
+"should keep %(normalized)s on."
+msgstr ""
+"Os documentos são de diferentes comprimentos para compará-los de forma "
+"justa por favor ligar %(normalized)s"
+
+#: databasic/templates/samediff/results.html:43
+#: databasic/templates/samediff/results.html:46
+msgid "normalization"
+msgstr "normalização"
+
+#: databasic/templates/samediff/results.html:44
+#: databasic/templates/samediff/results.html:47
+#: databasic/templates/samediff/results.html:89
+msgid ""
+"A process to make data points comparable in a fair way. For example, word"
+" counts in a document can be normalized by dividing them by the total "
+"number of words in that document."
+msgstr ""
+"Um processo para tornar os dados comparáveis ​​aponta de forma justa. Por"
+" exemplo, a contagem de palavras em um documento pode ser normalizada "
+"dividindo-os pelo totalnúmero de palavras no documento."
+
+#: databasic/templates/samediff/results.html:46
+#, python-format
+msgid ""
+"The documents are about the same length so you don't have to use "
+"%(normalized)s in order to compare them."
+msgstr ""
+"Os documentos são sobre o mesmo comprimento para que você não tem que "
+"usar%(normalized)s para compará-los."
+
+#: databasic/templates/samediff/results.html:70
+#: databasic/templates/samediff/results.html:81
+msgid "words"
+msgstr "palavras"
+
+#: databasic/templates/samediff/results.html:87
+#, python-format
+msgid "%(normalized)s "
+msgstr "%(normalized)s "
+
+#: databasic/templates/samediff/results.html:88
+msgid "Normalization"
+msgstr "Normalizacion"
+
+#: databasic/templates/samediff/results.html:91
+msgid "Toggle normlization"
+msgstr "Normalizacion"
+
+#: databasic/templates/samediff/results.html:102
+#: databasic/templates/samediff/results.html:148
+#, python-format
+msgid "Words that are only in %(document)s"
+msgstr "Palavras que estão apenas em %(document)s"
+
+#: databasic/templates/samediff/results.html:110
+#: databasic/templates/samediff/results.html:132
+#: databasic/templates/samediff/results.html:156
+#: databasic/templates/wordcounter/results.html:62
+msgid "Word"
+msgstr "Palavra"
+
+#: databasic/templates/samediff/results.html:111
+#: databasic/templates/samediff/results.html:133
+#: databasic/templates/samediff/results.html:157
+#: databasic/templates/wordcounter/results.html:63
+#: databasic/templates/wordcounter/results.html:83
+#: databasic/templates/wordcounter/results.html:104
+msgid "Frequency"
+msgstr "Frequência"
+
+#: databasic/templates/samediff/results.html:126
+#, python-format
+msgid "Words that are in %(doc)s"
+msgstr "Palavras que estão em %(doc)s"
+
+#: databasic/templates/samediff/results.html:173
+#, python-format
+msgid ""
+"Comparing text documents is a great way to find out what makes each one "
+"unique.  Is it meaningful that \"%(most_common_word)s\" and "
+"\"%(second_most_common_word)s\" are the most used words appearing in both"
+" documents?  Why does %(doc2)s use \"%(doc2_most_common_word)s\" so much,"
+" but it doesn't even appear in %(doc1)s?  With these questions in mind, "
+"you can sketch out a story that compares the documents.  <br /><br />Find"
+" a whiteboard and start sketching out a story.  Check out our <a "
+"href=\"%(activity_guide_url)s\" onclick='ga('send', 'event', 'samediff', "
+"'activity-guide');'>activity guide</a> for more help on sketching out a "
+"story to compare them.  Want to dig into the data even more?  <a "
+"href=\"%(download)s\" onclick=\"ga('send', 'event', 'samediff', "
+"'samediff-dl');\">Download the full results as a CSV file</a> to compare "
+"the files even further."
+msgstr ""
+"Comparar documentos textuais é uma ótima maneira de descobrir o que faz "
+"com que cada um seja exclusivo. É útil saber que \"%(most_common_word)s\""
+" e \"%(second_most_common_word)s\" são as palavras mais usadas aparecendo"
+" em ambos os documentos? Por que %(doc2)s usa muito "
+"\"%(doc2_most_common_word) s\", mas não aparece nem mesmo em %(doc1)s? "
+"Com estas perguntas em mente, você pode esboçar uma história que compara "
+"os documentos. <br /> <br /> Encontrar uma lousa e começar a esboçar uma "
+"história. Confira nosso <a href=\"%(activity_guide_url)s\" "
+"onclick=\"ga('send','event','samediff','activity-guide');\"> guia de "
+"atividades </a> para obter mais ajuda no esboço de uma história para "
+"comparação. Quer se aprofundar mais nos dados? <a href = \"%(download)s\""
+" onclick = \"ga('send', 'event', 'samediff', 'samediff-dl');\"> Baixe os "
+"resultados completos como um arquivo CSV </a> para comparar ainda mais os"
+" arquivos."
+
+#: databasic/templates/samediff/results.html:285
+#, python-format
+msgid " uses in %(doc)s"
+msgstr "usos em %(doc)s"
+
+#: databasic/templates/samediff/results.html:287
+msgid " uses"
+msgstr "usos"
+
+#: databasic/templates/samediff/samediff.html:22
+#, python-format
+msgid ""
+"SameDiff compares one %(corpus)s of text to another corpus of text to "
+"show you similarities and differences. It uses a %(cosine_similarity)s "
+"%(algorithm)s to rate whether the documents are really similar or totally"
+" different."
+msgstr ""
+"SameDiff compara um %(corpus)s de texto para outro corpus de texto para "
+"mostrar as semelhanças e diferenças. Ele usa um %(cosine_similarity)s "
+"%(algorithm)s para classificar se os documentos são realmente semelhantes"
+" ou diferentes."
+
+#: databasic/templates/samediff/samediff.html:23
+msgid "corpus"
+msgstr "corpus"
+
+#: databasic/templates/samediff/samediff.html:23
+msgid ""
+"A collection of written texts. For example, all of the lyrics in Katy "
+"Perry songs."
+msgstr ""
+"Uma coleção de textos escritos. Por exemplo, todas as letras de músicas "
+"de Katy Perry."
+
+#: databasic/templates/samediff/samediff.html:25
+msgid "algorithm"
+msgstr "algoritmo"
+
+#: databasic/templates/samediff/samediff.html:25
+msgid ""
+"A set of steps you (or a computer) do in order to solve a problem. For "
+"example, when you type in a search term, Google runs an algorithm to "
+"figure out which pages to show you."
+msgstr ""
+"Um conjunto de etapas que você (ou um computador) fazem para resolver um "
+"problema. Por exemplo, quando você digitar um termo de pesquisa, o Google"
+" executa um algoritmo para descobrir quais páginas devem ser mostradas."
+
+#: databasic/templates/samediff/samediff.html:28
+msgid "Compare"
+msgstr "Compare"
+
+#: databasic/templates/wordcounter/results.html:9
+msgid "WordCounter results"
+msgstr "Resultados do WordCounter"
+
+#: databasic/templates/wordcounter/results.html:33
+msgid ""
+"Here is a picture of the words used most often in your document. Words "
+"used more often are bigger, and ones used less often are smaller. This "
+"picture, called a \"word cloud\", is helpful to get a sense of the most "
+"used words in a document."
+msgstr ""
+"Aqui está uma imagem das palavras usadas com  mais frequência em seu "
+"documento. Palavras usadas com mais frequência são maiores, e as usadas "
+"com menor frequência são menores. Esta imagem, chamada de \"nuvem de "
+"palavras\", é útil para se ter uma noção das palavras mais usadas em um "
+"documento."
+
+#: databasic/templates/wordcounter/results.html:48
+#, python-format
+msgid ""
+"Sorry, but we didn't find any results to show. Maybe your text is too "
+"short... or maybe it is all %(stopwords)s"
+msgstr ""
+"Desculpe, mas não encontramos nenhum resultado para mostrar. Talvez o seu"
+" texto seja muito curto... ou talvez seja todo %(stopwords)s"
+
+#: databasic/templates/wordcounter/results.html:48
+msgid ""
+"Stopwords are words in text analysis that are ignored such as \"this\", "
+"\"that\", \"and\" and \"but.\""
+msgstr ""
+"Stopwords são palavras que são ignoradas na análise textual, como "
+"\"este\", \"aquele\", \"e\" e \"mas\"."
+
+#: databasic/templates/wordcounter/results.html:57
+msgid "Top Words"
+msgstr "Principais Palavras"
+
+#: databasic/templates/wordcounter/results.html:58
+msgid "download csv of word frequencies"
+msgstr "baixar csv de frequências de palavra"
+
+#: databasic/templates/wordcounter/results.html:77
+msgid "Bigrams"
+msgstr "Bigramas"
+
+#: databasic/templates/wordcounter/results.html:78
+msgid "download csv of bigram frequencies"
+msgstr "baixar csv de frequências de bigramas"
+
+#: databasic/templates/wordcounter/results.html:82
+#, python-format
+msgid "%(bigram)s"
+msgstr "%(bigram)s"
+
+#: databasic/templates/wordcounter/results.html:82
+msgid "bigram"
+msgstr "bigrama"
+
+#: databasic/templates/wordcounter/results.html:82
+#: databasic/templates/wordcounter/wordcounter.html:25
+msgid "A bigram is a two word phrase"
+msgstr "Um bigrama é uma frase de duas palavras"
+
+#: databasic/templates/wordcounter/results.html:98
+msgid "Trigrams"
+msgstr "Trigramas"
+
+#: databasic/templates/wordcounter/results.html:99
+msgid "download csv of trigram frequencies"
+msgstr "baixar csv com frequências de trigramas"
+
+#: databasic/templates/wordcounter/results.html:103
+#, python-format
+msgid "%(trigram)s"
+msgstr "%(trigram)s"
+
+#: databasic/templates/wordcounter/results.html:103
+msgid "trigram"
+msgstr "trigrama"
+
+#: databasic/templates/wordcounter/results.html:103
+#: databasic/templates/wordcounter/wordcounter.html:26
+msgid "A trigram is a three word phrase"
+msgstr "Um trigrama é uma frase de três palavras"
+
+#: databasic/templates/wordcounter/results.html:122
+#, python-format
+msgid ""
+"Examining text data in this quantitative way can help you find stories to"
+" tell in your data.  The fact that \"%(top_word)s\" is a popular word is "
+"good to know, but combine that with "
+msgstr ""
+"Examinar os dados de texto de forma quantitativa pode ajudá-lo a "
+"encontrar histórias em seus dados para contar.  Pode ser bom saber o fato"
+" de que \"%(top_word)s\" é uma palavra popular, mas combine isso com "
+
+#: databasic/templates/wordcounter/results.html:124
+#, python-format
+msgid "the %(num)d use "
+msgid_plural "the %(num)d uses "
+msgstr[0] "o %(num)d usa "
+msgstr[1] "os  %(num)d usam  "
+
+#: databasic/templates/wordcounter/results.html:125
+msgid "in the top 40 bigrams, and "
+msgstr "nos 40 principais bigramas, e"
+
+#: databasic/templates/wordcounter/results.html:126
+#, python-format
+msgid "the %(num)s use "
+msgid_plural "the %(num)s uses "
+msgstr[0] "o %(num)s usa"
+msgstr[1] "os %(num)s usam"
+
+#: databasic/templates/wordcounter/results.html:127
+#, python-format
+msgid ""
+"in the top 40 trigrams, to understand the context of how it is used.  "
+"With that richer understanding of the context, you can sketch out a "
+"picture of why \"%(top_word)s\" is so important in %(title)s. <br/><br "
+"/>So grab some paper and some crayons and start drawing what you see!  "
+"Check out our <a href=\"%(activity_guide_url)s\" onclick=\"ga('send', "
+"'event', 'wordcounter', 'activity-guide');\">activity guide</a> for more "
+"help on sketching out a story.  Want to dig into the data more? Download "
+"all the <a href=\"%(download_words)s\" onclick=\"ga('send', 'event', "
+"'wordcounter', 'words-dl');\">word counts</a>, <a "
+"href=\"%(download_bigrams)s\" onclick=\"ga('send', 'event', "
+"'wordcounter', 'bigrams-dl');\">bigrams</a>, or <a "
+"href=\"%(download_trigrams)s\" onclick=\"ga('send', 'event', "
+"'wordcounter', 'trigrams-dl');\">trigrams</a> and investigate why "
+"\"%(random_unpopular_word)s\" is used %(random_unpopular_word_count)s "
+"times!"
+msgstr ""
+"nos 40 trigramas principais, para entender o contexto de como é usada. "
+"Com esse entendimento mais rico do contexto, você pode esboçar um retrato"
+" do porque \"%(top_word)s\" é tão importante em%(title)s. <br/> <br /> "
+"Então pegue um papel e alguns lápis e comece a desenhar o que você vê! Vá"
+" para o <a href=\"%(activity_guide_url)s\" "
+"onclick=\"ga('send','event','wordcounter','activity-guide');\"> guia de "
+"atividades </a> para obter mais ajuda sobre esboçar uma história. Quer "
+"mergulhar mais nos dados? Baixe todas as <a href=\"%(download_words)s\" "
+"onclick=\"ga('send','event','wordcounter','words-dl');\"> contagens de "
+"palavras </a>, <a href = \"%(download_bigrams)s\" onclick = \"ga ('send',"
+" 'event', 'wordcounter', 'bigrams-dl');\"> bigramas </a>, ou <a href = "
+"\"%(download_trigrams)s \"onclick =\" ga('send', 'event', 'wordcounter', "
+"'trigrams-dl'); \"> trigramas </a> e investigue por que "
+"\"%(random_unpopular_word)s\" é utilizada "
+"\"%(random_unpopular_word_count)s\" vezes!"
+
+#: databasic/templates/wordcounter/run-activity.html:3
+msgid "Run the Activity"
+msgstr ""
+
+#: databasic/templates/wordcounter/run-activity.html:20
+msgid ""
+"Welcome to the WordCounter Sketch a Story activity! These videos will "
+"help you run the activity."
+msgstr ""
+
+#: databasic/templates/wordcounter/run-activity.html:22
+msgid "We're ready to start"
+msgstr ""
+
+#: databasic/templates/wordcounter/run-activity.html:25
+msgid "Done with our stories! Time to share-back!"
+msgstr ""
+
+#: databasic/templates/wordcounter/run-activity.html:28
+msgid "All done. What next?"
+msgstr ""
+
+#: databasic/templates/wordcounter/wordcounter.html:24
+#, python-format
+msgid ""
+"This tool helps you count words, %(bigrams)s, and %(trigrams)s in plain "
+"text. This is often the first step in quantitative text analysis."
+msgstr ""
+"Esta ferramenta ajuda a contar palavras, %(bigrams)s e %(trigrams)s em "
+"texto sem formatação. Normalmente este é o primeiro passo na análise "
+"quantitativa de texto."
+
+#: databasic/templates/wordcounter/wordcounter.html:25
+msgid "bigrams"
+msgstr "bigramas"
+
+#: databasic/templates/wordcounter/wordcounter.html:26
+msgid "trigrams"
+msgstr "trigramas"
+
+#: databasic/templates/wordcounter/wordcounter.html:29
+msgid "Count"
+msgstr "Contagem"
+
+#: databasic/templates/wtfcsv/results.html:7
+#, python-format
+msgid "Full name: \"%(name)s\""
+msgstr "Nome completo: \"%(name)s\""
+
+#: databasic/templates/wtfcsv/results.html:9
+#: databasic/templates/wtfcsv/results.html:83
+msgid "This column is full of"
+msgstr "Esta coluna está cheia"
+
+#: databasic/templates/wtfcsv/results.html:11
+msgid "The unique values in this column are:"
+msgstr "Os valores exclusivos nesta coluna são:"
+
+#: databasic/templates/wtfcsv/results.html:19
+msgid "The most frequent values in this column are:"
+msgstr "Os valores mais frequentes nesta coluna são:"
+
+#: databasic/templates/wtfcsv/results.html:23
+#, python-format
+msgid "occurs %(frequency)s times"
+msgstr "ocorre %(frequency)s vezes"
+
+#: databasic/templates/wtfcsv/results.html:37
+msgid "The earliest date is"
+msgstr "A data mais antiga é"
+
+#: databasic/templates/wtfcsv/results.html:39
+msgid "The earliest time is"
+msgstr "O horário mais antigo é"
+
+#: databasic/templates/wtfcsv/results.html:41
+msgid "The smallest number is"
+msgstr "O menor número é"
+
+#: databasic/templates/wtfcsv/results.html:47
+msgid "The latest date is"
+msgstr "A data mais recente é"
+
+#: databasic/templates/wtfcsv/results.html:49
+msgid "The latest time is"
+msgstr "O horário mais recente é"
+
+#: databasic/templates/wtfcsv/results.html:51
+msgid "The biggest number is"
+msgstr "O maior número é"
+
+#: databasic/templates/wtfcsv/results.html:55
+msgid "The total is"
+msgstr "O total é"
+
+#: databasic/templates/wtfcsv/results.html:58
+msgid "The average is"
+msgstr "A média é"
+
+#: databasic/templates/wtfcsv/results.html:61
+msgid "The median is"
+msgstr "A mediana é"
+
+#: databasic/templates/wtfcsv/results.html:64
+msgid "The standard deviation is"
+msgstr "O desvio padrão é"
+
+#: databasic/templates/wtfcsv/results.html:67
+#, python-format
+msgid "There is %(num)s row of missing data"
+msgid_plural "There are %(num)s rows of missing data"
+msgstr[0] "Existe %(num)s linha com dados faltantes"
+msgstr[1] "Existem %(num)s linha com dados faltantes"
+
+#: databasic/templates/wtfcsv/results.html:106
+msgid "Click to see the details"
+msgstr "Clique para ver os detalhes"
+
+#: databasic/templates/wtfcsv/results.html:106
+msgid "Click to see the chart"
+msgstr "Clique para ver o gráfico"
+
+#: databasic/templates/wtfcsv/results.html:117
+msgid "WTFcsv: "
+msgstr "WTFcsv: "
+
+#: databasic/templates/wtfcsv/results.html:136
+msgid ""
+"We can't analyze that data because it's not in a standard form. Your "
+"first row should contain the names of your columns."
+msgstr ""
+"Nós não podemos analisar esses dados porque não estão em um formulário "
+"padrão. Sua primeira linha deve conter os nomes de suas colunas."
+
+#: databasic/templates/wtfcsv/results.html:167
+#, python-format
+msgid "%(rows)s rows of data grouped into %(cols)s columns."
+msgstr "%(rows)s linhas de dado agrupado em %(cols)s colunas."
+
+#: databasic/templates/wtfcsv/results.html:171
+#, python-format
+msgid "Here's some %(metadata)s about each column."
+msgstr "Aqui tem alguns %(metadata)s sobre cada coluna."
+
+#: databasic/templates/wtfcsv/results.html:172
+msgid "metadata"
+msgstr "metadado"
+
+#: databasic/templates/wtfcsv/results.html:172
+msgid "Metadata summarizes basic information about your data."
+msgstr "Metadados resumem as informações básicas sobre os seus dados."
+
+#: databasic/templates/wtfcsv/results.html:212
+msgid "value"
+msgstr "valor"
+
+#: databasic/templates/wtfcsv/results.html:213
+msgid "frequency"
+msgstr "frequêcia"
+
+#: databasic/templates/wtfcsv/results.html:224
+msgid "No data to display."
+msgstr "Nenhum dado para exibição."
+
+#: databasic/templates/wtfcsv/results.html:251
+#, python-format
+msgid ""
+"Understanding the data in your csv file is the first step in analyzing it"
+" for stories. Looking at individual columns can help you identify "
+"questions that might be fun to ask about your data.  For instance, is it "
+"surprising that \"%(most_common_value)s\" is the most frequent value in "
+"the %(random_column_name)s column?  Does it make any sense to compare the"
+" %(random_column_name2)s column to the %(random_column_name3)s column?  "
+"Are there any other datasets you could find to ask interesting questions "
+"about the %(random_column_name)s column?  <br /><br />Asking these types "
+"of questions is the first step in understanding the data you have, and "
+"what kind of stories you can find in it. Check out our <a "
+"href=\"%(activity_guide_url)s\" onclick=\"ga('send', 'event', 'wtfcsv', "
+"'activity-guide');\">activity guide</a> for more help on asking questions"
+" of data sets."
+msgstr ""
+"Entender os dados em seu arquivo csv é o primeiro passo para analisá-lo "
+"para histórias. Olhar para colunas individuais pode ajudar a identificar "
+"questões que poderiam ser divertidos para perguntar sobre seus dados. Por"
+" exemplo, não é surpreendente que o \"%(most_common_value)s\" é o valor "
+"mais frequente na coluna %(random_column_name)s ? Faz algum sentido "
+"comparar a coluna %(random_column_name2)s para a coluna "
+"%(random_column_name3)s ? Existem outros conjuntos de dados que você "
+"poderia encontrar para fazer perguntas interessantes sobre a coluna "
+"%(random_column_name)s? <br /> <br /> Fazer esses tipos de perguntas é o "
+"primeiro passo para entender os dados que você tem, e que tipo de "
+"histórias você pode encontrar. Vá para o <a "
+"href=\"%(activity_guide_url)s\" onclick=\"ga('send','event','wtfcsv"
+"','activity-guide');\"> guia de atividades </a> para obter mais ajuda "
+"sobre fazer perguntas de conjuntos de dados."
+
+#: databasic/templates/wtfcsv/results.html:404
+msgid "Categories"
+msgstr "Categorias"
+
+#: databasic/templates/wtfcsv/results.html:406
+msgid "Counts"
+msgstr "Contagem"
+
+#: databasic/templates/wtfcsv/results.html:408
+msgid "Dates"
+msgstr "Datas"
+
+#: databasic/templates/wtfcsv/results.html:410
+msgid "Times"
+msgstr "Horários"
+
+#: databasic/templates/wtfcsv/results.html:412
+msgid "Dates and times"
+msgstr "Datas e horários"
+
+#: databasic/templates/wtfcsv/results.html:414
+msgid "Booleans"
+msgstr "Booleanos"
+
+#: databasic/templates/wtfcsv/results.html:416
+msgid "Undefined"
+msgstr "Indefinido"
+
+#: databasic/templates/wtfcsv/results.html:426
+msgid "# of rows"
+msgstr "# de linhas"
+
+#: databasic/templates/wtfcsv/wtfcsv.html:22
+#, python-format
+msgid ""
+"Data arrives at your doorstep in the form of a spreadsheet but how do you"
+" find a story in rows and columns? WTFcsv provides the first step by "
+"characterizing each column's %(data_type)s and contents so that you can "
+"ask more questions."
+msgstr ""
+"Dados chegam à sua porta em forma de uma planilha, mas como você encontra"
+" uma história em linhas e colunas? WTFcsv fornece o primeiro passo, "
+"caracterizando %(data_type) s de cada coluna e conteúdo para que você "
+"possa fazer mais perguntas."
+
+#: databasic/templates/wtfcsv/wtfcsv.html:23
+msgid "data type"
+msgstr "tipo de dado"
+
+#: databasic/templates/wtfcsv/wtfcsv.html:23
+msgid ""
+"Data is often classified by type. Common types of data include numbers, "
+"dates and text."
+msgstr ""
+"O dado normalmente é classificado por tipo. Os tipos mais comuns de dados"
+" incluem números, datas e texto."
+
+#: databasic/templates/wtfcsv/wtfcsv.html:26
+msgid "Analyze"
+msgstr "Analize"
+
+#: databasic/views/samediff.py:36 databasic/views/samediff.py:52
+#, python-format
+msgid "%(f1)s and %(f2)s"
+msgstr "%(f1)s e %(f2)s"
+
+#: databasic/views/samediff.py:105
+msgid "word"
+msgstr "palavra"
+
+#: databasic/views/samediff.py:105
+msgid "uses in"
+msgstr "usa em"
+
+#: databasic/views/samediff.py:105
+msgid "total uses"
+msgstr "uso total"
+
+#: databasic/views/samediff.py:150
+msgid "almost the same"
+msgstr "quase o mesmo"
+
+#: databasic/views/samediff.py:152
+msgid "sort of similar"
+msgstr "mais ou menos similar"
+
+#: databasic/views/samediff.py:154
+msgid "kind of similar"
+msgstr "meio similar"
+
+#: databasic/views/samediff.py:156
+msgid "kind of similar, and also kind of different"
+msgstr "meio similar, e também meio diferente"
+
+#: databasic/views/samediff.py:158
+msgid "pretty different"
+msgstr "bem diferente"
+
+#: databasic/views/samediff.py:160
+msgid "very different"
+msgstr "muito diferente"
+
+#: databasic/views/samediff.py:162
+msgid "completely different"
+msgstr "completamente diferente"
+
+#: databasic/views/wordcounter.py:40
+msgid "your text"
+msgstr "seu texto"
+
+#: databasic/views/wordcounter.py:76
+msgid "title"
+msgstr "título"
+
+#: databasic/views/wtfcsv.py:195
+msgid "Other"
+msgstr "Outro"
 
 #~ msgid ""
 #~ msgstr ""
@@ -62,2673 +2442,4 @@ msgstr ""
 
 #~ msgid "Your Email"
 #~ msgstr "seu texto"
-
-#~ msgid "Paste text"
-#~ msgstr "Colar texto"
-
-#~ msgid "Text"
-#~ msgstr "Texto"
-
-#~ msgid "Paste text..."
-#~ msgstr "Colar texto..."
-
-#~ msgid "Upload a file"
-#~ msgstr "Seleccionar um arquivo"
-
-#~ msgid "Upload file"
-#~ msgstr "Enviar arquivo"
-
-#~ msgid "Upload..."
-#~ msgstr "Enviar..."
-
-#~ msgid "Use a sample"
-#~ msgstr "Usar uma amostra"
-
-#~ msgid "Sample"
-#~ msgstr "Amostra"
-
-#~ msgid "Use samples"
-#~ msgstr "Usar amostras"
-
-#~ msgid "Samples"
-#~ msgstr "Amostras"
-
-#~ msgid "Link to a spreadsheet"
-#~ msgstr "Link para uma planilha"
-
-#~ msgid "Link to spreadsheet"
-#~ msgstr "Link para planilha"
-
-#~ msgid "Ignore case"
-#~ msgstr "Ignorar situação"
-
-#~ msgid "Ignore stopwords"
-#~ msgstr "Ignorar stopwords"
-
-#~ msgid "Paste a link"
-#~ msgstr "Colar um link"
-
-#~ msgid "https://en.wikipedia.org/wiki/Natural_language_processing"
-#~ msgstr "https://pt.wikipedia.org/wiki/Processamento_de_linguagem_natural"
-
-#~ msgid "Upload files"
-#~ msgstr "Enviar arquivos"
-
-#~ msgid "Browse file 2"
-#~ msgstr "Escolher arquivo 2"
-
-#~ msgid "Browse file 1"
-#~ msgstr "Escolher arquivo 1"
-
-#~ msgid "Paste links"
-#~ msgstr "Colar links"
-
-#~ msgid "Has header row"
-#~ msgstr "Possui linha de cabeçalho"
-
-#~ msgid "Paste rows"
-#~ msgstr "Colar linhas"
-
-#~ msgid "This field is required"
-#~ msgstr "Este campo é obrigatório"
-
-#~ msgid "Only these file types are accepted: csv, xls, xlsx"
-#~ msgstr "Apenas estes tipos de arquivos são aceitos: csv, xls, xlsx"
-
-#~ msgid "Only files under MB are accepted"
-#~ msgstr "Apenas arquivos com menos de 10MB são aceitos"
-
-#~ msgid "You must input a valid url"
-#~ msgstr "Você deve inserir uma url válida"
-
-#~ msgid "You must select two files"
-#~ msgstr "Você deve selecionar dois arquivos"
-
-#~ msgid "Please enter a valid email address"
-#~ msgstr "Por favor informe um endereço de email válido"
-
-#~ msgid "Only these file types are accepted: txt, docx, rtf"
-#~ msgstr "Apenas estes tipos de arquivos são aceitos: txt, docx, rtf"
-
-#~ msgid "You must input a URL"
-#~ msgstr "Você deve informar uma URL"
-
-#~ msgid "Link must be a valid Google Spreadsheet"
-#~ msgstr "O link deve ser de uma Planilha Google válida"
-
-#~ msgid "WordCounter"
-#~ msgstr "WordCounter"
-
-#~ msgid "WTFcsv"
-#~ msgstr "WTFcsv"
-
-#~ msgid "SameDiff"
-#~ msgstr "SameDiff"
-
-#~ msgid "ConnectTheDots"
-#~ msgstr "ConnectTheDots"
-
-#~ msgid "Data Culture Project"
-#~ msgstr ""
-
-#~ msgid "about"
-#~ msgstr "sobre"
-
-#~ msgid "blog"
-#~ msgstr "blog"
-
-#~ msgid "help"
-#~ msgstr "ajuda"
-
-#~ msgid "Choose your language: "
-#~ msgstr "Selecione sua língua: "
-
-#~ msgid "change language to english"
-#~ msgstr "mudar idioma para inglês"
-
-#~ msgid "change language to spanish"
-#~ msgstr "mudar idioma para espanhol"
-
-#~ msgid "change language to portuguese"
-#~ msgstr "mudar idioma para inglês"
-
-#~ msgid ""
-#~ "DataBasic is a suite of easy-"
-#~ "to-use web tools for beginners that"
-#~ " introduce concepts of working with "
-#~ "data."
-#~ msgstr ""
-#~ "DataBasic é um conjunto de ferramentas"
-#~ " web fáceis de usar por iniciantes,"
-#~ " que introduzem conceitos de trabalho "
-#~ "com dados."
-
-#~ msgid ""
-#~ "These simple tools make it easy to"
-#~ " work with data in fun ways, so"
-#~ " you can learn how to find "
-#~ "great stories to tell."
-#~ msgstr ""
-#~ "Estas ferramentas simples fazem com que"
-#~ " seja fácil trabalhar dados de "
-#~ "maneira divertida, então você pode "
-#~ "aprender como encontrar ótimas histórias "
-#~ "para contar."
-
-#~ msgid "choose input type"
-#~ msgstr "escolha o tipo de entrada"
-
-#~ msgid "Ignore %(stopwords)s"
-#~ msgstr "Ignorar %(stopwords)s"
-
-#~ msgid "stopwords"
-#~ msgstr "stopwords"
-
-#~ msgid ""
-#~ "Stopwords are words in text analysis "
-#~ "that are ignored such as "
-#~ "&quot;this&quot;, &quot;that&quot;, &quot;and&quot; "
-#~ "and &quot;but.&quot;"
-#~ msgstr ""
-#~ "Stopwords são palavras que são ignoradas"
-#~ " na análise textual, como &quot;este&quot;,"
-#~ " &quot;aquele&quot;, &quot;e&quot; e "
-#~ "&quot;mas&quot;"
-
-#~ msgid "close window"
-#~ msgstr "fechar janela de vídeo"
-
-#~ msgid "You can share these results by emailing this url:"
-#~ msgstr "Você pode compartilhar estes resultados enviando por email esta url:"
-
-#~ msgid "No results"
-#~ msgstr "Sem Resultados"
-
-#~ msgid "We couldn't find any results"
-#~ msgstr "Não encontramos nenhum resultado"
-
-#~ msgid ""
-#~ "They might have expired. Why not "
-#~ "try <a href=\"/%(lang)s/%(tool_name)s\">analyzing "
-#~ "some new data?</a>"
-#~ msgstr ""
-#~ "Eles devem ter expirado. Por que "
-#~ "não tenta <a "
-#~ "href=\"/%(lang)s/%(tool_name)s\">analisar algum dado "
-#~ "novo?</a>"
-
-#~ msgid "go to %(tool)s"
-#~ msgstr "ir para %(tool)s"
-
-#~ msgid "What do I do next?"
-#~ msgstr "O que eu faço em seguida?"
-
-#~ msgid "Try these other tools to do more full-fledged analysis:"
-#~ msgstr ""
-
-#~ msgid "About %(tool_name)s"
-#~ msgstr "Sobre %(tool_name)s"
-
-#~ msgid "Are you an Educator? Try our Activity Guide"
-#~ msgstr "Você é um Educador? Tente nosso Guia de Atividades"
-
-#~ msgid ""
-#~ "DataBasic activities are suitable for "
-#~ "classes and workshops for participants "
-#~ "from middle school through higher "
-#~ "education. No prior data experience "
-#~ "necessary!"
-#~ msgstr ""
-#~ "As atividades do DataBasic são adequadas"
-#~ " para aulas e oficinas com "
-#~ "participantes desde o ensino médio até"
-#~ " a educação superior. Nenhuma experiência"
-#~ " prévia com dados é necessária!"
-
-#~ msgid "Download"
-#~ msgstr "Baixar"
-
-#~ msgid "go to data basic home page"
-#~ msgstr "ir para a home do DataBasic"
-
-#~ msgid "Paste rows from an Excel or Google spreadsheet, with this format:"
-#~ msgstr "Colar linhas de uma planilha de Google ou Excel no seguinte formato:"
-
-#~ msgid "source target"
-#~ msgstr "origem destino"
-
-#~ msgid "Not sure how to format your file? Download our template."
-#~ msgstr "Não tem certeza sobre como formatar seu arquivo? Baixe nosso modelo."
-
-#~ msgid ""
-#~ "ConnectTheDots shows you how your data"
-#~ " is connected by analyzing it as "
-#~ "a network."
-#~ msgstr ""
-#~ "ConnectTheDots mostra como seus dados "
-#~ "estão conectados analisando-os como uma"
-#~ " rede."
-
-#~ msgid ""
-#~ "Analyzing the connections between the "
-#~ "\"dots\" in your data is a "
-#~ "fundamentally different approach to "
-#~ "understanding it. This tool shows you"
-#~ " a network diagram to reveal those"
-#~ " links, and gives you a high "
-#~ "level report about what your network "
-#~ "looks like."
-#~ msgstr ""
-#~ "Analisando as conexões entre os "
-#~ "\"pontos\" nos seus dados é uma "
-#~ "abordagem fundamentalmente diferente para "
-#~ "entendê-los. Esta ferramenta mostra um "
-#~ "gráfico de redes para revelar suas "
-#~ "conexões, e mostra um relatório alto "
-#~ "nível sobre como a rede se parece."
-
-#~ msgid ""
-#~ "Error: Paste failed! Make sure your "
-#~ "input has exactly two tab-separated "
-#~ "columns and try again."
-#~ msgstr ""
-#~ "Erro: Falha ao colar! Certifique que "
-#~ "sua entrada tem exatamente duas colunas"
-#~ " separadas por tabulação e tente "
-#~ "novamente."
-
-#~ msgid ""
-#~ "Error: Upload failed! Make sure your "
-#~ "file has exactly two columns and "
-#~ "try again."
-#~ msgstr ""
-#~ "Erro: Falha ao carregar! Certifique que"
-#~ " seu arquivo possui exatamente duas "
-#~ "colunas e tente novamente."
-
-#~ msgid "Graph"
-#~ msgstr "Criar Gráfico"
-
-#~ msgid ""
-#~ "For example, is it significant that "
-#~ "<strong>%(id)s</strong> has the %(degree)s "
-#~ "highest number of connections but is "
-#~ "ranked %(centrality)s for "
-#~ "%(betweenness_centrality)s?"
-#~ msgstr ""
-#~ "Por exemplo, isto significa que "
-#~ "<strong>%(id)s</strong> tem %(degree)s maior "
-#~ "número de conexões mas é raqueado "
-#~ "%(centrality)s para %(betweenness_centrality)s?"
-
-#~ msgid "betweenness centrality"
-#~ msgstr "centralidade entre pontos"
-
-#~ msgid ""
-#~ "Scores how much of a "
-#~ "&quot;connector&quot; each node is. A "
-#~ "high score means lots of nodes can"
-#~ " go through one to quickly connect"
-#~ " to other nodes."
-#~ msgstr ""
-#~ "Pontua quanto &quot;conector&quot; é cada "
-#~ "ponto. Uma pontuação alta significa que"
-#~ " muitos nós podem passar por um "
-#~ "mesmo nó para se conectar rapidamente"
-#~ " a outros nós."
-
-#~ msgid ""
-#~ "For example, why might <strong>%(id)s</strong>"
-#~ " have the highest %(betweenness_centrality)s "
-#~ "in the network?"
-#~ msgstr ""
-#~ "Por exemplo, por que <strong>%(id)s</strong>"
-#~ " tem o maior %(betweenness_centrality)s na"
-#~ " rede?"
-
-#~ msgid "ConnectTheDots: "
-#~ msgstr "ConnectTheDots: "
-
-#~ msgid ""
-#~ "Warning: The file you uploaded had "
-#~ "multiple sheets, but we only used "
-#~ "the first sheet."
-#~ msgstr "Alerta: O arquivo tem múltiplas planilhas, mas só usamos a primeira."
-
-#~ msgid ""
-#~ "Here is a graph of how your "
-#~ "data is connected. Any %(nodes)s linked"
-#~ " by an %(edge)s show up in the"
-#~ " same row in your input data. "
-#~ "Your network graph has %(node_count)s "
-#~ "nodes and %(edge_count)s edges."
-#~ msgstr ""
-#~ "Aqui tem um gráfico sobre como "
-#~ "seus dados estão conectados. Qualquer "
-#~ "%(nodes)s conectados por um %(edge)s são"
-#~ " mostrados na mesma linha em seus "
-#~ "dados de entrada. Seu gráfico de "
-#~ "rede tem %(node_count)s nós e "
-#~ "%(edge_count)s arestas."
-
-#~ msgid "nodes"
-#~ msgstr "nós"
-
-#~ msgid ""
-#~ "The &quot;dots&quot; in the network -"
-#~ " the central organizing thing that is"
-#~ " connected to others."
-#~ msgstr ""
-#~ "Os &quot;pontos&quot; na rede - a "
-#~ "organização central que está conectada "
-#~ "com os outros pontos."
-
-#~ msgid "edge"
-#~ msgstr "arestas"
-
-#~ msgid "A connection between one node and another node."
-#~ msgstr "Uma conexão entre um nó e outro nó."
-
-#~ msgid ""
-#~ "It looks like your two columns "
-#~ "have two totally different types of "
-#~ "nodes. We think this is a "
-#~ "%(bipartite_graph)s. We’ve gone ahead and "
-#~ "colored each node based on what "
-#~ "column it&#39;s in."
-#~ msgstr ""
-#~ "Parece que suas duas colunas tem "
-#~ "um total diferente para os tipos "
-#~ "de nós. Acreditamos que est é um"
-#~ " %(bipartite_graph)s. Vamos seguir e "
-#~ "colorir cada nó baseado em qual "
-#~ "coluna ele está."
-
-#~ msgid "bipartite graph"
-#~ msgstr "gráfico bipartido"
-
-#~ msgid ""
-#~ "A network graph with two types of"
-#~ " nodes.  For instance, people connected "
-#~ "to restaurants they love but not "
-#~ "to other people."
-#~ msgstr ""
-
-#~ msgid "These results will expire in %(day)s days."
-#~ msgstr "Estes resultados irão expirar em %(day)s dias"
-
-#~ msgid "for the web"
-#~ msgstr "para a web"
-
-#~ msgid "for printing or editing"
-#~ msgstr "para impressão ou edição"
-
-#~ msgid "for analysis"
-#~ msgstr "para análise"
-
-#~ msgid "Download the <strong>table</strong>"
-#~ msgstr "Baixe a <strong>tabela</strong>"
-
-#~ msgid "node colors"
-#~ msgstr "cores do nó"
-
-#~ msgid "color by"
-#~ msgstr "colorir por"
-
-#~ msgid "color by column"
-#~ msgstr "colorir por coluna"
-
-#~ msgid "column"
-#~ msgstr "coluna"
-
-#~ msgid "color by community"
-#~ msgstr "colorir por comunidade"
-
-#~ msgid "community"
-#~ msgstr "comunidade"
-
-#~ msgid "no colors"
-#~ msgstr "sem cores"
-
-#~ msgid "the connector"
-#~ msgstr "o conector"
-
-#~ msgid ""
-#~ "This node has the highest "
-#~ "%(betweenness_centrality)s score. The most "
-#~ "nodes can go through %(kevin_bacon)s to"
-#~ " connect to others in the network."
-#~ msgstr ""
-#~ "Este nó tem a maior pontuação "
-#~ "%(betweenness_centrality)s. A maioria dos nós"
-#~ " pode ir pelo %(kevin_bacon)s para se"
-#~ " conectar aos outros nós na rede."
-
-#~ msgid "%(node)s"
-#~ msgstr "nós"
-
-#~ msgid "Node"
-#~ msgstr "Nó"
-
-#~ msgid "%(degree)s"
-#~ msgstr "%(degree)s"
-
-#~ msgid "Degree"
-#~ msgstr "Grau"
-
-#~ msgid "The immediate number of connections a node has."
-#~ msgstr "O número imediato de conexões que um nó possui."
-
-#~ msgid "%(centrality)s"
-#~ msgstr "%(centrality)s"
-
-#~ msgid "Centrality"
-#~ msgstr "Centralidade"
-
-#~ msgid ""
-#~ "Understanding relationships as nodes and "
-#~ "edges in a network can lead to "
-#~ "deeper insights about how information "
-#~ "travels through the system. For example,"
-#~ " what role does %(connector)s, the "
-#~ "Connector, play in the network?</p><p>You "
-#~ "can start to look for patterns in"
-#~ " the nodes that are the most "
-#~ "and least connected. %(whatnext_mismatch)s Why"
-#~ " does <strong>%(lowest_degree)s</strong> have the"
-#~ " fewest connections?</p><p>Being curious about"
-#~ " these measures and patterns is the"
-#~ " first step in understanding network "
-#~ "data. Check out our activity guide "
-#~ "for more help on analyzing network "
-#~ "data."
-#~ msgstr ""
-#~ "Entender as relações entre nós e "
-#~ "arestas em uma rede pode te guiar"
-#~ " para visões profundas sobre como a"
-#~ " informação flui pelo sistema. Por "
-#~ "exemplo, qual a regra do %(connector)s,"
-#~ " o Conector, usa nesta rede?</p><p>Você "
-#~ "pode começar a procurar por padrões "
-#~ "nos nós que possuem mais e menos"
-#~ " conexões. %(whatnext_mismatch)s Por que "
-#~ "<strong>%(lowest_degree)s</strong> tem menos "
-#~ "conexões?</p><p>Ser curioso sobre essas "
-#~ "medidas e padrões é o primeiro "
-#~ "passo na compreensão dos dados da "
-#~ "rede. Confira nosso guia de atividades"
-#~ " para obter mais ajuda na análise "
-#~ "de dados da rede."
-
-#~ msgid "Build and Analyze a Network"
-#~ msgstr "Construa e Analise uma Rede"
-
-#~ msgid ""
-#~ "Learn how to ask different types "
-#~ "of questions based on a network of"
-#~ " data"
-#~ msgstr ""
-#~ "Saiba como fazer diferentes tipos de "
-#~ "perguntas com base em uma rede de"
-#~ " dados"
-
-#~ msgid "Set Up"
-#~ msgstr "Preparação"
-
-#~ msgid ""
-#~ "This activity will take 30 to 45"
-#~ " minutes. You should have these "
-#~ "materials on hand:"
-#~ msgstr ""
-#~ "Esta atividade levará de 30 a 45"
-#~ " minutos. Você deve ter os seguintes"
-#~ " materiais à mão:"
-
-#~ msgid "A basic Internet connection"
-#~ msgstr "Uma conexão básica à Internet"
-
-#~ msgid "A phone, tablet, or computer for each small group of 3 people"
-#~ msgstr "Um telefone, tablet ou computador para cada grupo pequeno de 3 pessoas"
-
-#~ msgid "A projector connected to a computer"
-#~ msgstr "Um projetor conectado a um computador"
-
-#~ msgid "Download and print the activity guide"
-#~ msgstr "Baixe e imprima o guia de atividades"
-
-#~ msgid "Kick-Off The Activity"
-#~ msgstr "Início da Atividade"
-
-#~ msgid ""
-#~ "Network graphs are very trendy right "
-#~ "now, but few know how to read "
-#~ "them, nor why they they might be"
-#~ " useful. In this activity you'll "
-#~ "create a dataset about local restaurants"
-#~ " people recommend, build a network "
-#~ "graph out of that data, and then"
-#~ " think about questions you can ask"
-#~ " it. You will use <a "
-#~ "href='https://connectthedots.databasic.io/'>Databasic.io's "
-#~ "Connect the Dots tool</a> to do "
-#~ "this."
-#~ msgstr ""
-#~ "Gráficos de rede são muito usados "
-#~ "no momento, mas poucos sabem como "
-#~ "lê-los, ou mesmo sabem por que "
-#~ "eles podem ser úteis. Nesta atividade,"
-#~ " você criará um conjunto de dados "
-#~ "sobre restaurantes locais que as pessoas"
-#~ " recomendam, criará um gráfico de "
-#~ "rede fora desses dados e depois "
-#~ "pensará em perguntas que você pode "
-#~ "fazer. Você usará a ferramenta <a "
-#~ "href='https://connectthedots.databasic.io/'>Databasic.io Connect"
-#~ " the Dots</a> para fazer isso."
-
-#~ msgid ""
-#~ "Participants will understand build familiarity"
-#~ " with some standard terms and "
-#~ "approaches to working with network "
-#~ "graphs. Begin by sharing some "
-#~ "inspirational examples, then fill in a"
-#~ " spreadsheet together of restaurants and"
-#~ " who recommends them.  This should "
-#~ "have two columns - 'Person' and "
-#~ "'Restaurant'. Then paste this data into"
-#~ " Connect the Dots to analyze it. "
-#~ "Share the URL and have people poke"
-#~ " at it, or other sample data, "
-#~ "to look for insights and prompt "
-#~ "questions."
-#~ msgstr ""
-#~ "Os participantes aprenderão como se "
-#~ "familiarizar com alguns termos e "
-#~ "abordagens padrão para trabalhar com "
-#~ "gráficos de rede. Comece compartilhando "
-#~ "alguns exemplos inspiradores, então preencha"
-#~ " uma planilha de restaurantes e de"
-#~ " quem os recomendou. Isso deve ser"
-#~ " em duas colunas - 'Pessoa' e "
-#~ "'Restaurante'. Em seguida, coloque esses "
-#~ "dados em Connect the Dots para "
-#~ "analisá-lo. Compartilhe o URL e peça "
-#~ "que o grupo o acesse, ou mesmo "
-#~ "outros exemplos de dados, para que "
-#~ "busquem ideias e façam perguntas "
-#~ "rápidas."
-
-#~ msgid "Have Everyone Share Back"
-#~ msgstr "Faça com que Todos Compartilhem"
-
-#~ msgid ""
-#~ "After 10 minutes bring everyone back "
-#~ "together to share any insights they "
-#~ "found.  Were there any obvious benefits"
-#~ " they ran into by analyzing this "
-#~ "data as a network (instead of a"
-#~ " table)? Were there any questions "
-#~ "that here harder to dig into? Were"
-#~ " any of the algorithms mentioned "
-#~ "useful?"
-#~ msgstr ""
-#~ "Depois de 10 minutos, junte todos "
-#~ "para que compartilhem as informações que"
-#~ " eles encontraram. Houve algum benefício"
-#~ " óbvio que eles encontraram ao "
-#~ "analisar esses dados como uma rede "
-#~ "(em vez de uma tabela)? Houve "
-#~ "alguma dúvida que aqui fosse mais "
-#~ "difícil de encontrar? Algum dos "
-#~ "algoritmos mencionados foi útil?"
-
-#~ msgid "Wrap-Up and Talk Next Steps"
-#~ msgstr "Faça com que Todos Compartilhem"
-
-#~ msgid ""
-#~ "Now that you've done some basic "
-#~ "network graph analysis, help the "
-#~ "participants think about any network "
-#~ "data your organization has on hand.  "
-#~ "Are there any questions that came "
-#~ "up, or ideas, about steps people "
-#~ "should take with your in-house "
-#~ "data?"
-#~ msgstr ""
-#~ "Agora que você fez algumas análises "
-#~ "básicas de gráficos de rede, ajude "
-#~ "os participantes a pensar sobre "
-#~ "quaisquer dados de rede que a sua"
-#~ " organização tenha em mãos. Há alguma"
-#~ " pergunta que surgiu, ou idéias, "
-#~ "sobre as etapas que as pessoas "
-#~ "devam tomar com seus dados internos?"
-
-#~ msgid "Convince Me"
-#~ msgstr "Me Convença"
-
-#~ msgid ""
-#~ "Practice making data-driven arguments "
-#~ "that they to get difference audiences"
-#~ " to change their behavior"
-#~ msgstr ""
-#~ "Pratique a elaboração de argumentos "
-#~ "baseados em dados para que eles "
-#~ "consigam conduzir o público para uma "
-#~ "mudança de comportamento"
-
-#~ msgid ""
-#~ "Printouts of the <a "
-#~ "href=\"https://www.good.is/infographics/transparency-how-"
-#~ "much-water-do-you-use\">Walk this Way"
-#~ " infographic from Good Magazine</a>"
-#~ msgstr ""
-#~ "Impressões do folheto <a "
-#~ "href=\"https://www.good.is/infographics/transparency-how-"
-#~ "much-water-do-you-use\">Walk this "
-#~ "Way</a> da Good Magazine"
-
-#~ msgid "A room with space at the front"
-#~ msgstr "Uma sala com espaço na frente"
-
-#~ msgid "At least 10 people"
-#~ msgstr "Pelo menos 10 pessoas"
-
-#~ msgid ""
-#~ "Planning to show the videos offline? "
-#~ "<a "
-#~ "href=\"https://www.dropbox.com/s/5zbvtal9ch8alez/ConvinceMeAllThreeFacilitationVideos.zip?dl=0\">Click"
-#~ " here</a> to download them in "
-#~ "advance."
-#~ msgstr ""
-
-#~ msgid ""
-#~ " In this activity you will work"
-#~ " practice using data to make "
-#~ "arguments that try to convince different"
-#~ " people. You will learn how to "
-#~ "use data to tailor an argument for"
-#~ " a specific audience. We'll look at"
-#~ " a sample visualization about an "
-#~ "issue, identify stakeholders who are "
-#~ "trying to swayed by the story it"
-#~ " tells, and try to make arguments "
-#~ "that convince them to take action. "
-#~ "Start the activity by playing the "
-#~ "kickoff video below for your group."
-#~ msgstr ""
-#~ "Nesta atividade você trabalhará na "
-#~ "prática usando dados para fazer "
-#~ "argumentos que convençam pessoas diferentes."
-#~ " Você aprenderá como usar dados para"
-#~ " adaptar um argumento para um público"
-#~ " específico. Analisaremos uma amostra sobre"
-#~ " um problema, identificaremos as partes "
-#~ "interessadas que tentam influenciar a "
-#~ "história que se conta e tentaremos "
-#~ "criar argumentos que os convençam a "
-#~ "agir. Inicie a atividade passando o "
-#~ "vídeo inicial abaixo para o seu "
-#~ "grupo."
-
-#~ msgid ""
-#~ "Play this video after you've finished"
-#~ " making arguments to convince your "
-#~ "volunteer stakeholders to move forward.  "
-#~ "Ask different people to explain why "
-#~ "they made the arguments they did, "
-#~ "and ask the stakeholders why something"
-#~ " convinced them or not. Highlight "
-#~ "similarities in the arguments people "
-#~ "made, or arguments that worked for "
-#~ "one audience but might not for "
-#~ "another.  Point out particularly strong "
-#~ "uses of data in support of "
-#~ "arguments to start a conversation about"
-#~ " how to use data in appropriate "
-#~ "ways to convince people."
-#~ msgstr ""
-#~ "Passe este vídeo depois de criar "
-#~ "os argumentos para convencer seus "
-#~ "interessados ​​voluntários a seguir em "
-#~ "frente. Peça a diferentes pessoas para"
-#~ " explicar por que eles usaram os "
-#~ "argumentos que eles fizeram, e pergunte"
-#~ " às partes interessadas por que algo"
-#~ " os convenceu ou não. Destaque "
-#~ "semelhanças nos argumentos feitos pelas "
-#~ "pessoas, ou argumentos que funcionaram "
-#~ "para uma audiência, mas não para "
-#~ "outra. Destaque usos particularmente fortes"
-#~ " de dados em apoio aos argumentos "
-#~ "para iniciar uma conversa sobre como "
-#~ "usar os dados de maneira apropriada "
-#~ "para convencer as pessoas."
-
-#~ msgid ""
-#~ "Now that you've practice this with "
-#~ "some example data, this video will "
-#~ "help you think about where to go"
-#~ " next. For example, who are some "
-#~ "of the main audiences your organization"
-#~ " tries to convince? What are some "
-#~ "pitfalls to be aware of when "
-#~ "crafting arguments for specific audiences?"
-#~ msgstr ""
-#~ "Agora que você praticou isso com "
-#~ "alguns dados de exemplo, esse vídeo "
-#~ "irá ajudá-lo a pensar sobre onde "
-#~ "ir adiante. Por exemplo, quais são "
-#~ "alguns dos principais públicos que sua"
-#~ " organização tenta convencer? Quais são "
-#~ "algumas armadilhas para se conscientizar "
-#~ "ao elaborar argumentos para públicos "
-#~ "específicos?"
-
-#~ msgid ""
-#~ "Struggling to build your organization's "
-#~ "ability to work with data? Use our"
-#~ " hands-on learning program to "
-#~ "kickstart your data culture."
-#~ msgstr ""
-#~ "Está lutando para aumentar a capacidade"
-#~ " da sua empresa em trabalhar com "
-#~ "dados? Use o nosso programa prático "
-#~ "de aprendizagem para iniciar a cultura"
-#~ " de dados."
-
-#~ msgid ""
-#~ "Data is everywhere right now. But "
-#~ "many organizations like your's are "
-#~ "struggling to figure out how to "
-#~ "build capacity to work with data. "
-#~ "You don't need a data scientist; "
-#~ "you need a <strong>data culture</strong>."
-#~ msgstr ""
-#~ "Os dados estão em todos os lugares"
-#~ " agora mesmo. Mas muitas empresas, "
-#~ "assim como a sua, estão lutando "
-#~ "para descobrir como aumentar a sua "
-#~ "capacidade para trabalhar com eles. Você"
-#~ " não precisa de um cientista de "
-#~ "dados; o que você precisa é de "
-#~ "uma cultura de dados."
-
-#~ msgid ""
-#~ "Use our self-service learning program"
-#~ " to facilitate fun, creative introductions"
-#~ " for the non-technical folks in "
-#~ "your organization. These are not boring"
-#~ " spreadsheet trainings. The free tools "
-#~ "and activites below are hands-on "
-#~ "and designed to meet people where "
-#~ "they are across your organization and"
-#~ " build their capacity to work with"
-#~ " data. Try to kickstart your data "
-#~ "culture by running one activity per "
-#~ "month as a brown bag lunch. The"
-#~ " videos and facilitation guides below "
-#~ "will lead you through running them "
-#~ "yourself. People at more than 30 "
-#~ "organizations have done so already - "
-#~ "from a local public library, to "
-#~ "the World Food Progam."
-#~ msgstr ""
-#~ "Use nosso programa de autoaprendizagem "
-#~ "para facilitar a introdução informal e"
-#~ " criativa para pessoas que não são"
-#~ " técnicas em sua empresa. Não estamos"
-#~ " falando de treinamentos chatos de "
-#~ "planilhas eletrônicas. As ferramentas e "
-#~ "atividades gratuitas abaixo são práticas "
-#~ "e projetadas para atender a pessoas "
-#~ "onde quer que estiverem na sua "
-#~ "empresa e desenvolver a capacidade deles"
-#~ " em trabalhar com dados. Tente "
-#~ "iniciar sua cultura de dados executando"
-#~ " uma atividade por mês como uma "
-#~ "oportunidade informal de aprendizado no "
-#~ "trabalho. Os vídeos e os guias "
-#~ "práticos abaixo o ajudarão a executá-los"
-#~ " você mesmo. Pessoas de mais de "
-#~ "30 empresas já fizeram esse programa "
-#~ "– desde uma biblioteca pública local,"
-#~ " até o World Food Program."
-
-#~ msgid ""
-#~ "How do you build a data culture?"
-#~ "  Use our videos and guides to "
-#~ "run one activity a month at brown"
-#~ " bag lunches in your org."
-#~ msgstr ""
-#~ "Como se cria uma cultura de dados?"
-#~ " Use nossos vídeos e guias para "
-#~ "executar uma atividade por mês como "
-#~ "eventos informais de aprendizado na sua"
-#~ " empresa."
-
-#~ msgid "The Data Process"
-#~ msgstr "O Processo de Dados"
-
-#~ msgid ""
-#~ "Here's a process we introduce to "
-#~ "get you from data to impactful "
-#~ "story.  Keep scrolling down to learn "
-#~ "about the activities we offer for "
-#~ "you to run at each step along "
-#~ "the way."
-#~ msgstr ""
-#~ "Este um processo que apresentamos para"
-#~ " levá-lo a transformar simples dados "
-#~ "para uma impactante história. Continue "
-#~ "lendo para aprender sobre as atividades"
-#~ " que oferecemos para que você execute"
-#~ " a cada passo adiante."
-
-#~ msgid "Warm Ups"
-#~ msgstr "Aquecimentos"
-
-#~ msgid ""
-#~ "Before jumping into finding data or "
-#~ "telling stories, it's important to do"
-#~ " some warm ups to activate your "
-#~ "organization's data mindset. Warm ups "
-#~ "are quick, fun, hands-on activities "
-#~ "designed to activate conversation, catalyze"
-#~ " creative ideas and build confidence "
-#~ "to take the next step. For "
-#~ "example, lead colleagues to <strong>Build "
-#~ "Data Sculptures</strong> with craft materials"
-#~ " to explore different ways to "
-#~ "communicate the same simple data set."
-#~ "  Working with pompons, pipe cleaners, "
-#~ "or other local materials changes how "
-#~ "you approach data, letting you focus "
-#~ "on playfully quick ways to look "
-#~ "for stories."
-#~ msgstr ""
-#~ "Antes de passar à procura dos "
-#~ "dados ou a contar as histórias, é"
-#~ " importante fazer aquecimentos para ativar"
-#~ " a mentalidade de dados da sua "
-#~ "organização. Os aquecimentos são atividades"
-#~ " rápidas, divertidas e práticas, projetadas"
-#~ " para ativar a conversação, obter "
-#~ "idéias criativas e criar confiança para"
-#~ " dar o próximo passo. Por exemplo,"
-#~ " liderar pessoas para construir culturas"
-#~ " de dados com materiais artesanais no"
-#~ " objetivo de explorar diferentes formas "
-#~ "de comunicar o mesmo conjunto de "
-#~ "dados simples. Trabalhar com pompons, "
-#~ "limpadores de canos ou outros materiais"
-#~ " domésticos altera a forma como você"
-#~ " aborda os dados, permitindo que você"
-#~ " se concentre em maneiras divertidas "
-#~ "e rápidas de procurar histórias."
-
-#~ msgid "Build a Data Sculpture"
-#~ msgstr "Esculturas de Dados"
-
-#~ msgid "Ask Good Questions"
-#~ msgstr "Faça Perguntas"
-
-#~ msgid "Asking Questions"
-#~ msgstr "Faça Perguntas"
-
-#~ msgid ""
-#~ "What questions can (and cannot) be "
-#~ "answered with data? And once you "
-#~ "are staring at some rows and "
-#~ "columns, how do you start to make"
-#~ " sense of the data in front of"
-#~ " you? In this stage, you learn "
-#~ "to take the first step in the "
-#~ "data analysis process by asking good "
-#~ "questions. <strong>Use WTFcsv</strong> to "
-#~ "quickly summarize spreadsheet data, brainstorm"
-#~ " questions about it, potential connections"
-#~ " to other data sets, and potential"
-#~ " biases you might bring to it. "
-#~ "Remember – the data never speaks "
-#~ "for itself – you help it speak "
-#~ "by asking better and better questions."
-#~ " "
-#~ msgstr ""
-#~ "Quais perguntas podem (e não podem) "
-#~ "ser respondidas com dados? E quando "
-#~ "você estiver olhando para algumas linhas"
-#~ " e colunas, como você começa a "
-#~ "dar sentido aos dados na sua "
-#~ "frente? Nesta fase, você aprende a "
-#~ "dar o primeiro passo no processo "
-#~ "de análise de dados, fazendo boas "
-#~ "perguntas. Use o WTFcsv para resumir "
-#~ "rapidamente os dados da planilha "
-#~ "eletrônica, reunir perguntas sobre esses "
-#~ "dados, potenciais conexões com outros "
-#~ "conjuntos de dados e possíveis "
-#~ "considerações que você possa ter para"
-#~ " eles. Lembre-se - os dados "
-#~ "nunca falam por si mesmos - você"
-#~ " os ajuda a falar fazendo mais "
-#~ "e melhores perguntas."
-
-#~ msgid "Gathering Data"
-#~ msgstr "Junte a Informação"
-
-#~ msgid ""
-#~ "Often you don’t recognize the data "
-#~ "you already have! Data is all "
-#~ "around, but can be difficult to "
-#~ "identify and describe.  You need the "
-#~ "right data to tell a strong story."
-#~ " As they say, “garbage in, garbage"
-#~ " out.”  You also need to remember "
-#~ "that a single data set may not "
-#~ "be able to answer your questions. "
-#~ "Combining datasets is often the best "
-#~ "way to create a more fleshed out"
-#~ " story. <strong>Use Connect the "
-#~ "Dots</strong> to explore crowd-sourcing "
-#~ "data from your audience to analyze "
-#~ "together as a network.  Or <strong>Use"
-#~ " WTFcsv</strong> to think about how "
-#~ "to gather the data you need to "
-#~ "answer a question."
-#~ msgstr ""
-#~ "Muitas vezes você pode não reconhecer"
-#~ " os dados que você já possui! "
-#~ "Os dados estão ao redor, mas podem"
-#~ " ser difíceis de identificar e "
-#~ "descrever. Você precisa dos dados certos"
-#~ " para contar uma história forte. É"
-#~ " como se diz, 'se entra lixo, "
-#~ "sai lixo'. Você também precisa lembrar"
-#~ " que um único conjunto de dados "
-#~ "pode não ser capaz de responder "
-#~ "suas perguntas. A combinação de "
-#~ "conjuntos de dados geralmente é a "
-#~ "melhor maneira de criar uma história "
-#~ "mais detalhada. Use o Connect the "
-#~ "Dots para explorar os dados de "
-#~ "crowd-sourcing do seu público para "
-#~ "analisar juntos como uma rede. Ou "
-#~ "use WTFcsv para pensar sobre como "
-#~ "reunir os dados que você precisa "
-#~ "para responder a uma pergunta."
-
-#~ msgid "Use Connect the Dots"
-#~ msgstr "Usa ConnectTheDots"
-
-#~ msgid "Sketch a Story"
-#~ msgstr "Esboce uma História"
-
-#~ msgid "Use SameDiff"
-#~ msgstr "Usa SameDiff"
-
-#~ msgid "Analyzing Data"
-#~ msgstr "Analise os Dados"
-
-#~ msgid ""
-#~ "Data can be intimidating, especially "
-#~ "when it comes to analyzing it.  "
-#~ "But remember, most of statistics is "
-#~ "just special ways of counting.  We’re"
-#~ " all pretty good at counting! "
-#~ "Establishing a data culture doesn't mean"
-#~ " that we will all be statistical "
-#~ "wizards but it does mean learning "
-#~ "enough about analysis to understand its"
-#~ " creative potential. The data analysis "
-#~ "process is an opportunity to bring "
-#~ "people together. There are many ways "
-#~ "to do this to find a story.  "
-#~ "<strong>Use WordCounter</strong> to learn "
-#~ "about analyzing text data to find "
-#~ "stories. <strong>Use Connect the Dots</strong>"
-#~ " to collaboratively analyze a network "
-#~ "graph.  <strong>Use SameDiff</strong> to learn"
-#~ " about how algorithms can help you"
-#~ " analyze data in more abstract ways."
-#~ msgstr ""
-#~ "Os dados podem ser intimidadores, "
-#~ "especialmente quando se trata de "
-#~ "analisá-los. Mas lembre-se, a maioria"
-#~ " das estatísticas são apenas formas "
-#~ "específicas de contagem. E nós somos "
-#~ "muito bons em fazer contas! Estabelecer"
-#~ " uma cultura de dados não significa"
-#~ " que todos nós seremos mestres "
-#~ "estatísticos, mas significa aprender o "
-#~ "suficiente sobre análise para entender "
-#~ "todo seu potencial criativo. O processo"
-#~ " de análise de dados é uma "
-#~ "oportunidade para reunir as pessoas. Há"
-#~ " muitas maneiras de fazer isso para"
-#~ " encontrar uma história. Use o "
-#~ "WordCounter para aprender sobre como "
-#~ "analisar dados de texto para encontrar"
-#~ " histórias. Use o Connect the Dots"
-#~ " para analisar um gráfico de rede "
-#~ "de forma colaborativa. Use o SameDiff"
-#~ " para saber como os algoritmos podem"
-#~ " ajudá-lo a analisar os dados de "
-#~ "maneiras mais abstratas."
-
-#~ msgid "Telling Your Story"
-#~ msgstr "Conte a sua História"
-
-#~ msgid ""
-#~ "Telling your story is where the "
-#~ "rubber hits the road. Numbers alone "
-#~ "are not enough to make your case"
-#~ " or move people to action. You "
-#~ "have to give your data some "
-#~ "context, and stitch it together into "
-#~ "a narrative so that people can "
-#~ "understand it.  <strong>Sketch a story "
-#~ "with WordCounter</strong> to practice "
-#~ "communicating a data-driven story "
-#~ "visually."
-#~ msgstr ""
-#~ "Contar sua história é onde a "
-#~ "viagem começa. Os números de forma "
-#~ "isolada não são suficientes para "
-#~ "convencer ou mover as pessoas à "
-#~ "ação. Você deve dar aos seus dados"
-#~ " um pouco de contexto e juntá-los "
-#~ "em uma narrativa de forma que as"
-#~ " pessoas possam entendê-los. Crie uma "
-#~ "história com o WordCounter para praticar"
-#~ " a comunicação visual de uma história"
-#~ " baseada em dados."
-
-#~ msgid "Try to ConvinceMe"
-#~ msgstr "Usa ConvinceMe"
-
-#~ msgid "Try It Out"
-#~ msgstr "Experimente"
-
-#~ msgid ""
-#~ "How do you know if your story "
-#~ "is working?  Does the data you "
-#~ "included support the narrative you are"
-#~ " telling?  It can be very difficult"
-#~ " to put yourself in the shoes "
-#~ "of your audience and try to "
-#~ "understand what kind of story will "
-#~ "change their worldview or move them "
-#~ "to action.  And you might have "
-#~ "multiple audiences. Each potential audience"
-#~ " brings different beliefs and experiences"
-#~ " to understanding your message. <strong>Try"
-#~ " out ConvinceMe</strong> to practice "
-#~ "telling different stories to different "
-#~ "audiences."
-#~ msgstr ""
-#~ "Como saber se sua história está "
-#~ "funcionando mesmo? Os dados que você "
-#~ "incluiu condizem com a narrativa que "
-#~ "você está contando? Pode ser muito "
-#~ "difícil colocar-se no lugar do seu"
-#~ " público alvo e tentar entender que"
-#~ " tipo de história vai mudar visão "
-#~ "de mundo deles ou movê-los à ação."
-#~ " E talvez você possa ter vários "
-#~ "públicos alvo. Cada público traz consigo"
-#~ " diferentes crenças e experiências ao "
-#~ "receber sua mensagem. <strong>Experimente o"
-#~ " ConvinceMe</strong> para praticar como "
-#~ "contar histórias diferentes para diferentes"
-#~ " públicos."
-
-#~ msgid "Connect with Others"
-#~ msgstr "Conecte-se com outros"
-
-#~ msgid ""
-#~ "Trying to build a data culture can"
-#~ " be a lonely effort in organizations"
-#~ " that haven't recognized the importance "
-#~ "of data. Join the Data Culture <a"
-#~ " href='https://groups.io/g/dataculture'>discussion group</a>"
-#~ " to connect with others and reflect"
-#~ " on how these activities are working,"
-#~ " or not working, for your "
-#~ "organization."
-#~ msgstr ""
-#~ "Tentar construir uma cultura de dados"
-#~ " pode ser um esforço isolado em "
-#~ "organizações que ainda não reconheceram "
-#~ "a importância dos dados. Junte-se "
-#~ "a <a href='https://groups.io/g/dataculture'>nossa "
-#~ "lista de discussão</a> para se conectar"
-#~ " com outras pessoas e reflita sobre"
-#~ " como essas atividades funcionam ou "
-#~ "não para sua organização."
-
-#~ msgid "Join the discussion group"
-#~ msgstr "Junte-se a nossa lista"
-
-#~ msgid "About Us"
-#~ msgstr "Sobre Nós"
-
-#~ msgid ""
-#~ "The Data Culture Project is an "
-#~ "initiative of  <a "
-#~ "href='http://databasic.io'>DataBasic.io</a>.  We’ve pulled"
-#~ " together the years of work with "
-#~ "nonprofits into one place to help "
-#~ "you build a data culture. DataBasic.io"
-#~ " is the brainchild of <a "
-#~ "href='http://kanarinka.com'>Catherine D’Ignazio</a> and"
-#~ " <a href='http://datatherapy.org'>Rahul Bhargava</a>."
-#~ msgstr ""
-#~ "O Projeto Data Culture é uma "
-#~ "iniciativa do <a "
-#~ "href='http://databasic.io'>DataBasic.io</a>. Nós reunimos"
-#~ " em um só lugar os anos de "
-#~ "trabalho com organizações sem fins "
-#~ "lucrativos para ajudá-lo a construir uma"
-#~ " cultura de dados. DataBasic.io é uma"
-#~ " criação de <a "
-#~ "href='http://kanarinka.com'>Catherine D'Ignazio</a> e "
-#~ "<a href='http://datatherapy.org'>Rahul Bhargava</a>."
-
-#~ msgid "Learn With Others"
-#~ msgstr "Conte-nos como foi"
-
-#~ msgid ""
-#~ "People around the world are using "
-#~ "this activity. Learn from their comments"
-#~ " below, and please share your "
-#~ "experience with others by submitting it!"
-#~ " Comments you leave here will be "
-#~ "moderated. Once approved, they will be"
-#~ " shared on this page and are "
-#~ "public."
-#~ msgstr ""
-#~ "Pessoas ao redor do mundo estão "
-#~ "usando e adaptando essas atividades em"
-#~ " suas empresas. Escreva no espaço "
-#~ "abaixo um pouco sobre como as "
-#~ "atividades foram para você."
-
-#~ msgid "Asking Good Questions"
-#~ msgstr "Faça Boas Perguntas"
-
-#~ msgid "Learn how to move from spreadsheet to story with WTFcsv"
-#~ msgstr "Saiba como passar da planilha para a história com o WTFcsv"
-
-#~ msgid ""
-#~ "A phone, tablet, or computer for each small \n"
-#~ "            group of 3 people"
-#~ msgstr "Um telefone, tablet ou computador para cada grupo pequeno de 3 pessoas"
-
-#~ msgid ""
-#~ "1 printed copy of the <a "
-#~ "href='https://databasic.io/en/wtfcsv/wtfcsv-activity-"
-#~ "guide.pdf'>WTFcsv handout</a> per group"
-#~ msgstr ""
-#~ "1 cópia impressa do <a "
-#~ "href='https://databasic.io/pt/wtfcsv/wtfcsv-activity-"
-#~ "guide.pdf'>folheto WTFcsv</a> por grupo"
-
-#~ msgid "Paper &amp; pens"
-#~ msgstr "Papel e canetas"
-
-#~ msgid ""
-#~ "Planning to show the videos offline? "
-#~ "<a "
-#~ "href=\"https://www.dropbox.com/s/t7mai3ecrcayvei/AskingGoodQuestionsAllThreeFacilitationVideos.zip?dl=0\">Click"
-#~ " here</a> to download them in "
-#~ "advance."
-#~ msgstr ""
-
-#~ msgid ""
-#~ "Increasingly, data arrives on our "
-#~ "doorstep in the form of a "
-#~ "spreadsheet. Somebody sends you an excel"
-#~ " file or you download something from"
-#~ " the web. In this activity, you "
-#~ "will work with colleagues to ask "
-#~ "good questions of a spreadsheet so "
-#~ "that you can take it from data "
-#~ "points to data story. You will use"
-#~ " <a href='https://wtfcsv.databasic.io/'>Databasic.io's "
-#~ "WTFcsv tool</a>, get acquainted data "
-#~ "types, and do some basic spreadsheet "
-#~ "analysis.  '<em>csv</em>' stands for <em>comma"
-#~ " separated values</em>, a common "
-#~ "spreadsheet format on the web. "
-#~ "<em>WTF</em> stands for... well... the "
-#~ "question you ask when someone sends "
-#~ "you an inscrutable csv file."
-#~ msgstr ""
-#~ "Cada vez mais, os dados chegam a"
-#~ " nós na forma de uma planilha. "
-#~ "Alguém lhe envia um arquivo em "
-#~ "Excel ou você baixa algo da web."
-#~ " Nesta atividade, você trabalhará com "
-#~ "colegas para fazer boas perguntas a "
-#~ "respeito de uma planilha para que "
-#~ "você possa transformar os pontos de "
-#~ "dados para a história de dados. "
-#~ "Você usará a ferramenta WTFcsv da "
-#~ "Databasic.io, se familiarizará com os "
-#~ "tipos de dados e fará algumas "
-#~ "análises básicas de planilhas. 'csv' "
-#~ "significa valores separados por vírgulas, "
-#~ "um formato de planilha comum na "
-#~ "web. WTF significa ...bem...aquela pergunta"
-#~ " que você faz sempre que alguém "
-#~ "lhe envia um arquivo csv indecifrável."
-
-#~ msgid ""
-#~ "In this activity participants will "
-#~ "brainstorm questions to ask sample "
-#~ "datasets based on summaries of the "
-#~ "columnar data.  Work in groups of "
-#~ "2-3 colleagues for about 10 minutes "
-#~ "with the data. At the end give "
-#~ "them a minute to pick the best "
-#~ "question and write it down on the"
-#~ " handout, indicating the question, any "
-#~ "other data they might need to "
-#~ "answer it, and how they would get"
-#~ " that data. Start the activity by "
-#~ "playing the kickoff video below for "
-#~ "your group, which explains all this."
-#~ msgstr ""
-#~ "Nesta atividade, os participantes irão "
-#~ "fazer uma discussão de perguntas de "
-#~ "amostras de conjuntos de dados baseados"
-#~ " em resumos dos dados em coluna. "
-#~ "Trabalhe em grupos de 2-3 pessoas "
-#~ "por cerca de 10 minutos com os "
-#~ "dados. No final, dê-lhes um minuto "
-#~ "para escolher a melhor pergunta e "
-#~ "anotá-la no folheto, indicando a "
-#~ "pergunta, quaisquer outros dados que "
-#~ "possam precisar para respondê-la e como"
-#~ " obterão esses dados. Comece a "
-#~ "atividade por passar o vídeo inicial "
-#~ "abaixo para o seu grupo, onde se"
-#~ " explicará tudo isso."
-
-#~ msgid ""
-#~ "Play this video after each small "
-#~ "group has written their questions on "
-#~ "the WTFcsv handout. Here we outline "
-#~ "some things to discuss as each "
-#~ "group enumerates their questions and the"
-#~ " process they might take to start "
-#~ "answering them. For example, you want"
-#~ " to validate groups that asked 'meta"
-#~ " questions', like 'where is this data"
-#~ " from?' or 'Can we trust this "
-#~ "data?' as well as groups that "
-#~ "started to ask questions about patterns"
-#~ " that they saw in the data "
-#~ "itself. If groups ask questions about"
-#~ " patterns in data, ask them to "
-#~ "take a step towards answering them. "
-#~ "What other data would they need to"
-#~ " answer their questions? Who collects "
-#~ "that data?"
-#~ msgstr ""
-#~ "Passe este vídeo depois que cada "
-#~ "grupo pequeno escrever suas perguntas no"
-#~ " folheto WTFcsv. Aqui descrevemos algumas"
-#~ " coisas para discutir como cada grupo"
-#~ " enumera suas perguntas e o processo"
-#~ " que eles podem tomar para começar"
-#~ " a respondê-las. Por exemplo, você "
-#~ "deseja validar grupos que fizeram "
-#~ "'meta-perguntas', do tipo 'de onde "
-#~ "são esses dados?' ou 'podemos confiar"
-#~ " nestes dados?' bem como grupos que"
-#~ " começaram a fazer perguntas sobre os"
-#~ " padrões que eles viram nos próprios"
-#~ " dados. Se os grupos fizerem "
-#~ "perguntas sobre os padrões dos dados,"
-#~ " peça-lhes que deem um passo à "
-#~ "frente para respondê-los. Que outros "
-#~ "dados eles precisariam para responder "
-#~ "suas perguntas? Quem coleta esses dados?"
-
-#~ msgid ""
-#~ "Now that you've done some basic "
-#~ "spreadsheet analysis, this video will "
-#~ "help you think about where to go"
-#~ " from here. For example, what "
-#~ "information in your organization is "
-#~ "captured in spreadsheet form? Could you"
-#~ " use this same approach with survey"
-#~ " result data? With financial data? "
-#~ "With lists of donors or web "
-#~ "analytics? How can having groups come"
-#~ " up with questions help you take "
-#~ "the next step with your organization's"
-#~ " data? We also discuss some common"
-#~ " pitfalls to try to avoid, like "
-#~ "remembering to consider outliers and "
-#~ "keeping in mind that correlation is "
-#~ "not causation."
-#~ msgstr ""
-#~ "Agora que você fez algumas análises "
-#~ "básicas de planilhas, esse vídeo irá "
-#~ "ajudá-lo a pensar sobre onde ir "
-#~ "daqui em diante. Por exemplo, quais "
-#~ "informações em sua organização são "
-#~ "obtidas em forma de planilha? Você "
-#~ "poderia usar essa mesma abordagem com"
-#~ " os dados do resultado da pesquisa?"
-#~ " Com dados financeiros? Com listas de"
-#~ " doadores ou análise web? Como o "
-#~ "fato dos grupos terem apresentado "
-#~ "perguntas poderá ajuda-lo a dar o"
-#~ " próximo passo com os dados da "
-#~ "sua organização? Nós também discutimos "
-#~ "algumas armadilhas comuns a serem "
-#~ "evitadas, como lembrar-se de considerar"
-#~ " fatores atípicos e ter em mente "
-#~ "que a correlação não é causalidade."
-
-#~ msgid "Use physical craft materials to tell a data story in 3D"
-#~ msgstr ""
-#~ "Use materiais físicos de artesanato para"
-#~ " contar uma história de dados em "
-#~ "3D"
-
-#~ msgid ""
-#~ "This activity will take 20 to 30"
-#~ " minutes. You should have these "
-#~ "materials on hand:"
-#~ msgstr ""
-#~ "Esta atividade levará cerca de 20 "
-#~ "a 30 minutos. Você deve ter os "
-#~ "seguintes materiais à mão"
-
-#~ msgid ""
-#~ "Local craft materials (plastic bottle "
-#~ "tops, wire, fuzzy balls, colored paper,"
-#~ " wood blocks, construction paper)"
-#~ msgstr ""
-#~ "Materiais para fazer artesanato (garrafas "
-#~ "de plástico, fios, bolas, papel "
-#~ "colorido, blocos de madeira, papel)"
-
-#~ msgid "Tape, glue, scissors"
-#~ msgstr "Fita, cola, tesoura"
-
-#~ msgid ""
-#~ "DO NOT include pens, crayons, or "
-#~ "anything else to write with (otherwise"
-#~ " people just draw instead of "
-#~ "building)"
-#~ msgstr ""
-#~ "NÃO inclua canetas, lápis de cor "
-#~ "ou qualquer outra coisa para escrever"
-#~ " (senão as pessoas simplesmente desenham,"
-#~ " ao invés de construir)"
-
-#~ msgid "DO NOT include LEGO bricks (otherwise people just build bar charts)"
-#~ msgstr ""
-#~ "NÃO inclua peças de LEGO (caso "
-#~ "contrário, as pessoas apenas criam "
-#~ "gráficos de barras)"
-
-#~ msgid "Background"
-#~ msgstr "Contexto"
-
-#~ msgid ""
-#~ "The idea of playing with data is"
-#~ " new to most folks. This activity "
-#~ "lets people quickly build sculptures "
-#~ "that tell a simple data story with"
-#~ " craft materials. The playful approach "
-#~ "to the data helps engage the "
-#~ "participants in thinking about how "
-#~ "stories can be found and presented "
-#~ "quickly, and helps people feel more "
-#~ "freedom and flexibility about data "
-#~ "presentations. It builds a notion of "
-#~ "\"presentation\" instead of \"visualization\". "
-#~ "The activity also builds the ability "
-#~ "to translate words and numbers into "
-#~ "structural forms. In addition, playing "
-#~ "with these materials at the start "
-#~ "of a workshop can break down power"
-#~ " dynamics that might exist within the"
-#~ " group."
-#~ msgstr ""
-#~ "A idéia de brincar com os dados"
-#~ " é nova para a maioria das "
-#~ "pessoas. Esta atividade permite que as"
-#~ " pessoas construam rapidamente esculturas "
-#~ "que contam uma história de dados "
-#~ "simples com materiais de artesanato. A"
-#~ " abordagem divertida com os dados "
-#~ "ajuda os participantes a pensar sobre"
-#~ " como as histórias podem ser "
-#~ "encontradas e apresentadas rapidamente, e "
-#~ "as ajuda a sentir mais liberdade e"
-#~ " flexibilidade sobre as apresentações. Isso"
-#~ " promove uma noção de 'apresentação' "
-#~ "em vez de 'visualização'. A atividade"
-#~ " também promove a capacidade de "
-#~ "traduzir palavras e números em formas"
-#~ " estruturais. Além disso, usar esses "
-#~ "materiais logo no início de um "
-#~ "worshop pode provocar dinâmicas poderosas "
-#~ "que possam existir dentro do grupo"
-
-#~ msgid ""
-#~ "This activity builds on the pedagogy "
-#~ "and workshop style of the MIT "
-#~ "Media Lab’s <a "
-#~ "href='http://llk.media.mit.edu/'>Lifelong Kindergarten "
-#~ "Group</a> (where Rahul got his Master’s"
-#~ " degree).  It also has connections to"
-#~ " the <a "
-#~ "href='http://www.placeit.org/bio.html'>participatory urban "
-#~ "planning work of James Rojas</a>."
-#~ msgstr ""
-#~ "Esta atividade baseia-se no estilo "
-#~ "de pedagogia e workshop do <a "
-#~ "href='https://llk.media.mit.edu'>Grupo Lifelong "
-#~ "Kindergarten do MIT Media Lab</a> (onde"
-#~ " Rahul obteve seu mestrado). Também "
-#~ "possui influências do <a "
-#~ "href='http://www.placeit.org/bio.html'>trabalho participativo"
-#~ " de planejamento urbano de James "
-#~ "Rojas</a>."
-
-#~ msgid "Kick off the Activity"
-#~ msgstr "Início da Atividade"
-
-#~ msgid ""
-#~ "Introduce the group to two related "
-#~ "“normal” charts of data.  One can "
-#~ "be a single fact, and the other"
-#~ " a medium-sized set of information."
-#~ " If you make your own, be sure"
-#~ " to avoid data that the audience "
-#~ "knows too well - we find that "
-#~ "leads people to get lost in the"
-#~ " nuances and intimate details. We "
-#~ "suggest using more generic or high-"
-#~ "level data.  Here are a few "
-#~ "handouts you are welcome to download,"
-#~ " print, and use:"
-#~ msgstr ""
-#~ "Apresente o grupo a dois gráficos "
-#~ "de dados 'normais'. Um pode ser um"
-#~ " fato único, e o outro um "
-#~ "conjunto de informações de tamanho "
-#~ "médio. Se você fizer o seu próprio"
-#~ " gráfico, certifique-se de evitar o"
-#~ " uso de dados que o público "
-#~ "conheça bem - entendemos que isso "
-#~ "leva as pessoas a se perderem nas"
-#~ " nuances e detalhes pessoais. Sugerimos "
-#~ "usar dados mais genéricos. Aqui estão"
-#~ " alguns folhetos que você poderá "
-#~ "baixar, imprimir e usar:"
-
-#~ msgid "US Ice Cream Consumption"
-#~ msgstr "Consumo de Sorvete nos EUA"
-
-#~ msgid "Happiness in the Town of Somerville, MA, USA"
-#~ msgstr "Felicidade na cidade de Somerville, MA, EUA"
-
-#~ msgid "The Cost of an MIT Education"
-#~ msgstr "O custo de uma educação do MIT"
-
-#~ msgid ""
-#~ "Ask the group to pair up, "
-#~ "preferably with someone they don’t know."
-#~ "  Show participants a large central "
-#~ "table full of the materials you "
-#~ "have gathered.  Give them 6 minutes "
-#~ "to quickly build a physical "
-#~ "representation of the data you presented"
-#~ " earlier.  Don't give them too long,"
-#~ " otherwise they will get stuck on "
-#~ "nuances instead of just getting their"
-#~ " creative juices flowing. Remind them "
-#~ "they are creative, and that pipe "
-#~ "cleaner bar charts are NOT allowed!"
-#~ msgstr ""
-#~ "Peça ao grupo para trabalharem em "
-#~ "duplas, de preferência com alguém que"
-#~ " não conheçam. Mostre aos participantes "
-#~ "uma grande mesa central cheia dos "
-#~ "materiais que você reuniu. Dê-lhes 6 "
-#~ "minutos para construir rapidamente uma "
-#~ "representação física dos dados que você"
-#~ " apresentou anteriormente. Não lhes dê "
-#~ "muito tempo, caso contrário, eles "
-#~ "ficarão presos em detalhes ao invés "
-#~ "de apenas deixarem a criatividade fluir."
-#~ " Lembre-os de serem criativos, e "
-#~ "de que gráficos de barras de "
-#~ "limpeza de canos NÃO são permitidos!"
-
-#~ msgid ""
-#~ "After 3 minutes tell them they "
-#~ "should be building now; this is a"
-#~ " 'think with your hands activity'.  "
-#~ "When they have one minute left let"
-#~ " them know."
-#~ msgstr ""
-#~ "Depois de 3 minutos, diga-lhes que"
-#~ " deveriam estar construindo já; esta "
-#~ "é uma 'atividade de pensar com as"
-#~ " mãos'. Quando faltar um minuto para"
-#~ " a conclusão, avise-os"
-
-#~ msgid ""
-#~ "Stop everyone when the time is up."
-#~ " Give each group 1 minute to "
-#~ "share what they made. You can "
-#~ "summarize by pointing out similarities "
-#~ "and differences in the pieces folks "
-#~ "made. Often you’ll see some people "
-#~ "focusing on one data point, while "
-#~ "others look at a broader picture.  "
-#~ "With the happiness data, some people "
-#~ "try to merge to two datasets, "
-#~ "while others just focus on one.  "
-#~ "Point out any physical versions of "
-#~ "traditional charts to point out how "
-#~ "entrenched our current visual presentation "
-#~ "techniques are! Try to identify patterns"
-#~ " in how the numbers were mapped "
-#~ "onto physical objects."
-#~ msgstr ""
-#~ "Peça que todos parem quando chegar "
-#~ "a hora. Dê a cada grupo 1 "
-#~ "minuto para compartilhar o que eles "
-#~ "fizeram. Você pode resumir, apontando "
-#~ "semelhanças e diferenças nas peças "
-#~ "feitas pelas pessoas. Muitas vezes você"
-#~ " verá algumas pessoas concentrando-se "
-#~ "em um ponto de dados, enquanto "
-#~ "outros olham para uma imagem mais "
-#~ "ampla. Com os dados de felicidade, "
-#~ "algumas pessoas tentam se fundir em "
-#~ "dois conjuntos de dados, enquanto outros"
-#~ " apenas se concentram em um. Destaque"
-#~ " quaisquer versões físicas das tabelas "
-#~ "tradicionais para apontar quão arraigadas "
-#~ "as nossas atuais técnicas de "
-#~ "apresentação visual são! Tente identificar "
-#~ "padrões de como os números foram "
-#~ "mapeados em objetos físicos."
-
-#~ msgid ""
-#~ "Use WordCounter to analyze a musician’s"
-#~ " lyrics and sketch a story with "
-#~ "their words"
-#~ msgstr ""
-#~ "Use o WordCounter para analisar as "
-#~ "letras de um músico e preparar uma"
-#~ " história com suas palavras"
-
-#~ msgid "A projector to show these videos"
-#~ msgstr "Um projetor para mostrar esses vídeos"
-
-#~ msgid "Large pieces of paper to draw on (2 feet by 3 feet is best)"
-#~ msgstr ""
-#~ "Grandes pedaços de papel para desenhar"
-#~ " (60 cm por 1 metro é o "
-#~ "recomendável)"
-
-#~ msgid "Thick crayons or markers of different colors"
-#~ msgstr "Marcadores ou pincéis grossos de cores diferentes"
-
-#~ msgid ""
-#~ "A phone, tablet, or computer connected"
-#~ " to the internet for each small \n"
-#~ ""
-#~ "            group of 3 people"
-#~ msgstr ""
-#~ "Um telefone, um tablet ou um "
-#~ "computador conectado à Internet para "
-#~ "cada pequeno grupo de 3 pessoas"
-
-#~ msgid ""
-#~ "Planning to show the videos offline? "
-#~ "<a "
-#~ "href=\"https://www.dropbox.com/s/alwonz81zjhmsri/SketchAStoryAllThreeFacilitationVideos.zip?dl=0\">Click"
-#~ " here</a> to download them in "
-#~ "advance."
-#~ msgstr ""
-
-#~ msgid ""
-#~ "It is hard to go from data "
-#~ "to story.  This activity lets you "
-#~ "quickly do that by analyzing datasets"
-#~ " to find patterns in text, and "
-#~ "then sketching out some story you "
-#~ "find.  It introduces basic terminology "
-#~ "for quantitative text analysis, helps "
-#~ "you get acquainted with <a "
-#~ "href='https://wordcounter.databasic.io/'>Databasic.io's "
-#~ "WordCounter tool</a>a>, and prompts you "
-#~ "to consider places in your organization"
-#~ " where you work with text as "
-#~ "data.  Participants will pair up with"
-#~ " colleagues to search for stories in"
-#~ " some fun sample data and then "
-#~ "draw a sketch to share that story."
-#~ " Start the activity by playing the"
-#~ " kickoff video below for your group."
-#~ msgstr ""
-#~ "É difícil transformar os dados em "
-#~ "histórias. Esta atividade permite que "
-#~ "você faça isso rapidamente ao analisar"
-#~ " conjuntos de dados para encontrar "
-#~ "padrões no texto e, em seguida, "
-#~ "desenhar uma história que você "
-#~ "encontrar. Ela apresenta a terminologia "
-#~ "básica para análise de texto "
-#~ "quantitativo, ajuda você a se "
-#~ "familiarizar com a ferramenta WordCounter "
-#~ "do Databasic.io e orienta que você "
-#~ "considere lugares em sua organização "
-#~ "onde você trabalha com texto como "
-#~ "dados. Os participantes se juntarão com"
-#~ " colegas para procurar histórias em "
-#~ "alguns dados de amostra e, em "
-#~ "seguida, desenharão um esboço para "
-#~ "compartilhar essa história. Inicie a "
-#~ "atividade passando o vídeo inicial "
-#~ "abaixo para o seu grupo."
-
-#~ msgid ""
-#~ "Introduce the activity and then give "
-#~ "folks about 15 minutes to sketch.  "
-#~ "With 10 minutes left let them know"
-#~ " that they should have chosen a "
-#~ "dataset to work with. When they "
-#~ "have 5 minutes left make sure they"
-#~ " have a story and are sketching "
-#~ "on paper, otherwise they'll be "
-#~ "scrambling to get a drawing done."
-#~ msgstr ""
-#~ "Apresente a atividade e, em seguida, "
-#~ "dê às pessoas cerca de 15 minutos"
-#~ " para fazer o esboço. Com 10 "
-#~ "minutos de antecedência, os avise que"
-#~ " eles já deveriam ter escolhido um"
-#~ " conjunto de dados para trabalhar. "
-#~ "Quando eles tiverem 5 minutos faltantes,"
-#~ " certifique-se de que eles já "
-#~ "têm uma história e que a estejam"
-#~ " esboçando no papel, caso contrário, "
-#~ "eles estarão desperdiçando esforço para "
-#~ "fazer um desenho."
-
-#~ msgid ""
-#~ "Play this video after each small "
-#~ "group has sketched their story on "
-#~ "a large sheet of paper. Here we"
-#~ " outline some questions to discuss as"
-#~ " each group describes the story that"
-#~ " they found. For example, you'll want"
-#~ " to take note of stories based "
-#~ "on comparing two things versus those "
-#~ "those based on a single, interesting "
-#~ "data point. And you can start a"
-#~ " conversation about how groups used "
-#~ "visual parameters – like color, size "
-#~ "and position – to communicate their "
-#~ "story."
-#~ msgstr ""
-#~ "Passe este vídeo depois que cada "
-#~ "grupo pequeno esboçou sua história em"
-#~ " uma grande folha de papel. Aqui "
-#~ "descreveremos algumas questões para discussão,"
-#~ " conforme cada grupo descrever a "
-#~ "história que eles encontraram. Por "
-#~ "exemplo, você desejará destacar histórias "
-#~ "com base em comparação de duas "
-#~ "coisas versus aquelas baseadas em um "
-#~ "único ponto de dados de interesse. "
-#~ "E você pode iniciar uma conversa "
-#~ "sobre como os grupos usaram parâmetros"
-#~ " visuais - como cor, tamanho e "
-#~ "posição - para passar sua história."
-
-#~ msgid ""
-#~ "Now that everyone has analyzed text "
-#~ "and sketched a story, this video "
-#~ "will help people think about where "
-#~ "to go from here. For example, what"
-#~ " are some text datasets that your "
-#~ "organization already has on hand?  We"
-#~ " discuss some more sophisticated methods"
-#~ " of quantitative text analysis as "
-#~ "well as point out some common "
-#~ "pitfalls to try to avoid."
-#~ msgstr ""
-#~ "Agora que todos analisaram o texto "
-#~ "e desenharam uma história, esse vídeo"
-#~ " ajudará as pessoas a pensar sobre"
-#~ " onde ir daqui à frente. Por "
-#~ "exemplo, quais são alguns conjuntos de"
-#~ " dados de texto que a sua "
-#~ "organização já possui? Discutiremos alguns "
-#~ "métodos mais sofisticados de análise "
-#~ "quantitativa de texto, além de apontar"
-#~ " algumas armadilhas comuns para se "
-#~ "evitar."
-
-#~ msgid ""
-#~ "WordCounter analyzes your text and tells"
-#~ " you the most common words and "
-#~ "phrases."
-#~ msgstr ""
-#~ "WordConter analisa seu texto e informa"
-#~ " quais são as palavras e frases "
-#~ "mais comuns."
-
-#~ msgid "WTFcsv tells you WTF is going on with your .csv file."
-#~ msgstr "WTFcsv informa que merda está acontecendo com seu arquivo .csv."
-
-#~ msgid ""
-#~ "SameDiff compares two or more text "
-#~ "files and tells you how similar or"
-#~ " different they are."
-#~ msgstr ""
-#~ "SameDiff compara dois ou mais arquivos"
-#~ " de textos e informa o quanto "
-#~ "similares ou diferentes eles são."
-
-#~ msgid "Trying to Build a <b>Data Culture</b> in Your Organization?"
-#~ msgstr ""
-
-#~ msgid ""
-#~ "Struggling to build your organization's "
-#~ "ability to work with data? Use our"
-#~ " hands-on learning program to "
-#~ "kickstart your data culture. We provide"
-#~ " facilitation videos to help you run"
-#~ " creative introductions for the non-"
-#~ "technical folks in your organization. "
-#~ "These are not boring spreadsheet "
-#~ "trainings! We suggest that in order "
-#~ "to kickstart your data culture, you "
-#~ "run one activity per month as a"
-#~ " brown bag lunch at your "
-#~ "organization. Learn more at <a "
-#~ "href='https://datacultureproject.org'>https://datacultureproject.org</a>"
-#~ msgstr ""
-
-#~ msgid "Why use DataBasic?"
-#~ msgstr "Por que usar DataBasic?"
-
-#~ msgid ""
-#~ "Rahul Bhargava and Catherine D'Ignazio, "
-#~ "creators of Databasic, describe how "
-#~ "everyone can tell stories with data."
-#~ msgstr ""
-#~ "Rahul Bhargava e Catherine D'Ignazio, "
-#~ "criadores do Databasic, descrevem como "
-#~ "todos podem contar histórias através de"
-#~ " dados."
-
-#~ msgid "About <strong>DataBasic</strong>"
-#~ msgstr "Sobre <strong>DataBasic</strong>"
-
-#~ msgid "Accessible to All"
-#~ msgstr "Acessível para Todos"
-
-#~ msgid ""
-#~ "Digital technologies have empowered those "
-#~ "with disabilities in a variety of "
-#~ "ways, and new web standards have "
-#~ "made it easier than ever to build"
-#~ " new tools that are accessible to "
-#~ "all.  DataBasic implements those technologies"
-#~ " to support screen readers so the "
-#~ "visually impaired can start working with"
-#~ " data in new and exciting ways."
-#~ msgstr ""
-#~ "As tecnologias digitais têm dado poderes"
-#~ " àqueles que possuem deficiência em "
-#~ "uma variedade de maneiras, e novos "
-#~ "padrões web tornaram mais fácil do "
-#~ "que nunca construir novas ferramentas "
-#~ "acessíveis a todos.  DataBasic aplica "
-#~ "essas tecnologias para oferecer suporte "
-#~ "aos leitores de tela para que os"
-#~ " deficientes visuais possam começar a "
-#~ "trabalhar com dados em novas e "
-#~ "excitantes maneiras."
-
-#~ msgid "Doing One Thing Well"
-#~ msgstr "Fazendo Uma Coisa Bem Feita"
-
-#~ msgid ""
-#~ "There are tons of tools for "
-#~ "working with data; many so complex "
-#~ "they are intimidating to even start "
-#~ "with.  We've built each DataBasic tool"
-#~ " to focus on doing one thing "
-#~ "well, so you know exactly what "
-#~ "each can be used for.  This lets"
-#~ " us concentrate on making that one"
-#~ " thing both simple and powerful."
-#~ msgstr ""
-#~ "Existem toneladas de ferramentas para se"
-#~ " trabalhar com dados; muitas são tão"
-#~ " complexas que intimidam até para "
-#~ "começar.  Nós construímos cada ferramenta "
-#~ "DataBasic concentrando em fazer uma "
-#~ "coisa bem feita, então você sabe "
-#~ "exatamente para que cada pode usada."
-#~ "  Isto nos permite concentrar em "
-#~ "fazer esta coisa de maneira simples "
-#~ "e poderosa."
-
-#~ msgid "Fitting in to Your Pipeline"
-#~ msgstr "Ajustando na Sua "
-
-#~ msgid ""
-#~ "Working with data online always involves"
-#~ " using a mishmash of tools. We're "
-#~ "not going to solve that problem "
-#~ "anytime soon.  So we've built DataBasic"
-#~ " to take in a variety of types"
-#~ " of data, and output results in "
-#~ "the formats you're used to.  Read "
-#~ "some content from website and download"
-#~ " CSV files of your results. These "
-#~ "are just two of the ways we "
-#~ "try to introduce you to the way"
-#~ " most folks work data online."
-#~ msgstr ""
-#~ "Trabalhar com dados online sempre "
-#~ "envolve o uso de uma mistura de"
-#~ " ferramentas. Nós não vamos resolver "
-#~ "esse problema tão cedo.  Então nós "
-#~ "construímos DataBasic tratar uma variedade "
-#~ "de tipos de dados e extrair seus"
-#~ " resultados nos formatos que você "
-#~ "está acostumado.  Leia alguns conteúdos "
-#~ "do site e baixe arquivos CSV dos"
-#~ " resultados. Estas são apenas duas "
-#~ "das formas que tentamos lhe apresentar"
-#~ " sobre como a maioria das pessoas "
-#~ "trabalha dados online."
-
-#~ msgid "Focused on Learning "
-#~ msgstr "Focado em Aprendizado"
-
-#~ msgid ""
-#~ "Sometimes faster isn't better.  If you"
-#~ " really want to learn how to "
-#~ "work with data to find stories to"
-#~ " tell, you'll need to use tools "
-#~ "that do more than just give you"
-#~ " a chart as quickly as possible.  "
-#~ "That's why we've built DataBasic with"
-#~ " learners in mind.  Don't know what"
-#~ " some technical word means? Hover "
-#~ "over it to see a quick definition."
-#~ "  Not sure how to use a tool?"
-#~ "  Try some of the fun sample "
-#~ "data like music lyrics and UFO "
-#~ "sightings we've included to get started."
-#~ msgstr ""
-#~ "Às vezes ser mais rápido não é "
-#~ "ser melhor.  Se você realmente quer "
-#~ "aprender como trabalhar com dados para"
-#~ " encontrar histórias para contar, você "
-#~ "precisará usar as ferramentas que fazem"
-#~ " mais do que apenas dar-lhe um"
-#~ " gráfico o mais rápido possível.  É"
-#~ " por isso que construímos DataBasic "
-#~ "com os alunos em mente.  Não sabe"
-#~ " o que significa alguma palavra "
-#~ "técnica? Passe o mouse sobre ela "
-#~ "para ver uma definição rápida.  Não "
-#~ "sabe como usar uma ferramenta?  Tente"
-#~ " alguma das divertidas amostras de "
-#~ "dados como letras de música e "
-#~ "avistamentos de OVNIs que incluímos para"
-#~ " começar."
-
-#~ msgid "Ensuring Your Privacy"
-#~ msgstr "Assegurando Sua Pricacidade"
-
-#~ msgid ""
-#~ "With more and more data-centric "
-#~ "tools moving online, sometimes it can"
-#~ " be hard to tell where your "
-#~ "data is going and what will happen"
-#~ " with it after you upload it.  "
-#~ "We store information you upload for "
-#~ "only the amount of time it takes"
-#~ " us to analyze it, then we "
-#~ "delete it.  The aggregate results we "
-#~ "show you - metadata - are kept "
-#~ "for 60 days, and then we delete"
-#~ " them.  All communications are over "
-#~ "https, so other folks can't eavesdrop"
-#~ " on the data as you upload it."
-#~ msgstr ""
-#~ "Com cada vez mais ferramentas centradas"
-#~ " em dados migrando para o ambiente"
-#~ " online, às vezes pode ser difícil"
-#~ " dizer para onde irão seus dados "
-#~ "e o que vai acontecer com eles "
-#~ "depois de enviados.  Armazenamos as "
-#~ "informações que você carregar somente "
-#~ "pelo tempo necessário para analisar e,"
-#~ " em seguida, excluímos.  Os resultados "
-#~ "agregados que nós mostramos - metadados"
-#~ " - são mantidos por 60 dias, e"
-#~ " depois apagamos. Todas as comunicações "
-#~ "são via https, para que outras "
-#~ "pessoas não possam espionar os dados "
-#~ "enquanto são carregados."
-
-#~ msgid "By Educators, for Educators"
-#~ msgstr "De Educadores, para Educadores"
-
-#~ msgid ""
-#~ "Work with high-schoolers? Journalists? "
-#~ "Community groups? Graduate students?  Us "
-#~ "too!!!  That's why we designed and "
-#~ "tested the DataBasic tools and "
-#~ "activities in our classrooms and in "
-#~ "workshops with those audiences.  These "
-#~ "tools were born out of frustration "
-#~ "with things we were trying to use"
-#~ " in our undergraduate classes, so we"
-#~ " feel your pain."
-#~ msgstr ""
-#~ "Trabalha com estudantes do ensino médio?"
-#~ " Jornalistas? Grupos comunitários? Estudantes "
-#~ "de pós-graduação?  Nós também!!!  É por"
-#~ " isso que projetamos e testamos "
-#~ "DataBasic com suas ferramentas e "
-#~ "atividades em nossas salas de aula "
-#~ "e nas oficinas para esse tipo de"
-#~ " público. Estas ferramentas nasceram sem"
-#~ " a frustração de coisas que estávamos"
-#~ " tentando usar em nossas aulas de "
-#~ "graduação, então sentimos sua dor."
-
-#~ msgid "<strong>DataBasic</strong> News"
-#~ msgstr "<strong>DataBasic</strong> News"
-
-#~ msgid "Designed and Developed by"
-#~ msgstr "Concebido e Programado por"
-
-#~ msgid "Principal Investigators:"
-#~ msgstr "Diretores:"
-
-#~ msgid "Software development:"
-#~ msgstr "Desenvolvimento de software:"
-
-#~ msgid "Spanish translation:"
-#~ msgstr "Tradução em espanhol:"
-
-#~ msgid "Portuguese translation:"
-#~ msgstr "Tradução em português:"
-
-#~ msgid "with contributions from"
-#~ msgstr "com a ajuda de"
-
-#~ msgid "Spanish data sourcing:"
-#~ msgstr "Dados em português contribuíram pelo:"
-
-#~ msgid "Portuguese data sourcing:"
-#~ msgstr "Dados em espanhol contribuíram pelo:"
-
-#~ msgid "SameDiff results"
-#~ msgstr "Resultados SameDiff"
-
-#~ msgid "Your %(logo)s Report"
-#~ msgstr "Seu Relatório %(logo)s"
-
-#~ msgid "download"
-#~ msgstr "baixar"
-
-#~ msgid "These two documents are %(description)s."
-#~ msgstr "Estes dois documentos são %(description)s."
-
-#~ msgid "They have a %(cosine_sim)s score of %(score)s"
-#~ msgstr "Eles têm %(cosine_sim)s de pontos de %(score)s"
-
-#~ msgid "cosine similarity"
-#~ msgstr "similaridade de cosseno"
-
-#~ msgid ""
-#~ "The Cosine Similarity score tries to "
-#~ "tell you how similar two documents "
-#~ "are based on the number of times"
-#~ " words are used in each."
-#~ msgstr ""
-#~ "A pontuação da Similaridade de Cosseno"
-#~ " busca informar a similaridade entre "
-#~ "dois documentos baseada no número de "
-#~ "vezes que uma palavra é usada em"
-#~ " cada um."
-
-#~ msgid ""
-#~ "The documents are of different lengths"
-#~ " so to compare them fairly you "
-#~ "should keep %(normalized)s on."
-#~ msgstr ""
-#~ "Os documentos são de diferentes "
-#~ "comprimentos para compará-los de forma "
-#~ "justa por favor ligar %(normalized)s"
-
-#~ msgid "normalization"
-#~ msgstr "normalização"
-
-#~ msgid ""
-#~ "A process to make data points "
-#~ "comparable in a fair way. For "
-#~ "example, word counts in a document "
-#~ "can be normalized by dividing them "
-#~ "by the total number of words in"
-#~ " that document."
-#~ msgstr ""
-#~ "Um processo para tornar os dados "
-#~ "comparáveis ​​aponta de forma justa. Por"
-#~ " exemplo, a contagem de palavras em"
-#~ " um documento pode ser normalizada "
-#~ "dividindo-os pelo totalnúmero de palavras"
-#~ " no documento."
-
-#~ msgid ""
-#~ "The documents are about the same "
-#~ "length so you don't have to use"
-#~ " %(normalized)s in order to compare "
-#~ "them."
-#~ msgstr ""
-#~ "Os documentos são sobre o mesmo "
-#~ "comprimento para que você não tem "
-#~ "que usar%(normalized)s para compará-los."
-
-#~ msgid "words"
-#~ msgstr "palavras"
-
-#~ msgid "%(normalized)s "
-#~ msgstr "%(normalized)s "
-
-#~ msgid "Normalization"
-#~ msgstr "Normalizacion"
-
-#~ msgid "Toggle normlization"
-#~ msgstr "Normalizacion"
-
-#~ msgid "Words that are only in %(document)s"
-#~ msgstr "Palavras que estão apenas em %(document)s"
-
-#~ msgid "Word"
-#~ msgstr "Palavra"
-
-#~ msgid "Frequency"
-#~ msgstr "Frequência"
-
-#~ msgid "Words that are in %(doc)s"
-#~ msgstr "Palavras que estão em %(doc)s"
-
-#~ msgid ""
-#~ "Comparing text documents is a great "
-#~ "way to find out what makes each"
-#~ " one unique.  Is it meaningful that"
-#~ " \"%(most_common_word)s\" and "
-#~ "\"%(second_most_common_word)s\" are the most "
-#~ "used words appearing in both documents?"
-#~ "  Why does %(doc2)s use "
-#~ "\"%(doc2_most_common_word)s\" so much, but it"
-#~ " doesn't even appear in %(doc1)s?  "
-#~ "With these questions in mind, you "
-#~ "can sketch out a story that "
-#~ "compares the documents.  <br /><br "
-#~ "/>Find a whiteboard and start sketching"
-#~ " out a story.  Check out our <a"
-#~ " href=\"%(activity_guide_url)s\" onclick='ga('send', "
-#~ "'event', 'samediff', 'activity-guide');'>activity"
-#~ " guide</a> for more help on sketching"
-#~ " out a story to compare them.  "
-#~ "Want to dig into the data even "
-#~ "more?  <a href=\"%(download)s\" onclick=\"ga('send',"
-#~ " 'event', 'samediff', 'samediff-dl');\">Download"
-#~ " the full results as a CSV "
-#~ "file</a> to compare the files even "
-#~ "further."
-#~ msgstr ""
-#~ "Comparar documentos textuais é uma ótima"
-#~ " maneira de descobrir o que faz "
-#~ "com que cada um seja exclusivo. É"
-#~ " útil saber que \"%(most_common_word)s\" e"
-#~ " \"%(second_most_common_word)s\" são as palavras"
-#~ " mais usadas aparecendo em ambos os"
-#~ " documentos? Por que %(doc2)s usa "
-#~ "muito \"%(doc2_most_common_word) s\", mas não"
-#~ " aparece nem mesmo em %(doc1)s? Com"
-#~ " estas perguntas em mente, você pode"
-#~ " esboçar uma história que compara os"
-#~ " documentos. <br /> <br /> Encontrar"
-#~ " uma lousa e começar a esboçar "
-#~ "uma história. Confira nosso <a "
-#~ "href=\"%(activity_guide_url)s\" "
-#~ "onclick=\"ga('send','event','samediff','activity-guide');\"> "
-#~ "guia de atividades </a> para obter "
-#~ "mais ajuda no esboço de uma "
-#~ "história para comparação. Quer se "
-#~ "aprofundar mais nos dados? <a href "
-#~ "= \"%(download)s\" onclick = \"ga('send', "
-#~ "'event', 'samediff', 'samediff-dl');\"> Baixe"
-#~ " os resultados completos como um "
-#~ "arquivo CSV </a> para comparar ainda "
-#~ "mais os arquivos."
-
-#~ msgid " uses in %(doc)s"
-#~ msgstr "usos em %(doc)s"
-
-#~ msgid " uses"
-#~ msgstr "usos"
-
-#~ msgid ""
-#~ "SameDiff compares one %(corpus)s of text"
-#~ " to another corpus of text to "
-#~ "show you similarities and differences. "
-#~ "It uses a %(cosine_similarity)s %(algorithm)s"
-#~ " to rate whether the documents are"
-#~ " really similar or totally different."
-#~ msgstr ""
-#~ "SameDiff compara um %(corpus)s de texto"
-#~ " para outro corpus de texto para "
-#~ "mostrar as semelhanças e diferenças. Ele"
-#~ " usa um %(cosine_similarity)s %(algorithm)s "
-#~ "para classificar se os documentos são"
-#~ " realmente semelhantes ou diferentes."
-
-#~ msgid "corpus"
-#~ msgstr "corpus"
-
-#~ msgid ""
-#~ "A collection of written texts. For "
-#~ "example, all of the lyrics in Katy"
-#~ " Perry songs."
-#~ msgstr ""
-#~ "Uma coleção de textos escritos. Por "
-#~ "exemplo, todas as letras de músicas "
-#~ "de Katy Perry."
-
-#~ msgid "algorithm"
-#~ msgstr "algoritmo"
-
-#~ msgid ""
-#~ "A set of steps you (or a "
-#~ "computer) do in order to solve a"
-#~ " problem. For example, when you type"
-#~ " in a search term, Google runs "
-#~ "an algorithm to figure out which "
-#~ "pages to show you."
-#~ msgstr ""
-#~ "Um conjunto de etapas que você (ou"
-#~ " um computador) fazem para resolver "
-#~ "um problema. Por exemplo, quando você"
-#~ " digitar um termo de pesquisa, o "
-#~ "Google executa um algoritmo para "
-#~ "descobrir quais páginas devem ser "
-#~ "mostradas."
-
-#~ msgid "Compare"
-#~ msgstr "Compare"
-
-#~ msgid "WordCounter results"
-#~ msgstr "Resultados do WordCounter"
-
-#~ msgid ""
-#~ "Here is a picture of the words "
-#~ "used most often in your document. "
-#~ "Words used more often are bigger, "
-#~ "and ones used less often are "
-#~ "smaller. This picture, called a \"word"
-#~ " cloud\", is helpful to get a "
-#~ "sense of the most used words in"
-#~ " a document."
-#~ msgstr ""
-#~ "Aqui está uma imagem das palavras "
-#~ "usadas com  mais frequência em seu "
-#~ "documento. Palavras usadas com mais "
-#~ "frequência são maiores, e as usadas "
-#~ "com menor frequência são menores. Esta"
-#~ " imagem, chamada de \"nuvem de "
-#~ "palavras\", é útil para se ter uma"
-#~ " noção das palavras mais usadas em"
-#~ " um documento."
-
-#~ msgid ""
-#~ "Sorry, but we didn't find any "
-#~ "results to show. Maybe your text "
-#~ "is too short... or maybe it is "
-#~ "all %(stopwords)s"
-#~ msgstr ""
-#~ "Desculpe, mas não encontramos nenhum "
-#~ "resultado para mostrar. Talvez o seu "
-#~ "texto seja muito curto... ou talvez "
-#~ "seja todo %(stopwords)s"
-
-#~ msgid ""
-#~ "Stopwords are words in text analysis "
-#~ "that are ignored such as \"this\", "
-#~ "\"that\", \"and\" and \"but.\""
-#~ msgstr ""
-#~ "Stopwords são palavras que são ignoradas"
-#~ " na análise textual, como \"este\", "
-#~ "\"aquele\", \"e\" e \"mas\"."
-
-#~ msgid "Top Words"
-#~ msgstr "Principais Palavras"
-
-#~ msgid "download csv of word frequencies"
-#~ msgstr "baixar csv de frequências de palavra"
-
-#~ msgid "Bigrams"
-#~ msgstr "Bigramas"
-
-#~ msgid "download csv of bigram frequencies"
-#~ msgstr "baixar csv de frequências de bigramas"
-
-#~ msgid "%(bigram)s"
-#~ msgstr "%(bigram)s"
-
-#~ msgid "bigram"
-#~ msgstr "bigrama"
-
-#~ msgid "A bigram is a two word phrase"
-#~ msgstr "Um bigrama é uma frase de duas palavras"
-
-#~ msgid "Trigrams"
-#~ msgstr "Trigramas"
-
-#~ msgid "download csv of trigram frequencies"
-#~ msgstr "baixar csv com frequências de trigramas"
-
-#~ msgid "%(trigram)s"
-#~ msgstr "%(trigram)s"
-
-#~ msgid "trigram"
-#~ msgstr "trigrama"
-
-#~ msgid "A trigram is a three word phrase"
-#~ msgstr "Um trigrama é uma frase de três palavras"
-
-#~ msgid ""
-#~ "Examining text data in this quantitative"
-#~ " way can help you find stories "
-#~ "to tell in your data.  The fact"
-#~ " that \"%(top_word)s\" is a popular "
-#~ "word is good to know, but combine"
-#~ " that with "
-#~ msgstr ""
-#~ "Examinar os dados de texto de "
-#~ "forma quantitativa pode ajudá-lo a "
-#~ "encontrar histórias em seus dados para"
-#~ " contar.  Pode ser bom saber o "
-#~ "fato de que \"%(top_word)s\" é uma "
-#~ "palavra popular, mas combine isso com"
-#~ " "
-
-#~ msgid "the %(num)d use "
-#~ msgid_plural "the %(num)d uses "
-#~ msgstr[0] "o %(num)d usa "
-#~ msgstr[1] "os  %(num)d usam  "
-
-#~ msgid "in the top 40 bigrams, and "
-#~ msgstr "nos 40 principais bigramas, e"
-
-#~ msgid "the %(num)s use "
-#~ msgid_plural "the %(num)s uses "
-#~ msgstr[0] "o %(num)s usa"
-#~ msgstr[1] "os %(num)s usam"
-
-#~ msgid ""
-#~ "in the top 40 trigrams, to "
-#~ "understand the context of how it "
-#~ "is used.  With that richer understanding"
-#~ " of the context, you can sketch "
-#~ "out a picture of why \"%(top_word)s\""
-#~ " is so important in %(title)s. "
-#~ "<br/><br />So grab some paper and "
-#~ "some crayons and start drawing what "
-#~ "you see!  Check out our <a "
-#~ "href=\"%(activity_guide_url)s\" onclick=\"ga('send', "
-#~ "'event', 'wordcounter', 'activity-"
-#~ "guide');\">activity guide</a> for more help"
-#~ " on sketching out a story.  Want "
-#~ "to dig into the data more? "
-#~ "Download all the <a "
-#~ "href=\"%(download_words)s\" onclick=\"ga('send', 'event',"
-#~ " 'wordcounter', 'words-dl');\">word counts</a>,"
-#~ " <a href=\"%(download_bigrams)s\" onclick=\"ga('send',"
-#~ " 'event', 'wordcounter', 'bigrams-"
-#~ "dl');\">bigrams</a>, or <a "
-#~ "href=\"%(download_trigrams)s\" onclick=\"ga('send', "
-#~ "'event', 'wordcounter', 'trigrams-"
-#~ "dl');\">trigrams</a> and investigate why "
-#~ "\"%(random_unpopular_word)s\" is used "
-#~ "%(random_unpopular_word_count)s times!"
-#~ msgstr ""
-#~ "nos 40 trigramas principais, para "
-#~ "entender o contexto de como é "
-#~ "usada. Com esse entendimento mais rico"
-#~ " do contexto, você pode esboçar um"
-#~ " retrato do porque \"%(top_word)s\" é "
-#~ "tão importante em%(title)s. <br/> <br />"
-#~ " Então pegue um papel e alguns "
-#~ "lápis e comece a desenhar o que"
-#~ " você vê! Vá para o <a "
-#~ "href=\"%(activity_guide_url)s\" "
-#~ "onclick=\"ga('send','event','wordcounter','activity-guide');\">"
-#~ " guia de atividades </a> para obter"
-#~ " mais ajuda sobre esboçar uma "
-#~ "história. Quer mergulhar mais nos dados?"
-#~ " Baixe todas as <a "
-#~ "href=\"%(download_words)s\" "
-#~ "onclick=\"ga('send','event','wordcounter','words-dl');\"> "
-#~ "contagens de palavras </a>, <a href "
-#~ "= \"%(download_bigrams)s\" onclick = \"ga "
-#~ "('send', 'event', 'wordcounter', 'bigrams-"
-#~ "dl');\"> bigramas </a>, ou <a href "
-#~ "= \"%(download_trigrams)s \"onclick =\" "
-#~ "ga('send', 'event', 'wordcounter', 'trigrams-"
-#~ "dl'); \"> trigramas </a> e investigue"
-#~ " por que \"%(random_unpopular_word)s\" é "
-#~ "utilizada \"%(random_unpopular_word_count)s\" vezes!"
-
-#~ msgid "Run the Activity"
-#~ msgstr ""
-
-#~ msgid ""
-#~ "Welcome to the WordCounter Sketch a "
-#~ "Story activity! These videos will help"
-#~ " you run the activity."
-#~ msgstr ""
-
-#~ msgid "We're ready to start"
-#~ msgstr ""
-
-#~ msgid "Done with our stories! Time to share-back!"
-#~ msgstr ""
-
-#~ msgid "All done. What next?"
-#~ msgstr ""
-
-#~ msgid ""
-#~ "This tool helps you count words, "
-#~ "%(bigrams)s, and %(trigrams)s in plain "
-#~ "text. This is often the first step"
-#~ " in quantitative text analysis."
-#~ msgstr ""
-#~ "Esta ferramenta ajuda a contar palavras,"
-#~ " %(bigrams)s e %(trigrams)s em texto "
-#~ "sem formatação. Normalmente este é o "
-#~ "primeiro passo na análise quantitativa "
-#~ "de texto."
-
-#~ msgid "bigrams"
-#~ msgstr "bigramas"
-
-#~ msgid "trigrams"
-#~ msgstr "trigramas"
-
-#~ msgid "Count"
-#~ msgstr "Contagem"
-
-#~ msgid "Full name: \"%(name)s\""
-#~ msgstr "Nome completo: \"%(name)s\""
-
-#~ msgid "This column is full of"
-#~ msgstr "Esta coluna está cheia"
-
-#~ msgid "The unique values in this column are:"
-#~ msgstr "Os valores exclusivos nesta coluna são:"
-
-#~ msgid "The most frequent values in this column are:"
-#~ msgstr "Os valores mais frequentes nesta coluna são:"
-
-#~ msgid "occurs %(frequency)s times"
-#~ msgstr "ocorre %(frequency)s vezes"
-
-#~ msgid "The earliest date is"
-#~ msgstr "A data mais antiga é"
-
-#~ msgid "The earliest time is"
-#~ msgstr "O horário mais antigo é"
-
-#~ msgid "The smallest number is"
-#~ msgstr "O menor número é"
-
-#~ msgid "The latest date is"
-#~ msgstr "A data mais recente é"
-
-#~ msgid "The latest time is"
-#~ msgstr "O horário mais recente é"
-
-#~ msgid "The biggest number is"
-#~ msgstr "O maior número é"
-
-#~ msgid "The total is"
-#~ msgstr "O total é"
-
-#~ msgid "The average is"
-#~ msgstr "A média é"
-
-#~ msgid "The median is"
-#~ msgstr "A mediana é"
-
-#~ msgid "The standard deviation is"
-#~ msgstr "O desvio padrão é"
-
-#~ msgid "There is %(num)s row of missing data"
-#~ msgid_plural "There are %(num)s rows of missing data"
-#~ msgstr[0] "Existe %(num)s linha com dados faltantes"
-#~ msgstr[1] "Existem %(num)s linha com dados faltantes"
-
-#~ msgid "Click to see the details"
-#~ msgstr "Clique para ver os detalhes"
-
-#~ msgid "Click to see the chart"
-#~ msgstr "Clique para ver o gráfico"
-
-#~ msgid "WTFcsv: "
-#~ msgstr "WTFcsv: "
-
-#~ msgid ""
-#~ "We can't analyze that data because "
-#~ "it's not in a standard form. Your"
-#~ " first row should contain the names"
-#~ " of your columns."
-#~ msgstr ""
-#~ "Nós não podemos analisar esses dados "
-#~ "porque não estão em um formulário "
-#~ "padrão. Sua primeira linha deve conter"
-#~ " os nomes de suas colunas."
-
-#~ msgid "%(rows)s rows of data grouped into %(cols)s columns."
-#~ msgstr "%(rows)s linhas de dado agrupado em %(cols)s colunas."
-
-#~ msgid "Here's some %(metadata)s about each column."
-#~ msgstr "Aqui tem alguns %(metadata)s sobre cada coluna."
-
-#~ msgid "metadata"
-#~ msgstr "metadado"
-
-#~ msgid "Metadata summarizes basic information about your data."
-#~ msgstr "Metadados resumem as informações básicas sobre os seus dados."
-
-#~ msgid "value"
-#~ msgstr "valor"
-
-#~ msgid "frequency"
-#~ msgstr "frequêcia"
-
-#~ msgid "No data to display."
-#~ msgstr "Nenhum dado para exibição."
-
-#~ msgid ""
-#~ "Understanding the data in your csv "
-#~ "file is the first step in "
-#~ "analyzing it for stories. Looking at "
-#~ "individual columns can help you identify"
-#~ " questions that might be fun to "
-#~ "ask about your data.  For instance, "
-#~ "is it surprising that "
-#~ "\"%(most_common_value)s\" is the most frequent"
-#~ " value in the %(random_column_name)s "
-#~ "column?  Does it make any sense to"
-#~ " compare the %(random_column_name2)s column "
-#~ "to the %(random_column_name3)s column?  Are"
-#~ " there any other datasets you could"
-#~ " find to ask interesting questions "
-#~ "about the %(random_column_name)s column?  <br"
-#~ " /><br />Asking these types of "
-#~ "questions is the first step in "
-#~ "understanding the data you have, and "
-#~ "what kind of stories you can find"
-#~ " in it. Check out our <a "
-#~ "href=\"%(activity_guide_url)s\" onclick=\"ga('send', "
-#~ "'event', 'wtfcsv', 'activity-guide');\">activity "
-#~ "guide</a> for more help on asking "
-#~ "questions of data sets."
-#~ msgstr ""
-#~ "Entender os dados em seu arquivo "
-#~ "csv é o primeiro passo para "
-#~ "analisá-lo para histórias. Olhar para "
-#~ "colunas individuais pode ajudar a "
-#~ "identificar questões que poderiam ser "
-#~ "divertidos para perguntar sobre seus "
-#~ "dados. Por exemplo, não é surpreendente"
-#~ " que o \"%(most_common_value)s\" é o "
-#~ "valor mais frequente na coluna "
-#~ "%(random_column_name)s ? Faz algum sentido "
-#~ "comparar a coluna %(random_column_name2)s para"
-#~ " a coluna %(random_column_name3)s ? Existem"
-#~ " outros conjuntos de dados que você"
-#~ " poderia encontrar para fazer perguntas "
-#~ "interessantes sobre a coluna "
-#~ "%(random_column_name)s? <br /> <br /> "
-#~ "Fazer esses tipos de perguntas é o"
-#~ " primeiro passo para entender os "
-#~ "dados que você tem, e que tipo "
-#~ "de histórias você pode encontrar. Vá "
-#~ "para o <a href=\"%(activity_guide_url)s\" "
-#~ "onclick=\"ga('send','event','wtfcsv','activity-guide');\"> "
-#~ "guia de atividades </a> para obter "
-#~ "mais ajuda sobre fazer perguntas de "
-#~ "conjuntos de dados."
-
-#~ msgid "Categories"
-#~ msgstr "Categorias"
-
-#~ msgid "Counts"
-#~ msgstr "Contagem"
-
-#~ msgid "Dates"
-#~ msgstr "Datas"
-
-#~ msgid "Times"
-#~ msgstr "Horários"
-
-#~ msgid "Dates and times"
-#~ msgstr "Datas e horários"
-
-#~ msgid "Booleans"
-#~ msgstr "Booleanos"
-
-#~ msgid "Undefined"
-#~ msgstr "Indefinido"
-
-#~ msgid "# of rows"
-#~ msgstr "# de linhas"
-
-#~ msgid ""
-#~ "Data arrives at your doorstep in "
-#~ "the form of a spreadsheet but how"
-#~ " do you find a story in rows"
-#~ " and columns? WTFcsv provides the "
-#~ "first step by characterizing each "
-#~ "column's %(data_type)s and contents so "
-#~ "that you can ask more questions."
-#~ msgstr ""
-#~ "Dados chegam à sua porta em forma"
-#~ " de uma planilha, mas como você "
-#~ "encontra uma história em linhas e "
-#~ "colunas? WTFcsv fornece o primeiro "
-#~ "passo, caracterizando %(data_type) s de "
-#~ "cada coluna e conteúdo para que "
-#~ "você possa fazer mais perguntas."
-
-#~ msgid "data type"
-#~ msgstr "tipo de dado"
-
-#~ msgid ""
-#~ "Data is often classified by type. "
-#~ "Common types of data include numbers,"
-#~ " dates and text."
-#~ msgstr ""
-#~ "O dado normalmente é classificado por"
-#~ " tipo. Os tipos mais comuns de "
-#~ "dados incluem números, datas e texto."
-
-#~ msgid "Analyze"
-#~ msgstr "Analize"
-
-#~ msgid "%(f1)s and %(f2)s"
-#~ msgstr "%(f1)s e %(f2)s"
-
-#~ msgid "word"
-#~ msgstr "palavra"
-
-#~ msgid "uses in"
-#~ msgstr "usa em"
-
-#~ msgid "total uses"
-#~ msgstr "uso total"
-
-#~ msgid "almost the same"
-#~ msgstr "quase o mesmo"
-
-#~ msgid "sort of similar"
-#~ msgstr "mais ou menos similar"
-
-#~ msgid "kind of similar"
-#~ msgstr "meio similar"
-
-#~ msgid "kind of similar, and also kind of different"
-#~ msgstr "meio similar, e também meio diferente"
-
-#~ msgid "pretty different"
-#~ msgstr "bem diferente"
-
-#~ msgid "very different"
-#~ msgstr "muito diferente"
-
-#~ msgid "completely different"
-#~ msgstr "completamente diferente"
-
-#~ msgid "your text"
-#~ msgstr "seu texto"
-
-#~ msgid "title"
-#~ msgstr "título"
-
-#~ msgid "Other"
-#~ msgstr "Outro"
 
