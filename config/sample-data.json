@@ -337,7 +337,7 @@
     "source":"sample-data/en/dog-names.csv",
     "modules": ["wtfcsv"],
     "lang": "en",
-    "biography": "This is a database of all the dogs registeredin NYC as of 2016.  It includes animal's name, gender, age, breed, and which burough of New York City it lives in."
+    "biography": "This is a database of all the dogs registeredin NYC as of 2016.  It includes animal's name, sex, age, breed, and which burough of New York City it lives in."
   },
   {
     "title": "Satellites Orbitting Earth",
