@@ -1,15 +1,17 @@
-import json, logging
+import logging
+import os
+import random
 from collections import OrderedDict
 from databasic import mongo, get_base_dir
-from databasic.forms import WTFCSVUpload, WTFCSVLink, WTFCSVSample
+from databasic.forms import WTFCSVUpload, WTFCSVSample
 from databasic.logic import wtfcsvstat, filehandler, oauth
 from flask import Blueprint, render_template, request, redirect, g, send_from_directory
-from flask_babel import gettext, ngettext
-import os, logging, random, sys, traceback
+from flask_babel import gettext
 
 mod = Blueprint('wtfcsv', __name__, url_prefix='/<lang_code>/wtfcsv', template_folder='../templates/wtfcsv')
 
 logger = logging.getLogger(__name__)
+
 
 @mod.route('/', methods=('GET', 'POST'))
 def index():
@@ -18,18 +20,15 @@ def index():
     if doc_url is not None:
         return redirect_to_results(process_link(doc_url), 'link')
 
-    tab = 'paste' if not 'tab' in request.args else request.args['tab']
-    results = None
-
     forms = OrderedDict()
     forms['sample'] = WTFCSVSample(g.current_lang)
     forms['upload'] = WTFCSVUpload()
     # forms['link'] = WTFCSVLink()
 
     if request.method == 'POST':
-
         btn_value = request.form['btn']
         sample_id = ''
+        results = None
 
         if btn_value == 'upload':
             upload_file = forms['upload'].data['upload']
@@ -46,32 +45,33 @@ def index():
         elif btn_value == 'sample':
             sample_source = forms['sample'].data['sample']
             sample = filehandler.get_sample(sample_source)
-            samplename = sample['title']
+            sample_name = sample['title']
             sample_id = sample_source
-            existing_doc_id = mongo.results_for_sample('wtfcsv',sample_id)
+            existing_doc_id = mongo.results_for_sample('wtfcsv', sample_id)
             if existing_doc_id is not None:
                 logger.debug("Existing from sample: %s", sample_source)
                 return redirect(request.url + 'results/' + existing_doc_id)
-            logger.debug("New from sample: %s", samplename)
+            logger.debug("New from sample: %s", sample_name)
             sample_path = sample['path']
             logger.debug("  loading from %s", sample_path)
-            results = []
-            results.append(wtfcsvstat.get_summary(sample_path))
-            results[0]['filename'] = samplename + '.csv'
+            results = [wtfcsvstat.get_summary(sample_path)]
+            results[0]['filename'] = sample_name + '.csv'
             results[0]['biography'] = sample['biography']
+        else:
+            results = None
 
         if btn_value is not None and btn_value is not u'':
             return redirect_to_results(results, btn_value, sample_id)
 
-    return render_template('wtfcsv.html', forms=forms.items(), tool_name='wtfcsv', max_file_size_in_mb = g.max_file_size_mb)
+    return render_template('wtfcsv.html', forms=forms.items(), tool_name='wtfcsv',
+                           max_file_size_in_mb=g.max_file_size_mb)
+
 
 @mod.route('/results/<doc_id>')
-def results(doc_id):
+def results_page(doc_id):
     try:
-       
         results = mongo.find_document('wtfcsv', doc_id).get('results')
-        
-        #Doc has more than one sheet to analyze
+        # Doc has more than one sheet to analyze
         if len(results) > 1:
             logger.info("Showing results %s (sheet 0)", doc_id)
             submit = request.args.get('submit', '')
@@ -80,47 +80,52 @@ def results(doc_id):
         else:
             logger.info("Showing results %s", doc_id)
             return render_results(doc_id, 0)
-    except:
-        #more robust exception logging
+    except Exception as e:
         logger.warning("Unable to find doc '%s'", doc_id)
-        logger.warning("Unexpected error:", sys.exc_info()[0])
-        logger.warning(traceback.format_exc())
+        logger.exception(e)
 
         return render_template('no_results.html', tool_name='wtfcsv')
+
 
 @mod.route('/results/<doc_id>/sheets/<sheet_idx>')
 def results_sheet(doc_id, sheet_idx):
     return render_results(doc_id, sheet_idx)
 
+
 @mod.route('/wtfcsv-activity-guide.pdf')
 def download_activity_guide():
     filename = "WTFcsv Activity Guide.pdf"
-    dir_path = os.path.join(get_base_dir(),'databasic','static','files','activity-guides',g.current_lang)
+    dir_path = os.path.join(get_base_dir(), 'databasic', 'static', 'files', 'activity-guides', g.current_lang)
     logger.debug("download activity guide from %s/%s", dir_path, filename)
     return send_from_directory(directory=dir_path, filename=filename)
+
 
 @mod.route('/titanic.csv')
 def download_titanic_data():
     dir_path = os.path.join("sample-data", g.current_lang, "titanic.csv")
-    return _download_sample_data(dir_path,'titanic.csv')
+    return _download_sample_data(dir_path, 'titanic.csv')
+
 
 @mod.route('/ufo.csv')
 def download_ufo_data():
     # referenced in the activity guide, so don't remove this!
     dir_path = os.path.join("sample-data", g.current_lang, "UFOMA.csv")
-    return _download_sample_data(dir_path,'ufo.csv')
+    return _download_sample_data(dir_path, 'ufo.csv')
+
 
 @mod.route('/handout.pdf')
 def download_handout():
     # this is the third page of the activity guide now, so redirect them there
     return download_activity_guide()
 
-def _download_sample_data(source,filename_to_send):
+
+def _download_sample_data(source, filename_to_send):
     sample_path = filehandler.get_sample_path(source)
     dirname = os.path.dirname(sample_path)
     filename = os.path.basename(sample_path)
     logger.debug("download sample data from%s/%s", dirname, filename)
-    return send_from_directory(directory=dirname, filename=filename)
+    return send_from_directory(directory=dirname, filename=filename_to_send)
+
 
 def render_results(doc_id, sheet_idx):
 
@@ -165,7 +170,8 @@ def render_results(doc_id, sheet_idx):
 
         whatnext = {}
         if 'most_freq_values' in random_column and len(random_column['most_freq_values']) > 0:
-            whatnext['random_column_top_value'] = random_column['most_freq_values'][0]['value'] if 'most_freq_values' in random_column else ''
+            whatnext['random_column_top_value'] = random_column['most_freq_values'][0]['value']\
+                if 'most_freq_values' in random_column else ''
         else:
             whatnext['random_column_top_value'] = 0
         whatnext['random_column_name'] = random_column['name']
@@ -182,11 +188,11 @@ def render_results(doc_id, sheet_idx):
         elif 'most_freq_values' in col:
             data_to_use = col['most_freq_values']
         elif 'word_counts' in col:
-            #for word in col['word_counts']['unique_words'][:20]:
+            # for word in col['word_counts']['unique_words'][:20]:
             #    print str(word[0]) + " is " + str(word[1])
-            data_to_use = [ {'value':word[0], 'count':word[1]} for word in col['word_counts']['unique_words'][:20] ]
+            data_to_use = [{'value': word[0], 'count':word[1]} for word in col['word_counts']['unique_words'][:20]]
         # stitch together the overview
-        overview_data = {'categories':[],'values':[]}
+        overview_data = {'categories': [], 'values': []}
         for d in data_to_use:
             key = str(d['value']) if is_string else str(d['value']).replace('_', '.')
             overview_data['categories'].append(key)
@@ -195,21 +201,23 @@ def render_results(doc_id, sheet_idx):
             overview_data['categories'].append(gettext('Other'))
             overview_data['values'].append(int(col['others']))
         col['overview'] = overview_data
-    return render_template('wtfcsv/results.html', 
-        results=results, 
-        whatnext=whatnext, 
-        tool_name='wtfcsv', 
-        index=int(sheet_idx), 
-        source=doc['source'],
-        remaining_days=remaining_days)
+    return render_template('wtfcsv/results.html',
+                           results=results,
+                           whatnext=whatnext,
+                           tool_name='wtfcsv',
+                           index=int(sheet_idx),
+                           source=doc['source'],
+                           remaining_days=remaining_days)
+
 
 def redirect_to_results(results, source, sample_id=''):
     doc_id = mongo.save_csv('wtfcsv', results, sample_id, source)
     return redirect(g.current_lang + '/wtfcsv/results/' + doc_id + '?submit=true')
 
+
 def process_upload(csv_file):
     file_path = filehandler.open_doc(csv_file)
-    file_size = os.stat(file_path).st_size # because browser might not have sent content_length
+    file_size = os.stat(file_path).st_size  # because browser might not have sent content_length
     logger.debug("Upload: %d bytes", file_size)
     file_paths = filehandler.convert_to_csv(file_path)
     results = []
@@ -222,6 +230,7 @@ def process_upload(csv_file):
     filehandler.delete_files(file_paths)
     return results
 
+
 def process_link(sheet):
     file_paths = filehandler.open_workbook(sheet)
     results = []
@@ -230,10 +239,10 @@ def process_link(sheet):
         if 'bad_formatting' not in summary:
             summary['sheet_name'] = _get_sheet_name(f)
             summary['filename'] = sheet.sheet1.title
-        results.append (summary)
+        results.append(summary)
     filehandler.delete_files(file_paths)
     return results
 
+
 def _get_sheet_name(path):
     return os.path.split(path)[1][16:-4]
-    
