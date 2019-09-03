@@ -212,7 +212,7 @@ def render_results(doc_id, sheet_idx):
 
 def redirect_to_results(results, source, sample_id=''):
     doc_id = mongo.save_csv('wtfcsv', results, sample_id, source)
-    return redirect(g.current_lang + '/wtfcsv/results/' + doc_id + '?submit=true')
+    return redirect('/' + g.current_lang + '/wtfcsv/results/' + doc_id + '?submit=true')
 
 
 def process_upload(csv_file):
