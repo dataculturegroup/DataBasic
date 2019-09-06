@@ -280,29 +280,45 @@ send_submit_event('{{ tool_name }}', '{{ source }}');
   ghostClass: 'ghost'
 });*/
 
-// Card flipping
-$('.card').flip();
-$('.back-icon').hide();
+useFlip = false;
 
-$('.card').click(function(card){
-  thisCard = card.currentTarget;
-  var flipped = $(this).data("flip-model").isFlipped;
-  if( flipped) {
-    var fixedHeight = $(this).height();
-    $(this).find("svg").fadeOut("fast");
-    $(this).height(fixedHeight);
-    $(this).find('.back-icon').fadeIn("fast")
-  } else {
-    $(this).find("svg").fadeIn("slow");
-    $(this).find('.back-icon').fadeOut("fast")
-  }
-})
-  
+// Card flipping
+if (useFlip) {
+  $('.card').flip();
+  $('.card').click(function(card){
+    thisCard = card.currentTarget;
+    var flipped = $(this).data("flip-model").isFlipped;
+    if( flipped) {
+      var fixedHeight = $(this).height();
+      $(this).find("svg").fadeOut("fast");
+      $(this).height(fixedHeight);
+      $(this).find('.back-icon').fadeIn("fast")
+    } else {
+      $(this).find("svg").fadeIn("slow");
+      $(this).find('.back-icon').fadeOut("fast")
+    }
+  });
+} else {
+  $('.back').hide();
+}
+
 $('.front-icon').click(function() {
-  $(this).parents('.card').flip(true);
+  if (useFlip) {
+    $(this).parents('.card').flip(true);
+  } else {
+    var fixedHeight = $(this).parents('.card').height();
+    $(this).parents('.card').children('.front').hide();
+    $(this).parents('.card').children('.back').show();
+    $(this).parents('.card').children('.back').height(fixedHeight);
+  }
 });
 $('.back-icon').click(function() {
-  $(this).parents('.card').flip(false);
+  if (useFlip) {
+    $(this).parents('.card').flip(false);
+  } else {
+    $(this).parents('.card').children('.front').show();
+    $(this).parents('.card').children('.back').hide();
+  }
 });
 
 // Card navigation
