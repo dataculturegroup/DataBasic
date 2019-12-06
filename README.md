@@ -60,9 +60,11 @@ You'll need to do some extra stuff on Ubuntu to get all the libraries working:
 sudo apt-get install libblas-dev liblapack-dev libatlas-base-dev libamd2.2.0 libblas3gf libc6 libgcc1 libgfortran3 liblapack3gf libumfpack5.4.0 libstdc++6 build-essential gfortran python-all-dev libatlas-base-dev
 ```
 
-Also you probably want to do `apt-get install python-numpy` and modify your virtualenv with `virtualenv VIRTUALENV_DIR --system-site-packages`.
+Also you probably want to do `apt-get install python-numpy` and modify your virtualenv with
+`virtualenv VIRTUALENV_DIR --system-site-packages`.
 
-If after running you get an exception involving sassutils/SassMiddleware, [make sure your C++ compiler is up to date](https://github.com/sass/libsass#readme)
+If after running you get an exception involving sassutils/SassMiddleware,
+[make sure your C++ compiler is up to date](https://github.com/sass/libsass#readme)
 
 You probably will need to compile the sass by hand: `python setup.py build_sass`
 
@@ -85,13 +87,15 @@ We have built DataBasic to support multiple langauges in the user interface.
 ```
 $ bash translations-init-RUN-ONLY-ONCE.sh
 ```
-This initializes the translation files. You should only do this once or it'll erase your existing .po files that have translations.
+This initializes the translation files. You should only do this once or it'll erase your existing .po files that have
+translations.
 
 ### Add Language 
 ```
 $ bash translations-add-language.sh [LANGUAGE ARGUMENT]
 ```
-Run the above bash command for each language you want the app to support (such as "es", "de", "hu"). This will create a translations directory and a PO file for that language.
+Run the above bash command for each language you want the app to support (such as "es", "de", "hu"). This will create
+a translations directory and a PO file for that language.
 
 ### Updating
 ```
