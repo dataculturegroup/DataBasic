@@ -7,10 +7,10 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2019-12-06 09:26-0500\n"
-"PO-Revision-Date: 2019-12-06 09:13-0500\n"
-"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
-"Language: da\n"
+"POT-Creation-Date: 2019-12-06 09:32-0500\n"
+"PO-Revision-Date: 2019-04-24 15:53+0200\n"
+"Last-Translator: \n"
+"Language: da_DK\n"
 "Language-Team: da <LL@li.org>\n"
 "Plural-Forms: nplurals=2; plural=(n != 1)\n"
 "MIME-Version: 1.0\n"
@@ -20,57 +20,57 @@ msgstr ""
 
 #: databasic/forms.py:11
 msgid "Paste text"
-msgstr ""
+msgstr "Indsæt tekst"
 
 #: databasic/forms.py:14 databasic/forms.py:208
 msgid "Text"
-msgstr ""
+msgstr "Tekst"
 
 #: databasic/forms.py:15
 msgid "Paste text..."
-msgstr ""
+msgstr "Indsæt tekst..."
 
 #: databasic/forms.py:24 databasic/forms.py:31
 msgid "Upload a file"
-msgstr ""
+msgstr "Upload en fil"
 
 #: databasic/forms.py:28
 msgid "Upload file"
-msgstr ""
+msgstr "Upload fil"
 
 #: databasic/forms.py:29 databasic/forms.py:151
 msgid "Upload..."
-msgstr ""
+msgstr "Upload..."
 
 #: databasic/forms.py:37
 msgid "Use a sample"
-msgstr ""
+msgstr "Brug et eksempel"
 
 #: databasic/forms.py:40 databasic/forms.py:160
 msgid "Sample"
-msgstr ""
+msgstr "Eksempel"
 
 #: databasic/forms.py:49
 msgid "Link to a spreadsheet"
-msgstr ""
+msgstr "Link til et regneark"
 
 #: databasic/forms.py:53
 msgid "Link to spreadsheet"
-msgstr ""
+msgstr "Link til regneark"
 
 #: databasic/forms.py:72 databasic/forms.py:86 databasic/forms.py:97
 #: databasic/forms.py:111
 msgid "Ignore case"
-msgstr ""
+msgstr "Ignorer kapitaler"
 
 #: databasic/forms.py:76 databasic/forms.py:90 databasic/forms.py:101
 #: databasic/forms.py:115 databasic/templates/macros.html:100
 msgid "Ignore stopwords"
-msgstr ""
+msgstr "Ignorer stopord"
 
 #: databasic/forms.py:120 databasic/forms.py:132
 msgid "Paste a link"
-msgstr ""
+msgstr "Indsæt link"
 
 #: databasic/forms.py:120 databasic/forms.py:177 databasic/forms.py:181
 msgid "https://en.wikipedia.org/wiki/Natural_language_processing"
@@ -78,31 +78,31 @@ msgstr ""
 
 #: databasic/forms.py:148
 msgid "Upload files"
-msgstr ""
+msgstr "Upload filer"
 
 #: databasic/forms.py:150
 msgid "Browse file 2"
-msgstr ""
+msgstr "Åbn fil 2"
 
 #: databasic/forms.py:154
 msgid "Browse file 1"
-msgstr ""
+msgstr "Åbn fil 1"
 
 #: databasic/forms.py:158
 msgid "Use samples"
-msgstr ""
+msgstr "Brug eksempel"
 
 #: databasic/forms.py:173 databasic/forms.py:176 databasic/forms.py:181
 msgid "Paste links"
-msgstr ""
+msgstr "Indsæt links"
 
 #: databasic/forms.py:194 databasic/forms.py:212
 msgid "Has header row"
-msgstr ""
+msgstr "Har kolonneoverskrift"
 
 #: databasic/forms.py:205
 msgid "Paste rows"
-msgstr ""
+msgstr "Indsæt rækker"
 
 #: databasic/static/js/connectthedots-validate.js:20
 #: databasic/static/js/connectthedots-validate.js:35
@@ -118,12 +118,12 @@ msgstr ""
 #: databasic/static/js/wtfcsv-validate.js:32
 #: databasic/static/js/wtfcsv-validate.js:49
 msgid "This field is required"
-msgstr ""
+msgstr "Dette felt er påkrævet"
 
 #: databasic/static/js/connectthedots-validate.js:36
 #: databasic/static/js/wtfcsv-validate.js:33
 msgid "Only these file types are accepted: csv, xls, xlsx"
-msgstr ""
+msgstr "Kun disse typer filer: csv, xls, xlsx"
 
 #: databasic/static/js/connectthedots-validate.js:37
 #: databasic/static/js/samediff-validate.js:77
@@ -133,59 +133,59 @@ msgstr ""
 #: databasic/static/js/wtfcsv-validate.js:34
 #: databasic/static/js/wtfcsv-validate.js:51
 msgid "Only files under MB are accepted"
-msgstr ""
+msgstr "Kun filer under MB er accepteret"
 
 #: databasic/static/js/samediff-validate.js:12
 #: databasic/static/js/wordcounter-validate.js:12
 msgid "You must input a valid url"
-msgstr ""
+msgstr "Du skal indsætte en virkende url"
 
 #: databasic/static/js/samediff-validate.js:20
 msgid "You must select two files"
-msgstr ""
+msgstr "Du skal vælge to filer"
 
 #: databasic/static/js/samediff-validate.js:52
 #: databasic/static/js/samediff-validate.js:86
 msgid "Please enter a valid email address"
-msgstr ""
+msgstr "Venligst indtast en valid email adresse"
 
 #: databasic/static/js/samediff-validate.js:76
 #: databasic/static/js/samediff-validate.js:81
 #: databasic/static/js/wordcounter-validate.js:45
 msgid "Only these file types are accepted: txt, docx, rtf"
-msgstr ""
+msgstr "Kun disse typer filer: txt, docx, rtf"
 
 #: databasic/static/js/wordcounter-validate.js:61
 #: databasic/static/js/wtfcsv-validate.js:50
 msgid "You must input a URL"
-msgstr ""
+msgstr "Du skal indsætte en URL"
 
 #: databasic/static/js/wtfcsv-validate.js:12
 msgid "Link must be a valid Google Spreadsheet"
-msgstr ""
+msgstr "Link skal være et validt Google regneark"
 
 #: databasic/templates/footer.html:25
 #: databasic/templates/wordcounter/wordcounter.html:4
 #: databasic/templates/wordcounter/wordcounter.html:31
 msgid "WordCounter"
-msgstr ""
+msgstr "Wordcounter"
 
 #: databasic/templates/footer.html:26 databasic/templates/wtfcsv/wtfcsv.html:4
 #: databasic/templates/wtfcsv/wtfcsv.html:28
 msgid "WTFcsv"
-msgstr ""
+msgstr "WTFcsv"
 
 #: databasic/templates/footer.html:27
 #: databasic/templates/samediff/samediff.html:4
 #: databasic/templates/samediff/samediff.html:30
 msgid "SameDiff"
-msgstr ""
+msgstr "SameDiff"
 
 #: databasic/templates/connectthedots/connectthedots.html:4
 #: databasic/templates/connectthedots/connectthedots.html:75
 #: databasic/templates/footer.html:28
 msgid "ConnectTheDots"
-msgstr ""
+msgstr "ConnectTheDots"
 
 #: databasic/templates/culture/connections.html:14
 #: databasic/templates/culture/convince.html:14
@@ -200,40 +200,40 @@ msgstr ""
 #: databasic/templates/culture/word_webs.html:14
 #: databasic/templates/footer.html:29
 msgid "Data Culture Project"
-msgstr ""
+msgstr "Data kultur project"
 
 #: databasic/templates/footer.html:30
 msgid "about"
-msgstr ""
+msgstr "om"
 
 #: databasic/templates/footer.html:31
 msgid "blog"
-msgstr ""
+msgstr "blog"
 
 #: databasic/templates/culture/culture_base.html:33
 #: databasic/templates/footer.html:32
 msgid "help"
-msgstr ""
+msgstr "hjælp"
 
 #: databasic/templates/culture/culture_base.html:37
 #: databasic/templates/header_base.html:4
 msgid "Choose your language: "
-msgstr ""
+msgstr "Vælg dit sprog: "
 
 #: databasic/templates/culture/culture_base.html:37
 #: databasic/templates/header_base.html:5
 msgid "change language to english"
-msgstr ""
+msgstr "skift sprog til engelsk"
 
 #: databasic/templates/culture/culture_base.html:37
 #: databasic/templates/header_base.html:6
 msgid "change language to spanish"
-msgstr ""
+msgstr "skift sprog til spansk"
 
 #: databasic/templates/culture/culture_base.html:37
 #: databasic/templates/header_base.html:7
 msgid "change language to portuguese"
-msgstr ""
+msgstr "skift sprog til portugisisk"
 
 #: databasic/templates/header_base.html:8
 msgid "change language to danish"
@@ -244,77 +244,83 @@ msgid ""
 "DataBasic is a suite of easy-to-use web tools for beginners that "
 "introduce concepts of working with data."
 msgstr ""
+"DataBasic er en samling af brugervenlige online værktøjer for begyndere, "
+"der introducerer koncepter omkring at arbejde med data."
 
 #: databasic/templates/home_header.html:10
 msgid ""
 "These simple tools make it easy to work with data in fun ways, so you can"
 " learn how to find great stories to tell."
-msgstr ""
+msgstr "Disse simple værktøjer gør det let at arbejde med data "
 
 #: databasic/templates/macros.html:6
 msgid "choose input type"
-msgstr ""
+msgstr "vælg input type"
 
 #: databasic/templates/macros.html:101
-#, python-format
+#, fuzzy, python-format
 msgid "Ignore %(stopwords)s"
-msgstr ""
+msgstr "Ignorer %(stopord)"
 
 #: databasic/templates/macros.html:102
 #: databasic/templates/wordcounter/results.html:48
 msgid "stopwords"
-msgstr ""
+msgstr "stopord"
 
 #: databasic/templates/macros.html:102
 msgid ""
 "Stopwords are words in text analysis that are ignored such as "
 "&quot;this&quot;, &quot;that&quot;, &quot;and&quot; and &quot;but.&quot;"
 msgstr ""
+"Stopord er ord i tekstanalyse man ignorerer, såsom &quot;det&quot;, "
+"&quot;den&quot;, &quot;og&quot; og &quot;de.&quot;"
 
 #: databasic/templates/macros.html:156
 msgid "close window"
-msgstr ""
+msgstr "luk vindue"
 
 #: databasic/templates/macros.html:162
 msgid "You can share these results by emailing this url:"
-msgstr ""
+msgstr "Du kan dele dine resultater ved at sende en email til denne url:"
 
 #: databasic/templates/no_results.html:3
 msgid "No results"
-msgstr ""
+msgstr "Ingen resultater"
 
 #: databasic/templates/no_results.html:19
 msgid "We couldn't find any results"
-msgstr ""
+msgstr "Vi kunne ikke finde nogle resultater"
 
 #: databasic/templates/no_results.html:20
-#, python-format
+#, fuzzy, python-format
 msgid ""
 "They might have expired. Why not try <a "
 "href=\"/%(lang)s/%(tool_name)s\">analyzing some new data?</a>"
 msgstr ""
+"De er måske udløbet. Prøv at <a "
+"href=\"/%(lang)s/%(tool_name)s\">analysere noget nyt data?</a>"
 
 #: databasic/templates/tool_base.html:5
-#, python-format
+#, fuzzy, python-format
 msgid "go to %(tool)s"
-msgstr ""
+msgstr "gå til %(værktøjer)s"
 
 #: databasic/templates/tool_base.html:13
 msgid "What do I do next?"
-msgstr ""
+msgstr "Hvad gør jeg nu?"
 
 #: databasic/templates/tool_base.html:15
 msgid "Try these other tools to do more full-fledged analysis:"
-msgstr ""
+msgstr "Få en mere gennemført analyse, prøv disse værktøjer:"
 
 #: databasic/templates/tool_base.html:31
-#, python-format
+#, fuzzy, python-format
 msgid "About %(tool_name)s"
-msgstr ""
+msgstr "Om %(tool_names)s"
 
 #: databasic/templates/tool_base.html:38
 msgid "Are you an Educator? Try our Activity Guide"
-msgstr ""
+msgstr "Er du en underviser? Prøv vores aktivitets guide"
 
 #: databasic/templates/tool_base.html:42
 msgid ""
@@ -325,15 +331,15 @@ msgstr ""
 
 #: databasic/templates/tool_base.html:47
 msgid "Download"
-msgstr ""
+msgstr "Dowload"
 
 #: databasic/templates/tool_header.html:4
 msgid "go to data basic home page"
-msgstr ""
+msgstr "til data basic startsiden"
 
 #: databasic/templates/connectthedots/connectthedots.html:15
 msgid "Paste rows from an Excel or Google spreadsheet, with this format:"
-msgstr ""
+msgstr "Indsæt rækker fra et Excel eller Google regneark med dette format:"
 
 #: databasic/templates/connectthedots/connectthedots.html:16
 msgid "source target"
@@ -341,7 +347,7 @@ msgstr ""
 
 #: databasic/templates/connectthedots/connectthedots.html:37
 msgid "Not sure how to format your file? Download our template."
-msgstr ""
+msgstr "Ikke sikker på hvordan du skal formatere din fil? Download vores skabelon."
 
 #: databasic/templates/connectthedots/connectthedots.html:61
 #: databasic/templates/home/index.html:28
@@ -349,6 +355,8 @@ msgid ""
 "ConnectTheDots shows you how your data is connected by analyzing it as a "
 "network."
 msgstr ""
+"ConnectTheDots viser dig hvordan din data er forbundet ved at analysere "
+"det som et netværk"
 
 #: databasic/templates/connectthedots/connectthedots.html:63
 msgid ""
@@ -473,11 +481,11 @@ msgstr ""
 
 #: databasic/templates/connectthedots/results.html:98
 msgid "for printing or editing"
-msgstr ""
+msgstr "til printning eller redigering"
 
 #: databasic/templates/connectthedots/results.html:99
 msgid "for analysis"
-msgstr ""
+msgstr "til analyse"
 
 #: databasic/templates/connectthedots/results.html:101
 msgid "Download the <strong>table</strong>"
@@ -485,37 +493,37 @@ msgstr ""
 
 #: databasic/templates/connectthedots/results.html:107
 msgid "node colors"
-msgstr ""
+msgstr "node farver"
 
 #: databasic/templates/connectthedots/results.html:107
 msgid "color by"
-msgstr ""
+msgstr "farve ved"
 
 #: databasic/templates/connectthedots/results.html:110
 msgid "color by column"
-msgstr ""
+msgstr "farve ved kolonne"
 
 #: databasic/templates/connectthedots/results.html:111
 msgid "column"
-msgstr ""
+msgstr "kolonne"
 
 #: databasic/templates/connectthedots/results.html:114
 #: databasic/templates/connectthedots/results.html:119
 msgid "color by community"
-msgstr ""
+msgstr "farve ved grupper"
 
 #: databasic/templates/connectthedots/results.html:115
 #: databasic/templates/connectthedots/results.html:120
 msgid "community"
-msgstr ""
+msgstr "grupper"
 
 #: databasic/templates/connectthedots/results.html:124
 msgid "no colors"
-msgstr ""
+msgstr "ingen farver"
 
 #: databasic/templates/connectthedots/results.html:138
 msgid "the connector"
-msgstr ""
+msgstr "forbinderen"
 
 #: databasic/templates/connectthedots/results.html:146
 #, python-format
@@ -531,7 +539,7 @@ msgstr ""
 
 #: databasic/templates/connectthedots/results.html:161
 msgid "Node"
-msgstr ""
+msgstr "Node"
 
 #: databasic/templates/connectthedots/results.html:165
 #, python-format
@@ -540,11 +548,11 @@ msgstr ""
 
 #: databasic/templates/connectthedots/results.html:166
 msgid "Degree"
-msgstr ""
+msgstr "Grader"
 
 #: databasic/templates/connectthedots/results.html:166
 msgid "The immediate number of connections a node has."
-msgstr ""
+msgstr "Det umiddelbare antal af forbindelser en node har."
 
 #: databasic/templates/connectthedots/results.html:170
 #, python-format
@@ -572,11 +580,13 @@ msgstr ""
 #: databasic/templates/culture/connections.html:5
 #: databasic/templates/culture/connections.html:17
 msgid "Build and Analyze a Network"
-msgstr ""
+msgstr "Byg og analyser et netværk"
 
 #: databasic/templates/culture/connections.html:18
 msgid "Learn how to ask different types of questions based on a network of data"
 msgstr ""
+"Lær hvordan man stiller forskellige typer af spørgsmål baseret på et "
+"netværk af data"
 
 #: databasic/templates/culture/connections.html:25
 #: databasic/templates/culture/convince.html:25
@@ -589,7 +599,7 @@ msgstr ""
 #: databasic/templates/culture/storybook.html:24
 #: databasic/templates/culture/word_webs.html:24
 msgid "Set Up"
-msgstr ""
+msgstr "Opsætning"
 
 #: databasic/templates/culture/connections.html:26
 #: databasic/templates/culture/convince.html:26
@@ -599,32 +609,34 @@ msgid ""
 "This activity will take 30 to 45 minutes. You should have these materials"
 " on hand:"
 msgstr ""
+"Denne aktivitet vil tage mellem 30 og 45 minutter. Du bør have disse "
+"materialer klar:"
 
 #: databasic/templates/culture/connections.html:28
 #: databasic/templates/culture/questions.html:28
 msgid "A basic Internet connection"
-msgstr ""
+msgstr "En basal internet forbindelse"
 
 #: databasic/templates/culture/connections.html:29
 msgid "A phone, tablet, or computer for each small group of 3 people"
-msgstr ""
+msgstr "En smartphone, tablet, eller computer for hver gruppe af 3 personer"
 
 #: databasic/templates/culture/connections.html:30
 msgid "A projector connected to a computer"
-msgstr ""
+msgstr "En projector forbundet til en computer"
 
 #: databasic/templates/culture/connections.html:32
 #: databasic/templates/culture/questions.html:35
 #: databasic/templates/culture/sketch.html:35
 msgid "Download and print the activity guide"
-msgstr ""
+msgstr "Download og print aktivitetsguiden"
 
 #: databasic/templates/culture/connections.html:40
 #: databasic/templates/culture/convince.html:40
 #: databasic/templates/culture/questions.html:43
 #: databasic/templates/culture/sketch.html:43
 msgid "Kick-Off The Activity"
-msgstr ""
+msgstr "Start aktiviteten"
 
 #: databasic/templates/culture/connections.html:41
 msgid ""
@@ -976,7 +988,7 @@ msgstr ""
 
 #: databasic/templates/culture/culture.html:178
 msgid "Connect with Others"
-msgstr ""
+msgstr "Forbind med andre"
 
 #: databasic/templates/culture/culture.html:179
 msgid ""
@@ -989,11 +1001,11 @@ msgstr ""
 
 #: databasic/templates/culture/culture.html:181
 msgid "Join the discussion group"
-msgstr ""
+msgstr "Bliv medlem af diskussionsgruppen"
 
 #: databasic/templates/culture/culture.html:185
 msgid "About Us"
-msgstr ""
+msgstr "Om os"
 
 #: databasic/templates/culture/culture.html:186
 msgid ""
@@ -1036,7 +1048,7 @@ msgstr ""
 
 #: databasic/templates/culture/culture_macros.html:6
 msgid "Learn With Others"
-msgstr ""
+msgstr "Lær med andre"
 
 #: databasic/templates/culture/culture_macros.html:7
 msgid ""
@@ -1357,7 +1369,7 @@ msgstr ""
 
 #: databasic/templates/culture/questions.html:18
 msgid "Learn how to move from spreadsheet to story with WTFcsv"
-msgstr ""
+msgstr "Lær hvordan man går fra regneark til datahistorie med WTFcsv"
 
 #: databasic/templates/culture/questions.html:29
 msgid ""
@@ -1535,7 +1547,7 @@ msgstr ""
 
 #: databasic/templates/culture/sculpture.html:28
 msgid "Tape, glue, scissors"
-msgstr ""
+msgstr "Tape, lim, sakse"
 
 #: databasic/templates/culture/sculpture.html:29
 msgid ""
@@ -2327,55 +2339,55 @@ msgstr ""
 
 #: databasic/templates/wordcounter/results.html:57
 msgid "Top Words"
-msgstr ""
+msgstr "Top ord"
 
 #: databasic/templates/wordcounter/results.html:58
 msgid "download csv of word frequencies"
-msgstr ""
+msgstr "download csv af ordfrekvenser"
 
 #: databasic/templates/wordcounter/results.html:77
 msgid "Bigrams"
-msgstr ""
+msgstr "Bigrammer"
 
 #: databasic/templates/wordcounter/results.html:78
 msgid "download csv of bigram frequencies"
-msgstr ""
+msgstr "download csv af bigramfrekvenser"
 
 #: databasic/templates/wordcounter/results.html:82
-#, python-format
+#, fuzzy, python-format
 msgid "%(bigram)s"
-msgstr ""
+msgstr "%(bigram)s"
 
 #: databasic/templates/wordcounter/results.html:82
 msgid "bigram"
-msgstr ""
+msgstr "bigram"
 
 #: databasic/templates/wordcounter/results.html:82
 #: databasic/templates/wordcounter/wordcounter.html:25
 msgid "A bigram is a two word phrase"
-msgstr ""
+msgstr "Et bigram er en frase bestående af to ord"
 
 #: databasic/templates/wordcounter/results.html:98
 msgid "Trigrams"
-msgstr ""
+msgstr "Trigrammer"
 
 #: databasic/templates/wordcounter/results.html:99
 msgid "download csv of trigram frequencies"
-msgstr ""
+msgstr "download csv af trigram frekvenser"
 
 #: databasic/templates/wordcounter/results.html:103
-#, python-format
+#, fuzzy, python-format
 msgid "%(trigram)s"
-msgstr ""
+msgstr "%(trigram)s"
 
 #: databasic/templates/wordcounter/results.html:103
 msgid "trigram"
-msgstr ""
+msgstr "trigram "
 
 #: databasic/templates/wordcounter/results.html:103
 #: databasic/templates/wordcounter/wordcounter.html:26
 msgid "A trigram is a three word phrase"
-msgstr ""
+msgstr "Et trigram er en frase bestående af 3 ord"
 
 #: databasic/templates/wordcounter/results.html:122
 #, python-format
@@ -2425,7 +2437,7 @@ msgstr ""
 
 #: databasic/templates/wordcounter/run-activity.html:3
 msgid "Run the Activity"
-msgstr ""
+msgstr "Start aktiviteten"
 
 #: databasic/templates/wordcounter/run-activity.html:20
 msgid ""
@@ -2435,81 +2447,84 @@ msgstr ""
 
 #: databasic/templates/wordcounter/run-activity.html:22
 msgid "We're ready to start"
-msgstr ""
+msgstr "Vi er klar til at starte"
 
 #: databasic/templates/wordcounter/run-activity.html:25
+#, fuzzy
 msgid "Done with our stories! Time to share-back!"
-msgstr ""
+msgstr "Færdig med vores historier! Så er det tid til at dele tilbage!"
 
 #: databasic/templates/wordcounter/run-activity.html:28
 msgid "All done. What next?"
-msgstr ""
+msgstr "Færdig. Hvad nu?"
 
 #: databasic/templates/wordcounter/wordcounter.html:24
-#, python-format
+#, fuzzy, python-format
 msgid ""
 "This tool helps you count words, %(bigrams)s, and %(trigrams)s in plain "
 "text. This is often the first step in quantitative text analysis."
 msgstr ""
+"Dette værktøj hjælper dig med at tælle ord, %(bigrams)s, og %(trigrams)s "
+"i tekst. Dette er ofte det første skridt i en kvantitativ tekst analyse."
 
 #: databasic/templates/wordcounter/wordcounter.html:25
 msgid "bigrams"
-msgstr ""
+msgstr "bigrammer"
 
 #: databasic/templates/wordcounter/wordcounter.html:26
 msgid "trigrams"
-msgstr ""
+msgstr "trigrammer"
 
 #: databasic/templates/wordcounter/wordcounter.html:29
 msgid "Count"
-msgstr ""
+msgstr "Antal"
 
 #: databasic/templates/wtfcsv/results.html:7
-#, python-format
+#, fuzzy, python-format
 msgid "Full name: \"%(name)s\""
-msgstr ""
+msgstr "For- og efternavn: \"%(name)s\""
 
 #: databasic/templates/wtfcsv/results.html:9
 #: databasic/templates/wtfcsv/results.html:83
 msgid "This column is full of"
-msgstr ""
+msgstr "Kolonnen er fuld af"
 
 #: databasic/templates/wtfcsv/results.html:11
 msgid "The unique values in this column are:"
-msgstr ""
+msgstr "De unikke værdier i denne kolonne er:"
 
 #: databasic/templates/wtfcsv/results.html:19
 msgid "The most frequent values in this column are:"
-msgstr ""
+msgstr "Den oftest forekommende værdi i denne kolonne er:"
 
 #: databasic/templates/wtfcsv/results.html:23
-#, python-format
+#, fuzzy, python-format
 msgid "occurs %(frequency)s times"
-msgstr ""
+msgstr "forekommer %(frequency)s gange"
 
 #: databasic/templates/wtfcsv/results.html:37
 msgid "The earliest date is"
-msgstr ""
+msgstr "Den tidligste dato er"
 
 #: databasic/templates/wtfcsv/results.html:39
 msgid "The earliest time is"
-msgstr ""
+msgstr "Den tidligste tid er"
 
 #: databasic/templates/wtfcsv/results.html:41
 msgid "The smallest number is"
-msgstr ""
+msgstr "Det mindste nummer er"
 
 #: databasic/templates/wtfcsv/results.html:47
 msgid "The latest date is"
-msgstr ""
+msgstr "Den nyeste dato er"
 
 #: databasic/templates/wtfcsv/results.html:49
 msgid "The latest time is"
-msgstr ""
+msgstr "Den nyeste tid er"
 
 #: databasic/templates/wtfcsv/results.html:51
 msgid "The biggest number is"
-msgstr ""
+msgstr "Det største nummer er"
 
 #: databasic/templates/wtfcsv/results.html:55
 msgid "The total is"
@@ -2517,70 +2532,72 @@ msgstr ""
 
 #: databasic/templates/wtfcsv/results.html:58
 msgid "The average is"
-msgstr ""
+msgstr "Gennemsnittet er"
 
 #: databasic/templates/wtfcsv/results.html:61
 msgid "The median is"
-msgstr ""
+msgstr "Medianen er"
 
 #: databasic/templates/wtfcsv/results.html:64
 msgid "The standard deviation is"
-msgstr ""
+msgstr "Standard deviationen er"
 
 #: databasic/templates/wtfcsv/results.html:67
-#, python-format
+#, fuzzy, python-format
 msgid "There is %(num)s row of missing data"
 msgid_plural "There are %(num)s rows of missing data"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "Der er %(num)s række af manglende data"
+msgstr[1] "Der er %(num)s rækker af manglende data"
 
 #: databasic/templates/wtfcsv/results.html:106
 msgid "Click to see the details"
-msgstr ""
+msgstr "Klik for at se detaljer"
 
 #: databasic/templates/wtfcsv/results.html:106
 msgid "Click to see the chart"
-msgstr ""
+msgstr "klik for at se diagrammet"
 
 #: databasic/templates/wtfcsv/results.html:117
 msgid "WTFcsv: "
-msgstr ""
+msgstr "WTFcsv:"
 
 #: databasic/templates/wtfcsv/results.html:136
 msgid ""
 "We can't analyze that data because it's not in a standard form. Your "
 "first row should contain the names of your columns."
 msgstr ""
+"Vi kan ikke analysere din data da den ikke er i den standardiserede form."
+" Din første række bør indeholde navnene på dine kolonner."
 
 #: databasic/templates/wtfcsv/results.html:167
-#, python-format
+#, fuzzy, python-format
 msgid "%(rows)s rows of data grouped into %(cols)s columns."
-msgstr ""
+msgstr "%(row)s rækker af data grupperet ind i %(cols)s kolonner."
 
 #: databasic/templates/wtfcsv/results.html:171
-#, python-format
+#, fuzzy, python-format
 msgid "Here's some %(metadata)s about each column."
-msgstr ""
+msgstr "Her er noget %(metadata)s om hver kolonne"
 
 #: databasic/templates/wtfcsv/results.html:172
 msgid "metadata"
-msgstr ""
+msgstr "metadata"
 
 #: databasic/templates/wtfcsv/results.html:172
 msgid "Metadata summarizes basic information about your data."
-msgstr ""
+msgstr "Metadata opsummere basal information omkring din data."
 
 #: databasic/templates/wtfcsv/results.html:212
 msgid "value"
-msgstr ""
+msgstr "værdi"
 
 #: databasic/templates/wtfcsv/results.html:213
 msgid "frequency"
-msgstr ""
+msgstr "frekvens"
 
 #: databasic/templates/wtfcsv/results.html:224
 msgid "No data to display."
-msgstr ""
+msgstr "Ingen data at fremvise."
 
 #: databasic/templates/wtfcsv/results.html:251
 #, python-format
@@ -2602,118 +2619,125 @@ msgstr ""
 
 #: databasic/templates/wtfcsv/results.html:420
 msgid "Categories"
-msgstr ""
+msgstr "Kategorier"
 
 #: databasic/templates/wtfcsv/results.html:422
 msgid "Counts"
-msgstr ""
+msgstr "Optællinger"
 
 #: databasic/templates/wtfcsv/results.html:424
 msgid "Dates"
-msgstr ""
+msgstr "Datoer"
 
 #: databasic/templates/wtfcsv/results.html:426
 msgid "Times"
-msgstr ""
+msgstr "Tidspunkter"
 
 #: databasic/templates/wtfcsv/results.html:428
 msgid "Dates and times"
-msgstr ""
+msgstr "Datoer og tidspunkter"
 
 #: databasic/templates/wtfcsv/results.html:430
+#, fuzzy
 msgid "Booleans"
-msgstr ""
+msgstr "Boolean "
 
 #: databasic/templates/wtfcsv/results.html:432
 msgid "Undefined"
-msgstr ""
+msgstr "Udefineret"
 
 #: databasic/templates/wtfcsv/results.html:442
 msgid "# of rows"
-msgstr ""
+msgstr "# af rækker"
 
 #: databasic/templates/wtfcsv/wtfcsv.html:22
-#, python-format
+#, fuzzy, python-format
 msgid ""
 "Data arrives at your doorstep in the form of a spreadsheet but how do you"
 " find a story in rows and columns? WTFcsv provides the first step by "
 "characterizing each column's %(data_type)s and contents so that you can "
 "ask more questions."
 msgstr ""
+"Data ankommer oftest i form af et regneark, men hvordan finder du en "
+"datahistorie i rækker og kolonner? WTFcsv hjælper med det første skridt "
+"ved at karakterisere hver kolonnes %(data_type)s og indhold, så du kan "
+"stille flere spørgsmål."
 
 #: databasic/templates/wtfcsv/wtfcsv.html:23
 msgid "data type"
-msgstr ""
+msgstr "data type"
 
 #: databasic/templates/wtfcsv/wtfcsv.html:23
 msgid ""
 "Data is often classified by type. Common types of data include numbers, "
 "dates and text."
 msgstr ""
+"Data er ofte klassificeret ved type. Data typer kan f.eks. være numre, "
+"datoer og tekst."
 
 #: databasic/templates/wtfcsv/wtfcsv.html:26
 msgid "Analyze"
-msgstr ""
+msgstr "Analyser"
 
 #: databasic/views/samediff.py:36 databasic/views/samediff.py:52
-#, python-format
+#, fuzzy, python-format
 msgid "%(f1)s and %(f2)s"
-msgstr ""
+msgstr "%(f1)s og %(f2)s"
 
 #: databasic/views/samediff.py:105
 msgid "word"
-msgstr ""
+msgstr "ord"
 
 #: databasic/views/samediff.py:105
 msgid "uses in"
-msgstr ""
+msgstr "brug i"
 
 #: databasic/views/samediff.py:105
 msgid "total uses"
-msgstr ""
+msgstr "samlet brug"
 
 #: databasic/views/samediff.py:150
 msgid "almost the same"
-msgstr ""
+msgstr "næsten ens"
 
 #: databasic/views/samediff.py:152
 msgid "sort of similar"
-msgstr ""
+msgstr "ret ens"
 
 #: databasic/views/samediff.py:154
 msgid "kind of similar"
-msgstr ""
+msgstr "rimeligt ens"
 
 #: databasic/views/samediff.py:156
 msgid "kind of similar, and also kind of different"
-msgstr ""
+msgstr "rimeligt ens, men også rimeligt forskelligt"
 
 #: databasic/views/samediff.py:158
 msgid "pretty different"
-msgstr ""
+msgstr "ret forskelligt"
 
 #: databasic/views/samediff.py:160
 msgid "very different"
-msgstr ""
+msgstr "meget forskelligt"
 
 #: databasic/views/samediff.py:162
 msgid "completely different"
-msgstr ""
+msgstr "fuldstændigt forskelligt"
 
 #: databasic/views/wordcounter.py:40
 msgid "your text"
-msgstr ""
+msgstr "din tekst"
 
 #: databasic/views/wordcounter.py:76
 msgid "title"
-msgstr ""
+msgstr "titel"
 
 #: databasic/views/wtfcsv.py:201
 msgid "Other"
-msgstr ""
+msgstr "Andet"
 
 #~ msgid "Samples"
-#~ msgstr ""
+#~ msgstr "Eksempler"
 
 #~ msgid ""
 #~ "Use our self-service learning program"
