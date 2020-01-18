@@ -103,3 +103,5 @@ class MongoHandler:
         self.remove_expired_results('samediff')
         self.remove_expired_results('connectthedots')
 
+    def remove_by_id(self, collection, id):
+        return self._db[collection].remove({'_id': ObjectId(id)})
