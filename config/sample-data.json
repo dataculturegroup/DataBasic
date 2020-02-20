@@ -355,25 +355,18 @@
   },
 
   {
-    "title": "Fur Fossils",
-    "source":"sample-data/da/fur-fossils.csv",
+    "title": "Offentlige toiletter i Københavns Kommune",
+    "source":"sample-data/da/toilet_tmf_kk.csv",
     "modules": ["wtfcsv"],
     "lang": "da",
-    "biography": "???"
+    "biography": "Toiletter der varetages og driftes af Teknik- og Miljøforvaltningen. Tabellen indeholder oplysninger om bl.a. toilettyper (toilet, toilet med handicap adgang, bemandet, ubemandet og pissoirs), åbningstider, længde og breddegrads koordinater (geokoder)."
   },
   {
-    "title": "Toilet",
-    "source":"sample-data/da/fur-fossils.csv",
-    "modules": ["wtfcsv"],
-    "lang": "da",
-    "biography": "???"
-  },
-  {
-    "title": "hastighedsmalinger",
+    "title": "Hastighedsmålinger i Aarhus 2000-2013 efter vejnavne",
     "source":"sample-data/da/hastighedsmalinger-2000-2013.csv",
     "modules": ["wtfcsv"],
     "lang": "da",
-    "biography": "???"
+    "biography": "Hvor hurtigt kører bilerne på vejene i Aarhus Kommune? Her finder du hastighedsmålinger for udvalgte veje. Regneark med de hastighedsmålinger kommunen har foretaget i perioden 2000-2013."
   },
 
   {
