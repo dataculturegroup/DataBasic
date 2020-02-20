@@ -34,9 +34,9 @@ logger = logging.getLogger(__name__)
 '''
 Public API: call this to get results!
 '''
-def get_summary(input_path, has_header_row=True):
+def get_summary(input_path, has_header_row=True, language='en'):
     wtfcsvstat = WTFCSVStat(input_path, has_header_row)
-    results = wtfcsvstat.get_summary()
+    results = wtfcsvstat.get_summary(language)
     return results
 
 '''
@@ -79,7 +79,7 @@ class WTFCSVStat():
                 return "\t"
         return ","
 
-    def get_summary(self):
+    def get_summary(self, language):
         summary_start = time.clock()
         results = {}
         
@@ -265,7 +265,7 @@ class WTFCSVStat():
             if 'unicode' in column_info['type'] and not 'most_freq_values' in column_info:
                 # TODO: these results could be cleaned up using textmining
                 # TODO: send in the language properly?
-                stopwords_language = NLTK_STOPWORDS_BY_LANGUAGE[g.current_lang]
+                stopwords_language = NLTK_STOPWORDS_BY_LANGUAGE[language]
                 column_info['word_counts'] = wordhandler.get_word_counts(
                     str([s for s in values]).strip('[]').replace("u'", '').replace("',", ''),
                     True, True, stopwords_language, False, False)
