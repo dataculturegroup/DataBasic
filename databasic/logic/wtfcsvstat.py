@@ -12,9 +12,11 @@ import six
 import codecs
 import wordhandler
 import numpy.random
-from csvkit import CSVKitReader, table
+from csvkit import table
 from dateutil.parser import parse
 import filehandler
+
+from databasic import NLTK_STOPWORDS_BY_LANGUAGE
 
 NoneType = type(None)
 
@@ -263,7 +265,10 @@ class WTFCSVStat():
             if 'unicode' in column_info['type'] and not 'most_freq_values' in column_info:
                 # TODO: these results could be cleaned up using textmining
                 # TODO: send in the language properly?
-                column_info['word_counts'] = wordhandler.get_word_counts(str([s for s in values]).strip('[]').replace("u'", '').replace("',", ''), True, True, "english", False, False)
+                stopwords_language = NLTK_STOPWORDS_BY_LANGUAGE[g.current_lang]
+                column_info['word_counts'] = wordhandler.get_word_counts(
+                    str([s for s in values]).strip('[]').replace("u'", '').replace("',", ''),
+                    True, True, stopwords_language, False, False)
 
             results['columns'].append( column_info )
 

@@ -1,15 +1,21 @@
-import os, random, logging
-import json
+import os
+import random
+import logging
 from collections import OrderedDict
-from databasic import app, mongo, get_base_dir
+from databasic import mongo, get_base_dir
 from databasic.forms import WordCounterPaste, WordCounterUpload, WordCounterSample, WordCounterLink
-from databasic.logic import wordhandler, filehandler, oauth
+from databasic.logic import wordhandler, filehandler
 from flask import Blueprint, render_template, request, redirect, g, abort, send_from_directory
 from flask_babel import lazy_gettext as _
 
-mod = Blueprint('wordcounter', __name__, url_prefix='/<lang_code>/wordcounter', template_folder='../templates/wordcounter')
+from databasic import NLTK_STOPWORDS_BY_LANGUAGE
+
+mod = Blueprint('wordcounter', __name__,
+                url_prefix='/<lang_code>/wordcounter',
+                template_folder='../templates/wordcounter')
 
 logger = logging.getLogger(__name__)
+
 
 @mod.route('/', methods=('GET', 'POST'))
 def index():
@@ -21,8 +27,6 @@ def index():
     forms['paste'] = WordCounterPaste('I am Sam\nSam I am\nThat Sam-I-am!\nThat Sam-I-am!\nI do not like that Sam-I-am!\nDo you like \ngreen eggs and ham?\nI do not like them, Sam-I-am.\nI do not like\ngreen eggs and ham.\nWould you like them \nhere or there?\nI would not like them\nhere or there.\nI would not like them anywhere.')
     forms['upload'] = WordCounterUpload()
     forms['link'] = WordCounterLink()
-
-
 
     if request.method == 'POST':
         ignore_case = True
@@ -44,7 +48,7 @@ def index():
             ignore_case = forms[btn_value].data['ignore_case_upload']
             ignore_stopwords = forms[btn_value].data['ignore_stopwords_upload']
             title = upload_file.filename
-            logger.debug("New from upload: %s", title )
+            logger.debug("New from upload: %s", title)
         elif btn_value == 'sample':
             sample_source = forms['sample'].data['sample']
             samplename = filehandler.get_sample_title(sample_source)
@@ -52,7 +56,7 @@ def index():
             ignore_case = forms[btn_value].data['ignore_case_sample']
             ignore_stopwords = forms[btn_value].data['ignore_stopwords_sample']
             sample_id = title+str(ignore_case)+str(ignore_stopwords)
-            existing_doc_id = mongo.results_for_sample('wordcounter',sample_id)
+            existing_doc_id = mongo.results_for_sample('wordcounter', sample_id)
             if existing_doc_id is not None:
                 logger.debug("Existing from sample: %s", sample_source)
                 return redirect(request.url + 'results/' + existing_doc_id)
@@ -77,7 +81,7 @@ def index():
 
         if words is not None:
             logger.debug("  about to process words")
-            counts = process_words(words, ignore_case, ignore_stopwords, btn_value=='sample')
+            counts = _process_words(words, ignore_case, ignore_stopwords, btn_value=='sample')
             logger.debug("  finished counts, about to save")
             doc_id = mongo.save_words('wordcounter', counts, ignore_case, ignore_stopwords, title, sample_id, btn_value, extras_to_save)
             logger.debug("  saved")
@@ -85,10 +89,9 @@ def index():
 
     return render_template('wordcounter.html', forms=forms.items(), tool_name='wordcounter', max_file_size_in_mb = g.max_file_size_mb)
 
+
 @mod.route('/results/<doc_id>')
-def results(doc_id):
-    
-    counts = None
+def results_for_doc(doc_id):
     results = {}
     remaining_days = None
 
@@ -106,17 +109,17 @@ def results(doc_id):
     results['unique_words'] = counts['unique_words'][:40]
     results['bigrams'] = counts['bigrams'][:40]
     results['trigrams'] = counts['trigrams'][:40]
-    
 
     max_index = min(20, len(results['unique_words']))
     min_index = max(0, max_index-5)
-    random_unpopular_word = ['','']
+    random_unpopular_word = ['', '']
     top_word = ''
     word_in_bigrams_count = 0
     word_in_trigrams_count = 0
 
     if len(results['unique_words']) > 0:
-        random_unpopular_word = results['unique_words'][random.randrange(min_index, max_index+1)] if len(results['unique_words']) > 1 else results['unique_words'][0]
+        random_unpopular_word = results['unique_words'][random.randrange(min_index, max_index+1)]\
+            if len(results['unique_words']) > 1 else results['unique_words'][0]
 
         '''
         Find the most popular word that is also present in bigrams and trigrams. 
@@ -148,22 +151,23 @@ def results(doc_id):
     whatnext['random_unpopular_word_count'] = random_unpopular_word[1]
     biography = doc['biography'] if 'biography' in doc else None
 
-    return render_template('wordcounter/results.html', 
-        results=results, 
-        whatnext=whatnext, 
-        tool_name='wordcounter', 
-        title=doc['title'], 
-        doc_id=doc_id, 
-        source=doc['source'], 
-        remaining_days=remaining_days, 
-        total_words=counts['total_word_count'],
-        biography=biography)
+    return render_template('wordcounter/results.html',
+                           results=results,
+                           whatnext=whatnext,
+                           tool_name='wordcounter',
+                           title=doc['title'],
+                           doc_id=doc_id,
+                           source=doc['source'],
+                           remaining_days=remaining_days,
+                           total_words=counts['total_word_count'],
+                           biography=biography)
+
 
 @mod.route('/results/<doc_id>/download/<analysis_type>.csv')
 def download_csv(doc_id, analysis_type):
     logger.debug("Download %s", analysis_type)
     if analysis_type not in ['words','bigrams','trigrams']:
-        logger.warning("Requested unknown csv type: %s",analysis_type)
+        logger.warning("Requested unknown csv type: %s", analysis_type)
         abort(400)
     try:
         doc = mongo.find_document('wordcounter', doc_id)
@@ -176,6 +180,7 @@ def download_csv(doc_id, analysis_type):
         abort(500)
     return filehandler.generate_csv(file_path)
 
+
 @mod.route('/wordcounter-activity-guide.pdf')
 def download_activity_guide():
     filename = "WordCounter Activity Guide.pdf"
@@ -183,34 +188,30 @@ def download_activity_guide():
     logger.debug("download activity guide from %s/%s", dir_path, filename)
     return send_from_directory(directory=dir_path, filename=filename)
 
+
 @mod.route('/run-activity')
 def run_activity():
     return render_template('wordcounter/run-activity.html')
 
+
 def process_upload(doc):
     file_path = filehandler.open_doc(doc)
-    file_size = os.stat(file_path).st_size # because browser might not have sent content_length
+    file_size = os.stat(file_path).st_size  # because browser might not have sent content_length
     logger.debug("Upload: %d bytes", file_size)
     words = filehandler.convert_to_txt(file_path)
     filehandler.delete_file(file_path)
     return words
 
-def process_words(words, ignore_case, ignore_stopwords, is_sample):
-    stopwords_language = 'english'
-    
-    if g.current_lang == 'es':
-        stopwords_language = 'spanish'
-    elif g.current_lang == 'pt':
-        stopwords_language = 'portuguese'
-    elif g.current_lang == 'hu':
-        stopwords_language = 'hungarian'
 
+def _process_words(words, ignore_case, ignore_stopwords, is_sample):
+    stopwords_language = NLTK_STOPWORDS_BY_LANGUAGE[g.current_lang]
     counts = wordhandler.get_word_counts(
         words,
         ignore_case,
         ignore_stopwords,
         stopwords_language)
     return counts
+
 
 def create_csv_file(counts, analysis_type):
     try:
@@ -234,6 +235,7 @@ def create_csv_file(counts, analysis_type):
     except Exception as e:
         logger.trace(e)
     return render_template('no_results.html', tool_name='wordcounter')
+
 
 def _clamp(n, minn, maxn):
     return max(min(maxn, n), minn)

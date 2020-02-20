@@ -15,6 +15,12 @@ import logic.filehandler, logic.db, logic.oauth
 
 
 VALID_LANGUAGES = ('es', 'en', 'pt', 'da')
+NLTK_STOPWORDS_BY_LANGUAGE = {
+    'es': 'spanish',
+    'en': 'english',
+    'pt': 'portuguese',
+    'da': 'danish',
+}
 
 CONFIG_DIR_NAME = 'config'
 
