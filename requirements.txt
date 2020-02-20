@@ -13,7 +13,7 @@ Flask-WTF==0.12
 gdata==2.0.18
 goose-extractor==1.0.25
 gspread==0.2.5
-gunicorn==19.9.0
+gunicorn==20.0.4
 jsmin==2.2.2
 libsass==0.9.1
 natural==0.2.0

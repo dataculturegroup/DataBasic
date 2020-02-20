@@ -54,7 +54,7 @@ def index():
             logger.debug("New from sample: %s", sample_name)
             sample_path = sample['path']
             logger.debug("  loading from %s", sample_path)
-            results = [wtfcsvstat.get_summary(sample_path)]
+            results = [wtfcsvstat.get_summary(sample_path, language=g.current_lang)]
             results[0]['filename'] = sample_name + '.csv'
             results[0]['biography'] = sample['biography']
         else:
@@ -222,7 +222,7 @@ def process_upload(csv_file):
     file_paths = filehandler.convert_to_csv(file_path)
     results = []
     for f in file_paths:
-        summary = wtfcsvstat.get_summary(f)
+        summary = wtfcsvstat.get_summary(f, language=g.current_lang)
         if 'bad_formatting' not in summary:
             summary['sheet_name'] = _get_sheet_name(f)
             summary['filename'] = csv_file.filename
@@ -235,7 +235,7 @@ def process_link(sheet):
     file_paths = filehandler.open_workbook(sheet)
     results = []
     for f in file_paths:
-        summary = wtfcsvstat.get_summary(f)
+        summary = wtfcsvstat.get_summary(f, language=g.current_lang)
         if 'bad_formatting' not in summary:
             summary['sheet_name'] = _get_sheet_name(f)
             summary['filename'] = sheet.sheet1.title

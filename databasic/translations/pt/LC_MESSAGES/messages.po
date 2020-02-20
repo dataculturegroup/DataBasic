@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2018-02-28 16:36-0500\n"
+"POT-Creation-Date: 2019-12-06 09:32-0500\n"
 "PO-Revision-Date: 2016-12-29 12:33-0200\n"
 "Last-Translator: \n"
 "Language: pt\n"
@@ -16,13 +16,13 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Generated-By: Babel 2.1.1\n"
+"Generated-By: Babel 2.7.0\n"
 
 #: databasic/forms.py:11
 msgid "Paste text"
 msgstr "Colar texto"
 
-#: databasic/forms.py:14 databasic/forms.py:198
+#: databasic/forms.py:14 databasic/forms.py:208
 msgid "Text"
 msgstr "Texto"
 
@@ -30,81 +30,77 @@ msgstr "Texto"
 msgid "Paste text..."
 msgstr "Colar texto..."
 
-#: databasic/forms.py:23 databasic/forms.py:30
+#: databasic/forms.py:24 databasic/forms.py:31
 msgid "Upload a file"
 msgstr "Seleccionar um arquivo"
 
-#: databasic/forms.py:27
+#: databasic/forms.py:28
 msgid "Upload file"
 msgstr "Enviar arquivo"
 
-#: databasic/forms.py:28 databasic/forms.py:145
+#: databasic/forms.py:29 databasic/forms.py:151
 msgid "Upload..."
 msgstr "Enviar..."
 
-#: databasic/forms.py:35
+#: databasic/forms.py:37
 msgid "Use a sample"
 msgstr "Usar uma amostra"
 
-#: databasic/forms.py:38 databasic/forms.py:153
+#: databasic/forms.py:40 databasic/forms.py:160
 msgid "Sample"
 msgstr "Amostra"
 
-#: databasic/forms.py:46 databasic/forms.py:151
-msgid "Use samples"
-msgstr "Usar amostras"
-
 #: databasic/forms.py:49
-msgid "Samples"
-msgstr "Amostras"
-
-#: databasic/forms.py:56
 msgid "Link to a spreadsheet"
 msgstr "Link para uma planilha"
 
-#: databasic/forms.py:60
+#: databasic/forms.py:53
 msgid "Link to spreadsheet"
 msgstr "Link para planilha"
 
-#: databasic/forms.py:77 databasic/forms.py:89 databasic/forms.py:99
+#: databasic/forms.py:72 databasic/forms.py:86 databasic/forms.py:97
 #: databasic/forms.py:111
 msgid "Ignore case"
 msgstr "Ignorar situação"
 
-#: databasic/forms.py:81 databasic/forms.py:93 databasic/forms.py:103
-#: databasic/forms.py:115 databasic/templates/macros.html:103
+#: databasic/forms.py:76 databasic/forms.py:90 databasic/forms.py:101
+#: databasic/forms.py:115 databasic/templates/macros.html:100
 msgid "Ignore stopwords"
 msgstr "Ignorar stopwords"
 
-#: databasic/forms.py:119 databasic/forms.py:129
+#: databasic/forms.py:120 databasic/forms.py:132
 msgid "Paste a link"
 msgstr "Colar um link"
 
-#: databasic/forms.py:119 databasic/forms.py:168 databasic/forms.py:172
+#: databasic/forms.py:120 databasic/forms.py:177 databasic/forms.py:181
 msgid "https://en.wikipedia.org/wiki/Natural_language_processing"
 msgstr "https://pt.wikipedia.org/wiki/Processamento_de_linguagem_natural"
 
-#: databasic/forms.py:142
+#: databasic/forms.py:148
 msgid "Upload files"
 msgstr "Enviar arquivos"
 
-#: databasic/forms.py:144
+#: databasic/forms.py:150
 msgid "Browse file 2"
 msgstr "Escolher arquivo 2"
 
-#: databasic/forms.py:148
+#: databasic/forms.py:154
 msgid "Browse file 1"
 msgstr "Escolher arquivo 1"
 
-#: databasic/forms.py:164 databasic/forms.py:167 databasic/forms.py:172
+#: databasic/forms.py:158
+msgid "Use samples"
+msgstr "Usar amostras"
+
+#: databasic/forms.py:173 databasic/forms.py:176 databasic/forms.py:181
 msgid "Paste links"
 msgstr "Colar links"
 
-#: databasic/forms.py:185 databasic/forms.py:202
+#: databasic/forms.py:194 databasic/forms.py:212
 msgid "Has header row"
 msgstr "Possui linha de cabeçalho"
 
-#: databasic/forms.py:195
+#: databasic/forms.py:205
 msgid "Paste rows"
 msgstr "Colar linhas"
 
@@ -185,53 +181,63 @@ msgstr "WTFcsv"
 msgid "SameDiff"
 msgstr "SameDiff"
 
-#: databasic/templates/footer.html:28
 #: databasic/templates/connectthedots/connectthedots.html:4
 #: databasic/templates/connectthedots/connectthedots.html:75
+#: databasic/templates/footer.html:28
 msgid "ConnectTheDots"
 msgstr "ConnectTheDots"
 
-#: databasic/templates/footer.html:30
 #: databasic/templates/culture/connections.html:14
 #: databasic/templates/culture/convince.html:14
 #: databasic/templates/culture/culture.html:13
+#: databasic/templates/culture/deconstruct.html:14
+#: databasic/templates/culture/paper_spreadsheet.html:14
 #: databasic/templates/culture/questions.html:14
+#: databasic/templates/culture/remix.html:14
 #: databasic/templates/culture/sculpture.html:14
 #: databasic/templates/culture/sketch.html:14
+#: databasic/templates/culture/storybook.html:14
+#: databasic/templates/culture/word_webs.html:14
+#: databasic/templates/footer.html:29
 msgid "Data Culture Project"
 msgstr ""
 
-#: databasic/templates/footer.html:32
+#: databasic/templates/footer.html:30
 msgid "about"
 msgstr "sobre"
 
-#: databasic/templates/footer.html:33
+#: databasic/templates/footer.html:31
 msgid "blog"
 msgstr "blog"
 
-#: databasic/templates/footer.html:34
+#: databasic/templates/culture/culture_base.html:33
+#: databasic/templates/footer.html:32
 msgid "help"
 msgstr "ajuda"
 
+#: databasic/templates/culture/culture_base.html:37
 #: databasic/templates/header_base.html:4
-#: databasic/templates/culture/culture_base.html:12
 msgid "Choose your language: "
 msgstr "Selecione sua língua: "
 
-#: databasic/templates/header_base.html:4
-#: databasic/templates/culture/culture_base.html:12
+#: databasic/templates/culture/culture_base.html:37
+#: databasic/templates/header_base.html:5
 msgid "change language to english"
 msgstr "mudar idioma para inglês"
 
-#: databasic/templates/header_base.html:4
-#: databasic/templates/culture/culture_base.html:12
+#: databasic/templates/culture/culture_base.html:37
+#: databasic/templates/header_base.html:6
 msgid "change language to spanish"
 msgstr "mudar idioma para espanhol"
 
-#: databasic/templates/header_base.html:4
-#: databasic/templates/culture/culture_base.html:12
+#: databasic/templates/culture/culture_base.html:37
+#: databasic/templates/header_base.html:7
 msgid "change language to portuguese"
 msgstr "mudar idioma para inglês"
+
+#: databasic/templates/header_base.html:8
+msgid "change language to danish"
+msgstr "mudar idioma para dinamarquês"
 
 #: databasic/templates/home_header.html:9
 msgid ""
@@ -254,17 +260,17 @@ msgstr ""
 msgid "choose input type"
 msgstr "escolha o tipo de entrada"
 
-#: databasic/templates/macros.html:104
+#: databasic/templates/macros.html:101
 #, python-format
 msgid "Ignore %(stopwords)s"
 msgstr "Ignorar %(stopwords)s"
 
-#: databasic/templates/macros.html:105
+#: databasic/templates/macros.html:102
 #: databasic/templates/wordcounter/results.html:48
 msgid "stopwords"
 msgstr "stopwords"
 
-#: databasic/templates/macros.html:105
+#: databasic/templates/macros.html:102
 msgid ""
 "Stopwords are words in text analysis that are ignored such as "
 "&quot;this&quot;, &quot;that&quot;, &quot;and&quot; and &quot;but.&quot;"
@@ -272,11 +278,11 @@ msgstr ""
 "Stopwords são palavras que são ignoradas na análise textual, como "
 "&quot;este&quot;, &quot;aquele&quot;, &quot;e&quot; e &quot;mas&quot;"
 
-#: databasic/templates/macros.html:159
+#: databasic/templates/macros.html:156
 msgid "close window"
 msgstr "fechar janela de vídeo"
 
-#: databasic/templates/macros.html:165
+#: databasic/templates/macros.html:162
 msgid "You can share these results by emailing this url:"
 msgstr "Você pode compartilhar estes resultados enviando por email esta url:"
 
@@ -560,7 +566,7 @@ msgstr ""
 "nós pode ir pelo %(kevin_bacon)s para se conectar aos outros nós na rede."
 
 #: databasic/templates/connectthedots/results.html:160
-#, fuzzy, python-format
+#, python-format
 msgid "%(node)s"
 msgstr "nós"
 
@@ -590,7 +596,7 @@ msgstr "%(centrality)s"
 msgid "Centrality"
 msgstr "Centralidade"
 
-#: databasic/templates/connectthedots/results.html:181
+#: databasic/templates/connectthedots/results.html:182
 #, python-format
 msgid ""
 "Understanding relationships as nodes and edges in a network can lead to "
@@ -626,9 +632,14 @@ msgstr ""
 
 #: databasic/templates/culture/connections.html:25
 #: databasic/templates/culture/convince.html:25
+#: databasic/templates/culture/deconstruct.html:24
+#: databasic/templates/culture/paper_spreadsheet.html:24
 #: databasic/templates/culture/questions.html:25
+#: databasic/templates/culture/remix.html:24
 #: databasic/templates/culture/sculpture.html:24
 #: databasic/templates/culture/sketch.html:25
+#: databasic/templates/culture/storybook.html:24
+#: databasic/templates/culture/word_webs.html:24
 msgid "Set Up"
 msgstr "Preparação"
 
@@ -708,8 +719,11 @@ msgstr ""
 #: databasic/templates/culture/connections.html:53
 #: databasic/templates/culture/convince.html:55
 #: databasic/templates/culture/questions.html:57
-#: databasic/templates/culture/sculpture.html:69
+#: databasic/templates/culture/remix.html:71
+#: databasic/templates/culture/sculpture.html:68
 #: databasic/templates/culture/sketch.html:56
+#: databasic/templates/culture/storybook.html:58
+#: databasic/templates/culture/word_webs.html:56
 msgid "Have Everyone Share Back"
 msgstr "Faça com que Todos Compartilhem"
 
@@ -754,15 +768,19 @@ msgstr "Me Convença"
 msgid ""
 "Practice making data-driven arguments that they to get difference "
 "audiences to change their behavior"
-msgstr "Pratique a elaboração de argumentos baseados em dados para que eles consigam conduzir o público para uma mudança de comportamento"
+msgstr ""
+"Pratique a elaboração de argumentos baseados em dados para que eles "
+"consigam conduzir o público para uma mudança de comportamento"
 
 #: databasic/templates/culture/convince.html:28
 msgid ""
 "Printouts of the <a href=\"https://www.good.is/infographics/transparency-"
 "how-much-water-do-you-use\">Walk this Way infographic from Good "
 "Magazine</a>"
-msgstr "Impressões do folheto <a href=\"https://www.good.is/infographics/transparency-"
-"how-much-water-do-you-use\">Walk this Way</a> da Good Magazine"
+msgstr ""
+"Impressões do folheto <a href=\"https://www.good.is/infographics"
+"/transparency-how-much-water-do-you-use\">Walk this Way</a> da Good "
+"Magazine"
 
 #: databasic/templates/culture/convince.html:29
 msgid "A room with space at the front"
@@ -789,7 +807,13 @@ msgid ""
 "them to take action. Start the activity by playing the kickoff video "
 "below for your group."
 msgstr ""
-"Nesta atividade você trabalhará na prática usando dados para fazer argumentos que convençam pessoas diferentes. Você aprenderá como usar dados para adaptar um argumento para um público específico. Analisaremos uma amostra sobre um problema, identificaremos as partes interessadas que tentam influenciar a história que se conta e tentaremos criar argumentos que os convençam a agir. Inicie a atividade passando o vídeo inicial abaixo para o seu grupo."
+"Nesta atividade você trabalhará na prática usando dados para fazer "
+"argumentos que convençam pessoas diferentes. Você aprenderá como usar "
+"dados para adaptar um argumento para um público específico. Analisaremos "
+"uma amostra sobre um problema, identificaremos as partes interessadas que"
+" tentam influenciar a história que se conta e tentaremos criar argumentos"
+" que os convençam a agir. Inicie a atividade passando o vídeo inicial "
+"abaixo para o seu grupo."
 
 #: databasic/templates/culture/convince.html:56
 msgid ""
@@ -802,7 +826,15 @@ msgid ""
 "arguments to start a conversation about how to use data in appropriate "
 "ways to convince people."
 msgstr ""
-"Passe este vídeo depois de criar os argumentos para convencer seus interessados ​​voluntários a seguir em frente. Peça a diferentes pessoas para explicar por que eles usaram os argumentos que eles fizeram, e pergunte às partes interessadas por que algo os convenceu ou não. Destaque semelhanças nos argumentos feitos pelas pessoas, ou argumentos que funcionaram para uma audiência, mas não para outra. Destaque usos particularmente fortes de dados em apoio aos argumentos para iniciar uma conversa sobre como usar os dados de maneira apropriada para convencer as pessoas."
+"Passe este vídeo depois de criar os argumentos para convencer seus "
+"interessados ​​voluntários a seguir em frente. Peça a diferentes pessoas "
+"para explicar por que eles usaram os argumentos que eles fizeram, e "
+"pergunte às partes interessadas por que algo os convenceu ou não. "
+"Destaque semelhanças nos argumentos feitos pelas pessoas, ou argumentos "
+"que funcionaram para uma audiência, mas não para outra. Destaque usos "
+"particularmente fortes de dados em apoio aos argumentos para iniciar uma "
+"conversa sobre como usar os dados de maneira apropriada para convencer as"
+" pessoas."
 
 #: databasic/templates/culture/convince.html:68
 msgid ""
@@ -811,7 +843,11 @@ msgid ""
 "main audiences your organization tries to convince? What are some "
 "pitfalls to be aware of when crafting arguments for specific audiences?"
 msgstr ""
-"Agora que você praticou isso com alguns dados de exemplo, esse vídeo irá ajudá-lo a pensar sobre onde ir adiante. Por exemplo, quais são alguns dos principais públicos que sua organização tenta convencer? Quais são algumas armadilhas para se conscientizar ao elaborar argumentos para públicos específicos?"
+"Agora que você praticou isso com alguns dados de exemplo, esse vídeo irá "
+"ajudá-lo a pensar sobre onde ir adiante. Por exemplo, quais são alguns "
+"dos principais públicos que sua organização tenta convencer? Quais são "
+"algumas armadilhas para se conscientizar ao elaborar argumentos para "
+"públicos específicos?"
 
 #: databasic/templates/culture/culture.html:18
 msgid ""
@@ -833,12 +869,12 @@ msgstr ""
 "capacidade para trabalhar com eles. Você não precisa de um cientista de "
 "dados; o que você precisa é de uma cultura de dados."
 
-#: databasic/templates/culture/culture.html:33
+#: databasic/templates/culture/culture.html:43
 msgid ""
 "Use our self-service learning program to facilitate fun, creative "
 "introductions for the non-technical folks in your organization. These are"
-" not boring spreadsheet trainings. The free tools and activites below are "
-"hands-on and designed to meet people where they are across your "
+" not boring spreadsheet trainings. The free tools and activites below are"
+" hands-on and designed to meet people where they are across your "
 "organization and build their capacity to work with data. Try to kickstart"
 " your data culture by running one activity per month as a brown bag "
 "lunch. The videos and facilitation guides below will lead you through "
@@ -856,7 +892,7 @@ msgstr ""
 "a executá-los você mesmo. Pessoas de mais de 30 empresas já fizeram esse "
 "programa – desde uma biblioteca pública local, até o World Food Program."
 
-#: databasic/templates/culture/culture.html:34
+#: databasic/templates/culture/culture.html:44
 msgid ""
 "How do you build a data culture?  Use our videos and guides to run one "
 "activity a month at brown bag lunches in your org."
@@ -865,11 +901,11 @@ msgstr ""
 "executar uma atividade por mês como eventos informais de aprendizado na "
 "sua empresa."
 
-#: databasic/templates/culture/culture.html:40
+#: databasic/templates/culture/culture.html:51
 msgid "The Data Process"
 msgstr "O Processo de Dados"
 
-#: databasic/templates/culture/culture.html:41
+#: databasic/templates/culture/culture.html:52
 msgid ""
 "Here's a process we introduce to get you from data to impactful story.  "
 "Keep scrolling down to learn about the activities we offer for you to run"
@@ -879,11 +915,11 @@ msgstr ""
 "dados para uma impactante história. Continue lendo para aprender sobre as"
 " atividades que oferecemos para que você execute a cada passo adiante."
 
-#: databasic/templates/culture/culture.html:50
+#: databasic/templates/culture/culture.html:61
 msgid "Warm Ups"
 msgstr "Aquecimentos"
 
-#: databasic/templates/culture/culture.html:51
+#: databasic/templates/culture/culture.html:62
 msgid ""
 "Before jumping into finding data or telling stories, it's important to do"
 " some warm ups to activate your organization's data mindset. Warm ups are"
@@ -893,35 +929,38 @@ msgid ""
 "craft materials to explore different ways to communicate the same simple "
 "data set.  Working with pompons, pipe cleaners, or other local materials "
 "changes how you approach data, letting you focus on playfully quick ways "
-"to look for stories."
+"to look for stories. <strong>Deconstruct a dataviz</strong> to build your"
+" skills in understanding data visualizations, and developing a strong "
+"data-driven narrative arc of your own."
 msgstr ""
-"Antes de passar à procura dos dados ou a contar as histórias, é "
-"importante fazer aquecimentos para ativar a mentalidade de dados da sua "
-"organização. Os aquecimentos são atividades rápidas, divertidas e "
-"práticas, projetadas para ativar a conversação, obter idéias criativas e "
-"criar confiança para dar o próximo passo. Por exemplo, liderar pessoas "
-"para construir culturas de dados com materiais artesanais no objetivo de "
-"explorar diferentes formas de comunicar o mesmo conjunto de dados "
-"simples. Trabalhar com pompons, limpadores de canos ou outros materiais "
-"domésticos altera a forma como você aborda os dados, permitindo que você "
-"se concentre em maneiras divertidas e rápidas de procurar histórias."
 
-#: databasic/templates/culture/culture.html:56
+#: databasic/templates/culture/culture.html:67
 #: databasic/templates/culture/sculpture.html:5
 #: databasic/templates/culture/sculpture.html:17
 msgid "Build a Data Sculpture"
 msgstr "Esculturas de Dados"
 
-#: databasic/templates/culture/culture.html:66
-#: databasic/templates/culture/culture.html:87
+#: databasic/templates/culture/culture.html:70
+#: databasic/templates/culture/deconstruct.html:5
+#: databasic/templates/culture/deconstruct.html:17
+msgid "Deconstruct a DataViz"
+msgstr ""
+
+#: databasic/templates/culture/culture.html:80
+#: databasic/templates/culture/culture.html:107
 msgid "Ask Good Questions"
 msgstr "Faça Perguntas"
 
-#: databasic/templates/culture/culture.html:70
+#: databasic/templates/culture/culture.html:83
+#: databasic/templates/culture/paper_spreadsheet.html:17
+msgid "Fill in a Paper Spreadsheet"
+msgstr ""
+
+#: databasic/templates/culture/culture.html:87
 msgid "Asking Questions"
 msgstr "Faça Perguntas"
 
-#: databasic/templates/culture/culture.html:71
+#: databasic/templates/culture/culture.html:89
 msgid ""
 "What questions can (and cannot) be answered with data? And once you are "
 "staring at some rows and columns, how do you start to make sense of the "
@@ -942,11 +981,17 @@ msgstr ""
 "eles. Lembre-se - os dados nunca falam por si mesmos - você os ajuda a "
 "falar fazendo mais e melhores perguntas."
 
-#: databasic/templates/culture/culture.html:78
+#: databasic/templates/culture/culture.html:90
+msgid ""
+"<strong>Fill in a Paper Spreadsheet</strong> to introduce people to "
+"various types of data and help them think about how people fill it in."
+msgstr ""
+
+#: databasic/templates/culture/culture.html:98
 msgid "Gathering Data"
 msgstr "Junte a Informação"
 
-#: databasic/templates/culture/culture.html:79
+#: databasic/templates/culture/culture.html:99
 msgid ""
 "Often you don’t recognize the data you already have! Data is all around, "
 "but can be difficult to identify and describe.  You need the right data "
@@ -969,29 +1014,28 @@ msgstr ""
 "rede. Ou use WTFcsv para pensar sobre como reunir os dados que você "
 "precisa para responder a uma pergunta."
 
-#: databasic/templates/culture/culture.html:84
-#: databasic/templates/culture/culture.html:100
+#: databasic/templates/culture/culture.html:104
+#: databasic/templates/culture/culture.html:120
 msgid "Use Connect the Dots"
 msgstr "Usa ConnectTheDots"
 
-#: databasic/templates/culture/culture.html:97
-#: databasic/templates/culture/culture.html:121
+#: databasic/templates/culture/culture.html:117
+#: databasic/templates/culture/culture.html:145
 #: databasic/templates/culture/sketch.html:5
 #: databasic/templates/culture/sketch.html:17
 #: databasic/templates/wordcounter/run-activity.html:19
 msgid "Sketch a Story"
 msgstr "Esboce uma História"
 
-#: databasic/templates/culture/culture.html:103
-#, fuzzy
+#: databasic/templates/culture/culture.html:123
 msgid "Use SameDiff"
 msgstr "Usa SameDiff"
 
-#: databasic/templates/culture/culture.html:107
+#: databasic/templates/culture/culture.html:127
 msgid "Analyzing Data"
 msgstr "Analise os Dados"
 
-#: databasic/templates/culture/culture.html:108
+#: databasic/templates/culture/culture.html:128
 msgid ""
 "Data can be intimidating, especially when it comes to analyzing it.  But "
 "remember, most of statistics is just special ways of counting.  We’re all"
@@ -1018,11 +1062,11 @@ msgstr ""
 "SameDiff para saber como os algoritmos podem ajudá-lo a analisar os dados"
 " de maneiras mais abstratas."
 
-#: databasic/templates/culture/culture.html:115
+#: databasic/templates/culture/culture.html:135
 msgid "Telling Your Story"
 msgstr "Conte a sua História"
 
-#: databasic/templates/culture/culture.html:116
+#: databasic/templates/culture/culture.html:137
 msgid ""
 "Telling your story is where the rubber hits the road. Numbers alone are "
 "not enough to make your case or move people to action. You have to give "
@@ -1038,15 +1082,45 @@ msgstr ""
 "WordCounter para praticar a comunicação visual de uma história baseada em"
 " dados."
 
-#: databasic/templates/culture/culture.html:132
+#: databasic/templates/culture/culture.html:138
+msgid ""
+"<strong>Make a Word Web</strong> to move from abstract ideas and numbers "
+"into concrete visual symbols."
+msgstr ""
+
+#: databasic/templates/culture/culture.html:139
+msgid ""
+"<strong>Remix an Infographic</strong> to practice telling the same story "
+"in diffferent ways."
+msgstr ""
+
+#: databasic/templates/culture/culture.html:148
+#: databasic/templates/culture/word_webs.html:5
+#: databasic/templates/culture/word_webs.html:17
+msgid "Make a Word Web"
+msgstr ""
+
+#: databasic/templates/culture/culture.html:151
+#: databasic/templates/culture/remix.html:5
+#: databasic/templates/culture/remix.html:17
+msgid "Remix an Infographic"
+msgstr ""
+
+#: databasic/templates/culture/culture.html:161
 msgid "Try to ConvinceMe"
 msgstr "Usa ConvinceMe"
 
-#: databasic/templates/culture/culture.html:136
+#: databasic/templates/culture/culture.html:164
+#: databasic/templates/culture/storybook.html:5
+#: databasic/templates/culture/storybook.html:17
+msgid "Write a Data Storybook"
+msgstr ""
+
+#: databasic/templates/culture/culture.html:168
 msgid "Try It Out"
 msgstr "Experimente"
 
-#: databasic/templates/culture/culture.html:137
+#: databasic/templates/culture/culture.html:170
 msgid ""
 "How do you know if your story is working?  Does the data you included "
 "support the narrative you are telling?  It can be very difficult to put "
@@ -1066,11 +1140,17 @@ msgstr ""
 "<strong>Experimente o ConvinceMe</strong> para praticar como contar "
 "histórias diferentes para diferentes públicos."
 
-#: databasic/templates/culture/culture.html:143
+#: databasic/templates/culture/culture.html:171
+msgid ""
+"<strong>Write a Data Storybook</strong> to practice writing compelling "
+"narrative arcs that are supported by the data you are working with."
+msgstr ""
+
+#: databasic/templates/culture/culture.html:178
 msgid "Connect with Others"
 msgstr "Conecte-se com outros"
 
-#: databasic/templates/culture/culture.html:144
+#: databasic/templates/culture/culture.html:179
 msgid ""
 "Trying to build a data culture can be a lonely effort in organizations "
 "that haven't recognized the importance of data. Join the Data Culture <a "
@@ -1084,15 +1164,15 @@ msgstr ""
 " para se conectar com outras pessoas e reflita sobre como essas "
 "atividades funcionam ou não para sua organização."
 
-#: databasic/templates/culture/culture.html:146
+#: databasic/templates/culture/culture.html:181
 msgid "Join the discussion group"
 msgstr "Junte-se a nossa lista"
 
-#: databasic/templates/culture/culture.html:150
+#: databasic/templates/culture/culture.html:185
 msgid "About Us"
 msgstr "Sobre Nós"
 
-#: databasic/templates/culture/culture.html:151
+#: databasic/templates/culture/culture.html:186
 msgid ""
 "The Data Culture Project is an initiative of  <a "
 "href='http://databasic.io'>DataBasic.io</a>.  We’ve pulled together the "
@@ -1108,6 +1188,35 @@ msgstr ""
 "href='http://kanarinka.com'>Catherine D'Ignazio</a> e <a "
 "href='http://datatherapy.org'>Rahul Bhargava</a>."
 
+#: databasic/templates/culture/culture_base.html:16
+msgid "Menu"
+msgstr ""
+
+#: databasic/templates/culture/culture_base.html:17
+msgid "Toggle menu"
+msgstr ""
+
+#: databasic/templates/culture/culture_base.html:28
+msgid "Home"
+msgstr ""
+
+#: databasic/templates/culture/culture_base.html:29
+msgid "Activities"
+msgstr ""
+
+#: databasic/templates/culture/culture_base.html:30
+#: databasic/templates/culture/testimonials.html:12
+msgid "Testimonials"
+msgstr ""
+
+#: databasic/templates/culture/culture_base.html:31
+msgid "Community"
+msgstr ""
+
+#: databasic/templates/culture/culture_base.html:32
+msgid "DataBasic.io"
+msgstr ""
+
 #: databasic/templates/culture/culture_macros.html:6
 msgid "Learn With Others"
 msgstr "Conte-nos como foi"
@@ -1122,6 +1231,310 @@ msgstr ""
 "Pessoas ao redor do mundo estão usando e adaptando essas atividades em "
 "suas empresas. Escreva no espaço abaixo um pouco sobre como as atividades"
 " foram para você."
+
+#: databasic/templates/culture/deconstruct.html:18
+msgid "Build your visual skills by taking apart an example visualization"
+msgstr ""
+
+#: databasic/templates/culture/deconstruct.html:25
+#: databasic/templates/culture/word_webs.html:25
+msgid ""
+"This activity will take 15 to 20 minutes. You should have these materials"
+" on hand:"
+msgstr ""
+
+#: databasic/templates/culture/deconstruct.html:27
+msgid ""
+"Printouts of a visualization (we often use <a "
+"href=\"https://foodtechconnect.com/2012/01/10/usaid-infographics-on-"
+"agriculture-simplify-reality-infographic/\">this one from USAID</a> or <a"
+" href=\"http://owni.fr/files/2010/11/12-e1288712778782.jpg\">this one "
+"about the Iraq war</a>); print out 1 paper for every two or three "
+"participants)"
+msgstr ""
+
+#: databasic/templates/culture/deconstruct.html:35
+#: databasic/templates/culture/paper_spreadsheet.html:38
+#: databasic/templates/culture/remix.html:45
+#: databasic/templates/culture/sculpture.html:38
+#: databasic/templates/culture/storybook.html:38
+#: databasic/templates/culture/word_webs.html:37
+msgid "Background"
+msgstr "Contexto"
+
+#: databasic/templates/culture/deconstruct.html:36
+msgid ""
+"Telling stories with data is hard to do. It relies on a diverse set of  "
+"skills - data processing, graphic design, storytelling, and more. This "
+"activity helps you build those skills by taking apart work that others "
+"have done (the good and the bad) to build your critical eye. You'll help "
+"participants break down and discuss a four things about a visualization -"
+" (1) the data it uses, (2) the ways it shows that data, (3) the narrative"
+" it is trying to tell, and (4) evaluating whether it combines those to "
+"tell the data story well."
+msgstr ""
+
+#: databasic/templates/culture/deconstruct.html:43
+#: databasic/templates/culture/paper_spreadsheet.html:46
+#: databasic/templates/culture/remix.html:53
+#: databasic/templates/culture/sculpture.html:52
+#: databasic/templates/culture/storybook.html:46
+#: databasic/templates/culture/word_webs.html:45
+msgid "Kick off the Activity"
+msgstr "Início da Atividade"
+
+#: databasic/templates/culture/deconstruct.html:44
+msgid ""
+"Begin by handing out printouts of the graphic you've selected and giving "
+"a little backstory about its context. <i>For example, the USAID graphic "
+"was commissioned as part of a series for their 50th anniversary "
+"celebration, focused on highlighting success but also the challenges "
+"ahead. We've been told it was published online but also displayed in "
+"their entrance as a large banner. It was created for the USAID by an "
+"independent design firm named <a "
+"href=\"https://lemonly.com\">Lemonly</a>.</i>"
+msgstr ""
+
+#: databasic/templates/culture/deconstruct.html:46
+msgid ""
+"Give participants just a minute or two to review the handout together. "
+"Don't give them too long - you want their first reactions to come out."
+msgstr ""
+
+#: databasic/templates/culture/deconstruct.html:53
+msgid "Lead a Conversation "
+msgstr ""
+
+#: databasic/templates/culture/deconstruct.html:54
+msgid ""
+"After participants have looked over the visualization, ask them a series "
+"of questions. Try to keep the discussion focused on these exploratory "
+"questions rather than whether the visualization is \"good\" or \"bad\" "
+"(evaluation comes after exploration). First ask them to identify some of "
+"the datasets used. Collect four or five answers from participant. <i>For "
+"the USAID graphic, these often include answers like \"population data "
+"over time\", \"crop yield predictions\", and \"animal ownership in "
+"Ecuador\".</i> Then talk about how telling these stories requires you to "
+"pull from multiple datasets; you can seldom put together a strong story "
+"with just one spreadsheet."
+msgstr ""
+
+#: databasic/templates/culture/deconstruct.html:55
+msgid ""
+"Next, ask participants to identify how this data is represented. Collect "
+"a few answers. <i>For example, in the USAID graphic population size is "
+"represented by a globe increasing in size and percentages are represented"
+" as donut charts</i>. Briefly share how this sets up a consistent set of "
+"charts and symbols and ways to use them. We call this the \"visual "
+"vocabulary\" of the story."
+msgstr ""
+
+#: databasic/templates/culture/deconstruct.html:57
+msgid ""
+"Thirdly, ask participants to identify the short story they think this "
+"graphic is trying to tell. What are the data and visual representation "
+"trying to say? Ask folks to summarize it in just one sentence, like you "
+"would in a tweet. <i>In the USAID example most people think the story is "
+"something like \"food needs are rising, and if we can help female farmers"
+" we'd be better prepared to produce enough food.\"</i> Try to keep "
+"participants focused on the story, rather than what they think about it "
+"(that comes next)."
+msgstr ""
+
+#: databasic/templates/culture/deconstruct.html:64
+msgid "Pull it All Together"
+msgstr ""
+
+#: databasic/templates/culture/deconstruct.html:65
+msgid ""
+"To finish, ask folks if they think the story is well told. What elements "
+"best support the story? Are there extraneous pieces that don't help the "
+"story along? Are there pieces that actively distract from the main point "
+"or contradict it? <i>In the USAID example focus on the takeaway message -"
+" what is it? Is it emphasized enough? Does it solve the problem?</i> "
+"Emphasize that telling these stories has to focus on a main point, and "
+"everything needs to support it. Even if there is some cool data that you "
+"want to include, you need to make sure it supports the main story, "
+"otherwise it will just distract. <i>Are there examples of data that could"
+" be removed from the USAID story to make it more effective?</i>"
+msgstr ""
+
+#: databasic/templates/culture/paper_spreadsheet.html:5
+msgid "Paper Spreadsheet"
+msgstr ""
+
+#: databasic/templates/culture/paper_spreadsheet.html:18
+msgid "Introduce people to data, and to each other"
+msgstr ""
+
+#: databasic/templates/culture/paper_spreadsheet.html:25
+msgid ""
+"This activity will take 20 minutes. You should have these materials on "
+"hand:"
+msgstr ""
+
+#: databasic/templates/culture/paper_spreadsheet.html:27
+msgid ""
+"Giant gridded piece of paper. The bigger and more colorful, the better! "
+"<A "
+"href='https://www.amazon.com/gp/product/B0062TMTMK/ref=oh_aui_search_detailpage?ie=UTF8&psc=1'>You"
+" can order cheap rolls of colored bulletin board paper on Amazon.</a>"
+msgstr ""
+
+#: databasic/templates/culture/paper_spreadsheet.html:28
+msgid "Large, thick markers"
+msgstr ""
+
+#: databasic/templates/culture/paper_spreadsheet.html:29
+msgid "Tape and a flat wall to hang your Paper Spreadsheet"
+msgstr ""
+
+#: databasic/templates/culture/paper_spreadsheet.html:39
+msgid ""
+"Before beginning to analyze and tell stories with data, you have  to "
+"understand what data is and how to clean it before it can be used. Build "
+"a paper spreadsheet together to introduce non-technical newcomers to "
+"concepts like “data”, “datasets”, “data types” and “clean data.” This "
+"activity also introduces participants to ethics and privacy concerns in "
+"data. It serves as an icebreaker at the beginning of a session to "
+"introduce participants to one another."
+msgstr ""
+
+#: databasic/templates/culture/paper_spreadsheet.html:47
+msgid ""
+"Prior to the activity, create your paper spreadsheet on a large piece of "
+"gridded paper. Create at least five columns to capture different forms of"
+" personal information. It’s best to include columns for each major data "
+"type, for example:"
+msgstr ""
+
+#: databasic/templates/culture/paper_spreadsheet.html:48
+msgid ""
+"<ul><li>‘First name’ for <b>qualitative data</b></li><li>‘Hometown’ for "
+"<b>geographic data</b></li><li>‘Color of Your Shirt’ for <b>categorical "
+"data</b></li><li>‘# Siblings you Have’ for <b>quantitative "
+"data</b></li><li>‘Day & Month of your Birthday’ for <b>temporal "
+"data</b></li><li>‘Describe any experience you have with data’ for <b>open"
+" text as data</b></li></ul>"
+msgstr ""
+
+#: databasic/templates/culture/paper_spreadsheet.html:49
+msgid ""
+"You should choose other questions that are more relevant for your "
+"audience, but make sure that you are not collecting sensitive personal "
+"information or anything that could be embarrassing. No really, we mean "
+"it!  It is very easy to accidentally ask a question that is revealing in "
+"an inappropriate way."
+msgstr ""
+
+#: databasic/templates/culture/paper_spreadsheet.html:50
+msgid ""
+"Post the spreadsheet up on the wall before the beginning of the session. "
+"As participants arrive, ask them to fill out a row about themselves, but "
+"don't force them to if they opt out."
+msgstr ""
+
+#: databasic/templates/culture/paper_spreadsheet.html:52
+msgid ""
+"Allow enough time for all participants to fill-in the spreadsheet. When "
+"you're ready to start, invite a couple volunteers to introduce themselves"
+" using the information they wrote down.  These should be short intros "
+"that give a little more back-story to what they wrote down; just 1 or 2 "
+"minutes."
+msgstr ""
+
+#: databasic/templates/culture/paper_spreadsheet.html:59
+msgid "Lead a Conversation"
+msgstr ""
+
+#: databasic/templates/culture/paper_spreadsheet.html:60
+msgid ""
+"Lead your group in a conversation about the “dataset” they have created. "
+"Highlight that data are systematically collected observations about the "
+"world. At the same time, collecting data requires some kind of helpful "
+"reduction of the world, so they are not the final word and may not be "
+"everything you need to know in order to answer any questions. You can get"
+" at this by asking your group a couple questions related to the Paper "
+"Spreadsheet:"
+msgstr ""
+
+#: databasic/templates/culture/paper_spreadsheet.html:61
+msgid ""
+"<ul><li>Do the colors people wrote down accurately capture all the "
+"texture and nuance of their fabric? For example, if anyone wore a striped"
+" shirt, what did they write in the 'shirt color' column?</li><li>Do these"
+" questions capture <em>enough</em> of who each person is to "
+"analyze?</li><li>What is missing that might help use this "
+"dataset?</li></ul>"
+msgstr ""
+
+#: databasic/templates/culture/paper_spreadsheet.html:62
+msgid ""
+"Also highlight the different types of data that the Paper Spreadsheet "
+"captures. You can ask things like:"
+msgstr ""
+
+#: databasic/templates/culture/paper_spreadsheet.html:63
+msgid ""
+"<ul><li>People often think of data as just numbers, but what other kinds "
+"of data have we captured here? Is there temporal data? Geographic "
+"data?</li><li>Numbers are easy to add up, sum, and average; how else "
+"could we organize data that isn't numbers?  For instance, we could plot "
+"dates on a timeline, or locations on a map.</li></ul>"
+msgstr ""
+
+#: databasic/templates/culture/paper_spreadsheet.html:64
+msgid ""
+"Next, introduce what needs to be done to clean and tell stories with this"
+" data. Ask participants questions like:"
+msgstr ""
+
+#: databasic/templates/culture/paper_spreadsheet.html:65
+msgid ""
+"<ul><li>If you wanted to map out people's hometowns, how could we do "
+"that? For example, are there inconsistencies in how people wrote down "
+"their hometown? And did everyone interpret what 'hometown' meant in the "
+"same way?</li><li>What kind of patterns do you see in the consistencies "
+"or inconsistencies in the data collected? Did everyone fill in every "
+"column? Did anyone *not* put themselves on the paper "
+"spreadsheet?</li></ul>"
+msgstr ""
+
+#: databasic/templates/culture/paper_spreadsheet.html:66
+msgid ""
+"Finally, discuss issues around data privacy, consent, and ethics. Ask "
+"participants things like:"
+msgstr ""
+
+#: databasic/templates/culture/paper_spreadsheet.html:67
+msgid ""
+"<ul><li>Were there any questions that you felt uncomfortable writing down"
+" information for?</li><li>Who usually has the power to determine what is "
+"captured in data?</li><li>Who decides how those questions are asked and "
+"how the answers are interpreted? </li></ul>"
+msgstr ""
+
+#: databasic/templates/culture/paper_spreadsheet.html:74
+msgid "Review What You Have Learned"
+msgstr ""
+
+#: databasic/templates/culture/paper_spreadsheet.html:75
+#: databasic/templates/culture/remix.html:72
+msgid ""
+"Review the key points in the conversation that you just had. Remind the "
+"participants that data are systematic observations of the world, and a "
+"dataset is the collection of those observations. Data are a helpful "
+"reduction of the world, but it’s important to keep in mind that they do "
+"not capture everything. Data can capture different types of information "
+"(quantitative, qualitative, temporal, geographic, etc.), and the type of "
+"the data affects the kinds of exploration and pattern seeking that you "
+"can do. Data often needs to be cleaned and standardized. Data "
+"storytelling and analysis involves looking for patterns, making "
+"comparisons, finding outliers, and then testing that knowledge in "
+"dialogue with others. Finally, the way data are collected and used can "
+"raise questions of privacy, consent, and ethics, which must be taken into"
+" account when analyzing and presenting them"
+msgstr ""
 
 #: databasic/templates/culture/questions.html:5
 #: databasic/templates/culture/questions.html:17
@@ -1163,21 +1576,12 @@ msgid ""
 "Somebody sends you an excel file or you download something from the web. "
 "In this activity, you will work with colleagues to ask good questions of "
 "a spreadsheet so that you can take it from data points to data story. You"
-" will use <a href='https://wtfcsv.databasic.io/'>Databasic.io's WTFcsv "
+" will use <a href='http://wtfcsv.databasic.io/'>Databasic.io's WTFcsv "
 "tool</a>, get acquainted data types, and do some basic spreadsheet "
 "analysis.  '<em>csv</em>' stands for <em>comma separated values</em>, a "
 "common spreadsheet format on the web. <em>WTF</em> stands for... well... "
 "the question you ask when someone sends you an inscrutable csv file."
 msgstr ""
-"Cada vez mais, os dados chegam a nós na forma de uma planilha. Alguém lhe"
-" envia um arquivo em Excel ou você baixa algo da web. Nesta atividade, "
-"você trabalhará com colegas para fazer boas perguntas a respeito de uma "
-"planilha para que você possa transformar os pontos de dados para a "
-"história de dados. Você usará a ferramenta WTFcsv da Databasic.io, se "
-"familiarizará com os tipos de dados e fará algumas análises básicas de "
-"planilhas. 'csv' significa valores separados por vírgulas, um formato de "
-"planilha comum na web. WTF significa ...bem...aquela pergunta que você "
-"faz sempre que alguém lhe envia um arquivo csv indecifrável."
 
 #: databasic/templates/culture/questions.html:46
 msgid ""
@@ -1242,6 +1646,92 @@ msgstr ""
 "armadilhas comuns a serem evitadas, como lembrar-se de considerar fatores"
 " atípicos e ter em mente que a correlação não é causalidade."
 
+#: databasic/templates/culture/remix.html:18
+msgid "Practice telling a data story in different ways"
+msgstr ""
+
+#: databasic/templates/culture/remix.html:25
+msgid ""
+"This activity will take 30 to 40 minutes. You should have these materials"
+" on hand:"
+msgstr ""
+
+#: databasic/templates/culture/remix.html:28
+msgid ""
+"Printed copies of an example visualization for remixing. We often use <a "
+"href='https://www.good.is/infographics/transparency-how-much-water-do-"
+"you-use'>this infographic on daily water usage from GOOD.is</a>. 1-2 "
+"printed copies for each group."
+msgstr ""
+
+#: databasic/templates/culture/remix.html:31
+msgid ""
+"Large paper, markers, and craft materials (the materials from <a "
+"href='build-a-sculpture'>our Build a Data Sculpture activity</a> can be "
+"used for this activity too)"
+msgstr ""
+
+#: databasic/templates/culture/remix.html:32
+msgid ""
+"Copies of <a href='/static/files/activity-guides/en/Picking a "
+"Technique.pdf'>our handout about different data presentation "
+"techniques</a> (1 for each participant)"
+msgstr ""
+
+#: databasic/templates/culture/remix.html:35
+msgid ""
+"<a href='/static/files/activity-guides/en/Infographic Remix "
+"Cards.pdf'>Our visualization technique cards</a> (one card for each 3-4 "
+"person group); print them double-sided on a single sheet of paper and cut"
+" them out ahead of time"
+msgstr ""
+
+#: databasic/templates/culture/remix.html:46
+msgid ""
+"In order to tell your data story well, you need a good “toolbelt” of "
+"presentation techniques to pull from. However, we often only consider of "
+"a small set of techniques — primarily traditional charts and maps — when "
+"we display data. This activity introduces participants to data "
+"presentation techniques that are creative, fun, and better suited for "
+"certain audiences than traditional charts and maps. It lets participants "
+"practice using these techniques, and helps them build confidence in their"
+" ability to present data appropriately."
+msgstr ""
+
+#: databasic/templates/culture/remix.html:54
+msgid ""
+"<b>Present slideshow about creative techniques</b>.<br/>Give participants"
+" copies of the visualization techniques handout, and walk them through "
+"the descriptions and examples of each technique provided in the slides "
+"(spend about 2 minutes on each technique). These concrete examples help "
+"people expand their toolbelt."
+msgstr ""
+
+#: databasic/templates/culture/remix.html:55
+msgid ""
+"<b>Discuss the example visualization</b>.<br /> Introduce the sample "
+"visualization you have chosen and discuss its audience, goals, and "
+"content. We like to use <a href='https://www.good.is/infographics"
+"/transparency-how-much-water-do-you-use'>this infographic on water usage "
+"from GOOD.is</a>. It is quite opinionated, so its message and goal are "
+"clear. Direct participants to compare beef with all other water usage - "
+"it far exceeds everything else on the page!"
+msgstr ""
+
+#: databasic/templates/culture/remix.html:62
+msgid "Start Remixing"
+msgstr ""
+
+#: databasic/templates/culture/remix.html:63
+msgid ""
+"Bring everyone back together and go around the room letting each group "
+"share their favorite idea. Have groups talk about different editorial "
+"decisions that were made in narrowing down their ideas. Ask the groups "
+"for their thoughts about the relative strengths and weaknesses of each "
+"technique as well as which audiences might be particularly well served by"
+" different presentation techniques. "
+msgstr ""
+
 #: databasic/templates/culture/sculpture.html:18
 msgid "Use physical craft materials to tell a data story in 3D"
 msgstr ""
@@ -1282,10 +1772,6 @@ msgstr ""
 "NÃO inclua peças de LEGO (caso contrário, as pessoas apenas criam "
 "gráficos de barras)"
 
-#: databasic/templates/culture/sculpture.html:38
-msgid "Background"
-msgstr "Contexto"
-
 #: databasic/templates/culture/sculpture.html:39
 msgid ""
 "The idea of playing with data is new to most folks. This activity lets "
@@ -1321,13 +1807,9 @@ msgid ""
 msgstr ""
 "Esta atividade baseia-se no estilo de pedagogia e workshop do <a "
 "href='https://llk.media.mit.edu'>Grupo Lifelong Kindergarten do MIT Media"
-" Lab</a> (onde Rahul obteve seu mestrado). Também possui influências do <a"
-" href='http://www.placeit.org/bio.html'>trabalho participativo de "
+" Lab</a> (onde Rahul obteve seu mestrado). Também possui influências do "
+"<a href='http://www.placeit.org/bio.html'>trabalho participativo de "
 "planejamento urbano de James Rojas</a>."
-
-#: databasic/templates/culture/sculpture.html:52
-msgid "Kick off the Activity"
-msgstr "Início da Atividade"
 
 #: databasic/templates/culture/sculpture.html:53
 msgid ""
@@ -1385,7 +1867,7 @@ msgstr ""
 "uma 'atividade de pensar com as mãos'. Quando faltar um minuto para a "
 "conclusão, avise-os"
 
-#: databasic/templates/culture/sculpture.html:70
+#: databasic/templates/culture/sculpture.html:69
 msgid ""
 "Stop everyone when the time is up. Give each group 1 minute to share what"
 " they made. You can summarize by pointing out similarities and "
@@ -1452,22 +1934,12 @@ msgid ""
 "out some story you find.  It introduces basic terminology for "
 "quantitative text analysis, helps you get acquainted with <a "
 "href='https://wordcounter.databasic.io/'>Databasic.io's WordCounter "
-"tool</a>a>, and prompts you to consider places in your organization where"
-" you work with text as data.  Participants will pair up with colleagues "
-"to search for stories in some fun sample data and then draw a sketch to "
+"tool</a>, and prompts you to consider places in your organization where "
+"you work with text as data.  Participants will pair up with colleagues to"
+" search for stories in some fun sample data and then draw a sketch to "
 "share that story. Start the activity by playing the kickoff video below "
 "for your group."
 msgstr ""
-"É difícil transformar os dados em histórias. Esta atividade permite que "
-"você faça isso rapidamente ao analisar conjuntos de dados para encontrar "
-"padrões no texto e, em seguida, desenhar uma história que você encontrar."
-" Ela apresenta a terminologia básica para análise de texto quantitativo, "
-"ajuda você a se familiarizar com a ferramenta WordCounter do Databasic.io"
-" e orienta que você considere lugares em sua organização onde você "
-"trabalha com texto como dados. Os participantes se juntarão com colegas "
-"para procurar histórias em alguns dados de amostra e, em seguida, "
-"desenharão um esboço para compartilhar essa história. Inicie a atividade "
-"passando o vídeo inicial abaixo para o seu grupo."
 
 #: databasic/templates/culture/sketch.html:45
 msgid ""
@@ -1518,6 +1990,269 @@ msgstr ""
 "quantitativa de texto, além de apontar algumas armadilhas comuns para se "
 "evitar."
 
+#: databasic/templates/culture/storybook.html:18
+msgid "Tell data stories using creative narratives and visual storybooks"
+msgstr ""
+
+#: databasic/templates/culture/storybook.html:25
+msgid ""
+"This activity will take 35 to 40 minutes. You should have these materials"
+" on hand:"
+msgstr ""
+
+#: databasic/templates/culture/storybook.html:27
+msgid "Large pieces of paper (butcher paper works great)"
+msgstr ""
+
+#: databasic/templates/culture/storybook.html:28
+msgid "Crayons or markers in lots of colors"
+msgstr ""
+
+#: databasic/templates/culture/storybook.html:29
+msgid ""
+"An example data set to work with (this can be quite small if it resonates"
+" well with the participants). A fun dataset like the <a "
+"href='http://a816-dohbesp.nyc.gov/IndicatorPublic/dognames/'>dog "
+"registrations of New York City</a> lends itself to this activity well. "
+"This should be in a format that lends itself to your participants playing"
+" with it.  We often explore CSV-formatted files with <a "
+"href='https://public.tableau.com'>Tableau Public</a> or <a "
+"href='https://databasic.io/en/wtfcsv/'>our DataBasic.io’s WTFCSV "
+"tool</a>."
+msgstr ""
+
+#: databasic/templates/culture/storybook.html:30
+msgid ""
+"An inspirational example storybook you’ve made about a different dataset "
+"(<a href='/static/files/examples/storybook1.pdf'>download an example "
+"storybook our friend Jay made</a> based on data about ingredients used "
+"together often in recipes)"
+msgstr ""
+
+#: databasic/templates/culture/storybook.html:39
+msgid ""
+"Storytelling is an art form, and we don’t get to practice it very much. "
+"This activity lets participants practice putting a data story together "
+"into a creative narrative. Data stories built on top of a strong "
+"narrative arc are more compelling and more memorable. Participants spend "
+"time poking at an actual dataset to find a simple story, then sketch "
+"their story and play with different ways of telling it in a fun, visual "
+"storybook form. This process creates a cohesive narrative that can tell "
+"their stories in a convincing way. The “dry” information is transformed "
+"into a simple children's book-style of story.  It also reinforces the "
+"link between data presentation and storytelling. If you can't tell your "
+"data story in this simple form, there's no way you'll be able to help "
+"your audiences understand something more complicated."
+msgstr ""
+
+#: databasic/templates/culture/storybook.html:47
+msgid ""
+"Introduce the example data set. Talk about how important it is to tease "
+"apart a strong narrative in order to create a compelling data story. If "
+"you've already run <a href='deconstruct-a-dataviz'>the Deconstruct a "
+"DataViz activity</a>, refer to the elements that made the infographic you"
+" discussed there work well or not. Break the participants into groups of "
+"3 or 4 people, and give them 15 minutes to scan the data. Instruct them "
+"to look for both interesting data stories and, more importantly for this "
+"activity, seeds for a strong narrative."
+msgstr ""
+
+#: databasic/templates/culture/storybook.html:48
+msgid ""
+"Then, let everyone know that it is time to make storybooks. Read them "
+"your example story. Give each group a large piece of paper and some "
+"crayons or markers with different colors.  Demonstrate how to fold a big "
+"piece of paper into a ‘zine (share <a "
+"href='http://experimentwithnature.com/02-found/experiment-with-paper-how-"
+"to-make-a-one-page-zine/#.Uvp3dnl2DS4'>these instructions</a> or show the"
+" video below). Tell them the first page must include the phrase “Once "
+"Upon a Time”, and the last page must include “The End”."
+msgstr ""
+
+#: databasic/templates/culture/storybook.html:51
+msgid ""
+"Give them 15 minutes to sketch out a story on the paper. These books "
+"should be very visual, like a kid’s picture book or a graphic novel. "
+"Encourage them to use drawings, words, charts, shapes, and color "
+"creatively. The story should be centered on the data; with "
+"representations of it woven throughout."
+msgstr ""
+
+#: databasic/templates/culture/storybook.html:59
+msgid ""
+"To wrap it up, have each small group read their stories to the entire "
+"group. These always turn out to be really fun; the groups love to share "
+"them with each other!"
+msgstr ""
+
+#: databasic/templates/culture/testimonials.html:14
+msgid ""
+"We're working with non-profits, news organizations, libraries, and "
+"community groups around the world. Here are some testimonials from "
+"partners that have helped guide the project."
+msgstr ""
+
+#: databasic/templates/culture/testimonials.html:18
+msgid ""
+"For the first time, the numbers [from our grantees] were consistent. The "
+"nonprofits were paying attention. We asked them to describe how they're "
+"collecting data, and they were able to articulate how they collected data"
+" much better than in the past. This helped us create a better reporting "
+"process."
+msgstr ""
+
+#: databasic/templates/culture/testimonials.html:22
+#: databasic/templates/culture/testimonials.html:30
+#: databasic/templates/culture/testimonials.html:38
+msgid "Read the Full Case Study"
+msgstr ""
+
+#: databasic/templates/culture/testimonials.html:26
+msgid ""
+"Participants started looking at the different sides of an argument and "
+"how you build that based on your audience and what’s more relevant, like "
+"which piece of data is more relevant for which type of stakeholder."
+msgstr ""
+
+#: databasic/templates/culture/testimonials.html:34
+msgid ""
+"The DCP program helped us look at data in a different way, especially "
+"through WordCounter, which visualizes text into word clouds. Instead of "
+"teaching us to just spout statistics, this workshop gave us the "
+"opportunity to tell our story in a new and visual way. <b>The program was"
+" accessible to people of all levels</b> regardless of their background "
+"and initial comfort with data analysis. Our staff members are now able to"
+" use data more effectively whether that be for social media or for grant "
+"reports."
+msgstr ""
+
+#: databasic/templates/culture/testimonials.html:42
+msgid ""
+"The Data Culture Project allowed us to <b>change a mindset about "
+"data</b>. More than a Project focusing on learning ‘tools,’ it allowed us"
+" to go further, by going to the basics, and most needed: a data culture. "
+"Now we are working with different local journalism organizations — and "
+"different sections within them — for cooperating and start working "
+"towards more data-journalism. We are grateful for having being part of "
+"the Pilot, and we look forward for continued as part of an increasing "
+"community of a Data Culture Project."
+msgstr ""
+
+#: databasic/templates/culture/testimonials.html:49
+msgid ""
+"The DCP program helped us have conversations about how we use data as an "
+"organization. <b>The tools were accessible</b> and the pacing of the "
+"workshops was great. Doing workshops with Rahul and Catherine helped us "
+"carve out time to really focus on data analysis and discuss how we could "
+"use it better internally to hit our goals. DCP really helped us begin "
+"building better habits around data-driven storytelling."
+msgstr ""
+
+#: databasic/templates/culture/testimonials.html:56
+msgid ""
+"After conducting the DCP program with our partner companies, I saw a big "
+"change in how our partners treated data. In addition to more consistent "
+"data analysis and reporting, they were able to articulate how they were "
+"collecting data. Our partners enjoyed using WordCounter because it was "
+"highly accessible and enabled them to tell better stories. I’m still "
+"getting feedback from people who are trying it out for the first time and"
+" helping them apply it to their organizations."
+msgstr ""
+
+#: databasic/templates/culture/testimonials.html:63
+msgid ""
+"As a health research funder, MSFHR has many staff who work with data on a"
+" daily basis, but others in the organization are less familiar with how "
+"data informs the work we do. The Data Culture Project was a fun, "
+"accessible opportunity for teams across the organization to practice "
+"working with data, and got everyone talking and thinking about data in "
+"new ways. We were excited with the level of participation and "
+"particularly happy to see <b>folks who don’t typically use data in their "
+"day-to-day roles being engaged in the sessions</b>. Participating in the "
+"project helped boost our thinking about organization-wide data-"
+"mindedness, and we’re inspired to keep this good work going. Whether "
+"you’re a non-profit looking to spark more interest in data, promote data "
+"literacy in your team, or reflect on the role data plays in your work, "
+"the Data Culture Project is a great place to begin."
+msgstr ""
+
+#: databasic/templates/culture/word_webs.html:18
+msgid "Practice translating abstract ideas into concrete images"
+msgstr ""
+
+#: databasic/templates/culture/word_webs.html:27
+msgid "Big sheets of paper"
+msgstr ""
+
+#: databasic/templates/culture/word_webs.html:28
+msgid "Lots of pens of different colors "
+msgstr ""
+
+#: databasic/templates/culture/word_webs.html:29
+msgid "Sticky notes"
+msgstr ""
+
+#: databasic/templates/culture/word_webs.html:38
+msgid ""
+"Sometimes your data story is centered around an abstract idea, such as "
+"\"climate\", \"injustice\", or \"rights\". Abstract ideas are hard to "
+"picture, and even harder to draw. This activity helps you  brainstorm "
+"more concrete ideas that are related to the abstract concepts. It also "
+"helps you come up with visual symbols you could later incorporate into a "
+"visual design that tells your data story. Making word webs encourages "
+"collaborative teamwork and collective brainstorming."
+msgstr ""
+
+#: databasic/templates/culture/word_webs.html:46
+msgid ""
+"Begin by spreading out large pieces of paper, each with an abstract "
+"concept written in the middle.  The concepts should be from a data-driven"
+" story you are working with. Words like \"poverty\", \"injustice\", and "
+"\"happiness\" are all good examples of abstract concepts that come from "
+"data-driven stories."
+msgstr ""
+
+#: databasic/templates/culture/word_webs.html:47
+msgid ""
+"Give each participant a pen and break them up into groups of 5 or 6, with"
+" each group assigned to one of the pieces of paper you just showed. Tell "
+"the participants they should start by drawing a line from the central "
+"word and writing another word that they associate with the first one. "
+"Keep adding words connected to the first word or to the ones that other "
+"people add. Give the groups 6 minutes to brainstorm and write words.  "
+"Each paper should end up looking like a web of words, connected by lines."
+msgstr ""
+
+#: databasic/templates/culture/word_webs.html:49
+msgid ""
+"Once the time is up, hand out the sticky notes.  Give folks another five "
+"minutes to identify any words that can easily be sketched out, and then "
+"have them draw those on a note and stick it next to the word. "
+msgstr ""
+
+#: databasic/templates/culture/word_webs.html:57
+msgid ""
+"Bring everyone back together, and have each group hang the sheets of "
+"paper on the wall. Give participants a few minutes to walk around looking"
+" at what other groups created."
+msgstr ""
+
+#: databasic/templates/culture/word_webs.html:59
+msgid ""
+"Ask the full group about the connections they saw, the unique or "
+"unconventional ideas conveyed, and the pictures that stood out to them as"
+" iconic or effective. Highlight any drawings that carry a particular "
+"tone, or ones that may only make sense in certain contexts or cultures. "
+"Discuss which pictures are most effective for conveying the concept of "
+"the data-driven story you started with."
+msgstr ""
+
+#: databasic/templates/culture/word_webs.html:60
+msgid ""
+"Note that there are online sources which can help you brainstorm, such as"
+" the <a href=\"https://thenounproject.com\">Noun Project</a>."
+msgstr ""
+
 #: databasic/templates/home/index.html:16
 #: databasic/templates/wordcounter/wordcounter.html:22
 msgid ""
@@ -1557,11 +2292,15 @@ msgid ""
 "href='https://datacultureproject.org'>https://datacultureproject.org</a>"
 msgstr ""
 
-#: databasic/templates/home/index.html:55
+#: databasic/templates/home/index.html:47
+msgid "Join the Data Culture Project Now!"
+msgstr ""
+
+#: databasic/templates/home/index.html:58
 msgid "Why use DataBasic?"
 msgstr "Por que usar DataBasic?"
 
-#: databasic/templates/home/index.html:61
+#: databasic/templates/home/index.html:64
 msgid ""
 "Rahul Bhargava and Catherine D'Ignazio, creators of Databasic, describe "
 "how everyone can tell stories with data."
@@ -1569,15 +2308,15 @@ msgstr ""
 "Rahul Bhargava e Catherine D'Ignazio, criadores do Databasic, descrevem "
 "como todos podem contar histórias através de dados."
 
-#: databasic/templates/home/index.html:70
+#: databasic/templates/home/index.html:73
 msgid "About <strong>DataBasic</strong>"
 msgstr "Sobre <strong>DataBasic</strong>"
 
-#: databasic/templates/home/index.html:79
+#: databasic/templates/home/index.html:82
 msgid "Accessible to All"
 msgstr "Acessível para Todos"
 
-#: databasic/templates/home/index.html:80
+#: databasic/templates/home/index.html:83
 msgid ""
 "Digital technologies have empowered those with disabilities in a variety "
 "of ways, and new web standards have made it easier than ever to build new"
@@ -1592,11 +2331,11 @@ msgstr ""
 "que os deficientes visuais possam começar a trabalhar com dados em novas "
 "e excitantes maneiras."
 
-#: databasic/templates/home/index.html:84
+#: databasic/templates/home/index.html:87
 msgid "Doing One Thing Well"
 msgstr "Fazendo Uma Coisa Bem Feita"
 
-#: databasic/templates/home/index.html:85
+#: databasic/templates/home/index.html:88
 msgid ""
 "There are tons of tools for working with data; many so complex they are "
 "intimidating to even start with.  We've built each DataBasic tool to "
@@ -1610,11 +2349,11 @@ msgstr ""
 "você sabe exatamente para que cada pode usada.  Isto nos permite "
 "concentrar em fazer esta coisa de maneira simples e poderosa."
 
-#: databasic/templates/home/index.html:91
+#: databasic/templates/home/index.html:94
 msgid "Fitting in to Your Pipeline"
 msgstr "Ajustando na Sua "
 
-#: databasic/templates/home/index.html:92
+#: databasic/templates/home/index.html:95
 msgid ""
 "Working with data online always involves using a mishmash of tools. We're"
 " not going to solve that problem anytime soon.  So we've built DataBasic "
@@ -1631,11 +2370,11 @@ msgstr ""
 "duas das formas que tentamos lhe apresentar sobre como a maioria das "
 "pessoas trabalha dados online."
 
-#: databasic/templates/home/index.html:96
+#: databasic/templates/home/index.html:99
 msgid "Focused on Learning "
 msgstr "Focado em Aprendizado"
 
-#: databasic/templates/home/index.html:97
+#: databasic/templates/home/index.html:100
 msgid ""
 "Sometimes faster isn't better.  If you really want to learn how to work "
 "with data to find stories to tell, you'll need to use tools that do more "
@@ -1654,11 +2393,11 @@ msgstr ""
 "usar uma ferramenta?  Tente alguma das divertidas amostras de dados como "
 "letras de música e avistamentos de OVNIs que incluímos para começar."
 
-#: databasic/templates/home/index.html:103
+#: databasic/templates/home/index.html:106
 msgid "Ensuring Your Privacy"
 msgstr "Assegurando Sua Pricacidade"
 
-#: databasic/templates/home/index.html:104
+#: databasic/templates/home/index.html:107
 msgid ""
 "With more and more data-centric tools moving online, sometimes it can be "
 "hard to tell where your data is going and what will happen with it after "
@@ -1677,11 +2416,11 @@ msgstr ""
 "comunicações são via https, para que outras pessoas não possam espionar "
 "os dados enquanto são carregados."
 
-#: databasic/templates/home/index.html:108
+#: databasic/templates/home/index.html:111
 msgid "By Educators, for Educators"
 msgstr "De Educadores, para Educadores"
 
-#: databasic/templates/home/index.html:109
+#: databasic/templates/home/index.html:112
 msgid ""
 "Work with high-schoolers? Journalists? Community groups? Graduate "
 "students?  Us too!!!  That's why we designed and tested the DataBasic "
@@ -1696,39 +2435,39 @@ msgstr ""
 "ferramentas nasceram sem a frustração de coisas que estávamos tentando "
 "usar em nossas aulas de graduação, então sentimos sua dor."
 
-#: databasic/templates/home/index.html:119
+#: databasic/templates/home/index.html:122
 msgid "<strong>DataBasic</strong> News"
 msgstr "<strong>DataBasic</strong> News"
 
-#: databasic/templates/home/index.html:146
+#: databasic/templates/home/index.html:149
 msgid "Designed and Developed by"
 msgstr "Concebido e Programado por"
 
-#: databasic/templates/home/index.html:147
+#: databasic/templates/home/index.html:150
 msgid "Principal Investigators:"
 msgstr "Diretores:"
 
-#: databasic/templates/home/index.html:151
+#: databasic/templates/home/index.html:154
 msgid "Software development:"
 msgstr "Desenvolvimento de software:"
 
-#: databasic/templates/home/index.html:155
+#: databasic/templates/home/index.html:158
 msgid "Spanish translation:"
 msgstr "Tradução em espanhol:"
 
-#: databasic/templates/home/index.html:159
+#: databasic/templates/home/index.html:162
 msgid "Portuguese translation:"
 msgstr "Tradução em português:"
 
-#: databasic/templates/home/index.html:161
+#: databasic/templates/home/index.html:164
 msgid "with contributions from"
 msgstr "com a ajuda de"
 
-#: databasic/templates/home/index.html:163
+#: databasic/templates/home/index.html:166
 msgid "Spanish data sourcing:"
 msgstr "Dados em português contribuíram pelo:"
 
-#: databasic/templates/home/index.html:167
+#: databasic/templates/home/index.html:170
 msgid "Portuguese data sourcing:"
 msgstr "Dados em espanhol contribuíram pelo:"
 
@@ -2280,35 +3019,35 @@ msgstr ""
 "','activity-guide');\"> guia de atividades </a> para obter mais ajuda "
 "sobre fazer perguntas de conjuntos de dados."
 
-#: databasic/templates/wtfcsv/results.html:404
+#: databasic/templates/wtfcsv/results.html:420
 msgid "Categories"
 msgstr "Categorias"
 
-#: databasic/templates/wtfcsv/results.html:406
+#: databasic/templates/wtfcsv/results.html:422
 msgid "Counts"
 msgstr "Contagem"
 
-#: databasic/templates/wtfcsv/results.html:408
+#: databasic/templates/wtfcsv/results.html:424
 msgid "Dates"
 msgstr "Datas"
 
-#: databasic/templates/wtfcsv/results.html:410
+#: databasic/templates/wtfcsv/results.html:426
 msgid "Times"
 msgstr "Horários"
 
-#: databasic/templates/wtfcsv/results.html:412
+#: databasic/templates/wtfcsv/results.html:428
 msgid "Dates and times"
 msgstr "Datas e horários"
 
-#: databasic/templates/wtfcsv/results.html:414
+#: databasic/templates/wtfcsv/results.html:430
 msgid "Booleans"
 msgstr "Booleanos"
 
-#: databasic/templates/wtfcsv/results.html:416
+#: databasic/templates/wtfcsv/results.html:432
 msgid "Undefined"
 msgstr "Indefinido"
 
-#: databasic/templates/wtfcsv/results.html:426
+#: databasic/templates/wtfcsv/results.html:442
 msgid "# of rows"
 msgstr "# de linhas"
 
@@ -2394,7 +3133,7 @@ msgstr "seu texto"
 msgid "title"
 msgstr "título"
 
-#: databasic/views/wtfcsv.py:195
+#: databasic/views/wtfcsv.py:201
 msgid "Other"
 msgstr "Outro"
 
@@ -2442,4 +3181,126 @@ msgstr "Outro"
 
 #~ msgid "Your Email"
 #~ msgstr "seu texto"
+
+#~ msgid "Samples"
+#~ msgstr "Amostras"
+
+#~ msgid ""
+#~ "Before jumping into finding data or "
+#~ "telling stories, it's important to do"
+#~ " some warm ups to activate your "
+#~ "organization's data mindset. Warm ups "
+#~ "are quick, fun, hands-on activities "
+#~ "designed to activate conversation, catalyze"
+#~ " creative ideas and build confidence "
+#~ "to take the next step. For "
+#~ "example, lead colleagues to <strong>Build "
+#~ "Data Sculptures</strong> with craft materials"
+#~ " to explore different ways to "
+#~ "communicate the same simple data set."
+#~ "  Working with pompons, pipe cleaners, "
+#~ "or other local materials changes how "
+#~ "you approach data, letting you focus "
+#~ "on playfully quick ways to look "
+#~ "for stories."
+#~ msgstr ""
+#~ "Antes de passar à procura dos "
+#~ "dados ou a contar as histórias, é"
+#~ " importante fazer aquecimentos para ativar"
+#~ " a mentalidade de dados da sua "
+#~ "organização. Os aquecimentos são atividades"
+#~ " rápidas, divertidas e práticas, projetadas"
+#~ " para ativar a conversação, obter "
+#~ "idéias criativas e criar confiança para"
+#~ " dar o próximo passo. Por exemplo,"
+#~ " liderar pessoas para construir culturas"
+#~ " de dados com materiais artesanais no"
+#~ " objetivo de explorar diferentes formas "
+#~ "de comunicar o mesmo conjunto de "
+#~ "dados simples. Trabalhar com pompons, "
+#~ "limpadores de canos ou outros materiais"
+#~ " domésticos altera a forma como você"
+#~ " aborda os dados, permitindo que você"
+#~ " se concentre em maneiras divertidas "
+#~ "e rápidas de procurar histórias."
+
+#~ msgid ""
+#~ "Increasingly, data arrives on our "
+#~ "doorstep in the form of a "
+#~ "spreadsheet. Somebody sends you an excel"
+#~ " file or you download something from"
+#~ " the web. In this activity, you "
+#~ "will work with colleagues to ask "
+#~ "good questions of a spreadsheet so "
+#~ "that you can take it from data "
+#~ "points to data story. You will use"
+#~ " <a href='https://wtfcsv.databasic.io/'>Databasic.io's "
+#~ "WTFcsv tool</a>, get acquainted data "
+#~ "types, and do some basic spreadsheet "
+#~ "analysis.  '<em>csv</em>' stands for <em>comma"
+#~ " separated values</em>, a common "
+#~ "spreadsheet format on the web. "
+#~ "<em>WTF</em> stands for... well... the "
+#~ "question you ask when someone sends "
+#~ "you an inscrutable csv file."
+#~ msgstr ""
+#~ "Cada vez mais, os dados chegam a"
+#~ " nós na forma de uma planilha. "
+#~ "Alguém lhe envia um arquivo em "
+#~ "Excel ou você baixa algo da web."
+#~ " Nesta atividade, você trabalhará com "
+#~ "colegas para fazer boas perguntas a "
+#~ "respeito de uma planilha para que "
+#~ "você possa transformar os pontos de "
+#~ "dados para a história de dados. "
+#~ "Você usará a ferramenta WTFcsv da "
+#~ "Databasic.io, se familiarizará com os "
+#~ "tipos de dados e fará algumas "
+#~ "análises básicas de planilhas. 'csv' "
+#~ "significa valores separados por vírgulas, "
+#~ "um formato de planilha comum na "
+#~ "web. WTF significa ...bem...aquela pergunta"
+#~ " que você faz sempre que alguém "
+#~ "lhe envia um arquivo csv indecifrável."
+
+#~ msgid ""
+#~ "It is hard to go from data "
+#~ "to story.  This activity lets you "
+#~ "quickly do that by analyzing datasets"
+#~ " to find patterns in text, and "
+#~ "then sketching out some story you "
+#~ "find.  It introduces basic terminology "
+#~ "for quantitative text analysis, helps "
+#~ "you get acquainted with <a "
+#~ "href='https://wordcounter.databasic.io/'>Databasic.io's "
+#~ "WordCounter tool</a>a>, and prompts you "
+#~ "to consider places in your organization"
+#~ " where you work with text as "
+#~ "data.  Participants will pair up with"
+#~ " colleagues to search for stories in"
+#~ " some fun sample data and then "
+#~ "draw a sketch to share that story."
+#~ " Start the activity by playing the"
+#~ " kickoff video below for your group."
+#~ msgstr ""
+#~ "É difícil transformar os dados em "
+#~ "histórias. Esta atividade permite que "
+#~ "você faça isso rapidamente ao analisar"
+#~ " conjuntos de dados para encontrar "
+#~ "padrões no texto e, em seguida, "
+#~ "desenhar uma história que você "
+#~ "encontrar. Ela apresenta a terminologia "
+#~ "básica para análise de texto "
+#~ "quantitativo, ajuda você a se "
+#~ "familiarizar com a ferramenta WordCounter "
+#~ "do Databasic.io e orienta que você "
+#~ "considere lugares em sua organização "
+#~ "onde você trabalha com texto como "
+#~ "dados. Os participantes se juntarão com"
+#~ " colegas para procurar histórias em "
+#~ "alguns dados de amostra e, em "
+#~ "seguida, desenharão um esboço para "
+#~ "compartilhar essa história. Inicie a "
+#~ "atividade passando o vídeo inicial "
+#~ "abaixo para o seu grupo."
 
