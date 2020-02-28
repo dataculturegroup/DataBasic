@@ -494,6 +494,19 @@
     "modules": ["samediff", "wordcounter"],
     "lang": "da",
     "biography": "Referater fra Aarhus Byråd 1930-1945"
+  },
+  {
+    "title": "Les Misérables Character Co-occurence",
+    "source": "sample-data/en/les-miserables.csv",
+    "modules": ["connectthedots"],
+    "lang": "da",
+    "biography": "This is chart where each node is a character in Les Misérables, and each link indicates that they appear in a scene together.  This is called character co-occurrence.  This data was downloaded by Stephen Suen in 2016 from <a href=\"http://www-cs-staff.stanford.edu/~uno/sgb.html\">The Stanford GraphBase</a>."
+  },
+  {
+    "title": "Zachary's Karate Club",
+    "source": "sample-data/en/zachary-karate-club.csv",
+    "modules": ["connectthedots"],
+    "lang": "da",
+    "biography": "This is chart shows a social network within a university karate club.  This is a classic example in network science, used in academic papers since the mid 1970s.  This version of the dataset was created by Rahul Bhargava based on the network listed on <a href=\"https://en.wikipedia.org/wiki/Zachary's_karate_club\">the Wikipedia entry</a> in 2016."
   }
-
 ]
