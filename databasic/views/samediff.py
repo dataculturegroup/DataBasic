@@ -66,7 +66,7 @@ def index():
         if btn_value is not None and btn_value != '':
             return process_results(file_paths, titles, sample_id, btn_value)
 
-    return render_template('samediff/samediff.html', forms=forms.items(), tool_name='samediff', max_file_size_in_mb = g.max_file_size_mb)
+    return render_template('samediff/samediff.html', forms=list(forms.items()), tool_name='samediff', max_file_size_in_mb = g.max_file_size_mb)
 
 @mod.route('/results/<doc_id>')
 def results(doc_id):
@@ -75,7 +75,7 @@ def results(doc_id):
 
     try:
         job = mongo.find_document('samediff', doc_id)
-        if job['sample_id'] == u'':
+        if job['sample_id'] == '':
             remaining_days = mongo.get_remaining_days('samediff', doc_id)
     except:
         logger.warning("Unable to find doc '%s'", doc_id)

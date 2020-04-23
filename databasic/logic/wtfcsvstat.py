@@ -130,7 +130,7 @@ class WTFCSVStat():
             column_info['index'] = c.order + 1
             column_info['name'] = c.name
             
-            values = sorted(filter(lambda i: i is not None, c))
+            values = sorted([i for i in c if i is not None])
 
             stats = {} 
 

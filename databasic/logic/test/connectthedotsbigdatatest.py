@@ -28,17 +28,17 @@ class ConnectTheDotsBigDataTest(unittest.TestCase):
             return nx.betweenness_centrality(G)
 
         if len(TEST_CASES) > 0:
-            print '\n\n[ Runtime ]\n'
+            print('\n\n[ Runtime ]\n')
 
         for (V, E) in TEST_CASES:
-            print 'V = ' + str(V) + ', E = ' + str(E) + '\n'
+            print('V = ' + str(V) + ', E = ' + str(E) + '\n')
             G = generate_graph(V, E)
-            for i in xrange(NUM_TRIALS):
+            for i in range(NUM_TRIALS):
                 start = timeit.default_timer()
                 calculate_bc(G)
                 stop = timeit.default_timer()
-                print stop - start
-            print ''
+                print(stop - start)
+            print('')
         
     def test_bc_estimation(self):
         """
@@ -78,14 +78,14 @@ class ConnectTheDotsBigDataTest(unittest.TestCase):
                 return '--'
 
         if len(TEST_CASES) > 0:
-            print '\n\n[ Estimation ]\n'
+            print('\n\n[ Estimation ]\n')
 
         for (V, E, k) in TEST_CASES:
-            print 'V = ' + str(V) + ', E = ' + str(E) + ', k = ' + str(k) + '\n'
+            print('V = ' + str(V) + ', E = ' + str(E) + ', k = ' + str(k) + '\n')
             G = generate_graph(V, E)
             bc = calculate_bc(G)
 
-            for i in xrange(NUM_TRIALS):
+            for i in range(NUM_TRIALS):
                 # estimate = calculate_bc(G, key)
                 # print 'node   estimate   actual     error      % error'
                 # print '----   --------   --------   --------   --------'
@@ -100,10 +100,10 @@ class ConnectTheDotsBigDataTest(unittest.TestCase):
                 runtime = stop - start
                 max_error = 0
                 max_error_pct = 0
-                for key, val in estimate.iteritems():
+                for key, val in estimate.items():
                     error = abs(bc[key] - val)
                     max_error = max(max_error, error)
                     if bc[key] > 0:
                         max_error_pct = max(max_error_pct, error / bc[key])
-                print ', ' .join([round_float(max_error), '{:.1%}'.format(max_error_pct), str(runtime)])
-            print ''
+                print(', ' .join([round_float(max_error), '{:.1%}'.format(max_error_pct), str(runtime)]))
+            print('')

@@ -17,10 +17,10 @@ def common_and_unique_word_freqs(texts):
     common_d1_freqs = next(common_rows)
     common_d2_freqs = next(common_rows)
     total_uses = [t1 + t2 for t1,t2 in zip(common_d1_freqs,common_d2_freqs)]
-    common_word_freqs = zip(total_uses,common_terms)
+    common_word_freqs = list(zip(total_uses,common_terms))
     common_word_freqs.sort(reverse=True)
     # get word counts of common terms in each document
-    common_counts = [zip(common_d1_freqs, common_terms), zip(common_d2_freqs, common_terms)]
+    common_counts = [list(zip(common_d1_freqs, common_terms)), list(zip(common_d2_freqs, common_terms))]
     common_counts[0].sort(reverse=True)
     common_counts[1].sort(reverse=True)
     # get all the rows for unique-to-doc calculations

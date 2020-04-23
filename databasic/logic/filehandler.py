@@ -209,7 +209,7 @@ def open_workbook(book):
     for i, worksheet in enumerate(book.worksheets()):
         file_path = _get_temp_file('-' + worksheet.title + '.csv')
         with open(file_path, 'wb') as f:
-            writer = csv.writer(f, encoding=ENCODING_UTF_8, delimiter=str(u';'), quotechar=str(u'"'))
+            writer = csv.writer(f, encoding=ENCODING_UTF_8, delimiter=str(';'), quotechar=str('"'))
             writer.writerows(worksheet.get_all_values())
         file_paths.append(file_path)
     return file_paths
@@ -273,8 +273,8 @@ def _open_sheet(workbook, index):
     name = workbook.sheet_names()[index]
     new_file = _get_temp_file('-' + name + '.csv')
     with open(new_file, 'wb') as f:
-        writer = csv.writer(f, encoding=ENCODING_UTF_8, delimiter=str(u','), quotechar=str(u'"'))
-        for row in xrange(sh.nrows):
+        writer = csv.writer(f, encoding=ENCODING_UTF_8, delimiter=str(','), quotechar=str('"'))
+        for row in range(sh.nrows):
             writer.writerow(sh.row_values(row))
     return new_file
 

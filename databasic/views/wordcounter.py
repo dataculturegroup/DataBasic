@@ -87,7 +87,7 @@ def index():
             logger.debug("  saved")
             return redirect(request.url + 'results/' + doc_id + '?submit=true')
 
-    return render_template('wordcounter.html', forms=forms.items(), tool_name='wordcounter', max_file_size_in_mb = g.max_file_size_mb)
+    return render_template('wordcounter.html', forms=list(forms.items()), tool_name='wordcounter', max_file_size_in_mb = g.max_file_size_mb)
 
 
 @mod.route('/results/<doc_id>')
@@ -97,7 +97,7 @@ def results_for_doc(doc_id):
 
     try:
         doc = mongo.find_document('wordcounter', doc_id)
-        if doc['sample_id'] == u'':
+        if doc['sample_id'] == '':
             remaining_days = mongo.get_remaining_days('wordcounter', doc_id)
     except:
         logger.warning("Unable to find doc '%s'", doc_id)

@@ -1,4 +1,4 @@
-from __future__ import absolute_import
+
 import os
 from databasic import app, mongo
 #from databasic import mail

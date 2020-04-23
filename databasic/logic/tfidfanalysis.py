@@ -5,7 +5,7 @@ from nltk import FreqDist
 from nltk.corpus import stopwords
 import textmining
 from scipy import spatial
-import filehandler
+from . import filehandler
 
 def most_frequent_terms(*args):
     tdm = textmining.TermDocumentMatrix(simple_tokenize_remove_our_stopwords)
@@ -14,7 +14,7 @@ def most_frequent_terms(*args):
 
     freqs = []
     for d in tdm.sparse:
-        f = [(freq, name) for (name, freq) in d.items()]
+        f = [(freq, name) for (name, freq) in list(d.items())]
         f.sort(reverse=True)
         freqs.append(f)
     
@@ -68,9 +68,9 @@ def inverse_document_frequency(list_of_fdist_objects):
     t1 = time.time()
     [_count_incidence(term_doc_incidence,term) \
             for fdist in list_of_fdist_objects \
-            for term in fdist.keys() ]
+            for term in list(fdist.keys()) ]
     t2 = time.time()
-    idf = { term: math.log(float(doc_count)/float(incidence)) for term, incidence in term_doc_incidence.iteritems() }
+    idf = { term: math.log(float(doc_count)/float(incidence)) for term, incidence in term_doc_incidence.items() }
     t3 = time.time()
     logging.debug("   create df: %d" % (t2-t1))
     logging.debug("   create idf: %d" % (t3-t2))
@@ -83,7 +83,7 @@ def tf_idf(list_of_file_paths):
     doc_list = [ filehandler.convert_to_txt(file_path) for file_path in list_of_file_paths ]
     tf_list = [ term_frequency( doc_to_words(doc) ) for doc in doc_list ]   # a list of FreqDist objects
     idf = inverse_document_frequency(tf_list)
-    tf_idf_list = [ [{'term':term, 'tfidf':frequency*idf[term], 'frequency': frequency} for term, frequency in tf.iteritems()] for tf in tf_list ]
+    tf_idf_list = [ [{'term':term, 'tfidf':frequency*idf[term], 'frequency': frequency} for term, frequency in tf.items()] for tf in tf_list ]
     tf_idf_list = [ sorted(tf_idf, key=itemgetter('tfidf'), reverse=True)  for tf_idf in tf_idf_list ]
     return tf_idf_list
 
