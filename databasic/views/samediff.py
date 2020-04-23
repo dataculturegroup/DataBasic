@@ -33,7 +33,7 @@ def index():
             f1name = files[0].filename
             f2name = files[1].filename
             logger.debug("New from upload: %s & %s", f1name, f2name)
-            both = unicode(_('%(f1)s and %(f2)s', f1=f1name, f2=f2name))
+            both = _('%(f1)s and %(f2)s', f1=f1name, f2=f2name)
             titles = [f1name, both, f2name]
             # email = forms['upload'].data['email']
         elif btn_value == 'sample':
@@ -49,7 +49,7 @@ def index():
             file_paths = [ filehandler.get_sample_path(sample_source) for sample_source in sample_sources ]
             logger.debug("  loading from %s", ", ".join(file_paths))
             is_sample_data = True
-            both = unicode(_('%(f1)s and %(f2)s', f1=f1name, f2=f2name))
+            both = _('%(f1)s and %(f2)s', f1=f1name, f2=f2name)
             titles = [f1name, both, f2name]
             # email = forms['sample'].data['email']
         elif btn_value == 'link':
@@ -63,7 +63,7 @@ def index():
                            filehandler.write_to_temp_file(filehandler.download_webpage(url2)) ]
             titles = ['1', 'both', '2']
 
-        if btn_value is not None and btn_value is not u'':
+        if btn_value is not None and btn_value != '':
             return process_results(file_paths, titles, sample_id, btn_value)
 
     return render_template('samediff/samediff.html', forms=forms.items(), tool_name='samediff', max_file_size_in_mb = g.max_file_size_mb)
@@ -169,13 +169,13 @@ def stream_csv(data,prop_names,col_names):
             for p in prop_names:
                 value = row[p]
                 cleaned_value = value
-                if isinstance( value, ( int, long, float ) ):
+                if isinstance( value, ( intlong, float ) ):
                     cleaned_value = str(row[p])
                 else:
                     cleaned_value = '"'+value.encode('utf-8').replace('"','""')+'"'
                 attributes.append(cleaned_value)
             yield ','.join(attributes) + '\n'
         except Exception as e:
-            print "Couldn't process a CSV row: "+str(e)
-            print e
-            print row
+            logger.error("Couldn't process a CSV row: "+str(e))
+            logger.debug(e)
+            logger.debug(row)

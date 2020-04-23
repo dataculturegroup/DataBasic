@@ -1,5 +1,6 @@
-import codecs, community, json, logging, math, networkx as nx, operator, StringIO
-import filehandler
+import codecs, community, json, logging, networkx as nx, operator
+from io import StringIO
+import databasic.logic.filehandler as filehandler
 from csvkit import table
 from networkx.readwrite import json_graph
 

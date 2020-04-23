@@ -1,4 +1,4 @@
-from logic import filehandler
+from databasic.logic import filehandler
 from flask import request
 from flask_babel import lazy_gettext as _
 from flask_wtf import Form

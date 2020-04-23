@@ -11,7 +11,9 @@ from flask_sslify import SSLify
 from sassutils.wsgi import SassMiddleware
 import nltk
 
-import logic.filehandler, logic.db, logic.oauth
+import databasic.logic.filehandler
+import databasic.logic.db
+import databasic.logic.oauth
 
 
 VALID_LANGUAGES = ('es', 'en', 'pt', 'da')
@@ -32,8 +34,8 @@ APP_MODE_PRODUCTION = "production"
 app_mode = os.environ.get(ENV_APP_MODE, None)
 
 # ATTEMPTING UNICODE FIX
-reload(sys)
-sys.setdefaultencoding('utf-8')
+#reload(sys)
+#sys.setdefaultencoding('utf-8')
 
 
 if app_mode is None:
@@ -114,11 +116,11 @@ assets.register('css_base', css_bundle)
 
 # initialize helper components
 babel = Babel(app)
-mongo = logic.db.MongoHandler(app.config.get('MONGODB_URL'), app.config.get('MONGODB_NAME'))
-logic.oauth.init(app.config.get('GOOGLE_CLIENT_ID'), app.config.get('GOOGLE_CLIENT_SECRET'),
+mongo = databasic.logic.db.MongoHandler(app.config.get('MONGODB_URL'), app.config.get('MONGODB_NAME'))
+databasic.logic.oauth.init(app.config.get('GOOGLE_CLIENT_ID'), app.config.get('GOOGLE_CLIENT_SECRET'),
                  app.config.get('OAUTH_REDIRECT_URI'))
-logic.filehandler.init_uploads()
-logic.filehandler.init_samples()
+databasic.logic.filehandler.init_uploads()
+databasic.logic.filehandler.init_samples()
 local_nltk_path = os.path.join(get_base_dir(), 'nltk_data')
 logger.info("Adding nltk path %s", local_nltk_path)
 nltk.data.path.append(local_nltk_path)
@@ -206,8 +208,8 @@ def auth():
         logger.debug('permission was not granted')
     else:
         logger.debug(request.args['code'])
-        logic.oauth.authorize(request.args['code'])
-    return redirect(logic.oauth.redirect_to())
+        databasic.logic.oauth.authorize(request.args['code'])
+    return redirect(databasic.logic.oauth.redirect_to())
 
 
 @app.route('/favicon.ico')

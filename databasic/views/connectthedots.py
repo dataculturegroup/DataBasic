@@ -64,7 +64,7 @@ def index():
             logger.debug('[CTD] New doc from upload: %s', upload_file.filename)
             results = process_upload(upload_file, has_header_row)
 
-        if (results is not None) and (btn_value is not None) and (btn_value is not u'') and ('json' in results):
+        if (results is not None) and (btn_value is not None) and (btn_value != u'') and ('json' in results):
             logger.debug('[CTD] Redirecting to render new doc from %s', btn_value)
             return redirect_to_results(results, btn_value, sample_id)
         else:

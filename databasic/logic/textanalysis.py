@@ -35,10 +35,10 @@ def common_and_unique_word_freqs(texts):
     d2 = [ (f2,t) for t,f2 in zip(all_terms,all_d2_freqs) if f2>0]
     d2.sort(reverse=True)
     # get the unique doc1 words
-    unique_to_d1 = [ (f1,t) for t,f1,f2 in zip(all_terms,all_d1_freqs,all_d2_freqs) if f2 is 0]
+    unique_to_d1 = [ (f1,t) for t,f1,f2 in zip(all_terms,all_d1_freqs,all_d2_freqs) if f2 == 0]
     unique_to_d1.sort(reverse=True)
     # get the unique doc2 words
-    unique_to_d2 = [ (f2,t) for t,f1,f2 in zip(all_terms,all_d1_freqs,all_d2_freqs) if f1 is 0]
+    unique_to_d2 = [ (f2,t) for t,f1,f2 in zip(all_terms,all_d1_freqs,all_d2_freqs) if f1 == 0]
     unique_to_d2.sort(reverse=True)
     # compute cosine similarity too
     cosine_similarity = ( 1 - spatial.distance.cosine(all_d1_freqs,all_d2_freqs) )

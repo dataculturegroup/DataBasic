@@ -60,7 +60,7 @@ def index():
         else:
             results = None
 
-        if btn_value is not None and btn_value is not u'':
+        if btn_value is not None and btn_value == '':
             return redirect_to_results(results, btn_value, sample_id)
 
     return render_template('wtfcsv.html', forms=forms.items(), tool_name='wtfcsv',
