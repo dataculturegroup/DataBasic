@@ -2,14 +2,14 @@ cssmin==0.2.0
 # can't upgrade csvkit because the API changed a lot at 1.0 (switched to agate)
 csvkit==0.9.2
 feedparser==5.2.1
-Flask==1.1.2
-Flask-Assets==2.0
-Flask-Babel==1.0.0
-Flask-DebugToolbar==0.11.0
+Flask==1.0.3
+Flask-Assets==0.12
+Flask-Babel==0.12.2
+Flask-DebugToolbar==0.10.1
 Flask-Mail==0.9.1
-Flask-SSLify==0.1.5
-Flask-Uploads==0.2.1
-Flask-WTF==0.14.3
+Flask-SSLify==0.1.4
+flask-uploads==0.2.1
+Flask-WTF==0.12
 gdata-python3==3.0.1
 newspaper3k==0.2.8
 gspread==0.2.5
@@ -37,3 +37,4 @@ textmining3==1.1.0
 docx2txt==0.8
 WTForms==2.2.1
 xlrd==1.0.0
+werkzeug==0.16.1
