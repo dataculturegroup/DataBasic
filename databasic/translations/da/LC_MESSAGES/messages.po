@@ -2546,7 +2546,7 @@ msgid ""
 "should keep %(normalized)s on."
 msgstr ""
 "De to dokumenter har forskelligt omfang, for at gøre din sammenligning "
-"rimelig bør du lade  %(normalized) være aktiv."
+"rimelig bør du lade %(normalized)s være aktiv."
 
 #: databasic/templates/samediff/results.html:43
 #: databasic/templates/samediff/results.html:46
@@ -2990,7 +2990,7 @@ msgstr ""
 #: databasic/templates/wtfcsv/results.html:167
 #, fuzzy, python-format
 msgid "%(rows)s rows of data grouped into %(cols)s columns."
-msgstr "%(row)s rækker af data grupperet ind i %(cols)s kolonner."
+msgstr "%(rows)s rækker af data grupperet ind i %(cols)s kolonner."
 
 #: databasic/templates/wtfcsv/results.html:171
 #, python-format
