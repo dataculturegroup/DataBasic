@@ -2,6 +2,7 @@ import codecs, json, networkx as nx, operator, os, unittest
 import databasic.logic.connectthedots as ctd
 import databasic.logic.filehandler as filehandler
 from csvkit import table
+from functools import reduce
 
 class ConnectTheDotsTest(unittest.TestCase):
     """
@@ -92,10 +93,10 @@ class ConnectTheDotsTest(unittest.TestCase):
         graph = ctd.get_graph(test_data_path)
 
         table = results['table']
-        self.assertEqual(table[0]['id'], u'Valjean')
+        self.assertEqual(table[0]['id'], 'Valjean')
 
         nodes = graph.nodes()
-        nodes.remove(u'Valjean')
+        nodes.remove('Valjean')
 
         betweenness_centrality = 0
         visited_paths = []
@@ -109,7 +110,7 @@ class ConnectTheDotsTest(unittest.TestCase):
                     visited_paths.append(current_path)
                     paths = list(nx.all_shortest_paths(graph, u, v))
                     total_paths = len(paths)
-                    paths_with_valjean = reduce(lambda n, path: n + 1 if u'Valjean' in path else n, paths, 0)
+                    paths_with_valjean = reduce(lambda n, path: n + 1 if 'Valjean' in path else n, paths, 0)
                     betweenness_centrality += paths_with_valjean / float(total_paths)
 
         node_pairs = len(nodes) * (len(nodes) - 1) / float(2)
@@ -129,7 +130,7 @@ class ConnectTheDotsTest(unittest.TestCase):
         results = ctd.get_summary(test_data_path)
         table = results['table']
 
-        self.assertEqual(table[0]['id'], u'C')
+        self.assertEqual(table[0]['id'], 'C')
         self.assertEqual(table[0]['centrality'], 1)
         for i in range(1, 5):
             self.assertEqual(table[i]['centrality'], 0)
@@ -139,7 +140,7 @@ class ConnectTheDotsTest(unittest.TestCase):
         results = ctd.get_summary(test_data_path)
         table = sorted(results['table'], key=operator.itemgetter('degree'), reverse=True)
 
-        self.assertEqual(table[0]['id'], u'Valjean')
+        self.assertEqual(table[0]['id'], 'Valjean')
         self.assertEqual(table[0]['degree'], 36) # counted manually
 
     def test_degree_scores_simple(self):
@@ -154,7 +155,7 @@ class ConnectTheDotsTest(unittest.TestCase):
         results = ctd.get_summary(test_data_path)
         table = sorted(results['table'], key=operator.itemgetter('degree'), reverse=True)
 
-        self.assertEqual(table[0]['id'], u'C')
+        self.assertEqual(table[0]['id'], 'C')
         self.assertEqual(table[0]['degree'], 4)
         for i in range(1, 5):
             self.assertEqual(table[i]['degree'], 1)
@@ -180,12 +181,12 @@ class ConnectTheDotsTest(unittest.TestCase):
         edges = sorted(data['links'], key=lambda e: (nodes[e['source']]['id'], nodes[e['target']]['id']))
 
         self.assertEqual(len(edges), 4)
-        self.assertEqual(nodes[edges[0]['source']]['id'], u'A')
-        self.assertEqual(nodes[edges[0]['target']]['id'], u'C')
+        self.assertEqual(nodes[edges[0]['source']]['id'], 'A')
+        self.assertEqual(nodes[edges[0]['target']]['id'], 'C')
 
         targets = ['B', 'D', 'E']
         for n in range(1, 4):
-            self.assertEqual(nodes[edges[n]['source']]['id'], u'C')
+            self.assertEqual(nodes[edges[n]['source']]['id'], 'C')
             self.assertEqual(nodes[edges[n]['target']]['id'], targets[n - 1])
 
     def test_as_gexf(self):
@@ -203,11 +204,11 @@ class ConnectTheDotsTest(unittest.TestCase):
         results = ctd.get_summary(test_data_path)
         data = json.loads(results['json'])
         nodes = data['nodes']
-        cols = {u'BRENDA': 0, u'CHARLOTTE': 0, u'DOROTHY': 0, u'ELEANOR': 0, u'EVELYN': 0, u'FLORA': 0,
-                u'FRANCES': 0, u'HELEN': 0, u'KATHERINE': 0, u'LAURA': 0, u'MYRNA': 0, u'NORA': 0,
-                u'OLIVIA': 0, u'PEARL': 0, u'RUTH': 0, u'SYLVIA': 0, u'THERESA': 0, u'VERNE': 0,
-                u'E1': 1, u'E10': 1, u'E11': 1, u'E12': 1, u'E13': 1, u'E14': 1, u'E2': 1, u'E3': 1,
-                u'E4': 1, u'E5': 1, u'E6': 1, u'E7': 1, u'E8': 1, u'E9': 1}
+        cols = {'BRENDA': 0, 'CHARLOTTE': 0, 'DOROTHY': 0, 'ELEANOR': 0, 'EVELYN': 0, 'FLORA': 0,
+                'FRANCES': 0, 'HELEN': 0, 'KATHERINE': 0, 'LAURA': 0, 'MYRNA': 0, 'NORA': 0,
+                'OLIVIA': 0, 'PEARL': 0, 'RUTH': 0, 'SYLVIA': 0, 'THERESA': 0, 'VERNE': 0,
+                'E1': 1, 'E10': 1, 'E11': 1, 'E12': 1, 'E13': 1, 'E14': 1, 'E2': 1, 'E3': 1,
+                'E4': 1, 'E5': 1, 'E6': 1, 'E7': 1, 'E8': 1, 'E9': 1}
 
         self.assertTrue(results['bipartite'])
         for n in nodes:

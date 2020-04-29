@@ -14,7 +14,7 @@ The suite includes:
 Installation
 ------------
 
-DataBasic is a Python 2.7 [Flask](https://github.com/mitsuhiko/flask) app.
+DataBasic is a Python 3.x [Flask](https://github.com/mitsuhiko/flask) app.
 
 **1.** Clone this repository and cd into it.
 ```
@@ -81,7 +81,7 @@ python dbutils.py -rm-samples
 Translating
 -----------
 
-We have built DataBasic to support multiple langauges in the user interface.
+We have built DataBasic to support multiple languages in the user interface.
 
 ### Setup
 ```

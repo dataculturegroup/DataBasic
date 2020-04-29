@@ -1,4 +1,3 @@
-# coding=utf-8
 import logging
 import random
 from flask import Blueprint, render_template
@@ -13,36 +12,36 @@ def index():
     # TODO: move to .json file for easier maintenance
     quotes = [
         {
-            'text': u"The Data Culture Project allowed us to <b>change a mindset about data",
-            'author': u"Andrés Felipe Vera Ramírez, El Mundo/Radio Clarin"
+            'text': "The Data Culture Project allowed us to <b>change a mindset about data",
+            'author': "Andrés Felipe Vera Ramírez, El Mundo/Radio Clarin"
         },
         {
-            'text': u"The DCP program helped us <b>look at data in a different way</b>",
-            'author': u"Jennifer Connolly, Junior Achievement of Western Massachusetts"
+            'text': "The DCP program helped us <b>look at data in a different way</b>",
+            'author': "Jennifer Connolly, Junior Achievement of Western Massachusetts"
         },
         {
-            'text': u"This program was <b>accessible</b> to people of all levels",
-            'author': u"Jennifer Connolly, Junior Achievement of Western Massachusetts"
+            'text': "This program was <b>accessible</b> to people of all levels",
+            'author': "Jennifer Connolly, Junior Achievement of Western Massachusetts"
         },
         {
-            'text': u"The tools were <b>accessible</b> and the pacing of the workshops was great",
-            'author': u"Michael Morisy, MuckRock"
+            'text': "The tools were <b>accessible</b> and the pacing of the workshops was great",
+            'author': "Michael Morisy, MuckRock"
         },
         {
-            'text': u"Folks who don’t typically use data in their day-to-day <b>roles engaged in the sessions</b>",
-            'author': u"Michael Smith Foundation for Health Research"
+            'text': "Folks who don’t typically use data in their day-to-day <b>roles engaged in the sessions</b>",
+            'author': "Michael Smith Foundation for Health Research"
         },
         {
-            'text': u"I saw a <b>big change</b> in how our partners treated data",
-            'author': u"Erika Lapsys, Telluride Foundation"
+            'text': "I saw a <b>big change</b> in how our partners treated data",
+            'author': "Erika Lapsys, Telluride Foundation"
         },
         {
-            'text': u"For the first time, the numbers [from our grantees] were <b>consistent</b>",
-            'author': u"Erika Lapsys, Telluride Foundation"
+            'text': "For the first time, the numbers [from our grantees] were <b>consistent</b>",
+            'author': "Erika Lapsys, Telluride Foundation"
         },
         {
-            'text': u"Participants started looking at ... which piece of data is <b>more relevant</b> for which type of stakeholder",
-            'author': u"Maryna Taran, World Food Programme"
+            'text': "Participants started looking at ... which piece of data is <b>more relevant</b> for which type of stakeholder",
+            'author': "Maryna Taran, World Food Programme"
     }
     ]
     return render_template('culture.html', featured_quote=random.choice(quotes))

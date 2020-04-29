@@ -36,7 +36,7 @@ def _create_words(text, ignore_case):
     return [w for w in words if not w in string.punctuation]
 
 def _sort_count_list(freq_dist):
-    items = freq_dist.items()
+    items = list(freq_dist.items())
     return sorted(items, key=itemgetter(1), reverse=True)
 
 def _count_words(words, ignore_stop_words, stopwords_language):

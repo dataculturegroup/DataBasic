@@ -60,10 +60,10 @@ def index():
         else:
             results = None
 
-        if btn_value is not None and btn_value is not u'':
+        if btn_value is not None and btn_value == '':
             return redirect_to_results(results, btn_value, sample_id)
 
-    return render_template('wtfcsv.html', forms=forms.items(), tool_name='wtfcsv',
+    return render_template('wtfcsv.html', forms=list(forms.items()), tool_name='wtfcsv',
                            max_file_size_in_mb=g.max_file_size_mb)
 
 
@@ -132,7 +132,7 @@ def render_results(doc_id, sheet_idx):
     doc = mongo.find_document('wtfcsv', doc_id)
     results = doc.get('results')
 
-    if doc['sample_id'] == u'':
+    if doc['sample_id'] == '':
         remaining_days = mongo.get_remaining_days('wtfcsv', doc_id)
     else:
         remaining_days = None

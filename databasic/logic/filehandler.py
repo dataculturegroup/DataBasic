@@ -1,11 +1,12 @@
 import requests
-from goose import Goose
-import os, datetime, time, tempfile, codecs, unicodecsv, json, xlrd, logging
+from newspaper import Article
+import os, datetime, time, tempfile, codecs, json, xlrd, logging
 from pyth.plugins.rtf15.reader import Rtf15Reader
 from pyth.plugins.plaintext.writer import PlaintextWriter
 from flask import Response, abort
-from flask_uploads import UploadSet, configure_uploads, UploadNotAllowed
+import csv
 import docx2txt
+from werkzeug.utils import secure_filename
 
 import databasic
 
@@ -18,16 +19,7 @@ TEMP_DIR = tempfile.gettempdir()
 
 samples = []
 docs = None
-
-
-def init_uploads():
-    global docs
-    global TEMP_DIR
-    logger.info("Uploads will be written to %s", TEMP_DIR)
-    databasic.app.config['UPLOADED_DOCS_DEST'] = TEMP_DIR
-    docs = UploadSet(name='docs', extensions=('txt', 'docx', 'rtf', 'csv', 'xlsx', 'xls'))
-    configure_uploads(databasic.app, docs)
-    # patch_request_class(databasic.app, 10 * 1024 * 1024) # 100MB
+ACCEPTED_EXTENSIONS = ['txt', 'docx', 'rtf', 'csv', 'xlsx', 'xls']
 
 
 def init_samples():
@@ -46,7 +38,7 @@ def init_samples():
             url = url_base + sample['source']
             logger.info("Loading sample data file: %s" % url)
             text = requests.get(url).text
-            f = tempfile.NamedTemporaryFile(delete=False)
+            f = tempfile.NamedTemporaryFile(mode="w", delete=False)
             f.write(text)
             f.close()
             sample['path'] = f.name
@@ -68,7 +60,7 @@ def write_to_temp_file(text):
 def write_to_csv(headers, rows, file_name_suffix=None, timestamp=True):
     file_path = _get_temp_file(file_name_suffix, timestamp)
     with open(file_path, 'w') as f:
-        writer = unicodecsv.writer(f, encoding=ENCODING_UTF_8)
+        writer = csv.writer(f, encoding=ENCODING_UTF_8)
         writer.writerow(headers)
         for row in rows:
             writer.writerow(row)
@@ -82,7 +74,7 @@ def generate_csv(file_path):
 
     def generate():
         with open(file_path, 'r') as f:
-            reader = unicodecsv.reader(f, encoding=ENCODING_UTF_8)
+            reader = csv.reader(f, encoding=ENCODING_UTF_8)
             for row in reader:
                 yield ','.join(row) + '\n'
 
@@ -179,12 +171,10 @@ def convert_to_csv(file_path):
 
 
 def open_doc(doc):
-    try:
-        file_name = docs.save(doc)
-        file_path = os.path.join(TEMP_DIR, file_name)
-        return file_path
-    except UploadNotAllowed:
-        logger.error("supported filetypes: txt, docx, rtf, csv, xlsx, xls, love")
+    filename = secure_filename(doc.filename)
+    file_path = os.path.join(TEMP_DIR, filename)
+    doc.save(file_path)
+    return file_path
 
 
 def open_docs(doc_list):
@@ -208,7 +198,7 @@ def open_workbook(book):
     for i, worksheet in enumerate(book.worksheets()):
         file_path = _get_temp_file('-' + worksheet.title + '.csv')
         with open(file_path, 'wb') as f:
-            writer = unicodecsv.writer(f, encoding=ENCODING_UTF_8, delimiter=str(u';'), quotechar=str(u'"'))
+            writer = csv.writer(f, encoding=ENCODING_UTF_8, delimiter=str(';'), quotechar=str('"'))
             writer.writerows(worksheet.get_all_values())
         file_paths.append(file_path)
     return file_paths
@@ -254,16 +244,17 @@ def get_file_names(file_paths):
 
 def generate_filename(ext, suffix, *args):
     files = '-'.join(args) + '-' if len(args) > 0 else ''
-    suffix = suffix + '-' if suffix is not None and suffix is not '' else ''
+    suffix = suffix + '-' if suffix is not None and suffix != '' else ''
     suffix = suffix.replace(' ', '-')
     ext = ext[1:] if '.' in ext[0] else ext
     return files + suffix + datetime.datetime.now().strftime("%Y%m%d-%H%M%S") + '.' + ext
 
 
 def download_webpage(url):
-    g = Goose()
-    article = g.extract(url=url)
-    return {'title': article.title, 'text': article.cleaned_text}
+    article = Article(url)
+    article.download()
+    article.parse()
+    return {'title': article.title, 'text': article.text}
 
 
 def _open_sheet(workbook, index):
@@ -271,8 +262,8 @@ def _open_sheet(workbook, index):
     name = workbook.sheet_names()[index]
     new_file = _get_temp_file('-' + name + '.csv')
     with open(new_file, 'wb') as f:
-        writer = unicodecsv.writer(f, encoding=ENCODING_UTF_8, delimiter=str(u','), quotechar=str(u'"'))
-        for row in xrange(sh.nrows):
+        writer = csv.writer(f, encoding=ENCODING_UTF_8, delimiter=str(','), quotechar=str('"'))
+        for row in range(sh.nrows):
             writer.writerow(sh.row_values(row))
     return new_file
 

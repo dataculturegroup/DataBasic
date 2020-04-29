@@ -22,7 +22,7 @@ class MongoHandler:
             'counts': counts,
             'ignore_case': ignore_case,
             'ignore_stopwords': ignore_stopwords,
-            'title': unicode(title),
+            'title': title,
             'sample_id': str(sample_id),
             'source': source,
             'created_at': time.time(),
@@ -92,9 +92,9 @@ class MongoHandler:
         docs = self._db[collection].find({'_id': {'$lt': _id}, 'sample_id': ''})
         for d in docs:
             if 'title' in d:
-                print collection + ': removing ' + d['title']
+                logger.info(collection + ': removing ' + d['title'])
             else:
-                print collection + ': removing (no name)'
+                logger.info(collection + ': removing (no name)')
         self._db[collection].remove({'_id': {'$lt': _id}, 'sample_id': ''})
 
     def remove_all_expired_results(self):

@@ -10,11 +10,11 @@ import math
 import logging
 import six
 import codecs
-import wordhandler
+import databasic.logic.wordhandler as wordhandler
 import numpy.random
 from csvkit import table
 from dateutil.parser import parse
-import filehandler
+import databasic.logic.filehandler as filehandler
 
 from databasic import NLTK_STOPWORDS_BY_LANGUAGE
 
@@ -130,7 +130,7 @@ class WTFCSVStat():
             column_info['index'] = c.order + 1
             column_info['name'] = c.name
             
-            values = sorted(filter(lambda i: i is not None, c))
+            values = sorted([i for i in c if i is not None])
 
             stats = {} 
 
@@ -148,7 +148,7 @@ class WTFCSVStat():
             sampled_value_count = len(sampled_values)
 
             for v in sampled_values:
-                if type(v) in [float, int, long, complex] or self.is_number(unicode(v)):
+                if type(v) in [float, int, complex] or self.is_number(v):
                     number_count += 1
                 if self.is_date(v) is not None:
                     v = self.is_date(v)
@@ -193,7 +193,7 @@ class WTFCSVStat():
                 values = [ self.is_number(v) for v in values if self.is_number(v) is not None ]
                 new_len = len(values)
                 #logger.debug("    removed %d bad values" % (old_len-new_len))
-            elif c.type == unicode:
+            elif c.type == str:
                 old_len = len(values)
                 values = [ v for v in values if v != '&nbsp;' ]
                 new_len = len(values)
@@ -342,7 +342,7 @@ class WTFCSVStat():
         return set(values) 
 
     def get_freq(self, c, values, stats):
-        if c.type not in [int, float, long, complex]:
+        if c.type not in [int, float, complex]:
             mostfrequent = freq(values)
         else:
             mostfrequent = freq(values, n=NUMBER_MAX_UNIQUE)
@@ -368,7 +368,7 @@ class WTFCSVStat():
             range_size = (mx-mn)/10
 
         decile_groups = []
-        for x in xrange(10):
+        for x in range(10):
             decile_groups.append(mn+(range_size*x))
 
         def get_values_in_range(from_val, to_val):
@@ -388,7 +388,7 @@ class WTFCSVStat():
                 return str(round(val*100)/100).replace('.0','')
 
         deciles = []
-        for d in xrange(len(decile_groups)-1):
+        for d in range(len(decile_groups)-1):
             from_val = decile_groups[d]
             to_val = decile_groups[d+1]
             deciles.append(get_values_in_range(from_val, to_val))
@@ -439,7 +439,7 @@ def format_datetime(c, val):
             return "%02d:%02d" % (val.hour,val.minute)
         else:
             return "%02d/%02d/%02d %02d:%02d" % (val.day,val.month,val.year,val.hour,val.minute)
-    return unicode(val)
+    return val
 
 def median(l):
     """

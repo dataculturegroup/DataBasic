@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2020-04-22 12:55-0400\n"
-"PO-Revision-Date: 2019-09-10 16:00+0100\n"
+"POT-Creation-Date: 2020-04-28 10:44-0400\n"
+"PO-Revision-Date: 2020-04-28 13:18+0200\n"
 "Last-Translator: Jane Kunze <jku@aarhus.dk>\n"
 "Language: da_DK\n"
 "Language-Team: da <LL@li.org>\n"
@@ -252,8 +252,8 @@ msgid ""
 "These simple tools make it easy to work with data in fun ways, so you can"
 " learn how to find great stories to tell."
 msgstr ""
-"Disse simple værktøjer gør det let og sjovt at identificere den gode "
-"historie bag tallene."
+"Disse simple værktøjer gør det let og sjovt at arbejde med data, så du "
+"kan lære at identificere den gode historie bag tallene."
 
 #: databasic/templates/macros.html:6
 msgid "choose input type"
@@ -883,15 +883,15 @@ msgid ""
 "running them yourself. People at more than 30 organizations have done so "
 "already - from a local public library, to the World Food Progam."
 msgstr ""
-"Med vores selvbetjeningsløsning kan du introducere emnet på en sjov og "
-"kreativ måde for personer uden teknisk interesse. Her finder du ingen "
-"kedelige regneark. De gratis værktøjer og aktiviteter giver hands-on "
-"erfaring ved at møde folk, der hvor de er - på tværs af din organisation "
-"- og øger deres evne til at arbejde med data. Kick-start eksempelvis "
-"jeres datakultur med afvikling af en aktivitet om måneden, som en "
-"madpakke. Herunder finder du videoer, der klæder dig på til at afvikle "
-"aktiviteterne. Personer fra mere end 30 organisationer benytter dem "
-"allerede - fra lokalbiblioteker til globale fødevareprogrammer"
+"Du kan bruge vores selvbetjente program til at lave sjove, kreative "
+"introduktioner til ikke-teknisk personale i din organization. Der er ikke"
+" tale om kedelige øvelser med regneark. Værktøjer og aktiviteter er alle "
+"hands-on og designet til at møde folk, hvor de end arbejder i din "
+"organisation og opbygge deres datakompetencer. Du kan sætte gang i din "
+"organisations datakultur ved at afvikle en aktivitet om måneden. Videoer "
+"og guides nedenfor vil klæde dig på til at afvikle aktiviteterne selv. "
+"Der er allerede folk i mere end 30 organisationer, som har prøvet det "
+"allerede - fra det lokale bibliotek til World Food Program."
 
 #: databasic/templates/culture/culture.html:44
 msgid ""
@@ -933,6 +933,16 @@ msgid ""
 " skills in understanding data visualizations, and developing a strong "
 "data-driven narrative arc of your own."
 msgstr ""
+"Inden I går i gang med at finde data eller fortælle datahistorier, skal I"
+" varme jeres data mindset lidt op. Opvarmningsøvelserne er hurtige, sjove"
+" hands-on aktiviteter, der er designet til at skabe samtale, nye ideer og"
+" selvtillid til at tage det næste skridt ud i dataenes verden. F.eks. kan"
+" du sætte kollegaerne i gang med at bygge "
+"<strong>dataskulpturer</strong>med forskellige krea-materialer for at få "
+"dem til at udforske de mange forskellige måder man kan kommunikere et "
+"datasæt på. Når I bruger kvaster, piberensere og andre krea-materialer "
+"til at arbejde med data, så for I en anden legende tilgang til at finde "
+"datahistorier."
 
 #: databasic/templates/culture/culture.html:67
 #: databasic/templates/culture/sculpture.html:5
@@ -949,7 +959,7 @@ msgstr ""
 #: databasic/templates/culture/culture.html:80
 #: databasic/templates/culture/culture.html:107
 msgid "Ask Good Questions"
-msgstr "Stil gode spørgsmål"
+msgstr "Still gode spørgsmål"
 
 #: databasic/templates/culture/culture.html:83
 #: databasic/templates/culture/paper_spreadsheet.html:17
@@ -974,10 +984,10 @@ msgstr ""
 "Hvilke spørgsmål kan (eller kan ikke) besvares med data? Og når du nu er "
 "begyndt med at kigge på rækkerne og kolonnerne, hvordan kan du så skabe "
 "mening i dem? Her lærer du at tage de første skridt ud i dataanalyse ved "
-"at stille gode spørgsmål. <strong>Brug WTFcsv</strong> for hurtigt at "
-"skabe overblik i et regneark, lav en brainstorm på relevante spørgsmål, "
-"se efter potentielle relationer til andre datasæt og de potentielle bias,"
-" som du måske selv har med. Husk, data siger ikke noget i sig selv, du "
+"at stille gode spørgsmål.<strong>Brug WTFcsv</strong>for hurtigt at skabe"
+" overblik i et regneark, lav en brainstorm på relevante spørgsmål, se "
+"efter potentielle relationer til andre datasæt og de potentielle bias, "
+"som du måske selv har med. Husk, data siger ikke noget i sig selv, du "
 "hjælper dataene med at formidle et budskab, bl.a. ved at starte med at "
 "stille bedre spørgsmål "
 
@@ -1009,9 +1019,9 @@ msgstr ""
 "fortælle en stærk historie. Som man siger, 'du bliver, hvad du spiser'. "
 "Du skal også huske på, at dine spørgsmål måske ikke kan besvares ud fra "
 "et datasæt. At kombinere datasæt er ofte den bedste måde at skabe en "
-"detaljeret historie på. <strong>Brug Connect the Dots</strong> for at "
+"detaljeret historie på. <strong>Brug Connect the Dots</strong>for at "
 "udforske data fra dit publikum som et netværk. <strong>Brug "
-"WTFcsv</strong> til at overveje, hvordan du kan samle de relevante data "
+"WTFcsv</strong>til at overveje, hvordan du kan samle de relevante data "
 "til at besvare dit spørgsmål."
 
 #: databasic/templates/culture/culture.html:104
@@ -1058,7 +1068,7 @@ msgstr ""
 " Der er mange måder man kan finde en datahistorie på. <strong>Brug "
 "WordCounter</strong> for at lære tekstanalyse som baggrund til at finde "
 "datahistorier. <strong>Brug Connect the Dots</strong> for at lave "
-"netværksanalyse. <strong>Brug SameDiff</strong> for at lære om, hvordan "
+"netværksanalyse. <strong>Brug SameDiff</strong>for at lære om, hvordan "
 "algoritmer kan bruges til at analysere data på mere komplekse måder."
 
 #: databasic/templates/culture/culture.html:135
@@ -1135,8 +1145,8 @@ msgstr ""
 "deres verdensbillede og motivere dem til handling. Måske har du endda "
 "flere målgrupper. Hver potentiel målgruppe kommer med sine egne værdier "
 "og erfaringer, som de tolker dit budskab ind i. <strong>Brug "
-"ConvinceMe</strong> for at øve jer i at fortælle forskellige "
-"datahistorier til forskellige målgrupper."
+"ConvinceMe</strong>for at øve jer i at fortælle forskellige datahistorier"
+" til forskellige målgrupper."
 
 #: databasic/templates/culture/culture.html:171
 msgid ""
@@ -1158,8 +1168,8 @@ msgid ""
 msgstr ""
 "At sætte fokus på din organisations datakultur kan være en ensom indsats,"
 " hvis organisationen ikke har anerkendt værdien af data. Deltage i Data "
-"Culture <a href='https://groups.io/g/dataculture'>discussion group</a> "
-"for at netværke med andre og diskutere hvordan aktiviteter og øvelser "
+"Culture <a href='https://groups.io/g/dataculture'>discussion group</a>for"
+" at netværke med andre og diskutere hvordan aktiviteter og øvelser "
 "fungerer (eller ikke fungerer) i din organisation."
 
 #: databasic/templates/culture/culture.html:181
@@ -1571,7 +1581,7 @@ msgid ""
 msgstr ""
 "Vil du vise videoklip offline?<a "
 "href=\"https://www.dropbox.com/s/t7mai3ecrcayvei/AskingGoodQuestionsAllThreeFacilitationVideos.zip?dl=0\">klik"
-" her</a> for at downloade dem på forhånd."
+" her</a>for at downloade dem på forhånd."
 
 #: databasic/templates/culture/questions.html:44
 msgid ""
@@ -1585,6 +1595,16 @@ msgid ""
 "common spreadsheet format on the web. <em>WTF</em> stands for... well... "
 "the question you ask when someone sends you an inscrutable csv file."
 msgstr ""
+"Hyppigere og hyppigere modtager vi data i form af regneark. Nogen sender "
+"en excel fil eller du henter den ned selv fra nettet. I den her aktivitet"
+" skal du sammen med dine kollegaer trænes i at stille gode spørgsmål til "
+"et regneark, så du kan komme fra datapunkter til en datahistorie. Du skal"
+" bruge <a href='https://wtfcsv.databasic.io/'>Databasic.io's WTFcsv "
+"værktøj</a>og nogle genkendelige dataformater for at komme i gang med "
+"basal analyse af regneark.  '<em>csv</em>' står for <em>comma separated "
+"values</em> og er et meget almindelige format på nettet til regneark. "
+"<em>WTF</em> står for... hmm... det spørgsmål du stiller dig selv, når "
+"nogen sender dig en uransagelig csv fil."
 
 #: databasic/templates/culture/questions.html:46
 msgid ""
@@ -1625,7 +1645,7 @@ msgstr ""
 "grupper der stiller spørgsmål til mønstre i selve dataene - bed dem gerne"
 " om selv at arbejde med at identificere svarene. Hvilke andre data har de"
 " brug for, for at kunne besvare deres egne spørgsmål? Hvem samler disse "
-"data? "
+"data?"
 
 #: databasic/templates/culture/questions.html:70
 msgid ""
@@ -1826,7 +1846,7 @@ msgstr ""
 "deltagere kender på forhånd ellers har deltagerne en tendens til at "
 "fortabe sig i detaljer. Vi synes derfor det fungerer bedst med "
 "overordnede, mere generiske data. Du kan også bare bruge det handouts, "
-"som vi allerede har forberedt."
+"som vi allerede har forberedt:"
 
 #: databasic/templates/culture/sculpture.html:55
 msgid "US Ice Cream Consumption"
@@ -1888,7 +1908,7 @@ msgstr ""
 "Fremhæv når, og hvordan, skulpturerne divergerer fra mere traditionelle "
 "diagrammer og tydeliggøre, hvor indlejret vores forståelse af "
 "datavisualiseringer er! Prøv om du kan identificere mønstre i hvordan "
-"tallene præsenteres i skulpturerne.  "
+"tallene præsenteres i skulpturerne."
 
 #: databasic/templates/culture/sketch.html:18
 msgid ""
@@ -1939,6 +1959,17 @@ msgid ""
 "share that story. Start the activity by playing the kickoff video below "
 "for your group."
 msgstr ""
+"At gå fra data til en datahistorie er svært. Øvelsen her gør, at du "
+"hurtigt kan analysere tekstdata med henblik på at identificere mønstre, "
+"og så opridse din historie derfra. Den introducerer den helt "
+"grundlæggende termonologi i kvantitativ text analyse og hjælper dig med "
+"at få kendskab til <a "
+"href=\"https://www.dropbox.com/s/alwonz81zjhmsri/SketchAStoryAllThreeFacilitationVideos.zip?dl=0\">Click"
+" here</a> og skaber reflektion over, hvor i din organisation der arbejdes"
+" med tekstdata. Deltagerne skal arbejde to-og-to og lede efter "
+"datahistorier i nogle sjove og simple testdata og derfra oprids og "
+"præsentere en historie. Sæt øvelsen i gang med at afspille videoen her "
+"for dine deltagere."
 
 #: databasic/templates/culture/sketch.html:45
 msgid ""
@@ -1986,7 +2017,7 @@ msgstr ""
 "videre herfra. For eksempel, hvilke datasæt er allerede ved hånden i din "
 "organisation? Vi beskriver også nogle andre mere komplicerede metoder til"
 " kvantitativ tekstanalyse og nogle almindelige faldgruber og fejl, som "
-"kan forebygges. "
+"kan forebygges."
 
 #: databasic/templates/culture/storybook.html:18
 msgid "Tell data stories using creative narratives and visual storybooks"
@@ -2268,8 +2299,8 @@ msgid ""
 "WordCounter analyzes your text and tells you the most common words and "
 "phrases."
 msgstr ""
-"WordCounter analyserer dine tekster og finder frem til tekstens mest "
-"benyttede ord og fraser."
+"WordCounter analyserer dine tekster og fortæller dig tekstens mest brugte"
+" ord og fraser."
 
 #: databasic/templates/home/index.html:20
 #: databasic/templates/wtfcsv/wtfcsv.html:21
@@ -2304,14 +2335,13 @@ msgstr ""
 "hands-on aktiviteter til at komme i gang med at skabe en datakultur. Vi "
 "har videoer, der italesætter hvordan du kan facilitere kreative workshops"
 " og øvelser for ikke-teknisk personale i din organisation. Øvelserne er "
-"ikke kedelige øvelser i regneark! Vi foreslår, at I afvikler en aktivitet"
-" om måneden, hvis I vil kickstarte jeres datakultur. Lær mere på om "
-"måneden, hvis I vil kickstarte jeres datakultur. Lær mere på "
-"https://datacultureproject.org."
+"ikke kedelige øvelser i regneark! Vi forslår at afvikler en aktivitet om "
+"måneden, hvis I vil kickstarte jeres datakultur. Lær mere på <a "
+"href='https://datacultureproject.org'>https://datacultureproject.org</a>"
 
 #: databasic/templates/home/index.html:47
 msgid "Join the Data Culture Project Now!"
-msgstr "Deltag i projektet Data Culture!"
+msgstr ""
 
 #: databasic/templates/home/index.html:58
 msgid "Why use DataBasic?"
@@ -2383,11 +2413,11 @@ msgstr ""
 "vi lavet DataBasic så flere typer af data kan anvendes, og på samme måde "
 "kan dit output eksporteres i et format du kender. Noget indhold kan ses "
 "fra websitet og andet kan downloades som .csv og det er bare to af de "
-"måder, vi prøver at introducere dig til at arbejde med online data. "
+"måder, vi prøver at introducere dig til at arbejde med online data."
 
 #: databasic/templates/home/index.html:99
 msgid "Focused on Learning "
-msgstr "Læringsfokus"
+msgstr "Læringsfokus "
 
 #: databasic/templates/home/index.html:100
 msgid ""
@@ -2405,7 +2435,7 @@ msgstr ""
 " bygge DataBasic med modtageren som fokuspunkt. Er der tekniske ord, du "
 "ikke ved, hvad betyder? Hold musen over ordet og en kort definition ses "
 "straks. Usikker på, hvordan et bestemt værktøj bruges? Start med at "
-"anvende de datasæt, vi allerede har lagt op til dig. "
+"anvende de datasæt, vi allerede har lagt op til dig."
 
 #: databasic/templates/home/index.html:106
 msgid "Ensuring Your Privacy"
@@ -2426,7 +2456,7 @@ msgstr ""
 "internettet. Vi gemmer kun dine informationer i det begrænsede tidsrum, "
 "det tager at analysere dem, og herefter slettes de. Alle kommunikation "
 "foregår over https, så andre mennesker ikke kan kigge dig over skulderen,"
-" når du uploader data. "
+" når du uploader data."
 
 #: databasic/templates/home/index.html:111
 msgid "By Educators, for Educators"
@@ -2472,11 +2502,11 @@ msgstr "Den portugisiske oversættelse:"
 
 #: databasic/templates/home/index.html:164
 msgid "with contributions from"
-msgstr "Med bidrag fra "
+msgstr "med bidrag fra"
 
 #: databasic/templates/home/index.html:166
 msgid "Danish translation:"
-msgstr "“Den danske oversættelse:"
+msgstr ""
 
 #: databasic/templates/home/index.html:170
 msgid "Spanish data sourcing:"
@@ -2488,7 +2518,7 @@ msgstr "Identifikation af portugisiske datasæt:"
 
 #: databasic/templates/home/index.html:178
 msgid "Danish data sourcing:"
-msgstr "Identifikation af danske datasæt:"
+msgstr ""
 
 #: databasic/templates/home/index.html:182
 msgid ""
@@ -2537,7 +2567,7 @@ msgid ""
 "are based on the number of times words are used in each."
 msgstr ""
 "Scoren for kosinus lighed fortæller dig, hvor ens to dokumenter er ud fra"
-" hyppigheden i anvendelsen af de samme ord. "
+" hyppigheden i anvendelsen af de samme ord."
 
 #: databasic/templates/samediff/results.html:43
 #, python-format
@@ -2546,7 +2576,7 @@ msgid ""
 "should keep %(normalized)s on."
 msgstr ""
 "De to dokumenter har forskelligt omfang, for at gøre din sammenligning "
-"rimelig bør du lade %(normalized)s være aktiv."
+"rimelig bør du lade  %(normalized) være aktiv."
 
 #: databasic/templates/samediff/results.html:43
 #: databasic/templates/samediff/results.html:46
@@ -2653,11 +2683,11 @@ msgstr ""
 #: databasic/templates/samediff/results.html:285
 #, python-format
 msgid " uses in %(doc)s"
-msgstr "Anvendelse i %(doc)s"
+msgstr " Anvendelse i %(doc)s"
 
 #: databasic/templates/samediff/results.html:287
 msgid " uses"
-msgstr "Anvendelse"
+msgstr " Anvendelse"
 
 #: databasic/templates/samediff/samediff.html:22
 #, python-format
@@ -2667,7 +2697,7 @@ msgid ""
 "%(algorithm)s to rate whether the documents are really similar or totally"
 " different."
 msgstr ""
-"SameDiff sammenholder et %(corpus)s med en anden tekst, for at vise dig "
+"SameDiff sammenholder en %(corpus)s med en anden tekst, for at vise dig "
 "forskelle og ligheder i teksterne. Den bruger kosinus simularitet til at "
 "bestemme om teksterne er meget ens eller meget forskellige."
 
@@ -2700,7 +2730,7 @@ msgstr ""
 
 #: databasic/templates/samediff/samediff.html:28
 msgid "Compare"
-msgstr "Sammenlign"
+msgstr "Sammenligne"
 
 #: databasic/templates/wordcounter/results.html:9
 msgid "WordCounter results"
@@ -2725,7 +2755,7 @@ msgid ""
 "short... or maybe it is all %(stopwords)s"
 msgstr ""
 "Vi beklager, men der er ingen resultater at fremvise. Måske er din tekst "
-"for kort... eller også består den primært af %(stopwords)s "
+"for kort... eller også består den primært af %(stopwords)s"
 
 #: databasic/templates/wordcounter/results.html:48
 msgid ""
@@ -2752,7 +2782,7 @@ msgid "download csv of bigram frequencies"
 msgstr "download csv af bigramfrekvenser"
 
 #: databasic/templates/wordcounter/results.html:82
-#, fuzzy, python-format
+#, python-format
 msgid "%(bigram)s"
 msgstr "%(bigram)s"
 
@@ -2774,7 +2804,7 @@ msgid "download csv of trigram frequencies"
 msgstr "download csv af trigram frekvenser"
 
 #: databasic/templates/wordcounter/results.html:103
-#, fuzzy, python-format
+#, python-format
 msgid "%(trigram)s"
 msgstr "%(trigram)s"
 
@@ -2796,25 +2826,25 @@ msgid ""
 msgstr ""
 "At undersøge tekstdata på den her kvantitative måde kan hjælpe dig til at"
 " finde historier i dataene. At \"%(top_word)s\" er et populært ord er "
-"godt at vide, men kombinér det med"
+"godt at vide, men kombinér det med "
 
 #: databasic/templates/wordcounter/results.html:124
-#, python-format
+#, fuzzy, python-format
 msgid "the %(num)d use "
 msgid_plural "the %(num)d uses "
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "ved %(num)d brug "
+msgstr[1] "ved %(num)d brug "
 
 #: databasic/templates/wordcounter/results.html:125
 msgid "in the top 40 bigrams, and "
 msgstr "i top 40 over bigrammer, og "
 
 #: databasic/templates/wordcounter/results.html:126
-#, python-format
+#, fuzzy, python-format
 msgid "the %(num)s use "
 msgid_plural "the %(num)s uses "
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "ved %(num)s brug "
+msgstr[1] "ved %(num)s brug "
 
 #: databasic/templates/wordcounter/results.html:127
 #, python-format
@@ -2861,23 +2891,22 @@ msgid ""
 "help you run the activity."
 msgstr ""
 "Velkommen til WordCounters Skits en historie aktivitet. Videoerne her kan"
-" hjælpe dig med at afvikle aktiviteten"
+" hjælpe dig med at afvikle aktiviteten."
 
 #: databasic/templates/wordcounter/run-activity.html:22
 msgid "We're ready to start"
 msgstr "Vi er klar til at starte"
 
 #: databasic/templates/wordcounter/run-activity.html:25
-#, fuzzy
 msgid "Done with our stories! Time to share-back!"
-msgstr "Færdig med vores historier! Så er det tid til at dele tilbage!"
+msgstr "Færdig med vores historier! Så er det tid til at fremlægge!"
 
 #: databasic/templates/wordcounter/run-activity.html:28
 msgid "All done. What next?"
 msgstr "Færdig. Hvad nu?"
 
 #: databasic/templates/wordcounter/wordcounter.html:24
-#, fuzzy, python-format
+#, python-format
 msgid ""
 "This tool helps you count words, %(bigrams)s, and %(trigrams)s in plain "
 "text. This is often the first step in quantitative text analysis."
@@ -2895,10 +2924,10 @@ msgstr "trigrammer"
 
 #: databasic/templates/wordcounter/wordcounter.html:29
 msgid "Count"
-msgstr "Tæl"
+msgstr "Antal"
 
 #: databasic/templates/wtfcsv/results.html:7
-#, fuzzy, python-format
+#, python-format
 msgid "Full name: \"%(name)s\""
 msgstr "For- og efternavn: \"%(name)s\""
 
@@ -2916,7 +2945,7 @@ msgid "The most frequent values in this column are:"
 msgstr "Den oftest forekommende værdi i denne kolonne er:"
 
 #: databasic/templates/wtfcsv/results.html:23
-#, fuzzy, python-format
+#, python-format
 msgid "occurs %(frequency)s times"
 msgstr "forekommer %(frequency)s gange"
 
@@ -2961,7 +2990,7 @@ msgid "The standard deviation is"
 msgstr "Standard deviationen er"
 
 #: databasic/templates/wtfcsv/results.html:67
-#, fuzzy, python-format
+#, python-format
 msgid "There is %(num)s row of missing data"
 msgid_plural "There are %(num)s rows of missing data"
 msgstr[0] "Der er %(num)s række af manglende data"
@@ -2988,7 +3017,7 @@ msgstr ""
 "Den første række i dit datasæt bør indeholde navnene på dine kolonner."
 
 #: databasic/templates/wtfcsv/results.html:167
-#, fuzzy, python-format
+#, python-format
 msgid "%(rows)s rows of data grouped into %(cols)s columns."
 msgstr "%(rows)s rækker af data grupperet ind i %(cols)s kolonner."
 
@@ -3082,7 +3111,7 @@ msgid "# of rows"
 msgstr "# af rækker"
 
 #: databasic/templates/wtfcsv/wtfcsv.html:22
-#, fuzzy, python-format
+#, python-format
 msgid ""
 "Data arrives at your doorstep in the form of a spreadsheet but how do you"
 " find a story in rows and columns? WTFcsv provides the first step by "
@@ -3111,7 +3140,7 @@ msgid "Analyze"
 msgstr "Analyser"
 
 #: databasic/views/samediff.py:36 databasic/views/samediff.py:52
-#, fuzzy, python-format
+#, python-format
 msgid "%(f1)s and %(f2)s"
 msgstr "%(f1)s og %(f2)s"
 
@@ -3166,165 +3195,4 @@ msgstr "titel"
 #: databasic/views/wtfcsv.py:201
 msgid "Other"
 msgstr "Andet"
-
-#~ msgid "Samples"
-#~ msgstr "Eksempler"
-
-#~ msgid ""
-#~ "Use our self-service learning program"
-#~ " to facilitate fun, creative introductions"
-#~ " for the non-technical folks in "
-#~ "your organization. These are not boring"
-#~ " spreadsheet trainings. The fee tools "
-#~ "and activites below are hands-on "
-#~ "and designed to meet people where "
-#~ "they are across your organization and"
-#~ " build their capacity to work with"
-#~ " data. Try to kickstart your data "
-#~ "culture by running one activity per "
-#~ "month as a brown bag lunch. The"
-#~ " videos and facilitation guides below "
-#~ "will lead you through running them "
-#~ "yourself. People at more than 30 "
-#~ "organizations have done so already - "
-#~ "from a local public library, to "
-#~ "the World Food Progam."
-#~ msgstr ""
-#~ "Du kan bruge vores selvbetjente program"
-#~ " til at lave sjove, kreative "
-#~ "introduktioner til ikke-teknisk personale "
-#~ "i din organization. Der er ikke "
-#~ "tale om kedelige øvelser med regneark."
-#~ " Værktøjer og aktiviteter er alle "
-#~ "hands-on og designet til at møde "
-#~ "folk, hvor de end arbejder i din"
-#~ " organisation og opbygge deres "
-#~ "datakompetencer. Du kan sætte gang i "
-#~ "din organisations datakultur ved at "
-#~ "afvikle en aktivitet om måneden. Videoer"
-#~ " og guides nedenfor vil klæde dig "
-#~ "på til at afvikle aktiviteterne selv."
-#~ " Der er allerede folk i mere "
-#~ "end 30 organisationer, som har prøvet"
-#~ " det allerede - fra det lokale "
-#~ "bibliotek til World Food Program."
-
-#~ msgid ""
-#~ "Before jumping into finding data or "
-#~ "telling stories, it's important to do"
-#~ " some warm ups to activate your "
-#~ "organization's data mindset. Warm ups "
-#~ "are quick, fun, hands-on activities "
-#~ "designed to activate conversation, catalyze"
-#~ " creative ideas and build confidence "
-#~ "to take the next step. For "
-#~ "example, lead colleagues to <strong>Build "
-#~ "Data Sculptures</strong> with craft materials"
-#~ " to explore different ways to "
-#~ "communicate the same simple data set."
-#~ "  Working with pompons, pipe cleaners, "
-#~ "or other local materials changes how "
-#~ "you approach data, letting you focus "
-#~ "on playfully quick ways to look "
-#~ "for stories."
-#~ msgstr ""
-#~ "Inden I går i gang med at "
-#~ "finde data eller fortælle datahistorier, "
-#~ "skal I varme jeres data mindset "
-#~ "lidt op. Opvarmningsøvelserne er hurtige, "
-#~ "sjove hands-on aktiviteter, der er "
-#~ "designet til at skabe samtale, nye "
-#~ "ideer og selvtillid til at tage "
-#~ "det næste skridt ud i dataenes "
-#~ "verden. F.eks. kan du sætte kollegaerne"
-#~ " i gang med at bygge "
-#~ "<strong>dataskulpturer</strong>med forskellige krea-"
-#~ "materialer for at få dem til at"
-#~ " udforske de mange forskellige måder "
-#~ "man kan kommunikere et datasæt på. "
-#~ "Når I bruger kvaster, piberensere og "
-#~ "andre krea-materialer til at arbejde "
-#~ "med data, så for I en anden "
-#~ "legende tilgang til at finde "
-#~ "datahistorier."
-
-#~ msgid ""
-#~ "Increasingly, data arrives on our "
-#~ "doorstep in the form of a "
-#~ "spreadsheet. Somebody sends you an excel"
-#~ " file or you download something from"
-#~ " the web. In this activity, you "
-#~ "will work with colleagues to ask "
-#~ "good questions of a spreadsheet so "
-#~ "that you can take it from data "
-#~ "points to data story. You will use"
-#~ " <a href='https://wtfcsv.databasic.io/'>Databasic.io's "
-#~ "WTFcsv tool</a>, get acquainted data "
-#~ "types, and do some basic spreadsheet "
-#~ "analysis.  '<em>csv</em>' stands for <em>comma"
-#~ " separated values</em>, a common "
-#~ "spreadsheet format on the web. "
-#~ "<em>WTF</em> stands for... well... the "
-#~ "question you ask when someone sends "
-#~ "you an inscrutable csv file."
-#~ msgstr ""
-#~ "Hyppigere og hyppigere modtager vi data"
-#~ " i form af regneark. Nogen sender "
-#~ "en excel fil eller du henter den"
-#~ " ned selv fra nettet. I den her"
-#~ " aktivitet skal du sammen med dine"
-#~ " kollegaer trænes i at stille gode"
-#~ " spørgsmål til et regneark, så du "
-#~ "kan komme fra datapunkter til en "
-#~ "datahistorie. Du skal bruge <a "
-#~ "href='https://wtfcsv.databasic.io/'>Databasic.io's WTFcsv "
-#~ "værktøj</a>og nogle genkendelige dataformater "
-#~ "for at komme i gang med basal "
-#~ "analyse af regneark.  '<em>csv</em>' står "
-#~ "for <em>comma separated values</em> og "
-#~ "er et meget almindelige format på "
-#~ "nettet til regneark. <em>WTF</em> står "
-#~ "for... hmm... det spørgsmål du stiller"
-#~ " dig selv, når nogen sender dig "
-#~ "en uransagelig csv fil."
-
-#~ msgid ""
-#~ "It is hard to go from data "
-#~ "to story.  This activity lets you "
-#~ "quickly do that by analyzing datasets"
-#~ " to find patterns in text, and "
-#~ "then sketching out some story you "
-#~ "find.  It introduces basic terminology "
-#~ "for quantitative text analysis, helps "
-#~ "you get acquainted with <a "
-#~ "href='https://wordcounter.databasic.io/'>Databasic.io's "
-#~ "WordCounter tool</a>a>, and prompts you "
-#~ "to consider places in your organization"
-#~ " where you work with text as "
-#~ "data.  Participants will pair up with"
-#~ " colleagues to search for stories in"
-#~ " some fun sample data and then "
-#~ "draw a sketch to share that story."
-#~ " Start the activity by playing the"
-#~ " kickoff video below for your group."
-#~ msgstr ""
-#~ "At gå fra data til en datahistorie"
-#~ " er svært. Øvelsen her gør, at "
-#~ "du hurtigt kan analysere tekstdata med"
-#~ " henblik på at identificere mønstre, "
-#~ "og så opridse din historie derfra. "
-#~ "Den introducerer den helt grundlæggende "
-#~ "termonologi i kvantitativ text analyse "
-#~ "og hjælper dig med at få kendskab"
-#~ " til <a "
-#~ "href=\"https://www.dropbox.com/s/alwonz81zjhmsri/SketchAStoryAllThreeFacilitationVideos.zip?dl=0\">Click"
-#~ " here</a> og skaber reflektion over, "
-#~ "hvor i din organisation der arbejdes "
-#~ "med tekstdata. Deltagerne skal arbejde "
-#~ "to-og-to og lede efter datahistorier"
-#~ " i nogle sjove og simple testdata "
-#~ "og derfra oprids og præsentere en "
-#~ "historie. Sæt øvelsen i gang med "
-#~ "at afspille videoen her for dine "
-#~ "deltagere.  "
 
