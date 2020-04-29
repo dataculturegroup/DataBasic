@@ -5,8 +5,8 @@ from pyth.plugins.rtf15.reader import Rtf15Reader
 from pyth.plugins.plaintext.writer import PlaintextWriter
 from flask import Response, abort
 import csv
-from flask_uploads import UploadSet, configure_uploads, UploadNotAllowed
 import docx2txt
+from werkzeug.utils import secure_filename
 
 import databasic
 
@@ -19,16 +19,7 @@ TEMP_DIR = tempfile.gettempdir()
 
 samples = []
 docs = None
-
-
-def init_uploads():
-    global docs
-    global TEMP_DIR
-    logger.info("Uploads will be written to %s", TEMP_DIR)
-    databasic.app.config['UPLOADED_DOCS_DEST'] = TEMP_DIR
-    docs = UploadSet(name='docs', extensions=('txt', 'docx', 'rtf', 'csv', 'xlsx', 'xls'))
-    configure_uploads(databasic.app, docs)
-    # patch_request_class(databasic.app, 10 * 1024 * 1024) # 100MB
+ACCEPTED_EXTENSIONS = ['txt', 'docx', 'rtf', 'csv', 'xlsx', 'xls']
 
 
 def init_samples():
@@ -180,12 +171,10 @@ def convert_to_csv(file_path):
 
 
 def open_doc(doc):
-    try:
-        file_name = docs.save(doc)
-        file_path = os.path.join(TEMP_DIR, file_name)
-        return file_path
-    except UploadNotAllowed:
-        logger.error("supported filetypes: txt, docx, rtf, csv, xlsx, xls, love")
+    filename = secure_filename(doc.filename)
+    file_path = os.path.join(TEMP_DIR, filename)
+    doc.save(file_path)
+    return file_path
 
 
 def open_docs(doc_list):

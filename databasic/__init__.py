@@ -7,7 +7,6 @@ from flask_mail import Mail
 from flask import Flask, g, redirect, request, abort, send_from_directory
 from flask_assets import Environment, Bundle
 from flask_babel import Babel
-from flask_sslify import SSLify
 from sassutils.wsgi import SassMiddleware
 import nltk
 
@@ -53,14 +52,10 @@ def get_config_dir():
 
 
 # init the logging config
-root_logger = logging.getLogger('')
-root_logger.setLevel(logging.DEBUG)
 if app_mode == APP_MODE_DEV:
-    log_file_path = os.path.join(get_base_dir(), 'logs', app_mode+'.log')
-    handler = logging.handlers.RotatingFileHandler(log_file_path, maxBytes=5242880, backupCount=10)
-    formatter = logging.Formatter('%(asctime)s - %(name)s - %(levelname)s - %(message)s')
-    handler.setFormatter(formatter)
-    root_logger.addHandler(handler)
+    logging.basicConfig(format='%(asctime)s - %(name)s - %(levelname)s - %(message)s', level=logging.DEBUG)
+else:
+    logging.basicConfig(format='%(asctime)s - %(name)s - %(levelname)s - %(message)s', level=logging.INFO)
 logger = logging.getLogger(__file__)
 logger.info("------------------------------------------------------------------------------")
 logger.info("Starting DataBasic in %s mode" % app_mode)
@@ -80,16 +75,11 @@ if app_mode == APP_MODE_DEV:
 elif app_mode == APP_MODE_PRODUCTION:
     logger.info('Loading config from environment variables')
     for var_name in config_var_names:
-        app.config[var_name] = os.environ.get(var_name, None)
+        app.config[var_name] = int(os.environ.get(var_name, None)) if var_name in ['MAX_CONTENT_LENGTH'] else os.environ.get(var_name, None)
         if app.config[var_name] is None:
             logger.error("Looks like you have not set the %s environment variable!" % var_name)
 else:
     logger.error("invalid APP_MODE of %s" % app_mode)
-
-# Use ssl if we're in production mode on Heroku
-if app_mode == APP_MODE_PRODUCTION:
-    logger.info("Using SSLify")
-    sslify = SSLify(app)
 
 # Setup sass auto-compiling
 app.wsgi_app = SassMiddleware(app.wsgi_app, {
@@ -119,7 +109,6 @@ babel = Babel(app)
 mongo = databasic.logic.db.MongoHandler(app.config.get('MONGODB_URL'), app.config.get('MONGODB_NAME'))
 databasic.logic.oauth.init(app.config.get('GOOGLE_CLIENT_ID'), app.config.get('GOOGLE_CLIENT_SECRET'),
                  app.config.get('OAUTH_REDIRECT_URI'))
-databasic.logic.filehandler.init_uploads()
 databasic.logic.filehandler.init_samples()
 local_nltk_path = os.path.join(get_base_dir(), 'nltk_data')
 logger.info("Adding nltk path %s", local_nltk_path)
