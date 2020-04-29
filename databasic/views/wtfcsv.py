@@ -55,12 +55,13 @@ def index():
             sample_path = sample['path']
             logger.debug("  loading from %s", sample_path)
             results = [wtfcsvstat.get_summary(sample_path, language=g.current_lang)]
+            # logger.info(results)
             results[0]['filename'] = sample_name + '.csv'
             results[0]['biography'] = sample['biography']
         else:
             results = None
 
-        if btn_value is not None and btn_value == '':
+        if results:
             return redirect_to_results(results, btn_value, sample_id)
 
     return render_template('wtfcsv.html', forms=list(forms.items()), tool_name='wtfcsv',

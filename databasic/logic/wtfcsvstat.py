@@ -1,5 +1,4 @@
 import datetime
-import os
 import sys
 import re
 import csv
@@ -9,9 +8,8 @@ from operator import itemgetter
 import math
 import logging
 import six
-import codecs
 import databasic.logic.wordhandler as wordhandler
-import numpy.random
+import random
 from csvkit import table
 from dateutil.parser import parse
 import databasic.logic.filehandler as filehandler
@@ -31,76 +29,62 @@ DAYS_OF_WEEK = ['sun', 'sunday', 'mon', 'monday', 'tues', 'tue', 'tuesday', 'wed
 
 logger = logging.getLogger(__name__)
 
-'''
-Public API: call this to get results!
-'''
+
 def get_summary(input_path, has_header_row=True, language='en'):
+    """
+    Public API: call this to get results!
+    """
     wtfcsvstat = WTFCSVStat(input_path, has_header_row)
     results = wtfcsvstat.get_summary(language)
     return results
 
-'''
-A hacked-up version of after CSVState
-'''
-class WTFCSVStat():
-    
+
+class WTFCSVStat:
+    """
+    A hacked-up version of after CSVState
+    """
+
     def __init__(self, input_path, has_header_row=True):
         self.input_path = input_path
         self.has_header_row = has_header_row
         utf8_file_path = filehandler.convert_to_utf8(input_path)
         logger.debug("converted to utf8 at %s" % utf8_file_path)
-        self.input_file = codecs.open(utf8_file_path,'r',filehandler.ENCODING_UTF_8)
-    
-    # copied from CSVKitUtility
-    def _open_input_file(self, path, enc):
-        if six.PY2:
-            mode = 'rbw'
-        else:
-            mode = 'rt'
-
-        (_, extension) = os.path.splitext(path)
-
-        f = open(path)
-        # f = codecs.open(path, mode, encoding='utf-8')
-
-        return f
+        self.input_file = open(utf8_file_path, 'r')
 
     def detectDelimiter(self):
         with open(self.input_path, 'r') as myCsvfile:
-            header=myCsvfile.readline()
-            if header.find(",")!=-1:
+            header = myCsvfile.readline()
+            if header.find(",") != -1:
                 logger.debug("Detected delimiter ,")
                 return ","
-            if header.find(";")!=-1:
+            if header.find(";") != -1:
                 logger.debug("Detected delimiter ;")
                 return ";"
-            if header.find("\t")!=-1:
+            if header.find("\t") != -1:
                 logger.debug("Detected delimiter \t")
                 return "\t"
         return ","
 
     def get_summary(self, language):
-        summary_start = time.clock()
+        summary_start = time.time()
         results = {}
         
-        operations = [op for op in OPERATIONS]
-
-        if self._csv_has_rows(self.input_path) == False:
+        if not self._csv_has_rows(self.input_path):
             results['row_count'] = 0
             results['columns'] = []
             return results
 
-        start_time = time.clock()
-        tab = None
+        start_time = time.time()
         delim = self.detectDelimiter()
 
         try:
-            tab = table.Table.from_csv(self.input_file,delimiter=delim,quotechar='"')
+            tab = table.Table.from_csv(self.input_file, delimiter=delim, quotechar='"')
         except Exception as e:
             logger.debug("Error making a table from the CSV")
+            logger.error(e)
             return 'bad_formatting'
 
-        logger.debug("  %f ms to create table from csv" % (1000*(time.clock()-start_time)))
+        logger.debug("  %f ms to create table from csv" % (1000*(time.time()-start_time)))
 
         row_count = tab.count_rows() + 1 # this value is inaccurate so I'm adding 1
         if self.has_header_row:
@@ -113,7 +97,7 @@ class WTFCSVStat():
         
         results['columns'] = []
         for c in tab:
-            #logger.debug("  column: %s" % c.name)
+            logger.debug("  column: %s" % c.name)
 
             """
             skip over columns that don't have headers
@@ -135,14 +119,14 @@ class WTFCSVStat():
             stats = {} 
 
             # figure out what type the column is
-            start_time = time.clock()
+            start_time = time.time()
 
             date_count = 0
             time_count = 0
             number_count = 0
             value_count = len(values)
-            if SAMPLE_FOR_TYPE and value_count>100:    # try sampling to speed this up
-                sampled_values = numpy.random.choice(values,100)
+            if SAMPLE_FOR_TYPE and (value_count > 100):    # try sampling to speed this up
+                sampled_values = random.sample(values, 100)
             else: 
                 sampled_values = values
             sampled_value_count = len(sampled_values)
@@ -179,10 +163,10 @@ class WTFCSVStat():
             else:
                 c.type = float
 
-            #logger.debug("    type is %s (%f ms)" % (c.type, (time.clock()-start_time)*1000))
+            logger.debug("    type is %s (%f ms)" % (c.type, (time.time()-start_time)*1000))
 
             # clean the data, based on the type it is
-            start_time = time.clock()
+            start_time = time.time()
             if c.type == datetime.datetime or c.type == datetime.date or c.type == datetime.time:
                 old_len = len(values)
                 values = [ self.is_date(v).replace(tzinfo=None) for v in values if self.is_date(v) is not None ]
@@ -198,15 +182,15 @@ class WTFCSVStat():
                 values = [ v for v in values if v != '&nbsp;' ]
                 new_len = len(values)
                 #logger.debug("    removed %d bad values" % (old_len-new_len))
-            #logger.debug("    cleaned in %f ms" % ((time.clock()-start_time)*1000))
+            #logger.debug("    cleaned in %f ms" % ((time.time()-start_time)*1000))
 
             # do the default operations on the values
-            start_time = time.clock()
+            start_time = time.time()
             for op in OPERATIONS:
-                op_start_time = time.clock()
+                op_start_time = time.time()
                 stats[op] = getattr(self, 'get_%s' % op)(c, values, stats)
-                #logger.debug("      %s in %f" % (op,(time.clock()-op_start_time)*1000))
-            #logger.debug("    default ops took %f ms" % ((time.clock()-start_time)*1000))
+                #logger.debug("      %s in %f" % (op,(time.time()-op_start_time)*1000))
+            #logger.debug("    default ops took %f ms" % ((time.time()-start_time)*1000))
 
             if c.type == None:
                 column_info['type'] = 'empty'
@@ -219,7 +203,7 @@ class WTFCSVStat():
             dt = 'undefined'
             if any(t in s for s in ['float', 'int', 'long', 'complex']):
                 dt = 'numbers'
-            if 'unicode' in t:
+            if 'str' in t:
                 dt = 'text'
             if 'time' in t:
                 dt = 'times'
@@ -262,7 +246,7 @@ class WTFCSVStat():
                     if c.type == six.text_type:
                         column_info['max_str_len'] = stats['len']
 
-            if 'unicode' in column_info['type'] and not 'most_freq_values' in column_info:
+            if 'str' in column_info['type'] and not 'most_freq_values' in column_info:
                 # TODO: these results could be cleaned up using textmining
                 # TODO: send in the language properly?
                 stopwords_language = NLTK_STOPWORDS_BY_LANGUAGE[language]
@@ -272,7 +256,7 @@ class WTFCSVStat():
 
             results['columns'].append( column_info )
 
-        logger.debug("  done in %f ms" % ((time.clock()-summary_start)*1000 ))
+        logger.debug("  done in %f ms" % ((time.time()-summary_start)*1000 ))
         return results
 
     def get_most_freq_values(self, stats):
@@ -412,7 +396,7 @@ class WTFCSVStat():
     def is_number(self, s):
         try:
             return float(s)
-        except ValueError:
+        except (ValueError, TypeError):
             pass
      
         try:

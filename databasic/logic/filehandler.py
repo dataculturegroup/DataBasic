@@ -7,6 +7,7 @@ from flask import Response, abort
 import csv
 import docx2txt
 from werkzeug.utils import secure_filename
+from bs4 import UnicodeDammit
 
 import databasic
 
@@ -124,36 +125,11 @@ def open_with_correct_encoding(file_path):
     and fallback to any others we want.  This returns the file handle, and the content, since 
     you have to try to read the file for it to fail on a content encoding error.
     """
-    file_handle = None
-    content = ""
-    worked = False
-    encoding = ENCODING_UTF_8
-    if not worked:
-        try:    # try UTF8
-            logger.debug("trying to convert_to_txt with %s" % ENCODING_UTF_8)
-            myfile = open(file_path, 'r')
-            content = myfile.read()
-            encoding = ENCODING_UTF_8
-            file_handle = myfile
-            worked = True
-            logger.debug("file is utf8")
-        except Exception:
-            logger.warning("convert_to_txt with %s failed on %s" % (ENCODING_UTF_8, file_path))
-    if not worked:
-        logger.debug("trying to convert_to_txt with %s" % ENCODING_LATIN_1)
-        try:    # try latin-1
-            myfile = codecs.open(file_path, 'r', ENCODING_LATIN_1)
-            content = myfile.read()
-            encoding = ENCODING_LATIN_1
-            file_handle = myfile
-            worked = True
-            logger.debug("file is latin1")
-        except Exception:
-            logger.warning("convert_to_txt with %s failed on %s" % (ENCODING_LATIN_1, file_path))
-    if not worked:
-        logger.error("Couldn't read txt file in either codec :-(")
+    file_handle = open(file_path, 'r')
+    content = file_handle.read()
+    dammit = UnicodeDammit(content)
     file_handle.seek(0)
-    return [encoding, file_handle, content]
+    return [dammit.original_encoding, file_handle, content]
 
 
 def convert_to_csv(file_path):
