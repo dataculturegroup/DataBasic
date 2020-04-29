@@ -413,14 +413,14 @@
   },
   {
     "title": "Bibelen",
-    "source": "sample-data/da/Bibelen.txt",
+    "source": "sample-data/da/bibelen.txt",
     "modules": ["samediff", "wordcounter"],
     "lang": "da",
     "biography": "Det gamle og nye testamente."
   },
   {
     "title": "Brødrene Grimms samlede eventyr",
-    "source": "sample-data/da/Grimmseventyr.txt",
+    "source": "sample-data/da/grimmseventyr.txt",
     "modules": ["samediff", "wordcounter"],
     "lang": "da",
     "biography": "De samlede Grimms eventyr."
@@ -434,7 +434,7 @@
   },
   {
     "title": "H. C. Andersen",
-    "source": "sample-data/da/Hcandersen.txt",
+    "source": "sample-data/da/hcandersen.txt",
     "modules": ["samediff", "wordcounter"],
     "lang": "da",
     "biography": "H. C. Andersens samlede værker."
