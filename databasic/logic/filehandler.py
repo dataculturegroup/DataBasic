@@ -51,7 +51,7 @@ def init_samples():
 def write_to_temp_file(text):
     file_path = _get_temp_file()
     logger.debug("writing %d chars to %s" % (len(text), file_path))
-    tmp_file = codecs.open(file_path, 'w', ENCODING_UTF_8)
+    tmp_file = open(file_path, 'w')
     tmp_file.write(text)
     tmp_file.close()
     return file_path
@@ -60,7 +60,7 @@ def write_to_temp_file(text):
 def write_to_csv(headers, rows, file_name_suffix=None, timestamp=True):
     file_path = _get_temp_file(file_name_suffix, timestamp)
     with open(file_path, 'w') as f:
-        writer = csv.writer(f, encoding=ENCODING_UTF_8)
+        writer = csv.writer(f)
         writer.writerow(headers)
         for row in rows:
             writer.writerow(row)
@@ -74,7 +74,7 @@ def generate_csv(file_path):
 
     def generate():
         with open(file_path, 'r') as f:
-            reader = csv.reader(f, encoding=ENCODING_UTF_8)
+            reader = csv.reader(f)
             for row in reader:
                 yield ','.join(row) + '\n'
 
@@ -104,7 +104,7 @@ def convert_to_txt(file_path):
         words = PlaintextWriter.write(doc).getvalue()
     else:
         logging.warning("Couldn't find an extension on the file, so assuming text")
-        with codecs.open(file_path, 'r', ENCODING_UTF_8) as myfile:
+        with open(file_path, 'r') as myfile:
             words = myfile.read()
     logger.debug("loaded %d chars" % len(words))
     return words
@@ -131,7 +131,7 @@ def open_with_correct_encoding(file_path):
     if not worked:
         try:    # try UTF8
             logger.debug("trying to convert_to_txt with %s" % ENCODING_UTF_8)
-            myfile = codecs.open(file_path, 'r', ENCODING_UTF_8)
+            myfile = open(file_path, 'r')
             content = myfile.read()
             encoding = ENCODING_UTF_8
             file_handle = myfile
@@ -198,7 +198,7 @@ def open_workbook(book):
     for i, worksheet in enumerate(book.worksheets()):
         file_path = _get_temp_file('-' + worksheet.title + '.csv')
         with open(file_path, 'wb') as f:
-            writer = csv.writer(f, encoding=ENCODING_UTF_8, delimiter=str(';'), quotechar=str('"'))
+            writer = csv.writer(f, delimiter=str(';'), quotechar=str('"'))
             writer.writerows(worksheet.get_all_values())
         file_paths.append(file_path)
     return file_paths
@@ -262,7 +262,7 @@ def _open_sheet(workbook, index):
     name = workbook.sheet_names()[index]
     new_file = _get_temp_file('-' + name + '.csv')
     with open(new_file, 'wb') as f:
-        writer = csv.writer(f, encoding=ENCODING_UTF_8, delimiter=str(','), quotechar=str('"'))
+        writer = csv.writer(f, delimiter=str(','), quotechar=str('"'))
         for row in range(sh.nrows):
             writer.writerow(sh.row_values(row))
     return new_file

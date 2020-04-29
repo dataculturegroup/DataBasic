@@ -233,7 +233,7 @@ def create_csv_file(counts, analysis_type):
             return filehandler.write_to_csv(['trigram phrase', 'frequency'], trigrams, '-trigram-counts.csv')
         logger.error("Requested unknown csv type: %s", analysis_type)
     except Exception as e:
-        logger.trace(e)
+        logger.exception(e)
     return render_template('no_results.html', tool_name='wordcounter')
 
 
