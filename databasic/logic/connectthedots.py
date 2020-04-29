@@ -1,10 +1,16 @@
-import codecs, community, json, logging, networkx as nx, operator
-from io import StringIO
+import codecs
+import community
+import json
+import logging
+import networkx as nx
+import operator
+import tempfile
 import databasic.logic.filehandler as filehandler
 from csvkit import table
 from networkx.readwrite import json_graph
 
 logger = logging.getLogger(__name__)
+
 
 def get_summary(input_path, has_header_row=True):
     """
@@ -13,12 +19,14 @@ def get_summary(input_path, has_header_row=True):
     ctd = ConnectTheDots(input_path, has_header_row)
     return ctd.get_summary()
 
+
 def get_graph(input_path, has_header_row=True):
     """
     Return the graph for testing purposes
     """
     ctd = ConnectTheDots(input_path, has_header_row)
     return ctd.as_graph()
+
 
 class ConnectTheDots():
     def __init__(self, input_path, has_header_row=True):
@@ -32,7 +40,7 @@ class ConnectTheDots():
                                               no_header_row=not has_header_row,
                                               snifflimit=0,
                                               blanks_as_nulls=False)
-            if (len(self.table) != 2):
+            if len(self.table) != 2:
                 raise ValueError('File has more than two columns')
             else:
                 self.graph = nx.from_edgelist(self.table.to_rows())
@@ -148,9 +156,10 @@ class ConnectTheDots():
         """
         Return the graph as GEXF for download
         """
-        sio = StringIO.StringIO()
-        nx.write_gexf(self.graph_with_metadata, sio)
-        return sio.getvalue()
+        [open_handle, full_path] = tempfile.mkstemp()
+        nx.write_gexf(self.graph_with_metadata, full_path)
+        content = open(full_path, 'r').read()
+        return content
 
     def is_bipartite_candidate(self):
         """
