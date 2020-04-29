@@ -1,7 +1,7 @@
 from databasic.logic import filehandler
 from flask import request
 from flask_babel import lazy_gettext as _
-from flask_wtf import Form
+from flask_wtf import FlaskForm
 from flask_wtf.file import FileField
 from wtforms import StringField, BooleanField, SelectField
 from wtforms.widgets import TextArea, TextInput, CheckboxInput
@@ -67,7 +67,7 @@ class WordCounterForm(object):
     pass
 
 
-class WordCounterPaste(PasteForm, WordCounterForm, Form):
+class WordCounterPaste(PasteForm, WordCounterForm, FlaskForm):
     ignore_case_paste = BooleanField(
         _('Ignore case'), 
         widget=CheckboxInput(), 
@@ -81,7 +81,7 @@ class WordCounterPaste(PasteForm, WordCounterForm, Form):
         super(WordCounterPaste, self).__init__(default_text)
 
 
-class WordCounterUpload(UploadForm, WordCounterForm, Form):
+class WordCounterUpload(UploadForm, WordCounterForm, FlaskForm):
     ignore_case_upload = BooleanField(
         _('Ignore case'), 
         widget=CheckboxInput(), 
@@ -92,7 +92,7 @@ class WordCounterUpload(UploadForm, WordCounterForm, Form):
         default=True)
 
 
-class WordCounterSample(SampleForm, WordCounterForm, Form):
+class WordCounterSample(SampleForm, WordCounterForm, FlaskForm):
     ignore_case_sample = BooleanField(
         _('Ignore case'), 
         widget=CheckboxInput(), 
@@ -106,7 +106,7 @@ class WordCounterSample(SampleForm, WordCounterForm, Form):
         super(WordCounterSample, self).__init__('wordcounter', lang)
 
 
-class WordCounterLink(LinkForm, WordCounterForm, Form):
+class WordCounterLink(LinkForm, WordCounterForm, FlaskForm):
     ignore_case_link = BooleanField(
         _('Ignore case'), 
         widget=CheckboxInput(), 
@@ -123,16 +123,16 @@ class WordCounterLink(LinkForm, WordCounterForm, Form):
 '''
 WTFcsv forms
 '''
-class WTFCSVUpload(UploadForm, Form):
+class WTFCSVUpload(UploadForm, FlaskForm):
     pass
 
 
-class WTFCSVLink(LinkForm, Form):
+class WTFCSVLink(LinkForm, FlaskForm):
     def __init__(self):
         super(WTFCSVLink, self).__init__(_('Paste a link'), 'https://docs.google.com/spreadsheets/')
 
 
-class WTFCSVSample(SampleForm, Form):
+class WTFCSVSample(SampleForm, FlaskForm):
     def __init__(self, lang):
         super(WTFCSVSample, self).__init__('wtfcsv', lang)
 
@@ -144,7 +144,7 @@ class SameDiffForm(object):
     pass
 
 
-class SameDiffUpload(UploadForm, SameDiffForm, Form):
+class SameDiffUpload(UploadForm, SameDiffForm, FlaskForm):
     label = _('Upload files')
     upload2 = FileField(
         _('Browse file 2'),
@@ -154,7 +154,7 @@ class SameDiffUpload(UploadForm, SameDiffForm, Form):
         super(SameDiffUpload, self).__init__(_('Browse file 1'))
 
 
-class SameDiffSample(SampleForm, SameDiffForm, Form):
+class SameDiffSample(SampleForm, SameDiffForm, FlaskForm):
     label = _('Use samples')
     sample2 = SelectField(
         _('Sample'))
@@ -169,7 +169,7 @@ class SameDiffSample(SampleForm, SameDiffForm, Form):
         self.sample2.choices = choices
 
 
-class SameDiffLink(LinkForm, SameDiffForm, Form):
+class SameDiffLink(LinkForm, SameDiffForm, FlaskForm):
     label = _('Paste links')
     field_flags = ('url',)
     link2 = StringField(
@@ -185,7 +185,7 @@ class SameDiffLink(LinkForm, SameDiffForm, Form):
 '''
 ConnectTheDots forms
 '''
-class ConnectTheDotsUpload(UploadForm, Form):
+class ConnectTheDotsUpload(UploadForm, FlaskForm):
   #  download_template = BooleanField(
   #      _('<a href="http://www.google.com">Download our simple template</a>'), 
   #      widget=CheckboxInput(), 
@@ -196,12 +196,12 @@ class ConnectTheDotsUpload(UploadForm, Form):
         default=True)
     
 
-class ConnectTheDotsSample(SampleForm, Form):
+class ConnectTheDotsSample(SampleForm, FlaskForm):
     def __init__(self, lang):
         super(ConnectTheDotsSample, self).__init__('connectthedots', lang)
 
 
-class ConnectTheDotsPaste(Form):
+class ConnectTheDotsPaste(FlaskForm):
     label = _('Paste rows')
 
     area = StringField(
