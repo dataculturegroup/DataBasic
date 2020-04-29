@@ -2576,7 +2576,7 @@ msgid ""
 "should keep %(normalized)s on."
 msgstr ""
 "De to dokumenter har forskelligt omfang, for at gøre din sammenligning "
-"rimelig bør du lade  %(normalized) være aktiv."
+"rimelig bør du lade %(normalized)s være aktiv."
 
 #: databasic/templates/samediff/results.html:43
 #: databasic/templates/samediff/results.html:46

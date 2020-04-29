@@ -11,6 +11,7 @@ mod = Blueprint('samediff', __name__, url_prefix='/<lang_code>/samediff', templa
 
 logger = logging.getLogger(__name__)
 
+
 @mod.route('/', methods=('GET', 'POST'))
 def index():
     
@@ -48,25 +49,25 @@ def index():
             logger.debug("New from sample: %s", ", ".join(sample_sources))
             file_paths = [ filehandler.get_sample_path(sample_source) for sample_source in sample_sources ]
             logger.debug("  loading from %s", ", ".join(file_paths))
-            is_sample_data = True
-            both = _('%(f1)s and %(f2)s', f1=f1name, f2=f2name)
+            both = str(_('%(f1)s and %(f2)s', f1=f1name, f2=f2name))
             titles = [f1name, both, f2name]
             # email = forms['sample'].data['email']
         elif btn_value == 'link':
             url1 = forms['link'].data['link']
             url2 = forms['link'].data['link2']
-            if not 'http://' in url1:
+            if 'http://' not in url1:
                 url1 = 'http://' + url1
-            if not 'http://' in url2:
+            if 'http://' not in url2:
                 url2 = 'http://' + url2
-            file_paths = [ filehandler.write_to_temp_file(filehandler.download_webpage(url1)), 
-                           filehandler.write_to_temp_file(filehandler.download_webpage(url2)) ]
+            file_paths = [filehandler.write_to_temp_file(filehandler.download_webpage(url1)),
+                          filehandler.write_to_temp_file(filehandler.download_webpage(url2))]
             titles = ['1', 'both', '2']
 
         if btn_value is not None and btn_value != '':
             return process_results(file_paths, titles, sample_id, btn_value)
 
     return render_template('samediff/samediff.html', forms=list(forms.items()), tool_name='samediff', max_file_size_in_mb = g.max_file_size_mb)
+
 
 @mod.route('/results/<doc_id>')
 def results(doc_id):

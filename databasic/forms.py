@@ -161,12 +161,9 @@ class SameDiffSample(SampleForm, SameDiffForm, FlaskForm):
 
     def __init__(self, lang):
         super(SameDiffSample, self).__init__('samediff', lang)
-        choices = filehandler.get_samples('samediff', lang, request.headers['Host'])
-        # This is a little clunky because self.sample2.default doesn't get processed in the init function
-        # so just reordering the list so that default option shows properly
-        first_item = choices.pop(0)
-        choices.insert(1, first_item)
-        self.sample2.choices = choices
+        choices2 = filehandler.get_samples('samediff', lang, request.headers['Host'])
+        choices2.pop(0)
+        self.sample2.choices = choices2
 
 
 class SameDiffLink(LinkForm, SameDiffForm, FlaskForm):
