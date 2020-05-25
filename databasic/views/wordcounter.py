@@ -83,11 +83,13 @@ def index():
             logger.debug("  about to process words")
             counts = _process_words(words, ignore_case, ignore_stopwords, btn_value=='sample')
             logger.debug("  finished counts, about to save")
-            doc_id = mongo.save_words('wordcounter', counts, ignore_case, ignore_stopwords, title, sample_id, btn_value, extras_to_save)
+            doc_id = mongo.save_words('wordcounter', counts, ignore_case, ignore_stopwords, str(title), sample_id,
+                                      btn_value, extras_to_save)
             logger.debug("  saved")
             return redirect(request.url + 'results/' + doc_id + '?submit=true')
 
-    return render_template('wordcounter.html', forms=list(forms.items()), tool_name='wordcounter', max_file_size_in_mb = g.max_file_size_mb)
+    return render_template('wordcounter.html', forms=list(forms.items()), tool_name='wordcounter',
+                           max_file_size_in_mb=g.max_file_size_mb)
 
 
 @mod.route('/results/<doc_id>')
