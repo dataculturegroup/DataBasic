@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2020-04-28 10:44-0400\n"
+"POT-Creation-Date: 2020-05-25 14:20-0400\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -21,7 +21,7 @@ msgstr ""
 msgid "Paste text"
 msgstr ""
 
-#: databasic/forms.py:14 databasic/forms.py:208
+#: databasic/forms.py:14 databasic/forms.py:205
 msgid "Text"
 msgstr ""
 
@@ -71,7 +71,7 @@ msgstr ""
 msgid "Paste a link"
 msgstr ""
 
-#: databasic/forms.py:120 databasic/forms.py:177 databasic/forms.py:181
+#: databasic/forms.py:120 databasic/forms.py:174 databasic/forms.py:178
 msgid "https://en.wikipedia.org/wiki/Natural_language_processing"
 msgstr ""
 
@@ -91,15 +91,15 @@ msgstr ""
 msgid "Use samples"
 msgstr ""
 
-#: databasic/forms.py:173 databasic/forms.py:176 databasic/forms.py:181
+#: databasic/forms.py:170 databasic/forms.py:173 databasic/forms.py:178
 msgid "Paste links"
 msgstr ""
 
-#: databasic/forms.py:194 databasic/forms.py:212
+#: databasic/forms.py:191 databasic/forms.py:209
 msgid "Has header row"
 msgstr ""
 
-#: databasic/forms.py:205
+#: databasic/forms.py:202
 msgid "Paste rows"
 msgstr ""
 
@@ -2334,6 +2334,10 @@ msgstr ""
 msgid "WordCounter results"
 msgstr ""
 
+#: databasic/templates/wordcounter/results.html:27
+msgid "Words used in"
+msgstr ""
+
 #: databasic/templates/wordcounter/results.html:33
 msgid ""
 "Here is a picture of the words used most often in your document. Words "
@@ -2685,48 +2689,48 @@ msgstr ""
 msgid "Analyze"
 msgstr ""
 
-#: databasic/views/samediff.py:36 databasic/views/samediff.py:52
+#: databasic/views/samediff.py:37 databasic/views/samediff.py:52
 #, python-format
 msgid "%(f1)s and %(f2)s"
 msgstr ""
 
-#: databasic/views/samediff.py:105
+#: databasic/views/samediff.py:106
 msgid "word"
 msgstr ""
 
-#: databasic/views/samediff.py:105
+#: databasic/views/samediff.py:106
 msgid "uses in"
 msgstr ""
 
-#: databasic/views/samediff.py:105
+#: databasic/views/samediff.py:106
 msgid "total uses"
 msgstr ""
 
-#: databasic/views/samediff.py:150
+#: databasic/views/samediff.py:151
 msgid "almost the same"
 msgstr ""
 
-#: databasic/views/samediff.py:152
+#: databasic/views/samediff.py:153
 msgid "sort of similar"
 msgstr ""
 
-#: databasic/views/samediff.py:154
+#: databasic/views/samediff.py:155
 msgid "kind of similar"
 msgstr ""
 
-#: databasic/views/samediff.py:156
+#: databasic/views/samediff.py:157
 msgid "kind of similar, and also kind of different"
 msgstr ""
 
-#: databasic/views/samediff.py:158
+#: databasic/views/samediff.py:159
 msgid "pretty different"
 msgstr ""
 
-#: databasic/views/samediff.py:160
+#: databasic/views/samediff.py:161
 msgid "very different"
 msgstr ""
 
-#: databasic/views/samediff.py:162
+#: databasic/views/samediff.py:163
 msgid "completely different"
 msgstr ""
 
@@ -2738,7 +2742,7 @@ msgstr ""
 msgid "title"
 msgstr ""
 
-#: databasic/views/wtfcsv.py:201
+#: databasic/views/wtfcsv.py:202
 msgid "Other"
 msgstr ""
 
