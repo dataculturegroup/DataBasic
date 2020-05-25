@@ -1,6 +1,6 @@
 import requests
 from newspaper import Article
-import os, datetime, time, tempfile, codecs, json, xlrd, logging
+import os, datetime, time, tempfile, json, xlrd, logging
 from pyth.plugins.rtf15.reader import Rtf15Reader
 from pyth.plugins.plaintext.writer import PlaintextWriter
 from flask import Response, abort
@@ -237,7 +237,7 @@ def _open_sheet(workbook, index):
     sh = workbook.sheet_by_index(index)
     name = workbook.sheet_names()[index]
     new_file = _get_temp_file('-' + name + '.csv')
-    with open(new_file, 'wb') as f:
+    with open(new_file, 'w') as f:
         writer = csv.writer(f, delimiter=str(','), quotechar=str('"'))
         for row in range(sh.nrows):
             writer.writerow(sh.row_values(row))
