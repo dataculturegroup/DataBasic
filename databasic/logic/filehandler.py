@@ -264,4 +264,4 @@ def _get_extension(file_path):
 
 
 def _docx_to_txt(file_path):
-    return docx2txt.process(file_path).decode('utf-8')
+    return docx2txt.process(file_path)
