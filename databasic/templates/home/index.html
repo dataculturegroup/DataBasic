@@ -115,41 +115,13 @@
     </div>
   </div>
 
-  <div class="container-fluid home-news">
-    <div class="container">
-      <div class="row text-center">
-        <div class="col-md-12">
-          <h1>{{ _('<strong>DataBasic</strong> News') }}</h1>
-          <div class="row row-flex">
-            {% for post in databasic_news %}
-              <div class="col-md-4 blog-wrapper">
-                <div class="blog-post">
-                  <a href="{{ post['link'] }}">
-                    {% if post['image'] %}
-                      <img class="blog-image" src="{{ post['image'] }}" alt="">
-                    {% endif %}
-                    <h3>{{ post['title'] | safe }}</h3>
-                  </a>
-                  <p class="blog-meta">by {{ post['author'] }} on {{ post['published'] }}</p>
-                  <p>
-                    {{ post['description'] | safe }}
-                  </p>
-                </div>
-              </div>
-            {% endfor %}
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-
   <div class="container-fluid home-credits">
     <div class="row text-center">
       <div class="col-md-8 col-md-offset-2">
         <h3>{{ _('Designed and Developed by') }}</h3>
         <h4>{{ _('Principal Investigators:') }}</h4>
         <p>
-          <a href="http://www.datatherapy.org">Rahul Bhargava</a> (MIT Center for Civic Media) &amp; <a href="http://www.kanarinka.com">Catherine D'Ignazio</a> (Engagement Lab)
+          <a href="http://www.datatherapy.org">Rahul Bhargava</a> (Northeastern University) &amp; <a href="http://www.kanarinka.com">Catherine D'Ignazio</a> (MIT)
         </p>
         <h4>{{ _('Software development:') }} <small><a href="https://github.com/c4fcm/DataBasic">GitHub</a></small></h4>
         <p>
