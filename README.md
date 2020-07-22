@@ -18,7 +18,7 @@ DataBasic is a Python 3.x [Flask](https://github.com/mitsuhiko/flask) app.
 
 **1.** Clone this repository and cd into it.
 ```
-git clone https://github.com/c4fcm/DataBasic.git
+git clone https://github.com/mitmedialab/DataBasic.git
 cd DataBasic
 ```
 
