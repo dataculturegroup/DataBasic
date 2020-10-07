@@ -14,11 +14,11 @@ The suite includes:
 Installation
 ------------
 
-DataBasic is a Python 3.x [Flask](https://github.com/mitsuhiko/flask) app.
+DataBasic is a Python 3.x [Flask](https://flask.palletsprojects.com/) app.
 
 **1.** Clone this repository and cd into it.
 ```
-git clone https://github.com/mitmedialab/DataBasic.git
+git clone https://github.com/rahulbot/DataBasic.git
 cd DataBasic
 ```
 
