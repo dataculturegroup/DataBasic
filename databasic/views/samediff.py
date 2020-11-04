@@ -34,7 +34,7 @@ def index():
             f2name = files[1].filename
             logger.debug("New from upload: %s & %s", f1name, f2name)
             both = _('%(f1)s and %(f2)s', f1=f1name, f2=f2name)
-            titles = [f1name, both, f2name]
+            titles = [f1name, str(both), f2name]
             # email = forms['upload'].data['email']
         elif btn_value == 'sample':
             sample_sources = [forms['sample'].data['sample'], forms['sample'].data['sample2']]
