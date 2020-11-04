@@ -23,10 +23,9 @@ def index():
     if request.method == 'POST':
 
         btn_value = request.form['btn']
-        # email = None
-        is_sample_data = False
         titles = []
         sample_id = ''
+        file_paths = None
 
         if btn_value == 'upload':
             files = [forms['upload'].data['upload'], forms['upload'].data['upload2']]
@@ -38,16 +37,16 @@ def index():
             titles = [f1name, both, f2name]
             # email = forms['upload'].data['email']
         elif btn_value == 'sample':
-            sample_sources = [ forms['sample'].data['sample'], forms['sample'].data['sample2'] ]
+            sample_sources = [forms['sample'].data['sample'], forms['sample'].data['sample2']]
             f1name = filehandler.get_sample_title(sample_sources[0])
             f2name = filehandler.get_sample_title(sample_sources[1])
             sample_id = str(f1name) + str(f2name)
-            existing_doc_id = mongo.results_for_sample('samediff',sample_id)
+            existing_doc_id = mongo.results_for_sample('samediff', sample_id)
             if existing_doc_id is not None:
                 logger.debug("Existing from sample: %s", sample_id)
                 return redirect(request.url + 'results/' + existing_doc_id)
             logger.debug("New from sample: %s", ", ".join(sample_sources))
-            file_paths = [ filehandler.get_sample_path(sample_source) for sample_source in sample_sources ]
+            file_paths = [filehandler.get_sample_path(sample_source) for sample_source in sample_sources]
             logger.debug("  loading from %s", ", ".join(file_paths))
             both = str(_('%(f1)s and %(f2)s', f1=f1name, f2=f2name))
             titles = [f1name, both, f2name]
@@ -82,68 +81,75 @@ def results(doc_id):
         logger.warning("Unable to find doc '%s'", doc_id)
         return render_template('no_results.html', tool_name='samediff')
 
-    whatnext = {}
-    whatnext['most_common_word'] = job['sameWords'][0][1] if len(job['sameWords']) > 0 else ''
-    whatnext['second_most_common_word'] = job['sameWords'][1][1] if len(job['sameWords']) > 1 else ''
-    whatnext['doc2_most_common_word'] = job['diffWordsDoc2'][0][1] if len(job['diffWordsDoc2']) > 0 else ''
+    whatnext = {
+        'most_common_word': job['sameWords'][0][1] if len(job['sameWords']) > 0 else '',
+        'second_most_common_word': job['sameWords'][1][1] if len(job['sameWords']) > 1 else '',
+        'doc2_most_common_word': job['diffWordsDoc2'][0][1] if len(job['diffWordsDoc2']) > 0 else '',
+    }
 
-    if(job['totalWordsDoc1'] > job['totalWordsDoc2']):
+    if job['totalWordsDoc1'] > job['totalWordsDoc2']:
         pct_length_diff = float(job['totalWordsDoc1'] - job['totalWordsDoc2']) / float(job['totalWordsDoc1'])
     else:
         pct_length_diff = float(job['totalWordsDoc2'] - job['totalWordsDoc1']) / float(job['totalWordsDoc2'])
 
-    return render_template('samediff/results.html', results=job, 
-        pct_length_diff = pct_length_diff,
-        cosine_similarity= {'score':job['cosineSimilarity'],'description':interpretCosineSimilarity(job['cosineSimilarity'])},
-        whatnext=whatnext, tool_name='samediff', doc_id=doc_id,
-        remaining_days=remaining_days)
+    return render_template('samediff/results.html', results=job,
+                           pct_length_diff=pct_length_diff,
+                           cosine_similarity={'score': job['cosineSimilarity'],
+                                              'description': interpretCosineSimilarity(job['cosineSimilarity'])},
+                           whatnext=whatnext, tool_name='samediff', doc_id=doc_id,
+                           remaining_days=remaining_days)
+
 
 @mod.route('/results/download/<doc_id>/results.csv')
 def download(doc_id):
     try:
         logger.debug("Download %s", doc_id)
         doc = mongo.find_document('samediff', doc_id)
-        headers = [_('word'), _('uses in') +' ' + doc['filenames'][0], _('uses in') + ' ' + doc['filenames'][1], _('total uses')]
+        headers = [_('word'), _('uses in') + ' ' + doc['filenames'][0], _('uses in') + ' ' + doc['filenames'][1], _('total uses')]
         rows = []
         for f, w in doc['sameWords']:
-            doc1Count = next(f2 for f2, w2 in doc['mostFrequentDoc1'] if w == w2)
-            doc2Count = next(f2 for f2, w2 in doc['mostFrequentDoc2'] if w == w2)
-            rows.append([w, doc1Count, doc2Count, f])
+            doc_1_count = next(f2 for f2, w2 in doc['mostFrequentDoc1'] if w == w2)
+            doc_2_count = next(f2 for f2, w2 in doc['mostFrequentDoc2'] if w == w2)
+            rows.append([w, doc_1_count, doc_2_count, f])
         for f, w in doc['diffWordsDoc1']:
             rows.append([w, f, 0, f])
         for f, w in doc['diffWordsDoc1']:
             rows.append([w, 0, f, f])
         # TODO: clean up file name
-        file_path = filehandler.write_to_csv(headers, rows, 
-            filehandler.generate_filename('csv', '', doc['filenames'][0], doc['filenames'][1]), False)
+        file_path = filehandler.write_to_csv(headers, rows,
+                                             filehandler.generate_filename('csv', '', doc['filenames'][0], doc['filenames'][1]),
+                                             False)
         logger.debug('  created csv to download at %s', file_path)
         return filehandler.generate_csv(file_path)
     except Exception as e:
         logging.exception(e)
         abort(400)
 
+
 @mod.route('/samediff-activity-guide.pdf')
 def download_activity_guide():
     filename = "SameDiff Activity Guide.pdf"
-    dir_path = os.path.join(get_base_dir(),'databasic','static','files','activity-guides',g.current_lang)
+    dir_path = os.path.join(get_base_dir(), 'databasic', 'static', 'files', 'activity-guides', g.current_lang)
     logger.debug("download activity guide from %s/%s", dir_path, filename)
     return send_from_directory(directory=dir_path, filename=filename)
 
+
 def process_results(file_paths, titles, sample_id, source):
     file_names = filehandler.get_file_names(file_paths)
-    file_sizes = [ str(os.stat(file_path).st_size) for file_path in file_paths ] # because browser might not have sent content_length
+    file_sizes = [str(os.stat(file_path).st_size) for file_path in file_paths]  # because browser might not have sent content_length
     logger.debug("Upload: %s bytes", ", ".join(file_sizes))
-    doc_list = [ filehandler.convert_to_txt(file_path) for file_path in file_paths ]
+    doc_list = [filehandler.convert_to_txt(file_path) for file_path in file_paths]
     data = textanalysis.common_and_unique_word_freqs(doc_list)
-    job_id = mongo.save_samediff('samediff', file_names, 
-        data['doc1total'], data['doc2total'],
-        data['doc1unique'], data['doc2unique'],
-        data['common'], data['common_counts'],
-        data['doc1'], data['doc2'], data['cosine_similarity'],
-        titles,
-        sample_id,
-        source)
+    job_id = mongo.save_samediff('samediff', file_names,
+                                 data['doc1total'], data['doc2total'],
+                                 data['doc1unique'], data['doc2unique'],
+                                 data['common'], data['common_counts'],
+                                 data['doc1'], data['doc2'], data['cosine_similarity'],
+                                 titles,
+                                 sample_id,
+                                 source)
     return redirect(request.url + 'results/' + job_id + '?submit=true')
+
 
 def interpretCosineSimilarity(score):
     # Cosine Similarity
@@ -162,18 +168,18 @@ def interpretCosineSimilarity(score):
     else:
         return _('completely different')
 
-def stream_csv(data,prop_names,col_names):
+
+def stream_csv(data, prop_names, col_names):
     yield ','.join(col_names) + '\n'
     for row in data:
         try:
             attributes = []
             for p in prop_names:
                 value = row[p]
-                cleaned_value = value
-                if isinstance( value, ( intlong, float ) ):
+                if isinstance(value, (int, float)):
                     cleaned_value = str(row[p])
                 else:
-                    cleaned_value = '"'+value.encode('utf-8').replace('"','""')+'"'
+                    cleaned_value = '"'+value.encode('utf-8').replace('"', '""')+'"'
                 attributes.append(cleaned_value)
             yield ','.join(attributes) + '\n'
         except Exception as e:
