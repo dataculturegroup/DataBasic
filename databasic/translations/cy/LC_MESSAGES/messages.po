@@ -260,7 +260,7 @@ msgstr "dewiswch fath o fewnbwn"
 #: databasic/templates/macros.html:101
 #, python-format
 msgid "Ignore %(stopwords)s"
-msgstr "Anwybyddwch %(geiriau atal)au"
+msgstr "Anwybyddwch %(stopwords)s"
 
 #: databasic/templates/macros.html:102
 #: databasic/templates/wordcounter/results.html:48
@@ -304,7 +304,7 @@ msgstr ""
 #: databasic/templates/tool_base.html:5
 #, python-format
 msgid "go to %(tool)s"
-msgstr "ewch i %(offeryn)nau"
+msgstr "ewch i %(tool)s"
 
 #: databasic/templates/tool_base.html:13
 msgid "What do I do next?"
@@ -319,7 +319,7 @@ msgstr ""
 #: databasic/templates/tool_base.html:31
 #, python-format
 msgid "About %(tool_name)s"
-msgstr "Ynghylch %(enw_offeryn)nau"
+msgstr "Ynghylch %(tool_name)s"
 
 #: databasic/templates/tool_base.html:38
 msgid "Are you an Educator? Try our Activity Guide"
@@ -509,7 +509,7 @@ msgstr ""
 #: databasic/templates/wtfcsv/results.html:175
 #, python-format
 msgid "These results will expire in %(day)s days."
-msgstr "Bydd y canlyniadau hyn yn darfod mewn %(diwrnod)au diwrnod."
+msgstr "Bydd y canlyniadau hyn yn darfod mewn %(day)s diwrnod."
 
 #: databasic/templates/connectthedots/results.html:97
 msgid "for the web"
@@ -574,7 +574,7 @@ msgstr ""
 #: databasic/templates/connectthedots/results.html:160
 #, python-format
 msgid "%(node)s"
-msgstr "%(nod)au"
+msgstr "%(node)s"
 
 #: databasic/templates/connectthedots/results.html:161
 msgid "Node"
@@ -583,7 +583,7 @@ msgstr "Nod"
 #: databasic/templates/connectthedots/results.html:165
 #, python-format
 msgid "%(degree)s"
-msgstr "%(gradd)au"
+msgstr "%(degree)s"
 
 #: databasic/templates/connectthedots/results.html:166
 msgid "Degree"
@@ -596,7 +596,7 @@ msgstr "Y nifer uniongyrchol o gysylltiadau sydd gan nod."
 #: databasic/templates/connectthedots/results.html:170
 #, python-format
 msgid "%(centrality)s"
-msgstr "%(canologrwydd)au"
+msgstr "%(centrality)s"
 
 #: databasic/templates/connectthedots/results.html:171
 msgid "Centrality"
@@ -2927,7 +2927,7 @@ msgstr "lawrlwythwch "
 #: databasic/templates/samediff/results.html:37
 #, python-format
 msgid "These two documents are %(description)s."
-msgstr "%(disgrifiad)au yw'r ddwy ddogfen yma."
+msgstr "%(description)s yw'r ddwy ddogfen yma."
 
 #: databasic/templates/samediff/results.html:38
 #, python-format
@@ -2992,7 +2992,7 @@ msgstr "geiriau"
 #: databasic/templates/samediff/results.html:87
 #, python-format
 msgid "%(normalized)s "
-msgstr "%(normaleiddiedig)au "
+msgstr "%(normalized)s "
 
 #: databasic/templates/samediff/results.html:88
 msgid "Normalization"
@@ -3006,7 +3006,7 @@ msgstr "Normaleiddio toglo"
 #: databasic/templates/samediff/results.html:148
 #, python-format
 msgid "Words that are only in %(document)s"
-msgstr "Geiriau sydd ddim ond mewn %(dogfen)nau"
+msgstr "Geiriau sydd ddim ond mewn %(document)s"
 
 #: databasic/templates/samediff/results.html:110
 #: databasic/templates/samediff/results.html:132
@@ -3027,7 +3027,7 @@ msgstr "Amlder"
 #: databasic/templates/samediff/results.html:126
 #, python-format
 msgid "Words that are in %(doc)s"
-msgstr "Geiriau sydd mewn %(dog)au"
+msgstr "Geiriau sydd mewn %(doc)s"
 
 #: databasic/templates/samediff/results.html:173
 #, python-format
@@ -3064,7 +3064,7 @@ msgstr ""
 #: databasic/templates/samediff/results.html:285
 #, python-format
 msgid " uses in %(doc)s"
-msgstr " defnyddiau mewn %(dog)au"
+msgstr " defnyddiau mewn %(doc)s"
 
 #: databasic/templates/samediff/results.html:287
 msgid " uses"
@@ -3170,7 +3170,7 @@ msgstr "lawrlwythwch csv o amlderau bigramau"
 #: databasic/templates/wordcounter/results.html:82
 #, python-format
 msgid "%(bigram)s"
-msgstr "%(bigram)au"
+msgstr "%(bigram)s"
 
 #: databasic/templates/wordcounter/results.html:82
 msgid "bigram"
@@ -3192,7 +3192,7 @@ msgstr "lawrlwythwch csv o amlderau trigramau"
 #: databasic/templates/wordcounter/results.html:103
 #, python-format
 msgid "%(trigram)s"
-msgstr "%(trigram)au"
+msgstr "%(trigram)s"
 
 #: databasic/templates/wordcounter/results.html:103
 msgid "trigram"
@@ -3218,7 +3218,7 @@ msgstr ""
 #, python-format
 msgid "the %(num)d use "
 msgid_plural "the %(num)d uses "
-msgstr[0] "%(rhif)au yn defnyddio"
+msgstr[0] "%(num)d yn defnyddio"
 msgstr[1] ""
 msgstr[2] ""
 msgstr[3] ""
@@ -3233,7 +3233,7 @@ msgstr "yn y 40 bigram uchaf, a "
 #, python-format
 msgid "the %(num)s use "
 msgid_plural "the %(num)s uses "
-msgstr[0] "mae'r %(rhif)au yn defnyddio"
+msgstr[0] "mae'r %(num)s yn defnyddio"
 msgstr[1] ""
 msgstr[2] ""
 msgstr[3] ""
@@ -3325,7 +3325,7 @@ msgstr "Cyfrifiad"
 #: databasic/templates/wtfcsv/results.html:7
 #, python-format
 msgid "Full name: \"%(name)s\""
-msgstr "Enw llawn: \"%(enw)au\""
+msgstr "Enw llawn: \"%(name)s\""
 
 #: databasic/templates/wtfcsv/results.html:9
 #: databasic/templates/wtfcsv/results.html:83
@@ -3343,7 +3343,7 @@ msgstr "Y gwerthoedd amlaf yn y golofn hon yw:"
 #: databasic/templates/wtfcsv/results.html:23
 #, python-format
 msgid "occurs %(frequency)s times"
-msgstr "yn digwydd %(amlder)au o weithiau"
+msgstr "yn digwydd %(frequency)s o weithiau"
 
 #: databasic/templates/wtfcsv/results.html:37
 msgid "The earliest date is"
@@ -3541,7 +3541,7 @@ msgstr "Dadansoddi"
 #: databasic/views/samediff.py:36 databasic/views/samediff.py:51
 #, python-format
 msgid "%(f1)s and %(f2)s"
-msgstr "%(f1)au ac %(f2)au"
+msgstr "%(f1)s ac %(f2)s"
 
 #: databasic/views/samediff.py:108
 msgid "word"
