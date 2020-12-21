@@ -162,7 +162,8 @@ class SameDiffSample(SampleForm, SameDiffForm, FlaskForm):
     def __init__(self, lang):
         super(SameDiffSample, self).__init__('samediff', lang)
         choices2 = filehandler.get_samples('samediff', lang, request.headers['Host'])
-        choices2.pop(0)
+        if choices2:
+            choices2.pop(0)
         self.sample2.choices = choices2
 
 
