@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2020-05-25 14:20-0400\n"
+"POT-Creation-Date: 2020-12-21 06:43-0500\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -2105,57 +2105,53 @@ msgid ""
 "trying to use in our undergraduate classes, so we feel your pain."
 msgstr ""
 
-#: databasic/templates/home/index.html:122
-msgid "<strong>DataBasic</strong> News"
-msgstr ""
-
-#: databasic/templates/home/index.html:149
+#: databasic/templates/home/index.html:121
 msgid "Designed and Developed by"
 msgstr ""
 
-#: databasic/templates/home/index.html:150
+#: databasic/templates/home/index.html:122
 msgid "Principal Investigators:"
 msgstr ""
 
-#: databasic/templates/home/index.html:154
+#: databasic/templates/home/index.html:126
 msgid "Software development:"
 msgstr ""
 
-#: databasic/templates/home/index.html:158
+#: databasic/templates/home/index.html:130
 msgid "Spanish translation:"
 msgstr ""
 
-#: databasic/templates/home/index.html:162
+#: databasic/templates/home/index.html:134
 msgid "Portuguese translation:"
 msgstr ""
 
-#: databasic/templates/home/index.html:164
+#: databasic/templates/home/index.html:136
 msgid "with contributions from"
 msgstr ""
 
-#: databasic/templates/home/index.html:166
+#: databasic/templates/home/index.html:138
 msgid "Danish translation:"
 msgstr ""
 
-#: databasic/templates/home/index.html:170
+#: databasic/templates/home/index.html:142
 msgid "Spanish data sourcing:"
 msgstr ""
 
-#: databasic/templates/home/index.html:174
+#: databasic/templates/home/index.html:146
 msgid "Portuguese data sourcing:"
 msgstr ""
 
-#: databasic/templates/home/index.html:178
+#: databasic/templates/home/index.html:150
 msgid "Danish data sourcing:"
 msgstr ""
 
-#: databasic/templates/home/index.html:182
+#: databasic/templates/home/index.html:154
 msgid ""
 "This free and open source project would not be possible without the "
 "generous support of:"
 msgstr ""
 
-#: databasic/templates/home/index.html:183
+#: databasic/templates/home/index.html:155
 msgid ""
 "The John S. and James L. Knight Foundation, The Emerson College Faculty "
 "Development Fund &amp; The Shuttleworth Foundation"
@@ -2689,48 +2685,48 @@ msgstr ""
 msgid "Analyze"
 msgstr ""
 
-#: databasic/views/samediff.py:37 databasic/views/samediff.py:52
+#: databasic/views/samediff.py:36 databasic/views/samediff.py:51
 #, python-format
 msgid "%(f1)s and %(f2)s"
 msgstr ""
 
-#: databasic/views/samediff.py:106
+#: databasic/views/samediff.py:108
 msgid "word"
 msgstr ""
 
-#: databasic/views/samediff.py:106
+#: databasic/views/samediff.py:108
 msgid "uses in"
 msgstr ""
 
-#: databasic/views/samediff.py:106
+#: databasic/views/samediff.py:108
 msgid "total uses"
 msgstr ""
 
-#: databasic/views/samediff.py:151
+#: databasic/views/samediff.py:157
 msgid "almost the same"
 msgstr ""
 
-#: databasic/views/samediff.py:153
+#: databasic/views/samediff.py:159
 msgid "sort of similar"
 msgstr ""
 
-#: databasic/views/samediff.py:155
+#: databasic/views/samediff.py:161
 msgid "kind of similar"
 msgstr ""
 
-#: databasic/views/samediff.py:157
+#: databasic/views/samediff.py:163
 msgid "kind of similar, and also kind of different"
 msgstr ""
 
-#: databasic/views/samediff.py:159
+#: databasic/views/samediff.py:165
 msgid "pretty different"
 msgstr ""
 
-#: databasic/views/samediff.py:161
+#: databasic/views/samediff.py:167
 msgid "very different"
 msgstr ""
 
-#: databasic/views/samediff.py:163
+#: databasic/views/samediff.py:169
 msgid "completely different"
 msgstr ""
 

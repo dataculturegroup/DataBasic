@@ -6,6 +6,8 @@
 sample-data/
 instance/
 venv/
+catherinevenvdev/
+activate/
 terminal.glue
 config/settings.py
 config/google-credentials.json
@@ -27,3 +29,5 @@ databasic/static/gen/packed_tool.js
 assets
 
 databasic/static/gen/packed.js
+HANDY SNIPPETS FOR CATHERINE TO REMEMBER THINGS
+databasic/translations/cy/LC_MESSAGES/OLDmessages.json

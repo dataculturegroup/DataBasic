@@ -15,12 +15,13 @@ import databasic.logic.db
 import databasic.logic.oauth
 
 
-VALID_LANGUAGES = ('es', 'en', 'pt', 'da')
+VALID_LANGUAGES = ('es', 'en', 'pt', 'da', 'cy')
 NLTK_STOPWORDS_BY_LANGUAGE = {
     'es': 'spanish',
     'en': 'english',
     'pt': 'portuguese',
     'da': 'danish',
+    'cy': 'welsh'
 }
 
 CONFIG_DIR_NAME = 'config'

@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2020-05-25 14:20-0400\n"
+"POT-Creation-Date: 2020-12-21 06:43-0500\n"
 "PO-Revision-Date: 2016-12-29 12:33-0200\n"
 "Last-Translator: \n"
 "Language: pt\n"
@@ -2446,57 +2446,53 @@ msgstr ""
 "ferramentas nasceram sem a frustração de coisas que estávamos tentando "
 "usar em nossas aulas de graduação, então sentimos sua dor."
 
-#: databasic/templates/home/index.html:122
-msgid "<strong>DataBasic</strong> News"
-msgstr "<strong>DataBasic</strong> News"
-
-#: databasic/templates/home/index.html:149
+#: databasic/templates/home/index.html:121
 msgid "Designed and Developed by"
 msgstr "Concebido e Programado por"
 
-#: databasic/templates/home/index.html:150
+#: databasic/templates/home/index.html:122
 msgid "Principal Investigators:"
 msgstr "Diretores:"
 
-#: databasic/templates/home/index.html:154
+#: databasic/templates/home/index.html:126
 msgid "Software development:"
 msgstr "Desenvolvimento de software:"
 
-#: databasic/templates/home/index.html:158
+#: databasic/templates/home/index.html:130
 msgid "Spanish translation:"
 msgstr "Tradução em espanhol:"
 
-#: databasic/templates/home/index.html:162
+#: databasic/templates/home/index.html:134
 msgid "Portuguese translation:"
 msgstr "Tradução em português:"
 
-#: databasic/templates/home/index.html:164
+#: databasic/templates/home/index.html:136
 msgid "with contributions from"
 msgstr "com a ajuda de"
 
-#: databasic/templates/home/index.html:166
+#: databasic/templates/home/index.html:138
 msgid "Danish translation:"
 msgstr ""
 
-#: databasic/templates/home/index.html:170
+#: databasic/templates/home/index.html:142
 msgid "Spanish data sourcing:"
 msgstr "Dados em português contribuíram pelo:"
 
-#: databasic/templates/home/index.html:174
+#: databasic/templates/home/index.html:146
 msgid "Portuguese data sourcing:"
 msgstr "Dados em espanhol contribuíram pelo:"
 
-#: databasic/templates/home/index.html:178
+#: databasic/templates/home/index.html:150
 msgid "Danish data sourcing:"
 msgstr ""
 
-#: databasic/templates/home/index.html:182
+#: databasic/templates/home/index.html:154
 msgid ""
 "This free and open source project would not be possible without the "
 "generous support of:"
 msgstr ""
 
-#: databasic/templates/home/index.html:183
+#: databasic/templates/home/index.html:155
 msgid ""
 "The John S. and James L. Knight Foundation, The Emerson College Faculty "
 "Development Fund &amp; The Shuttleworth Foundation"
@@ -3115,48 +3111,48 @@ msgstr ""
 msgid "Analyze"
 msgstr "Analize"
 
-#: databasic/views/samediff.py:37 databasic/views/samediff.py:52
+#: databasic/views/samediff.py:36 databasic/views/samediff.py:51
 #, python-format
 msgid "%(f1)s and %(f2)s"
 msgstr "%(f1)s e %(f2)s"
 
-#: databasic/views/samediff.py:106
+#: databasic/views/samediff.py:108
 msgid "word"
 msgstr "palavra"
 
-#: databasic/views/samediff.py:106
+#: databasic/views/samediff.py:108
 msgid "uses in"
 msgstr "usa em"
 
-#: databasic/views/samediff.py:106
+#: databasic/views/samediff.py:108
 msgid "total uses"
 msgstr "uso total"
 
-#: databasic/views/samediff.py:151
+#: databasic/views/samediff.py:157
 msgid "almost the same"
 msgstr "quase o mesmo"
 
-#: databasic/views/samediff.py:153
+#: databasic/views/samediff.py:159
 msgid "sort of similar"
 msgstr "mais ou menos similar"
 
-#: databasic/views/samediff.py:155
+#: databasic/views/samediff.py:161
 msgid "kind of similar"
 msgstr "meio similar"
 
-#: databasic/views/samediff.py:157
+#: databasic/views/samediff.py:163
 msgid "kind of similar, and also kind of different"
 msgstr "meio similar, e também meio diferente"
 
-#: databasic/views/samediff.py:159
+#: databasic/views/samediff.py:165
 msgid "pretty different"
 msgstr "bem diferente"
 
-#: databasic/views/samediff.py:161
+#: databasic/views/samediff.py:167
 msgid "very different"
 msgstr "muito diferente"
 
-#: databasic/views/samediff.py:163
+#: databasic/views/samediff.py:169
 msgid "completely different"
 msgstr "completamente diferente"
 
@@ -3338,4 +3334,7 @@ msgstr "Outro"
 #~ "compartilhar essa história. Inicie a "
 #~ "atividade passando o vídeo inicial "
 #~ "abaixo para o seu grupo."
+
+#~ msgid "<strong>DataBasic</strong> News"
+#~ msgstr "<strong>DataBasic</strong> News"
 
