@@ -50,8 +50,10 @@ def _sort_count_list(freq_dist):
 def _count_words(words, ignore_stop_words, stopwords_language):
     logger.error(stopwords_language)
     fdist = FreqDist(words)
+
     # remove stopwords here rather than in corpus text for speed
     if ignore_stop_words:
+        logger.debug("I AM IN IGNORE STOPWORDS language is {}".format(stopwords_language))
         fdist = stopwords.remove_from_freq_dist(fdist, stopwords_language)
         if stopwords_language == 'danish':
             # our partner advised this is necessary for Danish

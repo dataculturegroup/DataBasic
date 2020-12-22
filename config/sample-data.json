@@ -508,5 +508,103 @@
     "modules": ["connectthedots"],
     "lang": "da",
     "biography": "This is chart shows a social network within a university karate club.  This is a classic example in network science, used in academic papers since the mid 1970s.  This version of the dataset was created by Rahul Bhargava based on the network listed on <a href=\"https://en.wikipedia.org/wiki/Zachary's_karate_club\">the Wikipedia entry</a> in 2016."
+  },
+  {
+    "title": "ddata Cymru a'r Gororau Radiocarbon Dating in Wales: The State of the Nation",
+    "source": "sample-data/cy/Cronfa_Ddata_Radiocarbon_Cymru_a'r_Gororau.csv",
+    "modules": ["wtfcsv"],
+    "lang": "cy",
+    "biography": "Mae cronfa ddata Cymru a'r Gororau (Burrow, S 2018. ‘Radiocarbon Dating in Wales: The State of the Nation’. Archaeoleg yng Nghymru 56: 107–12) yn cynnwys gwybodaeth fanwl am fwy na 7,500 o ddyddiadau radiocarbon a gyhoeddwyd mewn dros 2,000 o lyfrau ac erthyglau. Cafodd y data hwn ei atgymysgu gan Data Cymru yn 2020."
+  },
+  {
+    "title": "chwaraewyr rygbi undeb pennaf Cymru",
+    "source": "sample-data/cy/Chwaraewyr_Rygbi_Undeb_Pennaf_Cymru.csv",
+    "modules": ["wtfcsv"],
+    "lang": "cy",
+    "biography": "Mae'r set ddata hon yn cynnwys gwybodaeth am rai  o chwaraewyr rygbi undeb pennaf Cymru gan gynnwys eu safle, i ba timau maent/roeddent yn chwarae a dyddiad a man eu geni. Cafodd y data hwn ei grynhoi gan Data Cymru yn 2020 ar sail data a gyhoeddwyd ar Wikidata."
+  },
+  {
+    "title": "UFO yng Nghymru rhwng 1997 a 2009",
+    "source": "sample-data/cy/Gweld_UFO_a Adroddwyd_Cymru.csv",
+    "modules": ["wtfcsv"],
+    "lang": "cy",
+    "biography": "Mae hon yn rhestr o ddigwyddiadau gweld UFO yng Nghymru rhwng 1997 a 2009, fel y'u hadroddwyd i'r Weinyddiaeth Amddiffyn. Cafodd y data hwn ei lawrlwytho yn 2020 gan Data Cymru o www.data.gov.uk."
+  },
+  {
+    "title": "5,000 o gofnodion am wlithod a malwod",
+    "source": "sample-data/cy/Gwlithen_a_Malwod_yng_Nghymru.csv",
+    "modules": ["wtfcsv"],
+    "lang": "cy",
+    "biography": "Mae'r set ddata hon yn cynnwys 5,000 o gofnodion am wlithod a malwod a geir yng Nghymru. Cafodd y data hwn ei grynhoi gan Data Cymru yn 2020 ar sail data a gyhoeddwyd ar Wikidata."
+  },
+  {
+    "title": "band seicedelig/roc gwerin Cymreig Gorki's Zygotic Mynci",
+    "source": "sample-data/cy/Gorkis_Zygotic_Mynci.csv",
+    "modules": ["connectthedots"],
+    "lang": "cy",
+    "biography": "Mae'r siart hwn yn canolbwyntio ar aelodau band seicedelig/roc gwerin Cymreig Gorki's Zygotic Mynci ac ym mha fandiau eraill maent wedi chwarae. Cafodd y data hwn ei guradu gan Data Cymru yn 2020. Ffynhonnell: Wikipedia."
+  },
+   {
+    "title": "menywod Cymru (tîm A)",
+    "source": "sample-data/cy/Sgwad_Pêl-Droed_Menywod_Cymru.csv",
+    "modules": ["connectthedots"],
+    "lang": "cy",
+    "biography": "Mae'r siart hwn yn canolbwyntio ar aelodau sgwad pêl-droed menywod Cymru (tîm A) ac i ba dimau maent yn chwarae. Cafodd y data hwn ei guradu gan Data Cymru yn 2020. Ffynhonnell: Wikipedia."
+  },
+  {
+    "title": "nod yn gymeriad yn Under Milk Wood Dylan Thomas",
+    "source": "sample-data/cy/Cymeriadau_yn_Under_Milk_Wood.csv",
+    "modules": ["connectthedots"],
+    "lang": "cy",
+    "biography": "Mae hwn yn siart lle mae pob nod yn gymeriad yn Under Milk Wood Dylan Thomas, ac mae pob dolen yn dangos eu bod yn gysylltiedig mewn golygfa. Bydd un cymeriad efallai'n siarad â'r llall, neu efallai'n breuddwydio am y llall neu'n derbyn neges gan gymeriad arall. Yr enw ar hyn yw cydamseriad cymeriadau. Cafodd y data hwn ei guradu gan Data Cymru yn 2020."
+  },
+  {
+    "title": "caneuon gan Yws Gwynedd",
+    "source": "sample-data/cy/Geiriau_Caneuon_Yws_Gwynedd.docx",
+    "modules": ["wordcounter","samediff"],
+    "lang": "cy",
+    "biography": "Dyma eiriau caneuon gan Yws Gwynedd. Rhannodd yr artist hwy â Data Cymru yn 2020."
+  },
+  {
+    "title": "caneuon gan Dafydd Iwan",
+    "source": "sample-data/cy/Geiriau_Caneuon_Dafydd_Iwan.docx",
+    "modules": ["wordcounter","samediff"],
+    "lang": "cy",
+    "biography": "Dyma eiriau caneuon gan Dafydd Iwan. Rhannodd yr artist hwy â Data Cymru yn 2020."
+  },
+  {
+    "title": "hwiangerddi Cymraeg modern",
+    "source": "sample-data/cy/Hwiangerddi_Newydd.docx",
+    "modules": ["wordcounter","samediff"],
+    "lang": "cy",
+    "biography": "Dyma eiriau rhai hwiangerddi Cymraeg modern. Cafodd y data hwn ei grynhoi gan Data Cymru yn 2020."
+  },
+  {
+    "title": "hwiangerddi Cymraeg modern 2",
+    "source": "sample-data/cy/Hen_Hwiangerddi.docx",
+    "modules": ["wordcounter","samediff"],
+    "lang": "cy",
+    "biography": "Dyma eiriau rhai hwiangerddi Cymraeg modern. Cafodd y data hwn ei grynhoi gan Data Cymru yn 2020."
+  },
+  {
+    "title": "Mark Drakeford oedd arweinydd",
+    "source": "sample-data/cy/Areithiau_Mark_Drakeford.txt",
+    "modules": ["wordcounter","samediff"],
+    "lang": "cy",
+    "biography": "Mark Drakeford oedd arweinydd plaid Lafur Cymru. Cafodd ei enwebu gan Aelodau'r Cynulliad (AC) fel darpar Brif Weinidog ar 12 Rhagfyr 2018 a chafodd ei enwebiad ei gymeradwyo gan EM Y Frenhines. Mae'r set ddata hon yn grynodeb o'i gyfraniad at sesiynau llawn o'i araith dderbyn am yr ychydig fisoedd dilynol. Mae'r mwyafrif o'i gyfraniadau yn rhan o \"Gwestiynau i'r Prif Weinidog\". Mae trafodion y Senedd yn cael eu cyfieithu o ba iaith bynnag a ddefnyddiodd y siaradwr. Cafodd y data hwn ei lawrlwytho gan Data Cymru yn 2020 o drafodion swyddogol y Senedd."
+  },
+  {
+    "title": "Rhodri Morgan oedd arweinydd",
+    "source": "sample-data/cy/Areithiau_Rhodri_Morgan.txt",
+    "modules": ["wordcounter","samediff"],
+    "lang": "cy",
+    "biography": "Rhodri Morgan oedd arweinydd plaid Lafur Cymru a Phrif Ysgrifennydd (a ailenwyd wedyn yn Brif Weinidog) Cymru o 2000-2009. Ef oedd, hyd yma yn 2020, Prif Weinidog Cymru am y cyfnod hwyaf. Mae'r set ddata hon yn grynodeb o'i gyfraniad at sesiynau llawn o'i araith dderbyn am yr ychydig fisoedd dilynol. Mae'r mwyafrif o'i gyfraniadau yn rhan o \"Gwestiynau i'r Prif Weinidog\". Mae trafodion y Senedd yn cael eu cyfieithu o ba iaith bynnag a ddefnyddiodd y siaradwr. Cafodd y data hwn ei lawrlwytho gan Data Cymru yn 2020 o drafodion swyddogol y Senedd."
+  },
+  {
+    "title": "gweld UFO yng Nghymru rhwng 1997 a 2009",
+    "source": "sample-data/cy/Gweld_UFO_Gwybodaeth_a Adroddwyd_Cymru.txt",
+    "modules": ["wordcounter","samediff"],
+    "lang": "cy",
+    "biography": "Mae'r set ddata hon yn cynnwys y disgrifiadau o ddigwyddiadau gweld UFO yng Nghymru rhwng 1997 a 2009, fel y'u hadroddwyd i'r Weinyddiaeth Amddiffyn. Cafodd y data hwn ei lawrlwytho yn 2020 gan Data Cymru o www.data.gov.uk."
   }
 ]

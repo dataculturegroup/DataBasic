@@ -14,11 +14,20 @@ def remove_from_freq_dist(fdist, language):
     num_removed = 0
     custom_stopwords = _custom_stopwords_list(language)
     # logger.debug(",".join(custom_stopwords))
+
+    #Check if nltk supports this language
+    standard_stopwords = []
+    try:
+        standard_stopwords = stopwords.words(language)
+    except IOError:
+        logger.debug("Couldn't find stopwords for {}. Probbaly because nltk doesn't support it.".format(language))
+
+
     for w in list(fdist):
-        # logger.debug("    checking {}".format(w))
-        if (w in stopwords.words(language)) or (w in custom_stopwords):
+        if (w in standard_stopwords) or (w in custom_stopwords):
             num_removed += 1
             del fdist[w]
+       
     logger.debug("  removed {} stopwords".format(num_removed))
     return fdist
 
@@ -29,12 +38,13 @@ def _custom_stopwords_list(language, force=True):
     :param language: NLTK-compatible name of language
     :return: a list of stopwords we added for that language, [] if none to add
     """
+    
     if force or (language not in language2stopwords):
         path_to_file = os.path.join(get_base_dir(), 'databasic', 'logic', 'stopwords', language)
         try:
             f = open(path_to_file, 'r')
             custom_stopwords = [w.strip() for w in f.readlines() if len(w.strip()) > 0]
-            # logger.debug("Loaded {} custom {} stopwords".format(len(custom_stopwords), language))
+            logger.debug("Loaded {} custom {} stopwords".format(len(custom_stopwords), language))
             f.close()
         except OSError:
             custom_stopwords = []
