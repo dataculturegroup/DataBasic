@@ -29,11 +29,11 @@
                 <br /><a href="https://www.good.is/infographics/transparency-how-much-water-do-you-use"><img src="{{ url_for('static', filename='img/culture/remix-water-thumbnail.png') }}" width="250" height="auto"/></a>
             </li>
             <li>{{ _("Large paper, markers, and craft materials (the materials from <a href='build-a-sculpture'>our Build a Data Sculpture activity</a> can be used for this activity too)")}}</li>
-            <li>{{ _("Copies of <a href='/static/files/activity-guides/en/Picking a Technique.pdf'>our handout about different data presentation techniques</a> (1 for each participant)")}}
-              <br /><a href="{{ url_for('static', filename='files/activity-guides/en/Picking a Technique.pdf') }}"><img src="{{ url_for('static', filename='img/culture/remix-handout-thumbnail.png') }}" width="250" height="auto"/></a>
+            <li>{{ _("Copies of our handout about different data presentation techniques (1 for each participant)")}}
+              <br /><a href="{{ url_for('static', filename='files/activity-guides/' + g['current_lang'] +'/Picking a Technique.pdf') }}"><img src="{{ url_for('static', filename='img/culture/remix-handout-thumbnail.png') }}" width="250" height="auto"/></a>
             </li>
             <li>{{ _("<a href='/static/files/activity-guides/en/Infographic Remix Cards.pdf'>Our visualization technique cards</a> (one card for each 3-4 person group); print them double-sided on a single sheet of paper and cut them out ahead of time") }}
-                <br /><a href="{{ url_for('static', filename='files/activity-guides/en/Infographic Remix Cards.pdf') }}"><img src="{{ url_for('static', filename='img/culture/remix-cards-thumbnail.png') }}" width="250" height="auto"/></a>
+                <br /><a href="{{ url_for('static', filename='files/activity-guides/' + g['current_lang'] + '/Infographic Remix Cards.pdf') }}"><img src="{{ url_for('static', filename='img/culture/remix-cards-thumbnail.png') }}" width="250" height="auto"/></a>
             </li>
           </ul>
         </div>
