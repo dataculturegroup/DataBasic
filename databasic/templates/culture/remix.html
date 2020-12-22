@@ -24,16 +24,25 @@
           <h2>{{ _("Set Up") }}</h2>
           <p>{{ _("This activity will take 30 to 40 minutes. You should have these materials on hand:") }}</p>
           <ul>
-            <li>
-              {{ _("Printed copies of an example visualization for remixing. We often use <a href='https://www.good.is/infographics/transparency-how-much-water-do-you-use'>this infographic on daily water usage from GOOD.is</a>. 1-2 printed copies for each group.")}}
-                <br /><a href="https://www.good.is/infographics/transparency-how-much-water-do-you-use"><img src="{{ url_for('static', filename='img/culture/remix-water-thumbnail.png') }}" width="250" height="auto"/></a>
-            </li>
+
+            {# NOTE FOR WELSH - So this is clunky but easy. Did it like this bc we only have custom data for Welsh and not other languages.  #}
+            {% if g['current_lang'] == "cy" %}
+              <li>
+                Copïau argraffedig o ddelweddu enghreifftiol i'w atgymysgu. Yn aml defnyddiwn ni'r <a href='https://www.data.cymru/cym/ffeithlun-modd-i-fyw'>Ffeithlun Modd I Fyw</a>. 1-2 gopi printiedig am bob grŵp.
+                  <br /><a href="https://www.data.cymru/cym/ffeithlun-modd-i-fyw"><img src="{{ url_for('static', filename='files/activity-materials/cy/Way_To_go_cym.png') }}" width="250" height="auto"/></a>
+              </li>
+            {% else %}
+              <li>
+                {{ _("Printed copies of an example visualization for remixing. We often use <a href='https://www.good.is/infographics/transparency-how-much-water-do-you-use'>this infographic on daily water usage from GOOD.is</a>. 1-2 printed copies for each group.")}}
+                  <br /><a href="https://www.good.is/infographics/transparency-how-much-water-do-you-use"><img src="{{ url_for('static', filename='img/culture/remix-water-thumbnail.png') }}" width="250" height="auto"/></a>
+              </li>
+            {% endif %}
             <li>{{ _("Large paper, markers, and craft materials (the materials from <a href='build-a-sculpture'>our Build a Data Sculpture activity</a> can be used for this activity too)")}}</li>
             <li>{{ _("Copies of our handout about different data presentation techniques (1 for each participant)")}}
-              <br /><a href="{{ url_for('static', filename='files/activity-guides/' + g['current_lang'] +'/Picking a Technique.pdf') }}"><img src="{{ url_for('static', filename='img/culture/remix-handout-thumbnail.png') }}" width="250" height="auto"/></a>
+              <br /><a href="{{ url_for('static', filename='files/activity-materials/' + g['current_lang'] +'/Picking a Technique.pdf') }}"><img src="{{ url_for('static', filename='img/culture/remix-handout-thumbnail.png') }}" width="250" height="auto"/></a>
             </li>
-            <li>{{ _("<a href='/static/files/activity-guides/en/Infographic Remix Cards.pdf'>Our visualization technique cards</a> (one card for each 3-4 person group); print them double-sided on a single sheet of paper and cut them out ahead of time") }}
-                <br /><a href="{{ url_for('static', filename='files/activity-guides/' + g['current_lang'] + '/Infographic Remix Cards.pdf') }}"><img src="{{ url_for('static', filename='img/culture/remix-cards-thumbnail.png') }}" width="250" height="auto"/></a>
+            <li>{{ _("<a href='/static/files/activity-materials/en/Infographic Remix Cards.pdf'>Our visualization technique cards</a> (one card for each 3-4 person group); print them double-sided on a single sheet of paper and cut them out ahead of time") }}
+                <br /><a href="{{ url_for('static', filename='files/activity-materials/' + g['current_lang'] + '/Infographic Remix Cards.pdf') }}"><img src="{{ url_for('static', filename='img/culture/remix-cards-thumbnail.png') }}" width="250" height="auto"/></a>
             </li>
           </ul>
         </div>

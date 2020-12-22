@@ -52,9 +52,19 @@
           <h2>{{ _("Kick off the Activity") }}</h2>
           <p>{{ _("Introduce the group to two related “normal” charts of data.  One can be a single fact, and the other a medium-sized set of information. If you make your own, be sure to avoid data that the audience knows too well - we find that leads people to get lost in the nuances and intimate details. We suggest using more generic or high-level data.  Here are a few handouts you are welcome to download, print, and use:") }}</p>
           <ul>
-            <li><a href="/static/files/activity-guides/en/data sculpture - ice cream - rev2.pdf">{{ _("US Ice Cream Consumption") }}</li>
-            <li><a href="/static/files/activity-guides/en/data sculpture - happiness - rev2.pdf">{{ _("Happiness in the Town of Somerville, MA, USA") }}</li>
-            <li><a href="/static/files/activity-guides/en/data sculpture - MIT costs - rev3.pdf">{{ _("The Cost of an MIT Education") }}</a></li>
+            
+
+            {# NOTE FOR WELSH - So this is clunky but easy. Did it like this bc we only have custom data for Welsh and not other languages.  #}
+            {% if g['current_lang'] == "cy" %}
+                <li><a href="/static/files/activity-materials/cy/Poblogaethau_Adar_Bridio_yng_Nghymru.pdf">Poblogaethau Adar Bridio yng Nghymru</li>
+                <li><a href="/static/files/activity-materials/cy/Defnydd_ynni_yn_y_DU.pdf">Defnydd ynni yn y DU</li>
+                <li><a href="/static/files/activity-materials/cy/Y_boblogaeth_sy'n_siarad_Cymraeg.pdf">Y boblogaeth sy'n siarad Cymraeg </a></li>
+            {% else %}
+                <li><a href="/static/files/activity-materials/en/data sculpture - ice cream - rev2.pdf">{{ _("US Ice Cream Consumption") }}</li>
+                <li><a href="/static/files/activity-materials/en/data sculpture - happiness - rev2.pdf">{{ _("Happiness in the Town of Somerville, MA, USA") }}</li>
+                <li><a href="/static/files/activity-materials/en/data sculpture - MIT costs - rev3.pdf">{{ _("The Cost of an MIT Education") }}</a></li>
+            {% endif %}
+
           </ul>
           <p>{{ _("Ask the group to pair up, preferably with someone they don’t know.  Show participants a large central table full of the materials you have gathered.  Give them 6 minutes to quickly build a physical representation of the data you presented earlier.  Don't give them too long, otherwise they will get stuck on nuances instead of just getting their creative juices flowing. Remind them they are creative, and that pipe cleaner bar charts are NOT allowed!") }}</p>
           <p>{{ _("After 3 minutes tell them they should be building now; this is a 'think with your hands activity'.  When they have one minute left let them know.") }}</p> 

@@ -24,7 +24,12 @@
           <h2>{{ _("Set Up") }}</h2>
           <p>{{ _("This activity will take 15 to 20 minutes. You should have these materials on hand:") }}</p>
           <ul>
-            <li>{{ _("Printouts of a visualization (we often use <a href=\"https://foodtechconnect.com/2012/01/10/usaid-infographics-on-agriculture-simplify-reality-infographic/\">this one from USAID</a> or <a href=\"http://owni.fr/files/2010/11/12-e1288712778782.jpg\">this one about the Iraq war</a>); print out 1 paper for every two or three participants)")}}</li>
+            {# NOTE FOR WELSH - So this is clunky but easy. Did it like this bc we only have custom data for Welsh and not other languages.  #}
+            {% if g['current_lang'] == "cy" %}
+                <li>Copïau argraffedig o <a href="/static/files/activity-materials/cy/allyriadau-nwyon-ty-gwydr-ffeithlun-2018.pdf">Allyriadau nwyon ty gwydr ffeithlun 2018</a> o <a href="/static/files/activity-materials/cy/Gweithredu_heddiw_dros__yfory_egnïol.pdf">Gweithredu heddiw dros yfory egnïol</a>); argraffwch 1 papur am bob ddau neu dri o gyfranogwyr</li>
+            {% else %}
+                <li>{{ _("Printouts of a visualization (we often use <a href=\"https://foodtechconnect.com/2012/01/10/usaid-infographics-on-agriculture-simplify-reality-infographic/\">this one from USAID</a> or <a href=\"http://owni.fr/files/2010/11/12-e1288712778782.jpg\">this one about the Iraq war</a>); print out 1 paper for every two or three participants)")}}</li>
+            {% endif %}
           </ul>
         </div>
       </div>
