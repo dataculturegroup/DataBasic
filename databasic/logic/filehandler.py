@@ -183,7 +183,8 @@ def open_workbook(book):
 def get_samples(tool_id, lang, domain=None):
     matching_samples = []
     for sample in samples:
-        if tool_id in sample['modules'] and sample['lang'] == lang:  # filter samples by language and tool
+        if tool_id in sample['modules'] and lang in sample['lang']:  # filter samples by language and tool
+        #if tool_id in sample['modules'] and sample['lang'] == lang:  # filter samples by language and tool
             if (domain is None) or ('domains' not in sample) or (domain in sample['domains']): # filter by domain (if specified)
                 logger.debug("domain from browser is " + domain)
                 if os.path.exists(sample['path']):
