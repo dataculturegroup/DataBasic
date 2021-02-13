@@ -76,7 +76,10 @@ if app_mode == APP_MODE_DEV:
 elif app_mode == APP_MODE_PRODUCTION:
     logger.info('Loading config from environment variables')
     for var_name in config_var_names:
-        app.config[var_name] = int(os.environ.get(var_name, None)) if var_name in ['MAX_CONTENT_LENGTH'] else os.environ.get(var_name, None)
+        try:
+            app.config[var_name] = int(os.environ.get(var_name, None)) if var_name in ['MAX_CONTENT_LENGTH'] else os.environ.get(var_name, None)
+        except TypeError:
+            logger.error("Looks like you have not set the %s environment variable!" % var_name)
         if app.config[var_name] is None:
             logger.error("Looks like you have not set the %s environment variable!" % var_name)
 else:
@@ -110,7 +113,7 @@ babel = Babel(app)
 mongo = databasic.logic.db.MongoHandler(app.config.get('MONGODB_URL'), app.config.get('MONGODB_NAME'))
 databasic.logic.oauth.init(app.config.get('GOOGLE_CLIENT_ID'), app.config.get('GOOGLE_CLIENT_SECRET'),
                  app.config.get('OAUTH_REDIRECT_URI'))
-databasic.logic.filehandler.init_samples()
+databasic.logic.filehandler.load_sample_file()
 local_nltk_path = os.path.join(get_base_dir(), 'nltk_data')
 logger.info("Adding nltk path %s", local_nltk_path)
 nltk.data.path.append(local_nltk_path)

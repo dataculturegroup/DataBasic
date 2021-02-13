@@ -23,30 +23,11 @@ docs = None
 ACCEPTED_EXTENSIONS = ['txt', 'docx', 'rtf', 'csv', 'xlsx', 'xls']
 
 
-def init_samples():
+def load_sample_file():
     global samples
     samples_config_file_path = os.path.join(databasic.get_config_dir(), 'sample-data.json')
     samples = json.load(open(samples_config_file_path))
-    if databasic.app.config.get(databasic.ENV_APP_MODE) == databasic.APP_MODE_DEV:
-        # change the paths to absolute onesls
-        for sample in samples:
-            sample['path'] = os.path.join(databasic.get_base_dir(), sample['source'])
-        logger.info("Updated sample data with base dir: %s" % databasic.get_base_dir())
-    else:
-        # copy from server to local temp dir and change to abs paths (to temp dir files)
-        url_base = databasic.app.config.get('SAMPLE_DATA_SERVER')
-        for sample in samples:
-            url = url_base + sample['source']
-            logger.info("Loading sample data file: %s" % url)
-            text = requests.get(url).text
-            f = tempfile.NamedTemporaryFile(mode="w", delete=False)
-            f.write(text)
-            f.close()
-            sample['path'] = f.name
-        logger.info("Downloaded sample data and saved to tempdir")
-    for sample in samples:
-        file_size = os.stat(sample['path']).st_size
-        logger.debug("  Cached %d bytes of %s to %s", file_size, sample['source'], sample['path'])
+    logger.info("Loaded {} already-downloaded samples".format(len(samples)))
 
 
 def write_to_temp_file(text):
