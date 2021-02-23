@@ -1,4 +1,4 @@
-{% from "culture_macros.html" import render_feedback_form %}
+
 
 {% extends "culture_activity_base.html" %}
 
@@ -32,7 +32,7 @@
             group of 3 people")}}</li>
             <li>{{ _("Planning to show the videos offline? <a href=\"https://www.dropbox.com/s/alwonz81zjhmsri/SketchAStoryAllThreeFacilitationVideos.zip?dl=0\">Click here</a> to download them in advance.")}}</li>
           </ul>
-          <p><a class="activity-guide" href="https://databasic.io/{{g['current_lang']}}/wordcounter/wordcounter-activity-guide.pdf">{{ _("Download and print the activity guide") }}</a></p>
+          <p><a class="activity-guide" href="/{{g['current_lang']}}/wordcounter/wordcounter-activity-guide.pdf">{{ _("Download and print the activity guide") }}</a></p>
         </div>
       </div>
 
@@ -41,11 +41,13 @@
         <div class="num odd red">1</div>      
         <div class="col-md-8 col-sm-8 col-xs-8 col-md-offset-2 col-sm-offset-2 col-xs-offset-2">
           <h2>{{ _("Kick-Off The Activity") }}</h2>
-          <p>{{ _("It is hard to go from data to story.  This activity lets you quickly do that by analyzing datasets to find patterns in text, and then sketching out some story you find.  It introduces basic terminology for quantitative text analysis, helps you get acquainted with <a href='https://wordcounter.databasic.io/'>Databasic.io's WordCounter tool</a>, and prompts you to consider places in your organization where you work with text as data.  Participants will pair up with colleagues to search for stories in some fun sample data and then draw a sketch to share that story. Start the activity by playing the kickoff video below for your group.") }}</p>
+          <p>{{ _("It is hard to go from data to story.  This activity lets you quickly do that by analyzing datasets to find patterns in text, and then sketching out some story you find.  It introduces basic terminology for quantitative text analysis, helps you get acquainted with Databasic.io's WordCounter tool, and prompts you to consider places in your organization where you work with text as data.  Participants will pair up with colleagues to search for stories in some fun sample data and then draw a sketch to share that story. Start the activity by playing the kickoff video below for your group.") }}</p>
+          
+          <p><a href="/{{g['current_lang']}}/wordcounter/">Databasic.io's WordCounter tool</a></p>
           <p>{{ _("Introduce the activity and then give folks about 15 minutes to sketch.  With 10 minutes left let them know that they should have chosen a dataset to work with. When they have 5 minutes left make sure they have a story and are sketching on paper, otherwise they'll be scrambling to get a drawing done.") }}</p>
         </div>
         <div class="col-md-8 col-sm-8 col-xs-8 col-md-offset-2 col-sm-offset-2 col-xs-offset-2">
-          <iframe src="https://player.vimeo.com/video/235940667" width="100%" height="355" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
+          <iframe src="https://player.vimeo.com/video/235940667?texttrack={{g['current_lang']}}" width="100%" height="355" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
         </div>
       </div>
 
@@ -57,7 +59,7 @@
           <p>{{ _("Play this video after each small group has sketched their story on a large sheet of paper. Here we outline some questions to discuss as each group describes the story that they found. For example, you'll want to take note of stories based on comparing two things versus those those based on a single, interesting data point. And you can start a conversation about how groups used visual parameters – like color, size and position – to communicate their story.") }}</p>
         </div>
         <div class="col-md-8 col-sm-8 col-xs-8 col-md-offset-2 col-sm-offset-2 col-xs-offset-2">
-          <iframe src="https://player.vimeo.com/video/235943157" width="100%" height="355" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
+          <iframe src="https://player.vimeo.com/video/235943157?texttrack={{g['current_lang']}}" width="100%" height="355" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
         </div>
       </div>
 
@@ -69,11 +71,9 @@
           <p>{{ _("Now that everyone has analyzed text and sketched a story, this video will help people think about where to go from here. For example, what are some text datasets that your organization already has on hand?  We discuss some more sophisticated methods of quantitative text analysis as well as point out some common pitfalls to try to avoid.") }}</p>   
         </div>
         <div class="col-md-8 col-sm-8 col-xs-8 col-md-offset-2 col-sm-offset-2 col-xs-offset-2">
-          <iframe src="https://player.vimeo.com/video/235944685" width="100%" height="355" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
+          <iframe src="https://player.vimeo.com/video/235944685?texttrack={{g['current_lang']}}" width="100%" height="355" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
         </div>
       </div>
-
-      {{ render_feedback_form("word-counter") }}
 
   </div>
 

@@ -1,4 +1,4 @@
-{% from "culture_macros.html" import render_feedback_form %}
+
 
 {% extends "culture_activity_base.html" %}
 
@@ -29,7 +29,7 @@
             <li>{{ _("A phone, tablet, or computer for each small group of 3 people")}}</li>
             <li>{{ _("A projector connected to a computer")}}</li>
           </ul>
-          <p><a class="activity-guide" href="https://databasic.io/{{g['current_lang']}}/connectthedots/connect-the-dots-activity-guide.pdf">{{ _("Download and print the activity guide") }}</a></p>
+          <p><a class="activity-guide" href="/{{g['current_lang']}}/connectthedots/connect-the-dots-activity-guide.pdf">{{ _("Download and print the activity guide") }}</a></p>
         </div>
       </div>
 
@@ -38,11 +38,12 @@
         <div class="num odd orange">1</div>      
         <div class="col-md-8 col-sm-8 col-xs-8 col-md-offset-2 col-sm-offset-2 col-xs-offset-2">
           <h2>{{ _("Kick-Off The Activity") }}</h2>
-          <p>{{ _("Network graphs are very trendy right now, but few know how to read them, nor why they they might be useful. In this activity you'll create a dataset about local restaurants people recommend, build a network graph out of that data, and then think about questions you can ask it. You will use <a href='https://connectthedots.databasic.io/'>Databasic.io's Connect the Dots tool</a> to do this.") }}</p>
+          <p>{{ _("Network graphs are very trendy right now, but few know how to read them, nor why they they might be useful. In this activity you'll create a dataset about local restaurants people recommend, build a network graph out of that data, and then think about questions you can ask it. You will use Databasic.io's Connect the Dots tool to do this.") }}</p>
+          <p><a href="/{{g['current_lang']}}/connectthedots/">Databasic.io's Connect the Dots tool</a>
           <p>{{ _("Participants will understand build familiarity with some standard terms and approaches to working with network graphs. Begin by sharing some inspirational examples, then fill in a spreadsheet together of restaurants and who recommends them.  This should have two columns - 'Person' and 'Restaurant'. Then paste this data into Connect the Dots to analyze it. Share the URL and have people poke at it, or other sample data, to look for insights and prompt questions.") }}</p>
         </div>
         <div class="col-md-8 col-sm-8 col-xs-8 col-md-offset-2 col-sm-offset-2 col-xs-offset-2">
-          <iframe src="https://player.vimeo.com/video/191074419" width="100%" height="355" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
+          <iframe src="https://player.vimeo.com/video/191074419?texttrack={{g['current_lang']}}" width="100%" height="355" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
         </div>
       </div>
 
@@ -63,9 +64,6 @@
           <p>{{ _("Now that you've done some basic network graph analysis, help the participants think about any network data your organization has on hand.  Are there any questions that came up, or ideas, about steps people should take with your in-house data?") }}</p>   
         </div>
       </div>
-
-      
-      {{ render_feedback_form("connect-the-dots") }}
 
   </div>
 

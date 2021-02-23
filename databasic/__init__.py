@@ -15,10 +15,11 @@ import databasic.logic.db
 import databasic.logic.oauth
 
 
-VALID_LANGUAGES = ('es', 'en', 'pt', 'da', 'cy')
+VALID_LANGUAGES = ('es', 'en', 'en_GB', 'pt', 'da', 'cy')
 NLTK_STOPWORDS_BY_LANGUAGE = {
     'es': 'spanish',
     'en': 'english',
+    'en_GB': 'english',
     'pt': 'portuguese',
     'da': 'danish',
     'cy': 'welsh'
@@ -30,6 +31,8 @@ ENV_APP_MODE = 'APP_MODE'   # the environment variable holding which settings fi
 
 APP_MODE_DEV = "development"
 APP_MODE_PRODUCTION = "production"
+
+HOST = ""
 
 app_mode = os.environ.get(ENV_APP_MODE, None)
 
@@ -139,6 +142,7 @@ except Exception as e:
 
 @app.before_request
 def before():
+    
     if request.view_args and 'lang_code' in request.view_args:
         if request.view_args['lang_code'] not in VALID_LANGUAGES:
             return abort(404)  # bail on invalid language

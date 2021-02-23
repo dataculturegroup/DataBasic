@@ -1,81 +1,81 @@
 [
    {
-    "title": "The Wales and Borders database",
-    "source": "sample-data/en/Wales_and_borders_Radiocarbon_Database.csv",
+    "title": "The Wales and Borders Radiocarbon Database",
+    "source": "sample-data/en_GB/Wales_and_borders_Radiocarbon_Database.csv",
     "modules": ["wtfcsv"],
-    "lang": "en",
+    "lang": "en_GB",
     "domains": ["datacymru.databasic.io", "localhost:8000"],
     "biography": "The Wales and Borders database (Burrow, S 2018. ‘Radiocarbon Dating in Wales: The State of the Nation’. Archaeology in Wales 56: 107–12) contains detailed information on over 7,500 radiocarbon dates published in over 2,000 books and articles. This data was remixed by Data Cymru in 2020."
   },
   {
     "title": "Notable Welsh Rugby Union Players",
-    "source": "sample-data/en/Notable_Welsh_Rugby_Union_Players.csv",
+    "source": "sample-data/en_GB/Notable_Welsh_Rugby_Union_Players.csv",
     "modules": ["wtfcsv"],
-    "lang": "en",
+    "lang": "en_GB",
     "domains": ["datacymru.databasic.io", "localhost:8000"],
     "biography": "This dataset contains information about some of Wales' most notable rugby union players including their position, the teams they play/played for and their date and place of birth. This data was compiled by Data Cymru in 2020 based on data published on Wikidata."
   },
   {
-    "title": "Notable British Women Scientists",
-    "source": "sample-data/en/Notable_British_Female_Scientists.csv",
+    "title": "Notable British Female Scientists",
+    "source": "sample-data/en_GB/Notable_British_Female_Scientists.csv",
     "modules": ["wtfcsv"],
-    "lang": "en",
+    "lang": "en_GB",
     "domains": ["datacymru.databasic.io", "localhost:8000"],
     "biography": "This dataset contains information about some of Britain's most notable female scientists including their place of birth, where they were educated and the awards they received. This data was compiled by Data Cymru in 2020 based on data published on Wikidata."
   },
   {
     "title": "UFO Sightings Reported in Wales 1997-2009",
-    "source": "sample-data/en/UFO_Sightings_Reported_Wales.csv",
+    "source": "sample-data/en_GB/UFO_Sightings_Reported_Wales.csv",
     "modules": ["wtfcsv"],
-    "lang": "en",
+    "lang": "en_GB",
     "domains": ["datacymru.databasic.io", "localhost:8000"],
     "biography": "This is a list of UFO sightings in Wales between 1997 and 2009, as reported to the Ministry of Defence. This data was downloaded in 2020 by Data Cymru from www.data.gov.uk."
   },
   {
     "title": "Slugs and Snails in Wales",
-    "source": "sample-data/en/Slugs_and_Snails_in_Wales.csv",
+    "source": "sample-data/en_GB/Slugs_and_Snails_in_Wales.csv",
     "modules": ["wtfcsv"],
-    "lang": "en",
+    "lang": "en_GB",
     "domains": ["datacymru.databasic.io", "localhost:8000"],
     "biography": "This dataset contains 5,000 records about slugs and snails found in Wales. This data was compiled by Data Cymru in 2020 based on data published on Wikidata."
   },
   {
     "title": "Wales Women's Football Squad",
-    "source": "sample-data/en/Wales_Womens_Football_Squad.csv",
+    "source": "sample-data/en_GB/Wales_Womens_Football_Squad.csv",
     "modules": ["connectthedots"],
-    "lang": "en",
+    "lang": "en_GB",
     "domains": ["datacymru.databasic.io", "localhost:8000"],
     "biography": "This chart focuses on members of the Welsh women's football squad (the A team) and the teams they play for. This data was curated by Data Cymru in 2020. Source: Wikipedia."
   },
   {
     "title": "Characters in Under Milk Wood",
-    "source": "sample-data/en/Characters_in_Under_Milk_Wood.csv",
+    "source": "sample-data/en_GB/Characters_in_Under_Milk_Wood.csv",
     "modules": ["connectthedots"],
-    "lang": "en",
+    "lang": "en_GB",
     "domains": ["datacymru.databasic.io", "localhost:8000"],
     "biography": "This is a chart where each node is a character in Dylan Thomas' Under Milk Wood, and each link indicates that they are connected in a scene. One character may speak to the other, or may dream of another or may receive a message from another. This is called character co-occurrence. This data was curated by Data Cymru in 2020."
   },
   {
     "title": "Mark Drakeford Speeches",
-    "source": "sample-data/en/Mark_Drakeford_Speeches.txt",
+    "source": "sample-data/en_GB/Mark_Drakeford_Speeches.txt",
     "modules": ["wordcounter","samediff"],
-    "lang": "en",
+    "lang": "en_GB",
     "domains": ["datacymru.databasic.io", "localhost:8000"],
     "biography": "Mark Drakeford was the leader of the Welsh Labour party. He was nominated by Assembly Ministers (AMs) as First Minister designate on 12 December 2018 and his nomination was approved by HM The Queen. This dataset is a compilation of his contribution to plenary sessions from his acceptance speech for the following few months. The majority of his contributions are as part of \"Questions to the First Minister\". The proceedings of the Senedd are translated from whichever language the speaker used. This data was downloaded by Data Cymru in 2020 from the Senedd official proceedings."
   },
   {
     "title": "Rhodri Morgan Speeches",
-    "source": "sample-data/en/Rhodri_Morgan_Speeches.txt",
+    "source": "sample-data/en_GB/Rhodri_Morgan_Speeches.txt",
     "modules": ["wordcounter","samediff"],
-    "lang": "en",
+    "lang": "en_GB",
     "domains": ["datacymru.databasic.io", "localhost:8000"],
     "biography": "Rhodri Morgan was the leader of the Welsh Labour party and First Secretary (later renamed First Minister) of Wales from 2000-2009. He was, as of 2020, the longest-serving First Minister of Wales. This dataset is a compilation of his contribution to plenary sessions from his acceptance speech and for the following few months. The majority of his contributions are as part of \"Questions to the First Secretary\". The proceedings of the Senedd are translated from whichever language the speaker used. This data was downloaded by Data Cymru in 2020 from the Senedd official proceedings."
   },
   {
     "title": "UFO Sightings Reported in Wales 1997-2009",
-    "source": "sample-data/en/UFO_Sightings_Information _Reported_Wales.txt",
+    "source": "sample-data/en_GB/UFO_Sightings_Information _Reported_Wales.txt",
     "modules": ["wordcounter","samediff"],
-    "lang": "en",
+    "lang": "en_GB",
     "domains": ["datacymru.databasic.io", "localhost:8000"],
     "biography": "This dataset contains the descriptions of UFO sightings in Wales between 1997 and 2009, as reported to the Ministry of Defence. This data was downloaded in 2020 by Data Cymru from www.data.gov.uk."
   },
@@ -99,7 +99,7 @@
     "title": "UN General Assembly Addresses - Ban-ki Moon",
     "source": "sample-data/en/un-ban-ki-moon.txt",
     "modules": ["samediff", "wordcounter"],
-    "lang": "en",
+    "lang": ["en","en_GB"],
     "domains": ["civicidea.databasic.io", "localhost:8000"],
     "biography": "Annual United Nations General Assembly Addresses made by Ban-ki Moon 2007-2016. Note that some parts of these speeches were made in French so you will see French words. This data was compiled by Giles Bullen from <a href=\"https://www.un.org/sg/en\">the UN website</a>."
   },
@@ -107,7 +107,7 @@
     "title": "UN General Assembly Addresses - António Guterres",
     "source": "sample-data/en/un-antonio-guterres.txt",
     "modules": ["samediff", "wordcounter"],
-    "lang": "en",
+    "lang": ["en","en_GB"],
     "domains": ["civicidea.databasic.io", "localhost:8000"],
     "biography": "Annual United Nations General Assembly Addresses made by António Guterres 2017-2018. This data was compiled by Giles Bullen from <a href=\"https://www.un.org/sg/en\">the UN website</a>."
   },
@@ -115,119 +115,119 @@
     "title": "Beyonce's lyrics",
     "source": "sample-data/en/beyonce-knowles-lyrics.txt",
     "modules": ["samediff", "wordcounter"],
-    "lang": "en",
+    "lang": ["en","en_GB"],
     "biography": "These are lyrics from many or Beyonce's songs.  They were scraped from <a href=\"lyrics123.net\">lyrics123.net</a> by Rahul Bhargava in 2014."
   },
   {
     "title": "Aretha Franklin's lyrics",
     "source": "sample-data/en/aretha-franklin-lyrics.txt",
     "modules": ["samediff", "wordcounter"],
-    "lang": "en",
+    "lang": ["en","en_GB"],
     "biography": "These are lyrics from many or Aretha Franklin's songs.  They were scraped from <a href=\"lyrics123.net\">lyrics123.net</a> by Rahul Bhargava in 2014."
   },
   {
     "title": "Metallica's lyrics",
     "source": "sample-data/en/metallica-lyrics.txt",
     "modules": ["samediff", "wordcounter"],
-    "lang": "en",
+    "lang": ["en","en_GB"],
     "biography": "These are lyrics from many or Metallica's songs.  They were scraped from <a href=\"lyrics123.net\">lyrics123.net</a> by Rahul Bhargava in 2014."
   },
   {
     "title": "The Beatles' lyrics",
     "source": "sample-data/en/beatles-lyrics.txt",
     "modules": ["samediff", "wordcounter"],
-    "lang": "en",
+    "lang": ["en","en_GB"],
     "biography": "These are lyrics from many or The Beatles' songs.  They were scraped from <a href=\"lyrics123.net\">lyrics123.net</a> by Rahul Bhargava in 2014."
   },
   {
     "title": "Jennifer Lopez's lyrics",
     "source": "sample-data/en/jennifer-lopez-lyrics.txt",
     "modules": ["samediff", "wordcounter"],
-    "lang": "en",
+    "lang": ["en","en_GB"],
     "biography": "These are lyrics from many or Jennifer Lopez's songs.  They were scraped from <a href=\"lyrics123.net\">lyrics123.net</a> by Rahul Bhargava in 2014."
   },
   {
     "title": "Iron Maiden's lyrics",
     "source": "sample-data/en/iron-maiden-lyrics.txt",
     "modules": ["samediff", "wordcounter"],
-    "lang": "en",
+    "lang": ["en","en_GB"],
     "biography": "These are lyrics from many or Iron Maiden's songs.  They were scraped from <a href=\"lyrics123.net\">lyrics123.net</a> by Rahul Bhargava in 2014."
   },
   {
     "title": "Bob Dylan's lyrics",
     "source": "sample-data/en/bob-dylan-lyrics.txt",
     "modules": ["samediff", "wordcounter"],
-    "lang": "en",
+    "lang": ["en","en_GB"],
     "biography": "These are lyrics from many or Bob Dylans's songs.  They were scraped from <a href=\"lyrics123.net\">lyrics123.net</a> by Rahul Bhargava in 2014."
   },
   {
     "title": "Elvis Presley's lyrics",
     "source": "sample-data/en/elvis-presley-lyrics.txt",
     "modules": ["samediff", "wordcounter"],
-    "lang": "en",
+    "lang": ["en","en_GB"],
     "biography": "These are lyrics from many or Elvis Presley's songs.  They were scraped from <a href=\"lyrics123.net\">lyrics123.net</a> by Rahul Bhargava in 2014."
   },
   {
     "title": "Jimi Hendrix's lyrics",
     "source": "sample-data/en/jimi-hendrix-lyrics.txt",
     "modules": ["samediff", "wordcounter"],
-    "lang": "en",
+    "lang": ["en","en_GB"],
     "biography": "These are lyrics from many or Jimi Hendrix's songs.  They were scraped from <a href=\"lyrics123.net\">lyrics123.net</a> by Rahul Bhargava in 2014."
   },
   {
     "title": "Stevie Wonder's lyrics",
     "source": "sample-data/en/stevie-wonder-lyrics.txt",
     "modules": ["samediff", "wordcounter"],
-    "lang": "en",
+    "lang": ["en","en_GB"],
     "biography": "These are lyrics from many or Stevie Wonder's songs.  They were scraped from <a href=\"lyrics123.net\">lyrics123.net</a> by Rahul Bhargava in 2014."
   },
   {
     "title": "Katy Perry's lyrics",
     "source": "sample-data/en/katy-perry-lyrics.txt",
     "modules": ["samediff", "wordcounter"],
-    "lang": "en",
+    "lang": ["en","en_GB"],
     "biography": "These are lyrics from many or Katy Perry's songs.  They were scraped from <a href=\"lyrics123.net\">lyrics123.net</a> by Rahul Bhargava in 2014."
   },
   {
     "title": "Lady Gaga's lyrics",
     "source": "sample-data/en/lady-gaga-lyrics.txt",
     "modules": ["samediff", "wordcounter"],
-    "lang": "en",
+    "lang": ["en","en_GB"],
     "biography": "These are lyrics from many or Lady Gaga's songs.  They were scraped from <a href=\"lyrics123.net\">lyrics123.net</a> by Rahul Bhargava in 2014."
   },
   {
     "title": "Madonna's lyrics",
     "source": "sample-data/en/madonna-lyrics.txt",
     "modules": ["samediff", "wordcounter"],
-    "lang": "en",
+    "lang": ["en","en_GB"],
     "biography": "These are lyrics from many or Madonna's songs.  They were scraped from <a href=\"lyrics123.net\">lyrics123.net</a> by Rahul Bhargava in 2014."
   },
   {
     "title": "Prince's lyrics",
     "source": "sample-data/en/prince-lyrics.txt",
     "modules": ["samediff", "wordcounter"],
-    "lang": "en",
+    "lang": ["en","en_GB"],
     "biography": "These are lyrics from many or Prince's songs.  They were scraped from <a href=\"lyrics123.net\">lyrics123.net</a> by Rahul Bhargava in 2014."
   },
   {
     "title": "Bob Marley's lyrics",
     "source": "sample-data/en/bob-marley-lyrics.txt",
     "modules": ["samediff", "wordcounter"],
-    "lang": "en",
+    "lang": ["en","en_GB"],
     "biography": "These are lyrics from many or Bob Marley's songs.  They were scraped from <a href=\"lyrics123.net\">lyrics123.net</a> by Rahul Bhargava in 2014."
   },
   {
     "title": "Taylor Swift's lyrics",
     "source": "sample-data/en/taylor-swift-lyrics.txt",
     "modules": ["samediff", "wordcounter"],
-    "lang": "en",
+    "lang": ["en","en_GB"],
     "biography": "These are lyrics from many or Taylor Swift's songs.  They were scraped from <a href=\"lyrics123.net\">lyrics123.net</a> by Rahul Bhargava in 2014."
   },
   {
     "title": "Titanic Passengers",
     "source":"sample-data/en/titanic.csv",
     "modules": ["wtfcsv"],
-    "lang": "en",
+    "lang": ["en","en_GB"],
     "biography": "This is a manifest of passengers from on the doomed Titanic cruise. It was downloaded from the <a href=\"https://www.kaggle.com/c/titanic/data\">Kaggle Machine Learning Challenge</a> in 2014 by Catherine D'Ignazio."
   },
   {
@@ -353,14 +353,14 @@
     "title": "Les Misérables Character Co-occurence",
     "source": "sample-data/en/les-miserables.csv",
     "modules": ["connectthedots"],
-    "lang": "en",
+    "lang": ["en","en_GB"],
     "biography": "This is chart where each node is a character in Les Misérables, and each link indicates that they appear in a scene together.  This is called character co-occurrence.  This data was downloaded by Stephen Suen in 2016 from <a href=\"http://www-cs-staff.stanford.edu/~uno/sgb.html\">The Stanford GraphBase</a>."
   },
   {
     "title": "Zachary's Karate Club",
     "source": "sample-data/en/zachary-karate-club.csv",
     "modules": ["connectthedots"],
-    "lang": "en",
+    "lang": ["en","en_GB"],
     "biography": "This is chart shows a social network within a university karate club.  This is a classic example in network science, used in academic papers since the mid 1970s.  This version of the dataset was created by Rahul Bhargava based on the network listed on <a href=\"https://en.wikipedia.org/wiki/Zachary's_karate_club\">the Wikipedia entry</a> in 2016."
   },
   {
@@ -416,14 +416,14 @@
     "title": "The Dogs of NYC",
     "source":"sample-data/en/dog-names.csv",
     "modules": ["wtfcsv"],
-    "lang": "en",
+    "lang": ["en","en_GB"],
     "biography": "This is a database of all the dogs registeredin NYC as of 2016.  It includes animal's name, sex, age, breed, and which burough of New York City it lives in."
   },
   {
     "title": "Satellites Orbitting Earth",
     "source":"sample-data/en/ucs-satellite-database.csv",
     "modules": ["wtfcsv"],
-    "lang": "en",
+    "lang": ["en","en_GB"],
     "biography": "This is a database of satellites in orbit around earth as of 2017, compiled by the The Union of Concerned Scientists'.  Rahul downloaded this from <a href=\"http://www.ucsusa.org/nuclear-weapons/space-weapons/satellite-database\">their website</a> in mid 2017."
   },
   {
@@ -590,98 +590,112 @@
     "biography": "This is chart shows a social network within a university karate club.  This is a classic example in network science, used in academic papers since the mid 1970s.  This version of the dataset was created by Rahul Bhargava based on the network listed on <a href=\"https://en.wikipedia.org/wiki/Zachary's_karate_club\">the Wikipedia entry</a> in 2016."
   },
   {
-    "title": "ddata Cymru a'r Gororau Radiocarbon Dating in Wales: The State of the Nation",
+    "title": "Cronfa Ddata Radiocarbon Cymru a'r Gororau",
     "source": "sample-data/cy/Cronfa_Ddata_Radiocarbon_Cymru_a'r_Gororau.csv",
     "modules": ["wtfcsv"],
     "lang": "cy",
     "biography": "Mae cronfa ddata Cymru a'r Gororau (Burrow, S 2018. ‘Radiocarbon Dating in Wales: The State of the Nation’. Archaeoleg yng Nghymru 56: 107–12) yn cynnwys gwybodaeth fanwl am fwy na 7,500 o ddyddiadau radiocarbon a gyhoeddwyd mewn dros 2,000 o lyfrau ac erthyglau. Cafodd y data hwn ei atgymysgu gan Data Cymru yn 2020."
   },
   {
-    "title": "chwaraewyr rygbi undeb pennaf Cymru",
+    "title": "Chwaraewyr Rygbi Undeb Pennaf Cymru",
     "source": "sample-data/cy/Chwaraewyr_Rygbi_Undeb_Pennaf_Cymru.csv",
     "modules": ["wtfcsv"],
     "lang": "cy",
     "biography": "Mae'r set ddata hon yn cynnwys gwybodaeth am rai  o chwaraewyr rygbi undeb pennaf Cymru gan gynnwys eu safle, i ba timau maent/roeddent yn chwarae a dyddiad a man eu geni. Cafodd y data hwn ei grynhoi gan Data Cymru yn 2020 ar sail data a gyhoeddwyd ar Wikidata."
   },
   {
-    "title": "UFO yng Nghymru rhwng 1997 a 2009",
+    "title": "Gweld UFO a Adroddwyd Cymru 1997 a 2009",
     "source": "sample-data/cy/Gweld_UFO_a Adroddwyd_Cymru.csv",
     "modules": ["wtfcsv"],
     "lang": "cy",
     "biography": "Mae hon yn rhestr o ddigwyddiadau gweld UFO yng Nghymru rhwng 1997 a 2009, fel y'u hadroddwyd i'r Weinyddiaeth Amddiffyn. Cafodd y data hwn ei lawrlwytho yn 2020 gan Data Cymru o www.data.gov.uk."
   },
   {
-    "title": "5,000 o gofnodion am wlithod a malwod",
+    "title": "Gwlithen a Malwod yng Nghymru",
     "source": "sample-data/cy/Gwlithen_a_Malwod_yng_Nghymru.csv",
     "modules": ["wtfcsv"],
     "lang": "cy",
     "biography": "Mae'r set ddata hon yn cynnwys 5,000 o gofnodion am wlithod a malwod a geir yng Nghymru. Cafodd y data hwn ei grynhoi gan Data Cymru yn 2020 ar sail data a gyhoeddwyd ar Wikidata."
   },
   {
-    "title": "band seicedelig/roc gwerin Cymreig Gorki's Zygotic Mynci",
+    "title": "Gyddonwyr Benyw Pennaf Prydain",
+    "source": "sample-data/cy/Gyddonwyr_Benyw_Pennaf_Prydain.csv",
+    "modules": ["wtfcsv"],
+    "lang": "cy",
+    "biography": "Mae'r set ddata hon yn cynnwys gwybodaeth am rai o wyddonwyr benyw pennaf Prydain gan gynnwys eu man geni, ble cawsant eu haddysgu a'r gwobrau a dderbyniant. Cafodd y data hwn ei grynhoi gan Data Cymru yn 2020 ar sail data a gyhoeddwyd ar Wikidata."
+  },
+  {
+    "title": "Gorkis Zygotic Mynci",
     "source": "sample-data/cy/Gorkis_Zygotic_Mynci.csv",
     "modules": ["connectthedots"],
-    "lang": ["cy","en"],
+    "lang": ["cy"],
     "biography": "Mae'r siart hwn yn canolbwyntio ar aelodau band seicedelig/roc gwerin Cymreig Gorki's Zygotic Mynci ac ym mha fandiau eraill maent wedi chwarae. Cafodd y data hwn ei guradu gan Data Cymru yn 2020. Ffynhonnell: Wikipedia."
   },
+  {
+    "title": "Gorkis Zygotic Mynci",
+    "source": "sample-data/cy/Gorkis_Zygotic_Mynci.csv",
+    "modules": ["connectthedots"],
+    "lang": ["en_GB"],
+    "biography": "This chart focuses on the members of the Welsh psychedelic/folk rock band Gorki's Zygotic Mynci and the other bands they have played in. This data was curated by Data Cymru in 2020. Source: Wikipedia."
+  },
    {
-    "title": "menywod Cymru (tîm A)",
+    "title": "Sgwad Pêl-Droed Menywod Cymru",
     "source": "sample-data/cy/Sgwad_Pêl-Droed_Menywod_Cymru.csv",
     "modules": ["connectthedots"],
     "lang": "cy",
     "biography": "Mae'r siart hwn yn canolbwyntio ar aelodau sgwad pêl-droed menywod Cymru (tîm A) ac i ba dimau maent yn chwarae. Cafodd y data hwn ei guradu gan Data Cymru yn 2020. Ffynhonnell: Wikipedia."
   },
   {
-    "title": "nod yn gymeriad yn Under Milk Wood Dylan Thomas",
+    "title": "Cymeriadau yn Under Milk Wood",
     "source": "sample-data/cy/Cymeriadau_yn_Under_Milk_Wood.csv",
     "modules": ["connectthedots"],
     "lang": "cy",
     "biography": "Mae hwn yn siart lle mae pob nod yn gymeriad yn Under Milk Wood Dylan Thomas, ac mae pob dolen yn dangos eu bod yn gysylltiedig mewn golygfa. Bydd un cymeriad efallai'n siarad â'r llall, neu efallai'n breuddwydio am y llall neu'n derbyn neges gan gymeriad arall. Yr enw ar hyn yw cydamseriad cymeriadau. Cafodd y data hwn ei guradu gan Data Cymru yn 2020."
   },
   {
-    "title": "caneuon gan Yws Gwynedd",
+    "title": "Geiriau Caneuon Yws Gwynedd",
     "source": "sample-data/cy/Geiriau_Caneuon_Yws_Gwynedd.docx",
     "modules": ["wordcounter","samediff"],
     "lang": "cy",
     "biography": "Dyma eiriau caneuon gan Yws Gwynedd. Rhannodd yr artist hwy â Data Cymru yn 2020."
   },
   {
-    "title": "caneuon gan Dafydd Iwan",
+    "title": "Geiriau Caneuon Dafydd Iwann",
     "source": "sample-data/cy/Geiriau_Caneuon_Dafydd_Iwan.docx",
     "modules": ["wordcounter","samediff"],
     "lang": "cy",
     "biography": "Dyma eiriau caneuon gan Dafydd Iwan. Rhannodd yr artist hwy â Data Cymru yn 2020."
   },
   {
-    "title": "hwiangerddi Cymraeg modern",
+    "title": "Hwiangerddi Newydd",
     "source": "sample-data/cy/Hwiangerddi_Newydd.docx",
     "modules": ["wordcounter","samediff"],
     "lang": "cy",
     "biography": "Dyma eiriau rhai hwiangerddi Cymraeg modern. Cafodd y data hwn ei grynhoi gan Data Cymru yn 2020."
   },
   {
-    "title": "hwiangerddi Cymraeg modern 2",
+    "title": "Hen Hwiangerddi",
     "source": "sample-data/cy/Hen_Hwiangerddi.docx",
     "modules": ["wordcounter","samediff"],
     "lang": "cy",
-    "biography": "Dyma eiriau rhai hwiangerddi Cymraeg modern. Cafodd y data hwn ei grynhoi gan Data Cymru yn 2020."
+    "biography": "Dyma eiriau rhai hwiangerddi Cymraeg hen. Cafodd y data hwn ei grynhoi gan Data Cymru yn 2020."
   },
   {
-    "title": "Mark Drakeford oedd arweinydd",
+    "title": "Areithiau Mark Drakeford",
     "source": "sample-data/cy/Areithiau_Mark_Drakeford.txt",
     "modules": ["wordcounter","samediff"],
     "lang": "cy",
     "biography": "Mark Drakeford oedd arweinydd plaid Lafur Cymru. Cafodd ei enwebu gan Aelodau'r Cynulliad (AC) fel darpar Brif Weinidog ar 12 Rhagfyr 2018 a chafodd ei enwebiad ei gymeradwyo gan EM Y Frenhines. Mae'r set ddata hon yn grynodeb o'i gyfraniad at sesiynau llawn o'i araith dderbyn am yr ychydig fisoedd dilynol. Mae'r mwyafrif o'i gyfraniadau yn rhan o \"Gwestiynau i'r Prif Weinidog\". Mae trafodion y Senedd yn cael eu cyfieithu o ba iaith bynnag a ddefnyddiodd y siaradwr. Cafodd y data hwn ei lawrlwytho gan Data Cymru yn 2020 o drafodion swyddogol y Senedd."
   },
   {
-    "title": "Rhodri Morgan oedd arweinydd",
+    "title": "Areithiau Rhodri Morgan",
     "source": "sample-data/cy/Areithiau_Rhodri_Morgan.txt",
     "modules": ["wordcounter","samediff"],
     "lang": "cy",
     "biography": "Rhodri Morgan oedd arweinydd plaid Lafur Cymru a Phrif Ysgrifennydd (a ailenwyd wedyn yn Brif Weinidog) Cymru o 2000-2009. Ef oedd, hyd yma yn 2020, Prif Weinidog Cymru am y cyfnod hwyaf. Mae'r set ddata hon yn grynodeb o'i gyfraniad at sesiynau llawn o'i araith dderbyn am yr ychydig fisoedd dilynol. Mae'r mwyafrif o'i gyfraniadau yn rhan o \"Gwestiynau i'r Prif Weinidog\". Mae trafodion y Senedd yn cael eu cyfieithu o ba iaith bynnag a ddefnyddiodd y siaradwr. Cafodd y data hwn ei lawrlwytho gan Data Cymru yn 2020 o drafodion swyddogol y Senedd."
   },
   {
-    "title": "gweld UFO yng Nghymru rhwng 1997 a 2009",
+    "title": "Gweld UFO Gwybodaeth a Adroddwyd Cymru 1997 a 2009",
     "source": "sample-data/cy/Gweld_UFO_Gwybodaeth_a Adroddwyd_Cymru.txt",
     "modules": ["wordcounter","samediff"],
     "lang": "cy",

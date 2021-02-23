@@ -1,4 +1,4 @@
-{% from "culture_macros.html" import render_feedback_form %}
+
 
 {% extends "culture_activity_base.html" %}
 
@@ -26,7 +26,7 @@
           <ul>
             <li>{{ _("Large pieces of paper (butcher paper works great)")}}</li>
             <li>{{ _("Crayons or markers in lots of colors")}}</li>
-            <li>{{ _("An example data set to work with (this can be quite small if it resonates well with the participants). A fun dataset like the <a href='http://a816-dohbesp.nyc.gov/IndicatorPublic/dognames/'>dog registrations of New York City</a> lends itself to this activity well. This should be in a format that lends itself to your participants playing with it.  We often explore CSV-formatted files with <a href='https://public.tableau.com'>Tableau Public</a> or <a href='https://databasic.io/en/wtfcsv/'>our DataBasic.io’s WTFCSV tool</a>.")}}</li>
+            <li>{{ _("An example data set to work with (this can be quite small if it resonates well with the participants). A fun dataset like the <a href='http://a816-dohbesp.nyc.gov/IndicatorPublic/dognames/'>dog registrations of New York City</a> lends itself to this activity well. This should be in a format that lends itself to your participants playing with it.  We often explore CSV-formatted files with <a href='https://public.tableau.com'>Tableau Public</a> or ")}}<a href="/{{g['current_lang']}}/wtfcsv/">{{ _("DataBasic.io’s WTFCSV tool") }}</a></li>
             <li>{{ _("An inspirational example storybook you’ve made about a different dataset (<a href='/static/files/examples/storybook1.pdf'>download an example storybook our friend Jay made</a> based on data about ingredients used together often in recipes)")}}</li>
           </ul>
         </div>
@@ -46,7 +46,7 @@
           <h2>{{ _("Kick off the Activity") }}</h2>
           <p>{{ _("Introduce the example data set. Talk about how important it is to tease apart a strong narrative in order to create a compelling data story. If you've already run <a href='deconstruct-a-dataviz'>the Deconstruct a DataViz activity</a>, refer to the elements that made the infographic you discussed there work well or not. Break the participants into groups of 3 or 4 people, and give them 15 minutes to scan the data. Instruct them to look for both interesting data stories and, more importantly for this activity, seeds for a strong narrative.") }}</p>
           <p>{{ _("Then, let everyone know that it is time to make storybooks. Read them your example story. Give each group a large piece of paper and some crayons or markers with different colors.  Demonstrate how to fold a big piece of paper into a ‘zine (share <a href='http://experimentwithnature.com/02-found/experiment-with-paper-how-to-make-a-one-page-zine/#.Uvp3dnl2DS4'>these instructions</a> or show the video below). Tell them the first page must include the phrase “Once Upon a Time”, and the last page must include “The End”.") }}</p>
-          <iframe width="100%" height="315" src="https://www.youtube-nocookie.com/embed/kM5-gaO69ao?rel=0" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
+          <iframe width="100%" height="315" src="https://www.youtube-nocookie.com/embed/kM5-gaO69ao?rel=0&hl={{g['current_lang']}}&cc_lang_pref={{g['current_lang']}}&cc_load_policy=1" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
           <br />
           <p>{{ _("Give them 15 minutes to sketch out a story on the paper. These books should be very visual, like a kid’s picture book or a graphic novel. Encourage them to use drawings, words, charts, shapes, and color creatively. The story should be centered on the data; with representations of it woven throughout.") }}</p>
         </div>
@@ -60,8 +60,6 @@
         </div>
       </div>
 
-
-      {{ render_feedback_form("storybook") }}
 
   </div>
 

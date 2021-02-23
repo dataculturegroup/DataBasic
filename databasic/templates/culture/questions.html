@@ -1,4 +1,4 @@
-{% from "culture_macros.html" import render_feedback_form %}
+
 
 {% extends "culture_activity_base.html" %}
 
@@ -28,11 +28,11 @@
             <li>{{ _("A basic Internet connection")}}</li>
             <li>{{ _("A phone, tablet, or computer for each small 
             group of 3 people")}}</li>
-            <li>{{ _("1 printed copy of the <a href='https://databasic.io/en/wtfcsv/wtfcsv-activity-guide.pdf'>WTFcsv handout</a> per group")}}</li>
+            <li>{{ _("1 printed copy per group:") }} <a href="/{{g['current_lang']}}/wtfcsv/wtfcsv-activity-guide.pdf">{{ _("Print WTFcsv handout") }}</a> </li>
             <li>{{ _("Paper &amp; pens")}}</li>
             <li>{{ _("Planning to show the videos offline? <a href=\"https://www.dropbox.com/s/t7mai3ecrcayvei/AskingGoodQuestionsAllThreeFacilitationVideos.zip?dl=0\">Click here</a> to download them in advance.")}}</li>
           </ul>
-          <p><a class="activity-guide" href="https://databasic.io/{{g['current_lang']}}/wtfcsv/wtfcsv-activity-guide.pdf">{{ _("Download and print the activity guide") }}</a></p>
+          <p><a class="activity-guide" href="/{{g['current_lang']}}/wtfcsv/wtfcsv-activity-guide.pdf">{{ _("Download and print the activity guide") }}</a></p>
         </div>
       </div>
 
@@ -41,12 +41,13 @@
         <div class="num odd orange">1</div>      
         <div class="col-md-8 col-sm-8 col-xs-8 col-md-offset-2 col-sm-offset-2 col-xs-offset-2">
           <h2>{{ _("Kick-Off The Activity") }}</h2>
-          <p>{{ _("Increasingly, data arrives on our doorstep in the form of a spreadsheet. Somebody sends you an excel file or you download something from the web. In this activity, you will work with colleagues to ask good questions of a spreadsheet so that you can take it from data points to data story. You will use <a href='http://wtfcsv.databasic.io/'>Databasic.io's WTFcsv tool</a>, get acquainted data types, and do some basic spreadsheet analysis.  '<em>csv</em>' stands for <em>comma separated values</em>, a common spreadsheet format on the web. <em>WTF</em> stands for... well... the question you ask when someone sends you an inscrutable csv file.") }}</p>
+          <p>{{ _("Increasingly, data arrives on our doorstep in the form of a spreadsheet. Somebody sends you an excel file or you download something from the web. In this activity, you will work with colleagues to ask good questions of a spreadsheet so that you can take it from data points to data story. You will use Databasic.io's WTFcsv tool, get acquainted data types, and do some basic spreadsheet analysis.  '<em>csv</em>' stands for <em>comma separated values</em>, a common spreadsheet format on the web. <em>WTF</em> stands for... well... the question you ask when someone sends you an inscrutable csv file.") }}</p>
           </p>
+          <p><a href="/{{g['current_lang']}}/wtfcsv/">{{ _("Use WTFcsv now") }} </a></p>
           <p>{{ _("In this activity participants will brainstorm questions to ask sample datasets based on summaries of the columnar data.  Work in groups of 2-3 colleagues for about 10 minutes with the data. At the end give them a minute to pick the best question and write it down on the handout, indicating the question, any other data they might need to answer it, and how they would get that data. Start the activity by playing the kickoff video below for your group, which explains all this.") }}</p>
         </div>
         <div class="col-md-8 col-sm-8 col-xs-8 col-md-offset-2 col-sm-offset-2 col-xs-offset-2">
-          <iframe src="https://player.vimeo.com/video/236119180" width="100%" height="355" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
+          <iframe src="https://player.vimeo.com/video/236119180?texttrack={{g['current_lang']}}" width="100%" height="355" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
         </div>
       </div>
 
@@ -58,7 +59,7 @@
           <p>{{ _("Play this video after each small group has written their questions on the WTFcsv handout. Here we outline some things to discuss as each group enumerates their questions and the process they might take to start answering them. For example, you want to validate groups that asked 'meta questions', like 'where is this data from?' or 'Can we trust this data?' as well as groups that started to ask questions about patterns that they saw in the data itself. If groups ask questions about patterns in data, ask them to take a step towards answering them. What other data would they need to answer their questions? Who collects that data?") }}</p>
         </div>
         <div class="col-md-8 col-sm-8 col-xs-8 col-md-offset-2 col-sm-offset-2 col-xs-offset-2">
-          <iframe src="https://player.vimeo.com/video/237095292" width="100%" height="355" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
+          <iframe src="https://player.vimeo.com/video/237095292?texttrack={{g['current_lang']}}" width="100%" height="355" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
         </div>
       </div>
 
@@ -70,12 +71,9 @@
           <p>{{ _("Now that you've done some basic spreadsheet analysis, this video will help you think about where to go from here. For example, what information in your organization is captured in spreadsheet form? Could you use this same approach with survey result data? With financial data? With lists of donors or web analytics? How can having groups come up with questions help you take the next step with your organization's data? We also discuss some common pitfalls to try to avoid, like remembering to consider outliers and keeping in mind that correlation is not causation.") }}</p>   
         </div>
         <div class="col-md-8 col-sm-8 col-xs-8 col-md-offset-2 col-sm-offset-2 col-xs-offset-2">
-          <iframe src="https://player.vimeo.com/video/237100573" width="100%" height="355" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
+          <iframe src="https://player.vimeo.com/video/237100573?texttrack={{g['current_lang']}}" width="100%" height="355" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
         </div>
       </div>
-
-      
-      {{ render_feedback_form("wtf-csv") }}
 
   </div>
 

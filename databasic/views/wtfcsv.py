@@ -56,7 +56,7 @@ def index():
             logger.debug("  loading from %s", sample_path)
             results = [wtfcsvstat.get_summary(sample_path, language=g.current_lang)]
             # logger.info(results)
-            results[0]['filename'] = sample_name + '.csv'
+            results[0]['filename'] = sample_name
             results[0]['biography'] = sample['biography']
         else:
             results = None
@@ -247,3 +247,4 @@ def process_link(sheet):
 
 def _get_sheet_name(path):
     return os.path.split(path)[1][16:-4]
+
