@@ -33,9 +33,7 @@
             <li><a href="mailto:rahul@databasic.io,catherine@databasic.io">{{_('help')}}</a></li>
           </ul>
           <div class="navbar-right">
-            <div id="language-selector">
-              {{ _("Choose your language: ") }} <span class="badge"><a href="{{ url_with_language('en') }}" role="button" aria-label="{{ _('change language to english') }}">en</a></span> <span class="badge"><a href="{{ url_with_language('es') }}" role="button" aria-label="{{ _('change language to spanish') }}">es</a></span> <span class="badge"><a href="{{ url_with_language('pt') }}" role="button" aria-label="{{ _('change language to portuguese') }}">pt</a></span> <span class="badge"><a href="{{ url_with_language('cy') }}" role="button" aria-label="{{ _('change language to welsh') }}">cy</a></span>
-            </div>
+            {% include '_language_selector.html' %}
           </div>
         </div><!-- /.navbar-collapse -->
       </div><!-- /.container-fluid -->
