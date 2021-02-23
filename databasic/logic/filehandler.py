@@ -166,7 +166,8 @@ def get_samples(tool_id, lang, domain=None):
     for sample in samples:
         if tool_id in sample['modules'] and lang in sample['lang']:  # filter samples by language and tool
             if (domain is None) or ('domains' not in sample) or (domain in sample['domains']): # filter by domain (if specified)
-                sample['path'] = os.path.join(databasic.get_base_dir(), sample['source'])
+                if "path" not in sample:
+                    sample['path'] = os.path.join(databasic.get_base_dir(), sample['source'])
                 if os.path.exists(sample['path']):
 
                     # only include samples we have been able to download from the static sample server URL
