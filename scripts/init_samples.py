@@ -14,6 +14,8 @@ def init_samples():
     print("Trying to get sample files!")
     base_dir = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
     samples_config_file_path = os.path.join(base_dir, 'config', 'sample-data.json')
+    print("Retrieving sample files from: ", samples_config_file_path)
+
     samples = json.load(open(samples_config_file_path, 'r'))
     if os.environ.get('APP_MODE', None) == "development":
         # change the paths to absolute ones
