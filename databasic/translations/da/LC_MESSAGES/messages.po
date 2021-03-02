@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2021-03-02 10:45-0500\n"
+"POT-Creation-Date: 2021-03-02 12:32-0500\n"
 "PO-Revision-Date: 2020-06-10 09:54+0200\n"
 "Last-Translator: Jane Kunze <jku@aarhus.dk>\n"
 "Language: da_DK\n"
@@ -167,24 +167,24 @@ msgstr "Linket skal være et gyldigt Google regneark"
 msgid "Choose your language: "
 msgstr "Vælg sprog: "
 
-#: databasic/templates/_language_selector.html:6
-#: databasic/templates/_language_selector.html:8
+#: databasic/templates/_language_selector.html:7
+#: databasic/templates/_language_selector.html:9
 msgid "change language to english"
 msgstr "skift sprog til engelsk"
 
-#: databasic/templates/_language_selector.html:9
+#: databasic/templates/_language_selector.html:10
 msgid "change language to spanish"
 msgstr "skift sprog til spansk"
 
-#: databasic/templates/_language_selector.html:10
+#: databasic/templates/_language_selector.html:11
 msgid "change language to portuguese"
 msgstr "skift sprog til portugisisk"
 
-#: databasic/templates/_language_selector.html:11
+#: databasic/templates/_language_selector.html:12
 msgid "change language to danish"
 msgstr "skift sprog til dansk"
 
-#: databasic/templates/_language_selector.html:13
+#: databasic/templates/_language_selector.html:14
 msgid "change language to welsh"
 msgstr ""
 

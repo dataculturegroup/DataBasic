@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2021-03-02 10:45-0500\n"
+"POT-Creation-Date: 2021-03-02 12:32-0500\n"
 "PO-Revision-Date: 2016-12-29 12:33-0200\n"
 "Last-Translator: \n"
 "Language: pt\n"
@@ -168,24 +168,24 @@ msgstr "O link deve ser de uma Planilha Google válida"
 msgid "Choose your language: "
 msgstr "Selecione sua língua: "
 
-#: databasic/templates/_language_selector.html:6
-#: databasic/templates/_language_selector.html:8
+#: databasic/templates/_language_selector.html:7
+#: databasic/templates/_language_selector.html:9
 msgid "change language to english"
 msgstr "mudar idioma para inglês"
 
-#: databasic/templates/_language_selector.html:9
+#: databasic/templates/_language_selector.html:10
 msgid "change language to spanish"
 msgstr "mudar idioma para espanhol"
 
-#: databasic/templates/_language_selector.html:10
+#: databasic/templates/_language_selector.html:11
 msgid "change language to portuguese"
 msgstr "mudar idioma para inglês"
 
-#: databasic/templates/_language_selector.html:11
+#: databasic/templates/_language_selector.html:12
 msgid "change language to danish"
 msgstr "mudar idioma para dinamarquês"
 
-#: databasic/templates/_language_selector.html:13
+#: databasic/templates/_language_selector.html:14
 msgid "change language to welsh"
 msgstr ""
 
