@@ -47,6 +47,8 @@ def index():
             sample = filehandler.get_sample(sample_source)
             sample_name = sample['title']
             sample_id = sample_source
+            
+            #CSD 3/2/21 FLAGGING THAT THIS IS A BAD WAY TO INDEX SAMPLE DATA FILES (causes caching issues if file changes but name does not)
             existing_doc_id = mongo.results_for_sample('wtfcsv', sample_id)
             if existing_doc_id is not None:
                 logger.debug("Existing from sample: %s", sample_source)

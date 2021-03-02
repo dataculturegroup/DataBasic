@@ -55,6 +55,7 @@ def index():
             title = samplename
             ignore_case = forms[btn_value].data['ignore_case_sample']
             ignore_stopwords = forms[btn_value].data['ignore_stopwords_sample']
+            #CSD 3/2/21 FLAGGING THAT THIS IS A BAD WAY TO INDEX SAMPLE DATA FILES (causes caching issues if file changes but name does not)
             sample_id = title+str(ignore_case)+str(ignore_stopwords)
             existing_doc_id = mongo.results_for_sample('wordcounter', sample_id)
             if existing_doc_id is not None:

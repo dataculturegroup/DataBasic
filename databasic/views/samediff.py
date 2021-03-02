@@ -40,6 +40,8 @@ def index():
             sample_sources = [forms['sample'].data['sample'], forms['sample'].data['sample2']]
             f1name = filehandler.get_sample_title(sample_sources[0])
             f2name = filehandler.get_sample_title(sample_sources[1])
+            
+            #CSD 3/2/21 FLAGGING THAT THIS IS A BAD WAY TO INDEX SAMPLE DATA FILES (causes caching issues if file changes but filename does not)
             sample_id = str(f1name) + str(f2name)
             existing_doc_id = mongo.results_for_sample('samediff', sample_id)
             if existing_doc_id is not None:
