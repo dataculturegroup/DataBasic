@@ -653,28 +653,28 @@
     "biography": "Mae hwn yn siart lle mae pob nod yn gymeriad yn Under Milk Wood Dylan Thomas, ac mae pob dolen yn dangos eu bod yn gysylltiedig mewn golygfa. Bydd un cymeriad efallai'n siarad â'r llall, neu efallai'n breuddwydio am y llall neu'n derbyn neges gan gymeriad arall. Yr enw ar hyn yw cydamseriad cymeriadau. Cafodd y data hwn ei guradu gan Data Cymru yn 2020."
   },
   {
-    "title": "Geiriau Caneuon Yws Gwynedd",
+    "title": " Geiriau Caneuon Yws Gwynedd ",
     "source": "sample-data/cy/Geiriau_Caneuon_Yws_Gwynedd.txt",
     "modules": ["wordcounter","samediff"],
     "lang": "cy",
     "biography": "Dyma eiriau caneuon gan Yws Gwynedd. Rhannodd yr artist hwy â Data Cymru yn 2020."
   },
   {
-    "title": "Geiriau Caneuon Dafydd Iwann",
+    "title": " Geiriau Caneuon Dafydd Iwann ",
     "source": "sample-data/cy/Geiriau_Caneuon_Dafydd_Iwan.txt",
     "modules": ["wordcounter","samediff"],
     "lang": "cy",
     "biography": "Dyma eiriau caneuon gan Dafydd Iwan. Rhannodd yr artist hwy â Data Cymru yn 2020."
   },
   {
-    "title": "Hwiangerddi Newydd",
+    "title": " Hwiangerddi Newydd ",
     "source": "sample-data/cy/Hwiangerddi_Newydd.txt",
     "modules": ["wordcounter","samediff"],
     "lang": "cy",
     "biography": "Dyma eiriau rhai hwiangerddi Cymraeg modern. Cafodd y data hwn ei grynhoi gan Data Cymru yn 2020."
   },
   {
-    "title": "Hen Hwiangerddi",
+    "title": " Hen Hwiangerddi ",
     "source": "sample-data/cy/Hen_Hwiangerddi.txt",
     "modules": ["wordcounter","samediff"],
     "lang": "cy",
