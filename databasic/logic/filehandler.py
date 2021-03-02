@@ -163,11 +163,17 @@ def open_workbook(book):
 
 def get_samples(tool_id, lang, domain=None):
     matching_samples = []
+    if os.environ.get('APP_MODE', None) == "development":
+        base_dir = databasic.get_base_dir()
+        # change the paths to absolute ones
+        for sample in samples:
+            sample['path'] = os.path.join(base_dir, sample['source'])
+            logger.debug("Sample loaded at %s", os.path.join(base_dir, sample['source']))
+        logger.info("  Updated sample data with base dir: {}".format(base_dir))
+
     for sample in samples:
         if tool_id in sample['modules'] and lang in sample['lang']:  # filter samples by language and tool
             if (domain is None) or ('domains' not in sample) or (domain in sample['domains']): # filter by domain (if specified)
-                if "path" not in sample:
-                    sample['path'] = os.path.join(databasic.get_base_dir(), sample['source'])
                 if os.path.exists(sample['path']):
 
                     # only include samples we have been able to download from the static sample server URL
