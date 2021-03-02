@@ -58,9 +58,9 @@ def index():
             #CSD 3/2/21 FLAGGING THAT THIS IS A BAD WAY TO INDEX SAMPLE DATA FILES (causes caching issues if file changes but name does not)
             sample_id = title+str(ignore_case)+str(ignore_stopwords)
             existing_doc_id = mongo.results_for_sample('wordcounter', sample_id)
-            if existing_doc_id is not None:
-                logger.debug("Existing from sample: %s", sample_source)
-                return redirect(request.url + 'results/' + existing_doc_id)
+            #if existing_doc_id is not None:
+            #    logger.debug("Existing from sample: %s", sample_source)
+            #    return redirect(request.url + 'results/' + existing_doc_id)
             logger.info("New from sample: %s", sample_source)
             sample_path = filehandler.get_sample_path(sample_source)
             logger.debug("  loading from %s", sample_path)

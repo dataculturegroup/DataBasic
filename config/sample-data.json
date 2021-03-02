@@ -674,7 +674,7 @@
     "biography": "Dyma eiriau rhai hwiangerddi Cymraeg modern. Cafodd y data hwn ei grynhoi gan Data Cymru yn 2020."
   },
   {
-    "title": "Hen Hen Hwiangerddi",
+    "title": "Hen Hwiangerddi",
     "source": "sample-data/cy/Hen_Hwiangerddi.txt",
     "modules": ["wordcounter","samediff"],
     "lang": "cy",
