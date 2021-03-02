@@ -32,7 +32,7 @@ def init_samples():
             f = tempfile.NamedTemporaryFile(mode="w", delete=False)
             f.write(text)
             f.close()
-            os.chmod(f.name, 0o444)
+            os.chmod(f.name, 0o777)
             sample['path'] = f.name
         print("  Downloaded sample data and saved to tempdir")
     for sample in samples:
