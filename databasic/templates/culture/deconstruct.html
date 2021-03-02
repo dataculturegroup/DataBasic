@@ -27,6 +27,8 @@
             {# NOTE FOR WELSH - So this is clunky but easy. Did it like this bc we only have custom data for Welsh and not other languages.  #}
             {% if g['current_lang'] == "cy" %}
                 <li>Copïau argraffedig o <a href="/static/files/activity-materials/cy/allyriadau-nwyon-ty-gwydr-ffeithlun-2018.pdf">Allyriadau nwyon ty gwydr ffeithlun 2018</a> o <a href="/static/files/activity-materials/cy/Gweithredu_heddiw_dros__yfory_egnïol.pdf">Gweithredu heddiw dros yfory egnïol</a>); argraffwch 1 papur am bob ddau neu dri o gyfranogwyr</li>
+            {% elif g['current_lang'] == "en_CY"%}
+                <li>Printouts of a visualization (we suggest <a href="/static/files/activity-materials/en_CY/Acting_today_for_an_active_tomorrow.jpg">this one from Sport Wales</a> or <a href="/static/files/activity-materials/en_CY/greenhouse-gas-emissions-infographic-2018_eng.pdf">this one from Welsh Government about greenhouse Gas Emissions</a>; print out 1 paper for every two or three participants.</li>
             {% else %}
                 <li>{{ _("Printouts of a visualization (we often use <a href=\"https://foodtechconnect.com/2012/01/10/usaid-infographics-on-agriculture-simplify-reality-infographic/\">this one from USAID</a> or <a href=\"http://owni.fr/files/2010/11/12-e1288712778782.jpg\">this one about the Iraq war</a>); print out 1 paper for every two or three participants)")}}</li>
             {% endif %}
@@ -47,7 +49,7 @@
         <div class="col-md-8 col-sm-8 col-xs-8 col-md-offset-2 col-sm-offset-2 col-xs-offset-2">
           <h2>{{ _("Kick off the Activity") }}</h2>
           <p>{{ _("Begin by handing out printouts of the graphic you've selected and giving a little backstory about its context. <i>For example, the USAID graphic was commissioned as part of a series for their 50th anniversary celebration, focused on highlighting success but also the challenges ahead. We've been told it was published online but also displayed in their entrance as a large banner. It was created for the USAID by an independent design firm named <a href=\"https://lemonly.com\">Lemonly</a>.</i>") }}</p>
-          <img src="{{ url_for('static', filename='img/culture/deconstruct-samples.png') }}" width="500" height="auto"/>
+          <!--<img src="{{ url_for('static', filename='img/culture/deconstruct-samples.png') }}" width="500" height="auto"/>-->
           <p>{{ _("Give participants just a minute or two to review the handout together. Don't give them too long - you want their first reactions to come out.") }}</p> 
         </div>
       </div>

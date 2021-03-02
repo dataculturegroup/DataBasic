@@ -26,12 +26,9 @@
           <p>{{ _("This activity will take 30 to 45 minutes. You should have these materials on hand:") }}</p>
           <ul>
             
-            {# NOTE FOR WELSH - So this is clunky but easy. Did it like this bc we only have custom data for Welsh and not other languages.  #}
-            {% if g['current_lang'] == "cy" %}
-              <li>Copïau argraffedig o <a href="https://www.data.cymru/cym/ffeithlun-modd-i-fyw">Ffeithlun Modd I Fyw</a></li>
-            {% else %}
-              <li>{{ _("Printouts of the <a href=\"https://www.good.is/infographics/transparency-how-much-water-do-you-use\">Walk this Way infographic from Good Magazine</a>")}}</li>
-            {% endif %}
+            
+            <li>{{ _("Printouts of the <a href=\"https://www.good.is/infographics/transparency-how-much-water-do-you-use\">Walk this Way infographic from Good Magazine</a>")}}</li>
+            
             <li>{{ _("A room with space at the front")}}</li>
             <li>{{ _("At least 10 people")}}</li>
             <li>{{ _("Planning to show the videos offline? <a href=\"https://www.dropbox.com/s/5zbvtal9ch8alez/ConvinceMeAllThreeFacilitationVideos.zip?dl=0\">Click here</a> to download them in advance.")}}</li>

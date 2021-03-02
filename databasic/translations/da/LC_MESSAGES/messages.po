@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2021-02-23 16:37-0500\n"
+"POT-Creation-Date: 2021-03-02 10:45-0500\n"
 "PO-Revision-Date: 2020-06-10 09:54+0200\n"
 "Last-Translator: Jane Kunze <jku@aarhus.dk>\n"
 "Language: da_DK\n"
@@ -680,7 +680,7 @@ msgid "Download and print the activity guide"
 msgstr "Hent og print aktivitetsguiden"
 
 #: databasic/templates/culture/connections.html:40
-#: databasic/templates/culture/convince.html:46
+#: databasic/templates/culture/convince.html:43
 #: databasic/templates/culture/questions.html:43
 #: databasic/templates/culture/sketch.html:43
 msgid "Kick-Off The Activity"
@@ -714,10 +714,10 @@ msgstr ""
 "spørgsmål, reflektere og opdage deltaljer og indsigter."
 
 #: databasic/templates/culture/connections.html:54
-#: databasic/templates/culture/convince.html:61
+#: databasic/templates/culture/convince.html:58
 #: databasic/templates/culture/questions.html:58
-#: databasic/templates/culture/remix.html:80
-#: databasic/templates/culture/sculpture.html:76
+#: databasic/templates/culture/remix.html:85
+#: databasic/templates/culture/sculpture.html:80
 #: databasic/templates/culture/sketch.html:58
 #: databasic/templates/culture/storybook.html:58
 #: databasic/templates/culture/word_webs.html:56
@@ -737,7 +737,7 @@ msgstr ""
 "vanskeligere at svare på? Var nogen af de omtalte algoritmer nyttige?"
 
 #: databasic/templates/culture/connections.html:63
-#: databasic/templates/culture/convince.html:73
+#: databasic/templates/culture/convince.html:70
 #: databasic/templates/culture/questions.html:70
 #: databasic/templates/culture/sketch.html:70
 msgid "Wrap-Up and Talk Next Steps"
@@ -767,7 +767,7 @@ msgstr ""
 "Øv dig i at formulere data-drevne argumenter, som kan påvirke forskellige"
 " grupper af tilhørere til at ændre deres adfærd"
 
-#: databasic/templates/culture/convince.html:33
+#: databasic/templates/culture/convince.html:30
 msgid ""
 "Printouts of the <a href=\"https://www.good.is/infographics/transparency-"
 "how-much-water-do-you-use\">Walk this Way infographic from Good "
@@ -776,15 +776,15 @@ msgstr ""
 "Prints af <a href=\"https://www.good.is/infographics/transparency-how-"
 "much-water-do-you-use\">Walk this Way infographic fra Good Magazine</a>"
 
-#: databasic/templates/culture/convince.html:35
+#: databasic/templates/culture/convince.html:32
 msgid "A room with space at the front"
 msgstr "Et lokale med plads foran"
 
-#: databasic/templates/culture/convince.html:36
+#: databasic/templates/culture/convince.html:33
 msgid "At least 10 people"
 msgstr "Mindst 10 deltagere"
 
-#: databasic/templates/culture/convince.html:37
+#: databasic/templates/culture/convince.html:34
 msgid ""
 "Planning to show the videos offline? <a "
 "href=\"https://www.dropbox.com/s/5zbvtal9ch8alez/ConvinceMeAllThreeFacilitationVideos.zip?dl=0\">Click"
@@ -794,7 +794,7 @@ msgstr ""
 "href=\"https://www.dropbox.com/s/5zbvtal9ch8alez/ConvinceMeAllThreeFacilitationVideos.zip?dl=0\">Klik"
 " her</a> for at downloade dem på forhånd."
 
-#: databasic/templates/culture/convince.html:47
+#: databasic/templates/culture/convince.html:44
 msgid ""
 " In this activity you will work practice using data to make arguments "
 "that try to convince different people. You will learn how to use data to "
@@ -811,7 +811,7 @@ msgstr ""
 "med data, der kan overbevise tilhørerne om at skride til handling. Sæt "
 "aktiviteten i gang med videoen nedenfor."
 
-#: databasic/templates/culture/convince.html:62
+#: databasic/templates/culture/convince.html:59
 msgid ""
 "Play this video after you've finished making arguments to convince your "
 "volunteer stakeholders to move forward.  Ask different people to explain "
@@ -833,7 +833,7 @@ msgstr ""
 "argumenter for at starte en samtale om, hvordan vi kan bruge data til at "
 "overbevise hinanden."
 
-#: databasic/templates/culture/convince.html:74
+#: databasic/templates/culture/convince.html:71
 msgid ""
 "Now that you've practice this with some example data, this video will "
 "help you think about where to go next. For example, who are some of the "
@@ -1244,7 +1244,7 @@ msgstr ""
 "Denne aktivitet til tage 15-20 minutter. Du bør have følgende materialer "
 "klar:"
 
-#: databasic/templates/culture/deconstruct.html:31
+#: databasic/templates/culture/deconstruct.html:33
 msgid ""
 "Printouts of a visualization (we often use <a "
 "href=\"https://foodtechconnect.com/2012/01/10/usaid-infographics-on-"
@@ -1259,16 +1259,16 @@ msgstr ""
 "href=\"http://owni.fr/files/2010/11/12-e1288712778782.jpg\">denne om Irak"
 " krigen</a>); lav en kopi for hver 2 til 3 deltagere."
 
-#: databasic/templates/culture/deconstruct.html:40
+#: databasic/templates/culture/deconstruct.html:42
 #: databasic/templates/culture/paper_spreadsheet.html:38
-#: databasic/templates/culture/remix.html:54
+#: databasic/templates/culture/remix.html:59
 #: databasic/templates/culture/sculpture.html:36
 #: databasic/templates/culture/storybook.html:38
 #: databasic/templates/culture/word_webs.html:37
 msgid "Background"
 msgstr "Baggrund"
 
-#: databasic/templates/culture/deconstruct.html:41
+#: databasic/templates/culture/deconstruct.html:43
 msgid ""
 "Telling stories with data is hard to do. It relies on a diverse set of  "
 "skills - data processing, graphic design, storytelling, and more. This "
@@ -1289,16 +1289,16 @@ msgstr ""
 "som fortælles og (4) lykkedes det - er det en overbevisende "
 "visualisering."
 
-#: databasic/templates/culture/deconstruct.html:48
+#: databasic/templates/culture/deconstruct.html:50
 #: databasic/templates/culture/paper_spreadsheet.html:46
-#: databasic/templates/culture/remix.html:62
+#: databasic/templates/culture/remix.html:67
 #: databasic/templates/culture/sculpture.html:50
 #: databasic/templates/culture/storybook.html:46
 #: databasic/templates/culture/word_webs.html:45
 msgid "Kick off the Activity"
 msgstr "Start aktiviteten"
 
-#: databasic/templates/culture/deconstruct.html:49
+#: databasic/templates/culture/deconstruct.html:51
 msgid ""
 "Begin by handing out printouts of the graphic you've selected and giving "
 "a little backstory about its context. <i>For example, the USAID graphic "
@@ -1319,7 +1319,7 @@ msgstr ""
 "lavet til USAID af designfirmaet  <a "
 "href=\"https://lemonly.com\">Lemonly</a>.</i>"
 
-#: databasic/templates/culture/deconstruct.html:51
+#: databasic/templates/culture/deconstruct.html:53
 msgid ""
 "Give participants just a minute or two to review the handout together. "
 "Don't give them too long - you want their first reactions to come out."
@@ -1328,11 +1328,11 @@ msgstr ""
 "Lad være med at give dem for lang tid - du vil gerne have dem til at "
 "sætte ord på deres umiddelbare indtryk."
 
-#: databasic/templates/culture/deconstruct.html:58
+#: databasic/templates/culture/deconstruct.html:60
 msgid "Lead a Conversation "
 msgstr "Vær ordstyrer for samtalen "
 
-#: databasic/templates/culture/deconstruct.html:59
+#: databasic/templates/culture/deconstruct.html:61
 msgid ""
 "After participants have looked over the visualization, ask them a series "
 "of questions. Try to keep the discussion focused on these exploratory "
@@ -1356,7 +1356,7 @@ msgstr ""
 "hvordan gode datahistorier er bygget på flere datasæt. Det er sjældent du"
 " kan lave en stærk datahistorie med kun et datasæt."
 
-#: databasic/templates/culture/deconstruct.html:60
+#: databasic/templates/culture/deconstruct.html:62
 msgid ""
 "Next, ask participants to identify how this data is represented. Collect "
 "a few answers. <i>For example, in the USAID graphic population size is "
@@ -1373,7 +1373,7 @@ msgstr ""
 "brug af diagrammer og symboler. Vi kalder det datahistoriens \"visuelle "
 "ordforråd\"."
 
-#: databasic/templates/culture/deconstruct.html:62
+#: databasic/templates/culture/deconstruct.html:64
 msgid ""
 "Thirdly, ask participants to identify the short story they think this "
 "graphic is trying to tell. What are the data and visual representation "
@@ -1393,11 +1393,11 @@ msgstr ""
 "flere fødevarer.\"</i> Prøv at holde deltagernes fokus på historien "
 "fermfor, hvad de mener om den (det er næste punkt)."
 
-#: databasic/templates/culture/deconstruct.html:69
+#: databasic/templates/culture/deconstruct.html:71
 msgid "Pull it All Together"
 msgstr "Når alt kommer til alt"
 
-#: databasic/templates/culture/deconstruct.html:70
+#: databasic/templates/culture/deconstruct.html:72
 msgid ""
 "To finish, ask folks if they think the story is well told. What elements "
 "best support the story? Are there extraneous pieces that don't help the "
@@ -1645,7 +1645,7 @@ msgid "Review What You Have Learned"
 msgstr "Reflekter over, hvad du har lært"
 
 #: databasic/templates/culture/paper_spreadsheet.html:75
-#: databasic/templates/culture/remix.html:81
+#: databasic/templates/culture/remix.html:86
 msgid ""
 "Review the key points in the conversation that you just had. Remind the "
 "participants that data are systematic observations of the world, and a "
@@ -1804,7 +1804,7 @@ msgstr ""
 "Denne aktivitet vil tage 30-40 minutter. Du bør have følgende materialer "
 "klar:"
 
-#: databasic/templates/culture/remix.html:36
+#: databasic/templates/culture/remix.html:41
 msgid ""
 "Printed copies of an example visualization for remixing. We often use <a "
 "href='https://www.good.is/infographics/transparency-how-much-water-do-"
@@ -1816,7 +1816,7 @@ msgstr ""
 "you-use'>this infographic on daily water usage from GOOD.is</a>. Print så"
 " der 1-2 kopier per gruppe."
 
-#: databasic/templates/culture/remix.html:40
+#: databasic/templates/culture/remix.html:45
 msgid ""
 "Large paper, markers, and craft materials (the materials from <a "
 "href='build-a-sculpture'>our Build a Data Sculpture activity</a> can be "
@@ -1825,13 +1825,13 @@ msgstr ""
 "Flip over, tusser og forskellige krea-materialer (f.eks. fra aktiviteten "
 "<a href='build-a-sculpture'>Byg en dataskulptur</a>)"
 
-#: databasic/templates/culture/remix.html:41
+#: databasic/templates/culture/remix.html:46
 msgid ""
 "Copies of our handout about different data presentation techniques (1 for"
 " each participant)"
 msgstr ""
 
-#: databasic/templates/culture/remix.html:44
+#: databasic/templates/culture/remix.html:49
 msgid ""
 "<a href='/static/files/activity-materials/en/Infographic Remix "
 "Cards.pdf'>Our visualization technique cards</a> (one card for each 3-4 "
@@ -1839,7 +1839,7 @@ msgid ""
 " them out ahead of time"
 msgstr ""
 
-#: databasic/templates/culture/remix.html:55
+#: databasic/templates/culture/remix.html:60
 msgid ""
 "In order to tell your data story well, you need a good “toolbelt” of "
 "presentation techniques to pull from. However, we often only consider of "
@@ -1860,7 +1860,7 @@ msgstr ""
 "komptence til at udvælge den bedst mulige måde at præsentere deres data "
 "på."
 
-#: databasic/templates/culture/remix.html:63
+#: databasic/templates/culture/remix.html:68
 msgid ""
 "<b>Present slideshow about creative techniques</b>.<br/>Give participants"
 " copies of the visualization techniques handout, and walk them through "
@@ -1874,7 +1874,7 @@ msgstr ""
 "enkel teknik (brug ca. 2 minutter per teknik). Disse konkrete eksempler "
 "udvider udvalget i deltagerne værktøjskasse."
 
-#: databasic/templates/culture/remix.html:64
+#: databasic/templates/culture/remix.html:69
 msgid ""
 "<b>Discuss the example visualization</b>.<br /> Introduce the sample "
 "visualization you have chosen and discuss its audience, goals, and "
@@ -1893,11 +1893,11 @@ msgstr ""
 "opmærksomme på produktionen af oksekød, som i vandforbug overgår alt "
 "andet i grafikken!"
 
-#: databasic/templates/culture/remix.html:71
+#: databasic/templates/culture/remix.html:76
 msgid "Start Remixing"
 msgstr "Remix"
 
-#: databasic/templates/culture/remix.html:72
+#: databasic/templates/culture/remix.html:77
 msgid ""
 "Bring everyone back together and go around the room letting each group "
 "share their favorite idea. Have groups talk about different editorial "
@@ -2004,19 +2004,19 @@ msgstr ""
 "overordnede, mere generiske data. Du kan også bare bruge det handouts, "
 "som vi allerede har forberedt:"
 
-#: databasic/templates/culture/sculpture.html:61
+#: databasic/templates/culture/sculpture.html:65
 msgid "US Ice Cream Consumption"
 msgstr "Amerikanernes forbrug af is"
 
-#: databasic/templates/culture/sculpture.html:62
+#: databasic/templates/culture/sculpture.html:66
 msgid "Happiness in the Town of Somerville, MA, USA"
 msgstr "Lykke i byen Somerville, MA, USA"
 
-#: databasic/templates/culture/sculpture.html:63
+#: databasic/templates/culture/sculpture.html:67
 msgid "The Cost of an MIT Education"
 msgstr "Prisen for en uddannelse på MIT"
 
-#: databasic/templates/culture/sculpture.html:67
+#: databasic/templates/culture/sculpture.html:71
 msgid ""
 "Ask the group to pair up, preferably with someone they don’t know.  Show "
 "participants a large central table full of the materials you have "
@@ -2034,7 +2034,7 @@ msgstr ""
 "den kreative tænkning. Husk at minde dem om, at det er en kreative "
 "øvelse, så de skal ikke bare lave et søjlediagram af piperensere!"
 
-#: databasic/templates/culture/sculpture.html:68
+#: databasic/templates/culture/sculpture.html:72
 msgid ""
 "After 3 minutes tell them they should be building now; this is a 'think "
 "with your hands activity'.  When they have one minute left let them know."
@@ -2043,7 +2043,7 @@ msgstr ""
 "med at bygge - det er en \"hands-on\" øvelse! Når der er 1 minut tilbage,"
 " så fortæl dem det."
 
-#: databasic/templates/culture/sculpture.html:77
+#: databasic/templates/culture/sculpture.html:81
 msgid ""
 "Stop everyone when the time is up. Give each group 1 minute to share what"
 " they made. You can summarize by pointing out similarities and "

@@ -25,11 +25,16 @@
           <p>{{ _("This activity will take 30 to 40 minutes. You should have these materials on hand:") }}</p>
           <ul>
 
-            {# NOTE FOR WELSH - So this is clunky but easy. Did it like this bc we only have custom data for Welsh and not other languages.  #}
+            {# NOTE FOR WELSH - So this is clunky but easy. Did it like this bc we only have custom data for Welsh and Welsh English and not other languages.  #}
             {% if g['current_lang'] == "cy" %}
               <li>
-                Copïau argraffedig o ddelweddu enghreifftiol i'w atgymysgu. Yn aml defnyddiwn ni'r <a href='https://www.data.cymru/cym/ffeithlun-modd-i-fyw'>Ffeithlun Modd I Fyw</a>. 1-2 gopi printiedig am bob grŵp.
+                Copïau argraffedig o ddelweddu enghreifftiol i'w atgymysgu. <a href='https://www.data.cymru/cym/ffeithlun-modd-i-fyw'>Rydym ni'n awgrymu'r ffeithlun yma ar gamau i arbed ynni a dŵr o ymgyrch Modd i Fyw Llywodraeth Cymru.</a>. 1-2 gopi printiedig am bob grŵp.
                   <br /><a href="https://www.data.cymru/cym/ffeithlun-modd-i-fyw"><img src="{{ url_for('static', filename='files/activity-materials/cy/Way_To_go_cym.png') }}" width="250" height="auto"/></a>
+              </li>
+            {% elif g['current_lang'] == "en_CY"%}
+              <li>
+                Printed copies of an example visualization for remixing. We suggest this infographic on energy and water saving actions from Welsh Government's Way To Go campaign. 1-2 printed copies for each group.
+                  <br /><a href="https://www.good.is/infographics/transparency-how-much-water-do-you-use"><img src="{{ url_for('static', filename='files/activity-materials/en_CY/Way_To_go_ENG.png') }}" width="250" height="auto"/></a>
               </li>
             {% else %}
               <li>
