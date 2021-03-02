@@ -152,7 +152,6 @@ def before():
 
         g.max_file_size_bytes = int(app.config.get('MAX_CONTENT_LENGTH'))
         g.max_file_size_mb = (g.max_file_size_bytes / 1024 / 1024)
-
         # loads the translation files to be used for client-side validation
         if 'en' not in g.current_lang:
             with codecs.open(os.path.join(get_base_dir(), 'databasic/translations', g.current_lang,

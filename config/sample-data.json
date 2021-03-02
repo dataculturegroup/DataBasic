@@ -654,28 +654,28 @@
   },
   {
     "title": "Geiriau Caneuon Yws Gwynedd",
-    "source": "sample-data/cy/Geiriau_Caneuon_Yws_Gwynedd.docx",
+    "source": "sample-data/cy/Geiriau_Caneuon_Yws_Gwynedd.txt",
     "modules": ["wordcounter","samediff"],
     "lang": "cy",
     "biography": "Dyma eiriau caneuon gan Yws Gwynedd. Rhannodd yr artist hwy â Data Cymru yn 2020."
   },
   {
     "title": "Geiriau Caneuon Dafydd Iwann",
-    "source": "sample-data/cy/Geiriau_Caneuon_Dafydd_Iwan.docx",
+    "source": "sample-data/cy/Geiriau_Caneuon_Dafydd_Iwan.txt",
     "modules": ["wordcounter","samediff"],
     "lang": "cy",
     "biography": "Dyma eiriau caneuon gan Dafydd Iwan. Rhannodd yr artist hwy â Data Cymru yn 2020."
   },
   {
     "title": "Hwiangerddi Newydd",
-    "source": "sample-data/cy/Hwiangerddi_Newydd.docx",
+    "source": "sample-data/cy/Hwiangerddi_Newydd.txt",
     "modules": ["wordcounter","samediff"],
     "lang": "cy",
     "biography": "Dyma eiriau rhai hwiangerddi Cymraeg modern. Cafodd y data hwn ei grynhoi gan Data Cymru yn 2020."
   },
   {
     "title": "Hen Hwiangerddi",
-    "source": "sample-data/cy/Hen_Hwiangerddi.docx",
+    "source": "sample-data/cy/Hen_Hwiangerddi.txt",
     "modules": ["wordcounter","samediff"],
     "lang": "cy",
     "biography": "Dyma eiriau rhai hwiangerddi Cymraeg hen. Cafodd y data hwn ei grynhoi gan Data Cymru yn 2020."
