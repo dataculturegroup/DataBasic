@@ -148,6 +148,8 @@ def before():
         if request.view_args['lang_code'] not in VALID_LANGUAGES:
             return abort(404)  # bail on invalid language
         g.current_lang = request.view_args['lang_code']
+        logger.info("Current language is %s" % g.get('current_lang'))
+
         g.max_file_size_bytes = int(app.config.get('MAX_CONTENT_LENGTH'))
         g.max_file_size_mb = (g.max_file_size_bytes / 1024 / 1024)
 
@@ -162,6 +164,12 @@ def before():
 
 @babel.localeselector
 def get_locale():
+    logger.info("Current language from locale selector is %s " %  g.get('current_lang'))
+    #Welsh site defaults to Welsh English
+    if g.get('current_lang') is None:
+        if ('cymru' in request.host) and ((g.get('current_lang') != "en_CY") and (g.get('current_lang') != "cy")):
+            g.current_lang = "en_CY"
+            logger.info("Setting default language to Welsh English")
     return g.get('current_lang', request.accept_languages.best_match(VALID_LANGUAGES, 'en'))
 
 

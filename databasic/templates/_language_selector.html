@@ -2,7 +2,8 @@
     {{ _("Choose your language: ") }}
     
     {# NOTE FOR WELSH - Data Cymru displays only WELSH English and Welsh - en_CY and cy.  #}
-    {% if 'cymru' in request.host or 'localhost' in request.host%}
+    {# if 'cymru' in request.host or 'localhost' in request.host #}
+    {% if 'cymru' in request.host %}
 	    <span class="badge"><a href="{{ url_with_language('en_CY') }}" role="button" aria-label="{{ _('change language to english') }}">en</a></span>
     {% else %} 
     	 <span class="badge"><a href="{{ url_with_language('en') }}" role="button" aria-label="{{ _('change language to english') }}">en</a></span>
