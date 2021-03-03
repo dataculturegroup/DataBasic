@@ -1,7 +1,7 @@
 [
    {
     "title": "The Wales and Borders Radiocarbon Dating Database",
-    "source": "sample-data/en_CY/Wales_and_borders_Radiocarbon_Database.csv",
+    "source": "sample-data/en_CY/Wales_and_Borders_Radiocarbon_Database.csv",
     "modules": ["wtfcsv"],
     "lang": "en_CY",
     "domains": ["datacymru.databasic.io", "localhost:8000"],
