@@ -58,6 +58,7 @@ def index():
             
             sample_id = title+str(ignore_case)+str(ignore_stopwords)
             existing_doc_id = mongo.results_for_sample('wordcounter', sample_id)
+            # CSD commented out briefly while de-caching stuff!!!
             #if existing_doc_id is not None:
             #    logger.debug("Existing from sample: %s", sample_source)
             #    return redirect(request.url + 'results/' + existing_doc_id)
