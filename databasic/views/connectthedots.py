@@ -39,7 +39,8 @@ def index():
             sample_source = forms['sample'].data['sample']
 
             # check to see if file exists in cache already
-            existing_doc_id = mongo.results_for_sample('connectthedots', sample_source)
+            #existing_doc_id = mongo.results_for_sample('connectthedots', sample_source)
+            existing_doc_id = None
             if existing_doc_id is not None:
                 sample_name = filehandler.get_sample_title(sample_source)
                 logger.debug('[CTD] Doc exists in database, redirecting to cached version: %s', sample_name)
