@@ -57,11 +57,13 @@ def index():
             ignore_stopwords = forms[btn_value].data['ignore_stopwords_sample']
             
             sample_id = title+str(ignore_case)+str(ignore_stopwords)
-            existing_doc_id = mongo.results_for_sample('wordcounter', sample_id)
-            # CSD commented out briefly while de-caching stuff!!!
-            #if existing_doc_id is not None:
-            #    logger.debug("Existing from sample: %s", sample_source)
-            #    return redirect(request.url + 'results/' + existing_doc_id)
+
+            #CSD TODO - ADD CACHING FLAG TO NOT CACHE IF SPECIFIED IN CONFIG
+            #if config.get("CACHE_SAMPLE_DATA_ANALYSIS") is None or app.config.get("CACHE_SAMPLE_DATA_ANALYSIS"):
+            #    existing_doc_id = mongo.results_for_sample('wordcounter', sample_id)
+            #    if existing_doc_id is not None:
+            #        logger.debug("Existing from sample: %s", sample_source)
+            #        return redirect(request.url + 'results/' + existing_doc_id)
             logger.info("New from sample: %s", sample_source)
             sample_path = filehandler.get_sample_path(sample_source)
             logger.debug("  loading from %s", sample_path)

@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2021-03-02 12:32-0500\n"
+"POT-Creation-Date: 2021-03-08 11:39-0500\n"
 "PO-Revision-Date: 2016-12-29 12:33-0200\n"
 "Last-Translator: \n"
 "Language: pt\n"
@@ -3097,48 +3097,48 @@ msgstr ""
 msgid "Analyze"
 msgstr "Analize"
 
-#: databasic/views/samediff.py:36 databasic/views/samediff.py:51
+#: databasic/views/samediff.py:36 databasic/views/samediff.py:53
 #, python-format
 msgid "%(f1)s and %(f2)s"
 msgstr "%(f1)s e %(f2)s"
 
-#: databasic/views/samediff.py:108
+#: databasic/views/samediff.py:110
 msgid "word"
 msgstr "palavra"
 
-#: databasic/views/samediff.py:108
+#: databasic/views/samediff.py:110
 msgid "uses in"
 msgstr "usa em"
 
-#: databasic/views/samediff.py:108
+#: databasic/views/samediff.py:110
 msgid "total uses"
 msgstr "uso total"
 
-#: databasic/views/samediff.py:157
+#: databasic/views/samediff.py:159
 msgid "almost the same"
 msgstr "quase o mesmo"
 
-#: databasic/views/samediff.py:159
+#: databasic/views/samediff.py:161
 msgid "sort of similar"
 msgstr "mais ou menos similar"
 
-#: databasic/views/samediff.py:161
+#: databasic/views/samediff.py:163
 msgid "kind of similar"
 msgstr "meio similar"
 
-#: databasic/views/samediff.py:163
+#: databasic/views/samediff.py:165
 msgid "kind of similar, and also kind of different"
 msgstr "meio similar, e também meio diferente"
 
-#: databasic/views/samediff.py:165
+#: databasic/views/samediff.py:167
 msgid "pretty different"
 msgstr "bem diferente"
 
-#: databasic/views/samediff.py:167
+#: databasic/views/samediff.py:169
 msgid "very different"
 msgstr "muito diferente"
 
-#: databasic/views/samediff.py:169
+#: databasic/views/samediff.py:171
 msgid "completely different"
 msgstr "completamente diferente"
 
@@ -3146,11 +3146,11 @@ msgstr "completamente diferente"
 msgid "your text"
 msgstr "seu texto"
 
-#: databasic/views/wordcounter.py:80
+#: databasic/views/wordcounter.py:84
 msgid "title"
 msgstr "título"
 
-#: databasic/views/wtfcsv.py:202
+#: databasic/views/wtfcsv.py:204
 msgid "Other"
 msgstr "Outro"
 

@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2021-03-02 12:32-0500\n"
+"POT-Creation-Date: 2021-03-08 11:39-0500\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -2683,48 +2683,48 @@ msgstr ""
 msgid "Analyze"
 msgstr ""
 
-#: databasic/views/samediff.py:36 databasic/views/samediff.py:51
+#: databasic/views/samediff.py:36 databasic/views/samediff.py:53
 #, python-format
 msgid "%(f1)s and %(f2)s"
 msgstr ""
 
-#: databasic/views/samediff.py:108
+#: databasic/views/samediff.py:110
 msgid "word"
 msgstr ""
 
-#: databasic/views/samediff.py:108
+#: databasic/views/samediff.py:110
 msgid "uses in"
 msgstr ""
 
-#: databasic/views/samediff.py:108
+#: databasic/views/samediff.py:110
 msgid "total uses"
 msgstr ""
 
-#: databasic/views/samediff.py:157
+#: databasic/views/samediff.py:159
 msgid "almost the same"
 msgstr ""
 
-#: databasic/views/samediff.py:159
+#: databasic/views/samediff.py:161
 msgid "sort of similar"
 msgstr ""
 
-#: databasic/views/samediff.py:161
+#: databasic/views/samediff.py:163
 msgid "kind of similar"
 msgstr ""
 
-#: databasic/views/samediff.py:163
+#: databasic/views/samediff.py:165
 msgid "kind of similar, and also kind of different"
 msgstr ""
 
-#: databasic/views/samediff.py:165
+#: databasic/views/samediff.py:167
 msgid "pretty different"
 msgstr ""
 
-#: databasic/views/samediff.py:167
+#: databasic/views/samediff.py:169
 msgid "very different"
 msgstr ""
 
-#: databasic/views/samediff.py:169
+#: databasic/views/samediff.py:171
 msgid "completely different"
 msgstr ""
 
@@ -2732,11 +2732,11 @@ msgstr ""
 msgid "your text"
 msgstr ""
 
-#: databasic/views/wordcounter.py:80
+#: databasic/views/wordcounter.py:84
 msgid "title"
 msgstr ""
 
-#: databasic/views/wtfcsv.py:202
+#: databasic/views/wtfcsv.py:204
 msgid "Other"
 msgstr ""
 

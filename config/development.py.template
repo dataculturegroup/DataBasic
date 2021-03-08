@@ -26,3 +26,6 @@ OAUTH_REDIRECT_URI = "http://127.0.0.1:8000/auth"
 
 # set to byte limit for file uploads. 10,485,760 is recommended for 10MB
 MAX_CONTENT_LENGTH = 10485760
+
+# Cache sample data analysis. Turn off for debugging or updating data sets.
+CACHE_SAMPLE_DATA_ANALYSIS = False
