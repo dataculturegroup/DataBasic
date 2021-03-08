@@ -2,25 +2,33 @@ import textmining
 from scipy import spatial
 import re
 import string
+import databasic.logic.stopwords as stopwords
+from databasic import NLTK_STOPWORDS_BY_LANGUAGE
 
 
-def _databasic_tokenize(text, ignore_case=True):
+
+
+def _databasic_tokenize(text, ignore_case=True, remove_stopwords=True, lang='english'):
     words = re.findall(r"[\w']+|[.,!?;]", text, re.UNICODE)
     if ignore_case:
         words = [w.lower() for w in words]
-    return [w for w in words if w not in string.punctuation]
+    if remove_stopwords:
+        stopwordlist = stopwords._custom_stopwords_list(lang)
 
-def term_document_matrix(texts):
-    term_doc_matrix = textmining.TermDocumentMatrix(tokenizer=_databasic_tokenize)
+    return [w for w in words if (w not in string.punctuation and w not in stopwordlist)]
+
+def term_document_matrix(texts, current_lang_code):
+    lang = NLTK_STOPWORDS_BY_LANGUAGE[current_lang_code]
+    term_doc_matrix = textmining.TermDocumentMatrix(tokenizer=lambda text:_databasic_tokenize(text, lang=lang))
     for t in texts:
         term_doc_matrix.add_doc(t)
     return term_doc_matrix
 
 
-def common_and_unique_word_freqs(texts):
+def common_and_unique_word_freqs(texts, current_lang_code):
     word_count_d1 = len(texts[0].split())
     word_count_d2 = len(texts[1].split())
-    tdm = term_document_matrix(texts)
+    tdm = term_document_matrix(texts, current_lang_code)
     # get the most common used words, sorted by freq
     common_rows = tdm.rows(cutoff=2)
     common_terms = next(common_rows)

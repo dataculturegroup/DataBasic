@@ -141,7 +141,7 @@ def process_results(file_paths, titles, sample_id, source):
     file_sizes = [str(os.stat(file_path).st_size) for file_path in file_paths]  # because browser might not have sent content_length
     logger.debug("Upload: %s bytes", ", ".join(file_sizes))
     doc_list = [filehandler.convert_to_txt(file_path) for file_path in file_paths]
-    data = textanalysis.common_and_unique_word_freqs(doc_list)
+    data = textanalysis.common_and_unique_word_freqs(doc_list, g.current_lang)
     job_id = mongo.save_samediff('samediff', file_names,
                                  data['doc1total'], data['doc2total'],
                                  data['doc1unique'], data['doc2unique'],
