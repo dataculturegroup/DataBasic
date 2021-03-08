@@ -6,6 +6,7 @@ import databasic.logic.stopwords as stopwords
 from databasic import NLTK_STOPWORDS_BY_LANGUAGE
 
 
+
 def _databasic_tokenize(text, ignore_case=True, remove_stopwords=True, lang='english'):
     words = re.findall(r"[\w']+|[.,!?;]", text, re.UNICODE)
     if ignore_case:
