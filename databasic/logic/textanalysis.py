@@ -1,9 +1,17 @@
 import textmining
 from scipy import spatial
+import re
+import string
 
+
+def _databasic_tokenize(text, ignore_case=True):
+    words = re.findall(r"[\w']+|[.,!?;]", text, re.UNICODE)
+    if ignore_case:
+        words = [w.lower() for w in words]
+    return [w for w in words if w not in string.punctuation]
 
 def term_document_matrix(texts):
-    term_doc_matrix = textmining.TermDocumentMatrix(tokenizer=textmining.simple_tokenize_remove_stopwords)
+    term_doc_matrix = textmining.TermDocumentMatrix(tokenizer=_databasic_tokenize)
     for t in texts:
         term_doc_matrix.add_doc(t)
     return term_doc_matrix
