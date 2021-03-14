@@ -72,11 +72,15 @@ def convert_to_txt(file_path):
     ext = _get_extension(file_path)
     if ext == '.txt':
         logger.debug("loading txt file")
-        try:
-            encoding, file_handle, words = open_with_correct_encoding(file_path)
-        except Exception:
-            logger.error("Wasn't able to read the words from the file %s" % file_path)
-            words = ""
+
+        #CSD replacing with default open bc txt files are getting converted weirdly
+        with open(file_path, 'r') as myfile:
+            words = myfile.read()
+        #try:
+        #    encoding, file_handle, words = open_with_correct_encoding(file_path)
+        #except Exception:
+        #    logger.error("Wasn't able to read the words from the file %s" % file_path)
+        #    words = ""
     elif ext == '.docx':
         logger.debug("loading docx file")
         words = _docx_to_txt(file_path)
