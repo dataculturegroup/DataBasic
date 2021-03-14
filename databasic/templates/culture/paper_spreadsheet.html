@@ -28,7 +28,13 @@
             <li>{{ _("Large, thick markers")}}</li>
             <li>{{ _("Tape and a flat wall to hang your Paper Spreadsheet")}}</li>
           </ul>
-          <img src="{{ url_for('static', filename='img/culture/paper-spreadsheet-0.jpg') }}" width="550" height="auto"/>
+          {# NOTE FOR WELSH - So this is clunky but easy. Did it like this bc we only have custom images for Welsh and not other languages.  #}
+            {% if g['current_lang'] == "cy" %}
+              <img src="{{ url_for('static', filename='img/culture/paper-spreadsheet-welsh.jpg') }}" width="550" height="auto" style="border: 1px solid #CCC; margin:30px"/>
+          {% else %}
+              <img src="{{ url_for('static', filename='img/culture/paper-spreadsheet-0.jpg') }}" width="550" height="auto"/>
+          {% endif %}
+          
         </div>
       </div>
 
@@ -48,7 +54,14 @@
           <p>{{ _("<ul><li>‘First name’ for <b>qualitative data</b></li><li>‘Hometown’ for <b>geographic data</b></li><li>‘Color of Your Shirt’ for <b>categorical data</b></li><li>‘# Siblings you Have’ for <b>quantitative data</b></li><li>‘Day & Month of your Birthday’ for <b>temporal data</b></li><li>‘Describe any experience you have with data’ for <b>open text as data</b></li></ul>") }}</p>
           <p>{{ _("You should choose other questions that are more relevant for your audience, but make sure that you are not collecting sensitive personal information or anything that could be embarrassing. No really, we mean it!  It is very easy to accidentally ask a question that is revealing in an inappropriate way.") }}</p>
           <p>{{ _("Post the spreadsheet up on the wall before the beginning of the session. As participants arrive, ask them to fill out a row about themselves, but don't force them to if they opt out.") }}</p>
-          <img src="{{ url_for('static', filename='img/culture/paper-spreadsheet-1.jpg') }}" width="550" height="auto"/>
+         
+           {# NOTE FOR WELSH - So this is clunky but easy. Did it like this bc we only have custom images for Welsh and not other languages.  #}
+            {% if g['current_lang'] == "cy" %}
+              <img src="{{ url_for('static', filename='img/culture/paper-spreadsheet-welsh.jpg') }}" width="550" height="auto" style="border: 1px solid #CCC; margin:30px"/>
+          {% else %}
+              <img src="{{ url_for('static', filename='img/culture/paper-spreadsheet-1.jpg') }}" width="550" height="auto"/>
+          {% endif %}
+
           <p>{{ _("Allow enough time for all participants to fill-in the spreadsheet. When you're ready to start, invite a couple volunteers to introduce themselves using the information they wrote down.  These should be short intros that give a little more back-story to what they wrote down; just 1 or 2 minutes.") }}</p>
         </div>
       </div>

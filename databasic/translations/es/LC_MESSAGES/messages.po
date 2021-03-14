@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2021-03-08 11:39-0500\n"
+"POT-Creation-Date: 2021-03-14 07:58-0400\n"
 "PO-Revision-Date: 2015-12-21 14:00-0600\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language: es\n"
@@ -191,7 +191,7 @@ msgstr ""
 
 #: databasic/templates/footer.html:25
 #: databasic/templates/wordcounter/wordcounter.html:4
-#: databasic/templates/wordcounter/wordcounter.html:31
+#: databasic/templates/wordcounter/wordcounter.html:32
 msgid "WordCounter"
 msgstr "WordCounter"
 
@@ -1235,7 +1235,7 @@ msgid ""
 msgstr ""
 
 #: databasic/templates/culture/deconstruct.html:42
-#: databasic/templates/culture/paper_spreadsheet.html:38
+#: databasic/templates/culture/paper_spreadsheet.html:44
 #: databasic/templates/culture/remix.html:59
 #: databasic/templates/culture/sculpture.html:36
 #: databasic/templates/culture/storybook.html:38
@@ -1256,7 +1256,7 @@ msgid ""
 msgstr ""
 
 #: databasic/templates/culture/deconstruct.html:50
-#: databasic/templates/culture/paper_spreadsheet.html:46
+#: databasic/templates/culture/paper_spreadsheet.html:52
 #: databasic/templates/culture/remix.html:67
 #: databasic/templates/culture/sculpture.html:50
 #: databasic/templates/culture/storybook.html:46
@@ -1370,7 +1370,7 @@ msgstr ""
 msgid "Tape and a flat wall to hang your Paper Spreadsheet"
 msgstr ""
 
-#: databasic/templates/culture/paper_spreadsheet.html:39
+#: databasic/templates/culture/paper_spreadsheet.html:45
 msgid ""
 "Before beginning to analyze and tell stories with data, you have  to "
 "understand what data is and how to clean it before it can be used. Build "
@@ -1381,7 +1381,7 @@ msgid ""
 "introduce participants to one another."
 msgstr ""
 
-#: databasic/templates/culture/paper_spreadsheet.html:47
+#: databasic/templates/culture/paper_spreadsheet.html:53
 msgid ""
 "Prior to the activity, create your paper spreadsheet on a large piece of "
 "gridded paper. Create at least five columns to capture different forms of"
@@ -1389,7 +1389,7 @@ msgid ""
 "type, for example:"
 msgstr ""
 
-#: databasic/templates/culture/paper_spreadsheet.html:48
+#: databasic/templates/culture/paper_spreadsheet.html:54
 msgid ""
 "<ul><li>‘First name’ for <b>qualitative data</b></li><li>‘Hometown’ for "
 "<b>geographic data</b></li><li>‘Color of Your Shirt’ for <b>categorical "
@@ -1399,7 +1399,7 @@ msgid ""
 " text as data</b></li></ul>"
 msgstr ""
 
-#: databasic/templates/culture/paper_spreadsheet.html:49
+#: databasic/templates/culture/paper_spreadsheet.html:55
 msgid ""
 "You should choose other questions that are more relevant for your "
 "audience, but make sure that you are not collecting sensitive personal "
@@ -1408,14 +1408,14 @@ msgid ""
 "an inappropriate way."
 msgstr ""
 
-#: databasic/templates/culture/paper_spreadsheet.html:50
+#: databasic/templates/culture/paper_spreadsheet.html:56
 msgid ""
 "Post the spreadsheet up on the wall before the beginning of the session. "
 "As participants arrive, ask them to fill out a row about themselves, but "
 "don't force them to if they opt out."
 msgstr ""
 
-#: databasic/templates/culture/paper_spreadsheet.html:52
+#: databasic/templates/culture/paper_spreadsheet.html:65
 msgid ""
 "Allow enough time for all participants to fill-in the spreadsheet. When "
 "you're ready to start, invite a couple volunteers to introduce themselves"
@@ -1424,11 +1424,11 @@ msgid ""
 "minutes."
 msgstr ""
 
-#: databasic/templates/culture/paper_spreadsheet.html:59
+#: databasic/templates/culture/paper_spreadsheet.html:72
 msgid "Lead a Conversation"
 msgstr ""
 
-#: databasic/templates/culture/paper_spreadsheet.html:60
+#: databasic/templates/culture/paper_spreadsheet.html:73
 msgid ""
 "Lead your group in a conversation about the “dataset” they have created. "
 "Highlight that data are systematically collected observations about the "
@@ -1439,7 +1439,7 @@ msgid ""
 "Spreadsheet:"
 msgstr ""
 
-#: databasic/templates/culture/paper_spreadsheet.html:61
+#: databasic/templates/culture/paper_spreadsheet.html:74
 msgid ""
 "<ul><li>Do the colors people wrote down accurately capture all the "
 "texture and nuance of their fabric? For example, if anyone wore a striped"
@@ -1449,13 +1449,13 @@ msgid ""
 "dataset?</li></ul>"
 msgstr ""
 
-#: databasic/templates/culture/paper_spreadsheet.html:62
+#: databasic/templates/culture/paper_spreadsheet.html:75
 msgid ""
 "Also highlight the different types of data that the Paper Spreadsheet "
 "captures. You can ask things like:"
 msgstr ""
 
-#: databasic/templates/culture/paper_spreadsheet.html:63
+#: databasic/templates/culture/paper_spreadsheet.html:76
 msgid ""
 "<ul><li>People often think of data as just numbers, but what other kinds "
 "of data have we captured here? Is there temporal data? Geographic "
@@ -1464,13 +1464,13 @@ msgid ""
 "dates on a timeline, or locations on a map.</li></ul>"
 msgstr ""
 
-#: databasic/templates/culture/paper_spreadsheet.html:64
+#: databasic/templates/culture/paper_spreadsheet.html:77
 msgid ""
 "Next, introduce what needs to be done to clean and tell stories with this"
 " data. Ask participants questions like:"
 msgstr ""
 
-#: databasic/templates/culture/paper_spreadsheet.html:65
+#: databasic/templates/culture/paper_spreadsheet.html:78
 msgid ""
 "<ul><li>If you wanted to map out people's hometowns, how could we do "
 "that? For example, are there inconsistencies in how people wrote down "
@@ -1481,13 +1481,13 @@ msgid ""
 "spreadsheet?</li></ul>"
 msgstr ""
 
-#: databasic/templates/culture/paper_spreadsheet.html:66
+#: databasic/templates/culture/paper_spreadsheet.html:79
 msgid ""
 "Finally, discuss issues around data privacy, consent, and ethics. Ask "
 "participants things like:"
 msgstr ""
 
-#: databasic/templates/culture/paper_spreadsheet.html:67
+#: databasic/templates/culture/paper_spreadsheet.html:80
 msgid ""
 "<ul><li>Were there any questions that you felt uncomfortable writing down"
 " information for?</li><li>Who usually has the power to determine what is "
@@ -1495,11 +1495,11 @@ msgid ""
 "how the answers are interpreted? </li></ul>"
 msgstr ""
 
-#: databasic/templates/culture/paper_spreadsheet.html:74
+#: databasic/templates/culture/paper_spreadsheet.html:87
 msgid "Review What You Have Learned"
 msgstr ""
 
-#: databasic/templates/culture/paper_spreadsheet.html:75
+#: databasic/templates/culture/paper_spreadsheet.html:88
 #: databasic/templates/culture/remix.html:86
 msgid ""
 "Review the key points in the conversation that you just had. Remind the "
@@ -2748,7 +2748,7 @@ msgid "bigram"
 msgstr "bigrama"
 
 #: databasic/templates/wordcounter/results.html:82
-#: databasic/templates/wordcounter/wordcounter.html:25
+#: databasic/templates/wordcounter/wordcounter.html:26
 msgid "A bigram is a two word phrase"
 msgstr "Una bigrama es una frase con dos palabras"
 
@@ -2770,7 +2770,7 @@ msgid "trigram"
 msgstr "trigrama"
 
 #: databasic/templates/wordcounter/results.html:103
-#: databasic/templates/wordcounter/wordcounter.html:26
+#: databasic/templates/wordcounter/wordcounter.html:27
 msgid "A trigram is a three word phrase"
 msgstr "Una trigrama es una frase con tres palabras"
 
@@ -2860,7 +2860,7 @@ msgstr ""
 msgid "All done. What next?"
 msgstr ""
 
-#: databasic/templates/wordcounter/wordcounter.html:24
+#: databasic/templates/wordcounter/wordcounter.html:25
 #, python-format
 msgid ""
 "This tool helps you count words, %(bigrams)s, and %(trigrams)s in plain "
@@ -2870,15 +2870,15 @@ msgstr ""
 "en el texto plano. A menudo este es el primer paso en el análisis "
 "cuantitativo de texto."
 
-#: databasic/templates/wordcounter/wordcounter.html:25
+#: databasic/templates/wordcounter/wordcounter.html:26
 msgid "bigrams"
 msgstr "bigramas"
 
-#: databasic/templates/wordcounter/wordcounter.html:26
+#: databasic/templates/wordcounter/wordcounter.html:27
 msgid "trigrams"
 msgstr "trigramas"
 
-#: databasic/templates/wordcounter/wordcounter.html:29
+#: databasic/templates/wordcounter/wordcounter.html:30
 msgid "Count"
 msgstr "Contar"
 

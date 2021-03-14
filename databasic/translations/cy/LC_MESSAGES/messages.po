@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2021-03-08 11:39-0500\n"
+"POT-Creation-Date: 2021-03-14 07:58-0400\n"
 "PO-Revision-Date: 2020-09-16 10:40+0000\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language: cy\n"
@@ -188,7 +188,7 @@ msgstr ""
 
 #: databasic/templates/footer.html:25
 #: databasic/templates/wordcounter/wordcounter.html:4
-#: databasic/templates/wordcounter/wordcounter.html:31
+#: databasic/templates/wordcounter/wordcounter.html:32
 msgid "WordCounter"
 msgstr "WordCounter"
 
@@ -1264,7 +1264,7 @@ msgstr ""
 "gyfranogwyr)"
 
 #: databasic/templates/culture/deconstruct.html:42
-#: databasic/templates/culture/paper_spreadsheet.html:38
+#: databasic/templates/culture/paper_spreadsheet.html:44
 #: databasic/templates/culture/remix.html:59
 #: databasic/templates/culture/sculpture.html:36
 #: databasic/templates/culture/storybook.html:38
@@ -1294,7 +1294,7 @@ msgstr ""
 " data yn dda."
 
 #: databasic/templates/culture/deconstruct.html:50
-#: databasic/templates/culture/paper_spreadsheet.html:46
+#: databasic/templates/culture/paper_spreadsheet.html:52
 #: databasic/templates/culture/remix.html:67
 #: databasic/templates/culture/sculpture.html:50
 #: databasic/templates/culture/storybook.html:46
@@ -1461,7 +1461,7 @@ msgstr "Marcwyr mawr, trwchus"
 msgid "Tape and a flat wall to hang your Paper Spreadsheet"
 msgstr "Tâp a wal gwastad i hongian eich Taenlen Bapur"
 
-#: databasic/templates/culture/paper_spreadsheet.html:39
+#: databasic/templates/culture/paper_spreadsheet.html:45
 msgid ""
 "Before beginning to analyze and tell stories with data, you have  to "
 "understand what data is and how to clean it before it can be used. Build "
@@ -1479,7 +1479,7 @@ msgstr ""
 "ystyriaethau moeseg a phreifatrwydd mewn data. Mae'n ddull o dorri'r iâ "
 "ar ddechrau sesiwn i gyflwyno cyfranogwyr i'w gilydd."
 
-#: databasic/templates/culture/paper_spreadsheet.html:47
+#: databasic/templates/culture/paper_spreadsheet.html:53
 msgid ""
 "Prior to the activity, create your paper spreadsheet on a large piece of "
 "gridded paper. Create at least five columns to capture different forms of"
@@ -1491,7 +1491,7 @@ msgstr ""
 "bersonol. Y peth gorau yw cynnwys colofnau am bob prif fath o ddata, er "
 "enghraifft:"
 
-#: databasic/templates/culture/paper_spreadsheet.html:48
+#: databasic/templates/culture/paper_spreadsheet.html:54
 msgid ""
 "<ul><li>‘First name’ for <b>qualitative data</b></li><li>‘Hometown’ for "
 "<b>geographic data</b></li><li>‘Color of Your Shirt’ for <b>categorical "
@@ -1507,7 +1507,7 @@ msgstr ""
 "</b></li><li>‘Disgrifiwch unrhyw brofiad sydd gennych gyda data’ am "
 "<b>destun agored fel data</b></li></ul>"
 
-#: databasic/templates/culture/paper_spreadsheet.html:49
+#: databasic/templates/culture/paper_spreadsheet.html:55
 msgid ""
 "You should choose other questions that are more relevant for your "
 "audience, but make sure that you are not collecting sensitive personal "
@@ -1521,7 +1521,7 @@ msgstr ""
 "golygu hynny!  Mae'n hawdd iawn gofyn cwestiwn yn ddamweiniol sy'n "
 "datgelu gormod mewn ffordd amhriodol."
 
-#: databasic/templates/culture/paper_spreadsheet.html:50
+#: databasic/templates/culture/paper_spreadsheet.html:56
 msgid ""
 "Post the spreadsheet up on the wall before the beginning of the session. "
 "As participants arrive, ask them to fill out a row about themselves, but "
@@ -1531,7 +1531,7 @@ msgstr ""
 "gyrraedd, gofynnwch iddyn nhw lenwi rhes amdanynt eu hunain, ond peidiwch"
 " â'u gorfodi i wneud os ydyn nhw'n dewis peidio."
 
-#: databasic/templates/culture/paper_spreadsheet.html:52
+#: databasic/templates/culture/paper_spreadsheet.html:65
 msgid ""
 "Allow enough time for all participants to fill-in the spreadsheet. When "
 "you're ready to start, invite a couple volunteers to introduce themselves"
@@ -1545,11 +1545,11 @@ msgstr ""
 "yn gyflwyniadau byr sy'n rhoi ychydig yn fwy o gefndir i'r hyn a "
 "ysgrifennon nhw; dim ond munud neu ddwy."
 
-#: databasic/templates/culture/paper_spreadsheet.html:59
+#: databasic/templates/culture/paper_spreadsheet.html:72
 msgid "Lead a Conversation"
 msgstr "Arweiniwch Sgwrs"
 
-#: databasic/templates/culture/paper_spreadsheet.html:60
+#: databasic/templates/culture/paper_spreadsheet.html:73
 msgid ""
 "Lead your group in a conversation about the “dataset” they have created. "
 "Highlight that data are systematically collected observations about the "
@@ -1567,7 +1567,7 @@ msgstr ""
 " chi archwilio hyn drwy ofyn nifer o gwestiynau i'ch grŵp ynghylch y "
 "Daenlen Bapur:"
 
-#: databasic/templates/culture/paper_spreadsheet.html:61
+#: databasic/templates/culture/paper_spreadsheet.html:74
 msgid ""
 "<ul><li>Do the colors people wrote down accurately capture all the "
 "texture and nuance of their fabric? For example, if anyone wore a striped"
@@ -1582,7 +1582,7 @@ msgstr ""
 " cipio <em>digon</em> am bwy ydy pob person i'w ddadansoddi?</li><li>Beth"
 " sydd ar goll a allai ein helpu i ddefnyddio'r set ddata yma?</li></ul>"
 
-#: databasic/templates/culture/paper_spreadsheet.html:62
+#: databasic/templates/culture/paper_spreadsheet.html:75
 msgid ""
 "Also highlight the different types of data that the Paper Spreadsheet "
 "captures. You can ask things like:"
@@ -1590,7 +1590,7 @@ msgstr ""
 "Hefyd amlygwch y gwahanol fathau o ddata mae'r Daenlen Bapur yn eu cipio."
 " Gallwch chi ofyn pethau fel:"
 
-#: databasic/templates/culture/paper_spreadsheet.html:63
+#: databasic/templates/culture/paper_spreadsheet.html:76
 msgid ""
 "<ul><li>People often think of data as just numbers, but what other kinds "
 "of data have we captured here? Is there temporal data? Geographic "
@@ -1605,7 +1605,7 @@ msgstr ""
 "enghraifft, gallen ni blotio dyddiadau ar linell amser, neu leoliadau ar "
 "fap.</li></ul>\n"
 
-#: databasic/templates/culture/paper_spreadsheet.html:64
+#: databasic/templates/culture/paper_spreadsheet.html:77
 msgid ""
 "Next, introduce what needs to be done to clean and tell stories with this"
 " data. Ask participants questions like:"
@@ -1613,7 +1613,7 @@ msgstr ""
 "Nesaf, cyflwynwch beth mae angen ei wneud i lanhau a dweud storïau gyda'r"
 " data hwn. Gofynnwch i'r cyfranogwyr gwestiynau fel:"
 
-#: databasic/templates/culture/paper_spreadsheet.html:65
+#: databasic/templates/culture/paper_spreadsheet.html:78
 msgid ""
 "<ul><li>If you wanted to map out people's hometowns, how could we do "
 "that? For example, are there inconsistencies in how people wrote down "
@@ -1631,7 +1631,7 @@ msgstr ""
 " colofn? A wnaeth unrhyw un *beidio* â rhoi eu hun ar y daenlen "
 "bapur?</li></ul>"
 
-#: databasic/templates/culture/paper_spreadsheet.html:66
+#: databasic/templates/culture/paper_spreadsheet.html:79
 msgid ""
 "Finally, discuss issues around data privacy, consent, and ethics. Ask "
 "participants things like:"
@@ -1639,7 +1639,7 @@ msgstr ""
 "Yn olaf, trafodwch ystyriaethau preifatrwydd, cydsyniad, a moeseg data. "
 "Gofynnwch i gyfranogwyr pethau fel:"
 
-#: databasic/templates/culture/paper_spreadsheet.html:67
+#: databasic/templates/culture/paper_spreadsheet.html:80
 msgid ""
 "<ul><li>Were there any questions that you felt uncomfortable writing down"
 " information for?</li><li>Who usually has the power to determine what is "
@@ -1652,11 +1652,11 @@ msgstr ""
 " sut mae'r cwestiynau hynny'n cael eu gofyn a sut mae'r atebion yn cael "
 "eu dehongli? </li></ul>"
 
-#: databasic/templates/culture/paper_spreadsheet.html:74
+#: databasic/templates/culture/paper_spreadsheet.html:87
 msgid "Review What You Have Learned"
 msgstr "Adolygwch Beth Rydych wedi ei Ddysgu"
 
-#: databasic/templates/culture/paper_spreadsheet.html:75
+#: databasic/templates/culture/paper_spreadsheet.html:88
 #: databasic/templates/culture/remix.html:86
 msgid ""
 "Review the key points in the conversation that you just had. Remind the "
@@ -3131,7 +3131,7 @@ msgid "bigram"
 msgstr "bigram"
 
 #: databasic/templates/wordcounter/results.html:82
-#: databasic/templates/wordcounter/wordcounter.html:25
+#: databasic/templates/wordcounter/wordcounter.html:26
 msgid "A bigram is a two word phrase"
 msgstr "Mae bigram yn ymadrodd dau air"
 
@@ -3153,7 +3153,7 @@ msgid "trigram"
 msgstr "trigram"
 
 #: databasic/templates/wordcounter/results.html:103
-#: databasic/templates/wordcounter/wordcounter.html:26
+#: databasic/templates/wordcounter/wordcounter.html:27
 msgid "A trigram is a three word phrase"
 msgstr "Mae trigram yn ymadrodd tri gair"
 
@@ -3254,7 +3254,7 @@ msgstr "Wedi cwblhau ein storïau!  Mae'n bryd rhannu'ch adborth!"
 msgid "All done. What next?"
 msgstr "Wedi gorffen.  Beth nesaf?"
 
-#: databasic/templates/wordcounter/wordcounter.html:24
+#: databasic/templates/wordcounter/wordcounter.html:25
 #, python-format
 msgid ""
 "This tool helps you count words, %(bigrams)s, and %(trigrams)s in plain "
@@ -3264,15 +3264,15 @@ msgstr ""
 "%(trigrams)s mewn testun plaen. Yn aml dyma'r cam cyntaf mewn dadansoddi "
 "testun meintiol."
 
-#: databasic/templates/wordcounter/wordcounter.html:25
+#: databasic/templates/wordcounter/wordcounter.html:26
 msgid "bigrams"
 msgstr "bigramau"
 
-#: databasic/templates/wordcounter/wordcounter.html:26
+#: databasic/templates/wordcounter/wordcounter.html:27
 msgid "trigrams"
 msgstr "trigramau"
 
-#: databasic/templates/wordcounter/wordcounter.html:29
+#: databasic/templates/wordcounter/wordcounter.html:30
 msgid "Count"
 msgstr "Cyfrifiad"
 
