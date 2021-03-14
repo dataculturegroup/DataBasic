@@ -29,7 +29,9 @@ def init_samples():
             url = url_base + sample['source']
             print("  Loading sample data file: {}".format(url))
             text = requests.get(url).text
-            f = tempfile.NamedTemporaryFile(mode="w", delete=False)
+
+            # write files as utf-8 or else PROBLEMS
+            f = tempfile.NamedTemporaryFile(mode="w", delete=False, encoding='utf-8')
             f.write(text)
             f.close()
             os.chmod(f.name, 0o444)
