@@ -29,12 +29,12 @@ def init_samples():
             url = url_base + sample['source']
             print("  Loading sample data file: {}".format(url))
             
-            #reading files as utf-8 or else PROBLEMS 
+            #reading files as utf-8 
             #NOTE this does not fix the Rhodri Morgan file
             requests.encoding = 'utf-8'
             text = requests.get(url).text
 
-            # write files as utf-8 or else PROBLEMS
+            # write files as utf-8 
             #NOTE this does not fix the Rhodri Morgan file
             f = tempfile.NamedTemporaryFile(mode="w", delete=False, encoding='utf-8')
             f.write(text)

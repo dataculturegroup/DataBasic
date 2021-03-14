@@ -85,10 +85,19 @@ def convert_to_txt(file_path):
         logger.debug("loading rtf file")
         doc = Rtf15Reader.read(open(file_path))
         words = PlaintextWriter.write(doc).getvalue()
+    
+    #NOTE TO SELF TRY THIS NEXT! MAYBE it's not  processing files with no extensions properly
     else:
         logging.warning("Couldn't find an extension on the file, so assuming text")
-        with open(file_path, 'r') as myfile:
-            words = myfile.read()
+        #with open(file_path, 'r') as myfile:
+        #    words = myfile.read()
+
+        try:
+            encoding, file_handle, words = open_with_correct_encoding(file_path)
+        except Exception:
+            logger.error("Wasn't able to read the words from the file %s" % file_path)
+            words = ""
+
     logger.debug("loaded %d chars" % len(words))
     return words
 

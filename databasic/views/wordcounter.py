@@ -52,7 +52,7 @@ def index():
         elif btn_value == 'sample':
 
             #CD only adding out of desperation
-            mongo.remove_all_sample_data()
+            #mongo.remove_all_sample_data()
             
             sample_source = forms['sample'].data['sample']
             samplename = filehandler.get_sample_title(sample_source)
@@ -62,8 +62,10 @@ def index():
             
             
             sample_id = ""
-            #CSD TODO - ADD CACHING FLAG TO NOT CACHE IF SPECIFIED IN CONFIG
+         
             sample_id = title+str(ignore_case)+str(ignore_stopwords)
+
+            #CSD TODO - ADD CACHING FLAG TO NOT CACHE IF SPECIFIED IN CONFIG
             #if config.get("CACHE_SAMPLE_DATA_ANALYSIS") is None or app.config.get("CACHE_SAMPLE_DATA_ANALYSIS"):
             existing_doc_id = mongo.results_for_sample('wordcounter', sample_id)
             if existing_doc_id is not None:
