@@ -28,6 +28,9 @@ def init_samples():
         for sample in samples:
             url = url_base + sample['source']
             print("  Loading sample data file: {}".format(url))
+            
+            #reading files as utf-8 or else PROBLEMS 
+            requests.encoding = 'utf-8'
             text = requests.get(url).text
 
             # write files as utf-8 or else PROBLEMS
