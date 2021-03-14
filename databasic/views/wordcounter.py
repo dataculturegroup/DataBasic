@@ -50,6 +50,9 @@ def index():
             title = upload_file.filename
             logger.debug("New from upload: %s", title)
         elif btn_value == 'sample':
+
+            #CD only adding out of desperation
+            mongo.remove_all_sample_data()
             sample_source = forms['sample'].data['sample']
             samplename = filehandler.get_sample_title(sample_source)
             title = samplename

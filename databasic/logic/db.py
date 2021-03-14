@@ -82,6 +82,7 @@ class MongoHandler:
         self.remove_sample_data('wtfcsv')
         self.remove_sample_data('samediff')
         self.remove_sample_data('connectthedots')
+        logger.debug("Removed all sample data")
 
     def remove_sample_data(self, collection):
         self._db[collection].remove({'sample_id': {'$exists': True, '$ne': ''}})
