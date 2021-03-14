@@ -65,13 +65,11 @@ def index():
          
             sample_id = title+str(ignore_case)+str(ignore_stopwords)
 
-            #CSD TODO - ADD CACHING FLAG TO NOT CACHE IF SPECIFIED IN CONFIG
-            #if config.get("CACHE_SAMPLE_DATA_ANALYSIS") is None or app.config.get("CACHE_SAMPLE_DATA_ANALYSIS"):
+            #CSD TODO - ADD CACHING FLAG TO NOT CACHE IF SPECIFIED IN CONFIG?
             existing_doc_id = mongo.results_for_sample('wordcounter', sample_id)
             if existing_doc_id is not None:
                 logger.debug("Existing from sample: %s", sample_source)
                 return redirect(request.url + 'results/' + existing_doc_id)
-            #CSD TODO - END CACHING FLAG TO NOT CACHE IF SPECIFIED IN CONFIG
             
             logger.info("New from sample: %s", sample_source)
             sample_path = filehandler.get_sample_path(sample_source)

@@ -48,11 +48,11 @@ def index():
             sample_name = sample['title']
             sample_id = sample_source
             
-            #CSD TODO - ADD CACHING FLAG TO NOT CACHE IF SPECIFIED IN CONFIG
+            #CSD TODO - ADD CACHING FLAG TO NOT CACHE IF SPECIFIED IN CONFIG?
             existing_doc_id = mongo.results_for_sample('wtfcsv', sample_id)
-            #if existing_doc_id is not None:
-            #    logger.debug("Existing from sample: %s", sample_source)
-            #    return redirect(request.url + 'results/' + existing_doc_id)
+            if existing_doc_id is not None:
+                logger.debug("Existing from sample: %s", sample_source)
+                return redirect(request.url + 'results/' + existing_doc_id)
             logger.debug("New from sample: %s", sample_name)
             sample_path = sample['path']
             logger.debug("  loading from %s", sample_path)

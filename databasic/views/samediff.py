@@ -41,12 +41,12 @@ def index():
             f1name = filehandler.get_sample_title(sample_sources[0])
             f2name = filehandler.get_sample_title(sample_sources[1])
             
-            #CSD TODO - ADD CACHING FLAG TO NOT CACHE IF SPECIFIED IN CONFIG
+            #CSD TODO - ADD CACHING FLAG TO NOT CACHE IF SPECIFIED IN CONFIG?
             sample_id = str(f1name) + str(f2name)
-            #existing_doc_id = mongo.results_for_sample('samediff', sample_id)
-            #if existing_doc_id is not None:
-            #    logger.debug("Existing from sample: %s", sample_id)
-            #    return redirect(request.url + 'results/' + existing_doc_id)
+            existing_doc_id = mongo.results_for_sample('samediff', sample_id)
+            if existing_doc_id is not None:
+                logger.debug("Existing from sample: %s", sample_id)
+                return redirect(request.url + 'results/' + existing_doc_id)
             logger.debug("New from sample: %s", ", ".join(sample_sources))
             file_paths = [filehandler.get_sample_path(sample_source) for sample_source in sample_sources]
             logger.debug("  loading from %s", ", ".join(file_paths))
