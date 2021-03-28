@@ -16,7 +16,9 @@ def init_samples():
     samples_config_file_path = os.path.join(base_dir, 'config', 'sample-data.json')
     print("Retrieving sample files from: ", samples_config_file_path)
 
-    samples = json.load(open(samples_config_file_path, 'r'))
+    # tell the dumb thing this is NOT ASCII
+    samples = json.load(open(samples_config_file_path, 'r', encoding='utf-8'))
+    
     if os.environ.get('APP_MODE', None) == "development":
         # change the paths to absolute ones
         for sample in samples:
@@ -45,8 +47,10 @@ def init_samples():
     for sample in samples:
         file_size = os.stat(sample['path']).st_size
         print("  Cached {} bytes of {} to {}".format(file_size, sample['source'], sample['path']))
+    
     # write it out so the app can load it, with the `path`s we just filled in
-    json.dump(samples, open(samples_config_file_path, 'w'))
+    # tell the dumb thing this is NOT ASCII
+    json.dump(samples, open(samples_config_file_path, 'w'), ensure_ascii=False)
 
 
 if __name__ == "__main__":
