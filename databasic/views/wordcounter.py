@@ -31,7 +31,6 @@ def index():
     if request.method == 'POST':
         ignore_case = True
         ignore_stopwords = True
-        
         btn_value = request.form['btn']
         sample_id = ''
         extras_to_save = {}
