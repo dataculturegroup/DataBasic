@@ -54,13 +54,13 @@
 
             {# NOTE FOR WELSH - So this is clunky but easy. Did it like this bc we only have custom data for Welsh, and Welsh-english and not other languages and didn't want to mess up PO files for SP, PT, DN.  #}
             {% if g['current_lang'] == "cy" %}
-                <li><a href="/static/files/activity-materials/cy/Poblogaethau_Adar_Bridio_yng_Nghymru.pdf">Poblogaethau Adar Bridio yng Nghymru</li>
-                <li><a href="/static/files/activity-materials/cy/Defnydd_ynni_yn_y_DU.pdf">Defnydd ynni yn y DU</li>
-                <li><a href="/static/files/activity-materials/cy/Y_boblogaeth_sy'n_siarad_Cymraeg.pdf">Y boblogaeth sy'n siarad Cymraeg </a></li>
+                <li><a href="https://www.data.cymru/cym/Poblogaethau_Adar_Bridio_yng_Nghymru.pdf">Poblogaethau Adar Bridio yng Nghymru</li>
+                <li><a href="https://www.data.cymru/cym/Defnydd_ynni_yn_y_DU.pdf">Defnydd ynni yn y DU</li>
+                <li><a href="https://www.data.cymru/cym/Y_boblogaeth_sy'n_siarad_Cymraeg.pdf">Y boblogaeth sy'n siarad Cymraeg </a></li>
             {% elif g['current_lang'] == "en_CY"%}
-                <li><a href="/static/files/activity-materials/en_CY/Breeding_Bird_Populations_in_Wales.pdf">Breeding Bird Populations in Wales</li>
-                <li><a href="/static/files/activity-materials/en_CY/UK_Energy_Consumption.pdf">UK Energy Consumption</li>
-                <li><a href="/static/files/activity-materials/en_CY/Welsh_Speaking_Population.pdf">Welsh Speaking Population</a></li>
+                <li><a href="https://www.data.cymru/eng/Breeding_Bird_Populations_in_Wales.pdf">Breeding Bird Populations in Wales</li>
+                <li><a href="https://www.data.cymru/eng/UK_Energy_Consumption.pdf">UK Energy Consumption</li>
+                <li><a href="https://www.data.cymru/eng/Welsh_Speaking_Population.pdf">Welsh Speaking Population</a></li>
             {% else %}
                 <li><a href="/static/files/activity-materials/en/data sculpture - ice cream - rev2.pdf">{{ _("US Ice Cream Consumption") }}</li>
                 <li><a href="/static/files/activity-materials/en/data sculpture - happiness - rev2.pdf">{{ _("Happiness in the Town of Somerville, MA, USA") }}</li>
