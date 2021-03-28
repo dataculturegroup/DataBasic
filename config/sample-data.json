@@ -660,7 +660,7 @@
     "biography": "Dyma eiriau caneuon gan Yws Gwynedd. Rhannodd yr artist hwy â Data Cymru yn 2020."
   },
   {
-    "title": " Geiriau Caneuon Dafydd Iwann ",
+    "title": "Geiriau Caneuon Dafydd Iwan",
     "source": "sample-data/cy/Geiriau_Caneuon_Dafydd_Iwan.txt",
     "modules": ["wordcounter","samediff"],
     "lang": "cy",

@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2021-03-14 07:58-0400\n"
+"POT-Creation-Date: 2021-03-28 06:39-0400\n"
 "PO-Revision-Date: 2020-06-10 09:54+0200\n"
 "Last-Translator: Jane Kunze <jku@aarhus.dk>\n"
 "Language: da_DK\n"
@@ -3481,11 +3481,11 @@ msgstr "fuldstændigt forskelligt"
 msgid "your text"
 msgstr "din tekst"
 
-#: databasic/views/wordcounter.py:84
+#: databasic/views/wordcounter.py:91
 msgid "title"
 msgstr "titel"
 
-#: databasic/views/wtfcsv.py:204
+#: databasic/views/wtfcsv.py:203
 msgid "Other"
 msgstr "Andet"
 

@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2021-03-14 07:58-0400\n"
+"POT-Creation-Date: 2021-03-28 06:39-0400\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -2732,11 +2732,11 @@ msgstr ""
 msgid "your text"
 msgstr ""
 
-#: databasic/views/wordcounter.py:84
+#: databasic/views/wordcounter.py:91
 msgid "title"
 msgstr ""
 
-#: databasic/views/wtfcsv.py:204
+#: databasic/views/wtfcsv.py:203
 msgid "Other"
 msgstr ""
 
