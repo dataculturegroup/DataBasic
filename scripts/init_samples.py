@@ -33,6 +33,7 @@ def init_samples():
             
             #reading files as utf-8 
             #NOTE this does not fix the Rhodri Morgan file
+            
             requests.encoding = 'utf-8'
             text = requests.get(url).text
 
