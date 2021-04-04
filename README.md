@@ -78,8 +78,6 @@ sample data so it gets regenerated:
 python dbutils.py -rm-samples
 ```
 
-
-
 Translating
 -----------
 
