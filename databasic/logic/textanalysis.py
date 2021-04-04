@@ -8,7 +8,7 @@ from databasic import NLTK_STOPWORDS_BY_LANGUAGE
 
 
 def _databasic_tokenize(text, ignore_case=True, remove_stopwords=True, lang='english'):
-    words = re.findall(r"[\w']+|[.,!?;]", text, re.UNICODE)
+    words = re.findall(r"[\w'-]+|[.,!?;]", text, re.UNICODE)
     if ignore_case:
         words = [w.lower() for w in words]
     if remove_stopwords:

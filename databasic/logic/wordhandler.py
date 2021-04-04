@@ -37,7 +37,7 @@ def get_word_counts(text=None, ignore_case=True, ignore_stop_words=True, stopwor
 
 
 def _create_words(text, ignore_case):
-    words = re.findall(r"[\w']+|[.,!?;]", text, re.UNICODE)
+    words = re.findall(r"[\w'-]+|[.,!?;]", text, re.UNICODE)
     if ignore_case:
         words = [w.lower() for w in words]
     return [w for w in words if w not in string.punctuation]
