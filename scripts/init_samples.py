@@ -32,13 +32,12 @@ def init_samples():
             print("  Loading sample data file: {}".format(url))
             
             #reading files as utf-8 
-            #NOTE this does not fix the Rhodri Morgan file
             
             requests.encoding = 'utf-8'
             text = requests.get(url).text
 
             # write files as utf-8 
-            #NOTE this does not fix the Rhodri Morgan file
+           
             f = tempfile.NamedTemporaryFile(mode="w", delete=False, encoding='utf-8')
             f.write(text)
             f.close()
@@ -50,7 +49,6 @@ def init_samples():
         print("  Cached {} bytes of {} to {}".format(file_size, sample['source'], sample['path']))
     
     # write it out so the app can load it, with the `path`s we just filled in
-    # tell the dumb thing this is NOT ASCII
     json.dump(samples, open(samples_config_file_path, 'w'), ensure_ascii=False)
 
 
