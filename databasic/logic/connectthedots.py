@@ -83,11 +83,11 @@ class ConnectTheDots():
 
             colors = ['blue', 'orange', 'green', 'red', 'purple', 'brown', 'pink', 'grey', 'olive', 'turquoise']
             if results['communities'] > 20:
-                self.community_color = {n: ('dark' if partition[n] % 2 == 0 else 'light') + colors[partition[n] % 20 / 2] + str(partition[n] / 20) for n in nodes}
+                self.community_color = {n: ('dark' if partition[n] % 2 == 0 else 'light') + colors[int(partition[n] % 20 / 2)] + str(partition[n] / 20) for n in nodes}
             elif results['communities'] > 10:
-                self.community_color = {n: ('dark' if partition[n] % 2 == 0 else 'light') + colors[partition[n] / 2] for n in nodes}
+                self.community_color = {n: ('dark' if partition[n] % 2 == 0 else 'light') + colors[int(partition[n] / 2)] for n in nodes}
             else:
-                self.community_color = {n: colors[partition[n]] for n in nodes}
+                self.community_color = {n: colors[int(partition[n])] for n in nodes}
 
             nx.set_node_attributes(self.graph_with_metadata, 'community', self.community_color)
 
