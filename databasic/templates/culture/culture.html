@@ -25,7 +25,7 @@
           <iframe src="https://player.vimeo.com/video/236094844?texttrack={{g['current_lang']}}" width="100%" height="355" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
         </div>
         <div class="col-md-3 col-sm-6">
-          <p class="toptext">{{ _("Data is everywhere right now. But many organizations like your's are struggling to figure out how to build capacity to work with data. You don't need a data scientist; you need a <strong>data culture</strong>.") }}</p>
+          <p class="toptext">{{ _("Data is everywhere right now. But many organizations like yours are struggling to figure out how to build capacity to work with data. You don't need a data scientist; you need a <strong>data culture</strong>.") }}</p>
         </div>
       </div>
 
@@ -51,7 +51,13 @@
         <div class="col-md-8 col-sm-12 col-md-offset-2" >
         <h1 style="color:white">{{ _("The Data Process") }}</h1>
         <p style="color:white;font-size: 22px">{{ _("Here's a process we introduce to get you from data to impactful story.  Keep scrolling down to learn about the activities we offer for you to run at each step along the way.")}}
-        <img src="{{ url_for('static', filename='img/culture/data-process.png') }}" alt="Data Process Diagram" style="width:100%;margin-top:20px">
+
+        {# NOTE FOR WELSH - So this is clunky but easy. Did it like this bc we only have custom process image for Welsh and not other languages.  #}
+        {% if g['current_lang'] == "cy" %}
+             <img src="{{ url_for('static', filename='img/culture/data-process-cy.png') }}" alt="Proses Data" style="width:100%;margin-top:20px">
+        {% else %}
+          <img src="{{ url_for('static', filename='img/culture/data-process.png') }}" alt="Data Process Diagram" style="width:100%;margin-top:20px">
+        {% endif %}
          &nbsp;
         </div>
       </div>

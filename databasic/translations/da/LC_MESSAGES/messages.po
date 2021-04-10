@@ -697,7 +697,7 @@ msgstr ""
 
 #: databasic/templates/culture/connections.html:43
 msgid ""
-"Participants will understand build familiarity with some standard terms "
+"Participants will understand and build familiarity with some standard terms "
 "and approaches to working with network graphs. Begin by sharing some "
 "inspirational examples, then fill in a spreadsheet together of "
 "restaurants and who recommends them.  This should have two columns - "
@@ -796,7 +796,7 @@ msgstr ""
 
 #: databasic/templates/culture/convince.html:44
 msgid ""
-" In this activity you will work practice using data to make arguments "
+" In this activity you will practice using data to make arguments "
 "that try to convince different people. You will learn how to use data to "
 "tailor an argument for a specific audience. We'll look at a sample "
 "visualization about an issue, identify stakeholders who are trying to "
@@ -857,7 +857,7 @@ msgstr ""
 
 #: databasic/templates/culture/culture.html:28
 msgid ""
-"Data is everywhere right now. But many organizations like your's are "
+"Data is everywhere right now. But many organizations like yours are "
 "struggling to figure out how to build capacity to work with data. You "
 "don't need a data scientist; you need a <strong>data culture</strong>."
 msgstr ""
