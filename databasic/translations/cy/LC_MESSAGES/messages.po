@@ -3209,7 +3209,7 @@ msgid ""
 "good to know, but combine that with "
 msgstr ""
 "Gall archwilio data testun yn y modd meintiol yma eich helpu i ddod o hyd"
-" i storïau i'w dweud yn eich data.  Mae'r ffaith bod \"%(top_word)s\" yn "
+" i storiau i'w dweud yn eich data.  Mae'r ffaith bod \"%(top_word)s\" yn "
 "air poblogaidd yn dda i'w wybod, ond cyfunwch hynny â "
 
 #: databasic/templates/wordcounter/results.html:124
