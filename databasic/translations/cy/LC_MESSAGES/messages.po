@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2021-03-28 06:39-0400\n"
+"POT-Creation-Date: 2021-04-18 09:48-0400\n"
 "PO-Revision-Date: 2021-03-24 14:21+0000\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language: cy\n"
@@ -697,14 +697,19 @@ msgstr ""
 "ddefnyddiol. Yn y gweithgaredd hwn byddwch yn creu set ddata am fwytai "
 "lleol mae pobl yn eu hargymell, yn adeiladu graff rhwydwaith o'r data "
 "hwnnw, ac yna'n meddwl am gwestiynau gallwch chi eu gofyn iddo. Byddwch "
-"chi'n defnyddio offeryn "
-"Connect the Dots Databasic.io i wneud hyn."
+"chi'n defnyddio offeryn Connect the Dots Databasic.io i wneud hyn."
+
+#: databasic/templates/culture/connections.html:42
+#: databasic/templates/culture/culture.html:111
+#: databasic/templates/culture/culture.html:127
+msgid "Use Connect the Dots"
+msgstr "Defnyddiwch Connect the Dots"
 
 #: databasic/templates/culture/connections.html:43
 msgid ""
-"Participants will understand and build familiarity with some standard terms "
-"and approaches to working with network graphs. Begin by sharing some "
-"inspirational examples, then fill in a spreadsheet together of "
+"Participants will understand and build familiarity with some standard "
+"terms and approaches to working with network graphs. Begin by sharing "
+"some inspirational examples, then fill in a spreadsheet together of "
 "restaurants and who recommends them.  This should have two columns - "
 "'Person' and 'Restaurant'. Then paste this data into Connect the Dots to "
 "analyze it. Share the URL and have people poke at it, or other sample "
@@ -780,9 +785,8 @@ msgid ""
 "how-much-water-do-you-use\">Walk this Way infographic from Good "
 "Magazine</a>"
 msgstr ""
-"Argraffiadau o ffeithlun <a href=\"/static/files/activity-"
-"materials/cy/Way_To_go_cym.png\">Ymgyrch Modd i Fyw oddi wrth Lywodraeth "
-"Cymru</a>"
+"Argraffiadau o ffeithlun <a href=\"https://www.data.cymru/cym/ffeithlun-"
+"modd-i-fyw\">Ymgyrch Modd i Fyw oddi wrth Lywodraeth Cymru</a>"
 
 #: databasic/templates/culture/convince.html:32
 msgid "A room with space at the front"
@@ -804,13 +808,13 @@ msgstr ""
 
 #: databasic/templates/culture/convince.html:44
 msgid ""
-" In this activity you will practice using data to make arguments "
-"that try to convince different people. You will learn how to use data to "
-"tailor an argument for a specific audience. We'll look at a sample "
-"visualization about an issue, identify stakeholders who are trying to "
-"swayed by the story it tells, and try to make arguments that convince "
-"them to take action. Start the activity by playing the kickoff video "
-"below for your group."
+" In this activity you will practice using data to make arguments that try"
+" to convince different people. You will learn how to use data to tailor "
+"an argument for a specific audience. We'll look at a sample visualization"
+" about an issue, identify stakeholders who are trying to swayed by the "
+"story it tells, and try to make arguments that convince them to take "
+"action. Start the activity by playing the kickoff video below for your "
+"group."
 msgstr ""
 "Yn y gweithgaredd hwn byddwch yn ymarfer defnyddio data i greu dadleuon "
 "sy'n ceisio argyhoeddi pobl wahanol. Byddwch yn dysgu sut mae defnyddio "
@@ -842,7 +846,7 @@ msgstr ""
 
 #: databasic/templates/culture/convince.html:71
 msgid ""
-"Now that you've practice this with some example data, this video will "
+"Now that you've practiced this with some example data, this video will "
 "help you think about where to go next. For example, who are some of the "
 "main audiences your organization tries to convince? What are some "
 "pitfalls to be aware of when crafting arguments for specific audiences?"
@@ -919,11 +923,11 @@ msgstr ""
 "effeithiol.  Parhewch i sgrolio i lawr i ddysgu am y gweithgareddau rydym"
 " ni'n eu cynnig i chi eu cynnal ar bob cam o'r ffordd."
 
-#: databasic/templates/culture/culture.html:62
+#: databasic/templates/culture/culture.html:68
 msgid "Warm Ups"
 msgstr "Ymarferion Cynhesu"
 
-#: databasic/templates/culture/culture.html:63
+#: databasic/templates/culture/culture.html:69
 msgid ""
 "Before jumping into finding data or telling stories, it's important to do"
 " some warm ups to activate your organization's data mindset. Warm ups are"
@@ -950,33 +954,33 @@ msgstr ""
 "mewn deall delweddiadau data, a datblygu bwa natarif cryf seiliedig ar "
 "ddata eich hun."
 
-#: databasic/templates/culture/culture.html:68
+#: databasic/templates/culture/culture.html:74
 #: databasic/templates/culture/sculpture.html:3
 #: databasic/templates/culture/sculpture.html:15
 msgid "Build a Data Sculpture"
 msgstr "Adeiladwch Gerflun Data"
 
-#: databasic/templates/culture/culture.html:71
+#: databasic/templates/culture/culture.html:77
 #: databasic/templates/culture/deconstruct.html:5
 #: databasic/templates/culture/deconstruct.html:17
 msgid "Deconstruct a DataViz"
 msgstr "Dad-adeiladwch DataViz"
 
-#: databasic/templates/culture/culture.html:81
-#: databasic/templates/culture/culture.html:108
+#: databasic/templates/culture/culture.html:87
+#: databasic/templates/culture/culture.html:114
 msgid "Ask Good Questions"
 msgstr "Gofynnwch Gwestiynau Da"
 
-#: databasic/templates/culture/culture.html:84
+#: databasic/templates/culture/culture.html:90
 #: databasic/templates/culture/paper_spreadsheet.html:17
 msgid "Fill in a Paper Spreadsheet"
 msgstr "Llenwch Daenlen Bapur"
 
-#: databasic/templates/culture/culture.html:88
+#: databasic/templates/culture/culture.html:94
 msgid "Asking Questions"
 msgstr "Gofyn Cwestiynau"
 
-#: databasic/templates/culture/culture.html:90
+#: databasic/templates/culture/culture.html:96
 msgid ""
 "What questions can (and cannot) be answered with data? And once you are "
 "staring at some rows and columns, how do you start to make sense of the "
@@ -997,7 +1001,7 @@ msgstr ""
 "nid yw'r data byth yn siarad drosto ei hun – chi sy'n ei helpu i siarad "
 "drwy ofyn cwestiynau gwell a gwell byth. "
 
-#: databasic/templates/culture/culture.html:91
+#: databasic/templates/culture/culture.html:97
 msgid ""
 "<strong>Fill in a Paper Spreadsheet</strong> to introduce people to "
 "various types of data and help them think about how people fill it in."
@@ -1005,11 +1009,11 @@ msgstr ""
 "<strong>Llenwch Daenlen Bapur</strong> i gyflwyno pobl i fathau gwahanol "
 "o ddata a'u helpu i feddwl am sut mae pobl yn ei llenwi."
 
-#: databasic/templates/culture/culture.html:99
+#: databasic/templates/culture/culture.html:105
 msgid "Gathering Data"
 msgstr "Casglu Data"
 
-#: databasic/templates/culture/culture.html:100
+#: databasic/templates/culture/culture.html:106
 msgid ""
 "Often you don’t recognize the data you already have! Data is all around, "
 "but can be difficult to identify and describe.  You need the right data "
@@ -1032,28 +1036,23 @@ msgstr ""
 "rhwywdaith.  Neu <strong>Defnyddiwch WTFcsv</strong> i feddwl am sut i "
 "gasglu'r data mae arnoch chi ei angen i ateb cwestiwn."
 
-#: databasic/templates/culture/culture.html:105
-#: databasic/templates/culture/culture.html:121
-msgid "Use Connect the Dots"
-msgstr "Defnyddiwch Connect the Dots"
-
-#: databasic/templates/culture/culture.html:118
-#: databasic/templates/culture/culture.html:146
+#: databasic/templates/culture/culture.html:124
+#: databasic/templates/culture/culture.html:152
 #: databasic/templates/culture/sketch.html:5
 #: databasic/templates/culture/sketch.html:17
 #: databasic/templates/wordcounter/run-activity.html:19
 msgid "Sketch a Story"
 msgstr "Braslunio Stori"
 
-#: databasic/templates/culture/culture.html:124
+#: databasic/templates/culture/culture.html:130
 msgid "Use SameDiff"
 msgstr "Defnyddiwch SameDiff"
 
-#: databasic/templates/culture/culture.html:128
+#: databasic/templates/culture/culture.html:134
 msgid "Analyzing Data"
 msgstr "Dadansoddi Data"
 
-#: databasic/templates/culture/culture.html:129
+#: databasic/templates/culture/culture.html:135
 msgid ""
 "Data can be intimidating, especially when it comes to analyzing it.  But "
 "remember, most of statistics is just special ways of counting.  We’re all"
@@ -1080,11 +1079,11 @@ msgstr ""
 " i ddysgu sut gall algorithmau eich helpu i ddadansoddi data mewn ffyrdd "
 "mwy haniaethol."
 
-#: databasic/templates/culture/culture.html:136
+#: databasic/templates/culture/culture.html:142
 msgid "Telling Your Story"
 msgstr "Dweud Eich Stori"
 
-#: databasic/templates/culture/culture.html:138
+#: databasic/templates/culture/culture.html:144
 msgid ""
 "Telling your story is where the rubber hits the road. Numbers alone are "
 "not enough to make your case or move people to action. You have to give "
@@ -1099,7 +1098,7 @@ msgstr ""
 "gael ei ddeall.  <strong>Brasluniwch stori gyda WordCounter</strong> i "
 "ymarfer cyfathrebu stori seiliedig ar ddata yn weledol."
 
-#: databasic/templates/culture/culture.html:139
+#: databasic/templates/culture/culture.html:145
 msgid ""
 "<strong>Make a Word Web</strong> to move from abstract ideas and numbers "
 "into concrete visual symbols."
@@ -1107,7 +1106,7 @@ msgstr ""
 "<strong>Gwnewch We Geiriau</strong> i symud o syniadau a rhifau "
 "haniaethol i symbolau gweledol cadarn."
 
-#: databasic/templates/culture/culture.html:140
+#: databasic/templates/culture/culture.html:146
 msgid ""
 "<strong>Remix an Infographic</strong> to practice telling the same story "
 "in diffferent ways."
@@ -1115,33 +1114,33 @@ msgstr ""
 "<strong>Atgymysgwch Ffeithlun</strong> i ymarfer dweud yr un stori mewn "
 "ffyrdd gwahanol."
 
-#: databasic/templates/culture/culture.html:149
+#: databasic/templates/culture/culture.html:155
 #: databasic/templates/culture/word_webs.html:5
 #: databasic/templates/culture/word_webs.html:17
 msgid "Make a Word Web"
 msgstr "Gwnewch We Geiriau"
 
-#: databasic/templates/culture/culture.html:152
+#: databasic/templates/culture/culture.html:158
 #: databasic/templates/culture/remix.html:5
 #: databasic/templates/culture/remix.html:17
 msgid "Remix an Infographic"
 msgstr "Atgymysgwch Ffeithlun"
 
-#: databasic/templates/culture/culture.html:162
+#: databasic/templates/culture/culture.html:168
 msgid "Try to ConvinceMe"
 msgstr "Ceisiwch ConvinceMe"
 
-#: databasic/templates/culture/culture.html:165
+#: databasic/templates/culture/culture.html:171
 #: databasic/templates/culture/storybook.html:5
 #: databasic/templates/culture/storybook.html:17
 msgid "Write a Data Storybook"
 msgstr "Ysgrifennwch Lyfr Stori Data"
 
-#: databasic/templates/culture/culture.html:169
+#: databasic/templates/culture/culture.html:175
 msgid "Try It Out"
 msgstr "Rhowch Gynnig Arno"
 
-#: databasic/templates/culture/culture.html:171
+#: databasic/templates/culture/culture.html:177
 msgid ""
 "How do you know if your story is working?  Does the data you included "
 "support the narrative you are telling?  It can be very difficult to put "
@@ -1161,7 +1160,7 @@ msgstr ""
 "gynnig ar ConvinceMe</strong> i ymarfer dweud storïau gwahanol wrth "
 "gynulleidfaoedd gwahanol."
 
-#: databasic/templates/culture/culture.html:172
+#: databasic/templates/culture/culture.html:178
 msgid ""
 "<strong>Write a Data Storybook</strong> to practice writing compelling "
 "narrative arcs that are supported by the data you are working with."
@@ -1170,11 +1169,11 @@ msgstr ""
 "naratif cymhellol sy'n cael eu cefnogi gan y data rydych chi'n gweithio "
 "gydag ef."
 
-#: databasic/templates/culture/culture.html:179
+#: databasic/templates/culture/culture.html:185
 msgid "Connect with Others"
 msgstr "Cysylltu ag Eraill"
 
-#: databasic/templates/culture/culture.html:180
+#: databasic/templates/culture/culture.html:186
 msgid ""
 "Trying to build a data culture can be a lonely effort in organizations "
 "that haven't recognized the importance of data. Join the Data Culture <a "
@@ -1188,15 +1187,15 @@ msgstr ""
 "gysylltu â phobl eraill a myfyrio ar sut mae'r gweithgareddau hyn yn "
 "gweithio, neu'n methu gweithio, i'ch sefydliad chi."
 
-#: databasic/templates/culture/culture.html:182
+#: databasic/templates/culture/culture.html:188
 msgid "Join the discussion group"
 msgstr "Ymunwch â'r grŵp trafod"
 
-#: databasic/templates/culture/culture.html:186
+#: databasic/templates/culture/culture.html:192
 msgid "About Us"
 msgstr "Amdanom ni"
 
-#: databasic/templates/culture/culture.html:187
+#: databasic/templates/culture/culture.html:193
 msgid ""
 "The Data Culture Project is an initiative of  <a "
 "href='http://databasic.io'>DataBasic.io</a>.  We’ve pulled together the "
@@ -1263,12 +1262,12 @@ msgid ""
 "about the Iraq war</a>); print out 1 paper for every two or three "
 "participants)"
 msgstr ""
-"Copïau argraffedig o ddelweddu (yn aml defnyddiwn ni <a "
-"href=\"https://foodtechconnect.com/2012/01/10/usaid-infographics-on-"
-"agriculture-simplify-reality-infographic/\">yr un hwn o USAID</a> neu <a "
-"href=\"http://owni.fr/files/2010/11/12-e1288712778782.jpg\">yr un hwn am "
-"y rhyfel yn Irac</a>); argraffwch 1 papur am bob ddau neu dri o "
-"gyfranogwyr)"
+"Copïau argraffedig o ddelweddu (rydym ni'n awgrymu'r un <a "
+"href=\"https://www.data.cymru/cym/ffeithlun-gweithredu-heddiw-dros-yfory-"
+"egnïol\">yma</a> gan Chwaraeon Cymru neu'r un<a "
+"href=\"https://www.data.cymru/cym/ffeithlun-allyriadau-nwyon-tŷ-gwydr-"
+"yng-nghymru\">yma</a>gan Lywodraeth Cymru sy'n ymwneud ag Allyriadau "
+"Nwyon Tŷ Gwydr); argraffwch 1 papur am bob ddau neu dri o gyfranogwyr"
 
 #: databasic/templates/culture/deconstruct.html:42
 #: databasic/templates/culture/paper_spreadsheet.html:44
@@ -1748,13 +1747,12 @@ msgstr ""
 " rhywun yn anfon ffeil Excel atoch chi neu rydych chi'n lawrlwytho "
 "rhywbeth o'r we. Yn y gweithgaredd hwn, byddwch chi'n gweithio gyda'ch "
 "cydweithwyr i ofyn cwestiynau da i daenlen er mwyn i chi ei chymryd o "
-"bwyntiau data i stori data. Byddwch chi'n defnyddio <a "
-"href='http://wtfcsv.databasic.io/'>offeryn WTFcsv Databasic.io</a>, yn "
-"dod yn gyfarwydd â mathau o ddata, ac yn gwneud rhywfaint o ddadansoddi "
-"sylfaenol taenlen.  Mae '<em>csv</em>' yn sefyll am <em>werthoedd a "
-"wahanir â chomma</em>, fformat cyffredin taenlen ar y we. Mae "
-"<em>WTF</em> yn sefyll am... wel... y cwestiwn a ofynnwch chi pan fydd "
-"rhywun yn anfon ffeil csv dyrys atoch chi."
+"bwyntiau data i stori data. Byddwch chi'n defnyddio offeryn WTFcsv "
+"Databasic.io, yn dod yn gyfarwydd â mathau o ddata, ac yn gwneud "
+"rhywfaint o ddadansoddi sylfaenol taenlen.  Mae '<em>csv</em>' yn sefyll "
+"am <em>werthoedd a wahanir â chomma</em>, fformat cyffredin taenlen ar y "
+"we. Mae <em>WTF</em> yn sefyll am... wel... y cwestiwn a ofynnwch chi pan"
+" fydd rhywun yn anfon ffeil csv dyrys atoch chi."
 
 #: databasic/templates/culture/questions.html:46
 msgid "Use WTFcsv now"
@@ -1843,9 +1841,9 @@ msgid ""
 "printed copies for each group."
 msgstr ""
 "Copïau argraffedig o ddelweddu enghreifftiol i'w atgymysgu. Rydym ni'n "
-"awgrymu'r ffeithlun yma ar gamau i arbed ynni a dŵr o ymgyrch<a "
-"href='https://www.data.cymru/cym/ffeithlun-modd-i-fyw '>Modd i Fyw "
-"Llywodraeth Cymru.</a>. 1-2 gopi printiedig am bob grŵp."
+"awgrymu'r ffeithlun yma ar gamau i arbed ynni a dŵr o ymgyrch <a "
+"href='https://www.data.cymru/cym/ffeithlun-modd-i-fyw '>GLOB LASIDAIODS Modd i Fyw "
+"Llywodraeth Cymru</a>. 1-2 gopi printiedig am bob grŵp."
 
 #: databasic/templates/culture/remix.html:45
 msgid ""
@@ -1873,7 +1871,7 @@ msgid ""
 "person group); print them double-sided on a single sheet of paper and cut"
 " them out ahead of time"
 msgstr ""
-"<a href='/static/files/activity-guides/en/Infographic Remix "
+"<a href='/static/files/activity-materials/cy/Infographic Remix "
 "Cards.pdf'>Ein cardiau techneg delweddu</a> (un cerdyn am bob grŵp o 3-4 "
 "person); argraffwch nhw ar ddwy ochr un ddalen o bapur a'u torri nhw "
 "allan ymlaen llaw"
@@ -1881,22 +1879,30 @@ msgstr ""
 #: databasic/templates/culture/remix.html:60
 msgid ""
 "In order to tell your data story well, you need a good “toolbelt” of "
-"presentation techniques to pull from. However, we often only consider of "
-"a small set of techniques — primarily traditional charts and maps — when "
-"we display data. This activity introduces participants to data "
-"presentation techniques that are creative, fun, and better suited for "
-"certain audiences than traditional charts and maps. It lets participants "
-"practice using these techniques, and helps them build confidence in their"
-" ability to present data appropriately."
+"presentation techniques to pull from. However, we often only consider a "
+"small set of techniques — primarily traditional charts and maps — when we"
+" display data. This activity introduces participants to data presentation"
+" techniques that are creative, fun, and better suited for certain "
+"audiences than traditional charts and maps. It lets participants practice"
+" using these techniques, and helps them build confidence in their ability"
+" to present data appropriately."
 msgstr ""
-"Er mwyn dweud eich stori data yn dda, bydd angen becyn da o dechnegau "
-"cyflwyno arnoch chi i ddewis o'u plith. Ond yn aml rydym ni dim ond yn "
-"ystyried set fach o dechnegau — siartiau a mapiau traddodiadol yn bennaf "
-"— wrth i ni ddangos data. Mae'r gweithgaredd hwn yn cyflwyno'r "
-"cyfranogwyr i dechnegau cyflwyno sy'n greadigol, yn ddifyr, ac yn fwy "
-"addas i rai cynulleidfaoedd na siartiau a mapiau traddodiadol. Mae'n "
-"gadael i'r cyfranogwyr ymarfer defnyddio'r technegau hyn ac yn eu helpu i"
-" fagu hyder yn eu gallu i gyflwyno data'n briodol."
+"Er mwyn dweud eich stori data yn"
+" dda, bydd angen becyn da o "
+"dechnegau cyflwyno arnoch chi i ddewis"
+" o'u plith. Ond yn aml rydym ni"
+" dim ond yn ystyried set fach o"
+" dechnegau — siartiau a mapiau "
+"traddodiadol yn bennaf — wrth i ni"
+" ddangos data. Mae'r gweithgaredd hwn "
+"yn cyflwyno'r cyfranogwyr i dechnegau "
+"cyflwyno sy'n greadigol, yn ddifyr, ac"
+" yn fwy addas i rai cynulleidfaoedd"
+" na siartiau a mapiau traddodiadol. "
+"Mae'n gadael i'r cyfranogwyr ymarfer "
+"defnyddio'r technegau hyn ac yn eu "
+"helpu i fagu hyder yn eu gallu "
+"i gyflwyno data'n briodol."
 
 #: databasic/templates/culture/remix.html:68
 msgid ""
@@ -2160,7 +2166,7 @@ msgstr ""
 "chi wneud hynny'n gyflym drwy ddadansoddi setiau data i ddod o hyd i "
 "batrymau mewn testun, ac yna braslunio stori rydych chi'n dod ar ei "
 "thraws. Mae'n cyflwyno terminoleg sylfaenol am ddadansoddi testun yn "
-"feintiol, yn eich helpu i ddod yn gyfarwydd ag<a "
+"feintiol, yn eich helpu i ddod yn gyfarwydd ag <a "
 "href='https://wordcounter.databasic.io/'>offeryn WordCounter "
 "Databasic.io</a>, ac yn eich annog i ystyried mannau yn eich sefydliad "
 "lle rydych chi'n gweithio gyda testun fel data.  Bydd cyfranogwyr yn "
@@ -2253,9 +2259,8 @@ msgstr ""
 "yng Nghymru yn gweddu'n dda i'r gweithgaredd yma</a> gweithio'n dda yn y "
 "gweithgaredd hwn. Dylai fod mewn fformat sy'n addas i'ch cyfranogwyr "
 "chwarae gydag ef.  Yn aml archwiliwn ffeiliau fformat CSV gyda <a "
-"href='https://public.tableau.com'>Tableau Public</a> neu <a "
-"href='https://databasic.io/en/wtfcsv/'>ein hofferyn WTFCSV "
-"DataBasic.io</a>."
+"href='https://public.tableau.com'>Tableau Public</a> neu ein hofferyn "
+"WTFCSV DataBasic.io."
 
 #: databasic/templates/culture/storybook.html:29
 msgid "DataBasic.io’s WTFCSV tool"
@@ -2884,6 +2889,10 @@ msgstr "Cyrchu data Daneg:"
 msgid "Welsh data sourcing:"
 msgstr "Cyrchu data Cymraeg: "
 
+#: databasic/templates/home/index.html:156
+msgid "Data Cymru"
+msgstr ""
+
 #: databasic/templates/home/index.html:158
 msgid ""
 "This free and open source project would not be possible without the "
@@ -3201,18 +3210,18 @@ msgid ""
 msgstr ""
 "Gall archwilio data testun yn y modd meintiol yma eich helpu i ddod o hyd"
 " i storïau i'w dweud yn eich data.  Mae'r ffaith bod \"%(top_word)s\" yn "
-"air poblogaidd yn dda i'w wybod, ond cyfunwch hynny â"
+"air poblogaidd yn dda i'w wybod, ond cyfunwch hynny â "
 
 #: databasic/templates/wordcounter/results.html:124
 #, python-format
 msgid "the %(num)d use "
 msgid_plural "the %(num)d uses "
-msgstr[0] "%(num)d yn defnyddio"
-msgstr[1] ""
-msgstr[2] ""
-msgstr[3] ""
-msgstr[4] ""
-msgstr[5] ""
+msgstr[0] "%(num)d yn defnyddio "
+msgstr[1] "%(num)d yn defnyddio "
+msgstr[2] "%(num)d yn defnyddio "
+msgstr[3] "%(num)d yn defnyddio "
+msgstr[4] "%(num)d yn defnyddio "
+msgstr[5] "%(num)d yn defnyddio "
 
 #: databasic/templates/wordcounter/results.html:125
 msgid "in the top 40 bigrams, and "
@@ -3222,12 +3231,12 @@ msgstr "yn y 40 bigram uchaf, a "
 #, python-format
 msgid "the %(num)s use "
 msgid_plural "the %(num)s uses "
-msgstr[0] "mae'r %(num)s yn defnyddio"
-msgstr[1] ""
-msgstr[2] ""
-msgstr[3] ""
-msgstr[4] ""
-msgstr[5] ""
+msgstr[0] "mae'r %(num)s yn defnyddio "
+msgstr[1] "mae'r %(num)s yn defnyddio "
+msgstr[2] "mae'r %(num)s yn defnyddio "
+msgstr[3] "mae'r %(num)s yn defnyddio "
+msgstr[4] "mae'r %(num)s yn defnyddio "
+msgstr[5] "mae'r %(num)s yn defnyddio "
 
 #: databasic/templates/wordcounter/results.html:127
 #, python-format
@@ -3572,11 +3581,11 @@ msgstr "gwahanol iawn"
 msgid "completely different"
 msgstr "cwbl wahanol"
 
-#: databasic/views/wordcounter.py:44
+#: databasic/views/wordcounter.py:43
 msgid "your text"
 msgstr "eich testun"
 
-#: databasic/views/wordcounter.py:91
+#: databasic/views/wordcounter.py:87
 msgid "title"
 msgstr "teitl"
 

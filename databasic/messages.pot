@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2021-03-28 06:39-0400\n"
+"POT-Creation-Date: 2021-04-18 09:48-0400\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -635,11 +635,17 @@ msgid ""
 " use Databasic.io's Connect the Dots tool to do this."
 msgstr ""
 
+#: databasic/templates/culture/connections.html:42
+#: databasic/templates/culture/culture.html:111
+#: databasic/templates/culture/culture.html:127
+msgid "Use Connect the Dots"
+msgstr ""
+
 #: databasic/templates/culture/connections.html:43
 msgid ""
-"Participants will understand build familiarity with some standard terms "
-"and approaches to working with network graphs. Begin by sharing some "
-"inspirational examples, then fill in a spreadsheet together of "
+"Participants will understand and build familiarity with some standard "
+"terms and approaches to working with network graphs. Begin by sharing "
+"some inspirational examples, then fill in a spreadsheet together of "
 "restaurants and who recommends them.  This should have two columns - "
 "'Person' and 'Restaurant'. Then paste this data into Connect the Dots to "
 "analyze it. Share the URL and have people poke at it, or other sample "
@@ -715,13 +721,13 @@ msgstr ""
 
 #: databasic/templates/culture/convince.html:44
 msgid ""
-" In this activity you will work practice using data to make arguments "
-"that try to convince different people. You will learn how to use data to "
-"tailor an argument for a specific audience. We'll look at a sample "
-"visualization about an issue, identify stakeholders who are trying to "
-"swayed by the story it tells, and try to make arguments that convince "
-"them to take action. Start the activity by playing the kickoff video "
-"below for your group."
+" In this activity you will practice using data to make arguments that try"
+" to convince different people. You will learn how to use data to tailor "
+"an argument for a specific audience. We'll look at a sample visualization"
+" about an issue, identify stakeholders who are trying to swayed by the "
+"story it tells, and try to make arguments that convince them to take "
+"action. Start the activity by playing the kickoff video below for your "
+"group."
 msgstr ""
 
 #: databasic/templates/culture/convince.html:59
@@ -738,7 +744,7 @@ msgstr ""
 
 #: databasic/templates/culture/convince.html:71
 msgid ""
-"Now that you've practice this with some example data, this video will "
+"Now that you've practiced this with some example data, this video will "
 "help you think about where to go next. For example, who are some of the "
 "main audiences your organization tries to convince? What are some "
 "pitfalls to be aware of when crafting arguments for specific audiences?"
@@ -752,7 +758,7 @@ msgstr ""
 
 #: databasic/templates/culture/culture.html:28
 msgid ""
-"Data is everywhere right now. But many organizations like your's are "
+"Data is everywhere right now. But many organizations like yours are "
 "struggling to figure out how to build capacity to work with data. You "
 "don't need a data scientist; you need a <strong>data culture</strong>."
 msgstr ""
@@ -787,11 +793,11 @@ msgid ""
 " at each step along the way."
 msgstr ""
 
-#: databasic/templates/culture/culture.html:62
+#: databasic/templates/culture/culture.html:68
 msgid "Warm Ups"
 msgstr ""
 
-#: databasic/templates/culture/culture.html:63
+#: databasic/templates/culture/culture.html:69
 msgid ""
 "Before jumping into finding data or telling stories, it's important to do"
 " some warm ups to activate your organization's data mindset. Warm ups are"
@@ -806,33 +812,33 @@ msgid ""
 "data-driven narrative arc of your own."
 msgstr ""
 
-#: databasic/templates/culture/culture.html:68
+#: databasic/templates/culture/culture.html:74
 #: databasic/templates/culture/sculpture.html:3
 #: databasic/templates/culture/sculpture.html:15
 msgid "Build a Data Sculpture"
 msgstr ""
 
-#: databasic/templates/culture/culture.html:71
+#: databasic/templates/culture/culture.html:77
 #: databasic/templates/culture/deconstruct.html:5
 #: databasic/templates/culture/deconstruct.html:17
 msgid "Deconstruct a DataViz"
 msgstr ""
 
-#: databasic/templates/culture/culture.html:81
-#: databasic/templates/culture/culture.html:108
+#: databasic/templates/culture/culture.html:87
+#: databasic/templates/culture/culture.html:114
 msgid "Ask Good Questions"
 msgstr ""
 
-#: databasic/templates/culture/culture.html:84
+#: databasic/templates/culture/culture.html:90
 #: databasic/templates/culture/paper_spreadsheet.html:17
 msgid "Fill in a Paper Spreadsheet"
 msgstr ""
 
-#: databasic/templates/culture/culture.html:88
+#: databasic/templates/culture/culture.html:94
 msgid "Asking Questions"
 msgstr ""
 
-#: databasic/templates/culture/culture.html:90
+#: databasic/templates/culture/culture.html:96
 msgid ""
 "What questions can (and cannot) be answered with data? And once you are "
 "staring at some rows and columns, how do you start to make sense of the "
@@ -844,17 +850,17 @@ msgid ""
 "for itself – you help it speak by asking better and better questions. "
 msgstr ""
 
-#: databasic/templates/culture/culture.html:91
+#: databasic/templates/culture/culture.html:97
 msgid ""
 "<strong>Fill in a Paper Spreadsheet</strong> to introduce people to "
 "various types of data and help them think about how people fill it in."
 msgstr ""
 
-#: databasic/templates/culture/culture.html:99
+#: databasic/templates/culture/culture.html:105
 msgid "Gathering Data"
 msgstr ""
 
-#: databasic/templates/culture/culture.html:100
+#: databasic/templates/culture/culture.html:106
 msgid ""
 "Often you don’t recognize the data you already have! Data is all around, "
 "but can be difficult to identify and describe.  You need the right data "
@@ -867,28 +873,23 @@ msgid ""
 "you need to answer a question."
 msgstr ""
 
-#: databasic/templates/culture/culture.html:105
-#: databasic/templates/culture/culture.html:121
-msgid "Use Connect the Dots"
-msgstr ""
-
-#: databasic/templates/culture/culture.html:118
-#: databasic/templates/culture/culture.html:146
+#: databasic/templates/culture/culture.html:124
+#: databasic/templates/culture/culture.html:152
 #: databasic/templates/culture/sketch.html:5
 #: databasic/templates/culture/sketch.html:17
 #: databasic/templates/wordcounter/run-activity.html:19
 msgid "Sketch a Story"
 msgstr ""
 
-#: databasic/templates/culture/culture.html:124
+#: databasic/templates/culture/culture.html:130
 msgid "Use SameDiff"
 msgstr ""
 
-#: databasic/templates/culture/culture.html:128
+#: databasic/templates/culture/culture.html:134
 msgid "Analyzing Data"
 msgstr ""
 
-#: databasic/templates/culture/culture.html:129
+#: databasic/templates/culture/culture.html:135
 msgid ""
 "Data can be intimidating, especially when it comes to analyzing it.  But "
 "remember, most of statistics is just special ways of counting.  We’re all"
@@ -903,11 +904,11 @@ msgid ""
 " in more abstract ways."
 msgstr ""
 
-#: databasic/templates/culture/culture.html:136
+#: databasic/templates/culture/culture.html:142
 msgid "Telling Your Story"
 msgstr ""
 
-#: databasic/templates/culture/culture.html:138
+#: databasic/templates/culture/culture.html:144
 msgid ""
 "Telling your story is where the rubber hits the road. Numbers alone are "
 "not enough to make your case or move people to action. You have to give "
@@ -917,45 +918,45 @@ msgid ""
 "visually."
 msgstr ""
 
-#: databasic/templates/culture/culture.html:139
+#: databasic/templates/culture/culture.html:145
 msgid ""
 "<strong>Make a Word Web</strong> to move from abstract ideas and numbers "
 "into concrete visual symbols."
 msgstr ""
 
-#: databasic/templates/culture/culture.html:140
+#: databasic/templates/culture/culture.html:146
 msgid ""
 "<strong>Remix an Infographic</strong> to practice telling the same story "
 "in diffferent ways."
 msgstr ""
 
-#: databasic/templates/culture/culture.html:149
+#: databasic/templates/culture/culture.html:155
 #: databasic/templates/culture/word_webs.html:5
 #: databasic/templates/culture/word_webs.html:17
 msgid "Make a Word Web"
 msgstr ""
 
-#: databasic/templates/culture/culture.html:152
+#: databasic/templates/culture/culture.html:158
 #: databasic/templates/culture/remix.html:5
 #: databasic/templates/culture/remix.html:17
 msgid "Remix an Infographic"
 msgstr ""
 
-#: databasic/templates/culture/culture.html:162
+#: databasic/templates/culture/culture.html:168
 msgid "Try to ConvinceMe"
 msgstr ""
 
-#: databasic/templates/culture/culture.html:165
+#: databasic/templates/culture/culture.html:171
 #: databasic/templates/culture/storybook.html:5
 #: databasic/templates/culture/storybook.html:17
 msgid "Write a Data Storybook"
 msgstr ""
 
-#: databasic/templates/culture/culture.html:169
+#: databasic/templates/culture/culture.html:175
 msgid "Try It Out"
 msgstr ""
 
-#: databasic/templates/culture/culture.html:171
+#: databasic/templates/culture/culture.html:177
 msgid ""
 "How do you know if your story is working?  Does the data you included "
 "support the narrative you are telling?  It can be very difficult to put "
@@ -967,17 +968,17 @@ msgid ""
 "audiences."
 msgstr ""
 
-#: databasic/templates/culture/culture.html:172
+#: databasic/templates/culture/culture.html:178
 msgid ""
 "<strong>Write a Data Storybook</strong> to practice writing compelling "
 "narrative arcs that are supported by the data you are working with."
 msgstr ""
 
-#: databasic/templates/culture/culture.html:179
+#: databasic/templates/culture/culture.html:185
 msgid "Connect with Others"
 msgstr ""
 
-#: databasic/templates/culture/culture.html:180
+#: databasic/templates/culture/culture.html:186
 msgid ""
 "Trying to build a data culture can be a lonely effort in organizations "
 "that haven't recognized the importance of data. Join the Data Culture <a "
@@ -986,15 +987,15 @@ msgid ""
 "working, for your organization."
 msgstr ""
 
-#: databasic/templates/culture/culture.html:182
+#: databasic/templates/culture/culture.html:188
 msgid "Join the discussion group"
 msgstr ""
 
-#: databasic/templates/culture/culture.html:186
+#: databasic/templates/culture/culture.html:192
 msgid "About Us"
 msgstr ""
 
-#: databasic/templates/culture/culture.html:187
+#: databasic/templates/culture/culture.html:193
 msgid ""
 "The Data Culture Project is an initiative of  <a "
 "href='http://databasic.io'>DataBasic.io</a>.  We’ve pulled together the "
@@ -1466,13 +1467,13 @@ msgstr ""
 #: databasic/templates/culture/remix.html:60
 msgid ""
 "In order to tell your data story well, you need a good “toolbelt” of "
-"presentation techniques to pull from. However, we often only consider of "
-"a small set of techniques — primarily traditional charts and maps — when "
-"we display data. This activity introduces participants to data "
-"presentation techniques that are creative, fun, and better suited for "
-"certain audiences than traditional charts and maps. It lets participants "
-"practice using these techniques, and helps them build confidence in their"
-" ability to present data appropriately."
+"presentation techniques to pull from. However, we often only consider a "
+"small set of techniques — primarily traditional charts and maps — when we"
+" display data. This activity introduces participants to data presentation"
+" techniques that are creative, fun, and better suited for certain "
+"audiences than traditional charts and maps. It lets participants practice"
+" using these techniques, and helps them build confidence in their ability"
+" to present data appropriately."
 msgstr ""
 
 #: databasic/templates/culture/remix.html:68
@@ -2143,6 +2144,10 @@ msgstr ""
 msgid "Welsh data sourcing:"
 msgstr ""
 
+#: databasic/templates/home/index.html:156
+msgid "Data Cymru"
+msgstr ""
+
 #: databasic/templates/home/index.html:158
 msgid ""
 "This free and open source project would not be possible without the "
@@ -2728,11 +2733,11 @@ msgstr ""
 msgid "completely different"
 msgstr ""
 
-#: databasic/views/wordcounter.py:44
+#: databasic/views/wordcounter.py:43
 msgid "your text"
 msgstr ""
 
-#: databasic/views/wordcounter.py:91
+#: databasic/views/wordcounter.py:87
 msgid "title"
 msgstr ""
 
