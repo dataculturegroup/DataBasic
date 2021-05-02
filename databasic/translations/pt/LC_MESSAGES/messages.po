@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2021-04-18 09:48-0400\n"
+"POT-Creation-Date: 2021-05-02 06:54-0400\n"
 "PO-Revision-Date: 2016-12-29 12:33-0200\n"
 "Last-Translator: \n"
 "Language: pt\n"
@@ -299,10 +299,8 @@ msgstr "Não encontramos nenhum resultado"
 #, python-format
 msgid ""
 "They might have expired. Why not try <a "
-"href=\"/%(lang)s/%(tool_name)s\">analyzing some new data?</a>"
+"href=\"/%(lang)s/%(tool_name)s\">analyzing some new data?</a>"
 msgstr ""
-"Eles devem ter expirado. Por que não tenta <a "
-"href=\"/%(lang)s/%(tool_name)s\">analisar algum dado novo?</a>"
 
 #: databasic/templates/tool_base.html:5
 #, python-format
@@ -2575,6 +2573,14 @@ msgstr "Normalizacion"
 msgid "Toggle normlization"
 msgstr "Normalizacion"
 
+#: databasic/templates/samediff/results.html:92
+msgid "ON"
+msgstr ""
+
+#: databasic/templates/samediff/results.html:93
+msgid "OFF"
+msgstr ""
+
 #: databasic/templates/samediff/results.html:102
 #: databasic/templates/samediff/results.html:148
 #, python-format
@@ -3491,4 +3497,14 @@ msgstr "Outro"
 #~ " build confidence in their ability to"
 #~ " present data appropriately."
 #~ msgstr ""
+
+#~ msgid ""
+#~ "They might have expired. Why not "
+#~ "try <a href=\"/%(lang)s/%(tool_name)s\">analyzing "
+#~ "some new data?</a>"
+#~ msgstr ""
+#~ "Eles devem ter expirado. Por que "
+#~ "não tenta <a "
+#~ "href=\"/%(lang)s/%(tool_name)s\">analisar algum dado "
+#~ "novo?</a>"
 

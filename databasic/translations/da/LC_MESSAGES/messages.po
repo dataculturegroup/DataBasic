@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2021-04-18 09:48-0400\n"
+"POT-Creation-Date: 2021-05-02 06:54-0400\n"
 "PO-Revision-Date: 2020-06-10 09:54+0200\n"
 "Last-Translator: Jane Kunze <jku@aarhus.dk>\n"
 "Language: da_DK\n"
@@ -297,10 +297,8 @@ msgstr "Der var ingen resultater"
 #, python-format
 msgid ""
 "They might have expired. Why not try <a "
-"href=\"/%(lang)s/%(tool_name)s\">analyzing some new data?</a>"
+"href=\"/%(lang)s/%(tool_name)s\">analyzing some new data?</a>"
 msgstr ""
-"De er måske udløbet. Prøv at <a "
-"href=\"/%(lang)s/%(tool_name)s\">analysere noget andet data?</a>"
 
 #: databasic/templates/tool_base.html:5
 #, python-format
@@ -2901,6 +2899,14 @@ msgstr "Normalisering"
 msgid "Toggle normlization"
 msgstr "Skift normalisering"
 
+#: databasic/templates/samediff/results.html:92
+msgid "ON"
+msgstr ""
+
+#: databasic/templates/samediff/results.html:93
+msgid "OFF"
+msgstr ""
+
 #: databasic/templates/samediff/results.html:102
 #: databasic/templates/samediff/results.html:148
 #, python-format
@@ -3733,4 +3739,13 @@ msgstr "Andet"
 #~ "komptence til at udvælge den bedst "
 #~ "mulige måde at præsentere deres data "
 #~ "på."
+
+#~ msgid ""
+#~ "They might have expired. Why not "
+#~ "try <a href=\"/%(lang)s/%(tool_name)s\">analyzing "
+#~ "some new data?</a>"
+#~ msgstr ""
+#~ "De er måske udløbet. Prøv at <a"
+#~ " href=\"/%(lang)s/%(tool_name)s\">analysere noget andet"
+#~ " data?</a>"
 

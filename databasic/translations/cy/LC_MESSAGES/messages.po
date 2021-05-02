@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2021-04-18 09:48-0400\n"
+"POT-Creation-Date: 2021-05-02 06:54-0400\n"
 "PO-Revision-Date: 2021-03-24 14:21+0000\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language: cy\n"
@@ -297,10 +297,8 @@ msgstr "Roeddem yn methu darganfod unrhyw ganlyniadau"
 #, python-format
 msgid ""
 "They might have expired. Why not try <a "
-"href=\"/%(lang)s/%(tool_name)s\">analyzing some new data?</a>"
+"href=\"/%(lang)s/%(tool_name)s\">analyzing some new data?</a>"
 msgstr ""
-"Efallai eu bod nhw wedi darfod. Beth am geisio <a "
-"href=\"/%(lang)s/%(tool_name)s\">dadansoddi data newydd?</a>"
 
 #: databasic/templates/tool_base.html:5
 #, python-format
@@ -1262,12 +1260,7 @@ msgid ""
 "about the Iraq war</a>); print out 1 paper for every two or three "
 "participants)"
 msgstr ""
-"Copïau argraffedig o ddelweddu (rydym ni'n awgrymu'r un <a "
-"href=\"https://www.data.cymru/cym/ffeithlun-gweithredu-heddiw-dros-yfory-"
-"egnïol\">yma</a> gan Chwaraeon Cymru neu'r un<a "
-"href=\"https://www.data.cymru/cym/ffeithlun-allyriadau-nwyon-tŷ-gwydr-"
-"yng-nghymru\">yma</a>gan Lywodraeth Cymru sy'n ymwneud ag Allyriadau "
-"Nwyon Tŷ Gwydr); argraffwch 1 papur am bob ddau neu dri o gyfranogwyr"
+"Copïau argraffedig o ddelweddu (rydym ni'n awgrymu'r un <a href=\"https://www.data.cymru/cym/ffeithlun-gweithredu-heddiw-dros-yfory-egnïol\">yma gan Chwaraeon Cymru neu'r </a> un <a href=\"https://www.data.cymru/cym/ffeithlun-allyriadau-nwyon-tŷ-gwydr-yng-nghymru\">yma Lywodraeth Cymru sy'n ymwneud ag Allyriadau Nwyon Tŷ Gwydr</a>); argraffwch 1 papur am bob ddau neu dri o gyfranogwyr"
 
 #: databasic/templates/culture/deconstruct.html:42
 #: databasic/templates/culture/paper_spreadsheet.html:44
@@ -1842,8 +1835,8 @@ msgid ""
 msgstr ""
 "Copïau argraffedig o ddelweddu enghreifftiol i'w atgymysgu. Rydym ni'n "
 "awgrymu'r ffeithlun yma ar gamau i arbed ynni a dŵr o ymgyrch <a "
-"href='https://www.data.cymru/cym/ffeithlun-modd-i-fyw '>GLOB LASIDAIODS Modd i Fyw "
-"Llywodraeth Cymru</a>. 1-2 gopi printiedig am bob grŵp."
+"href='https://www.data.cymru/cym/ffeithlun-modd-i-fyw '>GLOB LASIDAIODS "
+"Modd i Fyw Llywodraeth Cymru</a>. 1-2 gopi printiedig am bob grŵp."
 
 #: databasic/templates/culture/remix.html:45
 msgid ""
@@ -1860,7 +1853,7 @@ msgid ""
 "Copies of our handout about different data presentation techniques (1 for"
 " each participant)"
 msgstr ""
-"Copïau o'n <a href='/static/files/activity-guides/en/Picking a "
+"Copïau o'n <a href='/static/files/activity-materials/cy/Picking a "
 "Technique.pdf'>taflen am wahanol dechnegau cyflwyno data</a> (1 am bob "
 "cyfranogwr)"
 
@@ -1887,22 +1880,14 @@ msgid ""
 " using these techniques, and helps them build confidence in their ability"
 " to present data appropriately."
 msgstr ""
-"Er mwyn dweud eich stori data yn"
-" dda, bydd angen becyn da o "
-"dechnegau cyflwyno arnoch chi i ddewis"
-" o'u plith. Ond yn aml rydym ni"
-" dim ond yn ystyried set fach o"
-" dechnegau — siartiau a mapiau "
-"traddodiadol yn bennaf — wrth i ni"
-" ddangos data. Mae'r gweithgaredd hwn "
-"yn cyflwyno'r cyfranogwyr i dechnegau "
-"cyflwyno sy'n greadigol, yn ddifyr, ac"
-" yn fwy addas i rai cynulleidfaoedd"
-" na siartiau a mapiau traddodiadol. "
-"Mae'n gadael i'r cyfranogwyr ymarfer "
-"defnyddio'r technegau hyn ac yn eu "
-"helpu i fagu hyder yn eu gallu "
-"i gyflwyno data'n briodol."
+"Er mwyn dweud eich stori data yn dda, bydd angen becyn da o dechnegau "
+"cyflwyno arnoch chi i ddewis o'u plith. Ond yn aml rydym ni dim ond yn "
+"ystyried set fach o dechnegau — siartiau a mapiau traddodiadol yn bennaf "
+"— wrth i ni ddangos data. Mae'r gweithgaredd hwn yn cyflwyno'r "
+"cyfranogwyr i dechnegau cyflwyno sy'n greadigol, yn ddifyr, ac yn fwy "
+"addas i rai cynulleidfaoedd na siartiau a mapiau traddodiadol. Mae'n "
+"gadael i'r cyfranogwyr ymarfer defnyddio'r technegau hyn ac yn eu helpu i"
+" fagu hyder yn eu gallu i gyflwyno data'n briodol."
 
 #: databasic/templates/culture/remix.html:68
 msgid ""
@@ -3000,6 +2985,14 @@ msgstr "Normaleiddio"
 msgid "Toggle normlization"
 msgstr "Normaleiddio toglo"
 
+#: databasic/templates/samediff/results.html:92
+msgid "ON"
+msgstr "AR"
+
+#: databasic/templates/samediff/results.html:93
+msgid "OFF"
+msgstr "ODDI AR"
+
 #: databasic/templates/samediff/results.html:102
 #: databasic/templates/samediff/results.html:148
 #, python-format
@@ -3592,4 +3585,14 @@ msgstr "teitl"
 #: databasic/views/wtfcsv.py:203
 msgid "Other"
 msgstr "Arall"
+
+#~ msgid ""
+#~ "They might have expired. Why not "
+#~ "try <a href=\"/%(lang)s/%(tool_name)s\">analyzing "
+#~ "some new data?</a>"
+#~ msgstr ""
+#~ "Efallai eu bod nhw wedi darfod. "
+#~ "Beth am geisio <a "
+#~ "href=\"/%(lang)s/%(tool_name)s\">dadansoddi data "
+#~ "newydd?</a>"
 

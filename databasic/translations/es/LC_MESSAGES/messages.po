@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2021-04-18 09:48-0400\n"
+"POT-Creation-Date: 2021-05-02 06:54-0400\n"
 "PO-Revision-Date: 2015-12-21 14:00-0600\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language: es\n"
@@ -300,10 +300,8 @@ msgstr "No encontramos ningún resultado"
 #, python-format
 msgid ""
 "They might have expired. Why not try <a "
-"href=\"/%(lang)s/%(tool_name)s\">analyzing some new data?</a>"
+"href=\"/%(lang)s/%(tool_name)s\">analyzing some new data?</a>"
 msgstr ""
-"Puede ser que el tiempo ha vencido. ¿Por qué no <a "
-"href=\"/%(lang)s/%(tool_name)s\">analiza algunos datos nuevos</a>?"
 
 #: databasic/templates/tool_base.html:5
 #, python-format
@@ -2579,6 +2577,14 @@ msgstr "Normalización"
 msgid "Toggle normlization"
 msgstr "Controlar normalización"
 
+#: databasic/templates/samediff/results.html:92
+msgid "ON"
+msgstr "SI"
+
+#: databasic/templates/samediff/results.html:93
+msgid "OFF"
+msgstr "NO"
+
 #: databasic/templates/samediff/results.html:102
 #: databasic/templates/samediff/results.html:148
 #, python-format
@@ -3682,4 +3688,14 @@ msgstr "Otro"
 #~ " build confidence in their ability to"
 #~ " present data appropriately."
 #~ msgstr ""
+
+#~ msgid ""
+#~ "They might have expired. Why not "
+#~ "try <a href=\"/%(lang)s/%(tool_name)s\">analyzing "
+#~ "some new data?</a>"
+#~ msgstr ""
+#~ "Puede ser que el tiempo ha "
+#~ "vencido. ¿Por qué no <a "
+#~ "href=\"/%(lang)s/%(tool_name)s\">analiza algunos datos "
+#~ "nuevos</a>?"
 

@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2021-04-18 09:48-0400\n"
+"POT-Creation-Date: 2021-05-02 06:54-0400\n"
 "PO-Revision-Date: 2021-03-02 06:18-0500\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language: en_CY\n"
@@ -294,7 +294,7 @@ msgstr ""
 #, python-format
 msgid ""
 "They might have expired. Why not try <a "
-"href=\"/%(lang)s/%(tool_name)s\">analyzing some new data?</a>"
+"href=\"/%(lang)s/%(tool_name)s\">analyzing some new data?</a>"
 msgstr ""
 
 #: databasic/templates/tool_base.html:5
@@ -706,8 +706,8 @@ msgid ""
 "how-much-water-do-you-use\">Walk this Way infographic from Good "
 "Magazine</a>"
 msgstr ""
-"Printouts of the <a href=\"/static/files/activity-"
-"materials/en_CY/Way_To_go_ENG.png\">Way To Go Campaign infographic from "
+"Printouts of the <a href=\"https://www.data.cymru/eng/way-to-go-infographic\">"
+"Way To Go Campaign infographic from "
 "Welsh Government </a>"
 
 #: databasic/templates/culture/convince.html:32
@@ -1059,7 +1059,7 @@ msgid ""
 " href=\"http://owni.fr/files/2010/11/12-e1288712778782.jpg\">this one "
 "about the Iraq war</a>); print out 1 paper for every two or three "
 "participants)"
-msgstr ""
+msgstr "Printouts of a visualization (we suggest <a href=\"https://www.data.cymru/eng/acting-today-infographic\">this one from Sport Wales</a> or <a href=\"https://www.data.cymru/eng/greenhouse-gas-emissions-infographic\">this one from Welsh Government about greenhouse Gas Emissions</a>); print out 1 paper for every two or three participants."
 
 #: databasic/templates/culture/deconstruct.html:42
 #: databasic/templates/culture/paper_spreadsheet.html:44
@@ -2307,6 +2307,14 @@ msgstr ""
 msgid "Toggle normlization"
 msgstr ""
 
+#: databasic/templates/samediff/results.html:92
+msgid "ON"
+msgstr ""
+
+#: databasic/templates/samediff/results.html:93
+msgid "OFF"
+msgstr ""
+
 #: databasic/templates/samediff/results.html:102
 #: databasic/templates/samediff/results.html:148
 #, python-format
@@ -2854,5 +2862,11 @@ msgstr ""
 #~ "using these techniques, and helps them"
 #~ " build confidence in their ability to"
 #~ " present data appropriately."
+#~ msgstr ""
+
+#~ msgid ""
+#~ "They might have expired. Why not "
+#~ "try <a href=\"/%(lang)s/%(tool_name)s\">analyzing "
+#~ "some new data?</a>"
 #~ msgstr ""
 
