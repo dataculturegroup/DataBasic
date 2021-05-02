@@ -297,7 +297,7 @@ msgstr "Der var ingen resultater"
 #, python-format
 msgid ""
 "They might have expired. Why not try <a "
-"href=\"/%(lang)s/%(tool_name)s\">analyzing some new data?</a>"
+"href=\"/%(lang)s/%(tool_name)s\">analyzing some new data?</a>"
 msgstr ""
 "De er måske udløbet. Prøv at <a "
 "href=\"/%(lang)s/%(tool_name)s\">analysere noget andet data?</a>"

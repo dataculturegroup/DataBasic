@@ -294,7 +294,7 @@ msgstr ""
 #, python-format
 msgid ""
 "They might have expired. Why not try <a "
-"href=\"/%(lang)s/%(tool_name)s\">analyzing some new data?</a>"
+"href=\"/%(lang)s/%(tool_name)s\">analyzing some new data?</a>"
 msgstr ""
 
 #: databasic/templates/tool_base.html:5

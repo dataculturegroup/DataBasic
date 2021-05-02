@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2021-04-18 09:48-0400\n"
+"POT-Creation-Date: 2021-05-02 06:42-0400\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -2239,6 +2239,14 @@ msgstr ""
 
 #: databasic/templates/samediff/results.html:91
 msgid "Toggle normlization"
+msgstr ""
+
+#: databasic/templates/samediff/results.html:92
+msgid "ON"
+msgstr ""
+
+#: databasic/templates/samediff/results.html:93
+msgid "OFF"
 msgstr ""
 
 #: databasic/templates/samediff/results.html:102

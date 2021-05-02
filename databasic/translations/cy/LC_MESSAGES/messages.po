@@ -297,10 +297,10 @@ msgstr "Roeddem yn methu darganfod unrhyw ganlyniadau"
 #, python-format
 msgid ""
 "They might have expired. Why not try <a "
-"href=\"/%(lang)s/%(tool_name)s\">analyzing some new data?</a>"
+"href=\"/%(lang)s/%(tool_name)s\">analyzing some new data?</a>"
 msgstr ""
 "Efallai eu bod nhw wedi darfod. Beth am geisio <a "
-"href=\"/%(lang)s/%(tool_name)s\">dadansoddi data newydd?</a>"
+"href=\"/%(lang)s/%(tool_name)s\">dadansoddi data newydd?</a>"
 
 #: databasic/templates/tool_base.html:5
 #, python-format

@@ -299,7 +299,7 @@ msgstr "Não encontramos nenhum resultado"
 #, python-format
 msgid ""
 "They might have expired. Why not try <a "
-"href=\"/%(lang)s/%(tool_name)s\">analyzing some new data?</a>"
+"href=\"/%(lang)s/%(tool_name)s\">analyzing some new data?</a>"
 msgstr ""
 "Eles devem ter expirado. Por que não tenta <a "
 "href=\"/%(lang)s/%(tool_name)s\">analisar algum dado novo?</a>"
