@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2021-05-02 06:54-0400\n"
-"PO-Revision-Date: 2021-05-04 16:24+0000\n"
+"PO-Revision-Date: 2021-05-18 08:19+0000\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: Welsh\n"
 "Language: cy\n"
@@ -14,7 +14,6 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "X-Loco-Source-Locale: en_GB\n"
 "Generated-By: Babel 2.8.0\n"
-"\n"
 "X-Loco-Parser: loco_parse_po\n"
 "X-Generator: Loco https://localise.biz/"
 
@@ -336,7 +335,7 @@ msgstr ""
 
 #: databasic/templates/tool_base.html:47
 msgid "Download"
-msgstr "Lawrlwythach"
+msgstr "Lawrlwythwch"
 
 #: databasic/templates/tool_header.html:4
 msgid "go to data basic home page"
