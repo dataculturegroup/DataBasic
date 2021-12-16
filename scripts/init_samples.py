@@ -1,6 +1,5 @@
 import os
 import json
-import logging
 import requests
 import tempfile
 
@@ -45,8 +44,11 @@ def init_samples():
             sample['path'] = f.name
         print("  Downloaded sample data and saved to tempdir")
     for sample in samples:
-        file_size = os.stat(sample['path']).st_size
-        print("  Cached {} bytes of {} to {}".format(file_size, sample['source'], sample['path']))
+        try:
+            file_size = os.stat(sample['path']).st_size
+            print("  Cached {} bytes of {} to {}".format(file_size, sample['source'], sample['path']))
+        except FileNotFoundError:
+            print("    couldn't find file {}".format(sample['path']))
     
     # write it out so the app can load it, with the `path`s we just filled in
     json.dump(samples, open(samples_config_file_path, 'w'), ensure_ascii=False)

@@ -1,12 +1,10 @@
-import codecs
 import community
 import json
 import logging
 import networkx as nx
 import operator
 import tempfile
-import databasic.logic.filehandler as filehandler
-from csvkit import table
+import agate
 from networkx.readwrite import json_graph
 
 logger = logging.getLogger(__name__)
@@ -28,22 +26,21 @@ def get_graph(input_path, has_header_row=True):
     return ctd.as_graph()
 
 
-class ConnectTheDots():
+class ConnectTheDots:
     def __init__(self, input_path, has_header_row=True):
         """
         Initialize the object
         """
-        utf8_file_path = filehandler.convert_to_utf8(input_path)
-        input_file = codecs.open(utf8_file_path, 'r', filehandler.ENCODING_UTF_8)
         try:
-            self.table = table.Table.from_csv(input_file,
-                                              no_header_row=not has_header_row,
-                                              snifflimit=0,
-                                              blanks_as_nulls=False)
-            if len(self.table) != 2:
+            with open(input_path, 'r') as input_file:
+                self.table = agate.Table.from_csv(input_file,
+                                                  header=has_header_row,
+                                                  sniff_limit=0)
+                                                  #blanks_as_nulls=False)
+            if len(self.table.columns) != 2:
                 raise ValueError('File has more than two columns')
             else:
-                self.graph = nx.from_edgelist(self.table.to_rows())
+                self.graph = nx.from_edgelist(self.table.rows)
         except Exception as e:
             logger.error('[CTD] Unable to make table from csv: %s' % e)
 
@@ -78,8 +75,8 @@ class ConnectTheDots():
                 self.nodes = [{'id': n, 'degree': degree[n], 'centrality': bc[n], 'community': partition[n]} for n in nodes]
 
             self.graph_with_metadata = self.graph.copy()
-            nx.set_node_attributes(self.graph_with_metadata, 'degree', degree)
-            nx.set_node_attributes(self.graph_with_metadata, 'betweenness centrality', bc)
+            nx.set_node_attributes(self.graph_with_metadata, degree, 'degree')
+            nx.set_node_attributes(self.graph_with_metadata, bc, 'betweenness centrality')
 
             colors = ['blue', 'orange', 'green', 'red', 'purple', 'brown', 'pink', 'grey', 'olive', 'turquoise']
             if results['communities'] > 20:
@@ -89,7 +86,7 @@ class ConnectTheDots():
             else:
                 self.community_color = {n: colors[int(partition[n])] for n in nodes}
 
-            nx.set_node_attributes(self.graph_with_metadata, 'community', self.community_color)
+            nx.set_node_attributes(self.graph_with_metadata, self.community_color, 'community')
 
             results['nodes'] = node_count
             results['edges'] = edge_count
@@ -150,6 +147,11 @@ class ConnectTheDots():
         """
         output = json_graph.node_link_data(self.graph)
         output['nodes'] = self.nodes
+        for n in output['nodes']:
+            n['id'] = str(n['id'])  # convert from what might be a Decimal or something else dumb
+        for link in output['links']:
+            link['source'] = str(link['source'])
+            link['target'] = str(link['source'])
         return json.dumps(output)
 
     def as_gexf(self):
@@ -166,9 +168,9 @@ class ConnectTheDots():
         Return true if network might be bipartite (unique values per column)
         """
         self.col0 = {}
-        for val in list(set(self.table[0])):
+        for val in [r[0] for r in self.table.rows]:
             self.col0[val] = True
-        for val in list(set(self.table[1])):
+        for val in [r[1] for r in self.table.rows]:
             if val in self.col0:
                 return False
         return True

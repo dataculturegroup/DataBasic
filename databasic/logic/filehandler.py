@@ -1,5 +1,5 @@
 import requests
-from newspaper import Article
+from readability import Document
 import os, datetime, time, tempfile, json, xlrd, logging
 from pyth.plugins.rtf15.reader import Rtf15Reader
 from pyth.plugins.plaintext.writer import PlaintextWriter
@@ -13,9 +13,6 @@ import databasic
 
 logger = logging.getLogger(__name__)
 
-ENCODING_UTF_8 = 'utf-8'
-ENCODING_UTF_16 = 'utf-16'
-ENCODING_LATIN_1 = 'latin-1'
 TEMP_DIR = tempfile.gettempdir()
 
 samples = []
@@ -71,12 +68,13 @@ def convert_to_txt(file_path):
     logger.debug("convert_to_txt: %d bytes at %s", file_size, file_path)
     ext = _get_extension(file_path)
     if ext == '.txt':
-        logger.debug("loading txt file")
-
         try:
-            encoding, file_handle, words = open_with_correct_encoding(file_path)
-        except Exception:
-            logger.error("Wasn't able to read the words from the file %s" % file_path)
+            # encoding, file_handle, words = open_with_correct_encoding(file_path)
+            with open(file_path) as f:
+                logger.debug("loading txt file")
+                words = f.read()
+        except Exception as e:
+            logger.error("Wasn't able to read the words from the txt file %s" % file_path)
             words = ""
     elif ext == '.docx':
         logger.debug("loading docx file")
@@ -100,14 +98,6 @@ def convert_to_txt(file_path):
 
     logger.debug("loaded %d chars" % len(words))
     return words
-
-
-def convert_to_utf8(file_path):
-    encoding, file_handle, content = open_with_correct_encoding(file_path)
-    if encoding is ENCODING_UTF_8:
-        return file_path
-    # now we have to save it as utf8
-    return write_to_temp_file(content)
 
 
 def open_with_correct_encoding(file_path):
@@ -226,10 +216,9 @@ def generate_filename(ext, suffix, *args):
 
 
 def download_webpage(url):
-    article = Article(url)
-    article.download()
-    article.parse()
-    return {'title': article.title, 'text': article.text}
+    response = requests.get(url)
+    doc = Document(response.text)
+    return {'title': doc.title(), 'text': doc.summary()}
 
 
 def _open_sheet(workbook, index):

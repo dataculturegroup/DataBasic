@@ -27,7 +27,8 @@ class MongoHandler:
             'source': source,
             'created_at': time.time(),
             })
-        return str(self._db[collection].save(data_to_save))
+        results = self._db[collection].insert_one(data_to_save)
+        return str(results.inserted_id)
 
     def results_for_sample(self, collection, sample_id):
         logger.debug("checking for sample %s", sample_id)
@@ -37,16 +38,17 @@ class MongoHandler:
             return str(sample['_id'])
 
     def save_csv(self, collection, results, sample_id, source):
-        return str(self._db[collection].save({
+        result = self._db[collection].insert_one({
             'results': results,
             'sample_id': str(sample_id),
             'source': source,
             'created_at': time.time()
-            }))
+            })
+        return str(result.inserted_id)
 
     def save_samediff(self, collection, filenames, total_words_doc1, total_words_doc2, diff_words_doc1, diff_words_doc2, same_words, same_word_counts,
                       most_frequent_doc1, most_frequent_doc2, cosine_similarity, titles, sample_id, source):
-        return str(self._db[collection].save({
+        result = self._db[collection].insert_one({
             'filenames': filenames,
             'totalWordsDoc1': total_words_doc1,
             'totalWordsDoc2': total_words_doc2,
@@ -61,10 +63,11 @@ class MongoHandler:
             'sample_id': str(sample_id),
             'source': source,
             'created_at': time.time()
-            }))
+            })
+        return str(result.inserted_id)
 
     def save_job(self, collection, job_info):
-        self._db[collection].save(job_info)
+        self._db[collection].insert_one(job_info)
 
     def find_document(self, collection, doc_id):
         logger.debug("trying to find one doc with ID %s", doc_id)

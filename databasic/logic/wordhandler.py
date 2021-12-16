@@ -33,7 +33,12 @@ def get_word_counts(text=None, ignore_case=True, ignore_stop_words=True, stopwor
         trigrams = []
 
     logger.debug("  %d unique_words, %d bigrams, %d trigrams, %d total words" % (len(unique_words),len(bigrams), len(trigrams), total_word_count))
-    return {"unique_words":unique_words, "bigrams" : bigrams, "trigrams":trigrams, "total_word_count":total_word_count}
+    return {
+        "unique_words": unique_words,
+        "bigrams": bigrams,
+        "trigrams": trigrams,
+        "total_word_count": total_word_count
+    }
 
 
 def _create_words(text, ignore_case):

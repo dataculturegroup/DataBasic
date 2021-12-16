@@ -34,7 +34,7 @@ APP_MODE_PRODUCTION = "production"
 
 HOST = ""
 
-app_mode = os.environ.get(ENV_APP_MODE, None)
+app_mode = os.environ.get(ENV_APP_MODE, APP_MODE_DEV)
 
 # ATTEMPTING UNICODE FIX
 #reload(sys)

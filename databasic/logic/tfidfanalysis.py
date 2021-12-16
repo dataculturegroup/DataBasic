@@ -1,11 +1,11 @@
-import os
-import codecs, re, time, string, logging, math
+import re, time, string, logging, math
 from operator import itemgetter
 from nltk import FreqDist
 from nltk.corpus import stopwords
 import textmining
 from scipy import spatial
 from . import filehandler
+
 
 def most_frequent_terms(*args):
     tdm = textmining.TermDocumentMatrix(simple_tokenize_remove_our_stopwords)
@@ -19,6 +19,7 @@ def most_frequent_terms(*args):
         freqs.append(f)
     
     return freqs
+
 
 def doc_to_words(document):
     '''
@@ -37,6 +38,7 @@ def doc_to_words(document):
     logging.debug("   remove punctuation: %d" % (t4-t3))
     return words
 
+
 # TODO add a langauge param to remove spanish stop words too
 def term_frequency(words):
     '''
@@ -52,12 +54,14 @@ def term_frequency(words):
     t2 = time.time()
     logging.debug("   create term freq: %d" % (t2-t1))
     return fdist
-    
+
+
 def _count_incidence(lookup, term):
     if term in lookup:
         lookup[term] += 1
     else:
         lookup[term] = 1
+
 
 def inverse_document_frequency(list_of_fdist_objects):
     '''
@@ -75,7 +79,8 @@ def inverse_document_frequency(list_of_fdist_objects):
     logging.debug("   create df: %d" % (t2-t1))
     logging.debug("   create idf: %d" % (t3-t2))
     return idf
-    
+
+
 def tf_idf(list_of_file_paths):
     '''
     Compute and return tf-idf from a list of file paths (sorted by tfidf desc)
@@ -86,6 +91,7 @@ def tf_idf(list_of_file_paths):
     tf_idf_list = [ [{'term':term, 'tfidf':frequency*idf[term], 'frequency': frequency} for term, frequency in tf.items()] for tf in tf_list ]
     tf_idf_list = [ sorted(tf_idf, key=itemgetter('tfidf'), reverse=True)  for tf_idf in tf_idf_list ]
     return tf_idf_list
+
 
 def simple_tokenize_remove_our_stopwords(document):
     """
@@ -101,6 +107,7 @@ def simple_tokenize_remove_our_stopwords(document):
     # Remove stopwords
     words = [word for word in words if word not in stopwords.words('english')]
     return words
+
 
 def cosine_similarity(list_of_file_paths):
     # Create some very short sample documents

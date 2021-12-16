@@ -1,6 +1,7 @@
 import datetime
 import sys
 import re
+import decimal
 import csv
 import time
 import collections
@@ -9,10 +10,8 @@ import math
 import logging
 import six
 import databasic.logic.wordhandler as wordhandler
-import random
-from csvkit import table
+import agate
 from dateutil.parser import parse
-import databasic.logic.filehandler as filehandler
 
 from databasic import NLTK_STOPWORDS_BY_LANGUAGE
 
@@ -22,10 +21,12 @@ SAMPLE_FOR_TYPE = True  # controls whether we sample values to determine what ty
 MAX_UNIQUE = 5
 NUMBER_MAX_UNIQUE = 10
 MAX_FREQ = 5
-OPERATIONS =('min', 'max', 'sum', 'mean', 'median', 'stdev', 'nulls', 'unique', 'freq', 'len', 'deciles')
+OPERATIONS = ('min', 'max', 'sum', 'mean', 'median', 'stdev', 'nulls', 'unique', 'freq', 'len', 'deciles')
 
-MONTHS = ['jan', 'january', 'feb', 'february', 'mar', 'march', 'apr', 'april', 'may', 'jun', 'june', 'jul', 'july', 'aug', 'august', 'sep', 'september', 'oct', 'october', 'nov', 'november', 'dec', 'december']
-DAYS_OF_WEEK = ['sun', 'sunday', 'mon', 'monday', 'tues', 'tue', 'tuesday', 'wed', 'wednesday', 'thu', 'thur', 'thurs', 'thursday', 'fri', 'friday', 'sat', 'saturday']
+MONTHS = ['jan', 'january', 'feb', 'february', 'mar', 'march', 'apr', 'april', 'may', 'jun', 'june', 'jul', 'july',
+          'aug', 'august', 'sep', 'september', 'oct', 'october', 'nov', 'november', 'dec', 'december']
+DAYS_OF_WEEK = ['sun', 'sunday', 'mon', 'monday', 'tues', 'tue', 'tuesday', 'wed', 'wednesday', 'thu', 'thur', 'thurs',
+                'thursday', 'fri', 'friday', 'sat', 'saturday']
 
 logger = logging.getLogger(__name__)
 
@@ -47,9 +48,7 @@ class WTFCSVStat:
     def __init__(self, input_path, has_header_row=True):
         self.input_path = input_path
         self.has_header_row = has_header_row
-        utf8_file_path = filehandler.convert_to_utf8(input_path)
-        logger.debug("converted to utf8 at %s" % utf8_file_path)
-        self.input_file = open(utf8_file_path, 'r')
+        self.input_file = open(input_path, 'r')
 
     def detectDelimiter(self):
         with open(self.input_path, 'r') as myCsvfile:
@@ -65,10 +64,24 @@ class WTFCSVStat:
                 return "\t"
         return ","
 
+    def detected_column_type(self, a_table, col_index):
+        agate_col_class = a_table.column_types[col_index]
+        if agate_col_class == agate.Text:
+            return str
+        elif agate_col_class == agate.Number:
+            return float
+        elif agate_col_class == agate.Boolean:
+            return bool
+        elif agate_col_class == agate.Date:
+            return datetime.date
+        elif agate_col_class == agate.DateTime:
+            return datetime.datetime
+        return None
+
     def get_summary(self, language):
         summary_start = time.time()
         results = {}
-        
+
         if not self._csv_has_rows(self.input_path):
             results['row_count'] = 0
             results['columns'] = []
@@ -78,25 +91,25 @@ class WTFCSVStat:
         delim = self.detectDelimiter()
 
         try:
-            tab = table.Table.from_csv(self.input_file, delimiter=delim, quotechar='"')
+            tab = agate.Table.from_csv(self.input_file, delimiter=delim, quotechar='"')
         except Exception as e:
             logger.debug("Error making a table from the CSV")
             logger.error(e)
             return 'bad_formatting'
 
-        logger.debug("  %f ms to create table from csv" % (1000*(time.time()-start_time)))
+        logger.debug("  %f ms to create table from csv" % (1000 * (time.time() - start_time)))
 
-        row_count = tab.count_rows() + 1 # this value is inaccurate so I'm adding 1
+        row_count = len(tab.rows) + 1  # this value is inaccurate so I'm adding 1
         if self.has_header_row:
             row_count -= 1
         results['row_count'] = row_count
         logger.debug("  found %d rows" % row_count)
 
-        column_count = len(tab)
+        column_count = len(tab.columns)
         empty_header_count = 0
-        
+
         results['columns'] = []
-        for c in tab:
+        for c in tab.columns:
             logger.debug("  column: %s" % c.name)
 
             """
@@ -111,92 +124,33 @@ class WTFCSVStat:
                 continue
 
             column_info = {}
-            column_info['index'] = c.order + 1
+            column_info['index'] = c.index + 1
             column_info['name'] = c.name
-            
-            values = sorted([i for i in c if i is not None])
+            detected_type = self.detected_column_type(tab, c.index)
+            column_info['type'] = detected_type.type.__name__ if not isinstance(detected_type,type(None)) else 'none'
+            values = sorted([r[c.index] for r in tab.rows if r[c.index] is not None])
 
-            stats = {} 
-
-            # figure out what type the column is
-            start_time = time.time()
-
-            date_count = 0
-            time_count = 0
-            number_count = 0
-            value_count = len(values)
-            if SAMPLE_FOR_TYPE and (value_count > 100):    # try sampling to speed this up
-                sampled_values = random.sample(values, 100)
-            else: 
-                sampled_values = values
-            sampled_value_count = len(sampled_values)
-
-            for v in sampled_values:
-                if type(v) in [float, int, complex] or self.is_number(v):
-                    number_count += 1
-                if self.is_date(v) is not None:
-                    v = self.is_date(v)
-                    if v.time() != datetime.time(0, 0):
-                        time_count += 1
-                    if v.date() != datetime.date.today():
-                        date_count += 1
-
-            if sampled_value_count > 0:
-                date_percent = float(date_count) / float(sampled_value_count)
-                time_percent = float(time_count) / float(sampled_value_count)
-                number_percent = float(number_count) / float(sampled_value_count)
-            else:
-                date_percent = 0
-                time_percent = 0
-                number_percent = 0
-                
-            threshold = 0.5
-
-            if number_percent < threshold:
-                if date_percent > threshold:
-                    if time_percent > threshold:
-                        c.type = datetime.datetime
-                    else:
-                        c.type = datetime.date
-                elif time_percent > threshold:
-                    c.type = datetime.time
-            else:
-                c.type = float
-
-            logger.debug("    type is %s (%f ms)" % (c.type, (time.time()-start_time)*1000))
+            stats = {}
 
             # clean the data, based on the type it is
-            start_time = time.time()
-            if c.type == datetime.datetime or c.type == datetime.date or c.type == datetime.time:
-                old_len = len(values)
-                values = [ self.is_date(v).replace(tzinfo=None) for v in values if self.is_date(v) is not None ]
-                new_len = len(values)
-                #logger.debug("    removed %d bad values" % (old_len-new_len))
-            elif c.type == float:
-                old_len = len(values)
-                values = [ self.is_number(v) for v in values if self.is_number(v) is not None ]
-                new_len = len(values)
-                #logger.debug("    removed %d bad values" % (old_len-new_len))
-            elif c.type == str:
-                old_len = len(values)
-                values = [ v for v in values if v != '&nbsp;' ]
-                new_len = len(values)
-                #logger.debug("    removed %d bad values" % (old_len-new_len))
-            #logger.debug("    cleaned in %f ms" % ((time.time()-start_time)*1000))
+            if column_info['type'] in ['datetime.datetime', 'datetime.date']:
+                values = [self.is_date(v).replace(tzinfo=None) for v in values if self.is_date(v) is not None]
+            elif column_info['type'] == 'float':
+                values = [self.is_number(v) for v in values if self.is_number(v) is not None]
+            elif column_info['type'] == 'str':
+                values = [v for v in values if v != '&nbsp;']
+            # logger.debug("    cleaned in %f ms" % ((time.time()-start_time)*1000))
 
             # do the default operations on the values
-            start_time = time.time()
             for op in OPERATIONS:
-                op_start_time = time.time()
-                stats[op] = getattr(self, 'get_%s' % op)(c, values, stats)
-                #logger.debug("      %s in %f" % (op,(time.time()-op_start_time)*1000))
-            #logger.debug("    default ops took %f ms" % ((time.time()-start_time)*1000))
+                stats[op] = getattr(self, 'get_%s' % op)(column_info['type'], values, stats)
+                # logger.debug("      %s in %f" % (op,(time.time()-op_start_time)*1000))
+            # logger.debug("    default ops took %f ms" % ((time.time()-start_time)*1000))
 
-            if c.type == None:
+            if column_info['type'] == 'None':
                 column_info['type'] = 'empty'
                 continue
-                
-            column_info['type'] = c.type.__name__
+
             column_info['nulls'] = stats['nulls']
 
             t = column_info['type']
@@ -217,7 +171,8 @@ class WTFCSVStat:
 
             if dt in ['numbers', 'dates', 'times', 'dates and times']:
                 if len(stats['unique']) <= NUMBER_MAX_UNIQUE:
-                    column_info['most_freq_values'] = sorted(self.get_most_freq_values(stats), key=itemgetter('value'))
+                    column_info['most_freq_values'] = sorted(self.get_most_freq_values(column_info['type'], stats),
+                                                             key=itemgetter('value'))
                 else:
                     column_info['uniques'] = len(stats['unique'])
                     column_info['min'] = stats['min']
@@ -230,23 +185,23 @@ class WTFCSVStat:
                         column_info['stdev'] = stats['stdev']
             else:
                 # if there are few unique values, get every value and their frequency
-                if len(stats['unique']) <= MAX_UNIQUE and c.type is not bool:
-                    column_info['values'] = self.get_most_freq_values(stats)
-                    column_info['most_freq_values'] = self.get_most_freq_values(stats)
+                if len(stats['unique']) <= MAX_UNIQUE and column_info['type'] != bool:
+                    column_info['values'] = self.get_most_freq_values(column_info['type'], stats)
+                    column_info['most_freq_values'] = self.get_most_freq_values(column_info['type'], stats)
                 else:
                     column_info['uniques'] = len(stats['unique'])
 
                     # get the most frequent repeating values, if any
                     if column_info['uniques'] != len(values):
-                        column_info['most_freq_values'] = self.get_most_freq_values(stats)
-                        if c.type is not bool:
+                        column_info['most_freq_values'] = self.get_most_freq_values(column_info['type'], stats)
+                        if column_info['uniques'] is not 'bool':
                             column_info['others'] = stats['others']
 
                     # for text columns, get the longest string
-                    if c.type == six.text_type:
+                    if column_info['uniques'] == 'str':
                         column_info['max_str_len'] = stats['len']
 
-            if 'str' in column_info['type'] and not 'most_freq_values' in column_info:
+            if (column_info['type'] == 'str') and (not 'most_freq_values' in column_info):
                 # TODO: these results could be cleaned up using textmining
                 # TODO: send in the language properly?
                 stopwords_language = NLTK_STOPWORDS_BY_LANGUAGE[language]
@@ -254,22 +209,24 @@ class WTFCSVStat:
                     str([s for s in values]).strip('[]').replace("u'", '').replace("',", ''),
                     True, True, stopwords_language, False, False)
 
-            results['columns'].append( column_info )
+            results['columns'].append(column_info)
 
-        logger.debug("  done in %f ms" % ((time.time()-summary_start)*1000 ))
+        logger.debug("  done in %f ms" % ((time.time() - summary_start) * 1000))
         return results
 
-    def get_most_freq_values(self, stats):
+    def get_most_freq_values(self, c, stats):
         most_freq_values = []
         for value, count in stats['freq']:
+            if isinstance(value, decimal.Decimal):
+                value = float(value)
             most_freq_values.append({
                 'value': value,
                 'count': count
-                })
+            })
         return most_freq_values
 
     def get_min(self, c, values, stats):
-        if c.type == NoneType:
+        if c == 'none':
             return None
 
         v = min(values)
@@ -277,7 +234,7 @@ class WTFCSVStat:
         return format_datetime(c, v)
 
     def get_max(self, c, values, stats):
-        if c.type == NoneType:
+        if c == 'none':
             return None
 
         v = max(values)
@@ -285,13 +242,13 @@ class WTFCSVStat:
         return format_datetime(c, v)
 
     def get_sum(self, c, values, stats):
-        if c.type not in [int, float]:
+        if c not in ['int', 'float']:
             return None
 
         return sum(values)
 
     def get_mean(self, c, values, stats):
-        if c.type not in [int, float]:
+        if c not in ['int', 'float']:
             return None
 
         if 'sum' not in stats:
@@ -300,33 +257,32 @@ class WTFCSVStat:
         return float(stats['sum']) / len(values)
 
     def get_median(self, c, values, stats):
-        if c.type not in [int, float]:
+        if c not in ['int', 'float']:
             return None
 
         return median(values)
 
     def get_stdev(self, c, values, stats):
-        if c.type not in [int, float]:
+        if c not in ['int', 'float']:
             return None
 
         if 'mean' not in stats:
             stats['mean'] = self.get_mean(c, values, stats)
 
-        return math.sqrt(sum(math.pow(v - stats['mean'], 2) for v in values) / len(values)) 
+        return math.sqrt(sum(math.pow(v - stats['mean'], 2) for v in values) / len(values))
 
     def get_nulls(self, c, values, stats):
         null_count = 0
-        if c.has_nulls():
-            for v in c:
-                if v is None:
-                    null_count += 1
+        for v in values:
+            if v is None:
+                null_count += 1
         return null_count
 
     def get_unique(self, c, values, stats):
-        return set(values) 
+        return set(values)
 
     def get_freq(self, c, values, stats):
-        if c.type not in [int, float, complex]:
+        if c not in ['int', 'float', 'complex']:
             mostfrequent = freq(values)
         else:
             mostfrequent = freq(values, n=NUMBER_MAX_UNIQUE)
@@ -335,25 +291,26 @@ class WTFCSVStat:
         return mostfrequent
 
     def get_len(self, c, values, stats):
-        if c.type != six.text_type:
+        if c != 'str':
             return None
 
         return c.max_length()
 
     # not *literally* deciles, but kinda similar
     def get_deciles(self, c, values, stats):
-        if c.type not in [int, float, datetime.date, datetime.time, datetime.datetime] or len(values) <= NUMBER_MAX_UNIQUE:
+        if c not in ['int', 'float', 'datetime.date', 'datetime.time', 'datetime.datetime'] or len(
+                values) <= NUMBER_MAX_UNIQUE:
             return None
         mx = max(values)
         mn = min(values)
-        if c.type is float:
-            range_size = (mx-mn)/10.0
+        if c is float:
+            range_size = (mx - mn) / 10.0
         else:
-            range_size = (mx-mn)/10
+            range_size = (mx - mn) / 10
 
         decile_groups = []
         for x in range(10):
-            decile_groups.append(mn+(range_size*x))
+            decile_groups.append(mn + (range_size * x))
 
         def get_values_in_range(from_val, to_val):
             count = len([v for v in values if v >= from_val and v < to_val])
@@ -362,22 +319,22 @@ class WTFCSVStat:
             return {'value': val, 'count': count}
 
         def pretty_value(val):
-            if c.type is int:
+            if c == 'int':
                 return str(val)
-            if c.type in [datetime.date, datetime.time, datetime.datetime]:
+            if c in ['datetime.date', 'datetime.time', 'datetime.datetime']:
                 return format_datetime(c, val)
-            if mx-mn > 10:
+            if mx - mn > 10:
                 return str(round(val)).replace('.0', '')
             else:
-                return str(round(val*100)/100).replace('.0','')
+                return str(round(val * 100) / 100).replace('.0', '')
 
         deciles = []
-        for d in range(len(decile_groups)-1):
+        for d in range(len(decile_groups) - 1):
             from_val = decile_groups[d]
-            to_val = decile_groups[d+1]
+            to_val = decile_groups[d + 1]
             deciles.append(get_values_in_range(from_val, to_val))
 
-        from_val = decile_groups[len(decile_groups)-1]
+        from_val = decile_groups[len(decile_groups) - 1]
         to_val = mx
         deciles.append(get_values_in_range(from_val, to_val))
 
@@ -398,32 +355,34 @@ class WTFCSVStat:
             return float(s)
         except (ValueError, TypeError):
             pass
-     
+
         try:
             import unicodedata
             return unicodedata.numeric(s)
         except (TypeError, ValueError):
             pass
-     
+
         return None
 
     def _csv_has_rows(self, file_path):
         with open(file_path, 'rU') as f:
-            #Read in parameter values as a dictionary
+            # Read in parameter values as a dictionary
             paradict = csv.DictReader(f)
             for line in paradict:
                 return True
         return False
 
+
 def format_datetime(c, val):
-    if c.type in [datetime.datetime, datetime.date, datetime.time]:
-        if c.type is datetime.date:
-            return "%02d/%02d/%02d" % (val.day,val.month,val.year)
-        elif c.type is datetime.time:
-            return "%02d:%02d" % (val.hour,val.minute)
+    if c in ['datetime.datetime', 'datetime.date', 'datetime.time']:
+        if c == 'datetime.date':
+            return "%02d/%02d/%02d" % (val.day, val.month, val.year)
+        elif c == 'datetime.time':
+            return "%02d:%02d" % (val.hour, val.minute)
         else:
-            return "%02d/%02d/%02d %02d:%02d" % (val.day,val.month,val.year,val.hour,val.minute)
+            return "%02d/%02d/%02d %02d:%02d" % (val.day, val.month, val.year, val.hour, val.minute)
     return val
+
 
 def median(l):
     """
@@ -436,18 +395,20 @@ def median(l):
     else:
         a = l[(length // 2) - 1]
         b = l[length // 2]
-    return (float(a + b)) / 2  
+    return (float(a + b)) / 2
+
 
 def freq(l, n=MAX_FREQ):
     """
     Count the number of times each value occurs in a column.
     """
-    counter=collections.Counter(l)
+    counter = collections.Counter(l)
     results = counter.most_common(n)
     return results
 
+
 if __name__ == "__main__":
-    if(len(sys.argv)!=2):
+    if (len(sys.argv) != 2):
         print("You must pass in a csv file to parse!")
         sys.exit(1)
     wtfcsvstat = WTFCSVStat(sys.argv[1])

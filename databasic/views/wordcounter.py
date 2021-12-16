@@ -55,12 +55,7 @@ def index():
             title = samplename
             ignore_case = forms[btn_value].data['ignore_case_sample']
             ignore_stopwords = forms[btn_value].data['ignore_stopwords_sample']
-            
-            
-            sample_id = ""
-         
             sample_id = title+str(ignore_case)+str(ignore_stopwords)
-
             #CSD TODO - ADD CACHING FLAG TO NOT CACHE IF SPECIFIED IN CONFIG?
             existing_doc_id = mongo.results_for_sample('wordcounter', sample_id)
             if existing_doc_id is not None:

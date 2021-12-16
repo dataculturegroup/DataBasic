@@ -11,7 +11,7 @@ from databasic.logic.test.dbtest import *
 test_classes = [
     WordHandlerTest,
     FileHandlerTest, 
- 	  MongoHandlerTest, 
+ 	MongoHandlerTest,
     WTFCSVStatTest,
     ConnectTheDotsTest,
     # ConnectTheDotsBigDataTest
