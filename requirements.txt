@@ -25,7 +25,7 @@ pymongo==3.7.1
 pytest==2.8.2
 pyth3==0.7.0
 # have to use this older version for csvkit python -m nltk.downloader all
-python-dateutil~=2.8.2
+python-dateutil~=2.2
 python-docx==0.8.10
 python-louvain==0.14
 pytz==2019.1
