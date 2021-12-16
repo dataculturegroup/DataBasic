@@ -19,7 +19,7 @@ body {
   padding-top: 2%;
 
 
-  // Background for sketch page
+  // Background for activity pages
   &.activity-wrapper {
     background: white;
     background-image: url('/static/img/culture/databasic-right-decoration.png');
@@ -29,6 +29,30 @@ body {
     @media(max-width: 1023px) {
       background-image: none;
     }
+
+    .activity-virtual {
+      background-color: rgb(230,230,230);
+      border-radius: 8px;
+      padding: 15px;
+      margin: 10px 0px 20px 0px;
+
+      h3 {
+        padding: 0px;
+        margin: 8px 0px;
+
+        img {
+          margin-right: 10px;
+        }
+      }
+
+      p {
+        margin: 0px;
+        line-height: 1.3em;
+        padding: 0px;
+      }
+
+    }
+
   }
 
   
