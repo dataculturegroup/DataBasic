@@ -1,5 +1,5 @@
 import requests
-from newspaper import Article
+from readability import Document
 import os, datetime, time, tempfile, json, xlrd, logging
 from pyth.plugins.rtf15.reader import Rtf15Reader
 from pyth.plugins.plaintext.writer import PlaintextWriter
@@ -226,10 +226,9 @@ def generate_filename(ext, suffix, *args):
 
 
 def download_webpage(url):
-    article = Article(url)
-    article.download()
-    article.parse()
-    return {'title': article.title, 'text': article.text}
+    response = requests.get(url)
+    doc = Document(response.text)
+    return {'title': doc.title(), 'text': doc.summary()}
 
 
 def _open_sheet(workbook, index):
