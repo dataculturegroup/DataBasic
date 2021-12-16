@@ -16,7 +16,7 @@ gunicorn==20.0.4
 jsmin==2.2.2
 libsass==0.9.1
 natural==0.2.0
-networkx==1.11
+networkx==2.5
 nltk==3.5
 numpy==1.18.3
 oauth2client==1.5.1
