@@ -17,7 +17,7 @@ jsmin==3.0.1
 libsass==0.21.0
 natural==0.2.0
 networkx==2.5
-nltk==3.5
+nltk==3.6.6
 numpy==1.22.1
 oauth2client==1.5.1
 pojson==0.7
