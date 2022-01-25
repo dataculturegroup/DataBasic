@@ -13,12 +13,12 @@ gdata-python3==3.0.1
 readability-lxml==0.8.1
 gspread==0.2.5
 gunicorn==20.0.4
-jsmin==2.2.2
-libsass==0.9.1
+jsmin==3.0.1
+libsass==0.21.0
 natural==0.2.0
 networkx==2.5
 nltk==3.5
-numpy==1.18.3
+numpy==1.22.1
 oauth2client==1.5.1
 pojson==0.7
 pymongo==3.7.1
@@ -30,7 +30,7 @@ python-docx==0.8.10
 python-louvain==0.14
 pytz==2019.1
 requests>=2.20.0
-scipy==1.5.4
+scipy==1.7.3
 six==1.10.0
 SQLAlchemy>=1.3.0
 textmining3==1.1.0
