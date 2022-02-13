@@ -78,7 +78,7 @@ class ConnectTheDots():
                 self.nodes = [{'id': n, 'degree': degree[n], 'centrality': bc[n], 'community': partition[n]} for n in nodes]
 
             self.graph_with_metadata = self.graph.copy()
-            nx.set_mibutes(self.graph_with_metadata, degree, 'degree',)
+            nx.set_node_attributes(self.graph_with_metadata, degree, 'degree')
             nx.set_node_attributes(self.graph_with_metadata, bc, 'betweenness centrality')
 
             colors = ['blue', 'orange', 'green', 'red', 'purple', 'brown', 'pink', 'grey', 'olive', 'turquoise']

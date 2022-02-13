@@ -27,7 +27,8 @@ class MongoHandler:
             'source': source,
             'created_at': time.time(),
             })
-        return str(self._db[collection].save(data_to_save))
+        result = self._db[collection].insert_one(data_to_save)
+        return str(result.inserted_id)
 
     def results_for_sample(self, collection, sample_id):
         logger.debug("checking for sample %s", sample_id)
@@ -37,16 +38,18 @@ class MongoHandler:
             return str(sample['_id'])
 
     def save_csv(self, collection, results, sample_id, source):
-        return str(self._db[collection].save({
+        result = self._db[collection].insert_one({
             'results': results,
             'sample_id': str(sample_id),
             'source': source,
             'created_at': time.time()
-            }))
+            })
+        return str(result.inserted_id)
 
-    def save_samediff(self, collection, filenames, total_words_doc1, total_words_doc2, diff_words_doc1, diff_words_doc2, same_words, same_word_counts,
-                      most_frequent_doc1, most_frequent_doc2, cosine_similarity, titles, sample_id, source):
-        return str(self._db[collection].save({
+    def save_samediff(self, collection, filenames, total_words_doc1, total_words_doc2, diff_words_doc1, diff_words_doc2,
+                      same_words, same_word_counts, most_frequent_doc1, most_frequent_doc2, cosine_similarity, titles,
+                      sample_id, source):
+        result = self._db[collection].insert_one({
             'filenames': filenames,
             'totalWordsDoc1': total_words_doc1,
             'totalWordsDoc2': total_words_doc2,
@@ -61,10 +64,12 @@ class MongoHandler:
             'sample_id': str(sample_id),
             'source': source,
             'created_at': time.time()
-            }))
+            })
+        return str(result.inserted_id)
+
 
     def save_job(self, collection, job_info):
-        self._db[collection].save(job_info)
+        self._db[collection].insert_one(job_info)
 
     def find_document(self, collection, doc_id):
         logger.debug("trying to find one doc with ID %s", doc_id)
@@ -85,7 +90,7 @@ class MongoHandler:
         logger.debug("Removed all sample data")
 
     def remove_sample_data(self, collection):
-        self._db[collection].remove({'sample_id': {'$exists': True, '$ne': ''}})
+        self._db[collection].delete_many({'sample_id': {'$exists': True, '$ne': ''}})
 
     def remove_expired_results(self, collection):
         limit = datetime.datetime.now(pytz.utc) - datetime.timedelta(days=EXPIRE_AFTER)
@@ -96,7 +101,7 @@ class MongoHandler:
                 logger.info(collection + ': removing ' + d['title'])
             else:
                 logger.info(collection + ': removing (no name)')
-        self._db[collection].remove({'_id': {'$lt': _id}, 'sample_id': ''})
+        self._db[collection].delete_many({'_id': {'$lt': _id}, 'sample_id': ''})
 
     def remove_all_expired_results(self):
         self.remove_expired_results('wordcounter')
@@ -105,4 +110,4 @@ class MongoHandler:
         self.remove_expired_results('connectthedots')
 
     def remove_by_id(self, collection, id):
-        return self._db[collection].remove({'_id': ObjectId(id)})
+        return self._db[collection].delete_one({'_id': ObjectId(id)})

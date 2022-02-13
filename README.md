@@ -14,7 +14,7 @@ The suite includes:
 Installation
 ------------
 
-DataBasic is a Python 3.x [Flask](https://flask.palletsprojects.com/) app.
+DataBasic is a Python 3.x [Flask](https://flask.palletsprojects.com/) app. Make sure you have mongodb installed.
 
 **1.** Clone this repository and cd into it.
 ```
