@@ -78,8 +78,8 @@ class ConnectTheDots():
                 self.nodes = [{'id': n, 'degree': degree[n], 'centrality': bc[n], 'community': partition[n]} for n in nodes]
 
             self.graph_with_metadata = self.graph.copy()
-            nx.set_node_attributes(self.graph_with_metadata, degree, 'degree')
-            nx.set_node_attributes(self.graph_with_metadata, bc, 'betweenness centrality')
+            nx.set_node_attributes(self.graph_with_metadata, 'degree', degree)
+            nx.set_node_attributes(self.graph_with_metadata, 'betweenness centrality', bc)
 
             colors = ['blue', 'orange', 'green', 'red', 'purple', 'brown', 'pink', 'grey', 'olive', 'turquoise']
             if results['communities'] > 20:
@@ -89,7 +89,7 @@ class ConnectTheDots():
             else:
                 self.community_color = {n: colors[int(partition[n])] for n in nodes}
 
-            nx.set_node_attributes(self.graph_with_metadata, self.community_color, 'community')
+            nx.set_node_attributes(self.graph_with_metadata, 'community', self.community_color)
 
             results['nodes'] = node_count
             results['edges'] = edge_count
