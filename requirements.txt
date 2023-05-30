@@ -6,7 +6,7 @@ Flask-Assets==0.12
 Flask-Babel==1.0.0
 Flask-DebugToolbar==0.11.0
 Flask-Mail==0.9.1
-Flask-WTF==0.14.3
+Flask-WTF==1.1.1
 gdata-python3==3.0.1
 readability-lxml==0.8.1
 gspread==4.0.1
