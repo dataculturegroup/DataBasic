@@ -249,7 +249,7 @@ class WTFCSVStat:
             if 'str' in column_info['type'] and not 'most_freq_values' in column_info:
                 # TODO: these results could be cleaned up using textmining
                 # TODO: send in the language properly?
-                stopwords_language = NLTK_STOPWORDS_BY_LANGUAGE[language]
+                stopwords_language = NLTK_STOPWORDS_BY_LANGUAGE.get(language, "english")
                 column_info['word_counts'] = wordhandler.get_word_counts(
                     str([s for s in values]).strip('[]').replace("u'", '').replace("',", ''),
                     True, True, stopwords_language, False, False)
