@@ -40,3 +40,21 @@ $(function () {
   ga('create', '{{ config.GOOGLE_ANALYTICS_ID }}', '{% if config.DEBUG %}none{% else %}auto{% endif %}');
   ga('send', 'pageview');
 </script>
+
+{% if 'cymru' in request.host or 'localhost' in request.host %}
+    <!-- Matomo -->
+    <script>
+        var _paq = window._paq = window._paq || [];
+        /* tracker methods like "setCustomDimension" should be called before "trackPageView" */
+        _paq.push(['trackPageView']);
+        _paq.push(['enableLinkTracking']);
+        (function() {
+            var u="https://datacymru.matomo.cloud/";
+            _paq.push(['setTrackerUrl', u+'matomo.php']);
+            _paq.push(['setSiteId', '31']);
+            var d=document, g=d.createElement('script'), s=d.getElementsByTagName('script')[0];
+            g.async=true; g.src='//cdn.matomo.cloud/datacymru.matomo.cloud/matomo.js'; s.parentNode.insertBefore(g,s);
+        })();
+    </script>
+    <!-- End Matomo Code -->
+{% endif %}
