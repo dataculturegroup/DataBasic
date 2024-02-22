@@ -65,7 +65,7 @@ class ConnectTheDots():
             else:
               k = None
 
-            nodes = nx.nodes(self.graph)
+            nodes = self.graph.nodes
             degree = {n: self.graph.degree(n) for n in nodes}
             bc = nx.betweenness_centrality(self.graph, k=k)
             partition = community.best_partition(self.graph)
