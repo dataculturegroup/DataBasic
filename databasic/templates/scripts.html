@@ -41,7 +41,7 @@ $(function () {
   ga('send', 'pageview');
 </script>
 
-{% if 'cymru' in request.host or 'localhost' in request.host %}
+{% if 'cymru' in request.host or '127.0.0.1' in request.host %}
     <!-- Matomo -->
     <script>
         var _paq = window._paq = window._paq || [];
