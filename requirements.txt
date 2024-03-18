@@ -27,7 +27,7 @@ python-docx==0.8.11
 python-louvain==0.16
 pytz==2019.1
 requests>=2.20.0
-scipy==1.7.3
+scipy==1.10.0
 six==1.16.0
 SQLAlchemy>=1.3.0
 textmining3==1.1.0
