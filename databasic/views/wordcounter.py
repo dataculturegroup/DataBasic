@@ -213,7 +213,7 @@ def process_upload(doc):
 
 
 def _process_words(words, ignore_case, ignore_stopwords, is_sample):
-    stopwords_language = NLTK_STOPWORDS_BY_LANGUAGE[g.current_lang]
+    stopwords_language = NLTK_STOPWORDS_BY_LANGUAGE.get(g.current_lang, "english")
     counts = wordhandler.get_word_counts(
         words,
         ignore_case,

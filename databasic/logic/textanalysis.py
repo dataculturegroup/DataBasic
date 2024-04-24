@@ -17,7 +17,7 @@ def _databasic_tokenize(text, ignore_case=True, remove_stopwords=True, lang='eng
     return [w for w in words if (w not in string.punctuation and w not in stopwordlist)]
 
 def term_document_matrix(texts, current_lang_code):
-    lang = NLTK_STOPWORDS_BY_LANGUAGE[current_lang_code]
+    lang = NLTK_STOPWORDS_BY_LANGUAGE.get(current_lang_code, "english")
     term_doc_matrix = textmining.TermDocumentMatrix(tokenizer=lambda text:_databasic_tokenize(text, lang=lang))
     for t in texts:
         term_doc_matrix.add_doc(t)
