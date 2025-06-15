@@ -8,6 +8,7 @@ Flask-DebugToolbar==0.11.0
 Flask-Mail==0.9.1
 Flask-WTF==1.2.*
 gdata-python3==3.0.1
+lxml_html_clean
 readability-lxml==0.8.1
 gspread==4.0.1
 gunicorn==20.1.0
