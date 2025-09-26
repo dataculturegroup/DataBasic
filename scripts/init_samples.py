@@ -4,6 +4,9 @@ import logging
 import requests
 import tempfile
 
+# need to have a default here so docker-based build doesn't require any env vars
+DEFAULT_SAMPLE_DATA_SERVER = 'http://static.databasic.io/'
+
 
 def init_samples():
     """
@@ -26,7 +29,7 @@ def init_samples():
         print("  Updated sample data with base dir: {}".format(base_dir))
     else:
         # copy from server to local temp dir and change to abs paths (to temp dir files)
-        url_base = os.environ.get('SAMPLE_DATA_SERVER', None)
+        url_base = os.environ.get('SAMPLE_DATA_SERVER', DEFAULT_SAMPLE_DATA_SERVER)
         for sample in samples:
             url = url_base + sample['source']
             print("  Loading sample data file: {}".format(url))
