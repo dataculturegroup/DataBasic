@@ -20,6 +20,8 @@ test_classes = [
 # set up all logging to DEBUG (cause we're running tests here!)
 logging.basicConfig(level=logging.DEBUG)
 log_formatter = logging.Formatter('%(asctime)s - %(name)s - %(levelname)s - %(message)s')
+directory_path = os.path.join(os.path.dirname(os.path.abspath(__file__)), 'logs')
+os.makedirs(directory_path, exist_ok=True)
 log_handler = logging.FileHandler(os.path.join('logs/','test.log'))
 log_handler.setFormatter(log_formatter)
 

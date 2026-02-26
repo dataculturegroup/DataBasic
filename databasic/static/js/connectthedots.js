@@ -16,17 +16,34 @@
       STICKY_OFFSET_TOP = -30,
       STICKY_OFFSET_BOTTOM = 80;
 
-  // map link data (indices) to node ids, populate node neighbors
+  // Populate node neighbors (supports links where source/target are ids OR objects OR indices)
+  var nodeById = new Map(data.nodes.map(function(n) { return [n.id, n]; }));
+
   data.nodes.forEach(function(n) {
     n.neighbors = [];
   });
 
   data.links.forEach(function(e) {
-    data.nodes[e.source].neighbors.push(data.nodes[e.target].id);
-    data.nodes[e.target].neighbors.push(data.nodes[e.source].id);
+    // Resolve endpoints to node objects
+    var s =
+      (typeof e.source === 'object') ? e.source :
+      (typeof e.source === 'number') ? data.nodes[e.source] :
+      nodeById.get(e.source);
 
-    e.source = data.nodes[e.source].id;
-    e.target = data.nodes[e.target].id;
+    var t =
+      (typeof e.target === 'object') ? e.target :
+      (typeof e.target === 'number') ? data.nodes[e.target] :
+      nodeById.get(e.target);
+
+    if (!s || !t) return;
+
+    // neighbors list used by hover/active logic
+    s.neighbors.push(t.id);
+    t.neighbors.push(s.id);
+
+    // Normalize links so later code can safely do e.source.id / e.target.id
+    e.source = s;
+    e.target = t;
   });
 
   // setup SVG dimensions
@@ -53,9 +70,9 @@
                        .clamp(true); // maps density score to maximum node distance
 
   var simulation = d3.forceSimulation()
-                     .force('charge', d3.forceManyBody().distanceMax(nodeDistance(density)))
-                     .force('link', d3.forceLink().id(function(d) { return d.id; }))
-                     .force('center', center);
+                    .force('charge', d3.forceManyBody().distanceMax(nodeDistance(density)))
+                    .force('link', d3.forceLink(data.links).id(function(d) { return d.id; }))
+                    .force('center', center);
 
   var ticksElapsed = 0,
       stableAt = 100;
@@ -128,8 +145,7 @@
 
   // start simulation
   simulation.nodes(data.nodes)
-            .on('tick', tickUpdate)
-            .force('link').links(data.links);
+            .on('tick', tickUpdate);
 
   // event handlers for dragging and setting active node
   var activeNode;

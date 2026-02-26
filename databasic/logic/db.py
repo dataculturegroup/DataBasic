@@ -4,6 +4,7 @@ import time
 import pytz
 from pymongo import MongoClient
 from bson.objectid import ObjectId
+from decimal import Decimal
 
 EXPIRE_AFTER = 60  # time in days
 logger = logging.getLogger(__name__)
@@ -15,6 +16,16 @@ class MongoHandler:
         logger.info("Connected to '{}' Mongo collection at {}".format(db_name, uri))
         self._client = MongoClient(uri, connect=False)
         self._db = self._client[db_name]
+
+    def convert_decimals(self, obj):
+        if isinstance(obj, Decimal):
+            return float(obj)
+        elif isinstance(obj, dict):
+            return {k: self.convert_decimals(v) for k, v in obj.items()}
+        elif isinstance(obj, list):
+            return [self.convert_decimals(v) for v in obj]
+        else:
+            return obj
 
     def save_words(self, collection, counts, ignore_case, ignore_stopwords, title, sample_id, source, extras=None):
         data_to_save = extras if extras is not None else {}
@@ -39,7 +50,7 @@ class MongoHandler:
 
     def save_csv(self, collection, results, sample_id, source):
         result = self._db[collection].insert_one({
-            'results': results,
+            'results': self.convert_decimals(results),
             'sample_id': str(sample_id),
             'source': source,
             'created_at': time.time()

@@ -7,7 +7,7 @@
       <li>{{ _('Full name: "%(name)s"', name=col['name']) }}</li>
     {% endif %}
     <li>{{_("This column is full of")}} {{ col['display_type_name'] }}</li>
-    {% if 'values' in col %}
+    {% if col.get('values') is not none %}
       <li>{{_("The unique values in this column are:")}}
       <ul>
         {% for val in col['values'] %}
@@ -15,7 +15,7 @@
         {% endfor %}
       </ul>
       </li>
-    {% elif 'most_freq_values' in col %}
+    {% elif col.get('most_freq_values') is not none %}
       <li>{{ _("The most frequent values in this column are:") }}
         <ul>
           {% for val in col['most_freq_values'] %}
@@ -28,10 +28,10 @@
         </ul>
       </li>
     {% endif %}
-    {% if 'max_str_len' in col %}
+    {% if col.get('max_str_len') is not none %}
       <li>{{ _("The longest string has %d characters" % col['max_str_len']) }}</li>
     {% endif %}
-    {% if 'min' in col %}
+    {% if col.get('min') is not none %}
       <li>
       {% if type_name == 'datetime' or type_name == 'date' %}
         {{ _('The earliest date is') }}
@@ -41,7 +41,7 @@
         {{_("The smallest number is") }} 
       {% endif %} <em>{{col['min']}}</em></li>
     {% endif %}
-    {% if 'max' in col %}
+    {% if col.get('max') is not none %}
       <li>
       {% if type_name == 'datetime' or type_name == 'date' %}
         {{ _('The latest date is') }}
@@ -51,16 +51,16 @@
         {{_("The biggest number is") }}
       {% endif %} <em>{{col['max']}}</em></li>
     {% endif %}
-    {% if 'sum' in col %}
+    {% if col.get('sum') is not none %}
       <li>{{_("The total is") }} <em>{{col['sum']|round(2)}}</em></li>
     {% endif %}
-    {% if 'mean' in col %}
+    {% if col.get('mean') is not none %}
       <li>{{_("The average is") }} <em>{{col['mean']|round(2)}}</em></li>
     {% endif %}
-    {% if 'median' in col %}
-      <li>{{_("The median is") }} <em>{{col['median']|round(2)}}</em></li>
+    {% if col.get('median') is not none %}
+      <li>{{ _("The median is") }} <em>{{ col['median']|round(2) }}</em></li>
     {% endif %}
-    {% if 'stdev' in col %}
+    {% if col.get('stdev') is not none %}
       <li>{{_("The standard deviation is") }} <em>{{col['stdev']|round(2)}}</em></li>
     {% endif %}
     {% if col['nulls'] > 0 %}
@@ -69,10 +69,10 @@
     {% if 'freq' in col %}
       <li>{{col['freq']|round(2)}}</li>
     {% endif %}
-    {% if 'len' in col %}
+    {% if col.get('len') is not none %}
       <li>{{_("The longest string is <em>%d</em> characters" % col['len']) }}</li>
     {% endif %}
-    {% if 'uniques' in col %}
+    {% if col.get('uniques') is not none %}
       <li>{{ _('There are <em>%d</em> unique values' % col['uniques']) }}</li>
     {% endif %}
   </ul>
