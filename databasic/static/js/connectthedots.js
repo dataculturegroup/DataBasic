@@ -16,14 +16,14 @@
       STICKY_OFFSET_TOP = -30,
       STICKY_OFFSET_BOTTOM = 80;
 
-  // Populate node neighbors (supports links where source/target are ids OR objects OR indices)
+  // Populate node neighbors (supports edges where source/target are ids OR objects OR indices)
   var nodeById = new Map(data.nodes.map(function(n) { return [n.id, n]; }));
 
   data.nodes.forEach(function(n) {
     n.neighbors = [];
   });
 
-  data.links.forEach(function(e) {
+  data.edges.forEach(function(e) {
     // Resolve endpoints to node objects
     var s =
       (typeof e.source === 'object') ? e.source :
@@ -69,10 +69,18 @@
                        .range([25, 500])
                        .clamp(true); // maps density score to maximum node distance
 
+  // Create link force without links first (prevents initialization issues with `.index`)
+  var linkForce = d3.forceLink()
+                    .id(function(d) { return d.id; });
+
   var simulation = d3.forceSimulation()
                     .force('charge', d3.forceManyBody().distanceMax(nodeDistance(density)))
-                    .force('link', d3.forceLink(data.links).id(function(d) { return d.id; }))
+                    .force('link', linkForce)
                     .force('center', center);
+
+  // Set nodes before links
+  simulation.nodes(data.nodes);
+  linkForce.links(data.edges);
 
   var ticksElapsed = 0,
       stableAt = 100;
@@ -87,7 +95,7 @@
   var edge = svg.append('g')
                 .classed('edges', true)
                 .attr('aria-hidden', 'true')
-                .selectAll('line').data(data.links)
+                .selectAll('line').data(data.edges)
                                   .enter().append('line')
                                   .style('opacity', 0)
                                   .attr('stroke-width', EDGE_WIDTH);

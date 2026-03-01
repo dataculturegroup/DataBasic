@@ -180,10 +180,10 @@ class ConnectTheDotsTest(unittest.TestCase):
         results = ctd.get_summary(test_data_path)
         data = json.loads(results['json'])
 
-        self.assertIsInstance(data['links'], list)
+        self.assertIsInstance(data['edges'], list)
 
         # Compare edges as undirected pairs of node IDs
-        edges = sorted({tuple(sorted((e['source'], e['target']))) for e in data['links']})
+        edges = sorted({tuple(sorted((e['source'], e['target']))) for e in data['edges']})
 
         self.assertEqual(len(edges), 4)
         self.assertEqual(edges, [('A', 'C'), ('B', 'C'), ('C', 'D'), ('C', 'E')])
