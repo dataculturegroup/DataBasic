@@ -1,6 +1,6 @@
-import os, sys, json, gspread, logging
-import gdata.docs.service
-from oauth2client.client import SignedJwtAssertionCredentials, OAuth2WebServerFlow
+import gspread, logging
+from google_auth_oauthlib.flow import Flow
+import google.auth.transport.requests
 
 _oauth = None   # singleton instance
 
@@ -22,24 +22,6 @@ def authorize(code):
     logger.debug("authorize %s", code)
     _oauth.authorize(code)
 
-def open_doc_from_url(url, redirect_to):
-    logger.debug("open_doc %s -> %s", url, redirect_to)
-    _oauth.redirect_to = redirect_to
-    if not _oauth.authorized:
-        logger.warning("not authorized %s -> %s", url, redirect_to)
-        _oauth.doc_url = url
-        return {
-            'authenticate': _oauth.authenticate_app(),
-            'doc': None
-        }
-    else:
-        logger.debug("authorized for %s -> %s", url, redirect_to)
-        _oauth.doc_url = None
-        return {
-            'authenticate': None,
-            'doc': _oauth.open_url(url)
-        }
-
 def redirect_to():
     return _oauth.redirect_to
 
@@ -56,27 +38,48 @@ class OAuthHandler:
         self.authorized = False
         self.redirect_to = '' # the url to return to after the user has granted permissions
         self.doc_url = None   # the url of the doc to open after the user has granted permissions
-        self._data_client = gdata.docs.service.DocsService() # used for docs
         self._key = { 'client_id': client_id, 'client_secret': client_secret}
         self._client = None     # initialize so we can check later
-        self.flow = OAuth2WebServerFlow(
-            client_id=self._key['client_id'],
-            client_secret=self._key['client_secret'],
-            scope=[
-                'https://www.googleapis.com/auth/drive.readonly', 
-                'https://spreadsheets.google.com/feeds', 
-                'https://docs.google.com/feeds'],
-            redirect_uri=redirect_uri)
+
+        self.scopes = [
+            "https://www.googleapis.com/auth/drive.readonly",
+            "https://www.googleapis.com/auth/spreadsheets.readonly",
+        ]
+
+        client_config = {
+            "web": {
+                "client_id": client_id,
+                "client_secret": client_secret,
+                "auth_uri": "https://accounts.google.com/o/oauth2/auth",
+                "token_uri": "https://oauth2.googleapis.com/token",
+                "redirect_uris": [redirect_uri],
+            }
+        }
+
+        self.flow = Flow.from_client_config(
+            client_config,
+            scopes=self.scopes,
+            redirect_uri=redirect_uri,
+        )
 
     def authenticate_app(self):
         logger.debug("OAuthHandler.authenticate_app")
-        return self.flow.step1_get_authorize_url()
+        auth_url, state = self.flow.authorization_url(
+            access_type="offline",
+            include_granted_scopes="true",
+            prompt="consent",   # ensures refresh token on first consent
+        )
+        self._state = state
+        return auth_url
 
     def authorize(self, code):
         logger.debug("OAuthHandler.authorize")
-        credentials = self.flow.step2_exchange(code)
-        self._client = gspread.authorize(credentials)
-        self._data_client.ClientLogin(self._key['client_id'], self._key['client_secret'])
+        self.flow.fetch_token(code=code)
+        creds = self.flow.credentials
+        request = google.auth.transport.requests.Request()
+        if creds.expired and creds.refresh_token:
+            creds.refresh(request)
+        self._client = gspread.authorize(creds)
         self.authorized = True
 
     def open_url(self, url):

@@ -109,11 +109,20 @@ js_ctd = Bundle('js/lib/d3.min.js', 'js/lib/saveSvgAsPng.js', 'js/lib/underscore
                 filters='jsmin', output='gen/packed_ctd.js')
 assets.register('js_ctd', js_ctd)
 css_bundle = Bundle('css/bootstrap.css', 'css/font-awesome.min.css',
-                    filters='cssmin', output='gen/packed.css')
+                    filters='rcssmin', output='gen/packed.css')
 assets.register('css_base', css_bundle)
 
 # initialize helper components
-babel = Babel(app)
+def get_locale():
+    logger.info("Current language from locale selector is %s " %  g.get('current_lang'))
+    #Welsh site defaults to Welsh English
+    if g.get('current_lang') is None:
+        if ('cymru' in request.host) and ((g.get('current_lang') != "en_CY") and (g.get('current_lang') != "cy")):
+            g.current_lang = "en_CY"
+            logger.info("Setting default language to Welsh English")
+    return g.get('current_lang', request.accept_languages.best_match(VALID_LANGUAGES, 'en'))
+
+babel = Babel(app, locale_selector=get_locale)
 mongo = databasic.logic.db.MongoHandler(app.config.get('MONGODB_URL'), app.config.get('MONGODB_NAME'))
 databasic.logic.oauth.init(app.config.get('GOOGLE_CLIENT_ID'), app.config.get('GOOGLE_CLIENT_SECRET'),
                  app.config.get('OAUTH_REDIRECT_URI'))
@@ -159,18 +168,6 @@ def before():
                 g.messages = json.dumps(f.read())
 
         request.view_args.pop('lang_code')
-
-
-@babel.localeselector
-def get_locale():
-    logger.info("Current language from locale selector is %s " %  g.get('current_lang'))
-    #Welsh site defaults to Welsh English
-    if g.get('current_lang') is None:
-        if ('cymru' in request.host) and ((g.get('current_lang') != "en_CY") and (g.get('current_lang') != "cy")):
-            g.current_lang = "en_CY"
-            logger.info("Setting default language to Welsh English")
-    return g.get('current_lang', request.accept_languages.best_match(VALID_LANGUAGES, 'en'))
-
 
 @app.route('/')
 def index():

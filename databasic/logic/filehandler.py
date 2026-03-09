@@ -8,14 +8,15 @@ import csv
 import docx2txt
 from werkzeug.utils import secure_filename
 from bs4 import UnicodeDammit
+from charset_normalizer import from_bytes
+import openpyxl
 
 import databasic
 
 logger = logging.getLogger(__name__)
 
-ENCODING_UTF_8 = 'utf-8'
-ENCODING_UTF_16 = 'utf-16'
-ENCODING_LATIN_1 = 'latin-1'
+ENCODING_UTF_8 = 'utf_8'
+ENCODING_UTF_16 = 'utf_16'
 TEMP_DIR = tempfile.gettempdir()
 
 samples = []
@@ -116,18 +117,49 @@ def open_with_correct_encoding(file_path):
     and fallback to any others we want.  This returns the file handle, and the content, since 
     you have to try to read the file for it to fail on a content encoding error.
     """
-    file_handle = open(file_path, 'r')
-    content = file_handle.read()
-    dammit = UnicodeDammit(content)
-    file_handle.seek(0)
-    return [dammit.original_encoding, file_handle, content]
+    file_handle = open(file_path, 'rb')
+
+    with file_handle as f:
+        raw_data = f.read()
+
+    result = from_bytes(raw_data).best()
+
+    if result is None:
+        print("Could not detect encoding. Falling back to utf-8.")
+        encoding = ENCODING_UTF_8
+        content = raw_data.decode(encoding, errors='replace')
+    else:
+        encoding = result.encoding or ENCODING_UTF_8
+        content = str(result)
+
+    logger.info("Detected encoding %s for file %s" % (encoding, file_path))
+    return [encoding, file_handle, content]
 
 
 def convert_to_csv(file_path):
     ext = _get_extension(file_path)
+
     if ext == '.csv':
         return [file_path]
-    elif ext == '.xlsx' or ext == '.xls':
+
+    elif ext == '.xlsx':
+        wb = openpyxl.load_workbook(file_path, data_only=True, read_only=True)
+
+        files = []
+        for ws in wb.worksheets:
+            name = ws.title
+            new_file = _get_temp_file('-' + name + '.csv')
+
+            with open(new_file, 'w') as f:
+                writer = csv.writer(f, delimiter=str(','), quotechar=str('"'))
+                for row in ws.iter_rows(values_only=True):
+                    writer.writerow(list(row))
+
+            files.append(new_file)
+
+        return files
+
+    elif ext == '.xls':
         wb = xlrd.open_workbook(file_path)
         files = []
         for i in range(wb.nsheets):
@@ -262,4 +294,5 @@ def _get_extension(file_path):
 
 
 def _docx_to_txt(file_path):
-    return docx2txt.process(file_path)
+    result = docx2txt.process(file_path)
+    return result

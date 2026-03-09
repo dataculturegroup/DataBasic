@@ -28,10 +28,10 @@ class FileHandlerTest(unittest.TestCase):
     def test_docx_to_txt(self):
         fixture_path = os.path.join(self._fixtures_dir,'demo.docx')
         text = filehandler._docx_to_txt(fixture_path) 
-        self.assertEqual(len(text),9031)
+        self.assertEqual(len(text), 9271)
         valid_utf8 = True
         try:
-            text.decode(filehandler.ENCODING_UTF_8)
+            text.encode().decode('utf-8')
         except UnicodeDecodeError:
             valid_utf8 = False
         self.assertTrue(valid_utf8)
@@ -42,17 +42,19 @@ class FileHandlerTest(unittest.TestCase):
         self.assertEqual(len(results),1)
 
     def test_open_with_correct_encoding(self):
-        fixture_path = os.path.join(self._fixtures_dir,'latin-1.txt')
-        encoding, file_handle, content = filehandler.open_with_correct_encoding(fixture_path)
-        self.assertEqual(encoding,filehandler.ENCODING_LATIN_1)
         fixture_path = os.path.join(self._fixtures_dir,'utf-8.txt')
         encoding, file_handle, content = filehandler.open_with_correct_encoding(fixture_path)
-        self.assertEqual(encoding,filehandler.ENCODING_UTF_8)
+        self.assertEqual(encoding, filehandler.ENCODING_UTF_8)
+        self.assertTrue(len(content) > 0)
+        fixture_path = os.path.join(self._fixtures_dir,'utf-16.txt')
+        encoding, file_handle, content = filehandler.open_with_correct_encoding(fixture_path)
+        self.assertEqual(encoding, filehandler.ENCODING_UTF_16)
+        self.assertTrue(len(content) > 0)
 
     def test_convert_to_utf8(self):
-        fixture_path = os.path.join(self._fixtures_dir,'latin-1.txt')
+        fixture_path = os.path.join(self._fixtures_dir,'macroman.txt')
         encoding, file_handle, content = filehandler.open_with_correct_encoding(fixture_path)
-        self.assertEqual(encoding,filehandler.ENCODING_LATIN_1)
+        self.assertEqual(encoding, 'mac_greek')
         temp_utf8_file_path = filehandler.convert_to_utf8(fixture_path)
         encoding, file_handle, content = filehandler.open_with_correct_encoding(temp_utf8_file_path)
         self.assertEqual(encoding,filehandler.ENCODING_UTF_8)

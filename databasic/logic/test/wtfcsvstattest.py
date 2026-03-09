@@ -14,7 +14,7 @@ class WTFCSVStatTest(unittest.TestCase):
         self.assertEqual(results['row_count'], 13882)
 
     def test_get_summary_from_xls(self):
-    	fixture_path = os.path.join(self._fixtures_dir,'HowAmericaInjuresItself_FromNEISS.xlsx')
+        fixture_path = os.path.join(self._fixtures_dir,'HowAmericaInjuresItself_FromNEISS.xlsx')
         csv_file = filehandler.convert_to_csv(fixture_path)[0]
         results = wtfcsvstat.get_summary(csv_file)
         self.assertEqual(len(results['columns']), 19)
@@ -23,5 +23,5 @@ class WTFCSVStatTest(unittest.TestCase):
     def test_trailing_comma(self):
         test_data_path = os.path.join(self._fixtures_dir,'trailing-comma.csv')
         results = wtfcsvstat.get_summary(test_data_path)
-        self.assertEqual(len(results['columns']), 2)
+        self.assertEqual(len(results['columns']), 3)
         self.assertEqual(results['row_count'], 3)

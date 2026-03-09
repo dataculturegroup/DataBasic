@@ -8,9 +8,10 @@ from operator import itemgetter
 import math
 import logging
 import six
+from sqlalchemy import values
 import databasic.logic.wordhandler as wordhandler
 import random
-from csvkit import table
+import agate
 from dateutil.parser import parse
 import databasic.logic.filehandler as filehandler
 
@@ -78,7 +79,7 @@ class WTFCSVStat:
         delim = self.detectDelimiter()
 
         try:
-            tab = table.Table.from_csv(self.input_file, delimiter=delim, quotechar='"')
+            tab = agate.Table.from_csv(self.input_file, delimiter=delim, quotechar='"')
         except Exception as e:
             logger.debug("Error making a table from the CSV")
             logger.error(e)
@@ -86,35 +87,31 @@ class WTFCSVStat:
 
         logger.debug("  %f ms to create table from csv" % (1000*(time.time()-start_time)))
 
-        row_count = tab.count_rows() + 1 # this value is inaccurate so I'm adding 1
-        if self.has_header_row:
-            row_count -= 1
+        row_count = len(tab.rows)
         results['row_count'] = row_count
         logger.debug("  found %d rows" % row_count)
 
-        column_count = len(tab)
+        column_count = len(tab.column_names)
         empty_header_count = 0
-        
-        results['columns'] = []
-        for c in tab:
-            logger.debug("  column: %s" % c.name)
 
+        results['columns'] = []
+        for c in tab.columns:
             """
             skip over columns that don't have headers
             also count the number of columns without headers
             and if all columns are missing headers, tell the user that the csv is poorly formatted
             """
-            if c.name == '_unnamed':
+            if (c.name is None) or (str(c.name).strip() == '') or (str(c.name) == '_unnamed'):
                 empty_header_count += 1
                 if empty_header_count == column_count:
                     return 'bad_formatting'
                 continue
 
             column_info = {}
-            column_info['index'] = c.order + 1
+            column_info['index'] = c.index + 1
             column_info['name'] = c.name
             
-            values = sorted([i for i in c if i is not None])
+            values = c.values_without_nulls_sorted()
 
             stats = {} 
 
@@ -132,7 +129,7 @@ class WTFCSVStat:
             sampled_value_count = len(sampled_values)
 
             for v in sampled_values:
-                if type(v) in [float, int, complex] or self.is_number(v):
+                if type(v) in [float, int, complex, agate.Number] or self.is_number(v):
                     number_count += 1
                 if self.is_date(v) is not None:
                     v = self.is_date(v)
@@ -152,32 +149,31 @@ class WTFCSVStat:
                 
             threshold = 0.5
 
+            col_data_type = c.data_type
             if number_percent < threshold:
                 if date_percent > threshold:
                     if time_percent > threshold:
-                        c.type = datetime.datetime
+                        col_data_type = datetime.datetime
                     else:
-                        c.type = datetime.date
+                        col_data_type = datetime.date
                 elif time_percent > threshold:
-                    c.type = datetime.time
+                    col_data_type = datetime.time
             else:
-                c.type = float
-
-            logger.debug("    type is %s (%f ms)" % (c.type, (time.time()-start_time)*1000))
+                col_data_type = float
 
             # clean the data, based on the type it is
             start_time = time.time()
-            if c.type == datetime.datetime or c.type == datetime.date or c.type == datetime.time:
+            if col_data_type == datetime.datetime or col_data_type == datetime.date or col_data_type == datetime.time:
                 old_len = len(values)
                 values = [ self.is_date(v).replace(tzinfo=None) for v in values if self.is_date(v) is not None ]
                 new_len = len(values)
                 #logger.debug("    removed %d bad values" % (old_len-new_len))
-            elif c.type == float:
+            elif col_data_type == float:
                 old_len = len(values)
-                values = [ self.is_number(v) for v in values if self.is_number(v) is not None ]
+                values = [ float(self.is_number(v)) for v in values if self.is_number(v) is not None ]
                 new_len = len(values)
                 #logger.debug("    removed %d bad values" % (old_len-new_len))
-            elif c.type == str:
+            elif col_data_type == str:
                 old_len = len(values)
                 values = [ v for v in values if v != '&nbsp;' ]
                 new_len = len(values)
@@ -188,31 +184,34 @@ class WTFCSVStat:
             start_time = time.time()
             for op in OPERATIONS:
                 op_start_time = time.time()
-                stats[op] = getattr(self, 'get_%s' % op)(c, values, stats)
+                if (len(values) == 0) or (col_data_type == NoneType):
+                    stats[op] = None
+                else:
+                    stats[op] = getattr(self, 'get_%s' % op)(c, values, stats, col_data_type)
                 #logger.debug("      %s in %f" % (op,(time.time()-op_start_time)*1000))
             #logger.debug("    default ops took %f ms" % ((time.time()-start_time)*1000))
 
-            if c.type == None:
+            if col_data_type == None:
                 column_info['type'] = 'empty'
                 continue
                 
-            column_info['type'] = c.type.__name__
+            column_info['type'] = str(col_data_type)
             column_info['nulls'] = stats['nulls']
 
             t = column_info['type']
             dt = 'undefined'
-            if any(t in s for s in ['float', 'int', 'long', 'complex']):
-                dt = 'numbers'
-            if 'str' in t:
-                dt = 'text'
-            if 'time' in t:
-                dt = 'times'
-            if 'date' in t:
-                dt = 'dates'
-            if 'datetime' in t:
-                dt = 'dates and times'
-            if 'bool' in t:
+            dtype = col_data_type if isinstance(col_data_type, type) else type(col_data_type)
+
+            if dtype is agate.Boolean:
                 dt = 'booleans'
+            elif dtype in (agate.DateTime, datetime.datetime, datetime.time, datetime.date):
+                dt = 'dates and times'
+            elif dtype in (int, float, agate.Number):
+                dt = 'numbers'
+            elif dtype in (agate.Text, str):
+                dt = 'text'
+            elif dtype is agate.TimeDelta:
+                dt = 'times'
             column_info['display_type_name'] = dt
 
             if dt in ['numbers', 'dates', 'times', 'dates and times']:
@@ -230,7 +229,9 @@ class WTFCSVStat:
                         column_info['stdev'] = stats['stdev']
             else:
                 # if there are few unique values, get every value and their frequency
-                if len(stats['unique']) <= MAX_UNIQUE and c.type is not bool:
+                if (stats['unique'] == None) or (len(stats['unique']) == 0):
+                    pass
+                elif len(stats['unique']) <= MAX_UNIQUE and col_data_type is not bool:
                     column_info['values'] = self.get_most_freq_values(stats)
                     column_info['most_freq_values'] = self.get_most_freq_values(stats)
                 else:
@@ -239,14 +240,14 @@ class WTFCSVStat:
                     # get the most frequent repeating values, if any
                     if column_info['uniques'] != len(values):
                         column_info['most_freq_values'] = self.get_most_freq_values(stats)
-                        if c.type is not bool:
+                        if col_data_type is not bool:
                             column_info['others'] = stats['others']
 
                     # for text columns, get the longest string
-                    if c.type == six.text_type:
+                    if (col_data_type == six.text_type or isinstance(col_data_type, agate.Text)):
                         column_info['max_str_len'] = stats['len']
 
-            if 'str' in column_info['type'] and not 'most_freq_values' in column_info:
+            if ('str' in column_info['type'] or 'text' in column_info['type']) and not 'most_freq_values' in column_info:
                 # TODO: these results could be cleaned up using textmining
                 # TODO: send in the language properly?
                 stopwords_language = NLTK_STOPWORDS_BY_LANGUAGE.get(language, "english")
@@ -268,65 +269,60 @@ class WTFCSVStat:
                 })
         return most_freq_values
 
-    def get_min(self, c, values, stats):
-        if c.type == NoneType:
+    def get_min(self, c, values, stats, col_data_type):
+        if col_data_type == NoneType:
             return None
 
         v = min(values)
 
         return format_datetime(c, v)
 
-    def get_max(self, c, values, stats):
-        if c.type == NoneType:
+    def get_max(self, c, values, stats, col_data_type):
+        if col_data_type == NoneType:
             return None
 
         v = max(values)
 
         return format_datetime(c, v)
 
-    def get_sum(self, c, values, stats):
-        if c.type not in [int, float]:
+    def get_sum(self, c, values, stats, col_data_type):
+        if len(values) == 0 or col_data_type not in (int, float, agate.Number):
             return None
 
         return sum(values)
 
-    def get_mean(self, c, values, stats):
-        if c.type not in [int, float]:
+    def get_mean(self, c, values, stats, col_data_type):
+        if len(values) == 0 or col_data_type not in (int, float, agate.Number):
             return None
 
         if 'sum' not in stats:
-            stats['sum'] = self.get_sum(c, values, stats)
+            stats['sum'] = self.get_sum(c, values, stats, col_data_type)
 
         return float(stats['sum']) / len(values)
 
-    def get_median(self, c, values, stats):
-        if c.type not in [int, float]:
+    def get_median(self, c, values, stats, col_data_type):
+        if len(values) == 0 or col_data_type not in (int, float, agate.Number):
             return None
 
         return median(values)
 
-    def get_stdev(self, c, values, stats):
-        if c.type not in [int, float]:
+    def get_stdev(self, c, values, stats, col_data_type):
+        if len(values) == 0 or col_data_type not in (int, float, agate.Number):
             return None
 
         if 'mean' not in stats:
-            stats['mean'] = self.get_mean(c, values, stats)
+            stats['mean'] = self.get_mean(c, values, stats, col_data_type)
 
-        return math.sqrt(sum(math.pow(v - stats['mean'], 2) for v in values) / len(values)) 
+        return math.sqrt(sum(math.pow(float(v) - float(stats['mean']), 2) for v in values) / len(values)) 
 
-    def get_nulls(self, c, values, stats):
-        null_count = 0
-        if c.has_nulls():
-            for v in c:
-                if v is None:
-                    null_count += 1
-        return null_count
+    def get_nulls(self, c, values, stats, col_data_type):
+        return len(c.values()) - len(c.values_without_nulls())
 
-    def get_unique(self, c, values, stats):
+    def get_unique(self, c, values, stats, col_data_type):
         return set(values) 
 
-    def get_freq(self, c, values, stats):
-        if c.type not in [int, float, complex]:
+    def get_freq(self, c, values, stats, col_data_type):
+        if col_data_type not in (int, float, complex, agate.Number):
             mostfrequent = freq(values)
         else:
             mostfrequent = freq(values, n=NUMBER_MAX_UNIQUE)
@@ -334,19 +330,22 @@ class WTFCSVStat:
             stats['others'] = len([v for v in values if v not in (v2 for v2, c in mostfrequent)])
         return mostfrequent
 
-    def get_len(self, c, values, stats):
-        if c.type != six.text_type:
+    def get_len(self, c, values, stats, col_data_type):
+        if (col_data_type != six.text_type and (not isinstance(col_data_type, agate.Text))):
             return None
-
-        return c.max_length()
+        if not values:
+            return None
+        return max(len(six.text_type(v)) for v in values)
 
     # not *literally* deciles, but kinda similar
-    def get_deciles(self, c, values, stats):
-        if c.type not in [int, float, datetime.date, datetime.time, datetime.datetime] or len(values) <= NUMBER_MAX_UNIQUE:
+    def get_deciles(self, c, values, stats, col_data_type):
+        if len(values) <= NUMBER_MAX_UNIQUE:
+            return None
+        if col_data_type not in (int, float, datetime.date, datetime.time, datetime.datetime):
             return None
         mx = max(values)
         mn = min(values)
-        if c.type is float:
+        if col_data_type is float:
             range_size = (mx-mn)/10.0
         else:
             range_size = (mx-mn)/10
@@ -362,9 +361,9 @@ class WTFCSVStat:
             return {'value': val, 'count': count}
 
         def pretty_value(val):
-            if c.type is int:
+            if isinstance(val, int):
                 return str(val)
-            if c.type in [datetime.date, datetime.time, datetime.datetime]:
+            if isinstance(val, (datetime.date, datetime.time, datetime.datetime)):
                 return format_datetime(c, val)
             if mx-mn > 10:
                 return str(round(val)).replace('.0', '')
@@ -408,7 +407,7 @@ class WTFCSVStat:
         return None
 
     def _csv_has_rows(self, file_path):
-        with open(file_path, 'rU') as f:
+        with open(file_path, 'r') as f:
             #Read in parameter values as a dictionary
             paradict = csv.DictReader(f)
             for line in paradict:
@@ -416,10 +415,10 @@ class WTFCSVStat:
         return False
 
 def format_datetime(c, val):
-    if c.type in [datetime.datetime, datetime.date, datetime.time]:
-        if c.type is datetime.date:
+    if isinstance(val, (datetime.datetime, datetime.date, datetime.time)):
+        if isinstance(val, datetime.date):
             return "%02d/%02d/%02d" % (val.day,val.month,val.year)
-        elif c.type is datetime.time:
+        elif isinstance(val, datetime.time):
             return "%02d:%02d" % (val.hour,val.minute)
         else:
             return "%02d/%02d/%02d %02d:%02d" % (val.day,val.month,val.year,val.hour,val.minute)
