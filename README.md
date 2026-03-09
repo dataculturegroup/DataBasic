@@ -40,6 +40,16 @@ STATIC_DEPS=true pip install lxml
 gunicorn databasic:app
 ```
 
+#### Workaround: macOS Fork Issue
+
+If you experience looping errors such as the following when you start the app:
+
+```
+objc[60701]: +[NSString initialize] may have been in progress in another thread when fork() was called. We cannot safely call it or ignore it in the fork() child process. Crashing instead. Set a breakpoint on objc_initializeAfterForkError to debug.
+```
+
+This resolved by running `export OBJC_DISABLE_INITIALIZE_FORK_SAFETY=YES` prior to starting the app, or by adding this to your `.env` file.
+
 Deploying
 ---------
 
