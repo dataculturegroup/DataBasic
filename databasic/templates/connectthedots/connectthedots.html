@@ -12,7 +12,7 @@
   <script type="text/javascript" src="/static/js/{{ tool_name }}-validate.js"></script>
   <script src="/static/js/tool.js"></script>
   <script type="text/javascript">
-    var textareaText= "{{ _('Paste rows from an Excel or Google spreadsheet, with this format:') }}";
+    var textareaText= "{{ _('Paste rows from an Excel or Google spreadsheet, with this format, tab-separated or comma-separated:') }}";
     var textareaText2 ="{{ _('source target') }}";
     var $area = $('#area'),
         text = textareaText + '\n' + textareaText2 + '\n' + 'A\tB\nA\tC\nB\tC';
@@ -65,7 +65,7 @@
     </div>
     <div style="margin:0 20%;">
     {% if input_error == 'paste' %}
-      <h4 class="text-center" role="alert">{{ _('Error: Paste failed! Make sure your input has exactly two tab-separated columns and try again.') }}</h4>
+      <h4 class="text-center" role="alert">{{ _('Error: Paste failed! Make sure your input has exactly two tab-separated or comma-separated columns and try again.') }}</h4>
     {% elif input_error == 'upload' %}
       <h4 class="text-center" role="alert">{{ _('Error: Upload failed! Make sure your file has exactly two columns and try again.') }}</h4>
     {% endif %}

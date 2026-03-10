@@ -99,7 +99,7 @@ def download_activity_guide():
     filename = "WTFcsv Activity Guide.pdf"
     dir_path = os.path.join(get_base_dir(), 'databasic', 'static', 'files', 'activity-guides', g.current_lang)
     logger.debug("download activity guide from %s/%s", dir_path, filename)
-    return send_from_directory(directory=dir_path, filename=filename)
+    return send_from_directory(directory=dir_path, path=filename)
 
 
 @mod.route('/titanic.csv')
@@ -126,7 +126,7 @@ def _download_sample_data(source, filename_to_send):
     dirname = os.path.dirname(sample_path)
     filename = os.path.basename(sample_path)
     logger.debug("download sample data from%s/%s", dirname, filename)
-    return send_from_directory(directory=dirname, filename=filename_to_send)
+    return send_from_directory(directory=dirname, path=filename_to_send)
 
 
 def render_results(doc_id, sheet_idx):
