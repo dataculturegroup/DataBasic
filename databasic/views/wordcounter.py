@@ -195,7 +195,7 @@ def download_activity_guide():
     filename = "WordCounter Activity Guide.pdf"
     dir_path = os.path.join(get_base_dir(),'databasic','static','files','activity-guides',g.current_lang)
     logger.debug("download activity guide from %s/%s", dir_path, filename)
-    return send_from_directory(directory=dir_path, filename=filename)
+    return send_from_directory(directory=dir_path, path=filename)
 
 
 @mod.route('/run-activity')

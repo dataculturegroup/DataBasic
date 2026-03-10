@@ -1,7 +1,8 @@
 import logging
 import operator
 import os
-import re
+import csv
+import io
 import sys
 from collections import OrderedDict
 from databasic import mongo, get_base_dir
@@ -97,20 +98,22 @@ def process_sample(source):
 def process_paste(text, has_header_row=True):
     """
     Return results for a pasted table
+    Supports both comma and tab delimited input
     """
-    rows = text.splitlines()
-    csv_rows = []
 
-    for r in rows:
-        groups = re.findall(r'"(.*?)+"|\t', r)
-        if len(groups) == 3:
-            csv_rows.append((groups[0], groups[2]))
-        elif len(groups) == 1:
-            csv_rows.append((r.split('\t')[0], r.split('\t')[1]))
-        else:
+    # Detect delimiter
+    delimiter = '\t' if '\t' in text else ','
+
+    reader = csv.reader(io.StringIO(text), delimiter=delimiter)
+
+    csv_rows = []
+    for row in reader:
+        if len(row) < 2:
             return None
+        csv_rows.append((row[0], row[1]))
 
     headers = csv_rows.pop(0) if has_header_row else ['source', 'target']
+
     file_path = filehandler.write_to_csv(headers, csv_rows)
     file_size = os.stat(file_path).st_size
     logger.debug('[CTD] File size: %d bytes', file_size)
@@ -248,7 +251,7 @@ def download_user_template():
     filename = "ctd-template.csv"
     dir_path = os.path.join(get_base_dir(), 'databasic', 'static', 'files', 'user-templates', g.current_lang)
     logger.debug("download user template from %s/%s", dir_path, filename)
-    return send_from_directory(directory=dir_path, filename=filename)
+    return send_from_directory(directory=dir_path, path=filename)
 
 
 @mod.route('/connect-the-dots-activity-guide.pdf')
@@ -256,4 +259,4 @@ def download_activity_guide():
     filename = "Connect the Dots Activity Guide.pdf"
     dir_path = os.path.join(get_base_dir(), 'databasic', 'static', 'files', 'activity-guides', g.current_lang)
     logger.debug("download activity guide from %s/%s", dir_path, filename)
-    return send_from_directory(directory=dir_path, filename=filename)
+    return send_from_directory(directory=dir_path, path=filename)
