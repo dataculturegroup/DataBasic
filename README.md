@@ -120,6 +120,8 @@ $ bash translations-compile.sh [LANGUAGE ARGUMENT]
 This command compiles the translations from the .po files into binary form. You need to run this every time you
 update a .po file. Then restart the app.
 
+To compile all languages, you can run `bash translations-compile.sh all`
+
 Seeking Databasic Translators
 -----------------------------
 
