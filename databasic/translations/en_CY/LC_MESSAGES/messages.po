@@ -7,16 +7,16 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2021-05-02 06:54-0400\n"
+"POT-Creation-Date: 2026-03-12 11:56-0400\n"
 "PO-Revision-Date: 2021-03-02 06:18-0500\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language: en_CY\n"
 "Language-Team: en_CY <LL@li.org>\n"
-"Plural-Forms: nplurals=2; plural=(n != 1)\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Generated-By: Babel 2.8.0\n"
+"Generated-By: Babel 2.18.0\n"
 
 #: databasic/forms.py:11
 msgid "Paste text"
@@ -335,7 +335,9 @@ msgid "go to data basic home page"
 msgstr ""
 
 #: databasic/templates/connectthedots/connectthedots.html:15
-msgid "Paste rows from an Excel or Google spreadsheet, with this format:"
+msgid ""
+"Paste rows from an Excel or Google spreadsheet, with this format, tab-"
+"separated or comma-separated:"
 msgstr ""
 
 #: databasic/templates/connectthedots/connectthedots.html:16
@@ -364,7 +366,7 @@ msgstr ""
 #: databasic/templates/connectthedots/connectthedots.html:68
 msgid ""
 "Error: Paste failed! Make sure your input has exactly two tab-separated "
-"columns and try again."
+"or comma-separated columns and try again."
 msgstr ""
 
 #: databasic/templates/connectthedots/connectthedots.html:70
@@ -618,7 +620,9 @@ msgstr ""
 
 #: databasic/templates/culture/connections.html:32
 #: databasic/templates/culture/questions.html:35
+#: databasic/templates/culture/sculpture.html:30
 #: databasic/templates/culture/sketch.html:35
+#: databasic/templates/culture/word_webs.html:31
 msgid "Download and print the activity guide"
 msgstr ""
 
@@ -659,10 +663,10 @@ msgstr ""
 #: databasic/templates/culture/convince.html:58
 #: databasic/templates/culture/questions.html:58
 #: databasic/templates/culture/remix.html:85
-#: databasic/templates/culture/sculpture.html:80
+#: databasic/templates/culture/sculpture.html:97
 #: databasic/templates/culture/sketch.html:58
 #: databasic/templates/culture/storybook.html:58
-#: databasic/templates/culture/word_webs.html:56
+#: databasic/templates/culture/word_webs.html:69
 msgid "Have Everyone Share Back"
 msgstr ""
 
@@ -706,9 +710,8 @@ msgid ""
 "how-much-water-do-you-use\">Walk this Way infographic from Good "
 "Magazine</a>"
 msgstr ""
-"Printouts of the <a href=\"https://www.data.cymru/eng/way-to-go-infographic\">"
-"Way To Go Campaign infographic from "
-"Welsh Government </a>"
+"Printouts of the <a href=\"https://www.data.cymru/eng/way-to-go-"
+"infographic\">Way To Go Campaign infographic from Welsh Government </a>"
 
 #: databasic/templates/culture/convince.html:32
 msgid "A room with space at the front"
@@ -1051,7 +1054,7 @@ msgid ""
 " on hand:"
 msgstr ""
 
-#: databasic/templates/culture/deconstruct.html:33
+#: databasic/templates/culture/deconstruct.html:27
 msgid ""
 "Printouts of a visualization (we often use <a "
 "href=\"https://foodtechconnect.com/2012/01/10/usaid-infographics-on-"
@@ -1059,18 +1062,24 @@ msgid ""
 " href=\"http://owni.fr/files/2010/11/12-e1288712778782.jpg\">this one "
 "about the Iraq war</a>); print out 1 paper for every two or three "
 "participants)"
-msgstr "Printouts of a visualization (we suggest <a href=\"https://www.data.cymru/eng/acting-today-infographic\">this one from Sport Wales</a> or <a href=\"https://www.data.cymru/eng/greenhouse-gas-emissions-infographic\">this one from Welsh Government about greenhouse Gas Emissions</a>); print out 1 paper for every two or three participants."
+msgstr ""
+"Printouts of a visualization (we suggest <a "
+"href=\"https://www.data.cymru/eng/acting-today-infographic\">this one "
+"from Sport Wales</a> or <a href=\"https://www.data.cymru/eng/greenhouse-"
+"gas-emissions-infographic\">this one from Welsh Government about "
+"greenhouse Gas Emissions</a>); print out 1 paper for every two or three "
+"participants."
 
-#: databasic/templates/culture/deconstruct.html:42
+#: databasic/templates/culture/deconstruct.html:35
 #: databasic/templates/culture/paper_spreadsheet.html:44
 #: databasic/templates/culture/remix.html:59
-#: databasic/templates/culture/sculpture.html:36
+#: databasic/templates/culture/sculpture.html:41
 #: databasic/templates/culture/storybook.html:38
-#: databasic/templates/culture/word_webs.html:37
+#: databasic/templates/culture/word_webs.html:42
 msgid "Background"
 msgstr ""
 
-#: databasic/templates/culture/deconstruct.html:43
+#: databasic/templates/culture/deconstruct.html:36
 msgid ""
 "Telling stories with data is hard to do. It relies on a diverse set of  "
 "skills - data processing, graphic design, storytelling, and more. This "
@@ -1082,16 +1091,16 @@ msgid ""
 "tell the data story well."
 msgstr ""
 
-#: databasic/templates/culture/deconstruct.html:50
+#: databasic/templates/culture/deconstruct.html:43
 #: databasic/templates/culture/paper_spreadsheet.html:52
 #: databasic/templates/culture/remix.html:67
-#: databasic/templates/culture/sculpture.html:50
+#: databasic/templates/culture/sculpture.html:55
 #: databasic/templates/culture/storybook.html:46
-#: databasic/templates/culture/word_webs.html:45
+#: databasic/templates/culture/word_webs.html:50
 msgid "Kick off the Activity"
 msgstr ""
 
-#: databasic/templates/culture/deconstruct.html:51
+#: databasic/templates/culture/deconstruct.html:44
 msgid ""
 "Begin by handing out printouts of the graphic you've selected and giving "
 "a little backstory about its context. <i>For example, the USAID graphic "
@@ -1109,17 +1118,17 @@ msgstr ""
 "Advisory Group in 2014. It details the key trends that will affect sport "
 "in Wales."
 
-#: databasic/templates/culture/deconstruct.html:53
+#: databasic/templates/culture/deconstruct.html:46
 msgid ""
 "Give participants just a minute or two to review the handout together. "
 "Don't give them too long - you want their first reactions to come out."
 msgstr ""
 
-#: databasic/templates/culture/deconstruct.html:60
+#: databasic/templates/culture/deconstruct.html:53
 msgid "Lead a Conversation "
 msgstr ""
 
-#: databasic/templates/culture/deconstruct.html:61
+#: databasic/templates/culture/deconstruct.html:54
 msgid ""
 "After participants have looked over the visualization, ask them a series "
 "of questions. Try to keep the discussion focused on these exploratory "
@@ -1142,7 +1151,7 @@ msgstr ""
 "stories requires you to pull from multiple datasets; you can seldom put "
 "together a strong story with just one spreadsheet."
 
-#: databasic/templates/culture/deconstruct.html:62
+#: databasic/templates/culture/deconstruct.html:55
 msgid ""
 "Next, ask participants to identify how this data is represented. Collect "
 "a few answers. <i>For example, in the USAID graphic population size is "
@@ -1156,7 +1165,7 @@ msgstr ""
 "to help people understand what the data is referring to and percentages "
 "are represented as donut charts.</i>"
 
-#: databasic/templates/culture/deconstruct.html:64
+#: databasic/templates/culture/deconstruct.html:57
 msgid ""
 "Thirdly, ask participants to identify the short story they think this "
 "graphic is trying to tell. What are the data and visual representation "
@@ -1176,11 +1185,11 @@ msgstr ""
 "opportunities\".</i> Try to keep participants focused on the story, "
 "rather than what they think about it (that comes next)."
 
-#: databasic/templates/culture/deconstruct.html:71
+#: databasic/templates/culture/deconstruct.html:64
 msgid "Pull it All Together"
 msgstr ""
 
-#: databasic/templates/culture/deconstruct.html:72
+#: databasic/templates/culture/deconstruct.html:65
 msgid ""
 "To finish, ask folks if they think the story is well told. What elements "
 "best support the story? Are there extraneous pieces that don't help the "
@@ -1589,7 +1598,16 @@ msgstr ""
 msgid "DO NOT include LEGO bricks (otherwise people just build bar charts)"
 msgstr ""
 
-#: databasic/templates/culture/sculpture.html:37
+#: databasic/templates/culture/sculpture.html:33
+#: databasic/templates/culture/sculpture.html:78
+msgid ""
+"Make sure to post the PDF handouts to the in-session virtual chat, or "
+"have just one on-screen via screen-share while people build. Don’t email "
+"them in advance; this can give curious folks a bit too much time to "
+"consider the data."
+msgstr ""
+
+#: databasic/templates/culture/sculpture.html:42
 msgid ""
 "The idea of playing with data is new to most folks. This activity lets "
 "people quickly build sculptures that tell a simple data story with craft "
@@ -1603,7 +1621,7 @@ msgid ""
 "group."
 msgstr ""
 
-#: databasic/templates/culture/sculpture.html:43
+#: databasic/templates/culture/sculpture.html:48
 msgid ""
 "This activity builds on the pedagogy and workshop style of the MIT Media "
 "Lab’s <a href='http://llk.media.mit.edu/'>Lifelong Kindergarten Group</a>"
@@ -1612,7 +1630,7 @@ msgid ""
 "work of James Rojas</a>."
 msgstr ""
 
-#: databasic/templates/culture/sculpture.html:51
+#: databasic/templates/culture/sculpture.html:56
 msgid ""
 "Introduce the group to two related “normal” charts of data.  One can be a"
 " single fact, and the other a medium-sized set of information. If you "
@@ -1622,19 +1640,19 @@ msgid ""
 "few handouts you are welcome to download, print, and use:"
 msgstr ""
 
-#: databasic/templates/culture/sculpture.html:65
+#: databasic/templates/culture/sculpture.html:70
 msgid "US Ice Cream Consumption"
 msgstr ""
 
-#: databasic/templates/culture/sculpture.html:66
+#: databasic/templates/culture/sculpture.html:71
 msgid "Happiness in the Town of Somerville, MA, USA"
 msgstr ""
 
-#: databasic/templates/culture/sculpture.html:67
+#: databasic/templates/culture/sculpture.html:72
 msgid "The Cost of an MIT Education"
 msgstr ""
 
-#: databasic/templates/culture/sculpture.html:71
+#: databasic/templates/culture/sculpture.html:81
 msgid ""
 "Ask the group to pair up, preferably with someone they don’t know.  Show "
 "participants a large central table full of the materials you have "
@@ -1645,13 +1663,20 @@ msgid ""
 "charts are NOT allowed!"
 msgstr ""
 
-#: databasic/templates/culture/sculpture.html:72
+#: databasic/templates/culture/sculpture.html:82
 msgid ""
 "After 3 minutes tell them they should be building now; this is a 'think "
 "with your hands activity'.  When they have one minute left let them know."
 msgstr ""
 
-#: databasic/templates/culture/sculpture.html:81
+#: databasic/templates/culture/sculpture.html:88
+msgid ""
+"Have each person build their own sculpture with the materials they have "
+"gathered. Put on some background music to make the silent building time "
+"less awkward. Make sure to announce when folks have just one minute left."
+msgstr ""
+
+#: databasic/templates/culture/sculpture.html:98
 msgid ""
 "Stop everyone when the time is up. Give each group 1 minute to share what"
 " they made. You can summarize by pointing out similarities and "
@@ -1969,7 +1994,15 @@ msgstr ""
 msgid "Sticky notes"
 msgstr ""
 
-#: databasic/templates/culture/word_webs.html:38
+#: databasic/templates/culture/word_webs.html:34
+msgid ""
+"Use a virtual whiteboard to run this activity. The Zoom meeting software "
+"has it built in, but websites like Miro offer web-based alternatives with"
+" more features. If any participants have tablets with pens ask them to "
+"use those."
+msgstr ""
+
+#: databasic/templates/culture/word_webs.html:43
 msgid ""
 "Sometimes your data story is centered around an abstract idea, such as "
 "\"climate\", \"injustice\", or \"rights\". Abstract ideas are hard to "
@@ -1980,7 +2013,7 @@ msgid ""
 "collaborative teamwork and collective brainstorming."
 msgstr ""
 
-#: databasic/templates/culture/word_webs.html:46
+#: databasic/templates/culture/word_webs.html:51
 msgid ""
 "Begin by spreading out large pieces of paper, each with an abstract "
 "concept written in the middle.  The concepts should be from a data-driven"
@@ -1989,7 +2022,7 @@ msgid ""
 "data-driven stories."
 msgstr ""
 
-#: databasic/templates/culture/word_webs.html:47
+#: databasic/templates/culture/word_webs.html:52
 msgid ""
 "Give each participant a pen and break them up into groups of 5 or 6, with"
 " each group assigned to one of the pieces of paper you just showed. Tell "
@@ -2000,21 +2033,37 @@ msgid ""
 "Each paper should end up looking like a web of words, connected by lines."
 msgstr ""
 
-#: databasic/templates/culture/word_webs.html:49
+#: databasic/templates/culture/word_webs.html:55
+msgid ""
+"Write the concept in the middle of your virtual whiteboard in a big font."
+" Show participants how to draw lines, type text, and where the “undo” "
+"button is. Consider having them try out writing an idea and drawing a "
+"line on a test board before beginning."
+msgstr ""
+
+#: databasic/templates/culture/word_webs.html:58
 msgid ""
 "Once the time is up, hand out the sticky notes.  Give folks another five "
 "minutes to identify any words that can easily be sketched out, and then "
 "have them draw those on a note and stick it next to the word. "
 msgstr ""
 
-#: databasic/templates/culture/word_webs.html:57
+#: databasic/templates/culture/word_webs.html:61
+msgid ""
+"Consider whether your virtual whiteboard is good for sketching. Drawing "
+"with a mouse is hard. You might want to instead have participants sketch "
+"their ideas on paper sticky-notes and post them to an artboard website "
+"like Pinterest. "
+msgstr ""
+
+#: databasic/templates/culture/word_webs.html:70
 msgid ""
 "Bring everyone back together, and have each group hang the sheets of "
 "paper on the wall. Give participants a few minutes to walk around looking"
 " at what other groups created."
 msgstr ""
 
-#: databasic/templates/culture/word_webs.html:59
+#: databasic/templates/culture/word_webs.html:72
 msgid ""
 "Ask the full group about the connections they saw, the unique or "
 "unconventional ideas conveyed, and the pictures that stood out to them as"
@@ -2024,7 +2073,7 @@ msgid ""
 "the data-driven story you started with."
 msgstr ""
 
-#: databasic/templates/culture/word_webs.html:60
+#: databasic/templates/culture/word_webs.html:73
 msgid ""
 "Note that there are online sources which can help you brainstorm, such as"
 " the <a href=\"https://thenounproject.com\">Noun Project</a>."
@@ -2868,5 +2917,14 @@ msgstr ""
 #~ "They might have expired. Why not "
 #~ "try <a href=\"/%(lang)s/%(tool_name)s\">analyzing "
 #~ "some new data?</a>"
+#~ msgstr ""
+
+#~ msgid "Paste rows from an Excel or Google spreadsheet, with this format:"
+#~ msgstr ""
+
+#~ msgid ""
+#~ "Error: Paste failed! Make sure your "
+#~ "input has exactly two tab-separated "
+#~ "columns and try again."
 #~ msgstr ""
 
