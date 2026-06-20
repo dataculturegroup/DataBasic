@@ -16,7 +16,7 @@ jsmin==3.0.1
 libsass==0.23.0
 natural==0.2.0
 networkx==3.6.1
-nltk==3.9.3
+nltk==3.9.4
 numpy==2.4.2
 pojson==0.7
 pymongo==4.16.0
